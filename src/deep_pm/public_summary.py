@@ -15,6 +15,16 @@ from .io import save_json
 
 
 STAGES = {
+    'regional-preflight-v07': ('regional-preflight-v07', 'regional_preflight_summary.json',
+        ('area_sqdeg', 'joint_fraction', 'nsc_span_fraction', 'faint_qso_positions', 'core_archive_candidates', 'buffered_archive_candidates', 'sampled_positions', 'faint_spectra', 'nscr_exposures_by_instrument', 'single_sdss_fraction', 'repeated_sdss_fraction', 'long_repeat_fraction', 'short_repeat_fraction', 'joint_nsc_span_median')),
+    'dense-archive-v07': ('dense-archive-v07', 'dense_archive_summary.json',
+        ('area_sqdeg', 'shard_count', 'objects', 'measurements', 'compressed_bytes', 'shards', 'resumed_shards', 'run_elapsed_seconds', 'peak_rss_mib')),
+    'regional-production-v07': ('regional-production-v07', 'regional_summary.json',
+        ('funnel', 'qso', 'gaia', 'holdout', 'astrometry', 'calibration', 'coverage', 'multiband', 'resources', 'acquisition', 'external_dark_stars')),
+    'regional-pool-v07': ('regional-pool-v07', 'regional_cohort_summary.json',
+        ('area_sqdeg', 'fields', 'counts', 'aggregate_qso_exits', 'pooled', 'observation_blocks', 'shared_visits', 'quality_candidate_fields', 'gate')),
+    'legacy-exit-v07': ('legacy-exit-v07', 'legacy_exit_summary.json',
+        ('spectra_in_core', 'photometric_funnel', 'strict_exits', 'association', 'precision')),
     "archive-probe-v06": ("archive-probe-v06", "archive_probe_summary.json",
                           ("area_sqdeg", "per_shard_object_cap", "shards")),
     "astrometry-v06": ("astrometry-v06", "astrometry_summary.json",
@@ -205,7 +215,7 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        series = "v06" if args.kind.endswith("v06") else "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
+        series = "v07" if args.kind.endswith("v07") else "v06" if args.kind.endswith("v06") else "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
         target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:
             raise ValueError("A different aggregate already exists for this run")

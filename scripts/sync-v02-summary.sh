@@ -13,7 +13,7 @@ fi
 kind=$1
 region=$2
 case "$kind" in
-    association|precision|precision-v03|nsc-compare-v04|production-v05|astrometry-v06|archive-probe-v06|pilot-pool-v05|pilot-coverage-v05|nsc-pool-v04|qso-coverage-v04|chromatic-v03|dark-precision-v03|legacy-order-v03|precision-contrasts|matched|conflict|prediction|injection|stress|challenge-design|challenge-results) ;;
+    association|precision|precision-v03|nsc-compare-v04|production-v05|astrometry-v06|archive-probe-v06|regional-preflight-v07|dense-archive-v07|regional-production-v07|regional-pool-v07|legacy-exit-v07|pilot-pool-v05|pilot-coverage-v05|nsc-pool-v04|qso-coverage-v04|chromatic-v03|dark-precision-v03|legacy-order-v03|precision-contrasts|matched|conflict|prediction|injection|stress|challenge-design|challenge-results) ;;
     *) exit 2 ;;
 esac
 [[ $region =~ ^[a-z][a-z0-9_]{0,63}$ ]] || exit 2

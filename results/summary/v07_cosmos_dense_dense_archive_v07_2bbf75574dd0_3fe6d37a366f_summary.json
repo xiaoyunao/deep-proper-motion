@@ -1,0 +1,93 @@
+{
+  "area_sqdeg": 0.12,
+  "shard_count": 12,
+  "objects": 10895,
+  "measurements": 2113412,
+  "compressed_bytes": 149230828,
+  "shards": [
+    {
+      "objects": 421,
+      "measurements": 88902,
+      "bytes": 6296698,
+      "elapsed_seconds": 25.580751964007504
+    },
+    {
+      "objects": 751,
+      "measurements": 153526,
+      "bytes": 10834289,
+      "elapsed_seconds": 34.86298863799311
+    },
+    {
+      "objects": 798,
+      "measurements": 145819,
+      "bytes": 10255574,
+      "elapsed_seconds": 33.712971044995356
+    },
+    {
+      "objects": 1157,
+      "measurements": 212438,
+      "bytes": 14952554,
+      "elapsed_seconds": 52.31634097202914
+    },
+    {
+      "objects": 1253,
+      "measurements": 209489,
+      "bytes": 14800747,
+      "elapsed_seconds": 46.10006820602575
+    },
+    {
+      "objects": 1054,
+      "measurements": 225437,
+      "bytes": 15940027,
+      "elapsed_seconds": 44.09437026298838
+    },
+    {
+      "objects": 1238,
+      "measurements": 221822,
+      "bytes": 15666713,
+      "elapsed_seconds": 47.72813436604338
+    },
+    {
+      "objects": 1022,
+      "measurements": 198658,
+      "bytes": 14022532,
+      "elapsed_seconds": 46.97315835300833
+    },
+    {
+      "objects": 911,
+      "measurements": 193086,
+      "bytes": 13598887,
+      "elapsed_seconds": 37.04215924901655
+    },
+    {
+      "objects": 988,
+      "measurements": 212525,
+      "bytes": 15044057,
+      "elapsed_seconds": 44.15598500601482
+    },
+    {
+      "objects": 827,
+      "measurements": 181527,
+      "bytes": 12854585,
+      "elapsed_seconds": 36.93362771597458
+    },
+    {
+      "objects": 475,
+      "measurements": 70183,
+      "bytes": 4964165,
+      "elapsed_seconds": 15.137500145996455
+    }
+  ],
+  "resumed_shards": 1,
+  "run_elapsed_seconds": 439.253239328973,
+  "peak_rss_mib": 325.609375,
+  "region": "cosmos_dense",
+  "role": "independent",
+  "receipt": {
+    "commit": "2bbf75574dd0b9716349afc44a19b45f07f2f243",
+    "config_sha256": "3fe6d37a366f751bd65e23641ef0366913e18fae5c23a42117535aff7eda7b0b",
+    "aggregate_sha256": "292cac2aa42d29989b6e8b0dce6e2573f536b9f4eb62a594e3a9b4d4931c7ba4",
+    "slurm_job": "61420724",
+    "stage": "dense-archive-v07"
+  }
+}

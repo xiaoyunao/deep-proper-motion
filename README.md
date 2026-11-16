@@ -3,7 +3,7 @@
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
-- [实验 A v0.6 中文报告](reports/experiment_A_v0.6_astrometry.md) · [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
+- [实验 A v0.7 中文报告](reports/experiment_A_v0.7_regional.md) · [实验 A v0.6 中文报告](reports/experiment_A_v0.6_astrometry.md) · [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
 - [科学问题](docs/science_case.md) · [数据与访问](docs/data_access.md) · [单位与选择](docs/selection_and_units.md) · [方法](docs/methods.md) · [验收协议](docs/validation_protocol.md)
 - [可公开的汇总](results/summary) · [统计图](figures) · [研究记录](WORKLOG.md)
 
@@ -44,3 +44,17 @@ python -m deep_pm.astrometry_audit "$DEEP_PM_RUN" g09 "$DEEP_PM_EXISTING_INPUT" 
 ```
 
 公开同步使用 `bash scripts/sync-v02-summary.sh astrometry-v06 g09` 校验回执。用 `python -m deep_pm.astrometry_plots results/summary/v06_*_astrometry_v06_*_summary.json` 重绘公开图。 [v0.6 计划](PLAN.md) · [误差与时间审计](docs/astrometry_v06.md)
+
+v0.7 先在 CPU Slurm 节点用 `deep_pm.regional_preflight` 核验覆盖，再运行 `deep_pm.regional_inputs` 与 `deep_pm.regional_production`。已有核对过的 NSC/SDSS 数据或下载缓存可从原版本目录复用。独立使用 `deep_pm.dense_archive --checkpoint` 生成首个 COSMOS 分片，再从同一版本化目录运行续取。预先锁定的区域与备选见 [v0.7 范围](docs/regional_v07_scope.md)。输入和输出均置于 NERSC Scratch。
+
+在已验证的 CPU compute job 内，从版本化代码根目录运行以下示例。每个并发区域需要独立留出 CPU、内存和档案服务时间。
+
+```bash
+export DEEP_PM_INPUTS="<versioned-scratch-input-root>"
+export DEEP_PM_OUTPUTS="<versioned-scratch-production-root>"
+export DEEP_PM_SAS="<verified-dr17-eboss-sas>"
+export DEEP_PM_QSO="<verified-desi-dr1-qso-fits>"
+bash scripts/regional-v07.sh north_a single_e
+```
+
+`deep_pm.regional_cohort` 通过多个 `--region` 读取带回执的完成目录，`--previous` 接收历史区域目录以核查共享观测。公开汇总经 `scripts/sync-v02-summary.sh regional-pool-v07 regional_pool` 验证，并由 `deep_pm.regional_plots` 生成图。

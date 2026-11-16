@@ -5,7 +5,7 @@
 - **实验 A** 用公开目录位置，评估检测关联、自行精度和系统误差。v0.2 的定向高自行留出恢复 19/24，纯位置基准为 0/24 和 3/24；普通代表场的运动法受大型冲突影响。 [v0.2 报告](reports/experiment_A_v0.2.md) · [冻结提交](https://github.com/xiaoyunao/deep-proper-motion/commit/b92912c220252349a6050ef25cdab6e711d37ded)
 - **实验 B** 比较同曝光的发布位置与自由 PSF 质心，并将新图像历元的贡献单独测量。目录级剩余误差能否稳定归因到质心条件，决定是否开展小规模图像对照。
 - **v0.3** 四区 214 颗亮星中，最早一次 SDSS 降低四场的北向 NMAD。固定赤道 47 颗星与检测，M3 将北向偏差从 −4.66 降到 −1.33 mas/yr。额外的颜色和 DCR 项在独立验证中未稳定改善。赤道 64 条 (r=21)–23 轨迹的留出位置没有稳定绝对误差收益；6 个光谱 QSO 的自行对照仍太小。 [v0.3 报告](reports/experiment_A_v0.3_precision.md) · [冻结提交](https://github.com/xiaoyunao/deep-proper-motion/commit/9eacbec17f7c31041ff55be05debe277fd10dd88)
-- **当前阶段** v0.6 已完成五个普通场和 Stripe 82 东段的天测方法对照。Xiao2025 论文精度保留为背景。 [计划](PLAN.md) · [去标识汇总](results/summary)
+- **当前阶段** v0.7 已完成 16 个新区域、22.082 平方度的盲目录验证，保留 W0 r 为普通源基准。Xiao2025 论文精度保留为背景。 [计划](PLAN.md) · [去标识汇总](results/summary)
 
 - **v0.4 亮星同源复核** 183 颗有共同 M3 支持。二维绝对误差第 68 百分位相对 NSC 在北天改善 87%，拥挤区改善 32%，两区的对象配对区间排除零。赤道改善 8%，区间跨零，北向点估计仍较差。Pal 5 的 20 颗用 M1 可改善 66%。 [v0.4 报告](reports/experiment_A_v0.4_nsc.md) · [亮星图](figures/v04_bright_nsc_summary.png)
 - **v0.4 暗端 QSO** 三个新天区共有 162 个严格共同源，97 个在 (21\le r<23)。M3 把二维绝对误差第 68 百分位从官方 NSC 的 8.23 降到 3.53 mas/yr，改善 57%，对象配对区间 43–64%。两处 Stripe 82 共用 17 个 SDSS run；考虑观测块后改善仍为正。暗端北向中位差为 −0.67 mas/yr，22–23 等只覆盖一个观测块。扩大 A 的独立场和暗恒星验证，暂缓全巡天与 B。 [v0.4 报告](reports/experiment_A_v0.4_nsc.md) · [暗端汇总](results/summary/v04_qso_pool_nsc_pool_v04_297ee541e3c9_3daf6332d85a_summary.json) · [汇总程序提交](https://github.com/xiaoyunao/deep-proper-motion/commit/297ee541e3c97694cc358b485c26a467f8abdfe3)
@@ -13,3 +13,6 @@
 
 - **v0.6 权重与物理模型** r 波段 89 颗最暗 QSO 的 W1 相对 W0 配对区间在三个普通场均跨零。W0 继续作为普通源四参数基准，输出质量位、有效历元和删组敏感度。五个普通场近星只有 2/17 支持自由视差试验，暗源档案没有独立证据可推广 L5。 [v0.6 中文报告](reports/experiment_A_v0.6_astrometry.md) · [计算提交](https://github.com/xiaoyunao/deep-proper-motion/commit/7c7935a751ed364b7bcf06f600fce16d8eec6d22)
 - **v0.6 覆盖与下一步** 6.04 平方度内，35,858 个普通 NSC r 锚点中 17,083 个有重复 SDSS。固定 W1 后多 NSC 波段把 22–23 等合格试验解从 2,002 增至 2,532。各场 QSO 精度和零点表现仍有差异。针对新增多波段暗源及场零点做独立验证，扩大生产和实验 B 暂缓。 [候选源数图](figures/v06_multiband_yield_summary.png) · [SDSS 扫描统计](figures/v06_sdss_scans_summary.png)
+
+- **v0.7 分区验证** W0 输出 132,045 个试验解。140 个最暗共同盲 QSO 在三个独立观测块上，官方 NSC → W0 的径向 P68 为 18.63→6.68 mas/yr，改善 64.2%，块区间 59–83%。旧 v0.5 最暗的 89 个 QSO 中，62 个在点源形态筛选退出、2 个在拟合质量退出，25 个保留。 [v0.7 报告](reports/experiment_A_v0.7_regional.md) · [空间零点图](figures/v07_spatial_zero_summary.png)
+- **v0.7 下一步** 22–23 等固定 W1 加 NSC g/i/z 后有效源 13,631→16,189。整年留出的 W1 原来无合格解的 7,058 个多波段训练候选中有 5,363 个唯一 r 位置重现。零个区域满足全部冻结门槛。优先复核空间零点、独立暗恒星和新增多波段源，100 平方度及图像级暂缓。COSMOS 的 0.12 平方度分片续取通过，取得 211 万条测量。 [多波段和留出图](figures/v07_multiband_holdout_summary.png) · [下一步计划](PLAN.md)

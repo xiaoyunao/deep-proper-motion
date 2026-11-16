@@ -1,0 +1,27 @@
+{
+  "area_sqdeg": 1.410244872020933,
+  "joint_fraction": 0.9947916666666666,
+  "nsc_span_fraction": 0.9895833333333334,
+  "faint_qso_positions": 172,
+  "core_archive_candidates": 46516,
+  "buffered_archive_candidates": 52786,
+  "sampled_positions": 768,
+  "faint_spectra": 172,
+  "nscr_exposures_by_instrument": {
+    "c4d": 59
+  },
+  "single_sdss_fraction": 0.3619791666666667,
+  "repeated_sdss_fraction": 0.6328125,
+  "long_repeat_fraction": 0.0,
+  "short_repeat_fraction": 0.6328125,
+  "joint_nsc_span_median": 3.8638123368243953,
+  "region": "east_c",
+  "role": "independent",
+  "receipt": {
+    "commit": "11005dc899f43405fb2214f897ba6d2ac9705b11",
+    "config_sha256": "e2a9aad7847957ef5e63494deb42f98a1df1094560408f708938c350338222e0",
+    "aggregate_sha256": "b5be0f293869b12d2e7c00532852d9ea91fb685bcca13d51226cafcbd067ba2b",
+    "slurm_job": "61419588",
+    "stage": "regional-preflight-v07"
+  }
+}

@@ -18,7 +18,7 @@ def draw_zeros(summary,directory):
     cm=plt.get_cmap("coolwarm")
     norm=TwoSlopeNorm(vmin=-4,vcenter=0,vmax=4)
     label_at = {
-        "crowd_a": (235, 4.8), "crowd_b": (244, 6), "crowd_d": (237, 15),
+        "crowd_a": (235, 2.2), "crowd_b": (244, 6), "crowd_d": (237, 15),
         "deep_a": (210, 55),
         "east_a": (208, -4.6), "east_b": (211, 5.4), "east_c": (223, -4.6), "east_d": (226, 5.4),
         "north_a": (158, 12.6), "north_b": (173, 5.2), "north_c": (182, 12.6),

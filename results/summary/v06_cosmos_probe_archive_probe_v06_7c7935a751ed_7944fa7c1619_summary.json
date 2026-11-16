@@ -1,0 +1,49 @@
+{
+  "area_sqdeg": 0.0009047786826453084,
+  "per_shard_object_cap": 750,
+  "shards": {
+    "west": {
+      "initial_or_resumed": {
+        "index_objects": 54,
+        "measurements": 10184,
+        "objects_with_measurements": 54,
+        "checked_queries": 4,
+        "elapsed_seconds": 2.3398487149970606
+      },
+      "cache_replay": {
+        "index_objects": 54,
+        "measurements": 10184,
+        "objects_with_measurements": 54,
+        "checked_queries": 4,
+        "elapsed_seconds": 0.031027410994283855
+      },
+      "status": "complete"
+    },
+    "east": {
+      "initial_or_resumed": {
+        "index_objects": 51,
+        "measurements": 11564,
+        "objects_with_measurements": 51,
+        "checked_queries": 4,
+        "elapsed_seconds": 3.6580334759783
+      },
+      "cache_replay": {
+        "index_objects": 51,
+        "measurements": 11564,
+        "objects_with_measurements": 51,
+        "checked_queries": 4,
+        "elapsed_seconds": 0.032201696012634784
+      },
+      "status": "complete"
+    }
+  },
+  "region": "cosmos_probe",
+  "role": "independent",
+  "receipt": {
+    "commit": "7c7935a751ed364b7bcf06f600fce16d8eec6d22",
+    "config_sha256": "7944fa7c16195f2158bc9045bec78306facf78c528c7953c2047eab5979ab24c",
+    "aggregate_sha256": "c4c999e701524d3d270ea28ea1f6fb9b1f732bf39c9742a1bd82e4c8bd77c2ff",
+    "slurm_job": "61417796",
+    "stage": "archive-probe-v06"
+  }
+}

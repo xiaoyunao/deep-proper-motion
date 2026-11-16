@@ -3,7 +3,7 @@
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
-- [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
+- [实验 A v0.6 中文报告](reports/experiment_A_v0.6_astrometry.md) · [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
 - [科学问题](docs/science_case.md) · [数据与访问](docs/data_access.md) · [单位与选择](docs/selection_and_units.md) · [方法](docs/methods.md) · [验收协议](docs/validation_protocol.md)
 - [可公开的汇总](results/summary) · [统计图](figures) · [研究记录](WORKLOG.md)
 
@@ -35,4 +35,12 @@ sbatch -A "${DEEP_PM_ACCOUNT:?set a verified CPU account}" -q "${DEEP_PM_QOS:?}"
 实验 A v0.4 用 `bash scripts/nsc-v04.sh bright` 严格复核冻结亮星，`inventory` 从 DESI DR1 光谱表与 SDSS、NSC 位置预查覆盖，`qso` 按冻结 M3 校验选择后的区域。三个模式均需给出区域参数，在 Slurm 计算节点执行。验证样本与版本记录见 [项目主线](PROJECT_CONTEXT.md) 和 [v0.4 中文报告](reports/experiment_A_v0.4_nsc.md)。
 
 
-v0.5 区域流程依次调用 `deep_pm.qso_fields inventory`、`deep_pm.pilot_inputs`、`deep_pm.pilot_production`。用 `--config configs/production-v05.toml` 传给 v0.4 的预查入口，并可用 `--sdss-sas` 指定验证过的 SDSS DR17 SAS 镜像。给试生产阶段独立版本化的 Scratch 目录。用 `deep_pm.pilot_cohort --pilot … --stripe …` 核对本轮独立观测块。正式发布范围和验收规则见 [v0.5 计划](PLAN.md)。
+v0.5 区域流程依次调用 `deep_pm.qso_fields inventory`、`deep_pm.pilot_inputs`、`deep_pm.pilot_production`。用 `--config configs/production-v05.toml` 传给 v0.4 的预查入口，并可用 `--sdss-sas` 指定验证过的 SDSS DR17 SAS 镜像。给试生产阶段独立版本化的 Scratch 目录。用 `deep_pm.pilot_cohort --pilot … --stripe …` 核对本轮独立观测块。正式发布范围和验收规则见 [v0.5 计划](docs/plan_v05.md)。
+
+v0.6 在 Slurm 计算节点复用一个已标准化的区域缓存。输入目录须含 `detections.csv`、`external_labels.csv`、`spectroscopic_qso.csv` 和独立的 `validation/gaia.csv`，同时传入 SDSS DR17 的 `window_flist.fits`。
+
+```bash
+python -m deep_pm.astrometry_audit "$DEEP_PM_RUN" g09 "$DEEP_PM_EXISTING_INPUT" "$DEEP_PM_SDSS_WINDOW"
+```
+
+公开同步使用 `bash scripts/sync-v02-summary.sh astrometry-v06 g09` 校验回执。用 `python -m deep_pm.astrometry_plots results/summary/v06_*_astrometry_v06_*_summary.json` 重绘公开图。 [v0.6 计划](PLAN.md) · [误差与时间审计](docs/astrometry_v06.md)

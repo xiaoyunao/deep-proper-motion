@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deep-proper-motion"
+version = "0.1.0"
+requires-python = ">=3.8"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "pandas>=1.5", "astropy>=5", "matplotlib>=3.6", "scikit-learn>=1.2", "requests>=2.28", "tomli>=2; python_version < '3.11'"]
+
+[project.scripts]
+deep-pm = "deep_pm.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

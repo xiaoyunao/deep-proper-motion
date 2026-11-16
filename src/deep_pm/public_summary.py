@@ -103,7 +103,10 @@ def verify_stage_hashes(stages):
 def export(run_root, kind, region):
     if not REGION.fullmatch(region):
         raise ValueError("Invalid region name")
-    directory = run_root if kind == "challenge-design" else run_root / region
+    if kind == "legacy-order-v03":
+        directory = run_root / "legacy"
+    else:
+        directory = run_root if kind == "challenge-design" else run_root / region
     stage_pattern, relative, fields = STAGES[kind]
     relative = relative.format(region=region)
     manifest = json.loads((directory / "run_manifest.json").read_bytes())

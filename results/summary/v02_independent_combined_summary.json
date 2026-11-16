@@ -1,0 +1,793 @@
+{
+  "independent_representative": {
+    "fixed": {
+      "candidate_recall": {
+        "n": 199,
+        "denominator": 200,
+        "value": 0.995,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.9896907216494846,
+          1.0
+        ]
+      },
+      "selected_recall": {
+        "n": 199,
+        "denominator": 200,
+        "value": 0.995,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.9896907216494846,
+          1.0
+        ]
+      },
+      "secure_recall": {
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "field_blocks": 0,
+        "field_bootstrap95": null
+      },
+      "ambiguous_recall": {
+        "n": 0,
+        "denominator": 200,
+        "value": 0.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.0
+        ]
+      },
+      "unresolved_fraction": {
+        "n": 0,
+        "denominator": 200,
+        "value": 0.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.0
+        ]
+      },
+      "proper_motion_bins": [
+        {
+          "low": 0,
+          "high": 25,
+          "selected": {
+            "n": 182,
+            "denominator": 182,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "candidate": {
+            "n": 182,
+            "denominator": 182,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 25,
+          "high": 50,
+          "selected": {
+            "n": 14,
+            "denominator": 14,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "candidate": {
+            "n": 14,
+            "denominator": 14,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 50,
+          "high": 100,
+          "selected": {
+            "n": 3,
+            "denominator": 4,
+            "value": 0.75,
+            "field_blocks": 2,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 3,
+            "denominator": 4,
+            "value": 0.75,
+            "field_blocks": 2,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 100,
+          "high": 200,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 200,
+          "high": 500,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 500,
+          "high": 1000,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 1000,
+          "high": 2000,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        }
+      ],
+      "labelled_contamination": {
+        "n": 0,
+        "denominator": 197,
+        "value": 0.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.0
+        ]
+      },
+      "unknown_objects": {
+        "n": 1364,
+        "denominator": 1561,
+        "value": 0.8737988468930173,
+        "wilson95": [
+          0.8564024585321253,
+          0.8893599913453736
+        ]
+      },
+      "contamination_identification_bounds": [
+        0.0,
+        0.8737988468930173
+      ]
+    },
+    "nsc_like": {
+      "candidate_recall": {
+        "n": 200,
+        "denominator": 200,
+        "value": 1.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          1.0,
+          1.0
+        ]
+      },
+      "selected_recall": {
+        "n": 200,
+        "denominator": 200,
+        "value": 1.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          1.0,
+          1.0
+        ]
+      },
+      "secure_recall": {
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "field_blocks": 0,
+        "field_bootstrap95": null
+      },
+      "ambiguous_recall": {
+        "n": 0,
+        "denominator": 200,
+        "value": 0.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.0
+        ]
+      },
+      "unresolved_fraction": {
+        "n": 0,
+        "denominator": 200,
+        "value": 0.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.0
+        ]
+      },
+      "proper_motion_bins": [
+        {
+          "low": 0,
+          "high": 25,
+          "selected": {
+            "n": 182,
+            "denominator": 182,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "candidate": {
+            "n": 182,
+            "denominator": 182,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 25,
+          "high": 50,
+          "selected": {
+            "n": 14,
+            "denominator": 14,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "candidate": {
+            "n": 14,
+            "denominator": 14,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 50,
+          "high": 100,
+          "selected": {
+            "n": 4,
+            "denominator": 4,
+            "value": 1.0,
+            "field_blocks": 2,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 4,
+            "denominator": 4,
+            "value": 1.0,
+            "field_blocks": 2,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 100,
+          "high": 200,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 200,
+          "high": 500,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 500,
+          "high": 1000,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 1000,
+          "high": 2000,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        }
+      ],
+      "labelled_contamination": {
+        "n": 0,
+        "denominator": 198,
+        "value": 0.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.0
+        ]
+      },
+      "unknown_objects": {
+        "n": 1360,
+        "denominator": 1558,
+        "value": 0.8729139922978177,
+        "wilson95": [
+          0.8554530820486389,
+          0.8885404862085363
+        ]
+      },
+      "contamination_identification_bounds": [
+        0.0,
+        0.8729139922978177
+      ]
+    },
+    "motion": {
+      "candidate_recall": {
+        "n": 200,
+        "denominator": 200,
+        "value": 1.0,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          1.0,
+          1.0
+        ]
+      },
+      "selected_recall": {
+        "n": 55,
+        "denominator": 200,
+        "value": 0.275,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          1.0
+        ]
+      },
+      "secure_recall": {
+        "n": 48,
+        "denominator": 200,
+        "value": 0.24,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.8727272727272727
+        ]
+      },
+      "ambiguous_recall": {
+        "n": 6,
+        "denominator": 200,
+        "value": 0.03,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          0.10909090909090909
+        ]
+      },
+      "unresolved_fraction": {
+        "n": 145,
+        "denominator": 200,
+        "value": 0.725,
+        "field_blocks": 3,
+        "field_bootstrap95": [
+          0.0,
+          1.0
+        ]
+      },
+      "proper_motion_bins": [
+        {
+          "low": 0,
+          "high": 25,
+          "selected": {
+            "n": 47,
+            "denominator": 182,
+            "value": 0.25824175824175827,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              0.0,
+              1.0
+            ]
+          },
+          "candidate": {
+            "n": 182,
+            "denominator": 182,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "secure": {
+            "n": 42,
+            "denominator": 182,
+            "value": 0.23076923076923078,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              0.0,
+              0.8936170212765957
+            ]
+          }
+        },
+        {
+          "low": 25,
+          "high": 50,
+          "selected": {
+            "n": 5,
+            "denominator": 14,
+            "value": 0.35714285714285715,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              0.0,
+              1.0
+            ]
+          },
+          "candidate": {
+            "n": 14,
+            "denominator": 14,
+            "value": 1.0,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              1.0,
+              1.0
+            ]
+          },
+          "secure": {
+            "n": 4,
+            "denominator": 14,
+            "value": 0.2857142857142857,
+            "field_blocks": 3,
+            "field_bootstrap95": [
+              0.0,
+              0.8
+            ]
+          }
+        },
+        {
+          "low": 50,
+          "high": 100,
+          "selected": {
+            "n": 3,
+            "denominator": 4,
+            "value": 0.75,
+            "field_blocks": 2,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 4,
+            "denominator": 4,
+            "value": 1.0,
+            "field_blocks": 2,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 2,
+            "denominator": 4,
+            "value": 0.5,
+            "field_blocks": 2,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 100,
+          "high": 200,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 200,
+          "high": 500,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 500,
+          "high": 1000,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        },
+        {
+          "low": 1000,
+          "high": 2000,
+          "selected": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "candidate": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          },
+          "secure": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "field_blocks": 0,
+            "field_bootstrap95": null
+          }
+        }
+      ],
+      "labelled_contamination": {
+        "n": 0,
+        "denominator": 55,
+        "value": 0.0,
+        "field_blocks": 1,
+        "field_bootstrap95": null
+      },
+      "unknown_objects": {
+        "n": 472,
+        "denominator": 527,
+        "value": 0.8956356736242884,
+        "wilson95": [
+          0.8666075000704349,
+          0.9189377753991904
+        ]
+      },
+      "contamination_identification_bounds": [
+        0.0,
+        0.8956356736242884
+      ]
+    }
+  }
+}

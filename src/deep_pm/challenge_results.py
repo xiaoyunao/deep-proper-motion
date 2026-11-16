@@ -7,6 +7,7 @@ import json
 from math import isfinite
 import re
 
+from .io import digest
 from .public_summary import check_aggregate, export, tomllib
 from .validation import ratio
 
@@ -16,7 +17,7 @@ STAGES = ("generated", "screened", "retained", "conflict_optimal", "selected_opt
           "secure", "pm_compatible_secure")
 
 
-def summarize_bin(frozen, validations, low, high):
+def summarize_bin(frozen, validations, low, high, coverage_only=0):
     eligible = sum(item["truth_cross_survey"] for item in validations)
     selected = {}
     for method in METHODS:
@@ -28,11 +29,12 @@ def summarize_bin(frozen, validations, low, high):
         recovered = sum(row["selected_recall"]["n"] for row in selections)
         selected[method] = dict(among_eligible=ratio(recovered, eligible),
                                 among_frozen=ratio(recovered, frozen))
-    return dict(frozen=frozen, measured=len(validations), eligible=ratio(eligible, frozen),
+    return dict(frozen=frozen, measured=len(validations), coverage_only=coverage_only,
+                eligible=ratio(eligible, frozen),
                 selected=selected, motion_stages={
                     step: ratio(sum(item["recovery_stages"][step]["total"]["n"]
                                     for item in validations), eligible) for step in STAGES},
-                unknown_truth_status=frozen - len(validations))
+                unknown_truth_status=frozen - len(validations) - coverage_only)
 
 
 def parallax_class(gaia_bytes, source, limit):
@@ -42,6 +44,28 @@ def parallax_class(gaia_bytes, source, limit):
             if isfinite(parallax):
                 return "large_abs_parallax" if abs(parallax) >= limit else "small_abs_parallax"
     return "no_measured_parallax"
+
+
+def empty_survey_returns(directory, stages):
+    empty = []
+    for survey, stage, filename, id_field in (
+        ("SDSS", "fetch-sdss", "sdss.csv", "objid"),
+        ("NSC", "fetch-object", "nsc_object.csv", "measid"),
+    ):
+        attempts = stages.get(stage, [])
+        if not attempts or attempts[-1]["state"] != "completed":
+            return []
+        attempt = attempts[-1]
+        path = directory / filename
+        with path.open(newline="") as file:
+            table = DictReader(file)
+            valid_header = id_field in {name.lower() for name in table.fieldnames or ()}
+            no_rows = next(table, None) is None
+        if valid_header and no_rows:
+            if digest(path) != attempt["outputs"][filename]:
+                raise ValueError("Empty survey response changed after verified retrieval")
+            empty.append(survey)
+    return empty
 
 
 def export_challenge(root):
@@ -63,6 +87,8 @@ def export_challenge(root):
     edges = dict(zip(design["bins"], design["bins"][1:]))
     design_counts = Counter()
     rows = {}
+    coverage_counts = Counter()
+    coverage_by_survey = Counter()
     distance_groups = defaultdict(list)
     versions = set()
     for name, region in config["regions"].items():
@@ -82,8 +108,16 @@ def export_challenge(root):
         if not (root / name / "run_manifest.json").is_file():
             continue
         run = json.loads((root / name / "run_manifest.json").read_bytes())
+        if run["region"] != name:
+            raise ValueError("Challenge region and stage receipt disagree")
         report = run["stages"].get("report", [])
         if not report or report[-1]["state"] != "completed":
+            empty = empty_survey_returns(root / name, run["stages"])
+            if empty:
+                versions.add((run["commit"], run["config_sha256"]))
+                coverage_counts[key] += 1
+                for survey in empty:
+                    coverage_by_survey[f"{split}/{survey}"] += 1
             continue
         target_hash = sha256((target["source_id"] + "\n").encode()).hexdigest()
         inputs = run["stages"]["validate"][-1]["inputs"]
@@ -109,12 +143,14 @@ def export_challenge(root):
     report = dict(cohort=prefix, design_receipt=design["receipt"],
                   analysis_commit=next(iter(versions))[0] if versions else None,
                   analysis_config_sha256=config_hash, bins={},
-                  parallax_threshold_mas=limit, by_parallax={})
+                  parallax_threshold_mas=limit, by_parallax={},
+                  coverage_only_zero_survey_returns=dict(coverage_by_survey))
     for split in ("dev", "test"):
         for low, high in edges.items():
             name = f"{split}/{low}-{high}"
             report["bins"][name] = summarize_bin(
-                design_counts[name], rows.get((split, low, high), []), low, high)
+                design_counts[name], rows.get((split, low, high), []), low, high,
+                coverage_only=coverage_counts[split, low, high])
     for name, validations in sorted(distance_groups.items()):
         n = sum(item["truth_cross_survey"] for item in validations)
         report["by_parallax"][name] = dict(

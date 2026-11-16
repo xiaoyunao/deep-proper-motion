@@ -1,9 +1,24 @@
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
-from deep_pm.challenge_results import METHODS, STAGES, parallax_class, summarize_bin
+from deep_pm.challenge_results import METHODS, STAGES, empty_survey_returns, parallax_class, summarize_bin
+from deep_pm.io import digest
 
 
 class ChallengeResultsTest(unittest.TestCase):
+    def test_zero_row_fetch_must_be_verified(self):
+        with TemporaryDirectory() as folder:
+            base = Path(folder)
+            (base / "sdss.csv").write_text("objid,ra\n")
+            (base / "nsc_object.csv").write_text("measid,ra\na,20.0\n")
+            stages = {"fetch-sdss": [dict(state="completed", outputs={"sdss.csv": digest(base / "sdss.csv")})],
+                      "fetch-object": [dict(state="completed")]}
+            self.assertEqual(empty_survey_returns(base, stages), ["SDSS"])
+            (base / "sdss.csv").write_text("objid,dec\n")
+            with self.assertRaisesRegex(ValueError, "changed after verified retrieval"):
+                empty_survey_returns(base, stages)
+
     def test_target_parallax_uses_an_exact_catalogue_identifier(self):
         gaia = b"source_id,parallax\n6000000000000001,1\n6000000000000002,-12\n6000000000000003,\n"
         self.assertEqual(parallax_class(gaia, "6000000000000001", 10), "small_abs_parallax")

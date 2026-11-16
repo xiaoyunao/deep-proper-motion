@@ -16,7 +16,7 @@ def basis(ra, dec):
 
 
 def project(ra, dec, center):
-    a, d = np.deg2rad([ra, dec])
+    a, d = np.deg2rad(np.asarray([ra, dec], dtype=float))
     vectors = np.column_stack([np.cos(d) * np.cos(a), np.cos(d) * np.sin(a), np.sin(d)])
     local = vectors @ basis(*center).T
     if np.any(local[:, 0] <= 0):
@@ -65,15 +65,15 @@ def epoch_halo_deg(config, mu=None):
 
 
 def sdss_tai_to_tt(seconds):
-    return Time(np.asarray(seconds) / 86400, format="mjd", scale="tai").tt.mjd
+    return Time(np.asarray(seconds, dtype=float) / 86400, format="mjd", scale="tai").tt.mjd
 
 
 def utc_to_tt(mjd):
-    return Time(mjd, format="mjd", scale="utc").tt.mjd
+    return Time(np.asarray(mjd, dtype=float), format="mjd", scale="utc").tt.mjd
 
 
 def years(mjd_tt):
-    return 2000 + (np.asarray(mjd_tt) - 51544.5) / 365.25
+    return 2000 + (np.asarray(mjd_tt, dtype=float) - 51544.5) / 365.25
 
 
 def seasons(time, gap_days):

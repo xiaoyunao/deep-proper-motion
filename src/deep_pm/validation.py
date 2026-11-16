@@ -28,7 +28,7 @@ def ratio(n, d):
 def gaia_labels(data, xy, time, sigma, gaia, center, config):
     required = ["ra", "dec", "pmra", "pmdec", "parallax", "ruwe", "pmra_error", "pmdec_error", "ref_epoch"]
     g = gaia.query("astrometric_params_solved in [31, 95]") if "astrometric_params_solved" in gaia else gaia
-    g = g.loc[np.isfinite(g[required]).all(axis=1)].reset_index(drop=True)
+    g = g.loc[np.isfinite(g[required].to_numpy(dtype=float)).all(axis=1)].reset_index(drop=True)
     ref = project(g.ra, g.dec, center)
     # Transform the two local Gaia tangent components to the region's projection.
     step = 1.0 / 3600
@@ -51,7 +51,8 @@ def gaia_labels(data, xy, time, sigma, gaia, center, config):
             nearby = g.parallax.abs() >= config["gaia_max_parallax_for_linear_truth"]
             reliable &= (~nearby | g.parallax_error.between(0, 2)).to_numpy()
         unique_time, inverse = np.unique(time, return_inverse=True)
-        observers = get_body_barycentric("earth", Time(unique_time, format="jyear", scale="tt")).xyz.to_value("AU").T
+        if len(unique_time):
+            observers = get_body_barycentric("earth", Time(unique_time, format="jyear", scale="tt")).xyz.to_value("AU").T
 
     def propagated(indices, value, observer=None):
         if not use_parallax:

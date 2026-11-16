@@ -1,9 +1,12 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import numpy as np
 import pandas as pd
 
 from deep_pm.astrometry import fit_motion, project, sdss_tai_to_tt, unproject
+from deep_pm.__main__ import detection_arrays
 from deep_pm.normalize import sdss
 
 
@@ -16,6 +19,19 @@ class AstrometryTest(unittest.TestCase):
 
     def test_tai(self):
         self.assertAlmostEqual(sdss_tai_to_tt(53000 * 86400), 53000 + 32.184 / 86400, places=8)
+
+    def test_header_only_sdss_produces_zero_detections(self):
+        columns = ("objid run camcol ra dec raerr decerr tai_r resolvestatus "
+                   "offsetra_r offsetdec_r psfmag_r psfmagerr_r type flags airmass_r psffwhm_r nchild")
+        result = sdss(pd.DataFrame(columns=columns.split()))
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            result.to_csv(root / "detections.csv", index=False)
+            data, xy, times, sigma = detection_arrays(root, (20., 0.), {"position_floor_mas": 50})
+        self.assertTrue(data.empty)
+        self.assertEqual(xy.shape, (0, 2))
+        self.assertEqual(sigma.shape, (0, 2))
+        self.assertEqual(times.shape, (0,))
 
     def test_fit_preserves_robust_shift(self):
         time = np.arange(2000, 2010)

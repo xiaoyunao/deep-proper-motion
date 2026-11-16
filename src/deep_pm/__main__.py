@@ -88,7 +88,7 @@ def standardize(work, config, center, radius, route):
 def detection_arrays(work, center, config):
     raw = pd.read_csv(work / "detections.csv", low_memory=False)
     needed = ["ra_deg", "dec_deg", "observation_time", "sigma_east_mas", "sigma_north_mas"]
-    good = np.isfinite(raw[needed]).all(axis=1)
+    good = np.isfinite(raw[needed].to_numpy(dtype=float)).all(axis=1)
     limits = raw[["sigma_east_mas", "sigma_north_mas"]].max(axis=1)
     if "smoke_max_error_mas" in config:
         good &= limits <= config["smoke_max_error_mas"]
@@ -97,7 +97,7 @@ def detection_arrays(work, center, config):
     data = raw.loc[good].reset_index(drop=True)
     xy = project(data.ra_deg, data.dec_deg, center)
     time = years(data.observation_time)
-    sigma = np.hypot(data[["sigma_east_mas", "sigma_north_mas"]].to_numpy(),
+    sigma = np.hypot(data[["sigma_east_mas", "sigma_north_mas"]].to_numpy(dtype=float),
                      config["position_floor_mas"])
     return data, xy, time, sigma
 

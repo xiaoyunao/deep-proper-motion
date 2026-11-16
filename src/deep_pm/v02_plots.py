@@ -58,6 +58,24 @@ def plot_regression(rows, out):
 def plot_injection(row, out):
     speeds = sorted(row["bins"], key=float)
     bins = [row["bins"][speed] for speed in speeds]
+    if len(bins) == 1:
+        entry = bins[0]
+        stages = (("attempted", "Attempted"), ("two_survey_geometry", "Geometry"),
+                  ("required_time_coverage", "Usable sampling"),
+                  ("generated_correct_candidate", "Correct proposal"),
+                  ("selected_recovery", "Selected"), ("secure_recovery", "Secure"))
+        counts = [entry[key] for key, _ in stages]
+        fig, ax = plt.subplots(figsize=(7.1, 3.5), layout="constrained")
+        ax.barh(np.arange(len(stages)), counts, color=COLORS[0], height=.6)
+        ax.set(yticks=np.arange(len(stages)), yticklabels=[label for _, label in stages],
+               xlabel="Injected trajectories", xlim=(0, entry["attempted"] * 1.12),
+               title=f"Northern field | {speeds[0]} mas/yr injection")
+        for k, count in enumerate(counts):
+            ax.text(count + .35, k, str(count), va="center")
+        ax.invert_yaxis()
+        fig.savefig(out / f"v02_{row['region']}_injection_summary.png", dpi=175)
+        plt.close(fig)
+        return
     x = np.arange(len(bins))
     pairs = (("two_survey_geometry", "Geometry"), ("required_time_coverage", "Usable sampling"),
              ("generated_correct_candidate", "Correct proposal"), ("secure_recovery", "Secure"))
@@ -75,9 +93,36 @@ def plot_injection(row, out):
     plt.close(fig)
 
 
+def plot_matched(row, out):
+    methods = ("motion/all_selected", "motion/secure")
+    groups = [(tag, row["matched_pm"][tag]) for tag in methods
+              if row["matched_pm"][tag]["blind"]["n"]]
+    if not groups:
+        return
+    fig, axes = plt.subplots(1, 2, figsize=(8.2, 3.5), layout="constrained")
+    for axis, ax in enumerate(axes):
+        for k, (tag, values) in enumerate(groups):
+            marker = ("o", "s")[k]
+            label = "All selected" if tag.endswith("all_selected") else "Secure"
+            for j, method in enumerate(("blind", "fixed_all_visits")):
+                data = values[method]
+                ax.scatter([j], [data["nmad_masyr"][axis]], s=49, marker=marker,
+                           color=COLORS[k], label=f"{label} (n={data['n']})" if j == 0 else None)
+            ax.plot([0, 1], [values[m]["nmad_masyr"][axis] for m in ("blind", "fixed_all_visits")],
+                    color=COLORS[k], linewidth=1, alpha=.7)
+        ax.set(xticks=[0, 1], xticklabels=["Blind association", "Fixed visits"],
+               xlim=(-.38, 1.38), title=("East", "North")[axis])
+        ax.grid(axis="y", alpha=.18)
+    axes[0].set_ylabel("PM residual NMAD (mas/yr)")
+    axes[1].legend(frameon=False)
+    fig.suptitle(f"{row['region']} | same matched Gaia sources in each comparison")
+    fig.savefig(out / f"v02_{row['region']}_matched_precision_summary.png", dpi=175)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("kind", choices=["regression", "injection"])
+    parser.add_argument("kind", choices=["regression", "injection", "matched"])
     parser.add_argument("out", type=Path)
     parser.add_argument("summaries", type=Path, nargs="+")
     args = parser.parse_args()
@@ -88,4 +133,5 @@ if __name__ == "__main__":
         plot_regression(rows, args.out)
     else:
         for row in rows:
-            plot_injection(row, args.out)
+            renderer = plot_matched if args.kind == "matched" else plot_injection
+            renderer(row, args.out)

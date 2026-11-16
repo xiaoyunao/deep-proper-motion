@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "dev/1000-2000": 5,
+    "test/1000-2000": 5
+  },
+  "bins": [
+    1000,
+    2000
+  ],
+  "region": "challenge",
+  "role": "challenge_design",
+  "receipt": {
+    "commit": "d98e9538af797883b9cfd8ebd0f0590e325807fe",
+    "config_sha256": "2f9e7a22e6cb0f5b273fa79dfa6827e7a4ac17f8254227c0c23eb72919c53ad6",
+    "aggregate_sha256": "b3274373768416b22d66c64ec2822211edd72a6b61975d0ce78451bf60983c42",
+    "slurm_job": "61397574",
+    "stage": "prepare-challenge"
+  }
+}

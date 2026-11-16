@@ -1,0 +1,156 @@
+{
+  "upstream_commit": "e256ec16ac76dc61ac83e2f5abd51c1dc842afe6",
+  "eligible": 20,
+  "fixed_control_total": 20,
+  "matched_pm": {
+    "fixed/all_selected": {
+      "blind": {
+        "n": 20,
+        "median_masyr": [
+          -0.25832783757405187,
+          -1.156777320069464
+        ],
+        "nmad_masyr": [
+          0.9216640207934872,
+          1.3398117243543415
+        ]
+      },
+      "fixed_all_visits": {
+        "n": 20,
+        "median_masyr": [
+          -0.25832783757405187,
+          -1.1567773200694638
+        ],
+        "nmad_masyr": [
+          0.9216640207934872,
+          1.3398117243543417
+        ]
+      },
+      "blind_minus_fixed": {
+        "n": 20,
+        "median_masyr": [
+          0.0,
+          0.0
+        ],
+        "nmad_masyr": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "nsc_like/all_selected": {
+      "blind": {
+        "n": 20,
+        "median_masyr": [
+          -0.25832783757405187,
+          -1.156777320069464
+        ],
+        "nmad_masyr": [
+          0.9216640207934872,
+          1.3398117243543415
+        ]
+      },
+      "fixed_all_visits": {
+        "n": 20,
+        "median_masyr": [
+          -0.25832783757405187,
+          -1.1567773200694638
+        ],
+        "nmad_masyr": [
+          0.9216640207934872,
+          1.3398117243543417
+        ]
+      },
+      "blind_minus_fixed": {
+        "n": 20,
+        "median_masyr": [
+          0.0,
+          0.0
+        ],
+        "nmad_masyr": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "motion/all_selected": {
+      "blind": {
+        "n": 17,
+        "median_masyr": [
+          -0.061295441000364104,
+          -1.0724889861077473
+        ],
+        "nmad_masyr": [
+          0.9250343296049613,
+          1.3004681561662093
+        ]
+      },
+      "fixed_all_visits": {
+        "n": 17,
+        "median_masyr": [
+          -0.0612954410003641,
+          -1.0724889861077471
+        ],
+        "nmad_masyr": [
+          0.9250343296049613,
+          1.300468156166209
+        ]
+      },
+      "blind_minus_fixed": {
+        "n": 17,
+        "median_masyr": [
+          0.0,
+          0.0
+        ],
+        "nmad_masyr": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "motion/secure": {
+      "blind": {
+        "n": 13,
+        "median_masyr": [
+          -0.5419009511295165,
+          -0.9623267667470667
+        ],
+        "nmad_masyr": [
+          0.7523403675051058,
+          0.7358569391757902
+        ]
+      },
+      "fixed_all_visits": {
+        "n": 13,
+        "median_masyr": [
+          -0.5419009511295165,
+          -0.9623267667470669
+        ],
+        "nmad_masyr": [
+          0.7523403675051058,
+          0.7358569391757901
+        ]
+      },
+      "blind_minus_fixed": {
+        "n": 13,
+        "median_masyr": [
+          0.0,
+          0.0
+        ],
+        "nmad_masyr": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "region": "pal5",
+  "role": "regression",
+  "receipt": {
+    "commit": "2fd43c2fbbdca8e450811b9d3e265fb1b975d61d",
+    "config_sha256": "651f2f45b7318209c5905b8e345909d7e4f49a4f657e30ae4c7b300f1962c20a",
+    "aggregate_sha256": "7f7d296e5493eaab85f32c13ab11c68648b386d857af998b959dca4f90bd69c0",
+    "slurm_job": "61397344",
+    "stage": "matched-control"
+  }
+}

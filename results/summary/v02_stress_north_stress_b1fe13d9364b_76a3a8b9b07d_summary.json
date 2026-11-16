@@ -1,0 +1,29 @@
+{
+  "footprint_visits": {
+    "NSC": 18,
+    "SDSS": 3
+  },
+  "halo_deg": 0.050138888888888886,
+  "bins": {
+    "10000": {
+      "attempted": 36,
+      "two_survey_geometry": 36,
+      "required_time_coverage": 26,
+      "generated_correct_candidate": 26,
+      "retained_correct_candidate": 26,
+      "fixed_recovery": 0,
+      "nsc_like_recovery": 0,
+      "selected_recovery": 26,
+      "secure_recovery": 24
+    }
+  },
+  "region": "stress_north",
+  "role": "geometry_stress",
+  "receipt": {
+    "commit": "b1fe13d9364b645188e6fb4e745ed448a9126df0",
+    "config_sha256": "76a3a8b9b07d79789e42a14e89be15bd1038280ad930bb9db35df4faa834023d",
+    "aggregate_sha256": "49f3e91c92a38cdf5dadf0d0028b3858a890ece0e804b639932527b323fab7f2",
+    "slurm_job": "61397326",
+    "stage": "stress-36"
+  }
+}

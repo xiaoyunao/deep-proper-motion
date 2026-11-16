@@ -1,0 +1,580 @@
+{
+  "held_year": {
+    "year": 2017,
+    "holdout_detections": 2682,
+    "methods": {
+      "fixed": {
+        "all_selected": {
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 5,
+            "attempted": 1595,
+            "no_candidate": 1192,
+            "missing_or_competing_detections": 371,
+            "consistent_unconfirmed": 6,
+            "inconclusive": 26
+          },
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 1,
+            "attempted": 122,
+            "missing_or_competing_detections": 122
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 4,
+            "attempted": 1276,
+            "no_candidate": 1261,
+            "missing_or_competing_detections": 15
+          },
+          "nsc_only/with_gaia/r_lt_20p5": {
+            "training_tracks": 1,
+            "attempted": 3,
+            "missing_or_competing_detections": 3
+          },
+          "nsc_only/no_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 638,
+            "no_candidate": 561,
+            "missing_or_competing_detections": 77
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 4,
+            "attempted": 1276,
+            "missing_or_competing_detections": 109,
+            "no_candidate": 1167
+          }
+        },
+        "secure": {}
+      },
+      "nsc_like": {
+        "all_selected": {
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 5,
+            "attempted": 1595,
+            "no_candidate": 1192,
+            "missing_or_competing_detections": 371,
+            "consistent_unconfirmed": 6,
+            "inconclusive": 26
+          },
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 125,
+            "missing_or_competing_detections": 125
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 4,
+            "attempted": 1276,
+            "no_candidate": 1261,
+            "missing_or_competing_detections": 15
+          },
+          "nsc_only/no_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 638,
+            "no_candidate": 561,
+            "missing_or_competing_detections": 77
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 4,
+            "attempted": 1276,
+            "missing_or_competing_detections": 109,
+            "no_candidate": 1167
+          }
+        },
+        "secure": {}
+      },
+      "motion": {
+        "all_selected": {
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 5,
+            "attempted": 1595,
+            "no_candidate": 1192,
+            "missing_or_competing_detections": 371,
+            "consistent_unconfirmed": 6,
+            "inconclusive": 26
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 4,
+            "attempted": 1276,
+            "no_candidate": 1261,
+            "missing_or_competing_detections": 15
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 4,
+            "attempted": 1276,
+            "missing_or_competing_detections": 109,
+            "no_candidate": 1167
+          },
+          "nsc_only/no_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 638,
+            "no_candidate": 561,
+            "missing_or_competing_detections": 77
+          },
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 125,
+            "missing_or_competing_detections": 125
+          }
+        },
+        "secure": {
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 5,
+            "attempted": 1595,
+            "no_candidate": 1192,
+            "missing_or_competing_detections": 371,
+            "consistent_unconfirmed": 6,
+            "inconclusive": 26
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 2,
+            "attempted": 638,
+            "no_candidate": 625,
+            "missing_or_competing_detections": 13
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 3,
+            "attempted": 957,
+            "missing_or_competing_detections": 105,
+            "no_candidate": 852
+          },
+          "nsc_only/no_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 638,
+            "no_candidate": 561,
+            "missing_or_competing_detections": 77
+          },
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 125,
+            "missing_or_competing_detections": 125
+          }
+        }
+      }
+    }
+  },
+  "translated_control": {
+    "detections": 409,
+    "variants": [
+      {
+        "shift_east_north_mas": [
+          0.0,
+          0.0
+        ],
+        "tracks_by_status": {
+          "fixed": {
+            "baseline": {
+              "n": 4,
+              "median_score_span_leverage": [
+                0.0,
+                16.474527062811376,
+                0.02432299059899717
+              ]
+            }
+          },
+          "nsc_like": {
+            "baseline": {
+              "n": 4,
+              "median_score_span_leverage": [
+                0.0,
+                16.474527062811376,
+                0.02432299059899717
+              ]
+            }
+          },
+          "motion": {
+            "secure": {
+              "n": 2,
+              "median_score_span_leverage": [
+                797.055329851779,
+                17.95353328225076,
+                0.333174535471234
+              ]
+            },
+            "ambiguous": {
+              "n": 5,
+              "median_score_span_leverage": [
+                7.916665324450488,
+                15.969506329101932,
+                0.01212453099546671
+              ]
+            }
+          }
+        },
+        "heldout_without_truth": {
+          "year": 2013,
+          "holdout_detections": 118,
+          "methods": {
+            "motion": {
+              "all_selected": {
+                "cross_survey/no_gaia/r_lt_20p5": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 39,
+                  "consistent_unconfirmed": 34,
+                  "missing_or_competing_detections": 7
+                },
+                "cross_survey/no_gaia/r_unmeasured": {
+                  "training_tracks": 3,
+                  "attempted": 240,
+                  "no_candidate": 212,
+                  "missing_or_competing_detections": 28
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 63,
+                  "missing_or_competing_detections": 17
+                },
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "missing_or_competing_detections": 21,
+                  "no_candidate": 59
+                }
+              },
+              "secure": {
+                "cross_survey/no_gaia/r_lt_20p5": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 39,
+                  "consistent_unconfirmed": 34,
+                  "missing_or_competing_detections": 7
+                },
+                "cross_survey/no_gaia/r_unmeasured": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 55,
+                  "missing_or_competing_detections": 25
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 63,
+                  "missing_or_competing_detections": 17
+                },
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "missing_or_competing_detections": 21,
+                  "no_candidate": 59
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "shift_east_north_mas": [
+          12000.0,
+          0.0
+        ],
+        "tracks_by_status": {
+          "fixed": {},
+          "nsc_like": {},
+          "motion": {
+            "ambiguous": {
+              "n": 6,
+              "median_score_span_leverage": [
+                7.25867555931102,
+                13.652681662745636,
+                0.007335093547179347
+              ]
+            }
+          }
+        },
+        "heldout_without_truth": {
+          "year": 2013,
+          "holdout_detections": 118,
+          "methods": {
+            "motion": {
+              "all_selected": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 118,
+                  "missing_or_competing_detections": 42
+                },
+                "cross_survey/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 160
+                }
+              },
+              "secure": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 118,
+                  "missing_or_competing_detections": 42
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "shift_east_north_mas": [
+          -18000.0,
+          0.0
+        ],
+        "tracks_by_status": {
+          "fixed": {},
+          "nsc_like": {},
+          "motion": {
+            "ambiguous": {
+              "n": 5,
+              "median_score_span_leverage": [
+                7.502153521435297,
+                15.076675424109453,
+                0.0054892725237212555
+              ]
+            }
+          }
+        },
+        "heldout_without_truth": {
+          "year": 2013,
+          "holdout_detections": 118,
+          "methods": {
+            "motion": {
+              "all_selected": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "cross_survey/no_gaia/r_unmeasured": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 80
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 3,
+                  "attempted": 240,
+                  "no_candidate": 198,
+                  "missing_or_competing_detections": 42
+                }
+              },
+              "secure": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 118,
+                  "missing_or_competing_detections": 42
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "shift_east_north_mas": [
+          0.0,
+          18000.0
+        ],
+        "tracks_by_status": {
+          "fixed": {},
+          "nsc_like": {},
+          "motion": {
+            "ambiguous": {
+              "n": 2,
+              "median_score_span_leverage": [
+                9.686906274400565,
+                14.102120485977935,
+                0.011086216058280033
+              ]
+            }
+          }
+        },
+        "heldout_without_truth": {
+          "year": 2013,
+          "holdout_detections": 118,
+          "methods": {
+            "motion": {
+              "all_selected": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "cross_survey/no_gaia/r_unmeasured": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 80
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 3,
+                  "attempted": 240,
+                  "no_candidate": 198,
+                  "missing_or_competing_detections": 42
+                }
+              },
+              "secure": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 118,
+                  "missing_or_competing_detections": 42
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "shift_east_north_mas": [
+          0.0,
+          -30000.0
+        ],
+        "tracks_by_status": {
+          "fixed": {},
+          "nsc_like": {},
+          "motion": {
+            "ambiguous": {
+              "n": 5,
+              "median_score_span_leverage": [
+                7.952328411605674,
+                14.164679254227849,
+                0.007640144038372502
+              ]
+            }
+          }
+        },
+        "heldout_without_truth": {
+          "year": 2013,
+          "holdout_detections": 118,
+          "methods": {
+            "motion": {
+              "all_selected": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "cross_survey/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 160
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 118,
+                  "missing_or_competing_detections": 42
+                }
+              },
+              "secure": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 118,
+                  "missing_or_competing_detections": 42
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "shift_east_north_mas": [
+          18000.0,
+          18000.0
+        ],
+        "tracks_by_status": {
+          "fixed": {},
+          "nsc_like": {},
+          "motion": {
+            "ambiguous": {
+              "n": 3,
+              "median_score_span_leverage": [
+                7.199886931455634,
+                11.153020798444913,
+                0.004179563772552802
+              ]
+            }
+          }
+        },
+        "heldout_without_truth": {
+          "year": 2013,
+          "holdout_detections": 118,
+          "methods": {
+            "motion": {
+              "all_selected": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 3,
+                  "attempted": 240,
+                  "no_candidate": 198,
+                  "missing_or_competing_detections": 42
+                },
+                "cross_survey/no_gaia/r_unmeasured": {
+                  "training_tracks": 1,
+                  "attempted": 80,
+                  "no_candidate": 80
+                }
+              },
+              "secure": {
+                "nsc_only/no_gaia/r_lt_20p5": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 98,
+                  "missing_or_competing_detections": 62
+                },
+                "nsc_only/no_gaia/r_unmeasured": {
+                  "training_tracks": 2,
+                  "attempted": 160,
+                  "no_candidate": 118,
+                  "missing_or_competing_detections": 42
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "region": "smoke",
+  "role": "regression",
+  "receipt": {
+    "commit": "b1fe13d9364b645188e6fb4e745ed448a9126df0",
+    "config_sha256": "76a3a8b9b07d79789e42a14e89be15bd1038280ad930bb9db35df4faa834023d",
+    "aggregate_sha256": "eca679f88713ad809dcaedd0e4353a6447a42592c037bf5dcb129ca34383aef5",
+    "slurm_job": "61396805",
+    "stage": "prediction-control"
+  }
+}

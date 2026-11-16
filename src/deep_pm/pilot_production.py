@@ -47,7 +47,7 @@ def valid_epochs(index, nsc, time, settings):
             and np.ptp(time[index])>=settings["min_joint_span_years"])
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None):
     prod = settings["production"]
     group = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
@@ -87,15 +87,21 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         if j in results:
             raise ValueError("Two independent NSC anchors own one final track.")
         stats["associated"] += 1
+        if trace is not None:
+            trace[j] = "time_baseline"
         if not valid_epochs(index,nsc,time,prod):
             stats["insufficient_time_sampling"] += 1
             continue
         stats["fit_eligible"] += 1
+        if trace is not None:
+            trace[j] = "m3_support"
         use = index[support[index]]
         if not valid_epochs(use,nsc,time,prod):
             stats["insufficient_calibration_coverage"] += 1
             continue
         stats["calibrated"] += 1
+        if trace is not None:
+            trace[j] = "quality"
         model, error = fit_with_calibration(xy[use],time[use],sigma[use],config["reference_epoch"],
                                             [offsets[k] for k in group[use]])
         if (not np.isfinite(error).all() or error.max()>prod["max_axis_pm_error_masyr"]
@@ -103,6 +109,10 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             stats["final_quality_rejection"] += 1
             continue
         stats["final"] += 1
+        if trace is not None:
+            trace[j] = "final"
+        if fits is not None:
+            fits[j] = model
         results[j] = (model.coeff[0], model.coeff[1], error, bucket, use, len(index))
     return p, results
 

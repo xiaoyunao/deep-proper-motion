@@ -39,7 +39,7 @@ def track_audit(tracks, selected, truth, labels, nsc, recovery):
         if label not in truth:
             continue
         member = index[known==label]
-        if nsc[member].all() or not nsc[member].any() or len(member)/len(truth[label])<recovery:
+        if nsc[member].all() or not nsc[member].any() or np.count_nonzero(np.isin(member,truth[label]))/len(truth[label])<recovery:
             continue
         recovered[label] = True
         if slot not in selected:

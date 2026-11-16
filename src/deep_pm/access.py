@@ -128,7 +128,7 @@ def fetch_object_index(cache, ra, dec, radius, progress=print):
     return fetch_measurements_for_objects(cache, objects.objectid, progress), objects
 
 
-def fetch_measurements_for_objects(cache, ids, progress=print):
+def fetch_measurements_for_objects(cache, ids, progress=print, batch_size=150):
     parts = []
 
     def fetch_partition(group):
@@ -142,8 +142,8 @@ def fetch_measurements_for_objects(cache, ids, progress=print):
             fetch_partition(group.iloc[:middle])
             fetch_partition(group.iloc[middle:])
 
-    for start in range(0, len(ids), 150):
-        group = ids.iloc[start:start + 150]
+    for start in range(0, len(ids), batch_size):
+        group = ids.iloc[start:start + batch_size]
         fetch_partition(group)
         progress(f"NSC objects {start + len(group)}/{len(ids)}")
     result = pd.concat(parts, ignore_index=True) if parts else pd.DataFrame(columns=MEAS.split(","))

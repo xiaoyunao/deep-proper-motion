@@ -5,6 +5,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from .io import save_json
+
 from . import access
 from .__main__ import standardize
 from .nsc_comparison import configuration
@@ -32,7 +34,8 @@ def main():
             link.symlink_to(target)
         if target != link.resolve():
             p.error("Coverage input already refers to a different acquisition.")
-    outputs = ["nsc_object.csv", "validation/gaia.csv", "detections.csv", "external_labels.csv"]
+    outputs = ["nsc_object.csv", "validation/gaia.csv", "detections.csv", "external_labels.csv",
+               "pilot_input_counts.json"]
     with run_stage(args.work, args.config, args.region, "pilot-inputs-v05",
                    inputs=inputs, outputs=outputs) as go:
         if not go:
@@ -41,7 +44,20 @@ def main():
         index = pd.read_csv(args.work/"nsc_object_index.csv", dtype={"objectid":str})
         if index.objectid.duplicated().any():
             raise ValueError("NSC archive index has duplicate object aliases.")
-        measurements = access.fetch_measurements_for_objects(cache, index.objectid.sort_values())
+        radius = field["radius"] + settings["calibration_buffer_deg"] + .003
+        limit = settings["production"]["archive_r_limit"]
+        where = access.q3c(*center,radius) + f" AND ndetr>0 AND (rmag<{limit} OR nphotr=0 OR rmag IS NULL)"
+        optical = access.checked_spatial(cache,"nsc","id AS objectid","nsc_dr2.object",where,
+                                         center[1]-radius-1e-8,center[1]+radius+1e-8)
+        # A loose catalogue photometric envelope selects r-band availability.
+        # All returned visits are subsequently matched without these archive object IDs.
+        names = optical.objectid.astype(str).sort_values()
+        if names.duplicated().any() or not set(names)<=set(index.objectid):
+            raise ValueError("NSC r-band index disagrees with the full regional position index.")
+        print(f"{len(names):,} r-band archive candidates / {len(index):,} index objects", flush=True)
+        measurements = access.fetch_measurements_for_objects(cache, names, batch_size=250)
+        save_json(args.work/"pilot_input_counts.json",dict(index_objects=len(index), optical_objects=len(names),
+                  nsc_measurements=len(measurements), archive_r_limit=limit))
         measurements.to_csv(args.work/"nsc_object.csv", index=False)
         print(f"{len(measurements):,} released NSC measurements acquired", flush=True)
         columns = ("source_id,ra,dec,ref_epoch,pmra,pmdec,pmra_error,pmdec_error,parallax,"

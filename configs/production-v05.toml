@@ -13,6 +13,7 @@ calibration_buffer_deg = 0.04
 match_radius_mas = 1000
 competitor_margin_mas = 300
 min_snr = 5
+archive_r_limit = 24
 min_nsc_span_years = 0.60
 min_joint_span_years = 5
 max_axis_pm_error_masyr = 10

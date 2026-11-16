@@ -30,6 +30,8 @@ def read_sdss_sas(root, center, radius):
         path = root/"photoObj"/str(rerun)/str(run)/str(camera)/f"photoObj-{run:06d}-{camera}-{field:04d}.fits"
         with fits.open(path, memmap=True) as hf:
             source = hf[1].data
+            if source is None and hf[1].header.get("NAXIS2", 0)==0:
+                continue
             keep = (source["RESOLVE_STATUS"] & 1) != 0
             block = source[keep]
             inside = np.linalg.norm(project(block["RA"],block["DEC"],center),axis=1) <= limit

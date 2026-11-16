@@ -2,6 +2,24 @@
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
-研究问题、验收条件和数据映射见 [docs](docs)。运行与缺项记录见 [实验 A 报告](reports/experiment_A_v0.1.md)。
+- [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
+- [科学问题](docs/science_case.md) · [数据与访问](docs/data_access.md) · [单位与选择](docs/selection_and_units.md) · [方法](docs/methods.md) · [验收协议](docs/validation_protocol.md)
+- [可公开的汇总](results/summary) · [统计图](figures) · [研究记录](WORKLOG.md)
 
-需要 Python 3.11+。在 NERSC 上使用已确认的科学 Python 环境。项目目录用于代码，工作目录必须指向可用的个人 Scratch。CLI 也可用 `PYTHONPATH=src python -m deep_pm` 运行。
+使用 Python 3.8+，依赖见 `pyproject.toml`。在安装后的环境中用 `deep-pm`，也可设 `PYTHONPATH=src` 并调用 `python -m deep_pm`。NERSC 已实测 Python 3.8、NumPy 1.24、SciPy 1.10、Astropy 5.2、scikit-learn 1.3，Python 3.8 需要额外的 tomli。
+
+从项目根目录运行。登录节点只做环境探查、数据管理及提交。先用 `deep-pm --work "$DEEP_PM_WORK" discover` 和 `sacctmgr` 确认实际 HOME、Scratch 和 CPU 资源账户，再提交。参数 `DEEP_PM_WORK` 指向已验证的个人 Scratch 项目目录，`DEEP_PM_PYTHON` 与 `DEEP_PM_EXTRA_PYTHONPATH` 随实际环境设置。区域执行时使用同一冻结配置和代码快照：
+
+```bash
+export DEEP_PM_WORK="${PSCRATCH:?}/deep-proper-motion"
+export DEEP_PM_PYTHON=python
+export PYTHONPATH="$PWD/src"
+mkdir -p "$DEEP_PM_WORK/logs"
+sbatch -A "${DEEP_PM_ACCOUNT:?set a verified CPU account}" -q "${DEEP_PM_QOS:?}" \
+  -C cpu -N 1 -n 1 -c 2 -t 00:25:00 -o "$DEEP_PM_WORK/logs/%j.log" \
+  --wrap='set -e; for r in sdss object gaia; do "$DEEP_PM_PYTHON" -u -m deep_pm --route "$r" fetch; done; bash scripts/experiment.sh smoke'
+```
+
+`scripts/experiment.sh` 依次执行 `normalize → inventory → associate → fit → validate → report`。先确认已有 `sdss.csv`、`nsc_object.csv` 和分离的 `validation/gaia.csv`。NSC CCD 路线可用 `fetch --route exposure` 执行。八个曝光的路线审计可在已有 object 路线数据的计算作业里用 `python -m deep_pm.audit "$DEEP_PM_WORK/smoke" --ra 30 --dec 0 --radius 0.037` 重跑。其他研究入口为 `deep_pm.counterfactual`、`deep_pm.diagnostics`、`deep_pm.injection`、`deep_pm.precision`、`deep_pm.exhaustive`、`deep_pm.solver_ablation`、`deep_pm.audit_plots`。
+
+测试用 `PYTHONPATH=src python -m unittest discover -s tests -v`。公开同步用本地 `bash scripts/sync-summary.sh`，先设置 `DEEP_PM_SSH_TARGET` 和 `DEEP_PM_REMOTE_SCRATCH`。该入口只接收预设名称的统计和图片。数据保留与持久化见 [数据文档](docs/data_access.md)。

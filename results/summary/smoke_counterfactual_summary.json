@@ -1,0 +1,69 @@
+{
+  "held_year": {
+    "year": 2017,
+    "holdout_detections": 2682,
+    "methods": {
+      "fixed": {
+        "confirmed_prediction": {
+          "n": 128,
+          "denominator": 128,
+          "value": 1.0,
+          "wilson95": [
+            0.9708630437264916,
+            1.0
+          ]
+        },
+        "wrong": 0,
+        "missing": 0,
+        "ambiguous": 0,
+        "unlabelled": 0,
+        "median_gaia_target_residual_mas": 23.448173088711954
+      },
+      "nsc_like": {
+        "confirmed_prediction": {
+          "n": 125,
+          "denominator": 125,
+          "value": 1.0,
+          "wilson95": [
+            0.9701846062916737,
+            1.0
+          ]
+        },
+        "wrong": 0,
+        "missing": 0,
+        "ambiguous": 0,
+        "unlabelled": 0,
+        "median_gaia_target_residual_mas": 22.98126773178587
+      },
+      "motion": {
+        "confirmed_prediction": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "wrong": 0,
+        "missing": 0,
+        "ambiguous": 0,
+        "unlabelled": 0,
+        "median_gaia_target_residual_mas": null
+      }
+    }
+  },
+  "translated_control": {
+    "shift_east_mas": 18000.0,
+    "detections": 784,
+    "cross_survey_tracks": {
+      "original": {
+        "fixed": 4,
+        "nsc_like": 4,
+        "motion": 0
+      },
+      "translated_sdss": {
+        "fixed": 0,
+        "nsc_like": 0,
+        "motion": 0
+      }
+    }
+  }
+}

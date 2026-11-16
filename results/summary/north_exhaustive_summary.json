@@ -1,0 +1,127 @@
+{
+  "seed_detections": 216,
+  "seed_pairs": 499,
+  "candidates": 53,
+  "difficult_components": 0,
+  "seconds": 0.18524973199237138,
+  "evaluation": {
+    "recovery": {
+      "n": 2,
+      "denominator": 2,
+      "value": 1.0,
+      "wilson95": [
+        0.34238022750665303,
+        1.0
+      ]
+    },
+    "pm_bins": [
+      {
+        "low": 0,
+        "high": 25,
+        "n": 1,
+        "denominator": 1,
+        "value": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      {
+        "low": 25,
+        "high": 50,
+        "n": 1,
+        "denominator": 1,
+        "value": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      {
+        "low": 50,
+        "high": 100,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 100,
+        "high": 200,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 200,
+        "high": 500,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 500,
+        "high": 1000,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 1000,
+        "high": 2000,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      }
+    ],
+    "mixed_tracks": {
+      "n": 0,
+      "denominator": 2,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576197724933469
+      ]
+    },
+    "wrong_known_detections": {
+      "n": 0,
+      "denominator": 26,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.1287289218592153
+      ]
+    },
+    "unlabelled_members": 43,
+    "ambiguous_tracks": {
+      "n": 0,
+      "denominator": 2,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576197724933469
+      ]
+    },
+    "fragmented": {
+      "n": 0,
+      "denominator": 2,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576197724933469
+      ]
+    }
+  },
+  "thinned_search": {
+    "seed_detections": 89,
+    "seed_pairs": 70,
+    "candidates": 52,
+    "difficult_components": 0,
+    "seconds": 0.128258463984821,
+    "maxrss_kib": 133584
+  }
+}

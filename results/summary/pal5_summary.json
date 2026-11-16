@@ -1,0 +1,3871 @@
+{
+  "region": "pal5",
+  "inventory": {
+    "area_sq_deg": 0.0012566370493062645,
+    "counts": {
+      "NSC": {
+        "detections": 206113,
+        "core_detections": 72307,
+        "exposures": 298,
+        "nights": 32,
+        "years": {
+          "2013": 13636,
+          "2014": 17515,
+          "2015": 132341,
+          "2016": 32744,
+          "2017": 699,
+          "2018": 7931,
+          "2019": 1247
+        },
+        "groups": 8,
+        "bands": {
+          "r": 76495,
+          "g": 57297,
+          "i": 34073,
+          "z": 19124,
+          "u": 19120,
+          "Y": 4
+        },
+        "missing_time": 0,
+        "missing_error": 0
+      },
+      "SDSS": {
+        "detections": 2372,
+        "core_detections": 656,
+        "exposures": 4,
+        "nights": 4,
+        "years": {
+          "1999": 1155,
+          "2000": 1119
+        },
+        "groups": 2,
+        "bands": {
+          "r": 2372
+        },
+        "missing_time": 98,
+        "missing_error": 0
+      }
+    },
+    "usable_for_association": 32356
+  },
+  "validation": {
+    "gaia_rows": 385,
+    "labeled_detections": 13876,
+    "truth_cross_survey": 20,
+    "methods": {
+      "fixed": {
+        "recovery": {
+          "n": 20,
+          "denominator": 20,
+          "value": 1.0,
+          "wilson95": [
+            0.8388748419471806,
+            1.0
+          ]
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        ],
+        "mixed_tracks": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "wrong_known_detections": {
+          "n": 0,
+          "denominator": 4348,
+          "value": 0.0,
+          "wilson95": [
+            5.421010862427522e-20,
+            0.0008827203051958428
+          ]
+        },
+        "unlabelled_members": 14949,
+        "ambiguous_tracks": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "fragmented": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        }
+      },
+      "nsc_like": {
+        "recovery": {
+          "n": 20,
+          "denominator": 20,
+          "value": 1.0,
+          "wilson95": [
+            0.8388748419471806,
+            1.0
+          ]
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        ],
+        "mixed_tracks": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "wrong_known_detections": {
+          "n": 0,
+          "denominator": 4348,
+          "value": 0.0,
+          "wilson95": [
+            5.421010862427522e-20,
+            0.0008827203051958428
+          ]
+        },
+        "unlabelled_members": 14935,
+        "ambiguous_tracks": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "fragmented": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        }
+      },
+      "motion": {
+        "recovery": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        ],
+        "mixed_tracks": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "wrong_known_detections": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "unlabelled_members": 0,
+        "ambiguous_tracks": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "fragmented": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        }
+      }
+    },
+    "curves": {
+      "fixed": [
+        {
+          "threshold": 0.0,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 0.6931471805599453,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.0986122886681098,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.3862943611198906,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.6094379124341003,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.791759469228055,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.9459101490553132,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 2.0794415416798357,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 2.1972245773362196,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14949,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        }
+      ],
+      "nsc_like": [
+        {
+          "threshold": 0.0,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 0.6931471805599453,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.0986122886681098,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.3862943611198906,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.6094379124341003,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.791759469228055,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.9459101490553132,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 2.0794415416798357,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 2.1972245773362196,
+          "recovery": {
+            "n": 20,
+            "denominator": 20,
+            "value": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 20,
+              "denominator": 20,
+              "value": 1.0,
+              "wilson95": [
+                0.8388748419471806,
+                1.0
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 4348,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0008827203051958428
+            ]
+          },
+          "unlabelled_members": 14935,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        }
+      ],
+      "motion": [
+        {
+          "threshold": 0.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 1.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 2.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 3.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 4.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 5.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 6.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 7.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 8.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 9.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 10.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 11.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 12.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        {
+          "threshold": 13.0,
+          "recovery": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "pm_bins": [
+            {
+              "low": 0,
+              "high": 25,
+              "n": 0,
+              "denominator": 20,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            {
+              "low": 25,
+              "high": 50,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 50,
+              "high": 100,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 100,
+              "high": 200,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 200,
+              "high": 500,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 500,
+              "high": 1000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "low": 1000,
+              "high": 2000,
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ],
+          "mixed_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "wrong_known_detections": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "unlabelled_members": 0,
+          "ambiguous_tracks": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "fragmented": {
+            "n": 0,
+            "denominator": 20,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        }
+      ]
+    },
+    "paired": {
+      "all_sdss": {
+        "n": 20,
+        "median_masyr": [
+          -0.25832783757405187,
+          -1.156777320069464
+        ],
+        "nmad_masyr": [
+          0.9216640207934872,
+          1.3398117243543415
+        ],
+        "median_baseline_yr": 19.964139283775467,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "median_abs_normalized": [
+          0.42546364690553795,
+          0.8793483787271537
+        ]
+      },
+      "nsc_only": {
+        "n": 20,
+        "median_masyr": [
+          -3.7410059686918578,
+          0.170635523385132
+        ],
+        "nmad_masyr": [
+          2.121354867679214,
+          2.37246440362269
+        ],
+        "median_baseline_yr": 5.9272916801774045,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "median_abs_normalized": [
+          1.0216035632377845,
+          0.49642110734373357
+        ]
+      },
+      "one_sdss": {
+        "n": 20,
+        "median_masyr": [
+          -0.5152088251328624,
+          0.0381405494018876
+        ],
+        "nmad_masyr": [
+          1.2014979081289336,
+          0.8485185849217073
+        ],
+        "median_baseline_yr": 19.964139283775467,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 20,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        },
+        "median_abs_normalized": [
+          0.2126827800492646,
+          0.2270846825538692
+        ]
+      }
+    }
+  },
+  "resources": {
+    "seed_detections": 1919,
+    "seed_pairs": 36236,
+    "candidates": 25826,
+    "difficult_components": 1,
+    "seconds": 64.89836594799999,
+    "maxrss_kib": 358172
+  },
+  "manifest": {
+    "config_sha256": "9d684469dca2de022e072850f4510d6385c5b0911e47420c157ab20ee1586308",
+    "commit": "f56efb6813e0f69e9e33853fe3781296de5f12e5",
+    "region": "pal5",
+    "release_nsc": "DR2",
+    "release_sdss": "DR17",
+    "seed": 45116
+  }
+}

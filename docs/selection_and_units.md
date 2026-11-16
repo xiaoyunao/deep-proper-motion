@@ -7,3 +7,5 @@
 - 无时间或非正、非有限误差的检测保留记录，从当前拟合排除。演示控制样本共用误差 ≤150 mas、已知原生波段星等 ≤20.5 的阈值，星等缺测不单独删除，形态不作硬切。每轴在加权拟合中加 50 mas 独立位置底噪。阈值与完整度均针对取回、入选的检测。
 
 [SDSS Resolve](https://www.sdss4.org/dr16/algorithms/resolve) · [SDSS 质量位](https://www.sdss4.org/dr16/algorithms/bitmasks) · [NSC schema](https://datalab.noirlab.edu/data-explorer?showTable=nsc_dr2.meas)
+
+在开发区的 DR17 run 3325、camcol 4、field 308，SAS 与 CAS 同一检测的 `TAI_r` 完全一致，位置和 RAERR 在浮点精度内一致。TAI 换算成 MJD 后比该记录的 CAS 整数 MJD 大 0.3972 天。匹配 photoField 确有 airmass、REF_TAI 及 DCR 颜色列。

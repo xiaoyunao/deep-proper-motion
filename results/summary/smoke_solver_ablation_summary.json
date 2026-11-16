@@ -1,0 +1,119 @@
+{
+  "max_component": 3000,
+  "time_limit_seconds": 60,
+  "seconds": 0.6943833469995297,
+  "unresolved_components": 0,
+  "assigned_detections": 15514,
+  "evaluation": {
+    "recovery": {
+      "n": 2,
+      "denominator": 2,
+      "value": 1.0,
+      "wilson95": [
+        0.34238022750665303,
+        1.0
+      ]
+    },
+    "pm_bins": [
+      {
+        "low": 0,
+        "high": 25,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 25,
+        "high": 50,
+        "n": 1,
+        "denominator": 1,
+        "value": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      {
+        "low": 50,
+        "high": 100,
+        "n": 1,
+        "denominator": 1,
+        "value": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      {
+        "low": 100,
+        "high": 200,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 200,
+        "high": 500,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 500,
+        "high": 1000,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      {
+        "low": 1000,
+        "high": 2000,
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      }
+    ],
+    "mixed_tracks": {
+      "n": 0,
+      "denominator": 2,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576197724933469
+      ]
+    },
+    "wrong_known_detections": {
+      "n": 0,
+      "denominator": 803,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.00476110737580209
+      ]
+    },
+    "unlabelled_members": 4276,
+    "ambiguous_tracks": {
+      "n": 0,
+      "denominator": 2,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576197724933469
+      ]
+    },
+    "fragmented": {
+      "n": 0,
+      "denominator": 2,
+      "value": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576197724933469
+      ]
+    }
+  }
+}

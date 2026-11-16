@@ -1,0 +1,91 @@
+{
+  "candidates": 1084,
+  "conflict_component_max": 601,
+  "failure_stages": {
+    "adequate_candidates_in_oversize_components": 1
+  },
+  "external_nsc_labels": {
+    "labelled_nsc_objects": 3,
+    "mixed_nsc_objects": 0,
+    "labelled_gaia_with_nsc": 3,
+    "gaia_split_across_nsc_ids": 0
+  },
+  "nscccd_instrument_counts": {
+    "c4d": 9021,
+    "k4m": 36
+  },
+  "residual_by_survey_band": {
+    "NSC/Y": {
+      "samples": 78,
+      "sources": 1,
+      "median": [
+        -2.646654431857314,
+        -5.295170014080213
+      ],
+      "nmad": [
+        32.21905013094204,
+        38.09962189684762
+      ]
+    },
+    "NSC/g": {
+      "samples": 61,
+      "sources": 1,
+      "median": [
+        6.213075763502275,
+        9.617790285590672
+      ],
+      "nmad": [
+        32.76189006120161,
+        38.88848111378233
+      ]
+    },
+    "NSC/i": {
+      "samples": 80,
+      "sources": 1,
+      "median": [
+        5.131871018118545,
+        7.820253049720122
+      ],
+      "nmad": [
+        23.015904351375887,
+        23.571956800054405
+      ]
+    },
+    "NSC/r": {
+      "samples": 77,
+      "sources": 1,
+      "median": [
+        -0.1619363277350203,
+        -3.639950124990719
+      ],
+      "nmad": [
+        26.578439446655583,
+        26.304544896500214
+      ]
+    },
+    "NSC/z": {
+      "samples": 92,
+      "sources": 1,
+      "median": [
+        -3.5303333298506914,
+        0.6343577207353519
+      ],
+      "nmad": [
+        20.180300729781464,
+        26.188156280446453
+      ]
+    },
+    "SDSS/r": {
+      "samples": 35,
+      "sources": 1,
+      "median": [
+        -3.3740034100192133,
+        -1.8455920091273583
+      ],
+      "nmad": [
+        34.33798909498876,
+        35.08245321127676
+      ]
+    }
+  }
+}

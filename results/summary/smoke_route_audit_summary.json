@@ -1,0 +1,8 @@
+{
+  "exposures": 8,
+  "ccds": 15,
+  "radius_deg": 0.037,
+  "shared": 134,
+  "object_only": 0,
+  "exposure_only": 0
+}

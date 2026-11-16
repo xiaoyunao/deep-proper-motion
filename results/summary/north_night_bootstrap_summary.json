@@ -1,0 +1,23 @@
+{
+  "nsc_only": {
+    "n_sources": 2,
+    "ratio_night_to_formal": [
+      0.31769329960543863,
+      0.5129022441149248
+    ]
+  },
+  "one_sdss": {
+    "n_sources": 2,
+    "ratio_night_to_formal": [
+      1.6114869734880068,
+      3.0557398390097332
+    ]
+  },
+  "all_sdss": {
+    "n_sources": 2,
+    "ratio_night_to_formal": [
+      1.2554681987223748,
+      3.3345079922715772
+    ]
+  }
+}

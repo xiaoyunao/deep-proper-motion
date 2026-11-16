@@ -1,0 +1,263 @@
+{
+  "footprint_exposures": 1291,
+  "results": {
+    "main": {
+      "trials": 3,
+      "detections_by_speed": {
+        "0": [
+          0,
+          304,
+          0
+        ],
+        "25": [
+          1,
+          34,
+          1
+        ],
+        "50": [
+          0,
+          1,
+          0
+        ],
+        "100": [
+          0,
+          84,
+          291
+        ],
+        "200": [
+          0,
+          1,
+          7
+        ],
+        "500": [
+          1,
+          0,
+          1
+        ],
+        "1000": [
+          16,
+          0,
+          0
+        ],
+        "2000": [
+          45,
+          45,
+          56
+        ]
+      },
+      "methods": {
+        "fixed": {
+          "0": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "25": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "50": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "100": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "200": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "500": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "1000": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "2000": {
+            "n": 0,
+            "denominator": 2,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "nsc_like": {
+          "0": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "25": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "50": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "100": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "200": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "500": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "1000": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "2000": {
+            "n": 0,
+            "denominator": 2,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "motion": {
+          "0": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "25": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "50": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "100": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "200": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "500": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "1000": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "2000": {
+            "n": 0,
+            "denominator": 2,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        }
+      }
+    },
+    "stress": {
+      "trials": 1,
+      "detections_by_speed": {
+        "10000": [
+          10
+        ]
+      },
+      "methods": {
+        "fixed": {
+          "10000": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "nsc_like": {
+          "10000": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "motion": {
+          "10000": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        }
+      }
+    }
+  }
+}

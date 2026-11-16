@@ -40,8 +40,7 @@ import sys
 
 summary = json.loads(Path(sys.argv[1]).read_text())
 summary.pop("cases", None)
-Path(sys.argv[2]).write_text(json.dumps(summary, indent=2, allow_nan=False) + "
-")
+Path(sys.argv[2]).write_text(json.dumps(summary, indent=2, allow_nan=False) + chr(10))
 PYTHON
         else
             cp -- "$f" "$dest"

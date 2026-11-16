@@ -1,0 +1,102 @@
+{
+  "candidates": 2220,
+  "conflict_component_max": 2128,
+  "failure_stages": {
+    "adequate_candidates_in_oversize_components": 2
+  },
+  "external_nsc_labels": {
+    "labelled_nsc_objects": 6,
+    "mixed_nsc_objects": 0,
+    "labelled_gaia_with_nsc": 6,
+    "gaia_split_across_nsc_ids": 0
+  },
+  "nscccd_instrument_counts": {
+    "c4d": 15504
+  },
+  "residual_by_survey_band": {
+    "NSC/Y": {
+      "samples": 141,
+      "sources": 2,
+      "median": [
+        3.783502966289234,
+        -3.1111389304714976
+      ],
+      "nmad": [
+        12.075329109683471,
+        15.061446933708577
+      ]
+    },
+    "NSC/g": {
+      "samples": 205,
+      "sources": 2,
+      "median": [
+        -4.925850598643592,
+        7.960235895487131
+      ],
+      "nmad": [
+        21.119326734411867,
+        16.48709648305966
+      ]
+    },
+    "NSC/i": {
+      "samples": 107,
+      "sources": 2,
+      "median": [
+        3.1315825565034174,
+        0.053570345386106055
+      ],
+      "nmad": [
+        14.844133221793983,
+        19.299992195658273
+      ]
+    },
+    "NSC/r": {
+      "samples": 159,
+      "sources": 2,
+      "median": [
+        0.2747210480592912,
+        -5.406264665565686
+      ],
+      "nmad": [
+        16.784471534419094,
+        18.08073001195584
+      ]
+    },
+    "NSC/u": {
+      "samples": 30,
+      "sources": 2,
+      "median": [
+        -2.4967879650794202,
+        3.8467483473395987
+      ],
+      "nmad": [
+        14.049810004599319,
+        20.029038002539917
+      ]
+    },
+    "NSC/z": {
+      "samples": 105,
+      "sources": 2,
+      "median": [
+        4.86851870418468,
+        -3.1290498790549464
+      ],
+      "nmad": [
+        15.683180958906135,
+        17.48422383765777
+      ]
+    },
+    "SDSS/r": {
+      "samples": 56,
+      "sources": 2,
+      "median": [
+        -2.684739029245975,
+        -6.137440888578567
+      ],
+      "nmad": [
+        31.36237964081468,
+        37.36909564135936
+      ]
+    }
+  }
+}

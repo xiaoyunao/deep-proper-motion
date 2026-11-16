@@ -131,6 +131,10 @@ def export(run_root, kind, region):
     config = tomllib.loads(config_bytes.decode())
     role = "challenge_design" if kind == "challenge-design" else config["regions"][region]["role"]
     payload = {key: aggregate[key] for key in fields}
+    if kind == "dark-precision-v03":
+        cohorts = payload["qso_published_common"]
+        cohorts["metrics"] = {key: value if value["n"] >= 3 else {"n": value["n"]}
+                              for key, value in cohorts["metrics"].items()}
     payload.update(region=region, role=role, receipt=dict(
         commit=manifest["commit"], config_sha256=config_hash, aggregate_sha256=sha,
         slurm_job=attempt.get("slurm_job"), stage=name))

@@ -63,6 +63,8 @@ STAGES = {
     "challenge-design": (r"prepare-challenge", "challenge_sample_summary.json",
                          ("counts", "bins")),
 }
+STAGES["pilot-coverage-v05"] = STAGES["qso-coverage-v04"]
+
 METADATA = {"region", "role", "receipt"}
 PRIVATE_KEYS = {"source_id", "source_ids", "object_ids", "objid", "objids", "detection_id",
                 "detection_ids", "designation", "track_id", "indices", "ra", "dec",
@@ -86,7 +88,7 @@ def check_payload(kind, region, payload):
     if not REGION.fullmatch(region) or payload.get("region") != region:
         raise ValueError("Unexpected region")
     _, _, keys = STAGES[kind]
-    extras = {"sdss_route", "sdss_fields"} if kind == "qso-coverage-v04" else set()
+    extras = {"sdss_route", "sdss_fields"} if kind in ("qso-coverage-v04", "pilot-coverage-v05") else set()
     if set(payload) - METADATA - extras != set(keys):
         raise ValueError("Unexpected aggregate schema")
     if not REGION.fullmatch(payload["role"]):
@@ -148,7 +150,7 @@ def export(run_root, kind, region):
     config = tomllib.loads(config_bytes.decode())
     role = "challenge_design" if kind == "challenge-design" else config.get("regions", {}).get(region, {}).get("role", "independent")
     payload = {key: aggregate[key] for key in fields}
-    if kind == "qso-coverage-v04":
+    if kind in ("qso-coverage-v04", "pilot-coverage-v05"):
         payload.update(sdss_route=aggregate.get("sdss_route", "cas"), sdss_fields=aggregate.get("sdss_fields"))
     if kind == "dark-precision-v03":
         cohorts = payload["qso_published_common"]

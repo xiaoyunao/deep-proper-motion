@@ -146,9 +146,37 @@ def plot_prediction(row, out):
     plt.close(fig)
 
 
+def plot_coverage(rows, out):
+    rows = sorted(rows, key=lambda row: (row["role"] != "regression", row["region"]))
+    fig, ax = plt.subplots(figsize=(9.1, 2.45 + .45 * len(rows)), layout="constrained")
+    captions = []
+    for i, row in enumerate(rows):
+        inventory = row["inventory"]
+        nights = []
+        for j, survey in enumerate(("SDSS", "NSC")):
+            counts = inventory["counts"].get(survey, {})
+            nights.append(str(counts.get("nights", 0)))
+            years = sorted((int(year), count) for year, count in counts.get("years", {}).items())
+            if not years:
+                continue
+            t, n = np.array(years).T
+            ax.scatter(t, np.full(len(t), i + (-.14, .14)[j]), s=8 + 12 * np.log10(n),
+                       color=COLORS[j], alpha=.82, label=survey if i == 0 else None)
+        captions.append(f"{row['region']}  ({inventory['area_sq_deg']:.4f} deg²)")
+        ax.text(1.02, i, " / ".join(nights), transform=ax.get_yaxis_transform(), va="center", fontsize=9)
+    ax.set(yticks=np.arange(len(rows)), yticklabels=captions, xlabel="Observation year")
+    fig.suptitle("Epoch coverage in the published catalogues")
+    ax.text(1.02, 1.014, "Nights\nSDSS / NSC", transform=ax.transAxes, fontsize=9, va="bottom")
+    ax.invert_yaxis()
+    ax.grid(axis="x", alpha=.25)
+    ax.legend(loc="lower left", bbox_to_anchor=(0, 1), frameon=False, ncols=2)
+    fig.savefig(out / "v02_field_coverage_summary.png", dpi=175)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("kind", choices=["regression", "injection", "matched", "prediction"])
+    parser.add_argument("kind", choices=["regression", "coverage", "injection", "matched", "prediction"])
     parser.add_argument("out", type=Path)
     parser.add_argument("summaries", type=Path, nargs="+")
     args = parser.parse_args()
@@ -157,6 +185,8 @@ if __name__ == "__main__":
     args.out.mkdir(exist_ok=True, parents=True)
     if args.kind == "regression":
         plot_regression(rows, args.out)
+    elif args.kind == "coverage":
+        plot_coverage(rows, args.out)
     else:
         renderer = {"injection": plot_injection, "matched": plot_matched, "prediction": plot_prediction}[args.kind]
         for row in rows:

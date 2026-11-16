@@ -162,7 +162,8 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        target = args.directory / f"v02_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
+        series = "v03" if args.kind.endswith("v03") else "v02"
+        target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:
             raise ValueError("A different aggregate already exists for this run")
         save_json(target, payload)

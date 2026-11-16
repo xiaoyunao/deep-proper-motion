@@ -47,7 +47,7 @@ def valid_epochs(index, nsc, time, settings):
             and np.ptp(time[index])>=settings["min_joint_span_years"])
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None):
     prod = settings["production"]
     group = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
@@ -56,7 +56,8 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
     for j, members in enumerate(tracks):
         owner[members] = j
     sdss_tree = cKDTree(xy[keep & ~nsc])
-    initial = make_tracks(xy, exposure, keep & nsc, prod["match_radius_mas"])
+    reference_keep = keep if reference_keep is None else reference_keep
+    initial = make_tracks(xy, exposure, reference_keep & nsc, prod["match_radius_mas"])
     support = np.isin(group, list(offsets))
     morphology, mag = data.morphology.to_numpy(), data.magnitude.to_numpy()
     p = {}
@@ -80,7 +81,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             continue
         index = tracks[j]
         if (covered/len(anchor)<prod["validation_min_recovery"]
-                or covered<=len(index[nsc[index]])/2 or nsc[index].all()):
+                or covered<=np.count_nonzero(nsc[index] & reference_keep[index])/2 or nsc[index].all()):
             stats["split_or_competing_track"] += 1
             continue
         if j in results:

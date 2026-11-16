@@ -1,0 +1,15 @@
+frozen_production = "production-v05.toml"
+seed = 61017
+bootstrap_draws = 1200
+practical_gain = 0.15
+zero_point_limit_masyr = 0.5
+minimum_pairs = 40
+max_galaxy_offset_se_mas = 12
+robust_remove_sigma = 5
+minimum_parallax_groups = 5
+minimum_parallax_nsc_span_years = 1
+min_parallax_phase_information = 1.0
+footprint_samples = 4096
+max_evaluation_gaia = 2000
+fields = ["g09", "g15", "ngc_mid", "egs", "ngc_short", "s82_east"]
+bands = ["r", "g", "i", "z"]

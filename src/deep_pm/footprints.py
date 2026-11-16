@@ -53,13 +53,15 @@ def nsc_visits(chips, center):
                     row["filter"], covered)
 
 
-def sdss_visits(path, center, radius):
+def sdss_visits(path, center, radius, rerun=None, vectorized=False):
     with fits.open(path, memmap=True) as hdus:
         table = hdus[1].data
         # Field center metadata preselection only; tests below use the native scan bounds.
         preselect = ((np.abs(table["DEC"] - center[1]) <= radius + 1)
                      & (np.abs(wrap(table["RA"] - center[0]))
                         <= (radius + 1) / np.cos(np.deg2rad(center[1]))))
+        if rerun is not None:
+            preselect &= table["RERUN"] == rerun
         selected = table[np.flatnonzero(preselect)]
         keys = ["RUN", "TAI", "NODE", "INCL", "MU_START", "MU_END", "NU_START", "NU_END"]
         columns = {key: np.asarray(selected[key]).astype(float) for key in keys}
@@ -75,10 +77,14 @@ def sdss_visits(path, center, radius):
 
         def covered(_xy, sky, limits=boundaries):
             node, incl, a, b, c, d = limits
-            mu, nu = sdss_great_circle(*sky, node, incl)
             width = (b - a) % 360
-            return bool(np.any(((mu - a) % 360 <= width) & (nu >= np.minimum(c, d))
-                               & (nu <= np.maximum(c, d))))
+            if vectorized:
+                mu, nu = sdss_great_circle(sky[:, 0, None], sky[:, 1, None], node, incl)
+            else:
+                mu, nu = sdss_great_circle(*sky, node, incl)
+            result = np.any(((mu - a) % 360 <= width) & (nu >= np.minimum(c, d))
+                            & (nu <= np.maximum(c, d)), axis=-1)
+            return result if vectorized else bool(result)
 
         yield Visit(f"SDSS:{int(run)}", "SDSS", float(years(sdss_tai_to_tt(np.median(mid)))),
                     "r", covered)

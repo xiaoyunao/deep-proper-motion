@@ -50,6 +50,7 @@ def gaia_labels(data, xy, time, sigma, gaia, center, config):
         if "parallax_error" in g:
             nearby = g.parallax.abs() >= config["gaia_max_parallax_for_linear_truth"]
             reliable &= (~nearby | g.parallax_error.between(0, 2)).to_numpy()
+        ra, dec, pmra, pmdec = (g[key].to_numpy() for key in ("ra","dec","pmra","pmdec"))
         unique_time, inverse = np.unique(time, return_inverse=True)
         if len(unique_time):
             observers = get_body_barycentric("earth", Time(unique_time, format="jyear", scale="tt")).xyz.to_value("AU").T
@@ -57,9 +58,8 @@ def gaia_labels(data, xy, time, sigma, gaia, center, config):
     def propagated(indices, value, observer=None):
         if not use_parallax:
             return ref[indices] + (value - t0[indices])[:, None] * velocity[indices]
-        r = g.iloc[indices]
-        return apparent_positions(r.ra.to_numpy(), r.dec.to_numpy(), r.pmra.to_numpy(),
-                                  r.pmdec.to_numpy(), fitted_parallax[indices], rv[indices],
+        return apparent_positions(ra[indices], dec[indices], pmra[indices],
+                                  pmdec[indices], fitted_parallax[indices], rv[indices],
                                   value - t0[indices], observer, center)
 
     label = np.full(len(data), -1, dtype=int)
@@ -78,10 +78,11 @@ def gaia_labels(data, xy, time, sigma, gaia, center, config):
                                                                 initial=0) * np.ptp(time[indices])
         if use_parallax:
             search += 8 * fitted_parallax.max(initial=0) * np.ptp(time[indices])
-        for i in indices:
-            if sigma[i].max() * 3 > config["gaia_detection_gate_mas"]:
+        eligible = indices[np.max(sigma[indices],axis=1)*3 <= config["gaia_detection_gate_mas"]]
+        for i, candidates in zip(eligible,tree.query_ball_point(xy[eligible],search)):
+            if not candidates:
                 continue
-            near = np.array(tree.query_ball_point(xy[i], search), dtype=int)
+            near = np.asarray(candidates,dtype=int)
             dot = propagated(near, time[i], observers[inverse[i]] if use_parallax else None)
             dist = np.linalg.norm(dot - xy[i], axis=1)
             order = np.argsort(dist)

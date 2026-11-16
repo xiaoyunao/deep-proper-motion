@@ -23,7 +23,7 @@ def absolute68(data, axis=0):
     return np.quantile(np.concatenate([abs(data), norm[..., None]], axis=-1), .68, axis=axis)
 
 
-def comparison(rows, settings):
+def comparison(rows, settings, additional_contrasts=()):
     """Use identical resampled objects for every contrast."""
     n = len(rows)
     if n < settings["min_publish_count"]:
@@ -42,9 +42,10 @@ def comparison(rows, settings):
     resample = np.random.default_rng(settings["seed"]).integers(0, n, (settings["bootstrap_draws"], n))
     boot = {k: absolute68(v[resample], axis=1) for k, v in motion.items()}
     contrasts = {}
-    for a, b in (("M1", "published_nsc"), ("M2", "published_nsc"), ("M3", "published_nsc"),
+    standard = (("M1", "published_nsc"), ("M2", "published_nsc"), ("M3", "published_nsc"),
                  ("M1", "M0"), ("M2", "M1"), ("M3", "M2"),
-                 ("M3_blind", "published_nsc"), ("M3_blind", "M3")):
+                 ("M3_blind", "published_nsc"), ("M3_blind", "M3"))
+    for a, b in standard + tuple(additional_contrasts):
         if a not in boot or b not in boot:
             continue
         ref = absolute68(motion[b])

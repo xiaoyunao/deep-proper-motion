@@ -86,7 +86,7 @@ def reference_rows(frame, xy, object_ids, gaia_xy, settings, seed):
     return refs
 
 
-def calibration(work, center, config, veto_positions=None):
+def calibration(work, center, config, veto_positions=None, return_references=False):
     settings = config["calibration"]
     full = dict(config, smoke_max_error_mas=settings["astrometric_max_error_mas"])
     full.pop("smoke_max_mag", None)
@@ -128,11 +128,14 @@ def calibration(work, center, config, veto_positions=None):
     holds = {k: summarize(v) for k, v in holdout_positions.items()}
     per_group = {k: dict(offset_mas=v[0], se_mas=np.std(v[1], axis=0, ddof=1), references=v[2])
                  for k, v in offsets.items() if v[2] >= 10 and k.startswith("SDSS:")}
-    return offsets, dict(reference_counts=dict(all=refs.reference.nunique(), train=train.reference.nunique(),
+    summary = dict(reference_counts=dict(all=refs.reference.nunique(), train=train.reference.nunique(),
                                                 holdout=refs.loc[refs.is_holdout].reference.nunique()),
                          groups_before_uncertainty_cut=len(errors),
                          groups_by_survey=dict(Counter(k.split(":")[0] for k in offsets)),
                          heldout_galaxy_position_difference_mas=holds, sdss_run_camcol=per_group)
+    if return_references:
+        return offsets, summary, refs
+    return offsets, summary
 
 
 def fit_with_calibration(xy, t, sigma, epoch, offsets):

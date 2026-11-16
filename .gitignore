@@ -33,3 +33,5 @@
 !/results/
 !/results/summary/
 !/results/summary/*_summary.json
+!/configs/astrometry-v06.toml
+!/reports/experiment_A_v0.6_astrometry.md

@@ -15,6 +15,9 @@ from .io import save_json
 
 
 STAGES = {
+    "dark-precision-v03": ("dark-precision-v03", "dark_precision_summary.json",
+                           ("held_year", "coverage_by_r", "residual_by_r_mas", "qso_coverage",
+                            "qso_motion_masyr", "reference_counts")),
     "chromatic-v03": ("chromatic-v03", "chromatic_summary.json",
                       ("status", "exposure_metadata", "models", "comparison", "coverage")),
     "precision-v03": ("precision-v03", "precision_v03_summary.json",

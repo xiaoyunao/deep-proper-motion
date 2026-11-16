@@ -48,3 +48,11 @@ role = "bright_control"
 ra = 228.82
 dec = -0.31
 radius = 0.10
+
+[dark]
+held_year = 2016
+reference_band = "r"
+min_snr = 5
+gate_mas = 400
+ambiguity_margin_mas = 300
+r_edges = [20, 21, 22, 23]

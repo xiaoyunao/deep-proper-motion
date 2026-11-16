@@ -13,7 +13,7 @@ fi
 kind=$1
 region=$2
 case "$kind" in
-    association|precision|precision-v03|chromatic-v03|precision-contrasts|matched|conflict|prediction|injection|stress|challenge-design|challenge-results) ;;
+    association|precision|precision-v03|chromatic-v03|dark-precision-v03|precision-contrasts|matched|conflict|prediction|injection|stress|challenge-design|challenge-results) ;;
     *) exit 2 ;;
 esac
 [[ $region =~ ^[a-z][a-z0-9_]{0,63}$ ]] || exit 2

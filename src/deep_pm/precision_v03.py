@@ -86,15 +86,17 @@ def reference_rows(frame, xy, object_ids, gaia_xy, settings, seed):
     return refs
 
 
-def calibration(work, center, config):
+def calibration(work, center, config, veto_positions=None):
     settings = config["calibration"]
     full = dict(config, smoke_max_error_mas=settings["astrometric_max_error_mas"])
     full.pop("smoke_max_mag", None)
     data, xy, _, sigma = detection_arrays(work, center, full)
     gaia = pd.read_csv(work / "validation" / "gaia.csv").dropna(subset=["ra", "dec"])
     raw_ids = pd.read_csv(work / "external_labels.csv", dtype=str).set_index("detection_id").original_object_id
-    refs = reference_rows(data, xy, data.detection_id.map(raw_ids), project(gaia.ra, gaia.dec, center),
-                          settings, config["seed"])
+    veto = project(gaia.ra, gaia.dec, center)
+    if veto_positions is not None:
+        veto = np.vstack([veto, veto_positions])
+    refs = reference_rows(data, xy, data.detection_id.map(raw_ids), veto, settings, config["seed"])
     groups = calibration_groups(data)
     train = refs.loc[~refs.is_holdout]
     offsets = fit_offsets(train.reference, xy[train.index], sigma[train.index], groups[train.index],

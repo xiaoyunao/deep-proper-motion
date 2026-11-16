@@ -11,6 +11,7 @@ from .dark_precision import bin_name
 from .nsc_comparison import comparison, qso_matches
 from .paired_control import catalogue_motion, common_catalogue_ids, published_rows
 from .pilot_validation import track_audit
+from .pilot_production import ANCHOR_EXITS
 from .validation import gaia_labels, groups_by_label, ratio
 
 CONTRASTS = (("W0", "published_nsc"),("W1", "published_nsc"),("multi", "published_nsc"),
@@ -58,7 +59,7 @@ def first_exit(label, slots, truth, labels, trace, tracks, nsc, support, recover
             continue
         accepted.append(trace.get(slot,"source_selection_or_competition"))
     if accepted:
-        order=["source_selection_or_competition","time_baseline","m3_support","quality","final"]
+        order=("source_selection_or_competition",)+ANCHOR_EXITS
         furthest=max(accepted,key=order.index)
         return "validation_ambiguity" if furthest=="final" else furthest
     if mixed:

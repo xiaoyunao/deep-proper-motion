@@ -47,6 +47,18 @@ def valid_epochs(index, nsc, time, settings):
             and np.ptp(time[index])>=settings["min_joint_span_years"])
 
 
+ANCHOR_EXITS = ("outside_core", "pointlike_morphology", "no_sdss_position", "anchor_competition",
+                "time_baseline", "m3_support", "quality", "final")
+
+
+def update_anchor_trace(trace, slots, status):
+    if trace is None:
+        return
+    for slot in slots:
+        if slot >= 0 and (slot not in trace or ANCHOR_EXITS.index(trace[slot]) < ANCHOR_EXITS.index(status)):
+            trace[slot] = status
+
+
 def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None):
     prod = settings["production"]
     group = calibration_groups(data)
@@ -65,15 +77,27 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
     results = {}
     for anchor in initial:
         position = np.median(xy[anchor],axis=0)
-        if np.linalg.norm(position)>limit or np.median(morphology[anchor])<.8:
+        if trace is not None:
+            touched = np.unique(owner[anchor])
+        if np.linalg.norm(position)>limit:
+            if trace is not None:
+                update_anchor_trace(trace,touched,"outside_core")
+            continue
+        if np.median(morphology[anchor])<.8:
+            if trace is not None:
+                update_anchor_trace(trace,touched,"pointlike_morphology")
             continue
         bucket = bin_name(np.median(mag[anchor]),settings["reference_r_edges"])
         stats = p.setdefault(bucket, Counter({step:0 for step in STAGES}))
         stats["initial"] += 1
         if sdss_tree.query(position)[0] > prod["match_radius_mas"]:
             stats["no_sdss_within_fixed_gate"] += 1
+            if trace is not None:
+                update_anchor_trace(trace,touched,"no_sdss_position")
             continue
         stats["sdss_nearby"] += 1
+        if trace is not None:
+            update_anchor_trace(trace,touched,"anchor_competition")
         overlap = Counter(owner[anchor])
         j, covered = overlap.most_common(1)[0]
         if j<0:
@@ -87,21 +111,18 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         if j in results:
             raise ValueError("Two independent NSC anchors own one final track.")
         stats["associated"] += 1
-        if trace is not None:
-            trace[j] = "time_baseline"
+        update_anchor_trace(trace,[j],"time_baseline")
         if not valid_epochs(index,nsc,time,prod):
             stats["insufficient_time_sampling"] += 1
             continue
         stats["fit_eligible"] += 1
-        if trace is not None:
-            trace[j] = "m3_support"
+        update_anchor_trace(trace,[j],"m3_support")
         use = index[support[index]]
         if not valid_epochs(use,nsc,time,prod):
             stats["insufficient_calibration_coverage"] += 1
             continue
         stats["calibrated"] += 1
-        if trace is not None:
-            trace[j] = "quality"
+        update_anchor_trace(trace,[j],"quality")
         model, error = fit_with_calibration(xy[use],time[use],sigma[use],config["reference_epoch"],
                                             [offsets[k] for k in group[use]])
         if (not np.isfinite(error).all() or error.max()>prod["max_axis_pm_error_masyr"]
@@ -109,8 +130,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             stats["final_quality_rejection"] += 1
             continue
         stats["final"] += 1
-        if trace is not None:
-            trace[j] = "final"
+        update_anchor_trace(trace,[j],"final")
         if fits is not None:
             fits[j] = model
         results[j] = (model.coeff[0], model.coeff[1], error, bucket, use, len(index))

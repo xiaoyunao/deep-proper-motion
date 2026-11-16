@@ -130,6 +130,8 @@ def calibrate_errors(data, xy, raw, corrected, refs, features, groups, support, 
 
 
 def augment_tracks(tracks, data, xy, eligible, r_keep, prod):
+    if not tracks:
+        return []
     anchors = np.array([np.median(xy[index],axis=0) for index in tracks])
     tree = cKDTree(anchors)
     extra = defaultdict(list)

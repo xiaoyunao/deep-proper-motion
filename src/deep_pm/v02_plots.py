@@ -216,8 +216,12 @@ def plot_challenge(row, out):
                     ax.vlines(pos, lo, hi, colors=COLORS[j], alpha=.72, linewidth=1.5)
                     ax.scatter(pos, result["value"], color=COLORS[j], s=24, zorder=3)
             ax.scatter([], [], color=COLORS[j], s=24, label=title)
-        ax.set(xticks=x, xticklabels=[f"{name}\n{cell['eligible']['n']}/{cell['frozen']} eligible"
-                                     for name, cell in cells],
+        captions = [
+            f"{name}\n{cell['eligible']['n']}/{cell['frozen']} eligible"
+            if cell["frozen"] else f"{name}\nNo target"
+            for name, cell in cells
+        ]
+        ax.set(xticks=x, xticklabels=captions,
                xlim=(-.45, len(cells) - .55), ylim=(-.045, 1.08),
                title="Development" if split == "dev" else "Independent test",
                xlabel="Gaia proper-motion bin (mas/yr)")

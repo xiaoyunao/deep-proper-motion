@@ -1,0 +1,1053 @@
+{
+  "inventory": {
+    "area_sq_deg": 0.031415918561158725,
+    "counts": {
+      "NSC": {
+        "detections": 378294,
+        "core_detections": 279764,
+        "exposures": 1801,
+        "nights": 350,
+        "years": {
+          "2013": 79748,
+          "2014": 70870,
+          "2015": 66977,
+          "2016": 64233,
+          "2017": 59641,
+          "2018": 33616,
+          "2019": 3209
+        },
+        "groups": 9,
+        "bands": {
+          "i": 108057,
+          "z": 90314,
+          "r": 87486,
+          "Y": 48061,
+          "g": 36087,
+          "u": 8140,
+          "VR": 149
+        },
+        "missing_time": 0,
+        "missing_error": 0
+      },
+      "SDSS": {
+        "detections": 22880,
+        "core_detections": 16987,
+        "exposures": 41,
+        "nights": 41,
+        "years": {
+          "1998": 1176,
+          "2000": 178,
+          "2001": 3420,
+          "2002": 3354,
+          "2003": 2898,
+          "2004": 4370,
+          "2007": 174
+        },
+        "groups": 7,
+        "bands": {
+          "r": 22880
+        },
+        "missing_time": 7310,
+        "missing_error": 2
+      }
+    },
+    "usable_for_association": 242527
+  },
+  "validation": {
+    "gaia_rows": 120,
+    "challenge_target_requested": false,
+    "labeled_detections": 62450,
+    "truth_cross_survey": 32,
+    "methods": {
+      "fixed": {
+        "candidate_recall": {
+          "n": 31,
+          "denominator": 32,
+          "value": 0.96875,
+          "wilson95": [
+            0.8425573617998744,
+            0.9944621398359969
+          ]
+        },
+        "selected_recall": {
+          "n": 31,
+          "denominator": 32,
+          "value": 0.96875,
+          "wilson95": [
+            0.8425573617998744,
+            0.9944621398359969
+          ]
+        },
+        "end_to_end_selected_pm": {
+          "n": 31,
+          "median_masyr": [
+            -1.7486741204724154,
+            -0.9356866947292364
+          ],
+          "nmad_masyr": [
+            0.7215346364020714,
+            0.8335360819492775
+          ]
+        },
+        "end_to_end_secure_pm": {
+          "n": 0
+        },
+        "secure_recall": null,
+        "ambiguous_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "tentative_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "unresolved_fraction": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "motion_compatible": {
+          "n": 6,
+          "denominator": 32,
+          "value": 0.1875,
+          "wilson95": [
+            0.08889544689565954,
+            0.3530915520137596
+          ]
+        },
+        "object_confirmation": {
+          "confirmed": 30,
+          "discordant": 0,
+          "unknown": 459,
+          "unknown_members": 115316,
+          "discordant_members": 0,
+          "labelled_members": 49095,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 30,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.11351339317396876
+            ]
+          },
+          "bounds_with_unknown": [
+            0.0,
+            0.9386503067484663
+          ]
+        },
+        "secure_object_confirmation": {
+          "confirmed": 0,
+          "discordant": 0,
+          "unknown": 0,
+          "unknown_members": 0,
+          "discordant_members": 0,
+          "labelled_members": 0,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "bounds_with_unknown": null
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 28,
+            "denominator": 28,
+            "value": 1.0,
+            "wilson95": [
+              0.8793566952341543,
+              0.9999999999999998
+            ],
+            "candidate": {
+              "n": 28,
+              "denominator": 28,
+              "value": 1.0,
+              "wilson95": [
+                0.8793566952341543,
+                0.9999999999999998
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 3,
+            "denominator": 3,
+            "value": 1.0,
+            "wilson95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "candidate": {
+              "n": 3,
+              "denominator": 3,
+              "value": 1.0,
+              "wilson95": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ],
+            "candidate": {
+              "n": 0,
+              "denominator": 1,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          }
+        ]
+      },
+      "nsc_like": {
+        "candidate_recall": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "selected_recall": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "end_to_end_selected_pm": {
+          "n": 32,
+          "median_masyr": [
+            -1.750425587590767,
+            -0.9849281309965381
+          ],
+          "nmad_masyr": [
+            0.7238254849952673,
+            0.8243577234871033
+          ]
+        },
+        "end_to_end_secure_pm": {
+          "n": 0
+        },
+        "secure_recall": null,
+        "ambiguous_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "tentative_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "unresolved_fraction": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "motion_compatible": {
+          "n": 7,
+          "denominator": 32,
+          "value": 0.21875,
+          "wilson95": [
+            0.11023836252604186,
+            0.3875499364924353
+          ]
+        },
+        "object_confirmation": {
+          "confirmed": 30,
+          "discordant": 0,
+          "unknown": 456,
+          "unknown_members": 116015,
+          "discordant_members": 0,
+          "labelled_members": 50701,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 30,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.11351339317396876
+            ]
+          },
+          "bounds_with_unknown": [
+            0.0,
+            0.9382716049382716
+          ]
+        },
+        "secure_object_confirmation": {
+          "confirmed": 0,
+          "discordant": 0,
+          "unknown": 0,
+          "unknown_members": 0,
+          "discordant_members": 0,
+          "labelled_members": 0,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "bounds_with_unknown": null
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 28,
+            "denominator": 28,
+            "value": 1.0,
+            "wilson95": [
+              0.8793566952341543,
+              0.9999999999999998
+            ],
+            "candidate": {
+              "n": 28,
+              "denominator": 28,
+              "value": 1.0,
+              "wilson95": [
+                0.8793566952341543,
+                0.9999999999999998
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 3,
+            "denominator": 3,
+            "value": 1.0,
+            "wilson95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "candidate": {
+              "n": 3,
+              "denominator": 3,
+              "value": 1.0,
+              "wilson95": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ],
+            "candidate": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          }
+        ]
+      },
+      "motion": {
+        "candidate_recall": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "selected_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "end_to_end_selected_pm": {
+          "n": 0
+        },
+        "end_to_end_secure_pm": {
+          "n": 0
+        },
+        "secure_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "ambiguous_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "tentative_recall": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "unresolved_fraction": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "motion_compatible": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "object_confirmation": {
+          "confirmed": 0,
+          "discordant": 0,
+          "unknown": 0,
+          "unknown_members": 0,
+          "discordant_members": 0,
+          "labelled_members": 0,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "bounds_with_unknown": null
+        },
+        "secure_object_confirmation": {
+          "confirmed": 0,
+          "discordant": 0,
+          "unknown": 0,
+          "unknown_members": 0,
+          "discordant_members": 0,
+          "labelled_members": 0,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "bounds_with_unknown": null
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 0,
+            "denominator": 28,
+            "value": 0.0,
+            "wilson95": [
+              1.3877787807814457e-17,
+              0.12064330476584563
+            ],
+            "candidate": {
+              "n": 28,
+              "denominator": 28,
+              "value": 1.0,
+              "wilson95": [
+                0.8793566952341543,
+                0.9999999999999998
+              ]
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 28,
+              "value": 0.0,
+              "wilson95": [
+                1.3877787807814457e-17,
+                0.12064330476584563
+              ]
+            }
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "candidate": {
+              "n": 3,
+              "denominator": 3,
+              "value": 1.0,
+              "wilson95": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 3,
+              "value": 0.0,
+              "wilson95": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            }
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ],
+            "candidate": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 1,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.7934506856227626
+              ]
+            }
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          }
+        ]
+      }
+    },
+    "recovery_stages": {
+      "has_input": {
+        "total": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        }
+      },
+      "generated": {
+        "total": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        }
+      },
+      "screened": {
+        "total": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        }
+      },
+      "retained": {
+        "total": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 32,
+          "denominator": 32,
+          "value": 1.0,
+          "wilson95": [
+            0.8928208017449293,
+            1.0
+          ]
+        }
+      },
+      "conflict_optimal": {
+        "total": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "conditional": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        }
+      },
+      "selected_optimal": {
+        "total": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "conditional": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        }
+      },
+      "secure": {
+        "total": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "conditional": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        }
+      },
+      "pm_compatible_secure": {
+        "total": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "conditional": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        }
+      }
+    },
+    "paired": {
+      "all_sdss": {
+        "n": 32,
+        "median_masyr": [
+          -1.750425587590767,
+          -0.9849281309965381
+        ],
+        "nmad_masyr": [
+          0.7238254849952673,
+          0.8243577234871033
+        ],
+        "median_baseline_yr": 21.1462908252455,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "median_abs_normalized": [
+          2.7996786670949567,
+          1.621651164936789
+        ]
+      },
+      "nsc_only": {
+        "n": 32,
+        "median_masyr": [
+          0.09017993566407201,
+          0.42326328348639297
+        ],
+        "nmad_masyr": [
+          0.5945250693412069,
+          1.1633548726250647
+        ],
+        "median_baseline_yr": 6.7897528384553425,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "median_abs_normalized": [
+          0.3133258374367468,
+          1.0566154067916274
+        ]
+      },
+      "one_sdss": {
+        "n": 32,
+        "median_masyr": [
+          -0.08377851640661649,
+          0.2646734871582206
+        ],
+        "nmad_masyr": [
+          0.4032352360178318,
+          1.222023015176135
+        ],
+        "median_baseline_yr": 21.1462908252455,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 32,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.1071791982550706
+          ]
+        },
+        "median_abs_normalized": [
+          0.31848049670518774,
+          0.843572082373929
+        ]
+      }
+    }
+  },
+  "resources": {
+    "seed_detections": 20618,
+    "seed_pairs": 447688,
+    "seed_budget_exhausted": false,
+    "generated": 439724,
+    "screened": 226576,
+    "candidates": 196520,
+    "difficult_components": 1,
+    "solver_states": {
+      "optimal": 5,
+      "feasible_incumbent": 0,
+      "unresolved": 1
+    },
+    "seconds": 5578.99953325995,
+    "maxrss_kib": 8547032
+  },
+  "region": "dev_repeat",
+  "role": "new_development",
+  "receipt": {
+    "commit": "b1fe13d9364b645188e6fb4e745ed448a9126df0",
+    "config_sha256": "76a3a8b9b07d79789e42a14e89be15bd1038280ad930bb9db35df4faa834023d",
+    "aggregate_sha256": "7ffb70f5bec593ba7a8287cf399a5662753f8504a85ff409cc75956a15785a0b",
+    "slurm_job": "61398724",
+    "stage": "report"
+  }
+}

@@ -1,0 +1,1234 @@
+{
+  "cohort": "gaia_challenge",
+  "design_receipt": {
+    "commit": "87cbdcdd4f4b3e0edb052833feae0ff6c11f967b",
+    "config_sha256": "76a3a8b9b07d79789e42a14e89be15bd1038280ad930bb9db35df4faa834023d",
+    "aggregate_sha256": "62ab680cb111f474cda9f170c3f068b0738252fa4408b947ed9e1a9e9c6a2737",
+    "slurm_job": "61397196",
+    "stage": "prepare-challenge"
+  },
+  "analysis_commit": "87cbdcdd4f4b3e0edb052833feae0ff6c11f967b",
+  "analysis_config_sha256": "bede74cb7c2f35044a42e2491e36e04cd4b5d6b87f03df42cbe737ce0e2e4bb9",
+  "bins": {
+    "dev/100-200": {
+      "frozen": 12,
+      "measured": 12,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 9,
+        "denominator": 12,
+        "value": 0.75,
+        "wilson95": [
+          0.46769466506643426,
+          0.9110583316059453
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 9,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.2991450484195441
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 12,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 9,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.2991450484195441
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 12,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 8,
+            "denominator": 9,
+            "value": 0.8888888888888888,
+            "wilson95": [
+              0.5650002944233439,
+              0.9801091123614551
+            ]
+          },
+          "among_frozen": {
+            "n": 8,
+            "denominator": 12,
+            "value": 0.6666666666666666,
+            "wilson95": [
+              0.39062208887279953,
+              0.8618799089087867
+            ]
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 9,
+          "denominator": 9,
+          "value": 1.0,
+          "wilson95": [
+            0.7008549515804559,
+            1.0
+          ]
+        },
+        "screened": {
+          "n": 9,
+          "denominator": 9,
+          "value": 1.0,
+          "wilson95": [
+            0.7008549515804559,
+            1.0
+          ]
+        },
+        "retained": {
+          "n": 9,
+          "denominator": 9,
+          "value": 1.0,
+          "wilson95": [
+            0.7008549515804559,
+            1.0
+          ]
+        },
+        "conflict_optimal": {
+          "n": 9,
+          "denominator": 9,
+          "value": 1.0,
+          "wilson95": [
+            0.7008549515804559,
+            1.0
+          ]
+        },
+        "selected_optimal": {
+          "n": 8,
+          "denominator": 9,
+          "value": 0.8888888888888888,
+          "wilson95": [
+            0.5650002944233439,
+            0.9801091123614551
+          ]
+        },
+        "secure": {
+          "n": 7,
+          "denominator": 9,
+          "value": 0.7777777777777778,
+          "wilson95": [
+            0.45258896910698887,
+            0.9367748928821533
+          ]
+        },
+        "pm_compatible_secure": {
+          "n": 4,
+          "denominator": 9,
+          "value": 0.4444444444444444,
+          "wilson95": [
+            0.18877852109766452,
+            0.733348706504507
+          ]
+        }
+      },
+      "unknown_truth_status": 0
+    },
+    "dev/200-500": {
+      "frozen": 12,
+      "measured": 12,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 8,
+        "denominator": 12,
+        "value": 0.6666666666666666,
+        "wilson95": [
+          0.39062208887279953,
+          0.8618799089087867
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 8,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 12,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 8,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 12,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 8,
+            "denominator": 8,
+            "value": 1.0,
+            "wilson95": [
+              0.6755924351161198,
+              1.0
+            ]
+          },
+          "among_frozen": {
+            "n": 8,
+            "denominator": 12,
+            "value": 0.6666666666666666,
+            "wilson95": [
+              0.39062208887279953,
+              0.8618799089087867
+            ]
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "wilson95": [
+            0.6755924351161198,
+            1.0
+          ]
+        },
+        "screened": {
+          "n": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "wilson95": [
+            0.6755924351161198,
+            1.0
+          ]
+        },
+        "retained": {
+          "n": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "wilson95": [
+            0.6755924351161198,
+            1.0
+          ]
+        },
+        "conflict_optimal": {
+          "n": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "wilson95": [
+            0.6755924351161198,
+            1.0
+          ]
+        },
+        "selected_optimal": {
+          "n": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "wilson95": [
+            0.6755924351161198,
+            1.0
+          ]
+        },
+        "secure": {
+          "n": 6,
+          "denominator": 8,
+          "value": 0.75,
+          "wilson95": [
+            0.40927543031016883,
+            0.9285207872478909
+          ]
+        },
+        "pm_compatible_secure": {
+          "n": 5,
+          "denominator": 8,
+          "value": 0.625,
+          "wilson95": [
+            0.30574239460262737,
+            0.8631557141764026
+          ]
+        }
+      },
+      "unknown_truth_status": 0
+    },
+    "dev/500-1000": {
+      "frozen": 3,
+      "measured": 3,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 3,
+        "denominator": 3,
+        "value": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 3,
+            "denominator": 3,
+            "value": 1.0,
+            "wilson95": [
+              0.4385029682449546,
+              1.0
+            ]
+          },
+          "among_frozen": {
+            "n": 3,
+            "denominator": 3,
+            "value": 1.0,
+            "wilson95": [
+              0.4385029682449546,
+              1.0
+            ]
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "screened": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "retained": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "conflict_optimal": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "selected_optimal": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "secure": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "pm_compatible_secure": {
+          "n": 2,
+          "denominator": 3,
+          "value": 0.6666666666666666,
+          "wilson95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ]
+        }
+      },
+      "unknown_truth_status": 0
+    },
+    "dev/1000-2000": {
+      "frozen": 0,
+      "measured": 0,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "screened": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "retained": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "conflict_optimal": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "selected_optimal": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "secure": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "pm_compatible_secure": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        }
+      },
+      "unknown_truth_status": 0
+    },
+    "test/100-200": {
+      "frozen": 12,
+      "measured": 12,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 10,
+        "denominator": 12,
+        "value": 0.8333333333333334,
+        "wilson95": [
+          0.5519691377470266,
+          0.9530348578161463
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 10,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.2775327998628892
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 12,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 3,
+            "denominator": 10,
+            "value": 0.3,
+            "wilson95": [
+              0.10779126740630099,
+              0.6032218525388546
+            ]
+          },
+          "among_frozen": {
+            "n": 3,
+            "denominator": 12,
+            "value": 0.25,
+            "wilson95": [
+              0.08894166839405471,
+              0.5323053349335657
+            ]
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 7,
+            "denominator": 10,
+            "value": 0.7,
+            "wilson95": [
+              0.39677814746114537,
+              0.8922087325936989
+            ]
+          },
+          "among_frozen": {
+            "n": 7,
+            "denominator": 12,
+            "value": 0.5833333333333334,
+            "wilson95": [
+              0.31951131254954973,
+              0.8067396863412435
+            ]
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 10,
+          "denominator": 10,
+          "value": 1.0,
+          "wilson95": [
+            0.7224672001371107,
+            0.9999999999999999
+          ]
+        },
+        "screened": {
+          "n": 10,
+          "denominator": 10,
+          "value": 1.0,
+          "wilson95": [
+            0.7224672001371107,
+            0.9999999999999999
+          ]
+        },
+        "retained": {
+          "n": 10,
+          "denominator": 10,
+          "value": 1.0,
+          "wilson95": [
+            0.7224672001371107,
+            0.9999999999999999
+          ]
+        },
+        "conflict_optimal": {
+          "n": 10,
+          "denominator": 10,
+          "value": 1.0,
+          "wilson95": [
+            0.7224672001371107,
+            0.9999999999999999
+          ]
+        },
+        "selected_optimal": {
+          "n": 7,
+          "denominator": 10,
+          "value": 0.7,
+          "wilson95": [
+            0.39677814746114537,
+            0.8922087325936989
+          ]
+        },
+        "secure": {
+          "n": 7,
+          "denominator": 10,
+          "value": 0.7,
+          "wilson95": [
+            0.39677814746114537,
+            0.8922087325936989
+          ]
+        },
+        "pm_compatible_secure": {
+          "n": 5,
+          "denominator": 10,
+          "value": 0.5,
+          "wilson95": [
+            0.236593090512564,
+            0.7634069094874361
+          ]
+        }
+      },
+      "unknown_truth_status": 0
+    },
+    "test/200-500": {
+      "frozen": 12,
+      "measured": 12,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 11,
+        "denominator": 12,
+        "value": 0.9166666666666666,
+        "wilson95": [
+          0.646120088858883,
+          0.9851349055950829
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 11,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.2588329669680317
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 12,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 11,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.2588329669680317
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 12,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 11,
+            "denominator": 11,
+            "value": 1.0,
+            "wilson95": [
+              0.7411670330319684,
+              1.0
+            ]
+          },
+          "among_frozen": {
+            "n": 11,
+            "denominator": 12,
+            "value": 0.9166666666666666,
+            "wilson95": [
+              0.646120088858883,
+              0.9851349055950829
+            ]
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 11,
+          "denominator": 11,
+          "value": 1.0,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        },
+        "screened": {
+          "n": 11,
+          "denominator": 11,
+          "value": 1.0,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        },
+        "retained": {
+          "n": 11,
+          "denominator": 11,
+          "value": 1.0,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        },
+        "conflict_optimal": {
+          "n": 11,
+          "denominator": 11,
+          "value": 1.0,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        },
+        "selected_optimal": {
+          "n": 11,
+          "denominator": 11,
+          "value": 1.0,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        },
+        "secure": {
+          "n": 11,
+          "denominator": 11,
+          "value": 1.0,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        },
+        "pm_compatible_secure": {
+          "n": 9,
+          "denominator": 11,
+          "value": 0.8181818181818182,
+          "wilson95": [
+            0.523019438039156,
+            0.9486323102539149
+          ]
+        }
+      },
+      "unknown_truth_status": 0
+    },
+    "test/500-1000": {
+      "frozen": 3,
+      "measured": 3,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 3,
+        "denominator": 3,
+        "value": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 1,
+            "denominator": 3,
+            "value": 0.3333333333333333,
+            "wilson95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ]
+          },
+          "among_frozen": {
+            "n": 1,
+            "denominator": 3,
+            "value": 0.3333333333333333,
+            "wilson95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ]
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "screened": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "retained": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "conflict_optimal": {
+          "n": 3,
+          "denominator": 3,
+          "value": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "selected_optimal": {
+          "n": 1,
+          "denominator": 3,
+          "value": 0.3333333333333333,
+          "wilson95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "secure": {
+          "n": 1,
+          "denominator": 3,
+          "value": 0.3333333333333333,
+          "wilson95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "pm_compatible_secure": {
+          "n": 1,
+          "denominator": 3,
+          "value": 0.3333333333333333,
+          "wilson95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        }
+      },
+      "unknown_truth_status": 0
+    },
+    "test/1000-2000": {
+      "frozen": 0,
+      "measured": 0,
+      "coverage_only": 0,
+      "eligible": {
+        "n": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      "selected": {
+        "fixed": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        },
+        "nsc_like": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        },
+        "motion": {
+          "among_eligible": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "among_frozen": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        }
+      },
+      "motion_stages": {
+        "generated": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "screened": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "retained": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "conflict_optimal": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "selected_optimal": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "secure": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "pm_compatible_secure": {
+          "n": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        }
+      },
+      "unknown_truth_status": 0
+    }
+  },
+  "parallax_threshold_mas": 10,
+  "by_parallax": {
+    "dev/large_abs_parallax": {
+      "measured": 12,
+      "eligible": {
+        "n": 8,
+        "denominator": 12,
+        "value": 0.6666666666666666,
+        "wilson95": [
+          0.39062208887279953,
+          0.8618799089087867
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "n": 0,
+          "denominator": 8,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.32440756488388023
+          ]
+        },
+        "nsc_like": {
+          "n": 0,
+          "denominator": 8,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.32440756488388023
+          ]
+        },
+        "motion": {
+          "n": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "wilson95": [
+            0.6755924351161198,
+            1.0
+          ]
+        }
+      }
+    },
+    "dev/small_abs_parallax": {
+      "measured": 15,
+      "eligible": {
+        "n": 12,
+        "denominator": 15,
+        "value": 0.8,
+        "wilson95": [
+          0.5481455128483065,
+          0.9295245065301844
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "n": 0,
+          "denominator": 12,
+          "value": 0.0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.24249400665524085
+          ]
+        },
+        "nsc_like": {
+          "n": 0,
+          "denominator": 12,
+          "value": 0.0,
+          "wilson95": [
+            2.7755575615628914e-17,
+            0.24249400665524085
+          ]
+        },
+        "motion": {
+          "n": 11,
+          "denominator": 12,
+          "value": 0.9166666666666666,
+          "wilson95": [
+            0.646120088858883,
+            0.9851349055950829
+          ]
+        }
+      }
+    },
+    "test/large_abs_parallax": {
+      "measured": 7,
+      "eligible": {
+        "n": 5,
+        "denominator": 7,
+        "value": 0.7142857142857143,
+        "wilson95": [
+          0.35893445183261935,
+          0.9177810759959433
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "n": 0,
+          "denominator": 5,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.43448246478317476
+          ]
+        },
+        "nsc_like": {
+          "n": 1,
+          "denominator": 5,
+          "value": 0.2,
+          "wilson95": [
+            0.03622410863243014,
+            0.6244653702374747
+          ]
+        },
+        "motion": {
+          "n": 4,
+          "denominator": 5,
+          "value": 0.8,
+          "wilson95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ]
+        }
+      }
+    },
+    "test/small_abs_parallax": {
+      "measured": 20,
+      "eligible": {
+        "n": 19,
+        "denominator": 20,
+        "value": 0.95,
+        "wilson95": [
+          0.763868806553258,
+          0.9911185511992047
+        ]
+      },
+      "selected": {
+        "fixed": {
+          "n": 0,
+          "denominator": 19,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.16817922405261626
+          ]
+        },
+        "nsc_like": {
+          "n": 2,
+          "denominator": 19,
+          "value": 0.10526315789473684,
+          "wilson95": [
+            0.02935856029887013,
+            0.31394082711109006
+          ]
+        },
+        "motion": {
+          "n": 15,
+          "denominator": 19,
+          "value": 0.7894736842105263,
+          "wilson95": [
+            0.5666572155618583,
+            0.9149232336708375
+          ]
+        }
+      }
+    }
+  },
+  "coverage_only_zero_survey_returns": {}
+}

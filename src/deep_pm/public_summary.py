@@ -1,0 +1,142 @@
+"""Export verified aggregate JSON from a versioned Scratch run."""
+import argparse
+from hashlib import sha256
+import json
+from pathlib import Path
+import re
+import sys
+
+try:
+    import tomllib
+except ImportError:
+    import tomli as tomllib
+
+from .io import save_json
+
+
+STAGES = {
+    "association": (r"report", "summary/{region}_summary.json",
+                    ("inventory", "validation", "resources")),
+    "precision": (r"paired-control", "paired_control_summary.json",
+                  ("truth_sources", "exclusion_counts", "fixed_truth_three_way",
+                   "fixed_truth_common_four_way", "shared_error_sensitivity",
+                   "sdss_run_heldout", "sdss_run_camera_residual")),
+    "prediction": (r"prediction-control", "prediction_control_summary.json",
+                   ("held_year", "translated_control")),
+    "injection": (r"injection-[0-9]+", "v02_injection_summary.json",
+                  ("footprint_visits", "halo_deg", "bins")),
+    "stress": (r"stress-[0-9]+", "v02_stress_summary.json",
+               ("footprint_visits", "halo_deg", "bins")),
+    "challenge-design": (r"prepare-challenge", "challenge_sample_summary.json",
+                         ("counts", "bins")),
+}
+METADATA = {"region", "role", "receipt"}
+PRIVATE_KEYS = {"source_id", "source_ids", "object_ids", "objid", "objids", "detection_id",
+                "detection_ids", "designation", "track_id", "indices", "ra", "dec",
+                "cases", "trace", "rows", "catalogue_rows"}
+REGION = re.compile(r"[a-z][a-z0-9_]{0,63}")
+HEX = {n: re.compile(rf"[0-9a-f]{{{n}}}") for n in (40, 64)}
+
+
+def check_aggregate(value):
+    if isinstance(value, dict):
+        if PRIVATE_KEYS & value.keys():
+            raise ValueError("Aggregate contains individual catalogue fields")
+        for item in value.values():
+            check_aggregate(item)
+    elif isinstance(value, list):
+        for item in value:
+            check_aggregate(item)
+
+
+def check_payload(kind, region, payload):
+    if not REGION.fullmatch(region) or payload.get("region") != region:
+        raise ValueError("Unexpected region")
+    _, _, keys = STAGES[kind]
+    if set(payload) - METADATA != set(keys):
+        raise ValueError("Unexpected aggregate schema")
+    if not REGION.fullmatch(payload["role"]):
+        raise ValueError("Unexpected cohort role")
+    receipt = payload["receipt"]
+    if set(receipt) != {"commit", "config_sha256", "aggregate_sha256", "slurm_job", "stage"}:
+        raise ValueError("Unexpected receipt schema")
+    for key, length in (("commit", 40), ("config_sha256", 64), ("aggregate_sha256", 64)):
+        if not HEX[length].fullmatch(receipt[key]):
+            raise ValueError("Malformed revision or checksum")
+    if not re.fullmatch(STAGES[kind][0], receipt["stage"]):
+        raise ValueError("Receipt belongs to a different stage")
+    job = receipt["slurm_job"]
+    if job is not None and not re.fullmatch(r"[0-9]+(?:_[0-9]+)?", job):
+        raise ValueError("Unexpected Slurm job identifier")
+    check_aggregate(payload)
+
+
+def verify_stage_hashes(stages):
+    seen = {}
+    for attempts in stages.values():
+        if not attempts or attempts[-1]["state"] != "completed":
+            continue
+        stage = attempts[-1]
+        for kind in ("inputs", "outputs"):
+            for name, checksum in stage.get(kind, {}).items():
+                if seen.setdefault(name, checksum) != checksum:
+                    raise ValueError("Completed stages disagree on an input or output checksum")
+
+
+def export(run_root, kind, region):
+    if not REGION.fullmatch(region):
+        raise ValueError("Invalid region name")
+    directory = run_root if kind == "challenge-design" else run_root / region
+    stage_pattern, relative, fields = STAGES[kind]
+    relative = relative.format(region=region)
+    manifest = json.loads((directory / "run_manifest.json").read_bytes())
+    if manifest["region"] != region:
+        raise ValueError("Manifest belongs to a different region")
+    config_bytes = (directory / "config_snapshot.toml").read_bytes()
+    config_hash = sha256(config_bytes).hexdigest()
+    if config_hash != manifest["config_sha256"]:
+        raise ValueError("Frozen configuration checksum differs")
+    completed = [(name, attempts[-1]) for name, attempts in manifest["stages"].items()
+                 if re.fullmatch(stage_pattern, name) and attempts
+                 and attempts[-1]["state"] == "completed" and relative in attempts[-1]["outputs"]]
+    if len(completed) != 1:
+        raise ValueError("Exactly one completed stage must record this aggregate")
+    verify_stage_hashes(manifest["stages"])
+    name, attempt = completed[0]
+    summary_bytes = (directory / relative).read_bytes()
+    sha = sha256(summary_bytes).hexdigest()
+    if sha != attempt["outputs"][relative]:
+        raise ValueError("Aggregate checksum differs from completed stage")
+    aggregate = json.loads(summary_bytes)
+    config = tomllib.loads(config_bytes.decode())
+    role = "challenge_design" if kind == "challenge-design" else config["regions"][region]["role"]
+    payload = {key: aggregate[key] for key in fields}
+    payload.update(region=region, role=role, receipt=dict(
+        commit=manifest["commit"], config_sha256=config_hash, aggregate_sha256=sha,
+        slurm_job=attempt.get("slurm_job"), stage=name))
+    check_payload(kind, region, payload)
+    return payload
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("command", choices=["export", "accept"])
+    parser.add_argument("kind", choices=STAGES)
+    parser.add_argument("region")
+    parser.add_argument("directory", type=Path)
+    args = parser.parse_args()
+    if args.command == "export":
+        print(json.dumps(export(args.directory, args.kind, args.region), allow_nan=False))
+    else:
+        payload = json.load(sys.stdin)
+        check_payload(args.kind, args.region, payload)
+        receipt = payload["receipt"]
+        stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
+        target = args.directory / f"v02_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
+        if target.is_file() and json.loads(target.read_bytes()) != payload:
+            raise ValueError("A different aggregate already exists for this run")
+        save_json(target, payload)
+
+
+if __name__ == "__main__":
+    main()

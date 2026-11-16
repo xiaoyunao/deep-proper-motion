@@ -38,8 +38,11 @@ def run_stage(work, config_path, region, stage, inputs=(), outputs=()):
         stages = record["stages"]
         for key, attempts in stages.items():
             last = attempts[-1]
-            if last["state"] == "completed" and hash_files(work, last["outputs"]) != last["outputs"]:
-                raise ValueError(f"Recorded outputs changed after {key}")
+            if last["state"] != "completed":
+                continue
+            for kind in ("inputs", "outputs"):
+                if hash_files(work, last[kind]) != last[kind]:
+                    raise ValueError(f"Recorded {kind} changed after {key}")
         attempts = stages.setdefault(stage, [])
         current_inputs = hash_files(work, inputs)
         if attempts and attempts[-1]["state"] == "completed":
@@ -53,6 +56,8 @@ def run_stage(work, config_path, region, stage, inputs=(), outputs=()):
         save_json(manifest, record)
         try:
             yield True
+            if hash_files(work, inputs) != current_inputs:
+                raise ValueError(f"Inputs changed during {stage}")
             attempt.update(state="completed", outputs=hash_files(work, outputs))
         except BaseException as exc:
             attempt.update(state="failed", error_type=type(exc).__name__)

@@ -28,3 +28,7 @@ NSC 使用发布的芯片顶点，SDSS 使用 DR17 扫描坐标范围及 TAI。�
 - 阶段程序须在 NERSC CPU 作业中执行。程序检查运行提交、配置和输出校验值；目录不复用跨提交的同名产物。逐检测、逐源、轨迹及 Gaia 文件留在 Scratch。绘图可用脱敏聚合统计离线生成。
 
 当前阶段状态与待验证项见 [进度报告](../reports/experiment_A_v0.2.md)。
+
+## 核验与同步
+
+在本地为 `scripts/sync-v02-summary.sh` 设置 `DEEP_PM_SSH_TARGET`、`DEEP_PM_REMOTE_PROJECT`、`DEEP_PM_REMOTE_RUN` 和 `DEEP_PM_EXPORT_REVISION`。最后一项是已部署的汇总导出代码提交，可以独立于实际计算提交。用 `bash scripts/sync-v02-summary.sh association smoke` 或 `bash scripts/sync-v02-summary.sh precision pal5` 拉取已结束阶段的聚合统计。导出核对配置与产物校验值，检查阶段之间的输入一致性，并把汇总的代码版本、配置校验和、产物校验和与 Slurm 作业号写入回执。旧缓存回归的角色从冻结配置补齐。图表可从这些聚合数据重绘。

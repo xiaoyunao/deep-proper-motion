@@ -25,3 +25,17 @@ class ProvenanceTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 with run_stage(path, config, "smoke", "report", ["tracks.json"]):
                     pass
+
+    @patch("deep_pm.provenance.subprocess.check_output", return_value="snapshot")
+    def test_later_stage_rejects_mutated_source_catalogue(self, _):
+        with TemporaryDirectory() as folder:
+            path = Path(folder)
+            config = path / "config.toml"
+            config.write_text("seed=1")
+            (path / "detections.csv").write_text("first population")
+            with run_stage(path, config, "smoke", "associate", ["detections.csv"], ["tracks.json"]):
+                (path / "tracks.json").write_text("tracks")
+            (path / "detections.csv").write_text("changed population")
+            with self.assertRaisesRegex(ValueError, "inputs changed after associate"):
+                with run_stage(path, config, "smoke", "report", ["tracks.json"]):
+                    pass

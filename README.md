@@ -33,3 +33,6 @@ sbatch -A "${DEEP_PM_ACCOUNT:?set a verified CPU account}" -q "${DEEP_PM_QOS:?}"
 
 
 实验 A v0.4 用 `bash scripts/nsc-v04.sh bright` 严格复核冻结亮星，`inventory` 从 DESI DR1 光谱表与 SDSS、NSC 位置预查覆盖，`qso` 按冻结 M3 校验选择后的区域。三个模式均需给出区域参数，在 Slurm 计算节点执行。验证样本与版本记录见 [项目主线](PROJECT_CONTEXT.md) 和 [v0.4 中文报告](reports/experiment_A_v0.4_nsc.md)。
+
+
+v0.5 区域流程依次调用 `deep_pm.qso_fields inventory`、`deep_pm.pilot_inputs`、`deep_pm.pilot_production`。用 `--config configs/production-v05.toml` 传给 v0.4 的预查入口，并可用 `--sdss-sas` 指定验证过的 SDSS DR17 SAS 镜像。给试生产阶段独立版本化的 Scratch 目录。用 `deep_pm.pilot_cohort --pilot … --stripe …` 核对本轮独立观测块。正式发布范围和验收规则见 [v0.5 计划](PLAN.md)。

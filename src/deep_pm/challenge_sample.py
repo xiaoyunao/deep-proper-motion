@@ -33,8 +33,17 @@ def choose(frame, config):
     frame["key"] = frame.source_id.map(lambda source: sha256(
         f"{config['seed']}/{source}".encode()).hexdigest())
     chosen = []
-    centers = []
-    sep = max(spec["minimum_separation_deg"], 2 * (spec["radius"] + epoch_halo_deg(config)))
+    halo = epoch_halo_deg(config)
+    cone = spec["radius"] + halo
+    # Do not use a challenge if its retrieval disc overlaps a field whose
+    # outcomes can be inspected in the regression or development work.
+    centers = [(r["ra"], r["dec"], max(spec["minimum_separation_deg"],
+                                      cone + r["radius"] + epoch_halo_deg(dict(
+                                          config, **r.get("overrides", {})))))
+               for r in config.get("regions", {}).values()
+               if r["role"] in {"regression", "historical_challenge", "new_development",
+                                "independent_representative", "geometry_stress"}]
+    sep = max(spec["minimum_separation_deg"], 2 * cone)
     for split in ("dev", "test"):
         for low, high in zip(spec["pm_edges"], spec["pm_edges"][1:]):
             group = frame.loc[frame.split.eq(split) & frame.pm.ge(low) & frame.pm.lt(high)].sort_values("key")
@@ -44,13 +53,13 @@ def choose(frame, config):
                 dec = round(row.dec, 2)
                 if centers:
                     pt = np.asarray(centers)
-                    sky = np.deg2rad(pt)
+                    sky = np.deg2rad(pt[:, :2])
                     z = np.sin(sky[:, 1]) * np.sin(np.deg2rad(dec)) + np.cos(sky[:, 1]) * np.cos(
                         np.deg2rad(dec)) * np.cos(sky[:, 0] - np.deg2rad(ra))
-                    if np.any(z > np.cos(np.deg2rad(sep))):
+                    if np.any(z > np.cos(np.deg2rad(pt[:, 2]))):
                         continue
                 population += 1
-                centers.append((ra, dec))
+                centers.append((ra, dec, sep))
                 chosen.append(dict(region=f"hm_{split}_{low}_{population:02d}", split=split,
                                    bin_low=low, bin_high=high, source_id=str(row.source_id),
                                    ra=ra, dec=dec, radius=spec["radius"]))

@@ -135,7 +135,24 @@ def motion_tracks(xy, time, sigma, exposure, provisional, config):
     margin = config["model_margin_mas"]
     spread = np.linalg.norm(sigma, axis=1)
     max_error = spread.max(initial=0)
-    density = np.array([len(group) - 1 for group in tree.query_ball_point(xy, 5000)]) / 25
+    temporal = []
+    for group in np.unique(season):
+        rows = np.flatnonzero(season == group)
+        midpoint = np.median(time[rows])
+        delta = np.max(np.abs(time[rows] - midpoint))
+        temporal.append((rows, cKDTree(xy[rows]), midpoint, delta, spread[rows].max()))
+    density = (tree.query_ball_point(xy, 5000, return_length=True) - 1) / 25
+    seeds = set(range(len(xy)))
+    if config.get("season_seed_representatives", False):
+        seeds.clear()
+        for group in provisional:
+            g = np.array(group)
+            for value in np.unique(season[g]):
+                k = g[season[g] == value]
+                seeds.add(int(k[np.argmin(spread[k])]))
+    seed_rows = np.array(sorted(seeds), dtype=int)
+    seed_tree = cKDTree(xy[seed_rows])
+    last = time.max(initial=0)
     candidates = {}
     seed_sets = set()
     pairs = 0
@@ -162,10 +179,10 @@ def motion_tracks(xy, time, sigma, exposure, provisional, config):
 
     for group in provisional:
         add(group)
-    for i in range(len(xy)):
+    for i in seed_rows:
         # The outer query is conservative. The pair-specific gate uses actual epochs.
-        outer = mu_max * max(0, time.max() - time[i]) + gate * (spread[i] + max_error) + margin
-        for j in tree.query_ball_point(xy[i], outer):
+        outer = mu_max * max(0, last - time[i]) + gate * (spread[i] + max_error) + margin
+        for j in seed_rows[seed_tree.query_ball_point(xy[i], outer)]:
             dt = time[j] - time[i]
             if dt < config["min_seed_years"] or season[i] == season[j]:
                 continue
@@ -176,25 +193,23 @@ def motion_tracks(xy, time, sigma, exposure, provisional, config):
             if pairs > config["max_seed_pairs"]:
                 raise RuntimeError("Seed-pair budget exceeded. Use a smaller region or increase the explicit budget.")
             vector = dv / dt
-            alpha = (time - time[i]) / dt
-            # Propagate both seed errors, including extrapolation beyond either seed.
-            anchor = np.hypot((1 - alpha) * spread[i], alpha * spread[j])
-            uncertainty = gate * np.hypot(spread, anchor) + margin
             support = []
             distance = []
-            for group in np.unique(season):
-                mask = season == group
-                midpoint = np.median(time[mask])
-                wide_radius = uncertainty[mask].max() + np.linalg.norm(vector) * np.max(
-                    np.abs(time[mask] - midpoint))
-                near = np.array(tree.query_ball_point(xy[i] + (midpoint - time[i]) * vector,
-                                                       wide_radius), dtype=int)
-                near = near[mask[near]]
+            for rows, group_tree, midpoint, delta, largest in temporal:
+                mid_alpha = (midpoint - time[i]) / dt
+                margin_alpha = delta / dt
+                wide_anchor = np.hypot((abs(1 - mid_alpha) + margin_alpha) * spread[i],
+                                        (abs(mid_alpha) + margin_alpha) * spread[j])
+                wide_radius = gate * np.hypot(largest, wide_anchor) + margin + np.linalg.norm(vector) * delta
+                near = rows[group_tree.query_ball_point(xy[i] + (midpoint - time[i]) * vector, wide_radius)]
+                alpha = (time[near] - time[i]) / dt
+                anchor = np.hypot((1 - alpha) * spread[i], alpha * spread[j])
+                uncertainty = gate * np.hypot(spread[near], anchor) + margin
                 res = np.linalg.norm(xy[near] - xy[i] - (time[near] - time[i])[:, None] * vector,
                                      axis=1)
-                keep = res <= uncertainty[near]
+                keep = res <= uncertainty
                 support.extend(near[keep])
-                distance.extend(res[keep] / uncertainty[near[keep]])
+                distance.extend(res[keep] / uncertainty[keep])
             idx = one_per_exposure(support, distance, exposure)
             if idx in seed_sets:
                 continue
@@ -207,5 +222,5 @@ def motion_tracks(xy, time, sigma, exposure, provisional, config):
             add(tuple(k[ok]))
     selected, difficult, used = choose_tracks(list(candidates.values()), config["max_component"])
     return selected, list(candidates.values()), sorted(set(range(len(xy))) - used), {
-        "seed_pairs": pairs, "candidates": len(candidates), "difficult_components": difficult,
+        "seed_detections": len(seed_rows), "seed_pairs": pairs, "candidates": len(candidates), "difficult_components": difficult,
     }

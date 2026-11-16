@@ -79,6 +79,11 @@ def detection_arrays(work, center, config):
     raw = pd.read_csv(work / "detections.csv", low_memory=False)
     needed = ["ra_deg", "dec_deg", "observation_time", "sigma_east_mas", "sigma_north_mas"]
     good = np.isfinite(raw[needed]).all(axis=1)
+    limits = raw[["sigma_east_mas", "sigma_north_mas"]].max(axis=1)
+    if "smoke_max_error_mas" in config:
+        good &= limits <= config["smoke_max_error_mas"]
+    if "smoke_max_mag" in config:
+        good &= raw.magnitude.le(config["smoke_max_mag"]) | raw.magnitude.isna()
     data = raw.loc[good].reset_index(drop=True)
     xy = project(data.ra_deg, data.dec_deg, center)
     time = years(data.observation_time)

@@ -1,0 +1,333 @@
+{
+  "held_year": {
+    "year": 2016,
+    "holdout_detections": 14513,
+    "methods": {
+      "fixed": {
+        "all_selected": {
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 69,
+            "outside_footprint": 775,
+            "attempted": 3503,
+            "consistent_unconfirmed": 2042,
+            "no_candidate": 1099,
+            "inconclusive": 350,
+            "error_ellipse_rejected_all": 12
+          },
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 47,
+            "attempted": 1799,
+            "labelled_correct": 1798,
+            "truth_outside_gate": 1,
+            "error_ellipse_rejected_all": 1,
+            "gaia_offset_quantiles_mas": [
+              7.046805975385401,
+              15.526214793563717,
+              33.216314867711795
+            ]
+          },
+          "cross_survey/no_gaia/r_ge_20p5": {
+            "training_tracks": 339,
+            "attempted": 16886,
+            "no_candidate": 11411,
+            "outside_footprint": 4132,
+            "consistent_unconfirmed": 4803,
+            "inconclusive": 620,
+            "error_ellipse_rejected_all": 52
+          },
+          "cross_survey/with_gaia/r_unmeasured": {
+            "training_tracks": 1,
+            "attempted": 6,
+            "labelled_correct": 6,
+            "gaia_offset_quantiles_mas": [
+              24.431427358992515,
+              29.817002001364777,
+              35.480929482910696
+            ]
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 30,
+            "attempted": 1493,
+            "no_candidate": 1316,
+            "consistent_unconfirmed": 160,
+            "outside_footprint": 367,
+            "inconclusive": 15,
+            "error_ellipse_rejected_all": 2
+          },
+          "nsc_only/no_gaia/r_ge_20p5": {
+            "training_tracks": 74,
+            "outside_footprint": 921,
+            "attempted": 3667,
+            "consistent_unconfirmed": 322,
+            "no_candidate": 3314,
+            "inconclusive": 24,
+            "error_ellipse_rejected_all": 7
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 141,
+            "attempted": 7053,
+            "no_candidate": 6471,
+            "consistent_unconfirmed": 548,
+            "outside_footprint": 1689,
+            "error_ellipse_rejected_all": 14,
+            "inconclusive": 20
+          },
+          "nsc_only/with_gaia/r_lt_20p5": {
+            "training_tracks": 1,
+            "attempted": 9,
+            "labelled_correct": 9,
+            "gaia_offset_quantiles_mas": [
+              6.708032875832954,
+              11.834036184320736,
+              17.417538427032692
+            ]
+          }
+        },
+        "secure": {}
+      },
+      "nsc_like": {
+        "all_selected": {
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 68,
+            "outside_footprint": 769,
+            "attempted": 3447,
+            "consistent_unconfirmed": 2042,
+            "no_candidate": 1043,
+            "inconclusive": 350,
+            "error_ellipse_rejected_all": 12
+          },
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 47,
+            "attempted": 1799,
+            "labelled_correct": 1798,
+            "truth_outside_gate": 1,
+            "error_ellipse_rejected_all": 1,
+            "gaia_offset_quantiles_mas": [
+              7.046805975385401,
+              15.48787002745154,
+              33.216314867711795
+            ]
+          },
+          "cross_survey/no_gaia/r_ge_20p5": {
+            "training_tracks": 339,
+            "attempted": 16886,
+            "no_candidate": 11411,
+            "outside_footprint": 4132,
+            "consistent_unconfirmed": 4807,
+            "inconclusive": 612,
+            "error_ellipse_rejected_all": 56
+          },
+          "cross_survey/with_gaia/r_unmeasured": {
+            "training_tracks": 1,
+            "attempted": 6,
+            "labelled_correct": 6,
+            "gaia_offset_quantiles_mas": [
+              24.431427358992515,
+              29.817002001364777,
+              35.480929482910696
+            ]
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 29,
+            "attempted": 1446,
+            "no_candidate": 1276,
+            "consistent_unconfirmed": 160,
+            "outside_footprint": 352,
+            "inconclusive": 8,
+            "error_ellipse_rejected_all": 2
+          },
+          "nsc_only/no_gaia/r_ge_20p5": {
+            "training_tracks": 74,
+            "outside_footprint": 921,
+            "attempted": 3667,
+            "consistent_unconfirmed": 322,
+            "no_candidate": 3314,
+            "inconclusive": 24,
+            "error_ellipse_rejected_all": 7
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 141,
+            "attempted": 7053,
+            "no_candidate": 6471,
+            "consistent_unconfirmed": 548,
+            "outside_footprint": 1689,
+            "error_ellipse_rejected_all": 14,
+            "inconclusive": 20
+          },
+          "nsc_only/with_gaia/r_lt_20p5": {
+            "training_tracks": 1,
+            "attempted": 9,
+            "labelled_correct": 9,
+            "gaia_offset_quantiles_mas": [
+              6.708032875832954,
+              11.834036184320736,
+              17.417538427032692
+            ]
+          },
+          "nsc_only/no_gaia/r_lt_20p5": {
+            "training_tracks": 1,
+            "outside_footprint": 11,
+            "attempted": 51,
+            "no_candidate": 51
+          }
+        },
+        "secure": {}
+      },
+      "motion": {
+        "all_selected": {
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 47,
+            "attempted": 1799,
+            "labelled_correct": 1798,
+            "truth_outside_gate": 1,
+            "error_ellipse_rejected_all": 1,
+            "gaia_offset_quantiles_mas": [
+              7.046805975385401,
+              15.48787002745154,
+              33.216314867711795
+            ]
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 58,
+            "attempted": 2989,
+            "no_candidate": 2826,
+            "outside_footprint": 607,
+            "consistent_unconfirmed": 157,
+            "error_ellipse_rejected_all": 1,
+            "inconclusive": 5
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 143,
+            "attempted": 7159,
+            "no_candidate": 6597,
+            "outside_footprint": 1707,
+            "consistent_unconfirmed": 529,
+            "error_ellipse_rejected_all": 14,
+            "inconclusive": 19
+          },
+          "cross_survey/no_gaia/r_ge_20p5": {
+            "training_tracks": 342,
+            "attempted": 17045,
+            "no_candidate": 11610,
+            "outside_footprint": 4159,
+            "consistent_unconfirmed": 4778,
+            "error_ellipse_rejected_all": 50,
+            "inconclusive": 607
+          },
+          "nsc_only/no_gaia/r_ge_20p5": {
+            "training_tracks": 82,
+            "attempted": 4065,
+            "no_candidate": 3692,
+            "outside_footprint": 1019,
+            "consistent_unconfirmed": 342,
+            "inconclusive": 24,
+            "error_ellipse_rejected_all": 7
+          },
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 71,
+            "attempted": 3603,
+            "consistent_unconfirmed": 2040,
+            "no_candidate": 1196,
+            "outside_footprint": 799,
+            "error_ellipse_rejected_all": 14,
+            "inconclusive": 353
+          },
+          "cross_survey/with_gaia/r_unmeasured": {
+            "training_tracks": 1,
+            "attempted": 6,
+            "labelled_correct": 6,
+            "gaia_offset_quantiles_mas": [
+              24.431427358992515,
+              29.817002001364777,
+              35.480929482910696
+            ]
+          },
+          "nsc_only/no_gaia/r_lt_20p5": {
+            "training_tracks": 2,
+            "attempted": 110,
+            "no_candidate": 110,
+            "outside_footprint": 14
+          },
+          "nsc_only/with_gaia/r_lt_20p5": {
+            "training_tracks": 1,
+            "attempted": 9,
+            "labelled_correct": 9,
+            "gaia_offset_quantiles_mas": [
+              6.708032875832954,
+              11.834036184320736,
+              17.417538427032692
+            ]
+          }
+        },
+        "secure": {
+          "cross_survey/with_gaia/r_lt_20p5": {
+            "training_tracks": 47,
+            "attempted": 1799,
+            "labelled_correct": 1798,
+            "truth_outside_gate": 1,
+            "error_ellipse_rejected_all": 1,
+            "gaia_offset_quantiles_mas": [
+              7.046805975385401,
+              15.48787002745154,
+              33.216314867711795
+            ]
+          },
+          "cross_survey/no_gaia/r_ge_20p5": {
+            "training_tracks": 259,
+            "attempted": 12900,
+            "no_candidate": 7788,
+            "consistent_unconfirmed": 4498,
+            "outside_footprint": 3158,
+            "error_ellipse_rejected_all": 40,
+            "inconclusive": 574
+          },
+          "nsc_only/no_gaia/r_unmeasured": {
+            "training_tracks": 31,
+            "attempted": 1597,
+            "no_candidate": 1301,
+            "consistent_unconfirmed": 280,
+            "outside_footprint": 325,
+            "error_ellipse_rejected_all": 5,
+            "inconclusive": 11
+          },
+          "cross_survey/no_gaia/r_lt_20p5": {
+            "training_tracks": 67,
+            "attempted": 3391,
+            "consistent_unconfirmed": 2040,
+            "no_candidate": 987,
+            "outside_footprint": 763,
+            "error_ellipse_rejected_all": 13,
+            "inconclusive": 351
+          },
+          "nsc_only/no_gaia/r_ge_20p5": {
+            "training_tracks": 21,
+            "attempted": 1103,
+            "no_candidate": 888,
+            "consistent_unconfirmed": 196,
+            "outside_footprint": 199,
+            "inconclusive": 14,
+            "error_ellipse_rejected_all": 5
+          },
+          "cross_survey/no_gaia/r_unmeasured": {
+            "training_tracks": 8,
+            "attempted": 418,
+            "consistent_unconfirmed": 126,
+            "no_candidate": 291,
+            "outside_footprint": 78,
+            "inconclusive": 1
+          }
+        }
+      }
+    }
+  },
+  "translated_control": {},
+  "region": "test_equator",
+  "role": "independent_representative",
+  "receipt": {
+    "commit": "c70f5bb4c7fda73fbf82ba9cdcfcc8d3eb44a2a2",
+    "config_sha256": "76a3a8b9b07d79789e42a14e89be15bd1038280ad930bb9db35df4faa834023d",
+    "aggregate_sha256": "4956fd42b136b48ddaa7602031b1ffbaae1066c8b848c443d7cc673c992a7ab0",
+    "slurm_job": "61397821",
+    "stage": "prediction-held-geometry"
+  }
+}

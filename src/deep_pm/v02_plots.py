@@ -220,10 +220,40 @@ def plot_challenge(row, out):
     plt.close(fig)
 
 
+def plot_precision_fields(rows, out):
+    tags = ("nsc_published", "nsc_refit", "one_sdss", "all_sdss")
+    x = np.arange(len(tags))
+    labels = ("Published NSC", "NSC refit", "+ first SDSS", "+ all SDSS")
+    fig, axes = plt.subplots(2, 2, figsize=(9.6, 6.1), sharex=True, layout="constrained")
+    for i, row in enumerate(rows):
+        sample = row["fixed_truth_common_four_way"]
+        if not sample:
+            continue
+        legend = f"{row['region']} (n={sample[tags[0]]['n']})"
+        for axis in range(2):
+            for j, metric in enumerate(("nmad", "median")):
+                values = [sample[k][metric][axis] for k in tags]
+                axes[j, axis].plot(x, values, "o-", color=COLORS[i % len(COLORS)],
+                                   label=legend, linewidth=1.3, markersize=4.8)
+    for axis, title in enumerate(("East", "North")):
+        axes[0, axis].set_title(title)
+        axes[1, axis].axhline(0, color="#777777", linestyle=":", linewidth=.9)
+        axes[1, axis].set(xticks=x, xticklabels=labels)
+        axes[1, axis].tick_params(axis="x", labelsize=8)
+    for ax in axes.flat:
+        ax.grid(axis="y", alpha=.2)
+    axes[0, 0].set_ylabel("Residual NMAD (mas/yr)")
+    axes[1, 0].set_ylabel("Median residual (mas/yr)")
+    axes[0, 1].legend(frameon=False, fontsize=8, loc="upper right")
+    fig.suptitle("Proper-motion precision controls | same sources within each field")
+    fig.savefig(out / "v02_precision_by_field_summary.png", dpi=175)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("kind", choices=["regression", "independent", "coverage", "injection", "matched", "prediction",
-                                         "challenge"])
+                                         "challenge", "precision-fields"])
     parser.add_argument("out", type=Path)
     parser.add_argument("summaries", type=Path, nargs="+")
     args = parser.parse_args()
@@ -234,6 +264,8 @@ if __name__ == "__main__":
         plot_regression(rows, args.out)
     elif args.kind == "coverage":
         plot_coverage(rows, args.out)
+    elif args.kind == "precision-fields":
+        plot_precision_fields(rows, args.out)
     else:
         renderer = {"injection": plot_injection, "matched": plot_matched, "prediction": plot_prediction,
                     "challenge": plot_challenge}[args.kind]

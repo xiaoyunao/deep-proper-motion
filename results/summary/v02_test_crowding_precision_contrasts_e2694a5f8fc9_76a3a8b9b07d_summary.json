@@ -1,0 +1,64 @@
+{
+  "paired_nmad": {
+    "one_sdss_minus_nsc_refit": {
+      "n": 96,
+      "delta_nmad_masyr": [
+        -0.5114025553554262,
+        -0.929124782969039
+      ],
+      "paired_bootstrap95_masyr": [
+        [
+          -1.2348239834065091,
+          0.10492443979941343
+        ],
+        [
+          -1.6298237584457207,
+          -0.45712443567364414
+        ]
+      ]
+    },
+    "all_sdss_minus_one_sdss": {
+      "n": 96,
+      "delta_nmad_masyr": [
+        -0.1785640787553211,
+        0.032177084440853765
+      ],
+      "paired_bootstrap95_masyr": [
+        [
+          -0.42291718883180107,
+          0.03985040542174745
+        ],
+        [
+          -0.1095438999399878,
+          0.16041310317556237
+        ]
+      ]
+    },
+    "all_sdss_minus_nsc_published": {
+      "n": 96,
+      "delta_nmad_masyr": [
+        -0.08897470927150564,
+        -0.9714827144731901
+      ],
+      "paired_bootstrap95_masyr": [
+        [
+          -0.7585754025090266,
+          0.3577069367878914
+        ],
+        [
+          -1.465586478991914,
+          -0.3006091329146539
+        ]
+      ]
+    }
+  },
+  "region": "test_crowding",
+  "role": "independent_representative",
+  "receipt": {
+    "commit": "e2694a5f8fc9c8a8d86adf5b3754f30b413c5acf",
+    "config_sha256": "76a3a8b9b07d79789e42a14e89be15bd1038280ad930bb9db35df4faa834023d",
+    "aggregate_sha256": "7ce6c3b236bbe557f4467c5cfdce014b7fa5273a904fbe3474813aed302ad6b8",
+    "slurm_job": "61399712",
+    "stage": "paired-control"
+  }
+}

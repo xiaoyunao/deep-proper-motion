@@ -1,0 +1,1018 @@
+{
+  "inventory": {
+    "area_sq_deg": 0.0012566370493062645,
+    "counts": {
+      "NSC": {
+        "detections": 37114,
+        "core_detections": 10584,
+        "exposures": 1755,
+        "nights": 361,
+        "years": {
+          "2012": 3331,
+          "2013": 6875,
+          "2014": 5607,
+          "2015": 5546,
+          "2016": 6443,
+          "2017": 5817,
+          "2018": 3102,
+          "2019": 393
+        },
+        "groups": 8,
+        "bands": {
+          "i": 10355,
+          "z": 9553,
+          "r": 8675,
+          "Y": 5015,
+          "g": 3282,
+          "u": 234
+        },
+        "missing_time": 0,
+        "missing_error": 0
+      },
+      "SDSS": {
+        "detections": 3281,
+        "core_detections": 1236,
+        "exposures": 50,
+        "nights": 50,
+        "years": {
+          "1998": 313,
+          "2000": 139,
+          "2001": 447,
+          "2002": 631,
+          "2003": 526,
+          "2004": 496,
+          "2007": 31
+        },
+        "groups": 7,
+        "bands": {
+          "r": 3281
+        },
+        "missing_time": 698,
+        "missing_error": 0
+      }
+    },
+    "usable_for_association": 15843
+  },
+  "validation": {
+    "gaia_rows": 22,
+    "labeled_detections": 6115,
+    "truth_cross_survey": 2,
+    "methods": {
+      "fixed": {
+        "candidate_recall": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "selected_recall": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "secure_recall": null,
+        "ambiguous_recall": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "tentative_recall": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unresolved_fraction": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "motion_compatible": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "object_confirmation": {
+          "confirmed": 1,
+          "discordant": 0,
+          "unknown": 9,
+          "unknown_members": 2689,
+          "discordant_members": 0,
+          "labelled_members": 561,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "bounds_with_unknown": [
+            0.0,
+            0.9
+          ]
+        },
+        "secure_object_confirmation": {
+          "confirmed": 0,
+          "discordant": 0,
+          "unknown": 0,
+          "unknown_members": 0,
+          "discordant_members": 0,
+          "labelled_members": 0,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "bounds_with_unknown": null
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ],
+            "candidate": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ],
+            "candidate": {
+              "n": 0,
+              "denominator": 1,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          }
+        ]
+      },
+      "nsc_like": {
+        "candidate_recall": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "selected_recall": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "secure_recall": null,
+        "ambiguous_recall": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "tentative_recall": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unresolved_fraction": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "motion_compatible": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "object_confirmation": {
+          "confirmed": 2,
+          "discordant": 0,
+          "unknown": 9,
+          "unknown_members": 2691,
+          "discordant_members": 0,
+          "labelled_members": 803,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 2,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "bounds_with_unknown": [
+            0.0,
+            0.8181818181818182
+          ]
+        },
+        "secure_object_confirmation": {
+          "confirmed": 0,
+          "discordant": 0,
+          "unknown": 0,
+          "unknown_members": 0,
+          "discordant_members": 0,
+          "labelled_members": 0,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "bounds_with_unknown": null
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ],
+            "candidate": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ],
+            "candidate": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "secure": null
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": null
+          }
+        ]
+      },
+      "motion": {
+        "candidate_recall": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "selected_recall": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "secure_recall": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "ambiguous_recall": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "tentative_recall": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unresolved_fraction": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "motion_compatible": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "object_confirmation": {
+          "confirmed": 2,
+          "discordant": 0,
+          "unknown": 14,
+          "unknown_members": 2685,
+          "discordant_members": 0,
+          "labelled_members": 803,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 2,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "bounds_with_unknown": [
+            0.0,
+            0.875
+          ]
+        },
+        "secure_object_confirmation": {
+          "confirmed": 2,
+          "discordant": 0,
+          "unknown": 6,
+          "unknown_members": 2602,
+          "discordant_members": 0,
+          "labelled_members": 803,
+          "wrong_among_confirmed": {
+            "n": 0,
+            "denominator": 2,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "bounds_with_unknown": [
+            0.0,
+            0.75
+          ]
+        },
+        "pm_bins": [
+          {
+            "low": 0,
+            "high": 25,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          },
+          {
+            "low": 25,
+            "high": 50,
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ],
+            "candidate": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "secure": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            }
+          },
+          {
+            "low": 50,
+            "high": 100,
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ],
+            "candidate": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "secure": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            }
+          },
+          {
+            "low": 100,
+            "high": 200,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          },
+          {
+            "low": 200,
+            "high": 500,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          },
+          {
+            "low": 500,
+            "high": 1000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          },
+          {
+            "low": 1000,
+            "high": 2000,
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null,
+            "candidate": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            "secure": {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          }
+        ]
+      }
+    },
+    "recovery_stages": {
+      "has_input": {
+        "total": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "generated": {
+        "total": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "screened": {
+        "total": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "retained": {
+        "total": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "conflict_optimal": {
+        "total": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "selected_optimal": {
+        "total": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "secure": {
+        "total": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "conditional": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "pm_compatible_secure": {
+        "total": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "conditional": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        }
+      }
+    },
+    "paired": {
+      "all_sdss": {
+        "n": 2,
+        "median_masyr": [
+          1.5238090661262689,
+          2.565414201393723
+        ],
+        "nmad_masyr": [
+          0.8313309099826004,
+          1.1400464396268444
+        ],
+        "median_baseline_yr": 20.544193557260883,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "median_abs_normalized": [
+          1.9531612965075043,
+          3.2655675937499975
+        ]
+      },
+      "nsc_only": {
+        "n": 2,
+        "median_masyr": [
+          -0.14163673926072207,
+          0.7390611471237054
+        ],
+        "nmad_masyr": [
+          0.28189335738970006,
+          0.955815202413399
+        ],
+        "median_baseline_yr": 6.466657567386505,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "median_abs_normalized": [
+          0.06446673928675406,
+          0.21410309581067966
+        ]
+      },
+      "one_sdss": {
+        "n": 2,
+        "median_masyr": [
+          0.23846951793980864,
+          1.4894520245035905
+        ],
+        "nmad_masyr": [
+          0.04480263309744292,
+          2.041325794454787
+        ],
+        "median_baseline_yr": 20.544193557260883,
+        "over_20_masyr": {
+          "n": 0,
+          "denominator": 2,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "median_abs_normalized": [
+          0.1551826926021276,
+          0.6028028922172886
+        ]
+      }
+    }
+  },
+  "resources": {
+    "seed_detections": 1138,
+    "seed_pairs": 13687,
+    "seed_budget_exhausted": false,
+    "generated": 7824,
+    "screened": 3719,
+    "candidates": 3208,
+    "difficult_components": 0,
+    "solver_states": {
+      "optimal": 14,
+      "feasible_incumbent": 0,
+      "unresolved": 0
+    },
+    "seconds": 38.20066033198964,
+    "maxrss_kib": 333104
+  },
+  "region": "smoke",
+  "role": "regression",
+  "receipt": {
+    "commit": "e256ec16ac76dc61ac83e2f5abd51c1dc842afe6",
+    "config_sha256": "651f2f45b7318209c5905b8e345909d7e4f49a4f657e30ae4c7b300f1962c20a",
+    "aggregate_sha256": "d7f42731d4fccfc97ba5725bb7aa27aff744e56f31ed9e191c3e385c9d3801cb",
+    "slurm_job": "61395302",
+    "stage": "report"
+  }
+}

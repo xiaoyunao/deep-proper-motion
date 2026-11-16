@@ -15,6 +15,10 @@ from .io import save_json
 
 
 STAGES = {
+    "pilot-pool-v05": ("pilot-pool-v05", "pilot_cohort_summary.json",
+                        ("core_area_sqdeg", "fields", "funnel", "final_sources", "final_per_sqdeg",
+                         "independent_qso", "v04_stripe_overlap", "pilot_overlap",
+                         "resources_by_field", "planning_range")),
     "production-v05": ("production-v05", "production_summary.json",
                         ("core_area_sqdeg", "funnel", "final_per_sqdeg", "calibration",
                          "validation", "holdout", "motion_window", "resources")),

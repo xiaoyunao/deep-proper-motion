@@ -15,6 +15,8 @@ from .io import save_json
 
 
 STAGES = {
+    "archive-probe-v06": ("archive-probe-v06", "archive_probe_summary.json",
+                          ("area_sqdeg", "per_shard_object_cap", "shards")),
     "astrometry-v06": ("astrometry-v06", "astrometry_summary.json",
                        ("errors", "controls", "coverage", "multiband", "resources")),
 

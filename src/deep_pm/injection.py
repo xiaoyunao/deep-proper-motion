@@ -1,6 +1,8 @@
 """Inject trajectories in actual exposure footprints over real catalogue background."""
 import argparse
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor
+from functools import partial
 from pathlib import Path
 
 import numpy as np
@@ -12,6 +14,7 @@ from .astrometry import epoch_halo_deg, seasons, unproject
 from .footprints import nsc_visits, sdss_visits
 from .io import save_json
 from .provenance import run_stage
+from .validation import truth_requirements
 
 
 def simulation(visits, center, config, origin, velocity, magnitude, noise, rng):
@@ -42,12 +45,53 @@ def required_visits(detections, config):
             and np.ptp(t) >= config["min_seed_years"])
 
 
-def injection_pass(members, truth, required):
+def injection_pass(members, requirements, fraction):
     track = set(members)
-    return len(track & truth) >= required * max(len(track), len(truth))
+    sdss, nsc, early, groups = requirements
+    s, n = len(track & sdss), len(track & nsc)
+    return (s >= fraction * len(sdss) and n >= fraction * len(nsc)
+            and s + n >= fraction * len(track) and bool(track & early)
+            and all(track & group for group in groups))
 
 
-def run(work, region, config, sdss_window, stress, trials):
+def evaluate_batch(batch, xy, t, sigma, exposures, surveys, config):
+    injected = [row for _, draws in batch for row in draws]
+    positions = np.vstack([xy, np.array([row[3] for row in injected])])
+    times = np.r_[t, [row[0] for row in injected]]
+    uncertainty = np.vstack([sigma, [row[4] for row in injected]])
+    visit_ids = np.r_[exposures, [row[1] for row in injected]]
+    survey = np.r_[surveys, [row[2] for row in injected]]
+    order = np.argsort(times, kind="stable")
+    reverse = np.empty_like(order)
+    reverse[order] = np.arange(len(order))
+    positions, times, uncertainty, visit_ids, survey = (a[order] for a in
+                                                        (positions, times, uncertainty, visit_ids, survey))
+    fixed = static_tracks(positions, visit_ids, config["fixed_radius_mas"])
+    nsc_like = static_tracks(positions, visit_ids, config["fixed_radius_mas"], config["dbscan_eps_mas"])
+    audit = {}
+    selected, candidates, _, _ = motion_tracks(positions, times, uncertainty, visit_ids, fixed, config, audit)
+    offset = len(xy)
+    trial_indices = {}
+    for index, (_, draws) in enumerate(batch):
+        trial_indices[index] = reverse[offset:offset + len(draws)]
+        offset += len(draws)
+    required = truth_requirements(trial_indices, survey, times, config["min_season_days"])
+    result = []
+    for index, (speed, _) in enumerate(batch):
+        def matches(group):
+            return injection_pass(group, required[index], config["recovery_fraction"])
+
+        result.append((speed, dict(
+            generated_correct_candidate=any(matches(g) for g in audit["generated"]),
+            retained_correct_candidate=any(matches(g.indices) for g in candidates),
+            fixed_recovery=any(matches(g) for g in fixed),
+            nsc_like_recovery=any(matches(g) for g in nsc_like),
+            selected_recovery=any(matches(g.indices) for g in selected),
+            secure_recovery=any(matches(g.indices) and g.status == "secure" for g in selected))))
+    return result
+
+
+def run(work, region, config, sdss_window, stress, trials, workers=1):
     spec = config["regions"][region]
     center, radius = (spec["ra"], spec["dec"]), spec["radius"]
     if stress:
@@ -87,38 +131,21 @@ def run(work, region, config, sdss_window, stress, trials):
             stats["two_survey_geometry"] += {v.survey for v in geometric} == {"SDSS", "NSC"}
             if required_visits([v for v, *_ in draws], config):
                 stats["required_time_coverage"] += 1
-                queued.append((speed, draws))
+                queued.append((speed, [(v.year, v.exposure, v.survey, p, s) for v, p, s in draws]))
     rng.shuffle(queued)
     batch_size = 6
-    for start in range(0, len(queued), batch_size):
-        batch = queued[start:start + batch_size]
-        injected = [row for _, draws in batch for row in draws]
-        positions = np.vstack([xy, np.array([row[1] for row in injected])])
-        times = np.r_[t, [row[0].year for row in injected]]
-        uncertainty = np.vstack([sigma, [row[2] for row in injected]])
-        visit_ids = np.r_[exposure, [row[0].exposure for row in injected]]
-        order = np.argsort(times, kind="stable")
-        reverse = np.empty_like(order)
-        reverse[order] = np.arange(len(order))
-        positions, times, uncertainty, visit_ids = (a[order] for a in
-                                                     (positions, times, uncertainty, visit_ids))
-        fixed = static_tracks(positions, visit_ids, config["fixed_radius_mas"])
-        nsc_like = static_tracks(positions, visit_ids, config["fixed_radius_mas"], config["dbscan_eps_mas"])
-        audit = {}
-        selected, candidates, _, _ = motion_tracks(positions, times, uncertainty, visit_ids, fixed, config, audit)
-        offset = len(xy)
-        for speed, draws in batch:
-            truth = set(reverse[offset:offset + len(draws)])
-            offset += len(draws)
-            def matches(group):
-                return injection_pass(group, truth, config["recovery_fraction"])
-            stats = count[speed]
-            stats["generated_correct_candidate"] += any(matches(g) for g in audit["generated"])
-            stats["retained_correct_candidate"] += any(matches(g.indices) for g in candidates)
-            stats["fixed_recovery"] += any(matches(g) for g in fixed)
-            stats["nsc_like_recovery"] += any(matches(g) for g in nsc_like)
-            stats["selected_recovery"] += any(matches(g.indices) for g in selected)
-            stats["secure_recovery"] += any(matches(g.indices) and g.status == "secure" for g in selected)
+    jobs = [queued[start:start + batch_size] for start in range(0, len(queued), batch_size)]
+    evaluate = partial(evaluate_batch, xy=xy, t=t, sigma=sigma, exposures=exposure,
+                       surveys=data.survey.to_numpy(), config=config)
+    if workers == 1:
+        for job in jobs:
+            for speed, row in evaluate(job):
+                count[speed].update(row)
+    else:
+        with ProcessPoolExecutor(max_workers=workers) as pool:
+            for trials_in_batch in pool.map(evaluate, jobs):
+                for speed, row in trials_in_batch:
+                    count[speed].update(row)
     keys = ("attempted", "two_survey_geometry", "required_time_coverage", "generated_correct_candidate",
             "retained_correct_candidate", "fixed_recovery", "nsc_like_recovery", "selected_recovery",
             "secure_recovery")
@@ -136,7 +163,10 @@ if __name__ == "__main__":
     parser.add_argument("--sdss-window", required=True, type=Path)
     parser.add_argument("--stress", action="store_true")
     parser.add_argument("--trials", type=int, default=30)
+    parser.add_argument("--workers", type=int, default=1)
     args = parser.parse_args()
+    if args.workers < 1:
+        parser.error("workers must be at least one")
     with args.config.open("rb") as file:
         config = tomllib.load(file)
     config.update(config["regions"][args.region].get("overrides", {}))
@@ -149,4 +179,4 @@ if __name__ == "__main__":
     with run_stage(args.work, args.config, args.region, f"{mode}-{args.trials}",
                    ["detections.csv", window_link.name], [f"v02_{mode}_summary.json"]) as execute:
         if execute:
-            run(args.work, args.region, config, args.sdss_window, args.stress, args.trials)
+            run(args.work, args.region, config, args.sdss_window, args.stress, args.trials, args.workers)

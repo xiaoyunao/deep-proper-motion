@@ -33,6 +33,37 @@ def unproject(xy, center):
     ])
 
 
+def apparent_positions(ra, dec, pm_east, pm_north, parallax, radial_velocity, dt, observer, center):
+    """Rectilinear ICRS propagation and annual parallax for validation only."""
+    pm_east, pm_north, parallax, radial_velocity, dt = map(
+        np.asarray, (pm_east, pm_north, parallax, radial_velocity, dt))
+    alpha, delta = np.deg2rad([ra, dec])
+    ca, sa = np.cos(alpha), np.sin(alpha)
+    cd, sd = np.cos(delta), np.sin(delta)
+    direction = np.stack([cd * ca, cd * sa, sd], axis=-1)
+    east = np.stack([-sa, ca, np.zeros_like(sa)], axis=-1)
+    north = np.stack([-sd * ca, -sd * sa, cd], axis=-1)
+    angular_velocity = (pm_east[..., None] * east + pm_north[..., None] * north) / MAS_PER_RADIAN
+    # km/s converted to AU/year, then relative to the Gaia distance.
+    radial_fraction = radial_velocity * (365.25 * 86400 / 149597870.7) * parallax / MAS_PER_RADIAN
+    xyz = (direction + dt[..., None] * (angular_velocity + radial_fraction[..., None] * direction)
+           - observer * (parallax[..., None] / MAS_PER_RADIAN))
+    local = xyz @ basis(*center).T
+    return local[..., 1:] / local[..., :1] * MAS_PER_RADIAN
+
+
+def epoch_halo_deg(config, mu=None):
+    """Pad a survey query by the largest reference-to-endpoint displacement."""
+    settings = config["access"]
+    if "epoch_min" not in settings:
+        return settings["halo_deg"]
+    epoch = config["reference_epoch"]
+    span = max(abs(epoch - settings[name]) for name in ("epoch_min", "epoch_max"))
+    rate = config["mu_max"] if mu is None else mu
+    padding = settings.get("edge_pad_mas", 1000) + 2 * settings.get("max_parallax_mas", 0)
+    return max(settings.get("halo_deg", 0), (rate * span + padding) / 3600000)
+
+
 def sdss_tai_to_tt(seconds):
     return Time(np.asarray(seconds) / 86400, format="mjd", scale="tai").tt.mjd
 

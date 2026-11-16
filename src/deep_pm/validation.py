@@ -3,9 +3,11 @@ import json
 
 import numpy as np
 import pandas as pd
+from astropy.coordinates import get_body_barycentric
+from astropy.time import Time
 from scipy.spatial import cKDTree
 
-from .astrometry import fit_motion, project, seasons
+from .astrometry import apparent_positions, fit_motion, project, seasons
 from .io import save_json
 
 
@@ -35,23 +37,51 @@ def gaia_labels(data, xy, time, sigma, gaia, center, config):
     north = (project(g.ra, g.dec + step, center) - ref) / 1000
     velocity = east * g.pmra.to_numpy()[:, None] + north * g.pmdec.to_numpy()[:, None]
     t0 = g.ref_epoch.to_numpy()
+    use_parallax = config.get("truth_mode") == "annual_parallax"
+    parallax_limit = config.get("gaia_max_parallax_nearby", 2000) if use_parallax else config[
+        "gaia_max_parallax_for_linear_truth"]
     reliable = ((g.ruwe < config["gaia_max_ruwe"]) &
                 (g.pmra_error < config["gaia_max_pm_error"]) &
                 (g.pmdec_error < config["gaia_max_pm_error"]) &
-                (g.parallax.abs() < config["gaia_max_parallax_for_linear_truth"])).to_numpy()
+                (g.parallax.abs() < parallax_limit)).to_numpy()
+    if use_parallax:
+        fitted_parallax = g.parallax.clip(lower=0).to_numpy()
+        rv = g.radial_velocity.fillna(0).to_numpy() if "radial_velocity" in g else np.zeros(len(g))
+        if "parallax_error" in g:
+            nearby = g.parallax.abs() >= config["gaia_max_parallax_for_linear_truth"]
+            reliable &= (~nearby | g.parallax_error.between(0, 2)).to_numpy()
+        unique_time, inverse = np.unique(time, return_inverse=True)
+        observers = get_body_barycentric("earth", Time(unique_time, format="jyear", scale="tt")).xyz.to_value("AU").T
+
+    def propagated(indices, value, observer=None):
+        if not use_parallax:
+            return ref[indices] + (value - t0[indices])[:, None] * velocity[indices]
+        r = g.iloc[indices]
+        return apparent_positions(r.ra.to_numpy(), r.dec.to_numpy(), r.pmra.to_numpy(),
+                                  r.pmdec.to_numpy(), fitted_parallax[indices], rv[indices],
+                                  value - t0[indices], observer, center)
+
     label = np.full(len(data), -1, dtype=int)
     for _, group in data.groupby("exposure_id", sort=False):
         indices = group.index.to_numpy()
         midpoint = np.median(time[indices])
-        pos = ref + (midpoint - t0)[:, None] * velocity
+        if use_parallax:
+            middle = indices[np.argmin(abs(time[indices] - midpoint))]
+            midpoint = time[middle]
+            mid_observer = observers[inverse[middle]]
+        else:
+            mid_observer = None
+        pos = propagated(np.arange(len(g)), midpoint, mid_observer)
         tree = cKDTree(pos)
         search = 2 * config["gaia_detection_gate_mas"] + np.max(np.linalg.norm(velocity, axis=1),
                                                                 initial=0) * np.ptp(time[indices])
+        if use_parallax:
+            search += 8 * fitted_parallax.max(initial=0) * np.ptp(time[indices])
         for i in indices:
             if sigma[i].max() * 3 > config["gaia_detection_gate_mas"]:
                 continue
             near = np.array(tree.query_ball_point(xy[i], search), dtype=int)
-            dot = ref[near] + (time[i] - t0[near])[:, None] * velocity[near]
+            dot = propagated(near, time[i], observers[inverse[i]] if use_parallax else None)
             dist = np.linalg.norm(dot - xy[i], axis=1)
             order = np.argsort(dist)
             if (len(order) and dist[order[0]] <= config["gaia_detection_gate_mas"]
@@ -62,6 +92,7 @@ def gaia_labels(data, xy, time, sigma, gaia, center, config):
         duplicate = pd.Series(label[labeled]).duplicated(keep=False).to_numpy()
         label[labeled[duplicate]] = -1
     g["pm_tangent_x"], g["pm_tangent_y"] = velocity.T
+    g["truth_reliable"] = reliable
     return label, g
 
 
@@ -177,6 +208,15 @@ def confirmation_counts(tracks, survey, labels, core_indices):
     return counts
 
 
+def residual_stats(values):
+    rows = np.asarray(values)
+    if not len(rows):
+        return dict(n=0)
+    median = np.median(rows, axis=0)
+    return dict(n=len(rows), median_masyr=median,
+                nmad_masyr=1.4826 * np.median(np.abs(rows - median), axis=0))
+
+
 def stage_evaluation(tracks, candidates, audit, fits, truth, labels, data, t, gaia, config):
     survey = data.survey.to_numpy()
     required = truth_requirements(truth, survey, t, config["min_season_days"])
@@ -208,6 +248,7 @@ def stage_evaluation(tracks, candidates, audit, fits, truth, labels, data, t, ga
         ambiguous = set()
         tentative = set()
         compatible = set()
+        residuals = {}
         core_fits = fits_by_method.get(method, {})
         for j, key in enumerate(matches([x["indices"] for x in group])):
             if key is None or j not in core_fits:
@@ -222,10 +263,11 @@ def stage_evaluation(tracks, candidates, audit, fits, truth, labels, data, t, ga
             elif status.startswith("tentative_"):
                 tentative.add(key)
             goal = gaia.loc[key]
-            dx = (model["pm_x"] - goal["pm_tangent_x"]) / np.hypot(
-                np.sqrt(model["cov_x"][1][1]), goal.pmra_error)
-            dy = (model["pm_y"] - goal["pm_tangent_y"]) / np.hypot(
-                np.sqrt(model["cov_y"][1][1]), goal.pmdec_error)
+            error = np.array([model["pm_x"] - goal["pm_tangent_x"],
+                              model["pm_y"] - goal["pm_tangent_y"]])
+            residuals[key] = error
+            dx = error[0] / np.hypot(np.sqrt(model["cov_x"][1][1]), goal.pmra_error)
+            dy = error[1] / np.hypot(np.sqrt(model["cov_y"][1][1]), goal.pmdec_error)
             if dx * dx + dy * dy <= 5.991:
                 compatible.add(key)
         unresolved = {key for key, states in by_object.items()
@@ -245,6 +287,8 @@ def stage_evaluation(tracks, candidates, audit, fits, truth, labels, data, t, ga
 
         stats = dict(candidate_recall=ratio(len(reached - {None}), n),
                      selected_recall=ratio(len(selected), n),
+                     end_to_end_selected_pm=residual_stats(list(residuals.values())),
+                     end_to_end_secure_pm=residual_stats([residuals[k] for k in secure]),
                      secure_recall=ratio(len(secure), n) if method == "motion" else None,
                      ambiguous_recall=ratio(len(ambiguous), n),
                      tentative_recall=ratio(len(tentative), n),
@@ -331,6 +375,10 @@ def validate(work, center, config):
     tracks = json.loads((work / "tracks.json").read_text())
     region = json.loads((work / "run_manifest.json").read_text())["region"]
     truth = groups_by_label(labels, data, t, gaia, center, config["regions"][region]["radius"], config)
+    target = work / "validation" / "challenge_source.txt"
+    if target.exists():
+        wanted = int(target.read_text().strip())
+        truth = {k: rows for k, rows in truth.items() if int(gaia.source_id.iloc[k]) == wanted}
     candidates = json.loads((work / "candidates.json").read_text())
     audit = json.loads((work / "association_audit.json").read_text())
     fits = json.loads((work / "fits.json").read_text())
@@ -339,6 +387,6 @@ def validate(work, center, config):
     precision, paired_rows = paired(truth, data, xy, t, sigma, gaia, config)
     paired_rows.to_csv(work / "validation" / "paired.csv", index=False)
     save_json(work / "validation" / "recovery_trace.json", trace)
-    save_json(work / "validation.json", dict(gaia_rows=len(gaia), labeled_detections=int((labels >= 0).sum()),
+    save_json(work / "validation.json", dict(gaia_rows=len(gaia), challenge_target_requested=target.exists(), labeled_detections=int((labels >= 0).sum()),
                                            truth_cross_survey=len(truth), methods=results,
                                            recovery_stages=stages, paired=precision))

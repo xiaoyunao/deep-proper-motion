@@ -9,6 +9,10 @@
 - 四个回归案例在旧实现均失败，修复后 `PYTHONPATH=src python3 -m unittest discover -s tests -v` 通过 15 项。真实区指标等待 Slurm 计算。
 - 独立实现 A2 同源四路比较，增加按 run/camcol 的留出残差、逐 run 自行改变量，以及 GLS 共享误差敏感度。新增 GLS 测试与显式稠密协方差求解一致，累计 16 项通过。
 
+- 修复整年留出和多方向负对照。冻结新代表区、独立高自行开发/留出、近距真值年视差和 NSC r 波段暗源切片。真实背景注入采用 NSC 芯片和 SDSS 扫描几何及动态缓冲；数据尚未扩区。
+- 运行 `python3 -m compileall -q src tests`、`PYTHONPATH=src python3 -m unittest discover -s tests -q`，22 项通过，含盲关联、生成拟合及后置 Gaia 恢复流程。
+- 核对 `sacct`、`squeue` 和 `sinfo`。普通 CPU、共享分区均 down。合并本轮四个待跑小作业，保留四区回归 `61395302` 和独立 A2 `61395303`；旧挑战 `61394719` 未重复提交。下一步在输出出现时核对阶段和真实统计。
+
 ### v0.1
 
 - **实验目的** 验证是否能用真实 SDSS+NSC 单曝光目录改善无先验自行关联，并分离 SDSS 首次早测量与重复观测的收益。

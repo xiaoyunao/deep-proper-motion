@@ -50,3 +50,28 @@ class ConflictRegressionTest(unittest.TestCase):
         chosen, _, _, _ = motion_tracks(positions, time, np.full(positions.shape, 20.),
                                          exp, groups, config)
         self.assertEqual([x.indices for x in chosen], [tuple(range(6))])
+
+    def test_more_visits_do_not_inflate_local_background(self):
+        from deep_pm.associate import exposure_density
+
+        xy = np.array([[0, 0], [3000, 0]])
+        sample = exposure_density(xy, [0, 0])
+        repeated = exposure_density(np.tile(xy, (20, 1)), np.repeat(np.arange(20), 2))
+        np.testing.assert_allclose(repeated, np.tile(sample, 20))
+
+    def test_near_duplicates_merge_but_same_visit_alternatives_survive(self):
+        from deep_pm.associate import merge_candidates
+
+        model = SimpleNamespace(coeff=np.zeros((2, 2)))
+        first = Track(tuple(range(9)), 10, "secure", 4)
+        second = Track(tuple(range(1, 10)), 9, "secure", 4)
+        third = Track(tuple(range(8)) + (10,), 8, "secure", 4)
+
+        def build(i):
+            return Track(i, len(i) * 1.1, "secure", 4), model
+
+        kept, mapping = merge_candidates([first, second, third], [model] * 3, build,
+                                          np.r_[np.arange(10), 8], {"merge_overlap": .75})
+        self.assertEqual(kept[0].indices, tuple(range(10)))
+        self.assertEqual(kept[1], third)
+        self.assertEqual(mapping, [0, 0, 1])

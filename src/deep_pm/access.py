@@ -108,8 +108,23 @@ def literal(value):
     return "'" + str(value).replace("'", "''") + "'"
 
 
+def checked_spatial(cache, service, columns, source, where, lower, upper):
+    """Bisection keeps count-limited public queries disjoint and auditable."""
+    try:
+        return cache.checked(service, columns, source,
+                             f"({where}) AND dec >= {lower:.16g} AND dec < {upper:.16g}")
+    except PartitionTooLarge:
+        if upper - lower < 1e-5:
+            raise
+        middle = (lower + upper) / 2
+        south = checked_spatial(cache, service, columns, source, where, lower, middle)
+        north = checked_spatial(cache, service, columns, source, where, middle, upper)
+        return pd.concat([south, north], ignore_index=True)
+
+
 def fetch_object_index(cache, ra, dec, radius, progress=print):
-    objects = cache.checked("nsc", "id AS objectid,ra,dec", "nsc_dr2.object", q3c(ra, dec, radius))
+    objects = checked_spatial(cache, "nsc", "id AS objectid,ra,dec", "nsc_dr2.object",
+                              q3c(ra, dec, radius), dec - radius - 1e-8, dec + radius + 1e-8)
     parts = []
 
     def fetch_partition(group):
@@ -167,7 +182,8 @@ def fetch_exposure_index(cache, chips, ra, dec, radius, progress=print):
 
 
 def fetch_sdss(cache, ra, dec, radius):
-    return cache.checked("sdss", SDSS_COLUMNS, "PhotoObjAll", bbox(ra, dec, radius))
+    return checked_spatial(cache, "sdss", SDSS_COLUMNS, "PhotoObjAll", bbox(ra, dec, radius),
+                           dec - radius - 1e-8, dec + radius + 1e-8)
 
 
 def read_sdss_field(path):

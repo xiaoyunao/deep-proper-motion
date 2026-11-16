@@ -1,119 +1,147 @@
-"""Conservative catalogue injection against a real footprint proxy and background."""
+"""Inject trajectories in actual exposure footprints over real catalogue background."""
 import argparse
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
-from scipy.spatial import ConvexHull, QhullError, cKDTree
 
+from . import access
 from .__main__ import detection_arrays, tomllib
 from .associate import motion_tracks, static_tracks
-from .astrometry import seasons
+from .astrometry import epoch_halo_deg, seasons, unproject
+from .footprints import nsc_visits, sdss_visits
 from .io import save_json
-from .validation import ratio
+from .provenance import run_stage
 
 
-def footprints(data, xy):
-    entries = []
-    for name, group in data.groupby("exposure_id"):
-        i = group.index.to_numpy()
-        if len(i) < 6:
+def simulation(visits, center, config, origin, velocity, magnitude, noise, rng):
+    geometrical = []
+    detections = []
+    for visit in visits:
+        position = origin + velocity * (visit.year - config["reference_epoch"])
+        sky = unproject(position, center)[0]
+        if not visit.coverage(position, sky):
             continue
-        try:
-            edges = ConvexHull(xy[i]).equations
-        except QhullError:
+        geometrical.append(visit)
+        # The geometry count precedes the separately configurable detection model.
+        detection_p = config.get("injection_detection_probability", {}).get(visit.survey, .8)
+        if rng.random() >= detection_p:
             continue
-        entries.append((name, i, edges, cKDTree(xy[i])))
-    return entries
+        error = noise.get(visit.exposure, noise.get(f"{visit.survey}/{visit.band}", np.array([100., 100.])))
+        scatter = error * 10 ** (.1 * (magnitude - 19.0))
+        detections.append((visit, position + rng.normal(0, scatter), scatter))
+    return geometrical, detections
 
 
-def inject(data, xy, t, sigma, hulls, radius, speeds, rng, config):
-    directions = rng.uniform(0, 2 * np.pi, len(speeds))
-    location = rng.uniform(-.6, .6, (len(speeds), 2)) * radius * 3600000
-    velocities = np.column_stack([np.cos(directions), np.sin(directions)]) * np.asarray(speeds)[:, None]
-    result = []
-    for k, velocity in enumerate(velocities):
-        for exposure, idx, edges, tree in hulls:
-            moment = np.median(t[idx])
-            position = location[k] + velocity * (moment - config["reference_epoch"])
-            # The inner hull is a conservative coverage proxy within the retrieved sample.
-            if (np.linalg.norm(position) > (radius + config["access"]["halo_deg"]) * 3600000
-                    or np.any(edges[:, :2] @ position + edges[:, 2] > -1000)):
-                continue
-            distance, neighbor = tree.query(position)
-            if distance < 900 or distance > 12000:
-                continue
-            if rng.random() > 0.8:
-                continue
-            error = sigma[idx[neighbor]]
-            measured = position + rng.normal(0, error)
-            result.append((k, exposure, moment, measured, error, data.survey.iloc[idx[neighbor]]))
-    return result
+def required_visits(detections, config):
+    if not detections:
+        return False
+    t = np.array([visit.year for visit in detections])
+    return ({visit.survey for visit in detections} == {"SDSS", "NSC"}
+            and len(set(seasons(t, config["min_season_days"]))) >= 3
+            and np.ptp(t) >= config["min_seed_years"])
 
 
-def run(work, region, config):
+def injection_pass(members, truth, required):
+    track = set(members)
+    return len(track & truth) >= required * max(len(track), len(truth))
+
+
+def run(work, region, config, sdss_window, stress, trials):
     spec = config["regions"][region]
     center, radius = (spec["ra"], spec["dec"]), spec["radius"]
+    if stress:
+        config = dict(config, mu_max=config["stress_mu_max"])
+    required_halo = epoch_halo_deg(config)
     data, xy, t, sigma = detection_arrays(work, center, config)
-    hulls = footprints(data, xy)
-    exposure = data.exposure_id.to_numpy()
+    sampling = np.linalg.norm(xy, axis=1) / 3600000
+    declared_halo = spec.get("background_halo_deg", config["access"]["halo_deg"])
+    if declared_halo + 1e-8 < required_halo:
+        raise ValueError(f"Re-fetch background with halo {required_halo:.5f} deg before injection")
+    data = data.loc[sampling <= radius + declared_halo].reset_index(drop=True)
+    xy, t, sigma = (a[sampling <= radius + declared_halo] for a in (xy, t, sigma))
+    chips = access.covering_chips(access.Cache(work / "cache"), *center, radius + required_halo,
+                                 config["access"]["chip_center_margin_deg"])
+    visits = [*nsc_visits(chips, center), *sdss_visits(sdss_window, center, radius + required_halo)]
+    measurements = data.assign(sx=sigma[:, 0], sy=sigma[:, 1])
+    noise = {name: group[["sx", "sy"]].median().to_numpy()
+             for name, group in measurements.groupby("exposure_id")}
+    noise.update({f"{survey}/{band}": group[["sx", "sy"]].median().to_numpy()
+                  for (survey, band), group in measurements.groupby(["survey", "band"])})
+    speeds = [config["stress_mu_max"]] if stress else config["pm_edges"]
     rng = np.random.default_rng(config["seed"])
-    summary = {}
-    speeds = config["pm_edges"]
-    for label in ("main", "stress"):
-        cfg = dict(config)
-        if label == "stress":
-            cfg["mu_max"] = config["stress_mu_max"]
-            trial_speeds = [10000]
-        else:
-            trial_speeds = speeds
-        outcomes = {method: {speed: [0, 0] for speed in trial_speeds}
-                    for method in ("fixed", "nsc_like", "motion")}
-        trials = 3 if label == "main" else 1
-        observed = {speed: [] for speed in trial_speeds}
+    count = {speed: Counter() for speed in speeds}
+    queued = []
+    exposure = data.exposure_id.to_numpy()
+    for speed in speeds:
         for _ in range(trials):
-            rows = inject(data, xy, t, sigma, hulls, radius, trial_speeds, rng, cfg)
-            if not rows:
-                continue
-            pos = np.vstack([xy, np.stack([row[3] for row in rows])])
-            tt = np.r_[t, [row[2] for row in rows]]
-            err = np.vstack([sigma, np.stack([row[4] for row in rows])])
-            exp = np.r_[exposure, [row[1] for row in rows]]
-            group_labels = np.r_[np.full(len(xy), -1, dtype=int), [row[0] for row in rows]]
-            fixed = static_tracks(pos, exp, cfg["fixed_radius_mas"])
-            nsc = static_tracks(pos, exp, cfg["fixed_radius_mas"], cfg["dbscan_eps_mas"])
-            motion, _, _, _ = motion_tracks(pos, tt, err, exp, fixed, cfg)
-            for k, speed in enumerate(trial_speeds):
-                keep = np.flatnonzero(group_labels == k)
-                instruments = {row[5] for row in rows if k == row[0]}
-                observed[speed].append(len(keep))
-                if len(keep) < 3 or len(instruments) < 2 or len(set(seasons(
-                        tt[keep], cfg["min_season_days"]))) < 3:
-                    continue
-                for method, tracks in [("fixed", fixed), ("nsc_like", nsc),
-                                       ("motion", [track.indices for track in motion])]:
-                    outcomes[method][speed][1] += 1
-                    recovered = False
-                    for track in tracks:
-                        tagged = group_labels[list(track)]
-                        members = (tagged == k).sum()
-                        if (members >= cfg["recovery_fraction"] * len(keep)
-                                and members >= cfg["recovery_fraction"] * len(track)):
-                            recovered = True
-                            break
-                    outcomes[method][speed][0] += int(recovered)
-        summary[label] = dict(
-            trials=trials, detections_by_speed={str(k): v for k, v in observed.items()},
-            methods={method: {str(speed): ratio(*counts) for speed, counts in group.items()}
-                     for method, group in outcomes.items()})
-    save_json(work / "injection_summary.json", dict(footprint_exposures=len(hulls), results=summary))
+            stats = count[speed]
+            stats["attempted"] += 1
+            angle = rng.uniform(0, 2 * np.pi)
+            direction = np.array([np.cos(angle), np.sin(angle)])
+            origin = direction * (np.sqrt(rng.random()) * radius * 3600000)
+            theta = rng.uniform(0, 2 * np.pi)
+            velocity = speed * np.array([np.cos(theta), np.sin(theta)])
+            geometric, draws = simulation(visits, center, config, origin, velocity, rng.uniform(18, 21),
+                                         noise, rng)
+            stats["two_survey_geometry"] += {v.survey for v in geometric} == {"SDSS", "NSC"}
+            if required_visits([v for v, *_ in draws], config):
+                stats["required_time_coverage"] += 1
+                queued.append((speed, draws))
+    rng.shuffle(queued)
+    batch_size = 6
+    for start in range(0, len(queued), batch_size):
+        batch = queued[start:start + batch_size]
+        injected = [row for _, draws in batch for row in draws]
+        positions = np.vstack([xy, np.array([row[1] for row in injected])])
+        times = np.r_[t, [row[0].year for row in injected]]
+        uncertainty = np.vstack([sigma, [row[2] for row in injected]])
+        visit_ids = np.r_[exposure, [row[0].exposure for row in injected]]
+        order = np.argsort(times, kind="stable")
+        reverse = np.empty_like(order)
+        reverse[order] = np.arange(len(order))
+        positions, times, uncertainty, visit_ids = (a[order] for a in
+                                                     (positions, times, uncertainty, visit_ids))
+        fixed = static_tracks(positions, visit_ids, config["fixed_radius_mas"])
+        nsc_like = static_tracks(positions, visit_ids, config["fixed_radius_mas"], config["dbscan_eps_mas"])
+        audit = {}
+        selected, candidates, _, _ = motion_tracks(positions, times, uncertainty, visit_ids, fixed, config, audit)
+        offset = len(xy)
+        for speed, draws in batch:
+            truth = set(reverse[offset:offset + len(draws)])
+            offset += len(draws)
+            def matches(group):
+                return injection_pass(group, truth, config["recovery_fraction"])
+            stats = count[speed]
+            stats["generated_correct_candidate"] += any(matches(g) for g in audit["generated"])
+            stats["retained_correct_candidate"] += any(matches(g.indices) for g in candidates)
+            stats["fixed_recovery"] += any(matches(g) for g in fixed)
+            stats["nsc_like_recovery"] += any(matches(g) for g in nsc_like)
+            stats["selected_recovery"] += any(matches(g.indices) for g in selected)
+            stats["secure_recovery"] += any(matches(g.indices) and g.status == "secure" for g in selected)
+    keys = ("attempted", "two_survey_geometry", "required_time_coverage", "generated_correct_candidate",
+            "retained_correct_candidate", "fixed_recovery", "nsc_like_recovery", "selected_recovery",
+            "secure_recovery")
+    result = {str(speed): {key: count[speed][key] for key in keys} for speed in speeds}
+    save_json(work / ("v02_stress_summary.json" if stress else "v02_injection_summary.json"),
+              dict(role=spec["role"], footprint_visits=dict(Counter(v.survey for v in visits)),
+                   halo_deg=required_halo, bins=result))
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("work", type=Path)
     parser.add_argument("--region", default="smoke")
-    parser.add_argument("--config", default="configs/experiment-a.toml")
+    parser.add_argument("--config", type=Path, default=Path("configs/experiment-a-v02.toml"))
+    parser.add_argument("--sdss-window", required=True, type=Path)
+    parser.add_argument("--stress", action="store_true")
+    parser.add_argument("--trials", type=int, default=30)
     args = parser.parse_args()
-    with open(args.config, "rb") as file:
+    with args.config.open("rb") as file:
         config = tomllib.load(file)
-    run(args.work, args.region, config)
+    config.update(config["regions"][args.region].get("overrides", {}))
+    mode = "stress" if args.stress else "injection"
+    with run_stage(args.work, args.config, args.region, f"{mode}-{args.trials}",
+                   ["detections.csv"], [f"v02_{mode}_summary.json"]) as execute:
+        if execute:
+            run(args.work, args.region, config, args.sdss_window, args.stress, args.trials)

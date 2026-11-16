@@ -17,7 +17,7 @@ def read(path):
     return json.loads(path.read_text())
 
 
-def report(work, region):
+def report(work, region, role="unspecified"):
     plt.rcParams.update({"font.family": "serif", "xtick.direction": "in", "ytick.direction": "in",
                          "xtick.top": True, "ytick.right": True, "axes.labelsize": 11})
     out = work / "summary"
@@ -25,7 +25,7 @@ def report(work, region):
     inventory = read(work / "inventory.json")
     validation = read(work / "validation.json") if (work / "validation.json").exists() else {}
     resources = read(work / "association_resources.json") if (work / "association_resources.json").exists() else {}
-    summary = dict(region=region, inventory=inventory, validation=validation, resources=resources,
+    summary = dict(region=region, role=role, inventory=inventory, validation=validation, resources=resources,
                    manifest=read(work / "run_manifest.json"))
     save_json(out / f"{region}_summary.json", summary)
 
@@ -62,7 +62,7 @@ def report(work, region):
     axes[1].set(xlabel="Object contamination bounds, including unknowns (%)", ylabel="Selected recovery fraction",
                 ylim=(-0.08, 1.10))
     axes[0].legend(frameon=False)
-    fig.suptitle(f"{region} | {validation['truth_cross_survey']} Gaia-labelled cross-survey sources")
+    fig.suptitle(f"{region} | {role}, {validation['truth_cross_survey']} Gaia-labelled cross-survey sources")
     fig.savefig(out / f"{region}_recovery_summary.png", dpi=180)
     plt.close(fig)
 
@@ -71,7 +71,7 @@ def report(work, region):
     fig, ax = plt.subplots(figsize=(9, 4.3), layout="constrained")
     ax.barh(names[::-1], fractions[::-1], color=COLORS["motion"])
     ax.set(xlim=(0, 1.05), xlabel="Fraction of eligible Gaia objects",
-           title=f"{region} | v0.2 regression, n={validation['truth_cross_survey']}")
+           title=f"{region} | {role}, n={validation['truth_cross_survey']}")
     fig.savefig(out / f"{region}_stages_summary.png", dpi=180)
     plt.close(fig)
 

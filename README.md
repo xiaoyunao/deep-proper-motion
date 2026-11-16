@@ -6,6 +6,8 @@ SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未
 - [科学问题](docs/science_case.md) · [数据与访问](docs/data_access.md) · [单位与选择](docs/selection_and_units.md) · [方法](docs/methods.md) · [验收协议](docs/validation_protocol.md)
 - [可公开的汇总](results/summary) · [统计图](figures) · [研究记录](WORKLOG.md)
 
+实验 A v0.2 在独立分支开发。见 [实际进度](reports/experiment_A_v0.2.md)、[八步计划](PLAN.md) 和 [v0.2 流程](docs/experiment_a_v02.md)。以下入口保留实验 A 的基本操作。请用明确的阶段版本配置和独立 Scratch 根。
+
 使用 Python 3.8+，依赖见 `pyproject.toml`。在安装后的环境中用 `deep-pm`，也可设 `PYTHONPATH=src` 并调用 `python -m deep_pm`。NERSC 已实测 Python 3.8、NumPy 1.24、SciPy 1.10、Astropy 5.2、scikit-learn 1.3，Python 3.8 需要额外的 tomli。
 
 从项目根目录运行。登录节点只做环境探查、数据管理及提交。先用 `deep-pm --work "$DEEP_PM_WORK" discover` 和 `sacctmgr` 确认实际 HOME、Scratch 和 CPU 资源账户，再提交。参数 `DEEP_PM_WORK` 指向已验证的个人 Scratch 项目目录，`DEEP_PM_PYTHON` 与 `DEEP_PM_EXTRA_PYTHONPATH` 随实际环境设置。区域执行时使用同一冻结配置和代码快照：

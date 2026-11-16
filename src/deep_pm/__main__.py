@@ -17,7 +17,7 @@ except ImportError:
 
 from . import access, normalize
 from .associate import motion_tracks, static_tracks
-from .astrometry import fit_motion, project, seasons, unproject, years
+from .astrometry import epoch_halo_deg, fit_motion, project, seasons, unproject, years
 from .io import save_json
 from .provenance import run_stage
 
@@ -30,7 +30,7 @@ def in_cone(frame, center, radius):
 
 def fetch(work, center, radius, config, route):
     cache = access.Cache(work / "cache")
-    halo = config["access"]["halo_deg"]
+    halo = epoch_halo_deg(config)
     expanded = radius + halo
     if route in {"object", "all"}:
         raw, obj = access.fetch_object_index(cache, *center, expanded + halo)
@@ -49,9 +49,9 @@ def fetch(work, center, radius, config, route):
 
 def fetch_gaia(work, center, radius, config):
     cache = access.Cache(work / "validation" / "cache")
-    where = access.q3c(*center, radius + 2 * config["access"]["halo_deg"] + 0.004)
+    where = access.q3c(*center, radius + 2 * epoch_halo_deg(config) + 0.004)
     columns = ("source_id,ra,dec,ref_epoch,pmra,pmdec,pmra_error,pmdec_error,parallax,"
-               "ruwe,phot_g_mean_mag,astrometric_params_solved")
+               "ruwe,phot_g_mean_mag,phot_rp_mean_mag,parallax_error,radial_velocity,astrometric_params_solved")
     table = cache.checked("nsc", columns, "gaia_dr3.gaia_source", where)
     table.to_csv(work / "validation" / "gaia.csv", index=False)
 
@@ -192,6 +192,7 @@ def main():
     with config_path.open("rb") as f:
         config = tomllib.load(f)
     region = config["regions"][args.region]
+    config.update(region.get("overrides", {}))
     center, radius = (region["ra"], region["dec"]), region["radius"]
     work = args.work / args.region
     work.mkdir(parents=True, exist_ok=True)
@@ -214,7 +215,7 @@ def main():
         "inventory": (["detections.csv"], ["inventory.json"]),
         "associate": (["detections.csv"], association),
         "fit": (["detections.csv", "tracks.json"], ["fits.json"]),
-        "validate": (["detections.csv", "validation/gaia.csv", "fits.json", *association],
+        "validate": (["detections.csv", "validation/gaia.csv", "validation/challenge_source.txt", "fits.json", *association],
                      ["validation.json", "validation/paired.csv", "validation/recovery_trace.json"]),
         "report": (["inventory.json", "validation.json", "association_resources.json",
                     "validation/paired.csv"], [f"summary/{args.region}_summary.json"]),
@@ -242,7 +243,7 @@ def main():
             validate(work, center, config)
         elif stage == "report":
             from .reporting import report
-            report(work, args.region)
+            report(work, args.region, region["role"])
 
 
 if __name__ == "__main__":

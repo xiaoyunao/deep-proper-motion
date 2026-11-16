@@ -47,6 +47,10 @@ radius = 0.02
 [access]
 halo_deg = 0.017
 chip_center_margin_deg = 0.20
+epoch_min = 1998.0
+epoch_max = 2020.0
+edge_pad_mas = 1500
+max_parallax_mas = 2000
 
 [regions.north]
 role = "regression"
@@ -65,3 +69,71 @@ role = "historical_challenge"
 ra = 29.65
 dec = 0.66
 radius = 0.02
+
+# Candidate fields frozen before any v0.2 association results.
+[regions.dev_repeat]
+role = "new_development"
+ra = 15.0
+dec = -0.60
+radius = 0.10
+
+[regions.test_north]
+role = "independent_representative"
+ra = 179.6
+dec = 35.1
+radius = 0.12
+
+[regions.test_equator]
+role = "independent_representative"
+ra = 352.5
+dec = 0.30
+radius = 0.10
+
+[regions.test_crowding]
+role = "independent_representative"
+ra = 228.82
+dec = -0.31
+radius = 0.10
+
+[regions.dev_repeat.overrides]
+smoke_max_mag = 22.5
+
+[regions.test_north.overrides]
+smoke_max_mag = 22.5
+
+[regions.test_equator.overrides]
+smoke_max_mag = 22.5
+
+[regions.test_crowding.overrides]
+smoke_max_mag = 22.5
+
+[challenge]
+sources_per_bin_per_split = 12
+pm_edges = [100, 200, 500, 1000, 2000]
+radius = 0.02
+max_g = 20.5
+minimum_separation_deg = 0.10
+
+[[challenge.search_fields]]
+split = "dev"
+ra = 0.0
+dec = 0.0
+radius = 2.5
+
+[[challenge.search_fields]]
+split = "dev"
+ra = 175.0
+dec = 35.0
+radius = 3.0
+
+[[challenge.search_fields]]
+split = "test"
+ra = 30.0
+dec = 0.0
+radius = 2.5
+
+[[challenge.search_fields]]
+split = "test"
+ra = 185.0
+dec = 35.0
+radius = 3.0

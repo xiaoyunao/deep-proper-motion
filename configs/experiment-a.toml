@@ -52,3 +52,9 @@ role = "crowding_probe"
 ra = 229.019
 dec = -0.124
 radius = 0.02
+
+[regions.challenge]
+role = "gaia_high_motion_challenge"
+ra = 29.65
+dec = 0.66
+radius = 0.02

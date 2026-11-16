@@ -10,7 +10,7 @@ ssh -T -o BatchMode=yes "$remote" "bash -s -- '$source_root'" >"$stage/summary.t
 set -euo pipefail
 cd "$1"
 allowed=()
-for region in smoke wrap north pal5; do
+for region in smoke wrap north pal5 challenge; do
     for name in route_audit_summary counterfactual_summary diagnostics_summary injection_summary \
         solver_ablation_summary night_bootstrap_summary exhaustive_summary; do
         path="$region/$name.json"
@@ -28,10 +28,24 @@ REMOTE
 tar -xf "$stage/summary.tar" -C "$stage"
 mkdir -p "$folder/figures" "$folder/results/summary"
 shopt -s nullglob
-for region in smoke wrap north pal5; do
+for region in smoke wrap north pal5 challenge; do
     for f in "$stage/$region/"*_summary.json; do
         python3 -m json.tool "$f" >/dev/null
-        cp -- "$f" "$folder/results/summary/${region}_${f##*/}"
+        dest="$folder/results/summary/${region}_${f##*/}"
+        if [[ ${f##*/} == diagnostics_summary.json ]]; then
+            python3 - "$f" "$dest" <<'PYTHON'
+import json
+from pathlib import Path
+import sys
+
+summary = json.loads(Path(sys.argv[1]).read_text())
+summary.pop("cases", None)
+Path(sys.argv[2]).write_text(json.dumps(summary, indent=2, allow_nan=False) + "
+")
+PYTHON
+        else
+            cp -- "$f" "$dest"
+        fi
     done
     for f in "$stage/$region/summary/"*_summary.json; do
         python3 -m json.tool "$f" >/dev/null

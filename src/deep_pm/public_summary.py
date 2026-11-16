@@ -15,9 +15,12 @@ from .io import save_json
 
 
 STAGES = {
+    "legacy-order-v03": ("legacy-order-v03", "legacy_order_summary.json",
+                         ("ranges_requested", "ranges_read", "failed_ranges", "sampled_records")),
     "dark-precision-v03": ("dark-precision-v03", "dark_precision_summary.json",
                            ("held_year", "coverage_by_r", "residual_by_r_mas", "qso_coverage",
-                            "qso_motion_masyr", "reference_counts")),
+                            "qso_motion_masyr", "qso_published_common", "paired_object_median_change_mas",
+                            "detection_quality_control", "reference_counts")),
     "chromatic-v03": ("chromatic-v03", "chromatic_summary.json",
                       ("status", "exposure_metadata", "models", "comparison", "coverage")),
     "precision-v03": ("precision-v03", "precision_v03_summary.json",

@@ -8,11 +8,13 @@ import pandas as pd
 from astropy.time import Time
 from scipy.spatial import cKDTree
 
+from . import access
 from .__main__ import detection_arrays, tomllib
 from .associate import static_tracks
 from .astrometry import fit_motion, project
 from .io import save_json
-from .precision_v03 import astrometric_metrics, calibration, calibration_groups, fit_with_calibration
+from .paired_control import catalogue_motion, common_catalogue_ids, published_rows
+from .precision_v03 import astrometric_metrics, calibration, calibration_groups, fit_with_calibration, paired_change
 from .provenance import run_stage
 
 
@@ -85,7 +87,13 @@ def run(work, config, region):
     for tag, *_ in control:
         counts[tag]["tracks"] += 1
     residual = defaultdict(list)
+    residual_by_track = defaultdict(list)
+    diagnostics = defaultdict(list)
     distinct = defaultdict(set)
+    visits_by_bin = defaultdict(set)
+    fwhm = data["fwhm"].to_numpy()
+    magerr = data.magnitude_error.to_numpy()
+    scale = 2.5/np.log(10)
     for visit, rows in data.iloc[hold].groupby("exposure_id"):
         if not control or len(rows) < 2:
             continue
@@ -101,6 +109,7 @@ def run(work, config, region):
             row = idx[nearest[j]]
             counts[tag]["unique_matches"] += 1
             distinct[tag].add(j)
+            visits_by_bin[tag].add(visit)
             delta = offsets[groups[row]]
             # Use a common, position-only match gate for both model residuals.
             # Infer projected prediction covariance on the same detections.
@@ -115,10 +124,16 @@ def run(work, config, region):
                         np.tile(t[support, None], (1,2)), axis=0, weights=w))*w*dt/(w*dt**2).sum(axis=0)
                     sampled = np.stack([offsets[g][1] for g in groups[support]], axis=1)
                     variance += np.var(delta[1] - np.sum(sampled*leverage[None],axis=1),axis=0,ddof=1)
-                residual[tag+"/"+name].append((xy[row]-correction-prediction,
-                                               np.sqrt(variance+sigma[row]**2)))
+                position_residual = xy[row]-correction-prediction
+                residual[tag+"/"+name].append((position_residual, np.sqrt(variance+sigma[row]**2)))
+                residual_by_track[tag, name, j].append(position_residual)
+                if name == "M3":
+                    norm = float(np.linalg.norm(position_residual))
+                    if np.isfinite(fwhm[row]) and fwhm[row] > 0:
+                        diagnostics[tag, j].append((float(fwhm[row]), scale/magerr[row], norm))
     qso_stats = defaultdict(list)
-    qso_names = set()
+    qso_names = {}
+    qso_targets = {}
     visits_by_qso = defaultdict(list)
     for _, frame in data.loc[good].groupby("exposure_id"):
         if not len(qso_xy) or len(frame) < 2:
@@ -132,17 +147,65 @@ def run(work, config, region):
         late = idx[nsc[idx]]
         if len(late)<3 or len(late)==len(idx) or np.ptp(t[late]) < config["min_seed_years"]:
             continue
-        qso_names.add(key)
+        qso_names[key] = idx
         base = fit_motion(xy[idx], t[idx], sigma[idx], epoch)
         change, uncertainty = fit_with_calibration(xy[idx], t[idx], sigma[idx], epoch,
                                                     [offsets[g] for g in groups[idx]])
         qso_stats["M2"].append((base.coeff[1], np.sqrt(base.cov[:, 1, 1])))
         qso_stats["M3"].append((change.coeff[1], uncertainty))
+        qso_targets[key] = (qso_stats["M2"][-1], qso_stats["M3"][-1],
+                            np.median(magnitude[late]))
+    original = pd.read_csv(work / "external_labels.csv", dtype=str).set_index("detection_id").original_object_id
+    labels = np.full(len(data), -1)
+    for key, idx in qso_names.items():
+        labels[idx] = key
+    linked, exits = common_catalogue_ids(qso_names, labels, data, original)
+    qso_common = defaultdict(list)
+    published = published_rows(access.Cache(work / "cache"), linked.values())
+    for key, name in linked.items():
+        if name not in published.index:
+            exits["missing_common_published"] += 1
+            continue
+        row = published.loc[name]
+        error = row[["pmraerr", "pmdecerr"]].to_numpy(dtype=float)
+        pm = catalogue_motion(row, center)
+        if not (np.isfinite(pm).all() and np.isfinite(error).all() and (error > 0).all()
+                and abs(pm).max() < 1e5 and row.deltamjd > 0):
+            exits["missing_published_motion"] += 1
+            continue
+        m2, m3, rmag = qso_targets[key]
+        for tag in ("all", bin_name(rmag, settings["r_edges"])):
+            for label, value in (("M2", m2), ("M3", m3), ("published_nsc", (pm, error))):
+                qso_common[tag+"/"+label].append(value)
+
+    paired = {}
+    for tag, tracks_in_bin in distinct.items():
+        per_model = [[np.median(residual_by_track[tag, name, j], axis=0)
+                      for j in sorted(tracks_in_bin)] for name in ("M2", "M3")]
+        paired[tag] = paired_change(*per_model, config["seed"])
+    quality = {}
+    for tag in distinct:
+        per_track = np.array([np.median(values, axis=0) for (band, _), values in diagnostics.items()
+                              if tag == band])
+        if len(per_track) < 10:
+            continue
+        quality[tag] = {}
+        for i, name in enumerate(("fwhm_catalogue_units", "snr")):
+            middle = np.median(per_track[:, i])
+            groups_at_cut = per_track[:, i] < middle
+            quality[tag][name] = dict(split=middle,
+                lower_count=int(groups_at_cut.sum()), upper_count=int((~groups_at_cut).sum()),
+                lower_median_radial_mas=float(np.median(per_track[groups_at_cut, 2])) if groups_at_cut.any() else None,
+                upper_median_radial_mas=float(np.median(per_track[~groups_at_cut, 2])))
     save_json(work/"dark_precision_summary.json", dict(
-        held_year=settings["held_year"], coverage_by_r={k: dict(v, matched_tracks=len(distinct[k]))
+        held_year=settings["held_year"],
+        coverage_by_r={k: dict(v, matched_tracks=len(distinct[k]), distinct_matched_visits=len(visits_by_bin[k]))
                                                        for k,v in counts.items()},
         residual_by_r_mas=metrics(residual, 300), qso_coverage=dict(queried=len(qso_xy),common=len(qso_names)),
         qso_motion_masyr=metrics(qso_stats, config["calibration"]["tail_masyr"]),
+        qso_published_common=dict(exclusion_counts=dict(exits),
+                                  metrics=metrics(qso_common, config["calibration"]["tail_masyr"])),
+        paired_object_median_change_mas=paired, detection_quality_control=quality,
         reference_counts=calibration_info["reference_counts"]))
 
 

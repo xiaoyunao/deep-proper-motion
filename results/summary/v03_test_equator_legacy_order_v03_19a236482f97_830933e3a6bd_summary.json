@@ -1,0 +1,21 @@
+{
+  "ranges_requested": 9,
+  "ranges_read": 4,
+  "failed_ranges": [
+    "ReadTimeout",
+    "ReadTimeout",
+    "ReadTimeout",
+    "ReadTimeout",
+    "ReadTimeout"
+  ],
+  "sampled_records": 256,
+  "region": "test_equator",
+  "role": "calibration_pilot",
+  "receipt": {
+    "commit": "19a236482f97aa25ff5103e9bf6c3d8227647c8e",
+    "config_sha256": "830933e3a6bd9712488dbcc9c2bfb7a5ce0fb180ad4cd6cf8be9211ed1f43d23",
+    "aggregate_sha256": "cca7a09244076ed08956923fd4557a400aec833f93571d6476f72add4362ec5a",
+    "slurm_job": "61406301",
+    "stage": "legacy-order-v03"
+  }
+}

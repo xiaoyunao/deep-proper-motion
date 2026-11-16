@@ -9,3 +9,5 @@
 [SDSS Resolve](https://www.sdss4.org/dr16/algorithms/resolve) · [SDSS 质量位](https://www.sdss4.org/dr16/algorithms/bitmasks) · [NSC schema](https://datalab.noirlab.edu/data-explorer?showTable=nsc_dr2.meas)
 
 在开发区的 DR17 run 3325、camcol 4、field 308，SAS 与 CAS 同一检测的 `TAI_r` 完全一致，位置和 RAERR 在浮点精度内一致。TAI 换算成 MJD 后比该记录的 CAS 整数 MJD 大 0.3972 天。匹配 photoField 确有 airmass、REF_TAI 及 DCR 颜色列。
+
+SDSS CAS 官方 astrometry 说明把质心误差与 frame 标定误差平方相加，并在坐标变换后产生 RA/DEC 协方差。v0.3 保留发布的边际 `RAERR/DECERR`，沿用 50 mas 每轴实验底噪；未将 `photoField` 标定误差再次加到独立逐源项。参考星系重采样传播的是新增零点估计的不确定度，发布误差的逐源与共模分量仍待拆分。 [SDSS CAS 天测说明](https://classic.sdss.org/dr7/algorithms/astrometry.php)

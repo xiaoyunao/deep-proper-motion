@@ -14,3 +14,5 @@
 当前图使用论文式的衬线科研图、内向刻度及明确单位。其样式为重新构建。 [论文全文](https://arxiv.org/html/2405.04016v2)
 
 NSC 官方源码审阅固定在 `7c0756eea30b7a3afcab0e204310ee39e1c5dabc`。查看 `combine.py` 的季节数据使用、DBSCAN 后备配对、UTC MJD 及 cos(dec) 自行项，并追查 `calibrate.py` 的角距离误差。本项目独立实现 NSC-like 基准。此 commit 是实际查看的 HEAD，DR2 发布版本仍待回溯。 [源码](https://github.com/astro-datalab/nsc/tree/7c0756eea30b7a3afcab0e204310ee39e1c5dabc)
+
+v0.3 在计算节点复查，旧 Scratch 的 `final_catalog`、`quasar_128` 和 `cluster_128` 目前为空。ScienceDB V3 提供 `desipm.fits`。计算节点读取了实际 FITS 首部，HTTP 206 声明文件为 46,955,050,560 字节，表中共有 268,314,513 行。列包含 `objID`、`RA`、`DEC`、`PM_SOURCE`、两分量自行及误差、两历元和 Legacy Surveys 星等。论文说明地基产品用 `PM_SOURCE=DESI`，Gaia DR2 行需剔除。正式比较还需核验断点获取、字段值、唯一同源匹配及真实暗端交集。 [ScienceDB V3](https://doi.org/10.57760/sciencedb.07990) · [论文 Appendix A](https://arxiv.org/html/2405.04016v2)

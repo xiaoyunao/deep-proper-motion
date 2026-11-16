@@ -20,3 +20,9 @@
 | DR17 photoObj-003325-4-0308.fits | `fef78cd8405d0a3af6c607f9d017ad56c2218021c7c594c18205a6dca1e07925` |
 | DR17 photoField-003325-4.fits | `bc65febb0ca0e2139c7e298f65a3e8f614a5c5c6b76675992039f3cc51b5c37e` |
 | Data Lab 四张 NSC 表的 TAP_SCHEMA 结果 | `d7f369cc9ce86ffe151861d672e289474cace2a63676b53ea4ad0d1d38b2cde9` |
+
+### 实验 A v0.3 发表产品与曝光元数据
+
+NSC 曝光元数据按实际测量中的 exposure ID 查询并核验。SDSS 的独立零运动对照从 `SpecObj` 按光谱分类和红移质量获取。出版 FITS 的首部用 HTTP 206 严格检查返回字节段及长度。原始光谱候选、单曝光行、范围缓存、DESI 切片和逐源结果均只留在 NERSC。
+
+`deep_pm.legacy_subset` 支持在计算节点按 HEALPix RING 试取小区或使用经首部检查的完整 FITS 副本。范围路径验证局部排序、区间两端与返回记录，每个下载块独立缓存；任一所需像素未成功即不写出切片。此路径依赖发布表实际按 RING 排序，目前仅有抽样证据。若已有完整副本，在 Slurm 中运行 `python -m deep_pm.legacy_subset "$DEEP_PM_WORK" --local-fits "$XIAO2025_FITS" --region test_equator`，工作目录需有 `legacy_header_summary.json`。 [ScienceDB V3](https://doi.org/10.57760/sciencedb.07990)

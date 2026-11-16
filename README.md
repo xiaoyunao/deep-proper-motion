@@ -6,7 +6,7 @@ SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未
 - [科学问题](docs/science_case.md) · [数据与访问](docs/data_access.md) · [单位与选择](docs/selection_and_units.md) · [方法](docs/methods.md) · [验收协议](docs/validation_protocol.md)
 - [可公开的汇总](results/summary) · [统计图](figures) · [研究记录](WORKLOG.md)
 
-实验 A v0.2 的独立验证、注入和同源精度对照见 [中文报告](reports/experiment_A_v0.2.md)、[八步计划](PLAN.md) 和 [v0.2 流程](docs/experiment_a_v02.md)。以下入口保留实验 A 的基本操作。请用明确的阶段版本配置和独立 Scratch 根。
+实验 A v0.2 的独立验证、注入和同源精度对照见 [中文报告](reports/experiment_A_v0.2.md)、[八步计划](docs/experiment_a_v02_plan.md) 和 [v0.2 流程](docs/experiment_a_v02.md)。以下入口保留实验 A 的基本操作。请用明确的阶段版本配置和独立 Scratch 根。
 
 使用 Python 3.8+，依赖见 `pyproject.toml`。在安装后的环境中用 `deep-pm`，也可设 `PYTHONPATH=src` 并调用 `python -m deep_pm`。NERSC 已实测 Python 3.8、NumPy 1.24、SciPy 1.10、Astropy 5.2、scikit-learn 1.3，Python 3.8 需要额外的 tomli。
 
@@ -26,4 +26,6 @@ sbatch -A "${DEEP_PM_ACCOUNT:?set a verified CPU account}" -q "${DEEP_PM_QOS:?}"
 
 测试用 `PYTHONPATH=src python -m unittest discover -s tests -v`。公开同步用本地 `bash scripts/sync-summary.sh`，先设置 `DEEP_PM_SSH_TARGET` 和 `DEEP_PM_REMOTE_SCRATCH`。该入口只接收预设名称的统计和图片。数据保留与持久化见 [数据文档](docs/data_access.md)。
 
-实验 A v0.3 从 `b92912c` 单列普通源精度实验。用 `bash scripts/precision-v03.sh test_equator` 在 Slurm 上从冻结目录复现基线并检验独立星系零点。配置和验收口径见 [v0.3 计划](PLAN.md)。
+实验 A v0.3 从 `b92912c` 单列普通源精度实验。用 `bash scripts/precision-v03.sh test_equator` 在 Slurm 上从冻结目录复现基线并检验独立星系零点。配置和验收口径见 [v0.3 计划](PLAN.md)，实测结果见 [v0.3 中文报告](reports/experiment_A_v0.3_precision.md)。
+
+用版本化 Slurm 工作目录运行 `deep_pm.precision_inputs` 获取精确曝光数据及检查出版 FITS 首部，再用 `deep_pm.chromatic_control`、`deep_pm.dark_precision` 运行色项消融和整年留出。审计产物用 `scripts/sync-v02-summary.sh` 逐阶段校验回执后同步。

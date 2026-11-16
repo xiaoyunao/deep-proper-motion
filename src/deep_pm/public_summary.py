@@ -21,6 +21,8 @@ STAGES = {
                   ("truth_sources", "exclusion_counts", "fixed_truth_three_way",
                    "fixed_truth_common_four_way", "shared_error_sensitivity",
                    "sdss_run_heldout", "sdss_run_camera_residual")),
+    "matched": (r"matched-control", "matched_control_summary.json",
+                ("upstream_commit", "eligible", "fixed_control_total", "matched_pm")),
     "prediction": (r"prediction-control", "prediction_control_summary.json",
                    ("held_year", "translated_control")),
     "injection": (r"injection-[0-9]+", "v02_injection_summary.json",

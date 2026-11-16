@@ -1,0 +1,23 @@
+{
+  "area_sqdeg": 1.2076282160399165,
+  "spectra_core": 168,
+  "spectra_faint_core": 92,
+  "sdss_detection_rows": 27290,
+  "sdss_run_count": 2,
+  "sdss_date_count": 2,
+  "nsc_object_rows": 65935,
+  "candidates_with_sdss": 154,
+  "candidates_with_both": 150,
+  "faint_candidates_with_both": 78,
+  "sdss_route": "sas",
+  "sdss_fields": 72,
+  "region": "ngc_short",
+  "role": "independent",
+  "receipt": {
+    "commit": "a7527bb202c931142b2b608aad0d6d00d4f1b524",
+    "config_sha256": "dae09f5ca3fff5d957c16fa6648ec5d2555a2c9fade7510bab446d9ca057d3ef",
+    "aggregate_sha256": "761431485e233d9a1e239c8e75bb3f7a8f8998ee0ff4b85a98cdb138bc4b4ba1",
+    "slurm_job": "61412061",
+    "stage": "qso-coverage-v04"
+  }
+}

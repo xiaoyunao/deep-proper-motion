@@ -2,6 +2,7 @@
 import argparse
 from collections import defaultdict
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import pandas as pd
@@ -161,6 +162,7 @@ def run(work, config, region):
         labels[idx] = key
     linked, exits = common_catalogue_ids(qso_names, labels, data, original)
     qso_common = defaultdict(list)
+    common_qso = {}
     published = published_rows(access.Cache(work / "cache"), linked.values())
     for key, name in linked.items():
         if name not in published.index:
@@ -174,9 +176,36 @@ def run(work, config, region):
             exits["missing_published_motion"] += 1
             continue
         m2, m3, rmag = qso_targets[key]
+        common_qso[key] = (m2, m3, (pm, error))
         for tag in ("all", bin_name(rmag, settings["r_edges"])):
             for label, value in (("M2", m2), ("M3", m3), ("published_nsc", (pm, error))):
                 qso_common[tag+"/"+label].append(value)
+
+    ground_path = work / "legacy_ground.npy"
+    ground_comparison = {}
+    if ground_path.is_file() and common_qso:
+        ground = np.load(ground_path, allow_pickle=False)
+        if np.any(ground["PM_SOURCE"] != b"DESI"):
+            raise ValueError("Ground comparison requires PM_SOURCE=DESI")
+        common = list(common_qso)
+        ground_rows = defaultdict(list)
+        candidates = project(ground["RA"], ground["DEC"], center)
+        good_match, positions = query_unique(cKDTree(candidates), qso_xy[common], 500, 300)
+        for i in np.flatnonzero(good_match):
+            fields = ground[positions[i]]
+            row = SimpleNamespace(ra=fields["RA"], dec=fields["DEC"],
+                                  pmra=fields["PMRA"], pmdec=fields["PMDEC"])
+            pm = catalogue_motion(row, center)
+            errors = np.array([fields["PMRA_ERR"], fields["PMDEC_ERR"]])
+            if not (np.isfinite(pm).all() and np.isfinite(errors).all() and (errors > 0).all()
+                    and abs(pm).max() < 1e5):
+                continue
+            for model, values in zip(("M2", "M3", "published_nsc", "Xiao2025_DESI"),
+                                     (*common_qso[common[i]], (pm, errors))):
+                ground_rows["all/"+model].append(values)
+        ground_comparison = dict(range_rows=len(ground), common_with_nsc=len(common),
+                                 with_position_match=int(good_match.sum()),
+                                 metrics=metrics(ground_rows, config["calibration"]["tail_masyr"]))
 
     paired = {}
     for tag, tracks_in_bin in distinct.items():
@@ -203,7 +232,7 @@ def run(work, config, region):
                                                        for k,v in counts.items()},
         residual_by_r_mas=metrics(residual, 300), qso_coverage=dict(queried=len(qso_xy),common=len(qso_names)),
         qso_motion_masyr=metrics(qso_stats, config["calibration"]["tail_masyr"]),
-        qso_published_common=dict(exclusion_counts=dict(exits),
+        qso_published_common=dict(exclusion_counts=dict(exits), ground_catalogue=ground_comparison,
                                   metrics=metrics(qso_common, config["calibration"]["tail_masyr"])),
         paired_object_median_change_mas=paired, detection_quality_control=quality,
         reference_counts=calibration_info["reference_counts"]))
@@ -215,7 +244,9 @@ def main():
     p.add_argument("--region", default="test_equator")
     p.add_argument("--config", type=Path, default=Path("configs/precision-v03.toml"))
     args = p.parse_args()
-    inputs = ("detections.csv", "external_labels.csv", "validation/gaia.csv", "spectroscopic_qso.csv")
+    inputs = ["detections.csv", "external_labels.csv", "validation/gaia.csv", "spectroscopic_qso.csv"]
+    if (args.work / "legacy_ground.npy").is_file():
+        inputs.append("legacy_ground.npy")
     with run_stage(args.work,args.config,args.region,"dark-precision-v03",inputs=inputs,
                    outputs=["dark_precision_summary.json"]) as run_now:
         if run_now:

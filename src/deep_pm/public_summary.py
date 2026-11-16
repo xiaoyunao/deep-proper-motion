@@ -133,8 +133,10 @@ def export(run_root, kind, region):
     payload = {key: aggregate[key] for key in fields}
     if kind == "dark-precision-v03":
         cohorts = payload["qso_published_common"]
-        cohorts["metrics"] = {key: value if value["n"] >= 3 else {"n": value["n"]}
-                              for key, value in cohorts["metrics"].items()}
+        for table in (cohorts, cohorts.get("ground_catalogue", {})):
+            if "metrics" in table:
+                table["metrics"] = {key: value if value["n"] >= 3 else {"n": value["n"]}
+                                    for key, value in table["metrics"].items()}
     payload.update(region=region, role=role, receipt=dict(
         commit=manifest["commit"], config_sha256=config_hash, aggregate_sha256=sha,
         slurm_job=attempt.get("slurm_job"), stage=name))

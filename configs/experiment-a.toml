@@ -1,0 +1,35 @@
+seed = 45116
+release_nsc = "DR2"
+release_sdss = "DR17"
+nside = 128
+reference_epoch = 2015.5
+min_season_days = 100
+min_seed_years = 0.60
+mu_max = 2000
+stress_mu_max = 10000
+fixed_radius_mas = 1000
+dbscan_eps_mas = 450
+position_floor_mas = 50
+match_sigma = 4.0
+model_margin_mas = 100
+max_component = 100
+max_seed_pairs = 250000
+pollution_target = 0.01
+pm_edges = [0, 25, 50, 100, 200, 500, 1000, 2000]
+recovery_fraction = 0.8
+gaia_max_ruwe = 1.4
+gaia_max_pm_error = 0.5
+gaia_max_parallax_for_linear_truth = 10
+gaia_detection_gate_mas = 500
+
+[regions.smoke]
+role = "development"
+ra = 30.0
+dec = 0.0
+radius = 0.07
+
+[regions.wrap]
+role = "candidate_holdout"
+ra = 0.0
+dec = 0.0
+radius = 0.07

@@ -174,9 +174,43 @@ def plot_coverage(rows, out):
     plt.close(fig)
 
 
+def plot_challenge(row, out):
+    if any(cell["unknown_truth_status"] for cell in row["bins"].values()):
+        raise ValueError("Challenge figure requires a completed cohort")
+    fig, axes = plt.subplots(1, 2, figsize=(9.3, 4.2), sharey=True, layout="constrained")
+    methods = (("fixed", "Fixed radius"), ("nsc_like", "NSC-like"), ("motion", "Motion-aware"))
+    for ax, split in zip(axes, ("dev", "test")):
+        cells = [(name.split("/")[1], cell) for name, cell in row["bins"].items()
+                 if name.startswith(split + "/")]
+        x = np.arange(len(cells))
+        for j, (method, title) in enumerate(methods):
+            for i, (_, cell) in enumerate(cells):
+                result = cell["selected"][method]["among_eligible"]
+                pos = i + .13 * (j - 1)
+                if result["denominator"]:
+                    lo, hi = result["wilson95"]
+                    ax.vlines(pos, lo, hi, colors=COLORS[j], alpha=.72, linewidth=1.5)
+                    ax.scatter(pos, result["value"], color=COLORS[j], s=24, zorder=3)
+            ax.scatter([], [], color=COLORS[j], s=24, label=title)
+        ax.set(xticks=x, xticklabels=[f"{name}\n{cell['eligible']['n']}/{cell['frozen']} eligible"
+                                     for name, cell in cells],
+               xlim=(-.45, len(cells) - .55), ylim=(-.045, 1.08),
+               title="Development" if split == "dev" else "Independent test",
+               xlabel="Gaia proper-motion bin (mas/yr)")
+        ax.tick_params(axis="x", labelsize=8)
+        ax.grid(axis="y", alpha=.18)
+    axes[0].set_ylabel("Fraction of eligible targets recovered")
+    axes[0].legend(frameon=False, loc="upper right", fontsize=8)
+    label = "Supplementary" if row["cohort"].endswith("_tail") else "Primary"
+    fig.suptitle(f"{label} Gaia proper-motion challenge | 95% Wilson intervals")
+    fig.savefig(out / f"v02_{row['cohort']}_recovery_summary.png", dpi=175)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("kind", choices=["regression", "coverage", "injection", "matched", "prediction"])
+    parser.add_argument("kind", choices=["regression", "coverage", "injection", "matched", "prediction",
+                                         "challenge"])
     parser.add_argument("out", type=Path)
     parser.add_argument("summaries", type=Path, nargs="+")
     args = parser.parse_args()
@@ -188,6 +222,7 @@ if __name__ == "__main__":
     elif args.kind == "coverage":
         plot_coverage(rows, args.out)
     else:
-        renderer = {"injection": plot_injection, "matched": plot_matched, "prediction": plot_prediction}[args.kind]
+        renderer = {"injection": plot_injection, "matched": plot_matched, "prediction": plot_prediction,
+                    "challenge": plot_challenge}[args.kind]
         for row in rows:
             renderer(row, args.out)

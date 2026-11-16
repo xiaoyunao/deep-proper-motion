@@ -1,0 +1,24 @@
+{
+  "upstream_commit": "e256ec16ac76dc61ac83e2f5abd51c1dc842afe6",
+  "eligible": 20,
+  "missed": 3,
+  "missed_with_optimal_candidate": 3,
+  "replacement_delta_quantiles": [
+    -774.2012681193723,
+    -243.71450923715656,
+    -93.9228144140859
+  ],
+  "conflict_counts": {
+    "multiple_blocking_tracks": 3,
+    "blocker_labels_only_target": 3
+  },
+  "region": "pal5",
+  "role": "regression",
+  "receipt": {
+    "commit": "6afc7409f883db95a5a1b109a9adbada6471b571",
+    "config_sha256": "651f2f45b7318209c5905b8e345909d7e4f49a4f657e30ae4c7b300f1962c20a",
+    "aggregate_sha256": "841c59c50c7e21a4f6165bc1ca5a35da50584ba33993a137bd270d2db375dd3d",
+    "slurm_job": "61398951",
+    "stage": "conflict-review"
+  }
+}

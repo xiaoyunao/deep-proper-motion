@@ -23,11 +23,11 @@ def load_output(directory,stage,filename):
     return json.loads(path.read_text())
 
 
-def resampling(groups, settings, method, group_uncertainty=True):
+def resampling(groups, settings, method, group_uncertainty=True, reference='published_nsc'):
     if not groups or (group_uncertainty and len(groups)<2):
         return None
     random=np.random.default_rng(settings["seed"])
-    data=[np.array([(r[method][0],r["published_nsc"][0]) for r in group]) for group in groups]
+    data=[np.array([(r[method][0],r[reference][0]) for r in group]) for group in groups]
     estimates=[]
     for _ in range(settings["bootstrap_draws"]):
         selected=[d[random.integers(len(d),size=len(d))]
@@ -113,6 +113,9 @@ def summarize(directories,settings,previous):
             pooled.setdefault(label,{})[method]=dict(fields=len(table),observation_blocks=len(blocks),
                  statistics=comparison(rows,settings,CONTRASTS),
                  block_bootstrap=resampling(blocks,settings,model))
+            if method=="same_three":
+                pooled[label][method]["multiband_vs_w1_block_bootstrap"]=resampling(
+                    blocks,settings,"multi",reference="W1")
     passed=[name for name,v in fields.items() if not v["quality_exits"]]
     area=sum(v["area_sqdeg"] for v in fields.values())
     return dict(area_sqdeg=area,fields=fields,counts=totals,aggregate_qso_exits=w0_exit,

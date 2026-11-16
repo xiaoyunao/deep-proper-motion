@@ -17,6 +17,14 @@ def draw_zeros(summary,directory):
     figure, axes=plt.subplots(2,1,figsize=(10,8),sharex=True,layout="constrained")
     cm=plt.get_cmap("coolwarm")
     norm=TwoSlopeNorm(vmin=-4,vcenter=0,vmax=4)
+    label_at = {
+        "crowd_a": (235, 4.8), "crowd_b": (244, 6), "crowd_d": (237, 15),
+        "deep_a": (210, 55),
+        "east_a": (208, -4.6), "east_b": (211, 5.4), "east_c": (223, -4.6), "east_d": (226, 5.4),
+        "north_a": (158, 12.6), "north_b": (173, 5.2), "north_c": (182, 12.6),
+        "single_c": (189, 43.5), "single_e": (178, 35),
+        "west_a": (126, 5.4), "west_b": (133, -4.6), "west_c": (142, 5.4),
+    }
     for axis_index,axis in enumerate(axes):
         for region,row in fields.items():
             ra,dec=row["center_deg"]
@@ -27,13 +35,16 @@ def draw_zeros(summary,directory):
                 axis.scatter(ra,dec,facecolors="none",edgecolors=".45",s=30)
             else:
                 axis.scatter(ra,dec,c=[zero],cmap=cm,norm=norm,s=35+4*n,edgecolors=".2",lw=.5)
-            axis.annotate(f"{region} ({n})",(ra,dec),xytext=(4,5),textcoords="offset points",fontsize=7)
+            axis.annotate(f"{region} ({n})", (ra,dec), xytext=label_at.get(region,(ra,dec+3)),
+                          ha="center",va="center",fontsize=7.1,
+                          arrowprops=dict(arrowstyle="-",color=".6",lw=.55,shrinkB=6))
+        axis.set_ylim(-8,58)
         axis.grid(alpha=.2)
         axis.set_ylabel("Dec (deg)")
         axis.set_title(("East","North")[axis_index]+r" median residual, blind W0 QSO ($22\leq r<23$)")
-    axes[1].invert_xaxis()
+    axes[1].set_xlim(250,120)
     axes[1].set_xlabel("RA (deg)")
-    figure.colorbar(plt.cm.ScalarMappable(norm=norm,cmap=cm),ax=axes,label="mas/yr",shrink=.8)
+    figure.colorbar(plt.cm.ScalarMappable(norm=norm,cmap=cm),ax=axes,label="mas/yr",shrink=.8,extend="both")
     figure.savefig(directory/"v07_spatial_zero_summary.png",dpi=170)
     plt.close(figure)
 

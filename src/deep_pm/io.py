@@ -5,6 +5,8 @@ import numpy as np
 
 
 def json_default(value):
+    if isinstance(value, np.bool_):
+        return bool(value)
     if isinstance(value, np.integer):
         return int(value)
     if isinstance(value, np.floating):

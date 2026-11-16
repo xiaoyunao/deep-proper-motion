@@ -79,7 +79,8 @@ def check_payload(kind, region, payload):
     if not REGION.fullmatch(region) or payload.get("region") != region:
         raise ValueError("Unexpected region")
     _, _, keys = STAGES[kind]
-    if set(payload) - METADATA != set(keys):
+    extras = {"sdss_route", "sdss_fields"} if kind == "qso-coverage-v04" else set()
+    if set(payload) - METADATA - extras != set(keys):
         raise ValueError("Unexpected aggregate schema")
     if not REGION.fullmatch(payload["role"]):
         raise ValueError("Unexpected cohort role")
@@ -140,6 +141,8 @@ def export(run_root, kind, region):
     config = tomllib.loads(config_bytes.decode())
     role = "challenge_design" if kind == "challenge-design" else config.get("regions", {}).get(region, {}).get("role", "independent")
     payload = {key: aggregate[key] for key in fields}
+    if kind == "qso-coverage-v04":
+        payload.update(sdss_route=aggregate.get("sdss_route", "cas"), sdss_fields=aggregate.get("sdss_fields"))
     if kind == "dark-precision-v03":
         cohorts = payload["qso_published_common"]
         for table in (cohorts, cohorts.get("ground_catalogue", {})):

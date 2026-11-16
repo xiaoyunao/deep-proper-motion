@@ -15,6 +15,7 @@ from .astrometry import project
 from .io import save_json
 from .nsc_comparison import configuration
 from .provenance import run_stage
+from .sdss_sas import read_sdss_sas
 
 
 def spectra(file, center, radius, buffer):
@@ -45,13 +46,18 @@ def object_index(cache, center, radius):
                                   center[1]-radius-1e-8, center[1]+radius+1e-8)
 
 
-def inventory(work, spec, settings, catalog):
+def inventory(work, spec, settings, catalog, sas_root=None):
     center, radius = (spec["ra"],spec["dec"]), spec["radius"]
     buffer = settings["calibration_buffer_deg"]
     qso = spectra(catalog, center, radius, buffer)
     qso.to_csv(work/"spectroscopic_qso.csv", index=False)
     cache = access.Cache(work/"cache")
-    sdss = access.fetch_sdss(cache, *center, radius+buffer)
+    n_fields = None
+    if sas_root is None:
+        sdss = access.fetch_sdss(cache, *center, radius+buffer)
+    else:
+        sdss, n_fields = read_sdss_sas(sas_root, center, radius+buffer)
+    print(f"SDSS {len(sdss)} local measurements; SDSS files {n_fields}", flush=True)
     sdss.to_csv(work/"sdss.csv", index=False)
     objects = object_index(cache, center, radius+buffer+.003)
     objects.to_csv(work/"nsc_object_index.csv", index=False)
@@ -64,7 +70,8 @@ def inventory(work, spec, settings, catalog):
     bright_candidate = (d_sdss <= 500) & qso.in_core
     qso["coverage_candidate"] = candidate
     qso.to_csv(work/"spectroscopic_qso.csv", index=False)
-    statistics = dict(area_sqdeg=np.pi*radius**2, spectra_core=int(qso.in_core.sum()),
+    statistics = dict(sdss_route="sas" if sas_root is not None else "cas", sdss_fields=n_fields,
+                      area_sqdeg=np.pi*radius**2, spectra_core=int(qso.in_core.sum()),
                       spectra_faint_core=int((qso.in_core & qso.reference_r.between(21,23,inclusive="left")).sum()),
                       sdss_detection_rows=len(sd), sdss_run_count=sd.exposure_id.nunique(),
                       sdss_date_count=sd.observation_time.astype(int).nunique(), nsc_object_rows=len(objects),
@@ -107,6 +114,7 @@ def main():
     p.add_argument("region")
     p.add_argument("stage",choices=("inventory","fetch"))
     p.add_argument("--catalogue",type=Path)
+    p.add_argument("--sdss-sas",type=Path)
     p.add_argument("--config",type=Path,default=Path("configs/precision-v04.toml"))
     args=p.parse_args()
     if not os.environ.get("SLURM_JOB_ID"):
@@ -122,7 +130,7 @@ def main():
                        outputs=["spectroscopic_qso.csv","sdss.csv","nsc_object_index.csv",
                                 "qso_coverage_summary.json"]) as go:
             if go:
-                inventory(args.work,spec,settings,args.catalogue)
+                inventory(args.work,spec,settings,args.catalogue,args.sdss_sas)
     else:
         with run_stage(args.work,args.config,args.region,"qso-fetch-v04",
                        inputs=["spectroscopic_qso.csv","sdss.csv","nsc_object_index.csv"],

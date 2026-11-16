@@ -38,19 +38,22 @@ def nsc(table):
 
 def sdss(table):
     t = table.rename(columns=str.lower).copy()
-    # ROWC/COLC and TAI are band-specific in photoObj. The SQL adapter explicitly
-    # supplies tai_r and any RA/DEC reference-band uncertainty is recorded.
+    # Use the r epoch only when both r-to-reference offsets are zero.
     tai = t.tai_r.where(t.tai_r.between(4e9, 6e9))
+    has_r = t.offsetra_r.eq(0) & t.offsetdec_r.eq(0)
+    tai = tai.where(has_r)
     physical_id = t.run.astype(str) + ":" + t.camcol.astype(str)
     out = base("SDSS", "DR17", "SDSS:" + t.objid.astype(str), "SDSS:" + t.run.astype(str),
                t.camcol, t.ra, t.dec, sdss_tai_to_tt(tai.fillna(5e9)), t.raerr * 1000,
                t.decerr * 1000, "r", t.psfmag_r, t.psfmagerr_r, t["type"], t["flags"],
                t.objid.astype(str), "SDSS DR17 single scan")
     out.loc[tai.isna(), "observation_time"] = np.nan
-    out["time_band_status"] = "assumed_r_coordinate"
+    out["time_band_status"] = np.where(has_r, "r_reference", "reference_band_unverified")
+    for source, target in [("airmass_r", "airmass"), ("psffwhm_r", "fwhm"), ("nchild", "nchild")]:
+        out[target] = t[source]
     out["color"] = t.psfmag_g - t.psfmag_i if {"psfmag_g", "psfmag_i"} <= set(t) else np.nan
     out["scan_detector"] = physical_id
     if "resolvestatus" in t:
-        # RUN_PRIMARY = 0x100. Preserve runs and discard overlap duplicates.
-        out = out[(t.resolvestatus.fillna(0).astype("int64") & 256) != 0]
+        # RUN_PRIMARY = 0x1. Preserve runs and discard overlap duplicates.
+        out = out[(t.resolvestatus.fillna(0).astype("int64") & 1) != 0]
     return out.drop_duplicates("detection_id")

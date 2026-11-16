@@ -18,7 +18,7 @@ DATALAB = "https://datalab.noirlab.edu/query/query"
 SDSS = "https://skyserver.sdss.org/dr17/SkyServerWS/SearchTools/SqlSearch"
 MEAS = "measid,objectid,exposure,ccdnum,mjd,ra,dec,raerr,decerr,filter,mag_auto,magerr_auto,class_star,flags,fwhm,x,y"
 SDSS_COLUMNS = ("objID,run,rerun,camcol,field,ra,dec,raErr,decErr,TAI_r,psfMag_r,psfMagErr_r,"
-                "psfMag_g,psfMag_i,resolveStatus,type,flags,nChild")
+                "psfMag_g,psfMag_i,resolveStatus,type,flags,nChild,offsetRa_r,offsetDec_r,airmass_r,psffwhm_r,mjd")
 
 
 def request(service, query):
@@ -159,7 +159,7 @@ def read_sdss_field(path):
     """Read the SDSS r-band quantities for a single independently processed field."""
     with fits.open(path, memmap=True) as hdus:
         table = hdus[1].data
-        scalar = ["ra", "dec", "raerr", "decerr", "type", "nchild"]
+        scalar = ["ra", "dec", "raerr", "decerr", "objc_type", "nchild"]
         out = {key: np.asarray(table[key], dtype=float) for key in scalar}
         out["tai_r"] = np.asarray(table["tai"][:, 2], dtype=float)
         out["psfmag_r"] = np.asarray(table["psfmag"][:, 2], dtype=float)

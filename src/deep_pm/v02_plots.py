@@ -84,18 +84,29 @@ def plot_injection(row, out):
         plt.close(fig)
         return
     x = np.arange(len(bins))
-    pairs = (("two_survey_geometry", "Geometry"), ("required_time_coverage", "Usable sampling"),
-             ("generated_correct_candidate", "Correct proposal"), ("secure_recovery", "Secure"))
-    fig, ax = plt.subplots(figsize=(8.2, 3.7), layout="constrained")
-    for k, (key, label) in enumerate(pairs):
-        values = [entry[key] / entry["attempted"] for entry in bins]
-        ax.plot(x, values, "o-", label=label, color=COLORS[k])
-    for i, row_bin in enumerate(bins):
-        ax.text(i, .91, str(row_bin["attempted"]), ha="center", fontsize=8)
-    ax.set(xlabel="Injected motion (mas/yr)", ylabel="Fraction of attempts",
-           xticks=x, xticklabels=speeds, ylim=(-.05, 1.04),
-           title=f"{row['region']} | injected sources on actual exposure geometry")
-    ax.legend(frameon=False, fontsize=8, loc="lower left")
+    fig, (left, right) = plt.subplots(1, 2, figsize=(10.2, 3.9), layout="constrained")
+    panels = (
+        (left, "attempted", "Fraction of attempts",
+         (("two_survey_geometry", "Geometric coverage"), ("required_time_coverage", "Usable sampling"),
+          ("generated_correct_candidate", "Correct proposal"))),
+        (right, "required_time_coverage", "Fraction of usable trials",
+         (("fixed_recovery", "Fixed radius"), ("nsc_like_recovery", "NSC-like"),
+          ("selected_recovery", "Motion-aware"), ("secure_recovery", "Motion-aware secure"))),
+    )
+    markers = ("o-", "x--", "s-", "^:")
+    for ax, denominator, label, series in panels:
+        for k, (key, name) in enumerate(series):
+            values = [entry[key] / entry[denominator] if entry[denominator] else np.nan for entry in bins]
+            ax.plot(x, values, markers[k], label=name, color=COLORS[k], linewidth=1.3)
+        ax.set(xlabel="Injected motion (mas/yr)", ylabel=label,
+               xticks=x, xticklabels=speeds, ylim=(-.06, 1.13))
+        ax.tick_params(axis="x", labelsize=8)
+        ax.legend(frameon=False, fontsize=8, loc="lower left")
+        ax.grid(axis="y", alpha=.16)
+    for i, entry in enumerate(bins):
+        left.text(i, 1.035, str(entry["attempted"]), ha="center", fontsize=8)
+        right.text(i, 1.035, str(entry["required_time_coverage"]), ha="center", fontsize=8)
+    fig.suptitle(f"{row['region']} | injection on actual SDSS and NSC exposure geometry")
     fig.savefig(out / f"v02_{row['region']}_injection_summary.png", dpi=175)
     plt.close(fig)
 

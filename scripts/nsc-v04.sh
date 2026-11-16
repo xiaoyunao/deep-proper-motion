@@ -12,11 +12,12 @@ for region in "$@"; do
     case "$mode" in
         bright)
             start="${DEEP_PM_V03_BRIGHT:?set the frozen v0.3 bright region root}/$region"
-            for input in detections.csv external_labels.csv validation cache; do
+            for input in detections.csv external_labels.csv validation; do
                 test -e "$start/$input"
                 if [[ ! -e "$output/$input" ]]; then ln -s "$start/$input" "$output/$input"; fi
                 test "$start/$input" -ef "$output/$input"
             done
+            if [[ ! -e "$output/cache" ]]; then cp -Rp "$start/cache" "$output/cache"; fi
             "$python" -u -m deep_pm.nsc_comparison "$output" "$region" bright
             ;;
         inventory)

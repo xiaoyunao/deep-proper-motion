@@ -30,3 +30,6 @@ sbatch -A "${DEEP_PM_ACCOUNT:?set a verified CPU account}" -q "${DEEP_PM_QOS:?}"
 实验 A v0.3 从 `b92912c` 单列普通源精度实验。用 `bash scripts/precision-v03.sh test_equator` 在 Slurm 上从冻结目录复现基线并检验独立星系零点。配置和验收口径见 [v0.3 计划](docs/experiment_a_v03_plan.md)，实测结果见 [v0.3 中文报告](reports/experiment_A_v0.3_precision.md)。
 
 用版本化 Slurm 工作目录运行 `deep_pm.precision_inputs` 获取精确曝光数据及检查出版 FITS 首部，再用 `deep_pm.chromatic_control`、`deep_pm.dark_precision` 运行色项消融和整年留出。审计产物用 `scripts/sync-v02-summary.sh` 逐阶段校验回执后同步。
+
+
+实验 A v0.4 用 `bash scripts/nsc-v04.sh bright` 严格复核冻结亮星，`inventory` 从 DESI DR1 光谱表与 SDSS、NSC 位置预查覆盖，`qso` 按冻结 M3 校验选择后的区域。三个模式均需给出区域参数，在 Slurm 计算节点执行。验证样本与版本记录见 [项目主线](PROJECT_CONTEXT.md)。

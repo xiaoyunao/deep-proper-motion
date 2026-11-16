@@ -1,0 +1,13 @@
+{
+  "held_year": {},
+  "translated_control": {},
+  "region": "test_north",
+  "role": "independent_representative",
+  "receipt": {
+    "commit": "c70f5bb4c7fda73fbf82ba9cdcfcc8d3eb44a2a2",
+    "config_sha256": "76a3a8b9b07d79789e42a14e89be15bd1038280ad930bb9db35df4faa834023d",
+    "aggregate_sha256": "326de87c9a501a79b06cfd7b073f0fc58b016cd3c91ed076b479cc2c1b6bc056",
+    "slurm_job": "61397820",
+    "stage": "prediction-held-geometry"
+  }
+}

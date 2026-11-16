@@ -1,0 +1,101 @@
+"""Publish only split- and speed-bin aggregates for single-target challenge cones."""
+from collections import Counter
+from csv import DictReader
+from hashlib import sha256
+from io import StringIO
+import json
+import re
+
+from .public_summary import check_aggregate, export, tomllib
+from .validation import ratio
+
+
+METHODS = ("fixed", "nsc_like", "motion")
+STAGES = ("generated", "screened", "retained", "conflict_optimal", "selected_optimal",
+          "secure", "pm_compatible_secure")
+
+
+def summarize_bin(frozen, validations, low, high):
+    eligible = sum(item["truth_cross_survey"] for item in validations)
+    selected = {}
+    for method in METHODS:
+        selections = [item["methods"][method] for item in validations]
+        if any(sum(cell["denominator"] for cell in row["pm_bins"]
+                   if (cell["low"], cell["high"]) == (low, high)) != n["truth_cross_survey"]
+               for row, n in zip(selections, validations)):
+            raise ValueError("An eligible challenge target falls outside its frozen speed bin")
+        recovered = sum(row["selected_recall"]["n"] for row in selections)
+        selected[method] = dict(among_eligible=ratio(recovered, eligible),
+                                among_frozen=ratio(recovered, frozen))
+    return dict(frozen=frozen, measured=len(validations), eligible=ratio(eligible, frozen),
+                selected=selected, motion_stages={
+                    step: ratio(sum(item["recovery_stages"][step]["total"]["n"]
+                                    for item in validations), eligible) for step in STAGES},
+                unknown_truth_status=frozen - len(validations))
+
+
+def export_challenge(root):
+    design = export(root, "challenge-design", "challenge")
+    manifest = json.loads((root / "run_manifest.json").read_bytes())
+    frozen = manifest["stages"]["prepare-challenge"][-1]
+    config_bytes = (root / "challenge_regions.toml").read_bytes()
+    config_hash = sha256(config_bytes).hexdigest()
+    if config_hash != frozen["outputs"]["challenge_regions.toml"]:
+        raise ValueError("Challenge region configuration changed after sample freeze")
+    targets_rel = "validation/challenge_targets.csv"
+    target_bytes = (root / targets_rel).read_bytes()
+    if sha256(target_bytes).hexdigest() != frozen["outputs"][targets_rel]:
+        raise ValueError("Challenge target table changed after sample freeze")
+    targets = {row["region"]: row for row in DictReader(StringIO(target_bytes.decode()))}
+    config = tomllib.loads(config_bytes.decode())
+    prefix = config["challenge"].get("role_prefix", "gaia_challenge")
+    edges = dict(zip(design["bins"], design["bins"][1:]))
+    design_counts = Counter()
+    rows = {}
+    versions = set()
+    for name, region in config["regions"].items():
+        if region["role"] not in {prefix + "_dev", prefix + "_test"}:
+            continue
+        match = re.fullmatch(r"hm_(dev|test)_([0-9]+)_[0-9]+", name)
+        if match is None:
+            raise ValueError("Unexpected frozen challenge region format")
+        split, low = match[1], int(match[2])
+        if region["role"] != prefix + "_" + split:
+            raise ValueError("Challenge region role and split disagree")
+        key = split, low, edges[low]
+        target = targets[name]
+        if (target["split"], int(target["bin_low"]), int(target["bin_high"])) != key:
+            raise ValueError("Challenge target and region disagree on the frozen speed bin")
+        design_counts[f"{split}/{low}-{edges[low]}"] += 1
+        if not (root / name / "run_manifest.json").is_file():
+            continue
+        run = json.loads((root / name / "run_manifest.json").read_bytes())
+        report = run["stages"].get("report", [])
+        if not report or report[-1]["state"] != "completed":
+            continue
+        target_hash = sha256((target["source_id"] + "\n").encode()).hexdigest()
+        if run["stages"]["validate"][-1]["inputs"]["validation/challenge_source.txt"] != target_hash:
+            raise ValueError("Validated challenge target differs from the frozen sample")
+        summary = export(root, "association", name)
+        receipt = summary["receipt"]
+        versions.add((receipt["commit"], receipt["config_sha256"]))
+        validation = summary["validation"]
+        if not validation["challenge_target_requested"] or validation["truth_cross_survey"] not in (0, 1):
+            raise ValueError("Challenge validation did not use the frozen single-target design")
+        rows.setdefault(key, []).append(validation)
+    if design_counts != Counter(design["counts"]):
+        raise ValueError("Frozen challenge regions disagree with the design counts")
+    if len(versions) > 1 or any(h != config_hash for _, h in versions):
+        raise ValueError("Inconsistent challenge run configuration or analysis revision")
+    report = dict(cohort=prefix, design_receipt=design["receipt"],
+                  analysis_commit=next(iter(versions))[0] if versions else None,
+                  analysis_config_sha256=config_hash, bins={})
+    for split in ("dev", "test"):
+        for low, high in edges.items():
+            name = f"{split}/{low}-{high}"
+            report["bins"][name] = summarize_bin(
+                design_counts[name], rows.get((split, low, high), []), low, high)
+    if not re.fullmatch(r"gaia_challenge(?:_tail)?", prefix):
+        raise ValueError("Unexpected challenge cohort")
+    check_aggregate(report)
+    return report

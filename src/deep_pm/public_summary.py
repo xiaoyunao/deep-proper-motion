@@ -123,15 +123,36 @@ def export(run_root, kind, region):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["export", "accept"])
-    parser.add_argument("kind", choices=STAGES)
+    parser.add_argument("kind", choices=[*STAGES, "challenge-results"])
     parser.add_argument("region")
     parser.add_argument("directory", type=Path)
     args = parser.parse_args()
-    if args.command == "export":
-        print(json.dumps(export(args.directory, args.kind, args.region), allow_nan=False))
+    if args.kind == "challenge-results":
+        if args.region != "challenge":
+            raise ValueError("Challenge results must be exported as one cohort")
+        if args.command == "export":
+            from .challenge_results import export_challenge
+
+            print(json.dumps(export_challenge(args.directory), allow_nan=False))
+        else:
+            payload = json.load(sys.stdin)
+            check_aggregate(payload)
+            cohort = payload["cohort"]
+            if cohort not in {"gaia_challenge", "gaia_challenge_tail"}:
+                raise ValueError("Unexpected challenge cohort")
+            if any(row["unknown_truth_status"] for row in payload["bins"].values()):
+                raise ValueError("Public challenge results require completed reports for all frozen targets")
+            save_json(args.directory / f"v02_{cohort}_results_summary.json", payload)
+    elif args.command == "export":
+        payload = export(args.directory, args.kind, args.region)
+        if args.kind == "association" and payload["validation"]["challenge_target_requested"]:
+            raise ValueError("Export only cohort-level results for single-target challenge cones")
+        print(json.dumps(payload, allow_nan=False))
     else:
         payload = json.load(sys.stdin)
         check_payload(args.kind, args.region, payload)
+        if args.kind == "association" and payload["validation"]["challenge_target_requested"]:
+            raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
         target = args.directory / f"v02_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"

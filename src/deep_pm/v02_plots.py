@@ -120,9 +120,35 @@ def plot_matched(row, out):
     plt.close(fig)
 
 
+def plot_prediction(row, out):
+    held = row["held_year"]
+    if not held:
+        return
+    hist = held["methods"]
+    methods = ("fixed", "nsc_like", "motion")
+    names = ("Fixed radius", "NSC-like", "Motion-aware")
+    slices = (("with_gaia", "labelled_correct", "Gaia-labelled matches"),
+              ("no_gaia", "consistent_unconfirmed", "Consistent, unverified matches"))
+    fig, axes = plt.subplots(1, 2, figsize=(9.1, 3.4), layout="constrained")
+    for ax, (sample, key, title) in zip(axes, slices):
+        for j, (method, name) in enumerate(zip(methods, names)):
+            cell = hist[method]["all_selected"].get(f"cross_survey/{sample}/r_lt_20p5", {})
+            n, total = cell.get(key, 0), cell.get("attempted", 0)
+            if total:
+                ax.barh(j, n / total, height=.54, color=COLORS[j], alpha=.8)
+                ax.text(n / total + .023, j, f"{n}/{total}", va="center", fontsize=9)
+        ax.set(yticks=range(3), yticklabels=names, xlim=(0, 1.26), xticks=[0, .25, .5, .75, 1],
+               title=title, xlabel="Fraction of prediction visits")
+        ax.invert_yaxis()
+        ax.grid(axis="x", alpha=.18)
+    fig.suptitle(f"{row['region']} | held-out {held['year']} | crosses surveys, NSC r < 20.5")
+    fig.savefig(out / f"v02_{row['region']}_held_year_summary.png", dpi=175)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("kind", choices=["regression", "injection", "matched"])
+    parser.add_argument("kind", choices=["regression", "injection", "matched", "prediction"])
     parser.add_argument("out", type=Path)
     parser.add_argument("summaries", type=Path, nargs="+")
     args = parser.parse_args()
@@ -132,6 +158,6 @@ if __name__ == "__main__":
     if args.kind == "regression":
         plot_regression(rows, args.out)
     else:
+        renderer = {"injection": plot_injection, "matched": plot_matched, "prediction": plot_prediction}[args.kind]
         for row in rows:
-            renderer = plot_matched if args.kind == "matched" else plot_injection
             renderer(row, args.out)

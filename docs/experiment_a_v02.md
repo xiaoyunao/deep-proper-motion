@@ -33,4 +33,4 @@ NSC 使用发布的芯片顶点，SDSS 使用 DR17 扫描坐标范围及 TAI。�
 
 在本地为 `scripts/sync-v02-summary.sh` 设置 `DEEP_PM_SSH_TARGET`、`DEEP_PM_REMOTE_PROJECT`、`DEEP_PM_REMOTE_RUN` 和 `DEEP_PM_EXPORT_REVISION`。最后一项是已部署的汇总导出代码提交，可以独立于实际计算提交。用 `bash scripts/sync-v02-summary.sh association smoke` 或 `bash scripts/sync-v02-summary.sh precision pal5` 拉取已结束阶段的聚合统计。导出核对配置与产物校验值，检查阶段之间的输入一致性，并把汇总的代码版本、配置校验和、产物校验和与 Slurm 作业号写入回执。旧缓存回归的角色从冻结配置补齐。图表可从这些聚合数据重绘。
 
-高自行挑战只按开发、留出和自行档导出。每个锥对应一个冻结目标。指向主挑战或补充挑战的 Scratch 根，运行 `bash scripts/sync-v02-summary.sh challenge-results challenge`。导出核对冻结配置和目标表、每个已完成场实际验证的目标、以及分析版本。汇总记录冻结数、有完整报告数及合格数，只有每个冻结目标都完成报告才保存到本地。区分合格样本的关联完整度与整个冻结清单的实际产出。
+高自行挑战只发布开发、留出、自行档和绝对视差切片的统计。每个锥对应一个冻结目标。指向主挑战或补充挑战的 Scratch 根，运行 `bash scripts/sync-v02-summary.sh challenge-results challenge`。导出核对冻结配置和目标表、每个已完成场实际验证的目标、以及分析版本。汇总记录冻结数、有完整报告数及合格数，只有每个冻结目标都完成报告才保存到本地。区分合格样本的关联完整度与整个冻结清单的实际产出。

@@ -1,9 +1,10 @@
 """Publish only split- and speed-bin aggregates for single-target challenge cones."""
-from collections import Counter
+from collections import Counter, defaultdict
 from csv import DictReader
 from hashlib import sha256
 from io import StringIO
 import json
+from math import isfinite
 import re
 
 from .public_summary import check_aggregate, export, tomllib
@@ -34,6 +35,15 @@ def summarize_bin(frozen, validations, low, high):
                 unknown_truth_status=frozen - len(validations))
 
 
+def parallax_class(gaia_bytes, source, limit):
+    for row in DictReader(StringIO(gaia_bytes.decode())):
+        if row["source_id"] == source:
+            parallax = float(row["parallax"] or "nan")
+            if isfinite(parallax):
+                return "large_abs_parallax" if abs(parallax) >= limit else "small_abs_parallax"
+    return "no_measured_parallax"
+
+
 def export_challenge(root):
     design = export(root, "challenge-design", "challenge")
     manifest = json.loads((root / "run_manifest.json").read_bytes())
@@ -49,9 +59,11 @@ def export_challenge(root):
     targets = {row["region"]: row for row in DictReader(StringIO(target_bytes.decode()))}
     config = tomllib.loads(config_bytes.decode())
     prefix = config["challenge"].get("role_prefix", "gaia_challenge")
+    limit = config["gaia_max_parallax_for_linear_truth"]
     edges = dict(zip(design["bins"], design["bins"][1:]))
     design_counts = Counter()
     rows = {}
+    distance_groups = defaultdict(list)
     versions = set()
     for name, region in config["regions"].items():
         if region["role"] not in {prefix + "_dev", prefix + "_test"}:
@@ -74,8 +86,14 @@ def export_challenge(root):
         if not report or report[-1]["state"] != "completed":
             continue
         target_hash = sha256((target["source_id"] + "\n").encode()).hexdigest()
-        if run["stages"]["validate"][-1]["inputs"]["validation/challenge_source.txt"] != target_hash:
+        inputs = run["stages"]["validate"][-1]["inputs"]
+        if inputs["validation/challenge_source.txt"] != target_hash:
             raise ValueError("Validated challenge target differs from the frozen sample")
+        gaia_rel = "validation/gaia.csv"
+        gaia = (root / name / gaia_rel).read_bytes()
+        if sha256(gaia).hexdigest() != inputs[gaia_rel]:
+            raise ValueError("Gaia validation input changed after the challenge run")
+        distance_key = parallax_class(gaia, target["source_id"], limit)
         summary = export(root, "association", name)
         receipt = summary["receipt"]
         versions.add((receipt["commit"], receipt["config_sha256"]))
@@ -83,18 +101,26 @@ def export_challenge(root):
         if not validation["challenge_target_requested"] or validation["truth_cross_survey"] not in (0, 1):
             raise ValueError("Challenge validation did not use the frozen single-target design")
         rows.setdefault(key, []).append(validation)
+        distance_groups[split + "/" + distance_key].append(validation)
     if design_counts != Counter(design["counts"]):
         raise ValueError("Frozen challenge regions disagree with the design counts")
     if len(versions) > 1 or any(h != config_hash for _, h in versions):
         raise ValueError("Inconsistent challenge run configuration or analysis revision")
     report = dict(cohort=prefix, design_receipt=design["receipt"],
                   analysis_commit=next(iter(versions))[0] if versions else None,
-                  analysis_config_sha256=config_hash, bins={})
+                  analysis_config_sha256=config_hash, bins={},
+                  parallax_threshold_mas=limit, by_parallax={})
     for split in ("dev", "test"):
         for low, high in edges.items():
             name = f"{split}/{low}-{high}"
             report["bins"][name] = summarize_bin(
                 design_counts[name], rows.get((split, low, high), []), low, high)
+    for name, validations in sorted(distance_groups.items()):
+        n = sum(item["truth_cross_survey"] for item in validations)
+        report["by_parallax"][name] = dict(
+            measured=len(validations), eligible=ratio(n, len(validations)), selected={
+                method: ratio(sum(item["methods"][method]["selected_recall"]["n"]
+                                  for item in validations), n) for method in METHODS})
     if not re.fullmatch(r"gaia_challenge(?:_tail)?", prefix):
         raise ValueError("Unexpected challenge cohort")
     check_aggregate(report)

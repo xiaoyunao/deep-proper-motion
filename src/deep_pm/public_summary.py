@@ -15,6 +15,8 @@ from .io import save_json
 
 
 STAGES = {
+    "chromatic-v03": ("chromatic-v03", "chromatic_summary.json",
+                      ("status", "exposure_metadata", "models", "comparison", "coverage")),
     "precision-v03": ("precision-v03", "precision_v03_summary.json",
                        ("baseline", "calibration", "common_support", "paired_m3_m2", "exclusion_counts",
                         "temporal", "detection_count", "truth_count", "tail_threshold_masyr")),

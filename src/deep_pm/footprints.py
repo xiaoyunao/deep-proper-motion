@@ -61,7 +61,7 @@ def sdss_visits(path, center, radius, rerun=None, vectorized=False):
                      & (np.abs(wrap(table["RA"] - center[0]))
                         <= (radius + 1) / np.cos(np.deg2rad(center[1]))))
         if rerun is not None:
-            preselect &= table["RERUN"] == rerun
+            preselect &= np.char.strip(np.asarray(table["RERUN"], dtype=str)) == str(rerun)
         selected = table[np.flatnonzero(preselect)]
         keys = ["RUN", "TAI", "NODE", "INCL", "MU_START", "MU_END", "NU_START", "NU_END"]
         columns = {key: np.asarray(selected[key]).astype(float) for key in keys}

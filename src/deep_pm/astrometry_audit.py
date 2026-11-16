@@ -155,7 +155,7 @@ def group_checks(xy,t,sigma,keys,shared,nsc,quality,epoch,samples,base,settings,
                      shared[quality_use],epoch,samples[:,quality_use])
     importance = np.linalg.norm(base.influence[[1,3]],axis=(0,2))
     share = {key:importance[keys==key].sum()/importance.sum() for key in set(keys)}
-    selected = sorted(share,key=lambda key:(-share[key],key))
+    selected = sorted(set(keys[quality_use]),key=lambda key:(-share[key],key))
     shifts = []
     removable = []
     for key in selected:
@@ -270,9 +270,9 @@ def fit_controls(work, center, spec, data, xy, t, sigma, r_keep, multi_keep, off
                 a = augmented
                 draws_multi = np.stack([offsets[key][1] for key in keys[a]],axis=1)
                 fit_multi = make_fit(corrected[a],t[a],w1[a],groups[a],np.zeros_like(w1[a]),epoch,draws_multi)
-                categories[origin+"_added_bands"].append(dict(W1=fitted["W1"],W1_multi=pm_result(fit_multi,ref,err)))
-            else:
-                fit_multi = None
+                both_bands = dict(W1=fitted["W1"],W1_multi=pm_result(fit_multi,ref,err))
+                categories[origin+"_added_bands"].append(both_bands)
+                categories[origin+"_added_bands_"+bin_name(r,settings["reference_r_edges"])].append(both_bands)
             tags = [origin+"_all",origin+"_"+bin_name(r,settings["reference_r_edges"])]
             if origin=="qso" and i in q_blind:
                 j = q_blind[i]
@@ -353,6 +353,8 @@ def run(work, region, config, settings, custom, spec, footprint_index, stripe):
     wall,cpu = monotonic(),process_time()
     center = spec["ra"],spec["dec"]
     prod = settings["production"]
+    geometry = footprint(footprint_index,spec,custom["footprint_samples"],custom["seed"])
+    print("SDSS physical scan geometry complete.",flush=True)
     data,xy,t,sigma,keep = quality_detections(work,center,config,prod)
     qso = pd.read_csv(work/"spectroscopic_qso.csv")
     offsets,calinfo,refs = calibration(work,center,config,project(qso.ra,qso.dec,center),return_references=True)
@@ -397,7 +399,7 @@ def run(work, region, config, settings, custom, spec, footprint_index, stripe):
     print("Blind r and multiband comparisons complete.",flush=True)
     coverage = dict(scope="targeted_stripe_input" if stripe else "v05_regional_r_input",
                     source=source_coverage(data,xy,tracks,nsc,keep,night,support,spec,settings),
-                    area=footprint(footprint_index,spec,custom["footprint_samples"],custom["seed"]))
+                    area=geometry)
     arrays = keys,groups,corrected,support,nsc,w1,common
     controls = fit_controls(work,center,spec,data,xy,t,sigma,keep,multi,offsets,arrays,
                             tracks,base,config,settings)

@@ -52,7 +52,7 @@ def plot_dark(summary, output):
     for tag in bins:
         row = summary["coverage_by_r"][tag]
         labels.append(tag.replace("_to_", "–") + f"\n{row['matched_tracks']} stars")
-    fig, axes = plt.subplots(1, 2, figsize=(8, 3.6), layout="constrained")
+    fig, axes = plt.subplots(1, 2, figsize=(8, 3.6), sharey=True, layout="constrained")
     for axis, component, label in zip(axes, (0, 1), ("East", "North")):
         for i, method in enumerate(("M2", "M3")):
             rows = summary["residual_by_r_mas"]
@@ -63,7 +63,7 @@ def plot_dark(summary, output):
         axis.set_title(label)
         axis.set_xlabel("NSC reference r (mag)")
         axis.tick_params(direction="in")
-    axes[0].set_ylabel("Held-out position |68th pct.| (mas)")
+    axes[0].set_ylabel("68th pct. absolute position error (mas)")
     axes[1].legend(frameon=False)
     fig.suptitle("Predictions for NSC r exposures held out in 2016")
     fig.savefig(output, dpi=160)

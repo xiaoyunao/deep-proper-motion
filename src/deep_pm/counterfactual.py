@@ -156,6 +156,7 @@ def translated_control(data, xy, t, sigma, radius, config):
 
 def run(work, region, config):
     settings = config["regions"][region]
+    config = dict(config, **settings.get("overrides", {}))
     center, radius = (settings["ra"], settings["dec"]), settings["radius"]
     data, xy, t, sigma = detection_arrays(work, center, config)
     gaia = pd.read_csv(work / "validation" / "gaia.csv")

@@ -107,6 +107,16 @@ smoke_max_mag = 22.5
 [regions.test_crowding.overrides]
 smoke_max_mag = 22.5
 
+[regions.stress_north]
+role = "geometry_stress"
+ra = 180.0
+dec = 35.0
+radius = 0.02
+background_halo_deg = 0.050138888888889
+
+[regions.stress_north.overrides]
+mu_max = 10000
+
 [challenge]
 sources_per_bin_per_split = 12
 pm_edges = [100, 200, 500, 1000, 2000]

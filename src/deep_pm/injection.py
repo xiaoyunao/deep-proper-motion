@@ -141,7 +141,12 @@ if __name__ == "__main__":
         config = tomllib.load(file)
     config.update(config["regions"][args.region].get("overrides", {}))
     mode = "stress" if args.stress else "injection"
+    window_link = args.work / "injection_sdss_window.fits"
+    if not window_link.is_file():
+        window_link.symlink_to(args.sdss_window.resolve(strict=True))
+    if window_link.resolve() != args.sdss_window.resolve(strict=True):
+        raise ValueError("A different SDSS window is already bound to this run")
     with run_stage(args.work, args.config, args.region, f"{mode}-{args.trials}",
-                   ["detections.csv"], [f"v02_{mode}_summary.json"]) as execute:
+                   ["detections.csv", window_link.name], [f"v02_{mode}_summary.json"]) as execute:
         if execute:
             run(args.work, args.region, config, args.sdss_window, args.stress, args.trials)

@@ -402,7 +402,7 @@ def run(work, region, config, settings, custom, spec, footprint_index, stripe):
                     area=geometry)
     arrays = keys,groups,corrected,support,nsc,w1,common
     controls = fit_controls(work,center,spec,data,xy,t,sigma,keep,multi,offsets,arrays,
-                            tracks,base,config,settings)
+                            tracks,base,config,custom)
     return dict(errors=dict(families=errors,calibration=calinfo,
                             nsc_exposure_metadata_matched=int(np.count_nonzero(nsc & instruments.ne("unknown"))),
                             nsc_detections=int(nsc.sum())),

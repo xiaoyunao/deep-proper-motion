@@ -21,6 +21,10 @@ COLORS = ("#29567e", "#a64d36", "#3c785c", "#665089")
 
 def plot_regression(rows, out):
     rows = sorted(rows, key=lambda row: row["region"])
+    statistics = optical_summary(rows)
+    if len(statistics) != 1:
+        raise ValueError("Recovery panels require a single cohort")
+    role, stats = next(iter(statistics.items()))
     steps = np.arange(len(STEPS))
     fig, axes = plt.subplots(1, 2, figsize=(10.8, 4.0), layout="constrained",
                              gridspec_kw={"width_ratios": [2.15, 1]})
@@ -36,11 +40,13 @@ def plot_regression(rows, out):
     left.set(xticks=steps, xticklabels=LABELS, ylim=(-.04, 1.05),
              ylabel="Fraction of eligible Gaia sources", title="Motion-aware recovery")
     left.tick_params(axis="x", labelsize=8)
-    left.legend(loc="lower left", frameon=False, fontsize=8, ncols=2)
-    stats = optical_summary(rows)["regression"]
+    left.legend(loc="lower left", bbox_to_anchor=(0, .07), frameon=False, fontsize=8, ncols=2)
     for k, (key, label) in enumerate((("fixed", "Fixed radius"), ("nsc_like", "NSC-like"),
                                        ("motion", "Motion-aware"))):
-        lower, upper = stats[key]["contamination_identification_bounds"]
+        bounds = stats[key]["contamination_identification_bounds"]
+        if bounds is None:
+            continue
+        lower, upper = bounds
         right.plot([lower * 100, upper * 100], [k, k], "|-", color=COLORS[k],
                    markersize=10, linewidth=2)
         unknown = stats[key]["unknown_objects"]
@@ -51,7 +57,8 @@ def plot_regression(rows, out):
               title="Unlabelled-object sensitivity")
     for ax in axes:
         ax.grid(alpha=.18, linewidth=.5)
-    fig.savefig(out / "v02_regression_funnel_summary.png", dpi=175)
+    name = "regression" if role == "regression" else "independent"
+    fig.savefig(out / f"v02_{name}_funnel_summary.png", dpi=175)
     plt.close(fig)
 
 
@@ -127,21 +134,27 @@ def plot_prediction(row, out):
     hist = held["methods"]
     methods = ("fixed", "nsc_like", "motion")
     names = ("Fixed radius", "NSC-like", "Motion-aware")
-    slices = (("with_gaia", "labelled_correct", "Gaia-labelled matches"),
-              ("no_gaia", "consistent_unconfirmed", "Consistent, unverified matches"))
+    dark_available = any("cross_survey/no_gaia/r_ge_20p5" in h["all_selected"] for h in hist.values())
+    dark_bin, dark_label = ("r_ge_20p5", "≥") if dark_available else ("r_lt_20p5", "<")
+    slices = (("with_gaia", "r_lt_20p5", "Gaia-labelled matches\nNSC r < 20.5", "labelled_correct"),
+              ("no_gaia", dark_bin, f"Consistent, unverified matches\nNSC r {dark_label} 20.5",
+               "consistent_unconfirmed"))
     fig, axes = plt.subplots(1, 2, figsize=(9.1, 3.4), layout="constrained")
-    for ax, (sample, key, title) in zip(axes, slices):
+    for ax, (sample, band_slice, title, key) in zip(axes, slices):
         for j, (method, name) in enumerate(zip(methods, names)):
-            cell = hist[method]["all_selected"].get(f"cross_survey/{sample}/r_lt_20p5", {})
+            cell = hist[method]["all_selected"].get(f"cross_survey/{sample}/{band_slice}", {})
             n, total = cell.get(key, 0), cell.get("attempted", 0)
             if total:
-                ax.barh(j, n / total, height=.54, color=COLORS[j], alpha=.8)
-                ax.text(n / total + .023, j, f"{n}/{total}", va="center", fontsize=9)
-        ax.set(yticks=range(3), yticklabels=names, xlim=(0, 1.26), xticks=[0, .25, .5, .75, 1],
+                fraction = n / total
+                ax.barh(j, fraction, height=.54, color=COLORS[j], alpha=.8)
+                inset = fraction > .8
+                ax.text(fraction + (-.025 if inset else .023), j, f"{n}/{total}", va="center",
+                        ha="right" if inset else "left", color="white" if inset else "black", fontsize=9)
+        ax.set(yticks=range(3), yticklabels=names, xlim=(0, 1.04), xticks=[0, .25, .5, .75, 1],
                title=title, xlabel="Fraction of prediction visits")
         ax.invert_yaxis()
         ax.grid(axis="x", alpha=.18)
-    fig.suptitle(f"{row['region']} | held-out {held['year']} | crosses surveys, NSC r < 20.5")
+    fig.suptitle(f"{row['region']} | held-out {held['year']} | crosses surveys")
     fig.savefig(out / f"v02_{row['region']}_held_year_summary.png", dpi=175)
     plt.close(fig)
 
@@ -209,7 +222,7 @@ def plot_challenge(row, out):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("kind", choices=["regression", "coverage", "injection", "matched", "prediction",
+    parser.add_argument("kind", choices=["regression", "independent", "coverage", "injection", "matched", "prediction",
                                          "challenge"])
     parser.add_argument("out", type=Path)
     parser.add_argument("summaries", type=Path, nargs="+")
@@ -217,7 +230,7 @@ if __name__ == "__main__":
     rows = [json.loads(path.read_text()) for path in args.summaries]
     plt.rcParams.update({"font.family": "serif", "xtick.direction": "in", "ytick.direction": "in"})
     args.out.mkdir(exist_ok=True, parents=True)
-    if args.kind == "regression":
+    if args.kind in {"regression", "independent"}:
         plot_regression(rows, args.out)
     elif args.kind == "coverage":
         plot_coverage(rows, args.out)

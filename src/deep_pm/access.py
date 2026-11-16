@@ -125,6 +125,10 @@ def checked_spatial(cache, service, columns, source, where, lower, upper):
 def fetch_object_index(cache, ra, dec, radius, progress=print):
     objects = checked_spatial(cache, "nsc", "id AS objectid,ra,dec", "nsc_dr2.object",
                               q3c(ra, dec, radius), dec - radius - 1e-8, dec + radius + 1e-8)
+    return fetch_measurements_for_objects(cache, objects.objectid, progress), objects
+
+
+def fetch_measurements_for_objects(cache, ids, progress=print):
     parts = []
 
     def fetch_partition(group):
@@ -138,14 +142,14 @@ def fetch_object_index(cache, ra, dec, radius, progress=print):
             fetch_partition(group.iloc[:middle])
             fetch_partition(group.iloc[middle:])
 
-    for start in range(0, len(objects), 150):
-        group = objects.objectid.iloc[start:start + 150]
+    for start in range(0, len(ids), 150):
+        group = ids.iloc[start:start + 150]
         fetch_partition(group)
-        progress(f"NSC objects {start + len(group)}/{len(objects)}")
+        progress(f"NSC objects {start + len(group)}/{len(ids)}")
     result = pd.concat(parts, ignore_index=True) if parts else pd.DataFrame(columns=MEAS.split(","))
     if result.measid.duplicated().any():
         raise RuntimeError("Duplicate measurement IDs in object-index chunks")
-    return result, objects
+    return result
 
 
 def covering_chips(cache, ra, dec, radius, chip_search):

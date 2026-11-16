@@ -1,0 +1,53 @@
+frozen_model = "precision-v03.toml"
+seed = 45116
+bootstrap_draws = 3000
+min_publish_count = 3
+practical_gain = 0.15
+zero_point_limit_masyr = 0.5
+tail_masyr = 5
+short_nsc_baseline_years = 2
+reference_r_edges = [20, 21, 22, 23]
+target_qso = 75
+max_fields = 8
+min_candidates_with_sdss = 8
+calibration_buffer_deg = 0.04
+
+[fields.s82_east]
+ra = 34.50
+dec = 0.05
+radius = 0.37
+
+[fields.s82_west]
+ra = 346.20
+dec = -0.15
+radius = 0.37
+
+[fields.s82_mid]
+ra = 14.28
+dec = 0.02
+radius = 0.37
+
+[fields.ngc_a]
+ra = 180.85
+dec = 35.35
+radius = 0.37
+
+[fields.ngc_b]
+ra = 166.70
+dec = 8.75
+radius = 0.37
+
+[fields.ngc_c]
+ra = 214.70
+dec = 3.30
+radius = 0.37
+
+[fields.ngc_d]
+ra = 136.80
+dec = 27.55
+radius = 0.37
+
+[fields.ngc_e]
+ra = 192.30
+dec = 7.20
+radius = 0.37

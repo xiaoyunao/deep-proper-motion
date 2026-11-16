@@ -15,6 +15,13 @@ from .io import save_json
 
 
 STAGES = {
+    "qso-coverage-v04": ("qso-coverage-v04", "qso_coverage_summary.json",
+                          ("area_sqdeg", "spectra_core", "spectra_faint_core", "sdss_detection_rows",
+                           "sdss_run_count", "sdss_date_count", "nsc_object_rows", "candidates_with_sdss",
+                           "candidates_with_both", "faint_candidates_with_both")),
+    "nsc-compare-v04": ("nsc-compare-v04", "nsc_comparison_summary.json",
+                        ("sample_kind", "counts", "exclusions", "strict", "without_support_requirement",
+                         "by_group", "timing_p16_median_p84", "observation_group_influence", "calibration")),
     "legacy-order-v03": ("legacy-order-v03", "legacy_order_summary.json",
                          ("ranges_requested", "ranges_read", "failed_ranges", "sampled_records")),
     "dark-precision-v03": ("dark-precision-v03", "dark_precision_summary.json",
@@ -129,7 +136,7 @@ def export(run_root, kind, region):
         raise ValueError("Aggregate checksum differs from completed stage")
     aggregate = json.loads(summary_bytes)
     config = tomllib.loads(config_bytes.decode())
-    role = "challenge_design" if kind == "challenge-design" else config["regions"][region]["role"]
+    role = "challenge_design" if kind == "challenge-design" else config.get("regions", {}).get(region, {}).get("role", "independent")
     payload = {key: aggregate[key] for key in fields}
     if kind == "dark-precision-v03":
         cohorts = payload["qso_published_common"]
@@ -179,7 +186,7 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        series = "v03" if args.kind.endswith("v03") else "v02"
+        series = "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
         target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:
             raise ValueError("A different aggregate already exists for this run")

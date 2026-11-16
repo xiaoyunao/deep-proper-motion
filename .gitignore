@@ -3,6 +3,7 @@
 !/AGENTS.md
 !/README.md
 !/WORKLOG.md
+!/PROJECT_CONTEXT.md
 !/PLAN.md
 !/pyproject.toml
 !/src/
@@ -15,6 +16,7 @@
 !/configs/experiment-a-v02.toml
 !/configs/challenge-tail-v02.toml
 !/configs/precision-v03.toml
+!/configs/precision-v04.toml
 !/scripts/
 !/scripts/*.sh
 !/docs/
@@ -23,6 +25,7 @@
 !/reports/experiment_A_v0.1.md
 !/reports/experiment_A_v0.2.md
 !/reports/experiment_A_v0.3_precision.md
+!/reports/experiment_A_v0.4_nsc.md
 !/figures/
 !/figures/*_summary.png
 !/results/

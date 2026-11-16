@@ -109,7 +109,8 @@ def calibration(work, center, config, veto_positions=None):
     # The omitted group defines a gauge. Compare offset SE relative to the
     # median calibrated NSC group instead of to a single arbitrary visit.
     if errors:
-        datum = np.median([e for name, e in errors.items() if name.startswith("NSC:")], axis=0)
+        nsc_errors = [e for name, e in errors.items() if name.startswith("NSC:")]
+        datum = np.median(nsc_errors, axis=0) if nsc_errors else np.zeros_like(next(iter(errors.values())))
         errors = {name: e - datum for name, e in errors.items()}
     offsets = {name: (anchor[name], errors[name], support[name]) for name in errors
                if np.std(errors[name], axis=0, ddof=1).max() <= settings["max_offset_se_mas"]}
@@ -220,6 +221,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("work", type=Path)
     parser.add_argument("--region", required=True)
+    parser.add_argument("--calibrate", action="store_true", help="test zero points in an independent region")
     parser.add_argument("--config", type=Path, default=Path("configs/precision-v03.toml"))
     args = parser.parse_args()
     if not os.environ.get("SLURM_JOB_ID"):
@@ -232,7 +234,8 @@ def main():
     with run_stage(args.work, args.config, args.region, "precision-v03", inputs=inputs,
                    outputs=["precision_v03_summary.json"]) as execute:
         if execute:
-            run(args.work, args.region, config, config["regions"][args.region]["role"] == "calibration_pilot")
+            calibrate = args.calibrate or config["regions"][args.region]["role"] == "calibration_pilot"
+            run(args.work, args.region, config, calibrate)
 
 
 if __name__ == "__main__":

@@ -52,10 +52,24 @@ def get_records(schema, start, count, uri=XIAO_URL):
                 raise
 
 
-def order_probe(schema, n=61):
-    indices = np.linspace(0, schema["catalogue_size"]-1, n, dtype=int)
-    with ThreadPoolExecutor(max_workers=4) as pool:
-        rows = np.concatenate(list(pool.map(lambda i: get_records(schema, int(i), 1), indices)))
+def order_probe(schema, n=9):
+    batch = 64
+    indices = np.linspace(0, schema["catalogue_size"]-batch, n, dtype=int)
+
+    def fetch(index):
+        try:
+            return get_records(schema, int(index), batch)
+        except (requests.RequestException, OSError, ValueError) as exc:
+            return type(exc).__name__
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        fetched = list(pool.map(fetch, indices))
+    chunks = [chunk for chunk in fetched if not isinstance(chunk, str)]
+    result = dict(ranges_requested=n, ranges_read=len(chunks),
+                  failed_ranges=sorted([item for item in fetched if isinstance(item, str)]))
+    if not chunks:
+        return dict(result, sampled_records=0)
+    rows = np.concatenate(chunks)
     ra, dec = rows["RA"], rows["DEC"]
     key = {"longitude": ra, "latitude": dec}
     for nested in (False, True):
@@ -66,7 +80,7 @@ def order_probe(schema, n=61):
         key[label+"_as_text"] = pix.astype(str)
     counts = {name: int(np.count_nonzero(data[1:] < data[:-1])) for name, data in key.items()}
     labels, c = np.unique(np.char.strip(rows["PM_SOURCE"].astype(str)), return_counts=True)
-    return dict(sampled_records=n, adjacent_decreases=counts,
+    return dict(result, sampled_records=len(rows), adjacent_decreases=counts,
                 source_flag_counts={label: int(count) for label, count in zip(labels, c)})
 
 

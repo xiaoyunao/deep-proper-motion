@@ -92,7 +92,7 @@ def components(candidates):
         yield group, visited_detections
 
 
-def choose_tracks(candidates, max_component):
+def choose_tracks(candidates, max_component, time_limit=5):
     selected = []
     difficult = 0
     for group, detections in components(candidates):
@@ -109,7 +109,7 @@ def choose_tracks(candidates, max_component):
         matrix = coo_matrix((np.ones(len(rows)), (rows, columns)), shape=(len(row), len(local)))
         scores = np.array([track.score for track in local])
         answer = milp(-scores, integrality=np.ones(len(local)), bounds=Bounds(0, 1),
-                      constraints=LinearConstraint(matrix, 0, 1), options={"time_limit": 5})
+                      constraints=LinearConstraint(matrix, 0, 1), options={"time_limit": time_limit})
         if not answer.success:
             difficult += 1
             continue
@@ -220,7 +220,8 @@ def motion_tracks(xy, time, sigma, exposure, provisional, config):
             fit = fit_motion(xy[k], time[k], sigma[k], epoch)
             ok = np.linalg.norm(fit.residual / sigma[k], axis=1) < gate
             add(tuple(k[ok]))
-    selected, difficult, used = choose_tracks(list(candidates.values()), config["max_component"])
+    selected, difficult, used = choose_tracks(list(candidates.values()), config["max_component"],
+                                                    config.get("solver_time_limit", 5))
     return selected, list(candidates.values()), sorted(set(range(len(xy))) - used), {
         "seed_detections": len(seed_rows), "seed_pairs": pairs, "candidates": len(candidates), "difficult_components": difficult,
     }

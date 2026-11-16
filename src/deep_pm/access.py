@@ -50,6 +50,10 @@ def request(service, query):
             time.sleep(2 ** attempt)
 
 
+class PartitionTooLarge(RuntimeError):
+    pass
+
+
 class Cache:
     def __init__(self, path):
         self.path = Path(path)
@@ -82,7 +86,7 @@ class Cache:
         suffix = " FROM " + source + " WHERE " + where
         expected = int(self.query(service, "SELECT COUNT(*) AS n" + suffix, expected=1).iloc[0, 0])
         if expected > cap:
-            raise RuntimeError(f"{service}: partition has {expected} rows above explicit cap {cap}")
+            raise PartitionTooLarge(f"{service}: partition has {expected} rows above explicit cap {cap}")
         return self.query(service, "SELECT " + columns + suffix, expected=expected)
 
 
@@ -107,10 +111,21 @@ def literal(value):
 def fetch_object_index(cache, ra, dec, radius, progress=print):
     objects = cache.checked("nsc", "id AS objectid,ra,dec", "nsc_dr2.object", q3c(ra, dec, radius))
     parts = []
+
+    def fetch_partition(group):
+        where = "objectid IN (" + ",".join(map(literal, group)) + ")"
+        try:
+            parts.append(cache.checked("nsc", MEAS, "nsc_dr2.meas", where, cap=15000))
+        except PartitionTooLarge:
+            if len(group) == 1:
+                raise
+            middle = len(group) // 2
+            fetch_partition(group.iloc[:middle])
+            fetch_partition(group.iloc[middle:])
+
     for start in range(0, len(objects), 150):
         group = objects.objectid.iloc[start:start + 150]
-        where = "objectid IN (" + ",".join(map(literal, group)) + ")"
-        parts.append(cache.checked("nsc", MEAS, "nsc_dr2.meas", where, cap=15000))
+        fetch_partition(group)
         progress(f"NSC objects {start + len(group)}/{len(objects)}")
     result = pd.concat(parts, ignore_index=True) if parts else pd.DataFrame(columns=MEAS.split(","))
     if result.measid.duplicated().any():

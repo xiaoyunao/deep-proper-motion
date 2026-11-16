@@ -47,3 +47,19 @@ class AssociationTest(unittest.TestCase):
                                            static, self.config)
         members = [i for track in selected for i in track.indices]
         self.assertEqual(len(members), len(set(members)))
+
+    def test_healpix_halo_and_cross_block_conflict(self):
+        from deep_pm.tiling import halo_radius, home_pixel, reconcile, source_pixels
+
+        ra = [359.999, .001]
+        dec = [0., 0.]
+        left, right = home_pixel(ra, dec, 128)
+        self.assertNotEqual(left, right)
+        halo = halo_radius(2000, 20, 500)
+        self.assertIn(right, source_pixels(ra[0], dec[0], 128, halo))
+        self.assertIn(left, source_pixels(ra[1], dec[1], 128, halo))
+        best = Track((1, 2, 3), 7, "secure", 3)
+        weaker = Track((1, 4, 5), 3, "secure", 3)
+        result, failed = reconcile([(best, right), (best, right), (weaker, left)], 100)
+        self.assertEqual(failed, 0)
+        self.assertEqual([(track.indices, owner) for track, owner in result], [((1, 2, 3), right)])

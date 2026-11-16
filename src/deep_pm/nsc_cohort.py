@@ -1,11 +1,13 @@
 """Aggregate paired QSO experiments over independently selected fields."""
 import argparse
 from collections import defaultdict
+from itertools import combinations
 import json
 import os
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 from .io import digest, save_json
 from .nsc_comparison import absolute68, comparison, configuration
@@ -65,6 +67,24 @@ def checked_rows(directory):
     return json.loads((directory/relative).read_text())
 
 
+def survey_overlap(directories):
+    visits = {}
+    for directory in directories:
+        table = pd.read_csv(directory/"detections.csv", usecols=["survey", "exposure_id"])
+        visits[directory.name] = {k: set(group.exposure_id.dropna()) for k, group in table.groupby("survey")}
+    blocks = {k:{k} for k in visits}
+    counts = {}
+    for a,b in combinations(sorted(visits),2):
+        shared = {survey.lower():len(visits[a].get(survey,set()) & visits[b].get(survey,set()))
+                  for survey in ("SDSS","NSC")}
+        counts[a+"__"+b] = shared
+        if any(shared.values()):
+            merged = blocks[a] | blocks[b]
+            for name in merged:
+                blocks[name] = merged
+    return sorted({tuple(sorted(names)) for names in blocks.values()}), counts
+
+
 def run_pool(work, directories, settings):
     groups = defaultdict(dict)
     for directory in directories:
@@ -78,16 +98,23 @@ def run_pool(work, directories, settings):
                 groups[interval].setdefault(name, []).append(result)
                 stratum = "faint_short" if baseline < settings["short_nsc_baseline_years"] else "faint_long"
                 groups[stratum].setdefault(name, []).append(result)
+    blocks, overlap = survey_overlap(directories)
     pooled = {}
     for key, fields in groups.items():
         by_field = list(fields.values())
         data = [row for part in by_field for row in part]
-        pooled[key] = dict(field_count=len(fields), stats=comparison(data, settings),
+        block_rows = [[row for name in block for row in fields.get(name,[])] for block in blocks]
+        block_rows = [rows for rows in block_rows if rows]
+        pooled[key] = dict(field_count=len(fields), observation_block_count=len(block_rows),
+                           stats=comparison(data, settings),
                            field_bootstrap=field_resample(by_field, settings)
+                           if len(data)>=settings["min_publish_count"] else None,
+                           observation_block_bootstrap=field_resample(block_rows,settings)
                            if len(data)>=settings["min_publish_count"] else None,
                            leave_field_out=leave_field_out(fields, settings))
     save_json(work/"nsc_cohort_summary.json", dict(fields=sorted(d.name for d in directories),
-                                                    pooled=pooled, practical_gain=settings["practical_gain"]))
+                                                    pooled=pooled, practical_gain=settings["practical_gain"],
+                                                    observation_blocks=blocks, archive_visit_overlap=overlap))
 
 
 def main():
@@ -112,8 +139,9 @@ def main():
     work.mkdir(parents=True,exist_ok=True)
     if not len(args.pool)==len({d.name for d in args.pool}):
         p.error("Cannot pool a field twice.")
+    artifacts = ("private_paired_qso.json","run_manifest.json","detections.csv")
     for directory in args.pool:
-        for name in ("private_paired_qso.json","run_manifest.json"):
+        for name in artifacts:
             link=work/f"{directory.name}_{name}"
             target=directory.resolve()/name
             if not link.exists():
@@ -121,7 +149,7 @@ def main():
             if target != link.resolve():
                 p.error("Use a new pool directory for different field versions.")
     inputs = [f"{directory.name}_{name}" for directory in args.pool
-              for name in ("private_paired_qso.json","run_manifest.json")]
+              for name in artifacts]
     with run_stage(work,args.config,"qso_pool","nsc-pool-v04",inputs=inputs,
                    outputs=["nsc_cohort_summary.json"]) as go:
         if go:

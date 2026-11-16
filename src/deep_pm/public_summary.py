@@ -16,7 +16,7 @@ from .io import save_json
 
 STAGES = {
     "nsc-pool-v04": ("nsc-pool-v04", "nsc_cohort_summary.json",
-                     ("fields", "pooled", "practical_gain")),
+                     ("fields", "pooled", "practical_gain", "observation_blocks", "archive_visit_overlap")),
     "qso-coverage-v04": ("qso-coverage-v04", "qso_coverage_summary.json",
                           ("area_sqdeg", "spectra_core", "spectra_faint_core", "sdss_detection_rows",
                            "sdss_run_count", "sdss_date_count", "nsc_object_rows", "candidates_with_sdss",

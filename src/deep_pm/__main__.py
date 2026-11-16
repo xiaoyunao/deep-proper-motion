@@ -46,6 +46,15 @@ def fetch(work, center, radius, config, route):
         in_cone(raw, center, expanded).to_csv(work / "sdss.csv", index=False)
 
 
+def fetch_gaia(work, center, radius, config):
+    cache = access.Cache(work / "validation" / "cache")
+    where = access.q3c(*center, radius + 2 * config["access"]["halo_deg"] + 0.004)
+    columns = ("source_id,ra,dec,ref_epoch,pmra,pmdec,pmra_error,pmdec_error,parallax,"
+               "ruwe,phot_g_mean_mag,astrometric_params_solved")
+    table = cache.checked("nsc", columns, "gaia_dr3.gaia_source", where)
+    table.to_csv(work / "validation" / "gaia.csv", index=False)
+
+
 def standardize(work, config, center, radius, route):
     frames = []
     for survey, name, adapter in [
@@ -168,7 +177,7 @@ def main():
     parser.add_argument("--config", default="configs/experiment-a.toml")
     parser.add_argument("--work", type=Path, default=os.environ.get("DEEP_PM_WORK"))
     parser.add_argument("--region", default="smoke")
-    parser.add_argument("--route", choices=["object", "exposure", "sdss", "all"], default="object")
+    parser.add_argument("--route", choices=["object", "exposure", "sdss", "gaia", "all"], default="object")
     parser.add_argument("command", choices=["discover", "fetch", "normalize", "inventory", "associate",
                                             "fit", "validate", "report"])
     args = parser.parse_args()
@@ -195,7 +204,10 @@ def main():
                                               region=args.region, release_nsc=config["release_nsc"],
                                               release_sdss=config["release_sdss"], seed=config["seed"]))
     if args.command == "fetch":
-        fetch(work, center, radius, config, args.route)
+        if args.route == "gaia":
+            fetch_gaia(work, center, radius, config)
+        else:
+            fetch(work, center, radius, config, args.route)
     elif args.command == "normalize":
         standardize(work, config, center, radius, args.route)
     elif args.command == "inventory":

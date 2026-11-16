@@ -40,3 +40,15 @@ radius = 0.02
 [access]
 halo_deg = 0.017
 chip_center_margin_deg = 0.20
+
+[regions.north]
+role = "instrument_probe"
+ra = 180.0
+dec = 35.0
+radius = 0.02
+
+[regions.pal5]
+role = "crowding_probe"
+ra = 229.019
+dec = -0.124
+radius = 0.02

@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 
-from deep_pm.paired_control import shared_group_motion
+from deep_pm.paired_control import paired_contrasts, shared_group_motion
 
 
 class SharedErrorTest(unittest.TestCase):
@@ -18,3 +18,10 @@ class SharedErrorTest(unittest.TestCase):
             u = np.linalg.solve(cov, design)
             expected.append(np.linalg.solve(design.T @ u, u.T @ positions[:, axis])[1])
         np.testing.assert_allclose(shared_group_motion(positions, time, sigma, groups, tau), expected)
+
+    def test_identical_residuals_give_zero_paired_interval(self):
+        residuals = np.column_stack((np.arange(20), np.arange(20)**2))
+        comparisons = {method: residuals for method in ("nsc_refit", "nsc_published", "one_sdss", "all_sdss")}
+        for contrast in paired_contrasts(comparisons, seed=1).values():
+            np.testing.assert_array_equal(contrast["delta_nmad_masyr"], [0, 0])
+            np.testing.assert_array_equal(contrast["paired_bootstrap95_masyr"], [[0, 0], [0, 0]])

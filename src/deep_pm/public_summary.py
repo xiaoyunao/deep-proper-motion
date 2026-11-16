@@ -21,6 +21,7 @@ STAGES = {
                   ("truth_sources", "exclusion_counts", "fixed_truth_three_way",
                    "fixed_truth_common_four_way", "shared_error_sensitivity",
                    "sdss_run_heldout", "sdss_run_camera_residual")),
+    "precision-contrasts": (r"paired-control", "paired_contrasts_summary.json", ("paired_nmad",)),
     "matched": (r"matched-control", "matched_control_summary.json",
                 ("upstream_commit", "eligible", "fixed_control_total", "matched_pm")),
     "prediction": (r"prediction-(?:control|held-geometry)", "prediction_control_summary.json",

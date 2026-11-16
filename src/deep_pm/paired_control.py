@@ -22,6 +22,26 @@ def summarize(values):
     return dict(n=len(values), median=center, nmad=1.4826 * np.median(abs(values - center), axis=0))
 
 
+def paired_contrasts(comparisons, seed):
+    pairs = (("one_sdss", "nsc_refit"), ("all_sdss", "one_sdss"), ("all_sdss", "nsc_published"))
+    n = len(comparisons.get("one_sdss", ()))
+    if n < 5:
+        return {}
+    draws = np.random.default_rng(seed).integers(0, n, (5000, n))
+    metrics = {}
+    for method, values in comparisons.items():
+        observations = np.asarray(values)
+        if observations.shape != (n, 2):
+            raise ValueError("Paired residual methods must contain the same objects in both components")
+        resampled = observations[draws]
+        center = np.median(resampled, axis=1)
+        metrics[method] = 1.4826 * np.median(abs(resampled - center[:, None, :]), axis=1)
+    return {f"{a}_minus_{b}": dict(
+        n=n, delta_nmad_masyr=summarize(comparisons[a])["nmad"] - summarize(comparisons[b])["nmad"],
+        paired_bootstrap95_masyr=np.quantile(metrics[a] - metrics[b], [.025, .975], axis=0).T)
+        for a, b in pairs}
+
+
 def common_catalogue_ids(truth, labels, data, original):
     ids = data.detection_id.map(original)
     nsc = data.survey.eq("NSC").to_numpy()
@@ -164,6 +184,8 @@ def run(work, region, config):
         sdss_run_camera_residual={f"{run}/{cam}": summarize(values)
                                   for (run, cam), values in offsets.items()},
     ))
+    save_json(work / "paired_contrasts_summary.json", dict(
+        paired_nmad=paired_contrasts(comparisons, config["seed"])))
 
 
 if __name__ == "__main__":
@@ -175,7 +197,7 @@ if __name__ == "__main__":
     with args.config.open("rb") as file:
         config = tomllib.load(file)
     inputs = ["detections.csv", "external_labels.csv", "validation/gaia.csv"]
-    with run_stage(args.work, args.config, args.region, "paired-control", inputs,
-                   ["paired_control_summary.json"]) as execute:
+    outputs = ["paired_control_summary.json", "paired_contrasts_summary.json"]
+    with run_stage(args.work, args.config, args.region, "paired-control", inputs, outputs) as execute:
         if execute:
             run(args.work, args.region, config)

@@ -36,7 +36,7 @@ def fetch(work, shard, radius, bounds):
         return saved,True
     cache=access.Cache(folder/"cache")
     start=monotonic()
-    index=access.checked(cache,"nsc","id AS objectid","nsc_dr2.object",where)
+    index=cache.checked("nsc","id AS objectid","nsc_dr2.object",where)
     ids=index.objectid.astype(str).sort_values()
     if ids.duplicated().any():
         raise ValueError("Nonunique NSC archive index.")

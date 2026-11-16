@@ -1,6 +1,7 @@
 """Audit overlap, independent dark-QSO results and measured pilot throughput."""
 import argparse
 from collections import Counter, defaultdict
+from datetime import datetime
 import json
 import os
 from pathlib import Path
@@ -51,7 +52,12 @@ def aggregate(work, directories, stripe, settings):
         input_dir = acquisition.resolve().parent
         counts_path = input_dir/"pilot_input_counts.json"
         counts = json.loads(counts_path.read_text()) if counts_path.is_file() else {}
-        resources[name] = dict(stats,area_sqdeg=aggregates["core_area_sqdeg"],
+        acquisition_receipt = json.loads((input_dir/"run_manifest.json").read_text())["stages"]["pilot-inputs-v05"][-1]
+        if acquisition_receipt["state"] != "completed":
+            raise ValueError("Input acquisition is not complete.")
+        acquisition_seconds = (datetime.fromisoformat(acquisition_receipt["finished_utc"]) -
+                               datetime.fromisoformat(acquisition_receipt["started_utc"])).total_seconds()
+        resources[name] = dict(stats,acquisition_wall_seconds=acquisition_seconds,area_sqdeg=aggregates["core_area_sqdeg"],
                                raw_bytes=sum((input_dir/n).stat().st_size for n in ("nsc_object.csv","sdss.csv")),
                                **counts)
         if name not in independent:
@@ -72,9 +78,12 @@ def aggregate(work, directories, stripe, settings):
                            leave_field_out=leave_field_out(by_field,settings))
     final = sum(record["final"] for record in totals.values())
     rates = [part["cpu_seconds"]/part["area_sqdeg"] for part in resources.values()]
+    download = [part["acquisition_wall_seconds"]/part["area_sqdeg"] for part in resources.values()]
     raw = [part["raw_bytes"]/part["area_sqdeg"] for part in resources.values()]
     forecast = {str(scale):dict(fit_validation_cpu_hours_range=[scale*min(rates)/3600,scale*max(rates)/3600],
-                                raw_gb_range=[scale*min(raw)/1e9,scale*max(raw)/1e9])
+                                raw_gb_range=[scale*min(raw)/1e9,scale*max(raw)/1e9],
+                                acquisition_job_hours_range=[scale*min(download)/3600,
+                                                             scale*max(download)/3600])
                 for scale in (100,300)}
     save_json(work/"pilot_cohort_summary.json",dict(core_area_sqdeg=area,fields=sorted(names),funnel=totals,
               final_sources=final, final_per_sqdeg=final/area, independent_qso=pooled,

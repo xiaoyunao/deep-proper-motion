@@ -40,13 +40,13 @@ comparison_radius_deg = 0.04
 [fields.west_a]
 ra = 127.1
 dec = 0.45
-radius = 0.67
+radius = 0.62
 role = "long_repeat"
 
 [fields.west_b]
 ra = 131.8
 dec = 0.48
-radius = 0.67
+radius = 0.6
 role = "long_repeat"
 
 [fields.west_c]
@@ -58,7 +58,7 @@ role = "long_repeat"
 [fields.west_d]
 ra = 144.4
 dec = 0.45
-radius = 0.67
+radius = 0.62
 role = "long_repeat"
 
 [fields.east_a]
@@ -169,3 +169,14 @@ dec = 52.5
 radius = 0.67
 role = "high_latitude"
 
+[fields.single_e]
+ra = 178.2
+dec = 39.2
+radius = 0.67
+role = "high_latitude"
+
+[fields.single_f]
+ra = 189.0
+dec = 42.3
+radius = 0.67
+role = "high_latitude"

@@ -8,3 +8,4 @@
 - **当前阶段** 严格同源复核亮星，并用新天区的光谱 QSO 测试冻结 M3 相对官方 NSC 的暗端增益。星系参考和 QSO 验证分离。此阶段暂停寻找已删除的 Xiao2025 成品；论文精度仅作背景。 [计划](PLAN.md) · [去标识汇总](results/summary)
 
 - **v0.4 亮星同源复核** 183 颗有共同 M3 支持。二维绝对误差第 68 百分位相对 NSC 在北天改善 87%，拥挤区改善 32%，两区的对象配对区间排除零。赤道改善 8%，区间跨零，北向点估计仍较差。Pal 5 的 20 颗用 M1 可改善 66%。 [v0.4 报告](reports/experiment_A_v0.4_nsc.md) · [亮星图](figures/v04_bright_nsc_summary.png)
+- **v0.4 暗端 QSO** 三个新天区共有 162 个严格共同源，97 个在 (21\le r<23)。M3 把二维绝对误差第 68 百分位从官方 NSC 的 8.23 降到 3.53 mas/yr，改善 57%，对象配对区间 43–64%。两处 Stripe 82 共用 17 个 SDSS run；考虑观测块后改善仍为正。暗端北向中位差为 −0.67 mas/yr，22–23 等只覆盖一个观测块。扩大 A 的独立场和暗恒星验证，暂缓全巡天与 B。 [v0.4 报告](reports/experiment_A_v0.4_nsc.md) · [暗端汇总](results/summary/v04_qso_pool_nsc_pool_v04_297ee541e3c9_3daf6332d85a_summary.json) · [汇总程序提交](https://github.com/xiaoyunao/deep-proper-motion/commit/297ee541e3c97694cc358b485c26a467f8abdfe3)

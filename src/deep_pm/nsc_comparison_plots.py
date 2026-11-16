@@ -66,7 +66,7 @@ def plot_qso(summary, destination):
     axis.axvline(0,color=".45",linewidth=.8)
     axis.axvline(100*summary["practical_gain"],color=".55",linewidth=.8,linestyle="--")
     axis.set_xlabel("Gain in radial 68th pct. absolute PM error (%)")
-    axis.legend(frameon=False)
+    axis.legend(frameon=False, loc="lower left", bbox_to_anchor=(0, 1.01), ncol=2)
     axis.tick_params(direction="in")
     fig.savefig(destination,dpi=160)
     plt.close(fig)

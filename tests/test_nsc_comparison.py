@@ -1,8 +1,10 @@
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
 import numpy as np
 
-from deep_pm.nsc_cohort import field_resample, ranking
+from deep_pm.nsc_cohort import field_resample, ranking, survey_overlap
 from deep_pm.nsc_comparison import absolute68, comparison
 
 
@@ -27,3 +29,15 @@ class SameSourcePrecisionTest(unittest.TestCase):
         stats = {k:dict(candidates_with_both=n,faint_candidates_with_both=f)
                  for k,n,f in (("a",7,7),("b",15,2),("c",10,4))}
         self.assertEqual([k for k,v in ranking(stats, SETTINGS)],["c","b"])
+
+
+    def test_fields_with_common_runs_are_sampled_together(self):
+        with TemporaryDirectory() as root:
+            directories = [Path(root)/name for name in ("a","b","c","d")]
+            for d, exposure in zip(directories,["SDSS:1","SDSS:1","SDSS:2","SDSS:3"]):
+                d.mkdir()
+                (d/"detections.csv").write_text(f"survey,exposure_id\nSDSS,{exposure}\n")
+            for d in directories[1:3]:
+                with (d/"detections.csv").open("a") as f:
+                    f.write("NSC,NSC:shared\n")
+            self.assertEqual(survey_overlap(directories)[0],[("a","b","c"),("d",)])

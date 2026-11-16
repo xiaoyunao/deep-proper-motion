@@ -15,6 +15,9 @@ from .io import save_json
 
 
 STAGES = {
+    "precision-v03": ("precision-v03", "precision_v03_summary.json",
+                       ("baseline", "calibration", "common_support", "paired_m3_m2", "exclusion_counts",
+                        "temporal", "detection_count", "truth_count", "tail_threshold_masyr")),
     "association": (r"report", "summary/{region}_summary.json",
                     ("inventory", "validation", "resources")),
     "precision": (r"paired-control", "paired_control_summary.json",

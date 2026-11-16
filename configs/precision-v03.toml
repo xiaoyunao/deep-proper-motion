@@ -1,0 +1,50 @@
+# Frozen before fitting the galaxy zero points.
+seed = 45116
+reference_epoch = 2015.5
+min_seed_years = 0.60
+position_floor_mas = 50
+smoke_max_error_mas = 150
+smoke_max_mag = 20.5
+gaia_max_ruwe = 1.4
+gaia_max_pm_error = 0.5
+gaia_max_parallax_for_linear_truth = 10
+gaia_detection_gate_mas = 500
+
+[calibration]
+min_references = 10
+holdout_fraction = 0.30
+astrometric_max_error_mas = 200
+reference_match_mas = 500
+reference_neighbour_mas = 1200
+gaia_veto_mas = 1500
+nsc_extended_max = 0.85
+max_offset_se_mas = 12
+bootstrap_draws = 48
+tail_masyr = 5
+reference_r_edges = [20, 21, 22, 23]
+science_min_improvement = 0.15
+science_max_zero_pm_masyr = 0.5
+
+[regions.pal5]
+role = "bright_control"
+ra = 229.019
+dec = -0.124
+radius = 0.02
+
+[regions.test_north]
+role = "bright_control"
+ra = 179.6
+dec = 35.1
+radius = 0.12
+
+[regions.test_equator]
+role = "calibration_pilot"
+ra = 352.5
+dec = 0.30
+radius = 0.10
+
+[regions.test_crowding]
+role = "bright_control"
+ra = 228.82
+dec = -0.31
+radius = 0.10

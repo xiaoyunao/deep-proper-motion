@@ -7,9 +7,11 @@ import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
 
+from . import access
 from .__main__ import detection_arrays, tomllib
 from .associate import Track, motion_tracks, static_tracks
-from .astrometry import fit_motion
+from .astrometry import epoch_halo_deg, fit_motion, unproject
+from .footprints import nsc_visits
 from .io import save_json
 from .provenance import run_stage
 from .validation import gaia_labels
@@ -23,7 +25,8 @@ def associations(xy, t, sigma, exposures, config):
             "nsc_like": [Track(g, 0, "baseline", 0) for g in nsc], "motion": selected}
 
 
-def held_year(data, xy, t, sigma, labels, radius, config, include_methods=("fixed", "nsc_like", "motion")):
+def held_year(data, xy, t, sigma, labels, radius, config,
+              include_methods=("fixed", "nsc_like", "motion"), geometry=None, center=None):
     year = np.floor(t).astype(int)
     survey = data.survey.to_numpy()
     available = np.unique(year[survey == "NSC"])
@@ -35,9 +38,9 @@ def held_year(data, xy, t, sigma, labels, radius, config, include_methods=("fixe
     train = np.flatnonzero(~hold)
     groups = associations(xy[train], t[train], sigma[train], data.exposure_id.iloc[train].to_numpy(), config)
     visits = []
-    for _, group in data.loc[hold].groupby("exposure_id"):
+    for exposure, group in data.loc[hold].groupby("exposure_id"):
         rows = group.index.to_numpy()
-        visits.append((rows, float(np.median(t[rows])), cKDTree(xy[rows]), sigma[rows].max()))
+        visits.append((exposure, rows, float(np.median(t[rows])), cKDTree(xy[rows]), sigma[rows].max()))
     epoch = config["reference_epoch"]
     sample = {}
     for method in include_methods:
@@ -66,7 +69,8 @@ def held_year(data, xy, t, sigma, labels, radius, config, include_methods=("fixe
             eligible = [w for w in workflows if status_mode == "all_selected" or w[-1] == "secure"]
             counts = defaultdict(Counter)
             source_counts = Counter((w[1], w[2], w[5]) for w in eligible)
-            for rows, moment, tree, max_sigma in visits:
+            truth_offsets = defaultdict(list)
+            for exposure, rows, moment, tree, max_sigma in visits:
                 if not eligible:
                     continue
                 predictions = np.array([w[0].predict(moment) for w in eligible])
@@ -82,10 +86,26 @@ def held_year(data, xy, t, sigma, labels, radius, config, include_methods=("fixe
                     truth_rows = rows[np.isin(labels[rows], list(known))]
                     if tag == "with_gaia" and len(truth_rows) != 1:
                         continue
+                    pos = predictions[j]
+                    if tag == "no_gaia" and geometry is not None:
+                        footprint = geometry.get(exposure)
+                        if footprint is None:
+                            counts_here["coverage_unknown"] += 1
+                            continue
+                        if not footprint(pos, unproject(pos, center)[0]):
+                            counts_here["outside_footprint"] += 1
+                            continue
                     counts_here["attempted"] += 1
                     axis_sigma = np.sqrt(np.maximum(variances[j], 0))
                     gate = min(1500, 3 * np.hypot(axis_sigma.max(), max_sigma))
-                    pos = predictions[j]
+                    if tag == "with_gaia":
+                        index = truth_rows[0]
+                        delta = xy[index] - model.predict(t[index])
+                        offset = np.linalg.norm(delta)
+                        truth_offsets[(kind, tag, magnitude_bin)].append(offset)
+                        scaled = (delta ** 2 / (axis_sigma ** 2 + sigma[index] ** 2)).sum()
+                        if np.linalg.norm(xy[index] - pos) > gate or scaled > 9:
+                            counts_here["truth_outside_gate"] += 1
                     near = np.array(tree.query_ball_point(pos, gate), dtype=int)
                     if not len(near):
                         counts_here["no_candidate"] += 1
@@ -93,8 +113,11 @@ def held_year(data, xy, t, sigma, labels, radius, config, include_methods=("fixe
                     d2 = ((xy[near] - model.predict(t[near])) ** 2
                           / (axis_sigma ** 2 + sigma[near] ** 2)).sum(axis=1)
                     inside = near[d2 <= 9]
-                    if len(inside) != 1:
-                        counts_here["missing_or_competing_detections"] += 1
+                    if len(inside) == 0:
+                        counts_here["error_ellipse_rejected_all"] += 1
+                        continue
+                    if len(inside) > 1:
+                        counts_here["multiple_inside_error_ellipse"] += 1
                         continue
                     hit = inside[0]
                     if tag == "with_gaia":
@@ -114,10 +137,12 @@ def held_year(data, xy, t, sigma, labels, radius, config, include_methods=("fixe
                         counts_here["consistent_unconfirmed"] += 1
                     else:
                         counts_here["inconclusive"] += 1
-            sample[method][status_mode] = {
-                f"{kind}/{tag}/{magnitude_bin}": dict(training_tracks=n, **counts[(kind, tag, magnitude_bin)])
-                for (kind, tag, magnitude_bin), n in source_counts.items()
-            }
+            cells = sample[method][status_mode] = {}
+            for key, n in source_counts.items():
+                cell = dict(training_tracks=n, **counts[key])
+                if truth_offsets[key]:
+                    cell["gaia_offset_quantiles_mas"] = np.quantile(truth_offsets[key], [.16, .5, .84])
+                cells["/".join(key)] = cell
     return dict(year=int(selection), holdout_detections=int(hold.sum()), methods=sample)
 
 
@@ -154,15 +179,22 @@ def translated_control(data, xy, t, sigma, radius, config):
     return dict(detections=len(xy), variants=results)
 
 
-def run(work, region, config):
+def run(work, region, config, held_only=False):
     settings = config["regions"][region]
     config = dict(config, **settings.get("overrides", {}))
     center, radius = (settings["ra"], settings["dec"]), settings["radius"]
     data, xy, t, sigma = detection_arrays(work, center, config)
     gaia = pd.read_csv(work / "validation" / "gaia.csv")
     labels, _ = gaia_labels(data, xy, t, sigma, gaia, center, config)
-    result = dict(held_year=held_year(data, xy, t, sigma, labels, radius, config),
-                  translated_control=translated_control(data, xy, t, sigma, radius, config))
+    geometry = None
+    if held_only:
+        chip_radius = radius + epoch_halo_deg(config)
+        chips = access.covering_chips(access.Cache(work / "cache"), *center, chip_radius,
+                                     config["access"]["chip_center_margin_deg"])
+        geometry = {visit.exposure: visit.coverage for visit in nsc_visits(chips, center)}
+    result = dict(held_year=held_year(data, xy, t, sigma, labels, radius, config,
+                                     geometry=geometry, center=center),
+                  translated_control={} if held_only else translated_control(data, xy, t, sigma, radius, config))
     save_json(work / "prediction_control_summary.json", result)
 
 
@@ -171,11 +203,13 @@ if __name__ == "__main__":
     parser.add_argument("work", type=Path)
     parser.add_argument("--region", default="smoke")
     parser.add_argument("--config", type=Path, default=Path("configs/experiment-a-v02.toml"))
+    parser.add_argument("--held-year-only", action="store_true")
     args = parser.parse_args()
     with args.config.open("rb") as file:
         config = tomllib.load(file)
-    with run_stage(args.work, args.config, args.region, "prediction-control",
+    stage = "prediction-held-geometry" if args.held_year_only else "prediction-control"
+    with run_stage(args.work, args.config, args.region, stage,
                    ["detections.csv", "validation/gaia.csv"],
                    ["prediction_control_summary.json"]) as execute:
         if execute:
-            run(args.work, args.region, config)
+            run(args.work, args.region, config, args.held_year_only)

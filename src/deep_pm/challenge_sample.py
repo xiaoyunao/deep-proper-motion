@@ -75,8 +75,9 @@ def run(work, config_path, config):
     validation = work / "validation"
     validation.mkdir(exist_ok=True)
     generated = [config_path.read_text()]
+    role_prefix = config["challenge"].get("role_prefix", "gaia_challenge")
     for row in sample.itertuples():
-        generated.extend(["", f"[regions.{row.region}]", f'role = "gaia_challenge_{row.split}"',
+        generated.extend(["", f"[regions.{row.region}]", f'role = "{role_prefix}_{row.split}"',
                           f"ra = {row.ra}", f"dec = {row.dec}", f"radius = {row.radius}",
                           "", f"[regions.{row.region}.overrides]", 'truth_mode = "annual_parallax"'])
         path = work / row.region / "validation"

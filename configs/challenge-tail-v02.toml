@@ -1,0 +1,32 @@
+# Supplement the empty highest bin with wider SDSS/NSC survey belts.
+[challenge]
+sources_per_bin_per_split = 12
+pm_edges = [1000, 2000]
+radius = 0.02
+max_g = 20.5
+minimum_separation_deg = 0.10
+role_prefix = "gaia_challenge_tail"
+
+[[challenge.search_fields]]
+split = "dev"
+ra = 9.0
+dec = 0.0
+radius = 6.0
+
+[[challenge.search_fields]]
+split = "dev"
+ra = 160.0
+dec = 35.0
+radius = 8.0
+
+[[challenge.search_fields]]
+split = "test"
+ra = 41.0
+dec = 0.0
+radius = 8.0
+
+[[challenge.search_fields]]
+split = "test"
+ra = 215.0
+dec = 36.0
+radius = 8.0

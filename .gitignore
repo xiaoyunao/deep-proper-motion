@@ -13,6 +13,7 @@
 !/configs/
 !/configs/experiment-a.toml
 !/configs/experiment-a-v02.toml
+!/configs/challenge-tail-v02.toml
 !/scripts/
 !/scripts/*.sh
 !/docs/

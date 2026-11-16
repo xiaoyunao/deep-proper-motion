@@ -51,20 +51,28 @@ def report(work, region):
             lo, hi = row["wilson95"]
             axes[0].errorbar(x, y, yerr=[[max(0, y - lo)], [max(0, hi - y)]],
                              color=COLORS[name], fmt="o", capsize=3)
-        for row in validation["curves"][name]:
-            x = row["wrong_known_detections"]["value"]
-            y = row["recovery"]["value"]
-            if x is not None and y is not None:
-                axes[1].scatter(x, y, marker={"fixed": "o", "nsc_like": "s", "motion": "^"}[name],
-                                color=COLORS[name], facecolors="none", s=48)
+        stats = results["object_confirmation"]
+        limits = stats["bounds_with_unknown"]
+        y = results["selected_recall"]["value"]
+        if limits is not None and y is not None:
+            axes[1].plot(np.array(limits) * 100, [y, y], "o-", color=COLORS[name], label=LABELS[name])
         axes[0].plot([], [], "o", color=COLORS[name], label=LABELS[name])
     axes[0].set(xlabel="Gaia proper motion bin midpoint (mas/yr)", ylabel="Recovery fraction",
                 ylim=(-0.08, 1.10))
-    axes[1].set(xlabel="Discordant fraction among labelled detections", ylabel="Recovery fraction",
+    axes[1].set(xlabel="Object contamination bounds, including unknowns (%)", ylabel="Selected recovery fraction",
                 ylim=(-0.08, 1.10))
     axes[0].legend(frameon=False)
     fig.suptitle(f"{region} | {validation['truth_cross_survey']} Gaia-labelled cross-survey sources")
     fig.savefig(out / f"{region}_recovery_summary.png", dpi=180)
+    plt.close(fig)
+
+    names = list(validation["recovery_stages"])
+    fractions = [validation["recovery_stages"][name]["total"]["value"] for name in names]
+    fig, ax = plt.subplots(figsize=(9, 4.3), layout="constrained")
+    ax.barh(names[::-1], fractions[::-1], color=COLORS["motion"])
+    ax.set(xlim=(0, 1.05), xlabel="Fraction of eligible Gaia objects",
+           title=f"{region} | v0.2 regression, n={validation['truth_cross_survey']}")
+    fig.savefig(out / f"{region}_stages_summary.png", dpi=180)
     plt.close(fig)
 
     if not validation["paired"]:

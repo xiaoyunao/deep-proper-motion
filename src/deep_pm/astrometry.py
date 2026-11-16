@@ -46,6 +46,9 @@ def years(mjd_tt):
 
 
 def seasons(time, gap_days):
+    time = np.asarray(time)
+    if not len(time):
+        return np.empty(0, dtype=int)
     order = np.argsort(time)
     result = np.empty(len(time), dtype=int)
     result[order] = np.cumsum(np.r_[False, np.diff(time[order]) > gap_days / 365.25])

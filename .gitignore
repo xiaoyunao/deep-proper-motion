@@ -12,12 +12,14 @@
 !/tests/test_*.py
 !/configs/
 !/configs/experiment-a.toml
+!/configs/experiment-a-v02.toml
 !/scripts/
 !/scripts/*.sh
 !/docs/
 !/docs/*.md
 !/reports/
 !/reports/experiment_A_v0.1.md
+!/reports/experiment_A_v0.2.md
 !/figures/
 !/figures/*_summary.png
 !/results/

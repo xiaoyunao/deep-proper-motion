@@ -125,6 +125,166 @@ def evaluate(tracks, truth, labels, data, speed, config, minimum_score=None):
                 fragmented=ratio(sum(n > 1 for n in fragment.values()), len(fragment)))
 
 
+def truth_requirements(truth, survey, t, gap):
+    requests = {}
+    for label, rows in truth.items():
+        sdss = rows[survey[rows] == "SDSS"]
+        nsc = rows[survey[rows] == "NSC"]
+        groups = seasons(t[rows], gap)
+        first = t[sdss].min()
+        early = sdss[t[sdss] <= first + 1 / 365.25]
+        requests[label] = (set(sdss), set(nsc), set(early),
+                           [set(rows[groups == g]) for g in np.unique(groups)])
+    return requests
+
+
+def matched_object(indices, labels, required, fraction):
+    known = np.unique(labels[indices][labels[indices] >= 0])
+    if len(known) != 1 or known[0] not in required:
+        return None
+    label = known[0]
+    sdss, nsc, early, seasons_required = required[label]
+    members = set(indices)
+    if (len(members & sdss) >= fraction * len(sdss)
+            and len(members & nsc) >= fraction * len(nsc)
+            and members & early
+            and all(members & group for group in seasons_required)):
+        return label
+    return None
+
+
+def confirmation_counts(tracks, survey, labels, core_indices):
+    counts = dict(confirmed=0, discordant=0, unknown=0, unknown_members=0,
+                  discordant_members=0, labelled_members=0)
+    for row, track in enumerate(tracks):
+        if row not in core_indices:
+            continue
+        idx = np.asarray(track["indices"])
+        if not np.any(survey[idx] == "NSC") or not np.any(survey[idx] == "SDSS"):
+            continue
+        labs = labels[idx]
+        valid = labs[labs >= 0]
+        counts["unknown_members"] += int((labs < 0).sum())
+        counts["labelled_members"] += len(valid)
+        _, populations = np.unique(valid, return_counts=True)
+        if len(populations) > 1:
+            counts["discordant"] += 1
+            counts["discordant_members"] += len(valid) - populations.max()
+        elif len(valid) == len(idx):
+            counts["confirmed"] += 1
+        else:
+            counts["unknown"] += 1
+    return counts
+
+
+def stage_evaluation(tracks, candidates, audit, fits, truth, labels, data, t, gaia, config):
+    survey = data.survey.to_numpy()
+    required = truth_requirements(truth, survey, t, config["min_season_days"])
+    fraction = config["recovery_fraction"]
+
+    def matches(groups):
+        return [matched_object(np.asarray(g, dtype=int), labels, required, fraction) for g in groups]
+
+    generated = set(matches(audit["generated"]))
+    screened = set(matches(audit["screened"]))
+    merged = matches([c["indices"] for c in candidates])
+    by_object = {key: set() for key in truth}
+    for component in audit["components"]:
+        for candidate in component["candidates"]:
+            key = merged[candidate]
+            if key is not None:
+                by_object[key].add(component["state"])
+    candidate_reached = set(merged)
+    fits_by_method = {}
+    for row in fits:
+        if row["in_core"]:
+            fits_by_method.setdefault(row["method"], {})[row["track"]] = row
+    speed = np.hypot(gaia.pmra, gaia.pmdec)
+    summary = {}
+    detail = {}
+    for method, group in tracks.items():
+        selected = set()
+        secure = set()
+        ambiguous = set()
+        tentative = set()
+        compatible = set()
+        core_fits = fits_by_method.get(method, {})
+        for j, key in enumerate(matches([x["indices"] for x in group])):
+            if key is None or j not in core_fits:
+                continue
+            model = core_fits[j]
+            status = group[j]["status"]
+            selected.add(key)
+            if status == "secure":
+                secure.add(key)
+            elif status == "ambiguous":
+                ambiguous.add(key)
+            elif status.startswith("tentative_"):
+                tentative.add(key)
+            goal = gaia.loc[key]
+            dx = (model["pm_x"] - goal["pm_tangent_x"]) / np.hypot(
+                np.sqrt(model["cov_x"][1][1]), goal.pmra_error)
+            dy = (model["pm_y"] - goal["pm_tangent_y"]) / np.hypot(
+                np.sqrt(model["cov_y"][1][1]), goal.pmdec_error)
+            if dx * dx + dy * dy <= 5.991:
+                compatible.add(key)
+        unresolved = {key for key, states in by_object.items()
+                      if states and states <= {"unresolved", "feasible_incumbent"}} if method == "motion" else set()
+        reached = candidate_reached if method == "motion" else selected
+        counts = confirmation_counts(group, survey, labels, set(core_fits))
+        secure_counts = confirmation_counts(group, survey, labels,
+                                           {j for j in core_fits if group[j]["status"] == "secure"})
+        n = len(required)
+
+        def summarize_counts(counts):
+            d = counts["confirmed"] + counts["discordant"] + counts["unknown"]
+            checked = counts["confirmed"] + counts["discordant"]
+            return dict(**counts, wrong_among_confirmed=ratio(counts["discordant"], checked),
+                        bounds_with_unknown=[counts["discordant"] / d,
+                                             (counts["discordant"] + counts["unknown"]) / d] if d else None)
+
+        stats = dict(candidate_recall=ratio(len(reached - {None}), n),
+                     selected_recall=ratio(len(selected), n),
+                     secure_recall=ratio(len(secure), n) if method == "motion" else None,
+                     ambiguous_recall=ratio(len(ambiguous), n),
+                     tentative_recall=ratio(len(tentative), n),
+                     unresolved_fraction=ratio(len(unresolved), n),
+                     motion_compatible=ratio(len(compatible), n),
+                     object_confirmation=summarize_counts(counts),
+                     secure_object_confirmation=summarize_counts(secure_counts))
+        stats["pm_bins"] = []
+        for low, high in zip(config["pm_edges"], config["pm_edges"][1:]):
+            keys = {key for key in truth if low <= speed[key] < high}
+            stats["pm_bins"].append(dict(
+                low=low, high=high, **ratio(len(keys & selected), len(keys)),
+                candidate=ratio(len(keys & reached), len(keys)),
+                secure=ratio(len(keys & secure), len(keys)) if method == "motion" else None))
+        summary[method] = stats
+        detail[method] = dict(selected=selected, secure=secure, compatible=compatible)
+    motion_detail = detail["motion"]
+    stages = {}
+    previous = set(truth)
+    for name, keys in [
+        ("has_input", previous), ("generated", previous & generated),
+        ("screened", previous & screened), ("retained", previous & candidate_reached),
+        ("conflict_optimal", {key for key, states in by_object.items() if "optimal" in states}),
+        ("selected_optimal", motion_detail["selected"]),
+        ("secure", motion_detail["secure"]), ("pm_compatible_secure", motion_detail["compatible"]),
+    ]:
+        reached = previous & keys
+        stages[name] = dict(total=ratio(len(reached), len(truth)),
+                            conditional=ratio(len(reached), len(previous)))
+        previous = reached
+    trace = {str(key): dict(generated=key in generated, screened=key in screened,
+                            retained=key in candidate_reached,
+                            solver_states=sorted(by_object[key]),
+                            selected=key in motion_detail["selected"],
+                            secure=key in motion_detail["secure"],
+                            pm_compatible=key in motion_detail["compatible"]) for key in truth}
+    return summary, stages, trace
+
+
+
 def paired(truth, data, xy, t, sigma, gaia, config):
     residual_rows = []
     epoch = config["reference_epoch"]
@@ -171,16 +331,14 @@ def validate(work, center, config):
     tracks = json.loads((work / "tracks.json").read_text())
     region = json.loads((work / "run_manifest.json").read_text())["region"]
     truth = groups_by_label(labels, data, t, gaia, center, config["regions"][region]["radius"], config)
-    speed = np.hypot(gaia.pmra, gaia.pmdec)
-    results = {method: evaluate(group, truth, labels, data, speed, config)
-               for method, group in tracks.items()}
-    curves = {}
-    for method, group in tracks.items():
-        grid = np.arange(0, 14, 1) if method == "motion" else np.log(np.arange(1, 10))
-        curves[method] = [{"threshold": float(cut), **evaluate(group, truth, labels, data, speed, config, cut)}
-                          for cut in grid]
+    candidates = json.loads((work / "candidates.json").read_text())
+    audit = json.loads((work / "association_audit.json").read_text())
+    fits = json.loads((work / "fits.json").read_text())
+    results, stages, trace = stage_evaluation(tracks, candidates, audit, fits, truth, labels, data, t,
+                                               gaia, config)
     precision, paired_rows = paired(truth, data, xy, t, sigma, gaia, config)
     paired_rows.to_csv(work / "validation" / "paired.csv", index=False)
+    save_json(work / "validation" / "recovery_trace.json", trace)
     save_json(work / "validation.json", dict(gaia_rows=len(gaia), labeled_detections=int((labels >= 0).sum()),
                                            truth_cross_survey=len(truth), methods=results,
-                                           curves=curves, paired=precision))
+                                           recovery_stages=stages, paired=precision))

@@ -2,6 +2,14 @@
 
 ## 2026-11-16
 
+### v0.2
+
+- 冻结 `5de4372`，建立 `experiment-a-v0.2` 和独立 Scratch 目录。读完 GPT Pro 审阅，按八步推进。旧挑战 `61394719` 仍为 `PartitionDown`。四个 v0.1 缓存存在。
+- 修改关联分量处理、曝光背景估计、近重复与候选评分，加入不可变阶段记录和带 SDSS/观测季约束的恢复流程。目标是减少计算覆盖损失、拆分和标签丰富引起的乐观偏差；用边界回归和四区旧缓存检验。
+- 四个回归案例在旧实现均失败，修复后 `PYTHONPATH=src python3 -m unittest discover -s tests -v` 通过 15 项。真实区指标等待 Slurm 计算。
+
+### v0.1
+
 - **实验目的** 验证是否能用真实 SDSS+NSC 单曝光目录改善无先验自行关联，并分离 SDSS 首次早测量与重复观测的收益。
 - **环境与数据** 核实 NERSC SSH、HOME 与 Scratch 写权限、配额及 Slurm 账户。HOME 13.15/40 GiB、Scratch 4.56/20 TiB。参照现有 Slurm 项目和实际账户信息使用 CPU debug。旧项目只读，找到产物目录但未找到源码。
 - **操作与文件** `deep_pm` 的 fetch、normalize、inventory、associate、fit、validate、report 在 Slurm 上运行。SAS/CAS 字段抽样一致。SDSS 使用 bit 0 运行内去重。NSC 备用 SQL 接口成功，逐曝光抽样和对象索引在八个曝光取得同一批 134 条测量。

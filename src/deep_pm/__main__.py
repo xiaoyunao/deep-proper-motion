@@ -18,7 +18,8 @@ except ImportError:
 from . import access, normalize
 from .associate import motion_tracks, static_tracks
 from .astrometry import fit_motion, project, seasons, unproject, years
-from .io import digest, save_json
+from .io import save_json
+from .provenance import run_stage
 
 
 def in_cone(frame, center, radius):
@@ -114,10 +115,12 @@ def run_association(work, center, config):
     fixed = [tuple(track["indices"]) for track in collected["fixed"]]
     # Save baseline products even when the explicit motion budget is exceeded.
     save_json(work / "tracks.json", collected)
-    selected, candidates, unmatched, summary = motion_tracks(xy, t, sigma, exposure, fixed, config)
+    audit = {}
+    selected, candidates, unmatched, summary = motion_tracks(xy, t, sigma, exposure, fixed, config, audit)
     collected["motion"] = [vars(track) for track in selected]
     collected["motion"].extend(dict(indices=[i], score=0, status="unmatched") for i in unmatched)
     save_json(work / "candidates.json", [vars(track) for track in candidates])
+    save_json(work / "association_audit.json", audit)
     save_json(work / "tracks.json", collected)
     save_json(work / "association_resources.json", dict(summary, seconds=time.monotonic() - start,
                                                         maxrss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss))
@@ -199,29 +202,47 @@ def main():
                                         f"where", f"user={os.environ.get('USER')}", "format=Account,QOS"]):
             subprocess.run(command, check=False)
         return
-    commit = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
-    save_json(work / "run_manifest.json", dict(config_sha256=digest(config_path), commit=commit,
-                                              region=args.region, release_nsc=config["release_nsc"],
-                                              release_sdss=config["release_sdss"], seed=config["seed"]))
-    if args.command == "fetch":
-        if args.route == "gaia":
-            fetch_gaia(work, center, radius, config)
-        else:
-            fetch(work, center, radius, config, args.route)
-    elif args.command == "normalize":
-        standardize(work, config, center, radius, args.route)
-    elif args.command == "inventory":
-        inventory(work, config, center, radius)
-    elif args.command == "associate":
-        run_association(work, center, config)
-    elif args.command == "fit":
-        run_fits(work, center, radius, config)
-    elif args.command == "validate":
-        from .validation import validate
-        validate(work, center, config)
-    elif args.command == "report":
-        from .reporting import report
-        report(work, args.region)
+    stage = args.command
+    route = args.route
+    fetch_products = {"sdss": ["sdss.csv"], "object": ["nsc_object.csv"],
+                      "exposure": ["nsc_exposure.csv", "chips.csv"], "gaia": ["validation/gaia.csv"]}
+    association = ["tracks.json", "candidates.json", "association_resources.json", "association_audit.json"]
+    inputs, outputs = {
+        "fetch": ([], fetch_products.get(route, sum(list(fetch_products.values())[:3], []))),
+        "normalize": (["sdss.csv", f"nsc_{route}.csv", "chips.csv"],
+                      ["detections.csv", "external_labels.csv", "access_comparison.json"]),
+        "inventory": (["detections.csv"], ["inventory.json"]),
+        "associate": (["detections.csv"], association),
+        "fit": (["detections.csv", "tracks.json"], ["fits.json"]),
+        "validate": (["detections.csv", "validation/gaia.csv", "fits.json", *association],
+                     ["validation.json", "validation/paired.csv", "validation/recovery_trace.json"]),
+        "report": (["inventory.json", "validation.json", "association_resources.json",
+                    "validation/paired.csv"], [f"summary/{args.region}_summary.json"]),
+    }[stage]
+    entry = f"fetch-{route}" if stage == "fetch" else stage
+    with run_stage(work, config_path, args.region, entry, inputs, outputs) as execute:
+        if not execute:
+            print(f"{args.region} {entry} already complete and verified")
+            return
+        if stage == "fetch":
+            if route == "gaia":
+                fetch_gaia(work, center, radius, config)
+            else:
+                fetch(work, center, radius, config, route)
+        elif stage == "normalize":
+            standardize(work, config, center, radius, route)
+        elif stage == "inventory":
+            inventory(work, config, center, radius)
+        elif stage == "associate":
+            run_association(work, center, config)
+        elif stage == "fit":
+            run_fits(work, center, radius, config)
+        elif stage == "validate":
+            from .validation import validate
+            validate(work, center, config)
+        elif stage == "report":
+            from .reporting import report
+            report(work, args.region)
 
 
 if __name__ == "__main__":

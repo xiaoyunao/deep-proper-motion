@@ -106,7 +106,7 @@ def held_year(data, xy, t, sigma, labels, radius, config,
                         scaled = (delta ** 2 / (axis_sigma ** 2 + sigma[index] ** 2)).sum()
                         if np.linalg.norm(xy[index] - pos) > gate or scaled > 9:
                             counts_here["truth_outside_gate"] += 1
-                    near = np.array(tree.query_ball_point(pos, gate), dtype=int)
+                    near = rows[np.array(tree.query_ball_point(pos, gate), dtype=int)]
                     if not len(near):
                         counts_here["no_candidate"] += 1
                         continue
@@ -146,7 +146,7 @@ def held_year(data, xy, t, sigma, labels, radius, config,
     return dict(year=int(selection), holdout_detections=int(hold.sum()), methods=sample)
 
 
-def translated_control(data, xy, t, sigma, radius, config):
+def translated_control(data, xy, t, sigma, radius, config, geometry, center):
     vectors = np.array([[0, 0], [12000, 0], [-18000, 0], [0, 18000],
                         [0, -30000], [18000, 18000]], dtype=float)
     keep = np.linalg.norm(xy, axis=1) <= radius * 3600000 - np.linalg.norm(vectors, axis=1).max()
@@ -173,7 +173,8 @@ def translated_control(data, xy, t, sigma, radius, config):
                 key: dict(n=len(value), median_score_span_leverage=np.median(value, axis=0))
                 for key, value in evidence.items()
             }
-        held = held_year(subset, pt, t, sigma, np.full(len(pt), -1), radius, config, ("motion",))
+        held = held_year(subset, pt, t, sigma, np.full(len(pt), -1), radius, config, ("motion",),
+                         geometry=geometry, center=center)
         results.append(dict(shift_east_north_mas=shift, tracks_by_status=aggregate,
                             heldout_without_truth=held))
     return dict(detections=len(xy), variants=results)
@@ -186,15 +187,14 @@ def run(work, region, config, held_only=False):
     data, xy, t, sigma = detection_arrays(work, center, config)
     gaia = pd.read_csv(work / "validation" / "gaia.csv")
     labels, _ = gaia_labels(data, xy, t, sigma, gaia, center, config)
-    geometry = None
-    if held_only:
-        chip_radius = radius + epoch_halo_deg(config)
-        chips = access.covering_chips(access.Cache(work / "cache"), *center, chip_radius,
-                                     config["access"]["chip_center_margin_deg"])
-        geometry = {visit.exposure: visit.coverage for visit in nsc_visits(chips, center)}
+    chip_radius = radius + epoch_halo_deg(config)
+    chips = access.covering_chips(access.Cache(work / "cache"), *center, chip_radius,
+                                  config["access"]["chip_center_margin_deg"])
+    geometry = {visit.exposure: visit.coverage for visit in nsc_visits(chips, center)}
     result = dict(held_year=held_year(data, xy, t, sigma, labels, radius, config,
                                      geometry=geometry, center=center),
-                  translated_control={} if held_only else translated_control(data, xy, t, sigma, radius, config))
+                  translated_control={} if held_only else translated_control(
+                      data, xy, t, sigma, radius, config, geometry, center))
     save_json(work / "prediction_control_summary.json", result)
 
 

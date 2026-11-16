@@ -43,7 +43,8 @@ def comparison(rows, settings):
     boot = {k: absolute68(v[resample], axis=1) for k, v in motion.items()}
     contrasts = {}
     for a, b in (("M1", "published_nsc"), ("M2", "published_nsc"), ("M3", "published_nsc"),
-                 ("M1", "M0"), ("M2", "M1"), ("M3", "M2")):
+                 ("M1", "M0"), ("M2", "M1"), ("M3", "M2"),
+                 ("M3_blind", "published_nsc"), ("M3_blind", "M3")):
         if a not in boot or b not in boot:
             continue
         ref = absolute68(motion[b])

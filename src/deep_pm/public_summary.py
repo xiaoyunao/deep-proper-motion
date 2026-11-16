@@ -15,6 +15,9 @@ from .io import save_json
 
 
 STAGES = {
+    "production-v05": ("production-v05", "production_summary.json",
+                        ("core_area_sqdeg", "funnel", "final_per_sqdeg", "calibration",
+                         "validation", "holdout", "motion_window", "resources")),
     "nsc-pool-v04": ("nsc-pool-v04", "nsc_cohort_summary.json",
                      ("fields", "pooled", "practical_gain", "observation_blocks", "archive_visit_overlap")),
     "qso-coverage-v04": ("qso-coverage-v04", "qso_coverage_summary.json",
@@ -191,7 +194,7 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        series = "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
+        series = "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
         target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:
             raise ValueError("A different aggregate already exists for this run")

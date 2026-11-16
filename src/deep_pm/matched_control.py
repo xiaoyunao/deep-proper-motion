@@ -1,5 +1,6 @@
 """Compare blind fitted motions with fixed-association fits on the same sources."""
 import argparse
+from collections import Counter, defaultdict
 import json
 from pathlib import Path
 
@@ -11,9 +12,6 @@ from .io import digest, save_json
 from .provenance import run_stage
 from .public_summary import verify_stage_hashes
 from .validation import gaia_labels, groups_by_label, matched_object, residual_stats, truth_requirements
-
-
-INPUTS = ("detections.csv", "tracks.json", "fits.json", "validation/gaia.csv", "validation/paired.csv")
 
 
 def matched_motion(fits, tracks, label, required, fraction, gaia, control):
@@ -46,12 +44,66 @@ def matched_motion(fits, tracks, label, required, fraction, gaia, control):
     return outcomes
 
 
-def run(source, work, region):
+def conflict_review(fits, tracks, candidates, components, labels, required, fraction):
+    recovered = {matched_object(np.asarray(tracks["motion"][row["track"]]["indices"]), labels,
+                                required, fraction) for row in fits
+                 if row["method"] == "motion" and row["in_core"]}
+    missed = set(required) - recovered
+    owner = {}
+    in_optimal = []
+    for component in components:
+        for j in component["selected"]:
+            owner.update((k, j) for k in candidates[j]["indices"])
+        if component["state"] == "optimal":
+            in_optimal.extend(component["candidates"])
+    choices = defaultdict(list)
+    for j in in_optimal:
+        candidate = candidates[j]
+        idx = np.asarray(candidate["indices"], dtype=int)
+        target = matched_object(idx, labels, required, fraction)
+        if target not in missed:
+            continue
+        blockers = {owner[i] for i in candidate["indices"] if i in owner}
+        delta = candidate["score"] - sum(candidates[i]["score"] for i in blockers)
+        choices[target].append((delta, j, blockers))
+    categories = Counter()
+    changes = []
+    for target, options in choices.items():
+        delta, j, blockers = max(options, key=lambda x: (x[0], candidates[x[1]]["score"]))
+        changes.append(delta)
+        if delta > 1e-6:
+            categories["positive_local_replacement_delta"] += 1
+        if len(blockers) > 1:
+            categories["multiple_blocking_tracks"] += 1
+        if j in blockers:
+            categories["selected_candidate_outside_core_or_missing_fit"] += 1
+            blockers.remove(j)
+        kinds = set()
+        for i in blockers:
+            visits = labels[candidates[i]["indices"]]
+            known = set(visits[visits >= 0])
+            if not known:
+                kinds.add("blocker_without_gaia_labels")
+            elif known == {target}:
+                kinds.add("blocker_labels_only_target")
+            else:
+                kinds.add("blocker_contains_other_gaia_source")
+        for kind in kinds:
+            categories[kind] += 1
+    return dict(eligible=len(required), missed=len(missed), missed_with_optimal_candidate=len(choices),
+                replacement_delta_quantiles=np.quantile(changes, [0, .5, 1]) if changes else None,
+                conflict_counts=dict(categories))
+
+
+def run(source, work, region, review_conflicts=False):
     upstream = json.loads((source / "run_manifest.json").read_bytes())
     verify_stage_hashes(upstream["stages"])
     paths = {"tracks.json": ("associate", "outputs"), "fits.json": ("fit", "outputs"),
              "detections.csv": ("associate", "inputs"), "validation/gaia.csv": ("validate", "inputs"),
              "validation/paired.csv": ("validate", "outputs")}
+    if review_conflicts:
+        paths.update({"candidates.json": ("associate", "outputs"),
+                      "association_audit.json": ("associate", "outputs")})
     if upstream["region"] != region:
         raise ValueError("Requested field and source manifest differ")
     for relative, (stage, key) in paths.items():
@@ -71,22 +123,31 @@ def run(source, work, region):
     with config_path.open("rb") as fh:
         config = tomllib.load(fh)
     spec = config["regions"][region]
+    config.update(spec.get("overrides", {}))
     center = spec["ra"], spec["dec"]
-    with run_stage(work, config_path, region, "matched-control", INPUTS,
-                   ["matched_control_summary.json"]) as execute:
+    stage = "conflict-review" if review_conflicts else "matched-control"
+    output = "conflict_review_summary.json" if review_conflicts else "matched_control_summary.json"
+    with run_stage(work, config_path, region, stage, list(paths), [output]) as execute:
         if execute:
             data, xy, t, sigma = detection_arrays(work, center, config)
             labels, gaia = gaia_labels(data, xy, t, sigma,
                                       pd.read_csv(work / "validation" / "gaia.csv"), center, config)
             truth = groups_by_label(labels, data, t, gaia, center, spec["radius"], config)
             required = truth_requirements(truth, data.survey.to_numpy(), t, config["min_season_days"])
-            control = pd.read_csv(work / "validation" / "paired.csv").query("fit == 'all_sdss'")
-            control = control.set_index("source", verify_integrity=True)
             fits = json.loads((work / "fits.json").read_bytes())
             tracks = json.loads((work / "tracks.json").read_bytes())
+            if review_conflicts:
+                candidates = json.loads((work / "candidates.json").read_bytes())
+                audit = json.loads((work / "association_audit.json").read_bytes())
+                summary = conflict_review(fits, tracks, candidates, audit["components"],
+                                          labels, required, config["recovery_fraction"])
+                save_json(work / output, dict(upstream_commit=upstream["commit"], **summary))
+                return
+            control = pd.read_csv(work / "validation" / "paired.csv").query("fit == 'all_sdss'")
+            control = control.set_index("source", verify_integrity=True)
             outcomes = matched_motion(fits, tracks, labels, required, config["recovery_fraction"],
                                       gaia, control)
-            save_json(work / "matched_control_summary.json", dict(
+            save_json(work / output, dict(
                 upstream_commit=upstream["commit"], eligible=len(truth),
                 fixed_control_total=len(control), matched_pm=outcomes))
 
@@ -96,5 +157,6 @@ if __name__ == "__main__":
     parser.add_argument("source", type=Path)
     parser.add_argument("work", type=Path)
     parser.add_argument("--region", required=True)
+    parser.add_argument("--review-conflicts", action="store_true")
     args = parser.parse_args()
-    run(args.source, args.work, args.region)
+    run(args.source, args.work, args.region, args.review_conflicts)

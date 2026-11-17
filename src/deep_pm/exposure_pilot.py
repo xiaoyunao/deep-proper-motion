@@ -47,13 +47,19 @@ def matched_legacy(table, points, center):
     return result,categories
 
 
-def held_galaxies(refs,xy,nsc,keys,offsets,pixels,fine,settings):
+def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
     a,b=keys
     c0,c1=offsets
     use=refs.is_holdout & np.isin(a[refs.index],list(c0)) & np.isin(b[refs.index],list(c1))
     rows=refs.loc[use]
     points=[]
     boundary=defaultdict(list)
+    diagnostics=defaultdict(list)
+    color=data.color.to_numpy()
+    magnitude=data.magnitude.to_numpy()
+    band=data.band.to_numpy()
+    airmass=data.airmass.to_numpy()
+    centre=np.median(xy,axis=0)
     for _,row in rows.groupby("reference",sort=False):
         i=row.index.to_numpy()
         early,late=i[~nsc[i]],i[nsc[i]]
@@ -63,6 +69,22 @@ def held_galaxies(refs,xy,nsc,keys,offsets,pixels,fine,settings):
         x1=xy[i]-np.stack([c1[b[j]][0] for j in i])
         values=np.array([np.median(x[~nsc[i]],axis=0)-np.median(x[nsc[i]],axis=0) for x in (x0,x1)])
         points.append(dict(C0=(values[0],np.ones(2)),C1=(values[1],np.ones(2))))
+        point=np.median(xy[late],axis=0)-centre
+        terms=["sky_"+("east" if point[0]>0 else "west")+("_north" if point[1]>0 else "_south")]
+        med=np.median(magnitude[early])
+        terms.append("r_20_to_22" if med>=20 else "r_below_20")
+        c=color[early]
+        if np.isfinite(c).any():
+            c=np.median(c[np.isfinite(c)])
+            terms.append("g_i_red" if c>=1.2 else "g_i_blue" if c<.5 else "g_i_mid")
+        for term in terms:
+            diagnostics[term].append(values)
+        for passband in set(band[late])-{"r"}:
+            same=band[i]==passband
+            other=(band[i]=="r")&nsc[i]
+            if other.any():
+                delta=[np.median(x[same],axis=0)-np.median(x[other],axis=0) for x in (x0,x1)]
+                diagnostics["nsc_r_to_"+passband].append(delta)
         # A matched galaxy seen by different detectors of the same parent probes an actual edge.
         for group in set(a[i]):
             q=np.flatnonzero(a[i]==group)
@@ -71,8 +93,32 @@ def held_galaxies(refs,xy,nsc,keys,offsets,pixels,fine,settings):
                     np.max(np.linalg.norm(x[q]-np.median(x[q],axis=0),axis=1)) for x in (x0,x1)])
         if len(set(pixels[i]))>1:
             boundary["cross_pixel_position"].append(np.linalg.norm(values,axis=1))
-    return dict(comparison=comparison(points,dict(settings,tail_masyr=150),(("C1","C0"),)),
-                boundary={k:dict(n=len(v),p68_mas=np.quantile(v,.68,axis=0)) for k,v in boundary.items()})
+    stats=comparison(points,dict(settings,tail_masyr=150),(("C1","C0"),))
+    for result in stats.get("methods",{}).values():
+        for key in ("standardized_nmad","fraction_within_1sigma","fraction_within_2sigma"):
+            del result[key]
+    return dict(comparison=stats,
+                boundary={k:dict(n=len(v),p68_mas=np.quantile(v,.68,axis=0)) for k,v in boundary.items()},
+                residual_strata={k:dict(n=len(v),median_mas=np.median(v,axis=0),
+                       radial_p68_mas=np.quantile(np.linalg.norm(v,axis=2),.68,axis=0))
+                       for k,v in diagnostics.items() if len(v)>=10},
+                dcr_metadata=dict(held_reference_measurements=len(rows),
+                                  finite_airmass=int(np.isfinite(airmass[rows.index]).sum())))
+
+
+def pilot_gate(galaxy,qso,settings):
+    galaxy_fit=galaxy["comparison"]
+    qso_fit=qso["by_cohort"].get("c0_c1",{}).get("strict__all__all",{})
+    galaxies=galaxy_fit.get("paired",{}).get("C1_vs_C0",{})
+    quasars=qso_fit.get("paired",{}).get("C1_vs_C0",{})
+    gal_gain=galaxies.get("fraction_improved",[None]*3)[2]
+    gal_ci=galaxies.get("fraction95",[None]*3)[2]
+    qso_ci=quasars.get("fraction95",[None]*3)[2]
+    adequate=qso_fit.get("n",0)>=settings["min_qso_count"]
+    improvement=gal_gain is not None and gal_gain>=settings["min_galaxy_gain"] and gal_ci[0]>0
+    no_loss=qso_ci is not None and qso_ci[0]>=-settings["max_qso_relative_loss"]
+    return dict(galaxy_position_gain=bool(improvement),qso_sample=adequate,qso_noninferiority=bool(no_loss),
+                primary_metrics_pass=bool(improvement and adequate and no_loss))
 
 
 def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, config,
@@ -147,7 +193,7 @@ def run(work,inputs,legacy_path,spec,calibration_config):
     keys,c1,c1_stats=hierarchy(data,refs,xy,sigma,config,calibration_config,c0)
     pairs=(observation_keys(data)[0],keys)
     models=(c0,c1)
-    galaxy=held_galaxies(refs,xy,nsc,pairs,models,pixels,fine,settings)
+    galaxy=held_galaxies(refs,data,xy,nsc,pairs,models,pixels,fine,settings)
     print(f"C1: {c1_stats}; held galaxies {galaxy['comparison']['n']}",flush=True)
     visits=data.exposure_id.to_numpy()
     tracks=make_tracks(xy,visits,keep,1000.)
@@ -187,6 +233,7 @@ def run(work,inputs,legacy_path,spec,calibration_config):
         cat[["pmra_error","pmdec_error"]].to_numpy(),release,old_gaia,tracks,products)
     save_json(work/"pilot_summary.json",dict(c0=c0_stats,c1=c1_stats,galaxies=galaxy,qso=qso_stats,
         gaia=gaia_stats,legacy_origin_counts=dict(qso=old_count,gaia=old_gaia_counts),source_yield=yields,
+        gate=pilot_gate(galaxy,qso_stats,calibration_config),
         qso_origins=qso.origin.value_counts(),elapsed_seconds=monotonic()-start,
         acquisition=json.loads((inputs/"acquisition_summary.json").read_text())))
 
@@ -204,7 +251,13 @@ def main():
     settings=tomllib.loads(a.config.read_text())
     work=a.root/a.region
     work.mkdir(parents=True,exist_ok=True)
-    with run_stage(work,a.config,a.region,"exposure-pilot-v09",outputs=["pilot_summary.json"]) as go:
+    input_receipt=(a.inputs/a.region/"run_manifest.json").resolve(strict=True)
+    if not (work/"input_manifest.json").exists():
+        (work/"input_manifest.json").symlink_to(input_receipt)
+    if (work/"input_manifest.json").resolve()!=input_receipt:
+        raise ValueError("Pilot is already bound to a different acquisition")
+    with run_stage(work,a.config,a.region,"exposure-pilot-v09",inputs=["input_manifest.json"],
+                   outputs=["pilot_summary.json"]) as go:
         if go:
             run(work,a.inputs/a.region,a.legacy,settings["fields"][a.region],settings["calibration"])
 

@@ -100,7 +100,7 @@ STAGES["exposure-preflight-v09"] = ("exposure-preflight-v09","geometry_summary.j
      "long_sdss_repeat_fraction","objects","approximate_nsc_measurements"))
 STAGES["exposure-pilot-v09"] = ("exposure-pilot-v09","pilot_summary.json",
     ("c0","c1","galaxies","qso","gaia","legacy_origin_counts","source_yield","qso_origins",
-     "elapsed_seconds","acquisition"))
+     "elapsed_seconds","acquisition","gate"))
 
 METADATA = {"region", "role", "receipt"}
 PRIVATE_KEYS = {"source_id", "source_ids", "object_ids", "objid", "objids", "detection_id",

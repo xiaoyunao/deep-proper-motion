@@ -12,6 +12,8 @@
 
 ![C0 实际处理和评价范围](../figures/v12_continuous_coverage_summary.png)
 
+[七核心天测诊断图](../figures/v12_pilot_science_summary.png) 同时展示独立观测组数、两巡天各自的时间跨度、东西及南北零点和各轴 ±1σ 的形式误差覆盖率。QSO 面板使用 22–23 等严格 C0 样本并标出各核心样本量。下表三路对照另要求同时有官方 NSC 和 Xiao2025 地基自行。
+
 ## 固定同源对象的发布目录比较
 
 | 样本 | 光谱 QSO 数 | 官方 NSC | Xiao2025 地基 | 共用观测零点 C0 |

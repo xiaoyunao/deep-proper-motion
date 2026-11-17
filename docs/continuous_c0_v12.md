@@ -29,6 +29,9 @@ python -m deep_pm.continuous_reference solve "$SHARED" "$config" whole_c "$REFER
 python -m deep_pm.continuous_fit "$CORE_OUTPUT" "$CORE" "$INPUT_SHARD" "$SHARED" "$XIAO_CSV" "$config" --annual
 python -m deep_pm.continuous_summary "$PUBLIC_SUMMARY" "$CORE_PLAN_JSON" "$SHARED_PLAN_JSON" "$config"
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures
+MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --detailed
 ```
+
+详细图使用同一色标对照东西与南北零点。暗 QSO 的 ±1σ 覆盖率以 68.27% 为色标中心。每幅图只渲染传入汇总中的已核验核心，未核验区留灰。QSO 面板标出各核心样本数。
 
 一次试运行以实际配套回执为边界。所有未取全的块以缺区记录，不能将已有的几何覆盖估算视为已处理数据。 [NSC 数据入口](https://datalab.noirlab.edu/data/nsc) · [SDSS DR17 Resolve](https://www.sdss4.org/dr17/algorithms/resolve/) · [NERSC CPU 队列](https://docs.nersc.gov/jobs/policy/)

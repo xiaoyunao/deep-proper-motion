@@ -9,7 +9,7 @@ from scipy.sparse.linalg import lsmr
 
 
 def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
-                parents=None, shrinkage_mas=50.):
+                parents=None, shrinkage_mas=50., overlaps=None):
     # Peel groups without independent references and objects without a link.
     pairs = pd.DataFrame(dict(ref=np.asarray(refs), group=group))
     active = pairs.copy()
@@ -65,13 +65,35 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
         values[indexes] -= np.median(values[indexes], axis=0)
     independent = sigma[active.index]
 
-    def solve(weights):
+    overlap_design = None
+    if overlaps is not None and len(overlaps):
+        names = {name: j for j, name in enumerate(groups)}
+        source_ids = {name: j for j, name in enumerate(sources)}
+        edges = overlaps.loc[overlaps.ref.isin(source_ids)
+                             & overlaps["first"].isin(names) & overlaps.second.isin(names)]
+        if len(edges):
+            e = np.arange(len(edges))
+            first, second = (edges[k].map(names).to_numpy() for k in ("first", "second"))
+            overlap_ref = edges.ref.map(source_ids).to_numpy()
+            overlap_design = coo_matrix(
+                (np.r_[np.ones(len(e)), -np.ones(len(e))], (np.r_[e, e], nr + np.r_[first, second])),
+                shape=(len(e), nr + ng)).tocsr()[:, :-1]
+            overlap_value = edges[["east", "north"]].to_numpy()
+            overlap_sigma = edges[["sigma_e", "sigma_n"]].to_numpy()
+            overlap_base = edges.weight.to_numpy()
+    overlap_weight = overlap_base.copy() if overlap_design is not None else None
+
+    def solve(weights, edge_weights):
         coeff = []
         for axis in range(2):
             w = np.sqrt(weights) / independent[:, axis]
             matrix, rhs = design.multiply(w[:, None]).tocsr(), values[:,axis]*w
             if len(child):
                 matrix, rhs = vstack((matrix,penalty),format="csr"),np.r_[rhs,np.zeros(len(child))]
+            if overlap_design is not None:
+                w_edge = np.sqrt(edge_weights) / overlap_sigma[:, axis]
+                matrix = vstack((matrix, overlap_design.multiply(w_edge[:, None])), format="csr")
+                rhs = np.r_[rhs, overlap_value[:, axis] * w_edge]
             # Balance columns with very different reference counts. This is
             # an invertible reparameterization of the same weighted graph.
             norms = np.sqrt(np.asarray(matrix.power(2).sum(axis=0)).ravel())
@@ -86,16 +108,20 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
 
     weight = np.ones(len(g))
     for _ in range(6):
-        optimum = solve(weight)
+        optimum = solve(weight, overlap_weight)
         residual = (values - design @ optimum) / independent
         weight = np.minimum(1, 6 / (4 + (residual**2).sum(axis=1)))
+        if overlap_design is not None:
+            residual = (overlap_value - overlap_design @ optimum) / overlap_sigma
+            overlap_weight = overlap_base * np.minimum(1, 6 / (4 + (residual**2).sum(axis=1)))
     random = np.random.default_rng(seed)
     # Bayesian bootstrap by reference object preserves shared visit covariance
     # and the connected graph, including groups with relatively few references.
     reference_weights = random.exponential(size=(draws, nr))
 
     def draw(ref_weight):
-        return solve(weight * ref_weight[r])[nr:]
+        edge_weights = None if overlap_weight is None else overlap_weight * ref_weight[overlap_ref]
+        return solve(weight * ref_weight[r], edge_weights)[nr:]
 
     if workers>1:
         with ThreadPoolExecutor(max_workers=workers) as pool:

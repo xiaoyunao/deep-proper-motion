@@ -18,6 +18,7 @@ from .dark_precision import query_unique
 from .exposure_catalogues import inside
 from .exposure_model import hierarchy, observation_keys
 from .io import save_json
+from .overlap_calibration import assess_boundary, overlap_trial
 from .nsc_comparison import comparison, qso_matches
 from .paired_control import catalogue_motion, common_catalogue_ids
 from .pilot_production import make_tracks, quality_detections, source_funnel, valid_epochs
@@ -27,7 +28,7 @@ from .provenance import run_stage
 from .regional_validation import official_table, tag_magnitude, valid_published
 from .validation import gaia_labels, groups_by_label
 from .validation_audit import (anchored_bright_gaia, boundary_pairs, dark_quality, gaia_bright, gaia_observation_quality,
-                               graph_support, held_conditions, sdss_field_overlap)
+                               graph_support, held_conditions, sdss_field_overlap, sdss_overlap_rows)
 
 
 def matched_legacy(table, points, center):
@@ -51,9 +52,11 @@ def matched_legacy(table, points, center):
 
 
 def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
-    a,b=keys
-    c0,c1=offsets
-    use=refs.is_holdout & np.isin(a[refs.index],list(c0)) & np.isin(b[refs.index],list(c1))
+    names = ("C0", "C1", "C1b")[:len(offsets)]
+    a = keys[0]
+    use = refs.is_holdout.copy()
+    for key, model in zip(keys, offsets):
+        use &= np.isin(key[refs.index], list(model))
     rows=refs.loc[use]
     points=[]
     boundary=defaultdict(list)
@@ -70,10 +73,9 @@ def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
         early,late=i[~nsc[i]],i[nsc[i]]
         if not len(early) or not len(late):
             continue
-        x0=xy[i]-np.stack([c0[a[j]][0] for j in i])
-        x1=xy[i]-np.stack([c1[b[j]][0] for j in i])
-        values=np.array([np.median(x[~nsc[i]],axis=0)-np.median(x[nsc[i]],axis=0) for x in (x0,x1)])
-        points.append(dict(C0=(values[0],np.ones(2)),C1=(values[1],np.ones(2))))
+        corrected = [xy[i]-np.stack([model[key[j]][0] for j in i]) for key, model in zip(keys, offsets)]
+        values = np.array([np.median(x[~nsc[i]], axis=0)-np.median(x[nsc[i]], axis=0) for x in corrected])
+        points.append({name: (v, np.ones(2)) for name, v in zip(names, values)})
         point=np.median(xy[late],axis=0)-centre
         terms=["sky_"+("east" if point[0]>0 else "west")+("_north" if point[1]>0 else "_south")]
         med=np.median(magnitude[early])
@@ -95,17 +97,17 @@ def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
             same=band[i]==passband
             other=(band[i]=="r")&nsc[i]
             if other.any():
-                delta=[np.median(x[same],axis=0)-np.median(x[other],axis=0) for x in (x0,x1)]
+                delta=[np.median(x[same],axis=0)-np.median(x[other],axis=0) for x in corrected]
                 diagnostics["nsc_r_to_"+passband].append(delta)
         # A matched galaxy seen by different detectors of the same parent probes an actual edge.
         for group in set(a[i]):
             q=np.flatnonzero(a[i]==group)
             if len(set(fine[i[q]]))>1:
                 boundary["physical_detector"].append([
-                    np.max(np.linalg.norm(x[q]-np.median(x[q],axis=0),axis=1)) for x in (x0,x1)])
+                    np.max(np.linalg.norm(x[q]-np.median(x[q],axis=0),axis=1)) for x in corrected])
         if len(set(pixels[i]))>1:
             boundary["cross_pixel_position"].append(np.linalg.norm(values,axis=1))
-    stats=comparison(points,dict(settings,tail_masyr=150),(("C1","C0"),))
+    stats=comparison(points,dict(settings,tail_masyr=150),(("C1","C0"),("C1b","C0"),("C1b","C1")))
     for result in stats.get("methods",{}).values():
         for key in ("standardized_nmad","fraction_within_1sigma","fraction_within_2sigma"):
             del result[key]
@@ -142,7 +144,11 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
     published=release[1]
     audits={k:track_audit(tracks,values,truth,labels,nsc,
                           settings["production"]["validation_min_recovery"]) for k,values in products.items()}
-    support=np.isin(keys[0],list(offsets[0]))&np.isin(keys[1],list(offsets[1]))
+    names = ("C0", "C1", "C1b")[:len(offsets)]
+    support = np.logical_and.reduce([np.isin(k, list(m)) for k, m in zip(keys, offsets)])
+    paired_key = "c0_c1" if len(names) == 2 else "c0_c1_c1b"
+    full_key = "all_four" if len(names) == 2 else "all_five"
+    full_count = len(names) + 2
     records=defaultdict(lambda:defaultdict(list))
     temporal=defaultdict(list)
     totals=Counter()
@@ -154,7 +160,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
         if not valid_epochs(indices,nsc,t,settings["production"]):
             continue
         base={}
-        for name,keyset,solution in zip(("C0","C1"),keys,offsets):
+        for name,keyset,solution in zip(names,keys,offsets):
             fit,err=fit_with_calibration(xy[indices],t[indices],sigma[indices],config["reference_epoch"],
                                         [solution[keyset[i]] for i in indices])
             base[name]=(fit.coeff[1],err)
@@ -170,14 +176,14 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 nsc_epoch_days=sorted(set(np.floor((t[indices[nsc[indices]]]-2000)*365.25).astype(int))),
                 motion={name:pm-ref[k] for name,(pm,_) in base.items()}))
         blind={name:products[name][found[k]][1:3] for name,(found,_) in audits.items() if k in found}
-        if all(name in blind for name in ("C0","C1")):
+        if all(name in blind for name in names):
             blind.update({name:x for name,x in base.items() if name in ("Xiao","NSC")})
         else:
             blind={}
         totals["strict"]+=1
-        totals["strict_all_catalogues"]+=len(base)==4
+        totals["strict_all_catalogues"]+=len(base)==full_count
         totals["blind_both_models"]+=bool(blind)
-        totals["blind_all_catalogues"]+=len(blind)==4
+        totals["blind_all_catalogues"]+=len(blind)==full_count
         for state,values in (("strict",base),("blind",blind)):
             if not values:
                 continue
@@ -189,10 +195,11 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                                           len(set(exposure[indices[late]])),np.ptp(t[indices])])
                 for source in {"all",origin[k]}:
                     prefix=f"{state}__{source}__{mag}"
-                    records["c0_c1"][prefix].append({name:corrected[name] for name in ("C0","C1")})
-                    if len(values)==4:
-                        records["all_four"][prefix].append(corrected)
-    comparisons=(("C1","C0"),("C1","NSC"),("C1","Xiao"),("C0","Xiao"),("C0","NSC"))
+                    records[paired_key][prefix].append({name: corrected[name] for name in names})
+                    if len(values)==full_count:
+                        records[full_key][prefix].append(corrected)
+    comparisons=(("C1","C0"),("C1","NSC"),("C1","Xiao"),("C0","Xiao"),("C0","NSC"),
+                 ("C1b","C0"),("C1b","C1"),("C1b","NSC"),("C1b","Xiao"))
     cohorts={kind:{label:comparison(r,settings,comparisons) for label,r in bins.items()}
              for kind,bins in records.items()}
     for values in cohorts.values():
@@ -208,7 +215,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 blind_quality={name:audit for name,(_,audit) in audits.items()})
 
 
-def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=False,sas=None,bright_only=False):
+def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=False,sas=None,bright_only=False,overlap_options=None):
     start=monotonic()
     settings=tomllib.loads(Path("configs/spatial-v08.toml").read_text())
     settings["bootstrap_draws"]=400
@@ -230,6 +237,17 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
     keys,c1,c1_stats=hierarchy(data,refs,xy,sigma,config,calibration_config,c0)
     pairs=(observation_keys(data)[0],keys)
     models=(c0,c1)
+    overlap_summary = {}
+    if overlap_options is not None:
+        edges, training = overlap_trial(sas, refs, data, xy, sigma, pairs, models, center, overlap_options)
+        new_keys, c1b, c1b_stats = hierarchy(data, refs, xy, sigma, config, calibration_config, c0, overlaps=edges)
+        held, counts = sdss_overlap_rows(sas, refs, data, xy, pairs, models, center, holdout=True)
+        boundary = assess_boundary(held, counts, (*models, c1b), overlap_options, config["seed"])
+        overlap_summary = dict(overlap_training=training, overlap_boundary=boundary, c1b=c1b_stats)
+        pairs = (*pairs, new_keys)
+        models = (*models, c1b)
+        print(f"C1b: {training}, {c1b_stats}", flush=True)
+    names = ("C0", "C1", "C1b")[:len(models)]
     galaxy=held_galaxies(refs,data,xy,nsc,pairs,models,pixels,fine,settings)
     print(f"C1: {c1_stats}; held galaxies {galaxy['comparison']['n']}",flush=True)
     visits=data.exposure_id.to_numpy()
@@ -242,7 +260,7 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
     def core(position):
         ra,dec=unproject(position,center)[0]
         return inside(ra,dec,spec)
-    for name,obs,solution in zip(("C0","C1"),pairs,models):
+    for name,obs,solution in zip(names,pairs,models):
         failed=[] if audit else None
         yields[name],products[name]=source_funnel(data,xy,t,sigma,keep,tracks,solution,config,settings,radius,
             initial=seeds,observation_groups=obs,core_members=core,quality_audit=failed)
@@ -298,7 +316,7 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
         print(f"Bright Gaia: {gaia_stats['totals']}",flush=True)
         extras=dict(gaia_policy=gaia_audit, dark_quality=quality,
                     reference_graph=graph_support(refs,pairs[1],c1),
-                    physical_boundaries=boundary_pairs(refs,data,xy,data.detection_id.map(original),pairs,models,center,spec))
+                    physical_boundaries=boundary_pairs(refs,data,xy,data.detection_id.map(original),pairs[:2],models[:2],center,spec))
         if sas:
             extras["physical_boundaries"]["sdss_adjacent_field"] = sdss_field_overlap(sas,refs,data,xy,pairs,models,center,spec)
             galaxy["held_observing_conditions"] = held_conditions(refs,data,xy,keys,c1)
@@ -316,11 +334,14 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
         shapes=dict(spec,radius=radius,core_members=core)
         extras["annual_holdout"]=prediction(work,center,data,xy,t,sigma,sigma,keys,nsc,keep,multi,c1,
                                              settings,config,shapes)
+        if overlap_options is not None:
+            extras["annual_holdout_c1b"] = prediction(
+                work,center,data,xy,t,sigma,sigma,new_keys,nsc,keep,multi,c1b,settings,config,shapes)
     save_json(work/"pilot_summary.json",dict(c0=c0_stats,c1=c1_stats,galaxies=galaxy,qso=qso_stats,
         gaia=gaia_stats,legacy_origin_counts=dict(qso=old_count,gaia=old_gaia_counts),source_yield=yields,
         gate=pilot_gate(galaxy,qso_stats,calibration_config),
         qso_origins=qso.origin.value_counts().to_dict(),elapsed_seconds=monotonic()-start,
-        acquisition=json.loads((inputs/"acquisition_summary.json").read_text()),**extras))
+        acquisition=json.loads((inputs/"acquisition_summary.json").read_text()),**extras,**overlap_summary))
 
 
 def main():
@@ -347,14 +368,17 @@ def main():
         raise ValueError("Pilot is already bound to a different acquisition")
     if a.bright_only and (not a.validation_audit or a.sdss_sas):
         p.error("Bright-only replay requires validation audit with cached measurements")
-    stage="validation-bright-v10" if a.bright_only else "exposure-pilot-v10" if a.validation_audit else "exposure-pilot-v09"
+    overlap = settings.get("overlap")
+    if overlap is not None and not (a.validation_audit and a.sdss_sas and not a.bright_only):
+        p.error("Overlap experiment requires --validation-audit and --sdss-sas")
+    stage="overlap-pilot-v11" if overlap is not None else "validation-bright-v10" if a.bright_only else "exposure-pilot-v10" if a.validation_audit else "exposure-pilot-v09"
     outputs=["bright_summary.json" if a.bright_only else "pilot_summary.json"]
     if a.sdss_sas:
         outputs.append("qso_observation_blocks.json")
     with run_stage(work,a.config,a.region,stage,inputs=["input_manifest.json"],outputs=outputs) as go:
         if go:
             run(work,a.inputs/a.region,a.legacy,settings["fields"][a.region],settings["calibration"],
-                a.validation_audit,a.sensitivity,a.sdss_sas,a.bright_only)
+                a.validation_audit,a.sensitivity,a.sdss_sas,a.bright_only,overlap)
 
 
 if __name__=="__main__":

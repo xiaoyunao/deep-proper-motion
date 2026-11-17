@@ -151,7 +151,8 @@ def near_boundaries(refs, data, xy, center, spec):
     return pairs
 
 
-def sdss_field_overlap(sas, refs, data, xy, observation, solutions, center, spec):
+def sdss_overlap_rows(sas, refs, data, xy, observation, solutions, center, *,
+                      holdout, max_fields=160, match_mas=500, margin_mas=300):
     """Re-read adjacent photoObj fields before RUN_PRIMARY de-duplication."""
     from concurrent.futures import ThreadPoolExecutor
 
@@ -161,7 +162,7 @@ def sdss_field_overlap(sas, refs, data, xy, observation, solutions, center, spec
     from .dark_precision import query_unique
     from .sdss_sas import select_sdss_field
 
-    opts = refs.loc[refs.is_holdout & data.survey.loc[refs.index].eq("SDSS")]
+    opts = refs.loc[refs.is_holdout.eq(holdout) & data.survey.loc[refs.index].eq("SDSS")]
     keys = observation[0]
     fine = data.field_id.to_numpy()
     eligible = np.isin(keys[opts.index],list(solutions[0])) & np.isfinite(fine[opts.index])
@@ -173,7 +174,7 @@ def sdss_field_overlap(sas, refs, data, xy, observation, solutions, center, spec
             if neighbor >= 0:
                 requests.setdefault((int(run),301,int(camcol),neighbor), []).append(i)
     # A deterministic cap keeps this a small targeted audit even in Stripe 82.
-    ordered = sorted(requests, key=lambda k:(-len(requests[k]),k))[:160]
+    ordered = sorted(requests, key=lambda k:(-len(requests[k]),k))[:max_fields]
     radius = np.deg2rad(1.7)
     def read(key):
         try:
@@ -191,22 +192,34 @@ def sdss_field_overlap(sas, refs, data, xy, observation, solutions, center, spec
             good=table["type"].eq(3)&table.nChild.eq(0)&table.offsetRa_r.eq(0)&table.offsetDec_r.eq(0)
             if not good.any():
                 continue
-            counterpart=project(table.ra[good],table.dec[good],center)
+            table = table.loc[good].reset_index(drop=True)
+            counterpart=project(table.ra,table.dec,center)
             ix=np.asarray(requests[key],dtype=int)
-            hit, j=query_unique(cKDTree(counterpart),xy[ix],500,300)
+            hit, j=query_unique(cKDTree(counterpart),xy[ix],match_mas,margin_mas)
             for a,b in zip(ix[hit],j[hit]):
                 parent=keys[a]
                 bkey=f"{parent}|{key[-1]}"
                 if bkey not in solutions[1] or observation[1][a] not in solutions[1]:
                     continue
                 raw=xy[a]-counterpart[b]
-                fine_delta=solutions[1][observation[1][a]][0]-solutions[1][bkey][0]
-                pairs.append(np.array([raw,raw,raw-fine_delta]))
+                pairs.append(dict(index=a, ref=refs.loc[a, "reference"], first=observation[1][a],
+                                  second=bkey, run=key[0], counterpart=table.objID.iloc[b],
+                                  east=raw[0], north=raw[1],
+                                  err_e=table.raErr.iloc[b]*1000, err_n=table.decErr.iloc[b]*1000))
                 runs.add(key[0])
-    result=dict(eligible_neighbor_fields=len(requests),selected_fields=len(ordered),
-                fields_read=scanned,pair_count=len(pairs),independent_run_count=len(runs))
-    if pairs:
-        values=np.asarray(pairs)
+    summary=dict(eligible_neighbor_fields=len(requests), selected_fields=len(ordered),
+                 fields_read=scanned, pair_count=len(pairs), independent_run_count=len(runs))
+    columns = ("index", "ref", "first", "second", "run", "counterpart", "east", "north", "err_e", "err_n")
+    return pd.DataFrame(pairs, columns=columns), summary
+
+
+def sdss_field_overlap(sas, refs, data, xy, observation, solutions, center, spec):
+    pairs, result = sdss_overlap_rows(sas,refs,data,xy,observation,solutions,center,holdout=True)
+    if len(pairs):
+        c1 = solutions[1]
+        delta = np.stack([c1[row.first][0]-c1[row.second][0] for row in pairs.itertuples()])
+        raw = pairs[["east", "north"]].to_numpy()
+        values = np.stack((raw, raw, raw-delta), axis=1)
         result.update(median_mas=np.median(values,axis=0),
                       radial_p68_mas=np.quantile(np.linalg.norm(values,axis=2),.68,axis=0))
     return result

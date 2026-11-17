@@ -22,7 +22,7 @@ def observation_keys(data):
     return parent,fine
 
 
-def hierarchy(data,refs,xy,sigma,config,settings,c0):
+def hierarchy(data,refs,xy,sigma,config,settings,c0,overlaps=None):
     parent,fine=observation_keys(data)
     train=refs.loc[~refs.is_holdout]
     i=train.index.to_numpy()
@@ -34,7 +34,7 @@ def hierarchy(data,refs,xy,sigma,config,settings,c0):
     model=fit_offsets(train.reference,xy[i],sigma[i],keys[i],opts["min_references"],
                       opts["bootstrap_draws"],config["seed"],
                       workers=int(os.environ.get("DEEP_PM_M3_WORKERS","1")),
-                      parents=retained,shrinkage_mas=settings["child_prior_mas"])
+                      parents=retained,shrinkage_mas=settings["child_prior_mas"],overlaps=overlaps)
     # Use a common NSC parent gauge in each bootstrap draw. Positions from
     # different blocks may be merged only if their joint calibration is shared.
     anchor=[k for k in model if k.startswith("NSC:") and "|" not in k and k in c0]

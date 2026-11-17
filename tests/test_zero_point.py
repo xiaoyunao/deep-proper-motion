@@ -35,3 +35,18 @@ class ZeroPointTest(unittest.TestCase):
         np.testing.assert_equal(result["nmad"], [0., 0.])
         np.testing.assert_equal(result["abs68"], [0., 4.4])
         np.testing.assert_equal(result["fraction_within_2sigma"], [1., 0.])
+
+    def test_overlap_constraints_pull_relative_field_difference_in_correct_direction(self):
+        groups = ["SDSS:run|1", "NSC:visit"] * 8 + ["SDSS:run|2", "NSC:visit"] * 8
+        refs = np.repeat(np.arange(16), 2)
+        positions = np.repeat(np.arange(16)[:, None] * np.array([[800., -300.]]), 2, axis=0)
+        sigma = np.full_like(positions, 40.)
+        first, second = groups[0], groups[16]
+        edges = pd.DataFrame(dict(ref=np.arange(8), first=first, second=second,
+                                  east=25., north=-15., sigma_e=8., sigma_n=8., weight=1.))
+        parent = {first: "SDSS:run", second: "SDSS:run"}
+        base = fit_offsets(refs, positions, sigma, groups, 5, 8, 1, parents=parent)
+        fit = fit_offsets(refs, positions, sigma, groups, 5, 8, 1, parents=parent, overlaps=edges)
+        np.testing.assert_allclose(base[first][0] - base[second][0], [0, 0])
+        np.testing.assert_allclose(fit[first][0] - fit[second][0], [25, -15], atol=1)
+        self.assertGreater(np.std(fit[first][1] - fit[second][1]), 0)

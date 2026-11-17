@@ -104,6 +104,8 @@ STAGES["exposure-pilot-v09"] = ("exposure-pilot-v09","pilot_summary.json",
 STAGES["exposure-pilot-v10"] = ("exposure-pilot-v10","pilot_summary.json",
     (*STAGES["exposure-pilot-v09"][2], "gaia_policy", "dark_quality", "reference_graph",
      "physical_boundaries", "sensitivity", "annual_holdout"))
+STAGES["overlap-pilot-v11"] = ("overlap-pilot-v11","pilot_summary.json",
+    (*STAGES["exposure-pilot-v10"][2], "overlap_training", "overlap_boundary", "c1b", "annual_holdout_c1b"))
 STAGES["validation-existing-v10"] = ("validation-existing-v10", "boundary_summary.json",
     ("sdss_adjacent_field", "held_conditions", "chromatic_trial"))
 STAGES["validation-bright-v10"] = ("validation-bright-v10", "bright_summary.json",

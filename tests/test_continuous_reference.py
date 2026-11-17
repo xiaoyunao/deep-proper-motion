@@ -5,6 +5,7 @@ import pandas as pd
 
 from deep_pm.continuous_reference import deduplicate
 from deep_pm.continuous_summary import membership
+from deep_pm.validation_audit import boundary_pairs
 
 
 class ContinuousReferenceTest(unittest.TestCase):
@@ -26,3 +27,17 @@ class ContinuousReferenceTest(unittest.TestCase):
               dict(exposures=["SDSS:1","SDSS:2","NSC:7"],nsc_epoch_days=[1])]
         np.testing.assert_equal(membership(rows,"sdss_run").toarray(),[[1,0],[.5,.5]])
         np.testing.assert_equal(membership(rows,"nsc_exposure").toarray(),[[1],[1]])
+
+    def test_same_exposure_detector_overlap_supports_c0_alone(self):
+        data = pd.DataFrame({"survey": ["NSC", "NSC"], "exposure_id": ["NSC:1", "NSC:1"],
+                             "detector_id": [1, 2]})
+        refs = pd.DataFrame({"reference": ["a"], "is_holdout": [True]})
+        xy = np.array([[0., 0.], [3., 4.]])
+        keys = np.array(["NSC:1", "NSC:1"])
+        c0 = {"NSC:1": (np.array([17., 23.]),)}
+        result = boundary_pairs(refs, data, xy, pd.Series(["a", "a"]), (keys,), (c0,),
+                                (350., 0.), {}, include_geometric=False)
+        overlap = result["nsc_same_exposure_ccd"]
+        self.assertEqual((overlap["pair_count"], overlap["held_references"], overlap["held_exposures"]),
+                         (1, 1, 1))
+        np.testing.assert_allclose(overlap["radial_p68_mas"], [5., 5.])

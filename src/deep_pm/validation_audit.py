@@ -92,7 +92,7 @@ def boundary_pairs(refs, data, xy, original_ids, obs, solutions, center, spec, *
     # de-duplication used in calibration. Rejoin those rows only after fitting.
     held=refs.loc[refs.is_holdout & data.survey.loc[refs.index].eq("NSC")]
     candidates=sid.isin(held.reference.unique()) & data.survey.eq("NSC")
-    common=np.isin(obs[0],list(solutions[0]))&np.isin(obs[1],list(solutions[1]))
+    common=np.logical_and.reduce([np.isin(keys,list(model)) for keys,model in zip(obs,solutions)])
     subset=data.loc[candidates & common,["exposure_id","detector_id"]].assign(reference=sid)
     subsets={}
     for (_, _), table in subset.groupby(["reference","exposure_id"],sort=False):

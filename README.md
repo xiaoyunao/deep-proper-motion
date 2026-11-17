@@ -69,3 +69,7 @@ bash scripts/regional-v07.sh north_a single_e
 v0.9 将 M3 与曝光／探测器级位置零点放到同一批检测上比较，先运行连续区域内的两个独立小试。冻结区域、试点阈值与可恢复的 NERSC 取数和拟合入口见 [v0.9 复现说明](docs/exposure_v09.md)。
 
 v1.0 在同一框架内运行 `deep_pm.exposure_pilot --validation-audit`，应用范围、冻结区域及亮 Gaia 协议见 [计划](PLAN.md)。在相同输入回执下可添加 `--sensitivity` 复核细组星系数量和父组约束。新增区域以 `configs/validation-v10.toml` 取数和合并，通过 `--sdss-sas` 检查相邻 field 并保存用于观测块统计的私有回执。`deep_pm.validation_shared` 对北部两个核心合并检测后拟合一次参考图。`deep_pm.validation_plots` 从本地公开汇总生成图。
+
+### 实验 A v1.1 复现
+
+[v1.1 计划](PLAN.md)与 [重叠模型及运行说明](docs/overlap_validation_v11.md)记录输入回执、物理观测块、扩区规则和可重放命令。exposure_pilot 在 overlap-v11.toml 配置下额外运行 C1b。overlap_blocks 在 NERSC 合并 QSO 验证块，overlap_plots 从公开汇总绘图。

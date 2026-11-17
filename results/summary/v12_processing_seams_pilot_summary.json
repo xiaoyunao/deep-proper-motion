@@ -1,0 +1,132 @@
+{
+  "reference_graph_sha256": "78ce42c48ced36281943cbc991e1465d4ce71e3e7f94d2079793adca774d916e",
+  "cores": 7,
+  "edges": {
+    "sparse_north_outer__c_06_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        20,
+        38
+      ],
+      "by_gauge": {
+        "1": {
+          "held_independent_refs": [
+            20,
+            38
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -34.064880026038736,
+              -13.216520895250142
+            ],
+            [
+              -29.078550287988037,
+              -13.179307800717652
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              101.4409286443785,
+              85.95292094275875
+            ],
+            [
+              174.74809405384266,
+              116.4574160202538
+            ]
+          ]
+        }
+      }
+    },
+    "south_ne__south_se": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        39,
+        45
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            39,
+            45
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              31.986561549827456,
+              18.900147948414087
+            ],
+            [
+              33.787514101713896,
+              20.602840004488826
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              177.39810177718226,
+              165.04206782728144
+            ],
+            [
+              166.79180706253405,
+              175.06357244584908
+            ]
+          ]
+        }
+      }
+    },
+    "south_se__c_08_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        37,
+        50
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            37,
+            50
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              26.143676970154047,
+              6.299514033831656
+            ],
+            [
+              36.19358022324741,
+              5.716754066757858
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              156.68791844859132,
+              155.4493039481632
+            ],
+            [
+              153.26959006034326,
+              134.4282232736599
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "commit": "ab7504b7d22ca3453a7801266c5fa3dab44ed08a",
+  "slurm_job": 61468747,
+  "aggregate_sha256": "82ae6bfa4b3fd1a52380996c9226f2bb711291fb53b08786be3bd6510e53b569"
+}

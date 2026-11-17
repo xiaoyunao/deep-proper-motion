@@ -39,6 +39,13 @@ def prepare(work, source, archives, legacy, box, halo):
     # The parent receipt and files stay in Scratch. Only this subset is fitted.
     data = pd.read_csv(source/"detections.csv", low_memory=False)
     data = data.loc[inside(data.ra_deg, data.dec_deg, box, halo)]
+    data = data.copy()
+    if "field_id" not in data:
+        # Older acquisition receipts predate the normalized field_id column.
+        data["field_id"] = pd.to_numeric(
+            data.detection_id.str.extract(r"^SDSS:\d+:\d+:(\d+):\d+$")[0], errors="coerce")
+        if data.loc[data.survey.eq("SDSS"), "field_id"].isna().any():
+            raise ValueError("Cached SDSS IDs do not preserve physical field information")
     data.to_csv(work/"detections.csv", index=False)
     labels = pd.read_csv(source/"external_labels.csv", dtype=str)
     labels.loc[labels.detection_id.isin(data.detection_id)].to_csv(work/"external_labels.csv", index=False)

@@ -171,6 +171,15 @@ def pool(specs, fits, shared, site_names):
     return summaries
 
 
+def geographic_sets(names, spec):
+    sets={"all":list(names)}
+    for name in sets["all"]:
+        south,north=spec[name]["dec"]
+        band="ordinary" if north<=-3 or south>=3 else "repeat_band" if -1<=south<=north<=1 else "transition"
+        sets.setdefault(band,[]).append(name)
+    return sets
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ("output","plan","shared","config"):
@@ -179,15 +188,8 @@ def main():
     files={k:Path(v) for k,v in json.loads(a.plan.read_text()).items()}
     graph_paths={k:Path(v) for k,v in json.loads(a.shared.read_text()).items()}
     spec=tomllib.loads(a.config.read_text())["fields"]
-    sets={"all":list(files)}
-    for name in files:
-        sets[name]=[name]
-    ordinary=[name for name in files if spec[name]["dec"][1]<=-3 or spec[name]["dec"][0]>=3]
-    rich=[name for name in files if -1<=spec[name]["dec"][0] and spec[name]["dec"][1]<=1]
-    remaining=[name for name in files if name not in ordinary and name not in rich]
-    for label, names in (("ordinary",ordinary),("repeat_band",rich),("transition",remaining)):
-        if names:
-            sets[label]=names
+    sets={name:[name] for name in files}
+    sets.update(geographic_sets(files,spec))
     save_json(a.output,pool(spec,files,graph_paths,sets))
 
 

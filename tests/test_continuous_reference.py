@@ -1,9 +1,12 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import numpy as np
 import pandas as pd
 
 from deep_pm.continuous_reference import deduplicate
+from deep_pm.continuous_instruments import instrument_bins, instrument_by_exposure
 from deep_pm.continuous_summary import estimate, membership
 from deep_pm.validation_audit import boundary_pairs
 
@@ -54,3 +57,15 @@ class ContinuousReferenceTest(unittest.TestCase):
             self.assertEqual(values["n"],12)
             self.assertEqual(values["valid_draws"],800)
             np.testing.assert_allclose(values["relative_gain95"],[.5,.5])
+
+    def test_instrument_cohort_requires_metadata_for_every_used_nsc_visit(self):
+        with TemporaryDirectory() as directory:
+            chips=Path(directory)/"chips.csv"
+            chips.write_text("exposure,instrument\n0007,DECam\n08,90Prime\n")
+            metadata=instrument_by_exposure([chips])
+        motion={m:[0.,0.] for m in ("NSC","Xiao","C0")}
+        records=[dict(magnitude=22.1,motion=motion,exposures=visits) for visits in
+                 (["SDSS:1","NSC:0007"],["NSC:0007","NSC:08"],["NSC:0007","NSC:09"])]
+        groups=instrument_bins(records,metadata)["22_to_23"]
+        self.assertEqual({key:len(rows) for key, rows in groups.items()},
+                         {"DECam":1,"90Prime_and_DECam":1,"incomplete":1})

@@ -18,6 +18,8 @@ C 区为 RA 345°–355°、Dec −5°–+5°。几何核心使用半开区间�
 
 三路严格同源样本报告 C0 相对官方 NSC 和 Xiao 地基的径向 P68 比例变化。每种物理观测组的 800 次抽样对三路使用同一权重，共享组少于三或合格对象少于五时仅报告可用数量。扫描分层同时保留冻结的地理带和按每个 QSO 实际 SDSS run 数分组的结果。权重区间反映共享观测的敏感性，保守连通块仍单列。
 
+仪器分层从固定同源拟合使用的实际 NSC 曝光连接芯片目录的仪器信息。整区自行拟合回执与芯片回执均核对校验和。按星等和扫描带报告单一仪器、多仪器组合以及缺失元数据的样本数与同源精度。仪器分层比较刻画样本覆盖，仪器效应还需要控制位置和时基。
+
 ## 命令
 
 在 NERSC Slurm CPU 节点执行，所有输入目录和回执映射均保留在 Scratch。共用下面的配置。逐源目录不用于公开同步。
@@ -30,6 +32,7 @@ python -m deep_pm.continuous_reference extract "$REFERENCE_SHARD" "$config" "$CO
 python -m deep_pm.continuous_reference solve "$SHARED" "$config" whole_c "$REFERENCE_PLAN_JSON" --separate-components
 python -m deep_pm.continuous_fit "$CORE_OUTPUT" "$CORE" "$INPUT_SHARD" "$SHARED" "$XIAO_CSV" "$config" --annual
 python -m deep_pm.continuous_summary "$PUBLIC_SUMMARY" "$CORE_PLAN_JSON" "$SHARED_PLAN_JSON" "$config"
+python -m deep_pm.continuous_instruments "$INSTRUMENT_SUMMARY" --plan "$CORE_PLAN_JSON" --config "$config"
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --detailed
 ```

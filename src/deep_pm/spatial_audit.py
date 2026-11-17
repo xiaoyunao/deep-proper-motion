@@ -24,7 +24,8 @@ from .pilot_validation import track_audit
 from .precision_v03 import calibration, calibration_groups, fit_with_calibration, paired_change
 from .provenance import run_stage
 from .regional_cohort import load_output
-from .regional_production import prediction
+from .regional_preflight import r_chips
+from .regional_production import prediction, r_chip_shapes
 from .regional_validation import audit_qso
 from .validation import gaia_labels, groups_by_label, ratio
 
@@ -115,21 +116,10 @@ def selection_trials(truth, labels, metadata, products, tracks, nsc, ref, settin
 
 def east_holdout(work, spec, data, xy, t, sigma, keep, nsc, keys, support, refs, offsets, config, settings, custom):
     """Measure held-year geometry separately from a nearby catalogue detection."""
-    from matplotlib.path import Path as Polygon
-
     center=spec["ra"],spec["dec"]
     cache=access.Cache(work/"footprint_cache")
-    radius=spec["radius"]+.25
-    names=[f"vertex_{axis}{i}" for axis in ("ra","dec") for i in range(1,5)]
-    where=access.q3c(*center,radius)+" AND filter='r'"
-    chips=access.checked_spatial(cache,"nsc","exposure,"+",".join(names)+",instrument,airmass",
-                                  "nsc_dr2.chip",where,center[1]-radius-1e-8,center[1]+radius+1e-8)
-    shapes=defaultdict(list)
-    corners=chips[names].to_numpy().reshape(-1,2,4)
-    ids=np.flatnonzero(np.isfinite(corners).all(axis=(1,2)))
-    points=project(corners[ids,0,:].ravel(),corners[ids,1,:].ravel(),center).reshape(-1,4,2)
-    for i,polygon in zip(ids,points):
-        shapes["NSC:"+str(chips.exposure.iloc[i])].append(Polygon(polygon))
+    chips=r_chips(cache,center,spec["radius"]+.05)
+    visits=r_chip_shapes(chips,center)
     cam=chips.drop_duplicates("exposure").set_index("exposure").instrument
     instrument=data.exposure_id.str[4:].map(cam).fillna("unknown").str.strip().str.lower()
     # Use the original verified v0.7 exposure metadata when available. The
@@ -150,7 +140,7 @@ def east_holdout(work, spec, data, xy, t, sigma, keep, nsc, keys, support, refs,
                      & data.magnitude_error.between(0,2.5/(np.log(10)*settings["production"]["min_snr"]),inclusive="right").to_numpy()
                      & quality_flags(data))
     return prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,
-                      settings,config,spec,chip_shapes=shapes)
+                      settings,config,spec,chip_shapes=visits)
 
 
 def run(work, name, spec, config, settings, custom):

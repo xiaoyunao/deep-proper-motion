@@ -7,12 +7,14 @@ from pathlib import Path
 from time import monotonic, process_time
 
 from astropy.time import Time
+from matplotlib.path import Path as Polygon
 import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
 
 from .__main__ import tomllib
-from .astrometry import fit_motion, project, unproject
+from . import access
+from .astrometry import fit_motion, project, unproject, utc_to_tt, years
 from .astrometry_audit import augment_tracks, calibrate_errors, exposure_metadata, quality_flags, qtile
 from .dark_precision import query_unique
 from .epoch_statistics import observation_groups, source_coverage
@@ -21,6 +23,7 @@ from .nsc_comparison import configuration
 from .pilot_production import make_tracks, quality_detections, source_funnel, timing_resources, valid_epochs
 from .precision_v03 import calibration, calibration_groups
 from .provenance import run_stage
+from .regional_preflight import CHIP_VERTICES, r_chips
 from .regional_validation import audit_gaia, audit_qso
 from .validation import ratio
 
@@ -91,6 +94,18 @@ def record_catalogue(work,center,data,xy,t,sigma,keys,groups,night,nsc,offsets,p
     return result
 
 
+def r_chip_shapes(chips, center):
+    shapes=defaultdict(list)
+    vertices=chips[CHIP_VERTICES].to_numpy().reshape(-1,2,4)
+    valid=np.isfinite(vertices).all(axis=(1,2)) & chips.mjd.between(50000,62000)
+    ids=np.flatnonzero(valid)
+    xy=project(vertices[ids,0,:].ravel(),vertices[ids,1,:].ravel(),center).reshape(-1,4,2)
+    for row,corners in zip(ids,xy):
+        shapes[chips.exposure.iloc[row],chips.mjd.iloc[row]].append(Polygon(corners))
+    epochs=years(utc_to_tt(np.array([mjd for _,mjd in shapes])))
+    return list(zip(epochs,shapes.values()))
+
+
 def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,settings,config,spec,chip_shapes=None):
     # Choose the most observed interior calendar year by survey metadata alone.
     time_edges=Time([f"{y}-01-01" for y in range(2010,2021)],scale="utc").tt.jyear
@@ -130,7 +145,14 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
     footprint_sources=np.zeros(len(pool),dtype=bool)
     opportunity_sources=np.zeros(len(pool),dtype=bool)
     chip_visits=0
-    for visit, frame in data.loc[usable & hold].groupby("exposure_id",sort=False):
+    if chip_shapes is not None:
+        for midpoint,polygons in chip_shapes:
+            if time_edges[year]<=midpoint<time_edges[year+1]:
+                chip_visits+=1
+                pred=key_pos+key_pm*(midpoint-epoch)
+                for polygon in polygons:
+                    footprint_sources |= polygon.contains_points(pred)
+    for _, frame in data.loc[usable & hold].groupby("exposure_id",sort=False):
         ii=frame.index.to_numpy()
         midpoint=np.median(t[ii])
         # Positions corrected onto the same reference frame using held-field
@@ -140,10 +162,6 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
         pred=key_pos+key_pm*(midpoint-epoch)
         distance=tree.query(pred)[0]
         opportunity_sources |= distance <= 1000
-        if chip_shapes is not None and visit in chip_shapes:
-            chip_visits+=1
-            for shape in chip_shapes[visit]:
-                footprint_sources |= shape.contains_points(pred)
         accepted,closest=query_unique(tree,pred,500,near)
         for j in np.flatnonzero((distance<=1000)&~accepted):
             outside[compare[j]]+=1
@@ -185,7 +203,7 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
     return result
 
 
-def compute(work,region,spec,config,settings,custom,legacy):
+def compute(work,region,spec,config,settings,custom,legacy,footprint_cache=None):
     start,cpu=monotonic(),process_time()
     prod=settings["production"]
     center=(spec["ra"],spec["dec"])
@@ -226,7 +244,10 @@ def compute(work,region,spec,config,settings,custom,legacy):
     save_json(work/"private_qso_pairs.json",pairs)
     print(f"{region}: QSO and private catalogues complete",flush=True)
     gaia=audit_gaia(work,center,spec,data,xy,t,sigma,keep,expanded,nsc,products,settings,config)
-    holdout=prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,settings,config,spec)
+    chips=None if footprint_cache is None else r_chip_shapes(
+        r_chips(access.Cache(footprint_cache),center,spec["radius"]),center)
+    holdout=prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,
+                       offsets,settings,config,spec,chip_shapes=chips)
     w=products["W1"][1]
     c=products["multi"][1]
     gained, lost=Counter(c[j][3] for j in c.keys()-w.keys()),Counter(w[j][3] for j in w.keys()-c.keys())
@@ -253,6 +274,7 @@ def main():
     p.add_argument("region")
     p.add_argument("inputs",type=Path)
     p.add_argument("--legacy",action="store_true")
+    p.add_argument("--preflight",type=Path)
     p.add_argument("--config",type=Path,default=Path("configs/regional-v07.toml"))
     args=p.parse_args()
     if not os.environ.get("SLURM_JOB_ID"):
@@ -267,6 +289,9 @@ def main():
     links["weight_config.toml"]=args.config.with_name("astrometry-v06.toml")
     if not args.legacy:
         links.update({key:args.inputs/key for key in ("official_nsc.csv","acquisition_summary.json")})
+    if args.preflight is not None:
+        links["preflight_manifest.json"]=args.preflight/"run_manifest.json"
+        links["regional_preflight_summary.json"]=args.preflight/"regional_preflight_summary.json"
     for name,target in links.items():
         path=work/name
         path.parent.mkdir(parents=True,exist_ok=True)
@@ -296,7 +321,8 @@ def main():
         inputs.append("exposures.csv")
     with run_stage(work,args.config,args.region,stage,inputs=inputs,outputs=outputs) as go:
         if go:
-            compute(work,args.region,spec,config,settings,custom,args.legacy)
+            footprint_cache=None if args.preflight is None else args.preflight/"cache"
+            compute(work,args.region,spec,config,settings,custom,args.legacy,footprint_cache)
 
 
 if __name__=="__main__":

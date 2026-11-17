@@ -44,19 +44,21 @@ def field_area(spec):
     return 2*np.pi*(1-np.cos(np.deg2rad(spec["radius"])))*(180/np.pi)**2
 
 
-def summarize(directories,settings,previous):
+def summarize(directories,settings,previous,observation_overlap=None):
     fields={}
     nested=defaultdict(lambda:defaultdict(dict))
-    obs,overlap=survey_overlap([*directories,*previous])
+    obs,overlap=(survey_overlap([*directories,*previous])
+                 if observation_overlap is None else observation_overlap)
     valid_names={d.name for d in directories}
     independent=[sorted(set(b)&valid_names) for b in obs if set(b)&valid_names]
     options=settings["regional"]
     totals={method:defaultdict(Counter) for method in ("W0","W1","multi")}
     w0_exit=defaultdict(Counter)
     for d in directories:
-        v=load_output(d,"regional-production-v07","regional_summary.json")
-        pairs=load_output(d,"regional-production-v07","private_qso_pairs.json")
         spec=settings["fields"][d.name]
+        stage="regional-production-"+spec.get("series","v07")
+        v=load_output(d,stage,"regional_summary.json")
+        pairs=load_output(d,stage,"private_qso_pairs.json")
         for r,entry in pairs:
             for label in tag_magnitude(r,settings):
                 for method in ("W0","W1","multi","same_three"):

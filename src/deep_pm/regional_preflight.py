@@ -32,6 +32,16 @@ def span_update(mask, t, first, last):
     last[mask] = np.maximum(last[mask], t)
 
 
+CHIP_VERTICES = [f"vertex_{axis}{i}" for axis in ("ra","dec") for i in range(1,5)]
+
+
+def r_chips(cache, center, radius):
+    columns = ["exposure","instrument","mjd"] + CHIP_VERTICES
+    where = access.q3c(*center,radius+.20) + " AND filter='r'"
+    return access.checked_spatial(cache,"nsc",",".join(columns),"nsc_dr2.chip",where,
+                                  center[1]-radius-.200001,center[1]+radius+.200001)
+
+
 def geometry(cache, center, radius, xy, sky, window):
     sdss = np.zeros(len(xy), dtype=int)
     first = np.full(len(xy), np.inf)
@@ -41,10 +51,7 @@ def geometry(cache, center, radius, xy, sky, window):
         sdss[mask] += 1
         span_update(mask,scan.year,first,last)
     delta_sdss = np.maximum(0, last-first)
-    columns = ["exposure","instrument","mjd"] + [f"vertex_{axis}{i}" for axis in ("ra","dec") for i in range(1,5)]
-    where = access.q3c(*center,radius+.20) + " AND filter='r'"
-    chips = access.checked_spatial(cache,"nsc",",".join(columns),"nsc_dr2.chip", where,
-                                   center[1]-radius-.200001,center[1]+radius+.200001)
+    chips = r_chips(cache,center,radius)
     ra = chips[[f"vertex_ra{i}" for i in range(1,5)]].to_numpy()
     dec = chips[[f"vertex_dec{i}" for i in range(1,5)]].to_numpy()
     ok = np.isfinite(ra).all(axis=1) & np.isfinite(dec).all(axis=1) & chips.mjd.between(50000,62000).to_numpy()

@@ -23,9 +23,15 @@ for ((lane=0; lane<workers; lane++)); do
                         preflight)
                             "$py" -u -m deep_pm.regional_preflight "$root" "$DEEP_PM_QSO" "$DEEP_PM_WINDOW" "$field" --config "$cfg"
                             ;;
+                        acquire)
+                            "$py" -u -m deep_pm.regional_inputs "$root/$field" "$field" "$DEEP_PM_QSO" "$DEEP_PM_SAS" --config "$cfg"
+                            ;;
+                        reduce)
+                            "$py" -u -m deep_pm.regional_production "$root/$field" "$field" "$DEEP_PM_INPUTS/$field" --config "$cfg" --preflight "${DEEP_PM_PREFLIGHT:?set preflight root}/$field"
+                            ;;
                         production)
                             "$py" -u -m deep_pm.regional_inputs "$DEEP_PM_INPUTS/$field" "$field" "$DEEP_PM_QSO" "$DEEP_PM_SAS" --config "$cfg" &&
-                                "$py" -u -m deep_pm.regional_production "$root/$field" "$field" "$DEEP_PM_INPUTS/$field" --config "$cfg"
+                                "$py" -u -m deep_pm.regional_production "$root/$field" "$field" "$DEEP_PM_INPUTS/$field" --config "$cfg" --preflight "${DEEP_PM_PREFLIGHT:?set preflight root}/$field"
                             ;;
                         audit)
                             "$py" -u -m deep_pm.spatial_audit "$root/$field" "$field" "$DEEP_PM_PRIOR/$field" --config "$cfg"

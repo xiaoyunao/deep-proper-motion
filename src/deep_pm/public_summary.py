@@ -85,6 +85,10 @@ for _base in ("regional-preflight","regional-production"):
     STAGES[_base+"-v08"] = (_base+"-v08", _file, _keys)
 STAGES["spatial-audit-v08"] = ("spatial-audit-v08", "spatial_audit_summary.json",
                               ("qso","morphology","zero","local_gradient","holdout_geometry","m3","resources"))
+STAGES["spatial-cohort-v08"] = ("spatial-cohort-v08", "spatial_cohort_summary.json",
+                                (*STAGES["regional-pool-v07"][2],"spatial_quality"))
+STAGES["spatial-history-v08"] = ("spatial-history-v08", "spatial_history_summary.json",
+                                 ("strict_faint_exits","morphology","same_conditions"))
 
 METADATA = {"region", "role", "receipt"}
 PRIVATE_KEYS = {"source_id", "source_ids", "object_ids", "objid", "objids", "detection_id",

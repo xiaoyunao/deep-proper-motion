@@ -33,7 +33,7 @@ def observing_stratum(summary):
             "repeated" if repeat >= .4 else "mostly_single", instrument)
 
 
-def choose(candidates, batch_sizes, seed):
+def choose(candidates, batch_sizes, seed, frozen_first=()):
     remaining = set(candidates)
     known_runs = set()
     used_roles = Counter()
@@ -60,7 +60,7 @@ def choose(candidates, batch_sizes, seed):
                         -sum(row["nscr_exposures_by_instrument"].values()),
                         sha256(f"{seed}/{name}".encode()).hexdigest())
 
-            name = max(remaining, key=rank)
+            name = frozen_first[len(batch)] if not batches and len(batch)<len(frozen_first) else max(remaining, key=rank)
             geometry_sha, spec, row, run_ids = candidates[name]
             condition = observing_stratum(row)
             roles[spec["role"]] += 1
@@ -81,6 +81,7 @@ def main():
     parser.add_argument("root", type=Path)
     parser.add_argument("window", type=Path)
     parser.add_argument("--config", type=Path, default=Path("configs/spatial-v08.toml"))
+    parser.add_argument("--frozen-first", nargs="*", default=[])
     args = parser.parse_args()
     _, settings = configuration(args.config)
     options = settings["regional"]
@@ -106,7 +107,11 @@ def main():
         runs = {visit.exposure for visit in visits if visit.coverage(xy, sky).any()}
         candidates[name] = (sha256((work / "regional_preflight_summary.json").read_bytes()).hexdigest(),
                             spec, row, runs)
-    batches = choose(candidates, spatial["batch_sizes"], options["seed"])
+    frozen = args.frozen_first
+    if (len(frozen)>spatial["batch_sizes"][0] or len(frozen)!=len(set(frozen))
+            or set(frozen)-candidates.keys()):
+        parser.error("Previously frozen fields must still have valid geometry receipts.")
+    batches = choose(candidates, spatial["batch_sizes"], options["seed"], frozen_first=frozen)
     print(json.dumps(dict(candidate_count=len(settings["fields"]), eligible_count=len(candidates),
                           rejected=rejected, batches=batches), indent=2, allow_nan=False))
 

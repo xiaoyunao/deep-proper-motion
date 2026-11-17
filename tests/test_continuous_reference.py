@@ -8,7 +8,7 @@ import pandas as pd
 from deep_pm.continuous_reference import deduplicate
 from deep_pm.continuous_instruments import instrument_bins, instrument_by_exposure
 from deep_pm.continuous_seams import adjacent_held
-from deep_pm.continuous_summary import estimate, membership
+from deep_pm.continuous_summary import SAMPLING_COLUMNS, estimate, membership, summarize_sampling
 from deep_pm.validation_audit import boundary_pairs
 
 
@@ -92,3 +92,15 @@ class ContinuousReferenceTest(unittest.TestCase):
         gauge={g:"common" for g in gauge}
         common=adjacent_held([part],specs,const,gauges=gauge)["west__east"]["by_gauge"]["common"]
         np.testing.assert_allclose(common["median_positive_minus_negative_mas"],np.zeros((2,2)))
+
+    def test_sampling_counts_selected_run_groups_and_leaves_missing_quantiles_empty(self):
+        one=dict.fromkeys(SAMPLING_COLUMNS,1.)
+        one.update(r_bin="22_to_23",pm_error_north=np.nan)
+        many=dict(one,sdss_runs=3.,pm_error_north=2.)
+        result=summarize_sampling(pd.DataFrame([one,many]))["22_to_23"]
+        self.assertEqual(result["repeated_sdss"]["n"],1)
+        self.assertEqual(result["repeated_sdss"]["denominator"],2)
+        north=SAMPLING_COLUMNS.index("pm_error_north")
+        one_run=result["by_sdss_run_count"]["one_sdss_run"]
+        self.assertEqual(one_run["n_valid"][north],0)
+        self.assertIsNone(one_run["p16_p50_p84"][north])

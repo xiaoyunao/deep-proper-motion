@@ -5,16 +5,21 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 from scipy.sparse import csr_matrix
 
 from .__main__ import tomllib
 from .continuous_reference import verify_directory
 from .io import save_json
 from .public_summary import check_aggregate
+from .validation import ratio
 from .validation_blocks import connected
 
 METHODS=("NSC","Xiao","C0")
 VISIT_FAMILIES=("sdss_run","nsc_exposure","nsc_night")
+SAMPLING_COLUMNS=("sdss_runs","sdss_nights","sdss_span_years","nsc_nights",
+                  "nsc_span_years","joint_span_years","independent_groups",
+                  "pm_error_east","pm_error_north","max_group_slope_fraction")
 
 
 def area(box):
@@ -132,6 +137,22 @@ def scan_strata(records):
     return {name:estimate(rows,METHODS,9137) for name,rows in sorted(strata.items())}
 
 
+def summarize_sampling(samples):
+    result={}
+    for name,bin_rows in samples.groupby("r_bin",sort=True):
+        by_run={}
+        for label, sub in (("all",bin_rows),("one_sdss_run",bin_rows.loc[bin_rows.sdss_runs==1]),
+                           ("multiple_sdss_runs",bin_rows.loc[bin_rows.sdss_runs>=2])):
+            values=sub.loc[:,list(SAMPLING_COLUMNS)].to_numpy(dtype=float)
+            finite=np.isfinite(values)
+            by_run[label]=dict(n=len(sub),n_valid=finite.sum(axis=0),
+                               p16_p50_p84=[np.quantile(v[keep],[.16,.50,.84]) if keep.any() else None
+                                            for v,keep in zip(values.T,finite.T)])
+        result[name]=dict(n=len(bin_rows),repeated_sdss=ratio(by_run["multiple_sdss_runs"]["n"],len(bin_rows)),
+                          by_sdss_run_count=by_run)
+    return result
+
+
 def pool(specs, fits, shared, site_names):
     reference={}
     for name, path in shared.items():
@@ -141,11 +162,16 @@ def pool(specs, fits, shared, site_names):
     cores={}
     strict={}
     deletions={}
+    sampling={}
     for name,work in fits.items():
-        verify_directory(work,("continuous_core_summary.json","private_qso_blocks.json","private_group_deletions.json"))
+        verify_directory(work,("continuous_core_summary.json","private_qso_blocks.json","private_group_deletions.json",
+                               "private_catalogue.csv.gz"))
         cores[name]=json.loads((work/"continuous_core_summary.json").read_text())
         strict[name]=json.loads((work/"private_qso_blocks.json").read_text())
         deletions[name]=json.loads((work/"private_group_deletions.json").read_text())
+        sampling[name]=pd.read_csv(work/"private_catalogue.csv.gz",usecols=("r_bin",*SAMPLING_COLUMNS))
+        if len(sampling[name])!=cores[name]["owned_w0"] or sampling[name].r_bin.isna().any():
+            raise ValueError(f"W0 sampling records do not match the verified core {name}")
     gauges=defaultdict(list)
     for name, c in cores.items():
         gauges[(c["shared_solution_sha256"],c.get("reference_gauge","main"))].append(name)
@@ -161,12 +187,13 @@ def pool(specs, fits, shared, site_names):
             if name not in fits:
                 grouped[f"{low}_to_{hi}"]["common_by_sdss_runs"]=scan_strata(common)
         rows=[row for site in chosen for row in deletions[site]]
-        result[name]=dict(bins=grouped,leave_group_out=deletes(rows))
+        samples=pd.concat([sampling[site] for site in chosen],ignore_index=True)
+        result[name]=dict(bins=grouped,leave_group_out=deletes(rows),w0_sampling_by_r=summarize_sampling(samples))
     summaries=dict(
         total_core_area_sqdeg=sum(area(specs[k]) for k in cores),
         covered_cores={k:dict(ra_bounds_deg=specs[k]["ra"],dec_bounds_deg=specs[k]["dec"],area_sqdeg=area(specs[k]))
                        for k in cores}, cores=cores, cohorts=result,
-        reference=reference, gauge_cores=list(gauges.values()))
+        reference=reference, gauge_cores=list(gauges.values()),w0_sampling_columns=SAMPLING_COLUMNS)
     check_aggregate(summaries)
     return summaries
 

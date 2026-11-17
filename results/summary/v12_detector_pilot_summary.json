@@ -1,0 +1,70 @@
+{
+  "commit": "748f278d8c3efa3a7d15bfeddb4ccdee27b1d633",
+  "slurm_job": 61467780,
+  "cores": {
+    "c_06_07": {
+      "held_core_detections": 14832,
+      "reference_graph_sha256": "78ce42c48ced36281943cbc991e1465d4ce71e3e7f94d2079793adca774d916e",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 58,
+        "selected_fields": 58,
+        "fields_read": 57,
+        "pair_count": 56,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 56,
+        "held_references": 56,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -2.0868844757787883,
+            -6.424212841317058
+          ],
+          [
+            -2.0868844757787883,
+            -6.424212841317058
+          ]
+        ],
+        "radial_p68_mas": [
+          39.19037119728534,
+          39.19037119728534
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 13.430381729034707
+    },
+    "c_08_00": {
+      "held_core_detections": 137431,
+      "reference_graph_sha256": "78ce42c48ced36281943cbc991e1465d4ce71e3e7f94d2079793adca774d916e",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 56,
+        "selected_fields": 56,
+        "fields_read": 56,
+        "pair_count": 57,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 57,
+        "held_references": 57,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -8.851037859916687,
+            -0.6679304949939251
+          ],
+          [
+            -8.851037859916687,
+            -0.6679304949939251
+          ]
+        ],
+        "radial_p68_mas": [
+          43.266892639506885,
+          43.266892639506885
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 102.7773606349947
+    }
+  }
+}

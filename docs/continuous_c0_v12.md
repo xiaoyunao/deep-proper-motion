@@ -41,8 +41,11 @@ MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --de
 
 物理边界另行读取相邻 SDSS field 的 `photoObj` 原始重复记录，以及 NSC 同一曝光内不同 CCD 对同一留出星系的测量。SDSS 按候选数排序，每核心至多检查 160 个邻 field，并报告全部可选 field 数、读取数及匹配数。两类物理重复对都共享一个 C0 零点，位置差可测量这一尺度的重复性；对的数量决定证据范围。几何边界继续使用共享图的 HEALPix 与处理核心留出统计。
 
+整区分块边界以实际共边线段为单位，比较两侧各 2′ 内的留出星系跨巡天位置残差。仅使用解算时绑定的参考回执；同一星系取有双巡天支持、检测最多的参考图分量。每个分量每侧至少五颗才报告差值，样本不足的边界仍保留计数。位置差可受两侧样本与观测条件影响。
+
 ```bash
 python -m deep_pm.continuous_detectors "$DETECTOR_OUTPUT" "$config" "$INPUT_SHARD" "$REFERENCE_SHARD" "$SHARED" "$SDSS_SAS" "$CORE"
+python -m deep_pm.continuous_seams "$SEAM_SUMMARY" "$SHARED" "$REFERENCE_PLAN_JSON" "$config" --plan
 ```
 
 一次试运行以实际配套回执为边界。所有未取全的块以缺区记录，不能将已有的几何覆盖估算视为已处理数据。 [NSC 数据入口](https://datalab.noirlab.edu/data/nsc) · [SDSS DR17 Resolve](https://www.sdss4.org/dr17/algorithms/resolve/) · [NERSC CPU 队列](https://docs.nersc.gov/jobs/policy/)

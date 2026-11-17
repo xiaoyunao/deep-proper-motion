@@ -7,6 +7,7 @@ import pandas as pd
 
 from deep_pm.continuous_reference import deduplicate
 from deep_pm.continuous_instruments import instrument_bins, instrument_by_exposure
+from deep_pm.continuous_seams import adjacent_held
 from deep_pm.continuous_summary import estimate, membership
 from deep_pm.validation_audit import boundary_pairs
 
@@ -69,3 +70,25 @@ class ContinuousReferenceTest(unittest.TestCase):
         groups=instrument_bins(records,metadata)["22_to_23"]
         self.assertEqual({key:len(rows) for key, rows in groups.items()},
                          {"DECam":1,"90Prime_and_DECam":1,"incomplete":1})
+
+    def test_processing_seam_requires_support_from_the_same_gauge(self):
+        specs={"west":{"ra":[349,350],"dec":[0,1]},"east":{"ra":[350,351],"dec":[0,1]}}
+        const={}
+        gauge={}
+        rows=[]
+        for side, ra in (("left",349.99),("right",350.01)):
+            for survey in ("SDSS","NSC"):
+                group=f"{survey}:{side}"
+                const[group]=(np.zeros(2),)
+                gauge[group]=side
+                for j in range(5):
+                    rows.append(dict(reference=f"{side}:{j}",is_holdout=True,
+                        detection_id=f"{group}:{j}",exposure_id=group,group=group,
+                        ra_deg=ra,dec_deg=.5,east=0.,north=0.))
+        part=pd.DataFrame(rows)
+        edge=adjacent_held([part],specs,const,gauges=gauge)["west__east"]
+        self.assertEqual(edge["held_independent_refs"],[5,5])
+        self.assertNotIn("median_positive_minus_negative_mas",edge["by_gauge"]["left"])
+        gauge={g:"common" for g in gauge}
+        common=adjacent_held([part],specs,const,gauges=gauge)["west__east"]["by_gauge"]["common"]
+        np.testing.assert_allclose(common["median_positive_minus_negative_mas"],np.zeros((2,2)))

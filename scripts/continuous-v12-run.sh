@@ -53,6 +53,7 @@ elif [[ "$mode" == summarize ]]; then
     "$python" -um deep_pm.continuous_coverage "$state" "$config" --prepare-summary
     "$python" -um deep_pm.continuous_summary "$state/v12_full_continuous_summary.json" "$state/fits.json" "$state/gauges.json" "$config"
     "$python" -um deep_pm.continuous_instruments "$state/v12_full_instrument_summary.json" --plan "$state/fits.json" --config "$config"
+    "$python" -um deep_pm.continuous_seams "$state/v12_full_processing_seams_summary.json" "$state/shared" "$state/references.json" "$config" --plan
 else
     printf 'Unknown continuous run stage %s\n' "$mode" >&2
     exit 2

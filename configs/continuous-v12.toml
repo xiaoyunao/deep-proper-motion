@@ -1,0 +1,495 @@
+tap_join = true
+reference_epoch = 2015.5
+nside = 128
+halo_deg = 0.06
+seed = 9137
+positions_per_tile = 400
+[boxes.a]
+ra = [132.0, 142.0]
+dec = [-5.0, 5.0]
+[boxes.b]
+ra = [212.0, 222.0]
+dec = [-5.0, 5.0]
+[boxes.c]
+ra = [345.0, 355.0]
+dec = [-5.0, 5.0]
+
+[calibration]
+min_child_references = 15
+child_prior_mas = 50.0
+min_galaxy_gain = 0.05
+min_qso_count = 20
+max_qso_relative_loss = 0.10
+zero_limit_masyr = 0.50
+
+[selection]
+box = "c"
+reason = "Largest geometrically covered and temporally useful fraction; rich and sparse pilots separated in sky and time coverage."
+rich_min_long_repeat = 0.90
+sparse_max_long_repeat = 0.10
+
+[fields.repeat_rich]
+ra = [353.0,355.0]
+dec = [-1.0,1.0]
+parts = ["rich_sw","rich_se","rich_nw","rich_ne"]
+
+[fields.repeat_sparse]
+ra = [345.0,347.0]
+dec = [-5.0,-3.0]
+parts = ["sparse_all"]
+
+[fields.rich_sw]
+ra = [353.0,354.0]
+dec = [-1.0,0.0]
+
+[fields.rich_se]
+ra = [354.0,355.0]
+dec = [-1.0,0.0]
+
+[fields.rich_nw]
+ra = [353.0,354.0]
+dec = [0.0,1.0]
+
+[fields.rich_ne]
+ra = [354.0,355.0]
+dec = [0.0,1.0]
+
+[fields.sparse_all]
+ra = [345.0,347.0]
+dec = [-5.0,-3.0]
+
+[fields.sparse_north_inner]
+ra = [349.0,351.0]
+dec = [1.0,3.0]
+parts = ["sparse_north_inner"]
+
+[fields.sparse_north_outer]
+ra = [351.0,353.0]
+dec = [3.0,5.0]
+parts = ["sparse_north_outer"]
+
+[fields.sparse_south_east]
+ra = [353.0,355.0]
+dec = [-5.0,-3.0]
+parts = ["south_sw","south_se","south_nw","south_ne"]
+
+[fields.south_sw]
+ra = [353.0,354.0]
+dec = [-5.0,-4.0]
+
+[fields.south_se]
+ra = [354.0,355.0]
+dec = [-5.0,-4.0]
+
+[fields.south_nw]
+ra = [353.0,354.0]
+dec = [-4.0,-3.0]
+
+[fields.south_ne]
+ra = [354.0,355.0]
+dec = [-4.0,-3.0]
+
+[fields.sparse_south_east_ready]
+ra = [354.0,355.0]
+dec = [-5.0,-3.0]
+parts = ["south_se","south_ne"]
+
+[fields.c_00_00]
+ra = [345.0, 346.0]
+dec = [-5.0, -4.0]
+
+[fields.c_01_00]
+ra = [346.0, 347.0]
+dec = [-5.0, -4.0]
+
+[fields.c_02_00]
+ra = [347.0, 348.0]
+dec = [-5.0, -4.0]
+
+[fields.c_03_00]
+ra = [348.0, 349.0]
+dec = [-5.0, -4.0]
+
+[fields.c_04_00]
+ra = [349.0, 350.0]
+dec = [-5.0, -4.0]
+
+[fields.c_05_00]
+ra = [350.0, 351.0]
+dec = [-5.0, -4.0]
+
+[fields.c_06_00]
+ra = [351.0, 352.0]
+dec = [-5.0, -4.0]
+
+[fields.c_07_00]
+ra = [352.0, 353.0]
+dec = [-5.0, -4.0]
+
+[fields.c_08_00]
+ra = [353.0, 354.0]
+dec = [-5.0, -4.0]
+
+[fields.c_09_00]
+ra = [354.0, 355.0]
+dec = [-5.0, -4.0]
+
+[fields.c_00_01]
+ra = [345.0, 346.0]
+dec = [-4.0, -3.0]
+
+[fields.c_01_01]
+ra = [346.0, 347.0]
+dec = [-4.0, -3.0]
+
+[fields.c_02_01]
+ra = [347.0, 348.0]
+dec = [-4.0, -3.0]
+
+[fields.c_03_01]
+ra = [348.0, 349.0]
+dec = [-4.0, -3.0]
+
+[fields.c_04_01]
+ra = [349.0, 350.0]
+dec = [-4.0, -3.0]
+
+[fields.c_05_01]
+ra = [350.0, 351.0]
+dec = [-4.0, -3.0]
+
+[fields.c_06_01]
+ra = [351.0, 352.0]
+dec = [-4.0, -3.0]
+
+[fields.c_07_01]
+ra = [352.0, 353.0]
+dec = [-4.0, -3.0]
+
+[fields.c_08_01]
+ra = [353.0, 354.0]
+dec = [-4.0, -3.0]
+
+[fields.c_09_01]
+ra = [354.0, 355.0]
+dec = [-4.0, -3.0]
+
+[fields.c_00_02]
+ra = [345.0, 346.0]
+dec = [-3.0, -2.0]
+
+[fields.c_01_02]
+ra = [346.0, 347.0]
+dec = [-3.0, -2.0]
+
+[fields.c_02_02]
+ra = [347.0, 348.0]
+dec = [-3.0, -2.0]
+
+[fields.c_03_02]
+ra = [348.0, 349.0]
+dec = [-3.0, -2.0]
+
+[fields.c_04_02]
+ra = [349.0, 350.0]
+dec = [-3.0, -2.0]
+
+[fields.c_05_02]
+ra = [350.0, 351.0]
+dec = [-3.0, -2.0]
+
+[fields.c_06_02]
+ra = [351.0, 352.0]
+dec = [-3.0, -2.0]
+
+[fields.c_07_02]
+ra = [352.0, 353.0]
+dec = [-3.0, -2.0]
+
+[fields.c_08_02]
+ra = [353.0, 354.0]
+dec = [-3.0, -2.0]
+
+[fields.c_09_02]
+ra = [354.0, 355.0]
+dec = [-3.0, -2.0]
+
+[fields.c_00_03]
+ra = [345.0, 346.0]
+dec = [-2.0, -1.0]
+
+[fields.c_01_03]
+ra = [346.0, 347.0]
+dec = [-2.0, -1.0]
+
+[fields.c_02_03]
+ra = [347.0, 348.0]
+dec = [-2.0, -1.0]
+
+[fields.c_03_03]
+ra = [348.0, 349.0]
+dec = [-2.0, -1.0]
+
+[fields.c_04_03]
+ra = [349.0, 350.0]
+dec = [-2.0, -1.0]
+
+[fields.c_05_03]
+ra = [350.0, 351.0]
+dec = [-2.0, -1.0]
+
+[fields.c_06_03]
+ra = [351.0, 352.0]
+dec = [-2.0, -1.0]
+
+[fields.c_07_03]
+ra = [352.0, 353.0]
+dec = [-2.0, -1.0]
+
+[fields.c_08_03]
+ra = [353.0, 354.0]
+dec = [-2.0, -1.0]
+
+[fields.c_09_03]
+ra = [354.0, 355.0]
+dec = [-2.0, -1.0]
+
+[fields.c_00_04]
+ra = [345.0, 346.0]
+dec = [-1.0, 0.0]
+
+[fields.c_01_04]
+ra = [346.0, 347.0]
+dec = [-1.0, 0.0]
+
+[fields.c_02_04]
+ra = [347.0, 348.0]
+dec = [-1.0, 0.0]
+
+[fields.c_03_04]
+ra = [348.0, 349.0]
+dec = [-1.0, 0.0]
+
+[fields.c_04_04]
+ra = [349.0, 350.0]
+dec = [-1.0, 0.0]
+
+[fields.c_05_04]
+ra = [350.0, 351.0]
+dec = [-1.0, 0.0]
+
+[fields.c_06_04]
+ra = [351.0, 352.0]
+dec = [-1.0, 0.0]
+
+[fields.c_07_04]
+ra = [352.0, 353.0]
+dec = [-1.0, 0.0]
+
+[fields.c_08_04]
+ra = [353.0, 354.0]
+dec = [-1.0, 0.0]
+
+[fields.c_09_04]
+ra = [354.0, 355.0]
+dec = [-1.0, 0.0]
+
+[fields.c_00_05]
+ra = [345.0, 346.0]
+dec = [0.0, 1.0]
+
+[fields.c_01_05]
+ra = [346.0, 347.0]
+dec = [0.0, 1.0]
+
+[fields.c_02_05]
+ra = [347.0, 348.0]
+dec = [0.0, 1.0]
+
+[fields.c_03_05]
+ra = [348.0, 349.0]
+dec = [0.0, 1.0]
+
+[fields.c_04_05]
+ra = [349.0, 350.0]
+dec = [0.0, 1.0]
+
+[fields.c_05_05]
+ra = [350.0, 351.0]
+dec = [0.0, 1.0]
+
+[fields.c_06_05]
+ra = [351.0, 352.0]
+dec = [0.0, 1.0]
+
+[fields.c_07_05]
+ra = [352.0, 353.0]
+dec = [0.0, 1.0]
+
+[fields.c_08_05]
+ra = [353.0, 354.0]
+dec = [0.0, 1.0]
+
+[fields.c_09_05]
+ra = [354.0, 355.0]
+dec = [0.0, 1.0]
+
+[fields.c_00_06]
+ra = [345.0, 346.0]
+dec = [1.0, 2.0]
+
+[fields.c_01_06]
+ra = [346.0, 347.0]
+dec = [1.0, 2.0]
+
+[fields.c_02_06]
+ra = [347.0, 348.0]
+dec = [1.0, 2.0]
+
+[fields.c_03_06]
+ra = [348.0, 349.0]
+dec = [1.0, 2.0]
+
+[fields.c_04_06]
+ra = [349.0, 350.0]
+dec = [1.0, 2.0]
+
+[fields.c_05_06]
+ra = [350.0, 351.0]
+dec = [1.0, 2.0]
+
+[fields.c_06_06]
+ra = [351.0, 352.0]
+dec = [1.0, 2.0]
+
+[fields.c_07_06]
+ra = [352.0, 353.0]
+dec = [1.0, 2.0]
+
+[fields.c_08_06]
+ra = [353.0, 354.0]
+dec = [1.0, 2.0]
+
+[fields.c_09_06]
+ra = [354.0, 355.0]
+dec = [1.0, 2.0]
+
+[fields.c_00_07]
+ra = [345.0, 346.0]
+dec = [2.0, 3.0]
+
+[fields.c_01_07]
+ra = [346.0, 347.0]
+dec = [2.0, 3.0]
+
+[fields.c_02_07]
+ra = [347.0, 348.0]
+dec = [2.0, 3.0]
+
+[fields.c_03_07]
+ra = [348.0, 349.0]
+dec = [2.0, 3.0]
+
+[fields.c_04_07]
+ra = [349.0, 350.0]
+dec = [2.0, 3.0]
+
+[fields.c_05_07]
+ra = [350.0, 351.0]
+dec = [2.0, 3.0]
+
+[fields.c_06_07]
+ra = [351.0, 352.0]
+dec = [2.0, 3.0]
+
+[fields.c_07_07]
+ra = [352.0, 353.0]
+dec = [2.0, 3.0]
+
+[fields.c_08_07]
+ra = [353.0, 354.0]
+dec = [2.0, 3.0]
+
+[fields.c_09_07]
+ra = [354.0, 355.0]
+dec = [2.0, 3.0]
+
+[fields.c_00_08]
+ra = [345.0, 346.0]
+dec = [3.0, 4.0]
+
+[fields.c_01_08]
+ra = [346.0, 347.0]
+dec = [3.0, 4.0]
+
+[fields.c_02_08]
+ra = [347.0, 348.0]
+dec = [3.0, 4.0]
+
+[fields.c_03_08]
+ra = [348.0, 349.0]
+dec = [3.0, 4.0]
+
+[fields.c_04_08]
+ra = [349.0, 350.0]
+dec = [3.0, 4.0]
+
+[fields.c_05_08]
+ra = [350.0, 351.0]
+dec = [3.0, 4.0]
+
+[fields.c_06_08]
+ra = [351.0, 352.0]
+dec = [3.0, 4.0]
+
+[fields.c_07_08]
+ra = [352.0, 353.0]
+dec = [3.0, 4.0]
+
+[fields.c_08_08]
+ra = [353.0, 354.0]
+dec = [3.0, 4.0]
+
+[fields.c_09_08]
+ra = [354.0, 355.0]
+dec = [3.0, 4.0]
+
+[fields.c_00_09]
+ra = [345.0, 346.0]
+dec = [4.0, 5.0]
+
+[fields.c_01_09]
+ra = [346.0, 347.0]
+dec = [4.0, 5.0]
+
+[fields.c_02_09]
+ra = [347.0, 348.0]
+dec = [4.0, 5.0]
+
+[fields.c_03_09]
+ra = [348.0, 349.0]
+dec = [4.0, 5.0]
+
+[fields.c_04_09]
+ra = [349.0, 350.0]
+dec = [4.0, 5.0]
+
+[fields.c_05_09]
+ra = [350.0, 351.0]
+dec = [4.0, 5.0]
+
+[fields.c_06_09]
+ra = [351.0, 352.0]
+dec = [4.0, 5.0]
+
+[fields.c_07_09]
+ra = [352.0, 353.0]
+dec = [4.0, 5.0]
+
+[fields.c_08_09]
+ra = [353.0, 354.0]
+dec = [4.0, 5.0]
+
+[fields.c_09_09]
+ra = [354.0, 355.0]
+dec = [4.0, 5.0]

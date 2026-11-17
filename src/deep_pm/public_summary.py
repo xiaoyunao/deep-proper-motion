@@ -90,7 +90,7 @@ STAGES["spatial-cohort-v08"] = ("spatial-cohort-v08", "spatial_cohort_summary.js
 STAGES["spatial-history-v08"] = ("spatial-history-v08", "spatial_history_summary.json",
                                  ("strict_faint_exits","morphology","same_conditions"))
 STAGES["exposure-catalogues-v09"] = ("exposure-catalogues-v09","catalogue_audit.json",
-    ("rows","bytes","xiao_columns","xiao_sources","spectra","boxes"))
+    ("legacy_rows","bytes","xiao_columns","xiao_sources","spectra","boxes"))
 STAGES["exposure-qso-count-v09"] = ("exposure-qso-count-v09","qso_count_summary.json",
     ("parent_rows","by_radius_arcsec","paper_sample","input_shards"))
 STAGES["exposure-preflight-v09"] = ("exposure-preflight-v09","geometry_summary.json",
@@ -162,7 +162,7 @@ def export(run_root, kind, region):
     if kind == "legacy-order-v03":
         directory = run_root / "legacy"
     else:
-        directory = run_root if kind == "challenge-design" else run_root / region
+        directory = run_root if kind in ("challenge-design","exposure-catalogues-v09","exposure-qso-count-v09") else run_root / region
     stage_pattern, relative, fields = STAGES[kind]
     relative = relative.format(region=region)
     manifest = json.loads((directory / "run_manifest.json").read_bytes())
@@ -184,6 +184,8 @@ def export(run_root, kind, region):
     if sha != attempt["outputs"][relative]:
         raise ValueError("Aggregate checksum differs from completed stage")
     aggregate = json.loads(summary_bytes)
+    if kind == "exposure-catalogues-v09":
+        aggregate["legacy_rows"] = aggregate.pop("rows")
     if kind == "exposure-preflight-v09":
         for bounds in [aggregate["box"],*(v["region"] for v in aggregate["tiles"])]:
             bounds["ra_bounds_deg"] = bounds.pop("ra")
@@ -241,7 +243,7 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        series = "v08" if args.kind.endswith("v08") else "v07" if args.kind.endswith("v07") else "v06" if args.kind.endswith("v06") else "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
+        series = "v09" if args.kind.endswith("v09") else "v08" if args.kind.endswith("v08") else "v07" if args.kind.endswith("v07") else "v06" if args.kind.endswith("v06") else "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
         target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:
             raise ValueError("A different aggregate already exists for this run")

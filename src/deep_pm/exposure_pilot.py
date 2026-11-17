@@ -146,8 +146,8 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                           settings["production"]["validation_min_recovery"]) for k,values in products.items()}
     names = ("C0", "C1", "C1b")[:len(offsets)]
     support = np.logical_and.reduce([np.isin(k, list(m)) for k, m in zip(keys, offsets)])
-    paired_key = "c0_c1" if len(names) == 2 else "c0_c1_c1b"
-    full_key = "all_four" if len(names) == 2 else "all_five"
+    paired_key = ("c0", "c0_c1", "c0_c1_c1b")[len(names)-1]
+    full_key = ("all_three", "all_four", "all_five")[len(names)-1]
     full_count = len(names) + 2
     records=defaultdict(lambda:defaultdict(list))
     temporal=defaultdict(list)

@@ -19,7 +19,7 @@ GAIA_COLUMNS = ("source_id,ra,dec,ref_epoch,pmra,pmdec,pmra_error,pmdec_error,pa
                 "ruwe,phot_g_mean_mag,phot_rp_mean_mag,parallax_error,radial_velocity,astrometric_params_solved")
 
 
-def acquire(work, name, spec, settings, catalogue, sas):
+def acquire(work, name, spec, settings, catalogue, sas, sdss_workers=1):
     start = monotonic()
     center = spec["ra"],spec["dec"]
     radius = spec["radius"]
@@ -28,7 +28,7 @@ def acquire(work, name, spec, settings, catalogue, sas):
     cache = access.Cache(work/"cache")
     qso = spectra(catalogue,center,radius,buffer)
     qso.to_csv(work/"spectroscopic_qso.csv",index=False)
-    sdss, n_fields = read_sdss_sas(sas,center,radius+buffer)
+    sdss, n_fields = read_sdss_sas(sas,center,radius+buffer,workers=sdss_workers)
     sdss.to_csv(work/"sdss.csv",index=False)
     print(f"{name}: {len(sdss):,} SDSS measurements",flush=True)
     selection = access.q3c(*center,outer)+" AND ndetr>0 AND (rmag<24 OR nphotr=0 OR rmag IS NULL)"
@@ -63,9 +63,12 @@ def main():
     p.add_argument("catalogue",type=Path)
     p.add_argument("sas",type=Path)
     p.add_argument("--config",type=Path,default=Path("configs/regional-v07.toml"))
+    p.add_argument("--sdss-workers",type=int,default=1)
     args=p.parse_args()
     if not os.environ.get("SLURM_JOB_ID"):
         p.error("Use a Slurm compute node.")
+    if args.sdss_workers<1:
+        p.error("Set at least one SDSS reader.")
     _,settings=configuration(args.config)
     args.work.mkdir(parents=True,exist_ok=True)
     outputs=["detections.csv","external_labels.csv","official_nsc.csv","spectroscopic_qso.csv",
@@ -73,7 +76,7 @@ def main():
     stage = "regional-inputs-" + settings.get("run_series", "v07")
     with run_stage(args.work,args.config,args.region,stage,outputs=outputs) as go:
         if go:
-            acquire(args.work,args.region,settings["fields"][args.region],settings,args.catalogue,args.sas)
+            acquire(args.work,args.region,settings["fields"][args.region],settings,args.catalogue,args.sas,args.sdss_workers)
 
 
 if __name__=="__main__":

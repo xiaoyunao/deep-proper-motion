@@ -68,11 +68,16 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
     settings = tomllib.loads(SPATIAL.read_text())
     settings.update(bootstrap_draws=400,bootstrap_absolute_zero=True)
     prod = settings["production"]
-    solution = read_offsets(shared)
+    solution, gauges = read_offsets(shared,with_gauge=True)
     data,xy,t,sigma,keep = quality_detections(source,CENTER,config,prod)
     keys = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
     visits = data.exposure_id.to_numpy()
+    on_core = inside(data.ra_deg,data.dec_deg,spec)
+    available = pd.Series(keys[on_core&keep]).map(gauges)
+    counts = available.value_counts()
+    main_gauge = min(counts.index,key=lambda k:(-counts[k],k)) if len(counts) else None
+    solution = {k:v for k,v in solution.items() if gauges[k]==main_gauge}
     def core(position):
         return inside(*unproject(position,CENTER)[0],spec)
 
@@ -147,7 +152,9 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
     save_json(work/"continuous_core_summary.json",dict(w0_funnel=funnel,owned_w0=len(owned),ownership_exits=len(products)-len(owned),
         formal_error_masyr=quantiles([p[2] for p in owned.values()]),observations=observations,gaia=gaia_stats,
         gaia_policy=bright,qso=qso_stats,annual=annual,leverage=diagnostics,w0_ring_counts=pixel_w0,
-        supported_ring_measurements=occupied,shared_solution_sha256=digest(shared),usable_error_rows=len(data),
+        supported_ring_measurements=occupied,shared_solution_sha256=digest(shared),
+        reference_gauge=main_gauge,other_gauge_r_measurements=int(available.notna().sum()-counts.get(main_gauge,0)),
+        usable_error_rows=len(data),
         peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,elapsed_seconds=monotonic()-start))
 
 

@@ -9,6 +9,8 @@ import resource
 import healpy as hp
 import numpy as np
 import pandas as pd
+from scipy.sparse import coo_matrix
+from scipy.sparse.csgraph import connected_components
 
 from .__main__ import tomllib
 from .astrometry import project
@@ -78,20 +80,45 @@ def deduplicate(frames):
                          multiple_exposure_rows=int(duplicate_exposure.sum()), unique_rows=len(cleaned))
 
 
-def serialize_offsets(path, offsets):
+def serialize_offsets(path, offsets, gauges=None):
     names = sorted(offsets)
     np.savez_compressed(path,names=np.asarray(names),
                         position=np.stack([offsets[k][0] for k in names]),
                         draws=np.stack([offsets[k][1] for k in names]),
-                        counts=np.array([offsets[k][2] for k in names]))
+                        counts=np.array([offsets[k][2] for k in names]),
+                        gauge=np.asarray([gauges[k] if gauges else "main" for k in names]))
 
 
-def read_offsets(path):
+def read_offsets(path, with_gauge=False):
     with np.load(path, allow_pickle=False) as t:
-        return {k:(a,b,int(n)) for k,a,b,n in zip(t["names"],t["position"],t["draws"],t["counts"])}
+        values = {k:(a,b,int(n)) for k,a,b,n in zip(t["names"],t["position"],t["draws"],t["counts"])}
+        if with_gauge:
+            identifiers = t["gauge"] if "gauge" in t else ["main"]*len(values)
+            return values, dict(zip(values,identifiers))
+    return values
 
 
-def held_reports(rows, offsets, specs):
+def calibration_components(train, minimum):
+    active=train
+    while len(active):
+        keep=active.loc[active.groupby("group").reference.transform("nunique")>=minimum]
+        keep=keep.loc[keep.groupby("reference").group.transform("nunique")>=2]
+        if len(keep)==len(active):
+            break
+        active=keep
+    ir,ref=pd.factorize(active.reference)
+    ig,group=pd.factorize(active.group)
+    graph=coo_matrix((np.ones(len(ig),dtype=np.int8),(ir,len(ref)+ig)),
+                     shape=(len(ref)+len(group),)*2)
+    _,labels=connected_components(graph,directed=False)
+    rows=active.assign(component=labels[ir])
+    for _,subset in rows.groupby("component",sort=True):
+        surveys={k.split(":")[0] for k in subset.group.unique()}
+        if surveys=={"NSC","SDSS"}:
+            yield subset
+
+
+def held_reports(rows, offsets, specs, gauges):
     held = rows.loc[rows.is_holdout & rows.group.isin(offsets)].copy()
     if held.empty:
         return {}
@@ -104,11 +131,12 @@ def held_reports(rows, offsets, specs):
         holder[inside(held.ra_deg,held.dec_deg,spec)] = index
     held["core_index"] = holder
     held["sdss"] = held.exposure_id.str.startswith("SDSS:")
+    held["gauge"] = held.group.map(gauges)
     held["ring"] = hp.ang2pix(128,held.ra_deg,held.dec_deg,lonlat=True)
     from collections import defaultdict
 
     summaries = defaultdict(list)
-    for ref, group in held.groupby("reference",sort=False):
+    for _, group in held.groupby(["reference","gauge"],sort=False):
         c = group.core_index.to_numpy()
         xyz = group[["raw_e","raw_n","fixed_e","fixed_n"]].to_numpy().reshape(-1,2,2)
         side = group.sdss.to_numpy()
@@ -129,7 +157,7 @@ def held_reports(rows, offsets, specs):
     return result
 
 
-def solve(work, parts, specs):
+def solve(work, parts, specs, separate=False):
     datasets = {}
     for name, path in parts.items():
         verify_directory(path,("reference.csv.gz","reference_summary.json"))
@@ -138,21 +166,26 @@ def solve(work, parts, specs):
     train = rows.loc[~rows.is_holdout]
     opts = tomllib.loads(PRECISION.read_text())
     cal = opts["calibration"]
-    fit = fit_offsets(train.reference,train[["east","north"]].to_numpy(),
-                      train[["sigma_e","sigma_n"]].to_numpy(),train.group.to_numpy(),
-                      cal["min_references"],cal["bootstrap_draws"],opts["seed"],
-                      workers=int(os.environ.get("DEEP_PM_M3_WORKERS","1")))
-    if not fit:
+    offsets, gauges = {}, {}
+    pieces = calibration_components(train,cal["min_references"]) if separate else (train,)
+    for component, part in enumerate(pieces):
+        fit = fit_offsets(part.reference,part[["east","north"]].to_numpy(),
+                          part[["sigma_e","sigma_n"]].to_numpy(),part.group.to_numpy(),
+                          cal["min_references"],cal["bootstrap_draws"],opts["seed"]+component,
+                          workers=int(os.environ.get("DEEP_PM_M3_WORKERS","1")))
+        if not fit:
+            continue
+        late = [v for k,v in fit.items() if k.startswith("NSC:")]
+        anchor = np.median(np.stack([v[0] for v in late]),axis=0)
+        datum = np.median(np.stack([v[1]-v[1].mean(axis=0) for v in late]),axis=0)
+        for k,(point,samples,n) in fit.items():
+            centered = samples-samples.mean(axis=0)-datum
+            if np.std(centered,axis=0,ddof=1).max() <= cal["max_offset_se_mas"]:
+                offsets[k] = point-anchor,centered,n
+                gauges[k] = str(component)
+    if not offsets:
         raise ValueError("No jointly solvable SDSS–NSC component")
-    late = [v for k,v in fit.items() if k.startswith("NSC:")]
-    anchor = np.median(np.stack([v[0] for v in late]),axis=0)
-    datum = np.median(np.stack([v[1]-v[1].mean(axis=0) for v in late]),axis=0)
-    offsets = {}
-    for k,(point,samples,n) in fit.items():
-        centered = samples-samples.mean(axis=0)-datum
-        if np.std(centered,axis=0,ddof=1).max() <= cal["max_offset_se_mas"]:
-            offsets[k] = point-anchor,centered,n
-    serialize_offsets(work/"private_c0.npz",offsets)
+    serialize_offsets(work/"private_c0.npz",offsets,gauges)
     membership = Counter(k for d in datasets.values() for k in set(d.group) if k in offsets)
     by_survey = Counter(k.split(":")[0] for k in offsets)
     counts = {name:dict(reference_rows=len(d), safe_groups=len(set(d.group)&offsets.keys()),
@@ -162,7 +195,7 @@ def solve(work, parts, specs):
                        rows,rows.group.to_numpy(),offsets)["components"],
                    unsupported_groups=len(set(rows.group)-offsets.keys()),
                    shared_calibrated_groups=sum(v>1 for v in membership.values()),
-                   shared_groups_in_adjacent={}, held=held_reports(rows,offsets,specs),
+                   shared_groups_in_adjacent={}, held=held_reports(rows,offsets,specs,gauges), applied_gauges=dict(Counter(gauges.values())),
                    offset_se_mas=quantiles([np.std(v[1],axis=0,ddof=1) for v in offsets.values()]),
                    max_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024)
     for a, first in specs.items():
@@ -198,6 +231,7 @@ def main():
     parser.add_argument("config",type=Path)
     parser.add_argument("region")
     parser.add_argument("source",type=Path)
+    parser.add_argument("--separate-components",action="store_true")
     args = parser.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         parser.error("Run on a Slurm compute node")
@@ -219,7 +253,7 @@ def main():
         with run_stage(args.work,args.config,args.region,"continuous-grid-v12",inputs=names,
                        outputs=("private_c0.npz","continuous_reference_summary.json")) as go:
             if go:
-                solve(args.work,parts,{k:specs[k] for k in parts})
+                solve(args.work,parts,{k:specs[k] for k in parts},args.separate_components)
 
 
 if __name__ == "__main__":

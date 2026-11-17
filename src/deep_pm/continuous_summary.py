@@ -116,7 +116,7 @@ def pool(specs, fits, shared, site_names):
         deletions[name]=json.loads((work/"private_group_deletions.json").read_text())
     gauges=defaultdict(list)
     for name, c in cores.items():
-        gauges[c["shared_solution_sha256"]].append(name)
+        gauges[(c["shared_solution_sha256"],c.get("reference_gauge","main"))].append(name)
     result={}
     for name, chosen in site_names.items():
         records=[row for site in chosen for row in strict[site]]

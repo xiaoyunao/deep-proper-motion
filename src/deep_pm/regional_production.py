@@ -18,7 +18,7 @@ from .astrometry import fit_motion, project, unproject, utc_to_tt, years
 from .astrometry_audit import augment_tracks, calibrate_errors, exposure_metadata, quality_flags, qtile
 from .dark_precision import query_unique
 from .epoch_statistics import observation_groups, source_coverage
-from .io import save_json
+from .io import digest, save_json
 from .nsc_comparison import configuration
 from .pilot_production import make_tracks, quality_detections, source_funnel, timing_resources, valid_epochs
 from .precision_v03 import calibration, calibration_groups
@@ -243,7 +243,10 @@ def compute(work,region,spec,config,settings,custom,legacy,footprint_cache=None)
     qso_stats,pairs=audit_qso(work,center,data,xy,t,nsc,keep,expanded,support,products,qso,settings)
     save_json(work/"private_qso_pairs.json",pairs)
     print(f"{region}: QSO and private catalogues complete",flush=True)
-    gaia=audit_gaia(work,center,spec,data,xy,t,sigma,keep,expanded,nsc,products,settings,config)
+    gaia_pairs=[] if settings.get("run_series")=="v08" else None
+    gaia=audit_gaia(work,center,spec,data,xy,t,sigma,keep,expanded,nsc,products,settings,config,paired_rows=gaia_pairs)
+    if gaia_pairs is not None:
+        save_json(work/"private_gaia_pairs.json",gaia_pairs)
     chips=None if footprint_cache is None else r_chip_shapes(
         r_chips(access.Cache(footprint_cache),center,spec["radius"]),center)
     holdout=prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,
@@ -290,8 +293,19 @@ def main():
     if not args.legacy:
         links.update({key:args.inputs/key for key in ("official_nsc.csv","acquisition_summary.json")})
     if args.preflight is not None:
+        from .regional_cohort import load_output
+
+        stage="regional-preflight-"+settings["run_series"]
+        load_output(args.preflight,stage,"regional_preflight_summary.json")
         links["preflight_manifest.json"]=args.preflight/"run_manifest.json"
         links["regional_preflight_summary.json"]=args.preflight/"regional_preflight_summary.json"
+        if settings["run_series"]=="v08":
+            matrix=args.config.with_name("spatial-v08-fields.toml")
+            locked=tomllib.loads(matrix.read_text())["fields"].get(args.region,{})
+            if (locked.get("geometry_sha256")!=digest(links["regional_preflight_summary.json"])
+                    or any(spec[k]!=locked.get(k) for k in ("ra","dec","radius"))):
+                p.error("Production geometry differs from that frozen before reduction.")
+            links["field_matrix.toml"]=matrix
     for name,target in links.items():
         path=work/name
         path.parent.mkdir(parents=True,exist_ok=True)
@@ -311,6 +325,8 @@ def main():
     stage=("legacy-exit-" if args.legacy else "regional-production-")+series
     outputs=["legacy_exit_summary.json"] if args.legacy else [
            "regional_summary.json","private_catalogue.csv.gz","private_qso_pairs.json"]
+    if series=="v08" and not args.legacy:
+        outputs.append("private_gaia_pairs.json")
     inputs=[*links,"private_tracks.json"]
     if not args.legacy:
         with run_stage(work,args.config,args.region,"exposure-metadata-"+series,inputs=["detections.csv"],

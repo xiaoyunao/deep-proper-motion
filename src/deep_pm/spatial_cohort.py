@@ -9,9 +9,10 @@ import numpy as np
 
 from .io import save_json
 from .nsc_cohort import survey_overlap
-from .nsc_comparison import configuration
+from .nsc_comparison import comparison, configuration
 from .provenance import run_stage
-from .regional_cohort import load_output, summarize
+from .regional_cohort import load_output, resampling, summarize
+from .regional_validation import CONTRASTS, tag_magnitude
 from .validation import ratio
 
 
@@ -51,6 +52,27 @@ def yield_and_prediction(fields):
     return result
 
 
+def gaia_cohort(directories, blocks, settings):
+    samples=defaultdict(lambda:defaultdict(list))
+    totals={}
+    for directory in directories:
+        if settings["fields"][directory.name].get("series")!="v08":
+            continue
+        pairs=load_output(directory,"regional-production-v08","private_gaia_pairs.json")
+        totals[directory.name]=len(pairs)
+        for mag,obs in pairs:
+            for tag in tag_magnitude(mag,settings):
+                samples[tag][directory.name].append(obs)
+    results={}
+    for tag,tables in samples.items():
+        rows=[r for part in tables.values() for r in part]
+        groups=[[r for name in block for r in tables.get(name,[])] for block in blocks]
+        groups=[v for v in groups if v]
+        results[tag]=dict(observation_blocks=len(groups),statistics=comparison(rows,settings,CONTRASTS),
+                          w0_vs_nsc_block_bootstrap=resampling(groups,settings,"W0"))
+    return dict(per_field_common=totals,pooled=results)
+
+
 def assess(directories, settings, previous, overlap):
     product = summarize(directories, settings, previous, observation_overlap=overlap)
     rules = settings["regional"]
@@ -67,6 +89,12 @@ def assess(directories, settings, previous, overlap):
             faint, row["zero95"], rules["quality_min_faint_qso"], int(faint > 0), 1, field_limit),
             w0_final_fraction=ratio(row["faint_w0"].get("final", 0), row["faint_w0"].get("initial", 0)),
             historical_gate_exits=row["quality_exits"])
+    for directory in directories:
+        spec=settings["fields"][directory.name]
+        if spec.get("series")=="v08":
+            regional=load_output(directory,"regional-production-v08","regional_summary.json")
+            fields[directory.name]["coverage"] = regional["coverage"]
+            fields[directory.name]["astrometry"] = regional["astrometry"]
     gain = (data.get("block_bootstrap") or {}).get("p68_gain95")
     stats = data.get("statistics", {})
     delta = stats.get("paired", {}).get("W0_vs_published_nsc", {}).get("fraction_improved")
@@ -79,7 +107,8 @@ def assess(directories, settings, previous, overlap):
                                 spatial["min_independent_blocks_for_high_precision"], spatial["zero_limit_masyr"]),
         strict_faint_w0_final=ratio(sample.get("final", 0), sum(sample.values())),
         reproducible_precision_gain=replication,
-        whole_year_prediction=yield_and_prediction(fields)))
+        whole_year_prediction=yield_and_prediction(fields),
+        gaia=gaia_cohort(directories,product["observation_blocks"],settings)))
     return product
 
 
@@ -131,7 +160,10 @@ def main():
     for core in [*directories, *args.comparison]:
         tracked.append(link_input(work, Path(core.name) / "detections.csv", core / "detections.csv"))
         if core in directories:
-            for name in ("regional_summary.json", "private_qso_pairs.json", "run_manifest.json"):
+            names=["regional_summary.json","private_qso_pairs.json","run_manifest.json"]
+            if fields[core.name].get("series")=="v08":
+                names.append("private_gaia_pairs.json")
+            for name in names:
                 tracked.append(link_input(work, Path(core.name) / name, core / name))
     out = "spatial_cohort_summary.json"
     with run_stage(work, args.config, args.cohort, "spatial-cohort-v08",

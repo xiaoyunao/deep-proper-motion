@@ -64,6 +64,7 @@ def historical(audits, history, folder):
     ax[0,0].legend(frameon=False,ncol=2)
     fig.supxlabel("Spectroscopic QSO reference r (mag)")
     output(fig,folder,"historical_zero")
+    observing_conditions(audits,folder)
 
     if history:
         fig,ax=plt.subplots(1,2,figsize=(9,3.6),layout="constrained",sharey=True)
@@ -84,6 +85,36 @@ def historical(audits, history, folder):
             a.legend(frameon=False)
         ax[0].set_ylabel("Correctly recovered fraction (95% Wilson)")
         output(fig,folder,"morphology")
+
+
+def observing_conditions(audits, folder):
+    fig,panels=plt.subplots(2,3,figsize=(12,7.4),layout="constrained")
+    for panel,prefix,title in zip(panels.flat,
+            ("color","instrument","nsc_span","nsc_time","scan_camera","matched_condition"),
+            ("NSC g−i class","NSC instrument","NSC r time span","Median NSC observation",
+             "Dominant SDSS run/camcol","Same conditions within a core")):
+        sample=[]
+        for name in PRIORITY:
+            rows=[(k[len(prefix)+2:],r) for k,r in audits[name]["zero"].items()
+                  if k.startswith(prefix+"__") and "median" in r]
+            for local,row in sorted(rows,key=lambda t:(-t[1]["n"],t[0]))[:2]:
+                if prefix=="matched_condition":
+                    camera,inst,span,time,magnitude=local.split("__")
+                    local=f"{magnitude.replace('_to_','–')} {inst} {span}/{time} {camera}"
+                sample.append((f"{name} / {local} ({row['n']})",row))
+        for i,(_,row) in enumerate(sample):
+            for dim in range(2):
+                lo,hi=row["median95"][dim]
+                offset=i+(dim-.5)*.23
+                panel.hlines(offset,lo,hi,color=f"C{dim}",alpha=.63)
+                panel.scatter(row["median"][dim],offset,color=f"C{dim}",s=14)
+        panel.set_yticks(range(len(sample)),[name for name,_ in sample],fontsize=7)
+        panel.invert_yaxis()
+        panel.axvspan(-.5,.5,color=".92")
+        panel.set_title(title,fontsize=10)
+        panel.set_xlabel("Median proper motion (mas/yr)",fontsize=8)
+    fig.suptitle("QSO zero points by observing conditions — East (blue), North (orange)")
+    output(fig,folder,"observing_conditions")
 
 
 def performance(cohort, folder):

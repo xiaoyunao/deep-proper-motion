@@ -155,7 +155,7 @@ def audit_qso(work,center,data,xy,t,nsc,keep,expanded,support,products,qso,setti
                 association=recoveries,precision=summary),pairs
 
 
-def audit_gaia(work,center,spec,data,xy,t,sigma,keep,expanded,nsc,products,settings,config):
+def audit_gaia(work,center,spec,data,xy,t,sigma,keep,expanded,nsc,products,settings,config,paired_rows=None):
     gaia=pd.read_csv(work/"validation"/"gaia.csv")
     idx=np.flatnonzero(expanded)
     subset,cat=gaia_labels(data.iloc[idx].reset_index(drop=True),xy[idx],t[idx],sigma[idx],
@@ -204,6 +204,8 @@ def audit_gaia(work,center,spec,data,xy,t,sigma,keep,expanded,nsc,products,setti
             for method,found in results.items():
                 _,pm,unc,*_=products[method][1][found[key]]
                 values[method]=(pm-motion[key],np.hypot(unc,error[key]))
+            if paired_rows is not None:
+                paired_rows.append((mag[key],values))
             for tag in tag_magnitude(mag[key],settings):
                 sample[tag]["same_three_and_nsc"].append(values)
     precision={tag:{k:comparison(v,settings,CONTRASTS) for k,v in values.items()} for tag,values in sample.items()}

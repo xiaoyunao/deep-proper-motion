@@ -2,6 +2,7 @@ import unittest
 import numpy as np
 from deep_pm.zero_point import fit_offsets
 from deep_pm.exposure_catalogues import inside
+from deep_pm.exposure_partition import owner, storage_pixels
 
 
 class ExposureCalibrationTest(unittest.TestCase):
@@ -21,6 +22,14 @@ class ExposureCalibrationTest(unittest.TestCase):
         self.assertFalse(inside(134,0,a))
         self.assertTrue(inside(134,0,b))
         self.assertTrue(inside(134,0,a,.06))
+
+    def test_ring_storage_includes_both_sides_of_ra_wrap(self):
+        box={"ra":[355,365],"dec":[-5,5]}
+        ra=np.array([355,359.9,0,4.9999,5])
+        dec=np.array([-5,4.9999,0,-4.9999,0])
+        pix=owner(ra,dec,box,128)
+        self.assertTrue(set(pix[:4]) <= set(storage_pixels(box,128,.06)))
+        self.assertEqual(pix[-1],-1)
 
 
 if __name__=="__main__":

@@ -69,9 +69,13 @@ def calibration(pilots, figures):
     for ax, (field, data) in zip(axes, pilots.items()):
         galaxy = data["galaxies"]
         comparison = galaxy["comparison"]
-        rows = [(f"All ($n$={comparison['n']:,})", [comparison["methods"][m]["radial_abs68"] for m in ("C0", "C1")])]
+        methods = comparison.get("methods", {})
+        rows = [(f"All ($n$={comparison['n']:,})", [methods[m]["radial_abs68"] for m in ("C0", "C1")])] if methods else []
         rows.extend((f"{key.replace('_', ' ')} ($n$={v['n']:,})", v["radial_p68_mas"])
                     for key,v in sorted(galaxy["residual_strata"].items()))
+        if not rows:
+            ax.text(.5, .5, f"Held-out common galaxies: {comparison['n']}", transform=ax.transAxes, ha="center")
+            continue
         pos = np.arange(len(rows))
         values = np.asarray([v for _,v in rows])
         for i, (label, color) in enumerate((("C0", "#3b638c"), ("C1", "#009475"))):
@@ -81,6 +85,37 @@ def calibration(pilots, figures):
         ax.set(title=field.replace("_", " "), xlabel="Radial P68 [mas]")
         ax.legend(frameon=False)
     fig.savefig(figures/"v09_exposure_galaxy_summary.png", dpi=180)
+    plt.close(fig)
+
+
+def zero_points(pilots, figures):
+    fig, axes = plt.subplots(1, 2, figsize=(9.0, 4.5), constrained_layout=True, sharey=True)
+    rows = []
+    for field, data in pilots.items():
+        cohorts = data["qso"]["by_cohort"].get("c0_c1", {})
+        for kind in ("strict", "blind"):
+            control = cohorts.get(f"{kind}__all__all", {})
+            rows.append((f"{field.replace('_',' ')} · {kind} ($n$={control.get('n',0)})",
+                         control.get("methods", {})))
+    for axis, ax in enumerate(axes):
+        ax.axvspan(-.5, .5, color="#dadada", zorder=0)
+        ax.axvline(0, color="0.35", lw=.7)
+        for i, (method, color) in enumerate((("C0", "#3b638c"), ("C1", "#009475"))):
+            for y, (_, control) in enumerate(rows):
+                if method not in control:
+                    continue
+                stats = control[method]
+                lo, hi = stats["median_bias95"][axis]
+                pos = y+(i-.5)*.26
+                ax.hlines(pos, lo, hi, color=color)
+                ax.scatter(stats["median"][axis], pos, color=color, s=19)
+            ax.plot([], [], "o-", color=color, label=method)
+        ax.set_yticks(np.arange(len(rows)), [key for key,_ in rows], fontsize=9)
+        if axis == 0:
+            ax.invert_yaxis()
+        ax.set(xlabel="Median QSO proper motion [mas yr$^{-1}$]", title=("East", "North")[axis])
+    axes[-1].legend(frameon=False)
+    fig.savefig(figures/"v09_exposure_zero_summary.png", dpi=180)
     plt.close(fig)
 
 
@@ -96,6 +131,7 @@ def main():
                   for name in ("repeat_rich", "repeat_sparse")}
         motion(pilots, args.figures)
         calibration(pilots, args.figures)
+        zero_points(pilots, args.figures)
 
 
 if __name__ == "__main__":

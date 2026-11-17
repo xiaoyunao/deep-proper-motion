@@ -59,6 +59,8 @@ def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
     magnitude=data.magnitude.to_numpy()
     band=data.band.to_numpy()
     airmass=data.airmass.to_numpy()
+    fwhm=data.fwhm.to_numpy()
+    mag_error=data.magnitude_error.to_numpy()
     centre=np.median(xy,axis=0)
     for _,row in rows.groupby("reference",sort=False):
         i=row.index.to_numpy()
@@ -73,6 +75,13 @@ def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
         terms=["sky_"+("east" if point[0]>0 else "west")+("_north" if point[1]>0 else "_south")]
         med=np.median(magnitude[early])
         terms.append("r_20_to_22" if med>=20 else "r_below_20")
+        nscr=late[band[late]=="r"]
+        if np.isfinite(fwhm[nscr]).any():
+            seeing=np.nanmedian(fwhm[nscr])
+            terms.append("nsc_r_fwhm_ge_1_3" if seeing>=1.3 else "nsc_r_fwhm_lt_1_3")
+        if np.isfinite(mag_error[nscr]).any():
+            error=np.nanmedian(mag_error[nscr])
+            terms.append("nsc_r_magerr_ge_0_05" if error>=.05 else "nsc_r_magerr_lt_0_05")
         c=color[early]
         if np.isfinite(c).any():
             c=np.median(c[np.isfinite(c)])
@@ -128,11 +137,13 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
     truth={k:i for k,i in truth.items() if nsc[i].any() and not nsc[i].all()}
     linked,status=common_catalogue_ids(truth,labels,data,release[0])
     published=release[1]
-    ceilings={k:track_audit(tracks,values,truth,labels,nsc,
-                   settings["production"]["validation_min_recovery"])[0] for k,values in products.items()}
+    audits={k:track_audit(tracks,values,truth,labels,nsc,
+                          settings["production"]["validation_min_recovery"]) for k,values in products.items()}
     support=np.isin(keys[0],list(offsets[0]))&np.isin(keys[1],list(offsets[1]))
     records=defaultdict(lambda:defaultdict(list))
+    temporal=defaultdict(list)
     totals=Counter()
+    exposure=data.exposure_id.to_numpy()
     for k,detections in truth.items():
         if k>=len(origin) or not np.isfinite(magnitudes[k]):
             continue
@@ -150,7 +161,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 base["NSC"]=values
         if k in legacy:
             base["Xiao"]=legacy[k]
-        blind={name:products[name][found[k]][1:3] for name,found in ceilings.items() if k in found}
+        blind={name:products[name][found[k]][1:3] for name,(found,_) in audits.items() if k in found}
         if all(name in blind for name in ("C0","C1")):
             blind.update({name:x for name,x in base.items() if name in ("Xiao","NSC")})
         else:
@@ -164,6 +175,10 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 continue
             corrected={name:(pm-ref[k],np.hypot(error,ref_error[k])) for name,(pm,error) in values.items()}
             for mag in tag_magnitude(magnitudes[k],settings):
+                if state=="strict":
+                    late=nsc[indices]
+                    temporal[mag].append([np.count_nonzero(~late),len(set(exposure[indices[~late]])),
+                                          len(set(exposure[indices[late]])),np.ptp(t[indices])])
                 for source in {"all",origin[k]}:
                     prefix=f"{state}__{source}__{mag}"
                     records["c0_c1"][prefix].append({name:corrected[name] for name in ("C0","C1")})
@@ -179,7 +194,10 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 limit=settings["zero_point_limit_masyr"]
                 stats["zero_by_axis"]=["within" if lo>=-limit and hi<=limit else
                     "outside" if lo>limit or hi<-limit else "unresolved" for lo,hi in zip(lower,upper)]
-    return dict(totals=totals,archive_match_status=status,by_cohort=cohorts)
+    coverage={k:dict(n=len(v),p16_median_p84=np.quantile(v,[.16,.5,.84],axis=0))
+              for k,v in temporal.items() if len(v)>=settings["min_publish_count"]}
+    return dict(totals=totals,archive_match_status=status,by_cohort=cohorts,temporal=coverage,
+                blind_quality={name:audit for name,(_,audit) in audits.items()})
 
 
 def run(work,inputs,legacy_path,spec,calibration_config):
@@ -247,7 +265,7 @@ def run(work,inputs,legacy_path,spec,calibration_config):
     save_json(work/"pilot_summary.json",dict(c0=c0_stats,c1=c1_stats,galaxies=galaxy,qso=qso_stats,
         gaia=gaia_stats,legacy_origin_counts=dict(qso=old_count,gaia=old_gaia_counts),source_yield=yields,
         gate=pilot_gate(galaxy,qso_stats,calibration_config),
-        qso_origins=qso.origin.value_counts(),elapsed_seconds=monotonic()-start,
+        qso_origins=qso.origin.value_counts().to_dict(),elapsed_seconds=monotonic()-start,
         acquisition=json.loads((inputs/"acquisition_summary.json").read_text())))
 
 

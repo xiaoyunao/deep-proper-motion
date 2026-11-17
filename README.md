@@ -65,3 +65,5 @@ bash scripts/regional-v07.sh north_a single_e
 候选与入选范围分别见 [空间配置](configs/spatial-v08.toml) 和 [冻结矩阵](configs/spatial-v08-fields.toml)。在 NERSC CPU Slurm 分配内使用 scripts/spatial-v08.sh 的 acquire 或 reduce 模式，将每个 task 配置在独立节点。DEEP_PM_NODE_TASKS 为当前节点数，DEEP_PM_WORKERS 为各节点内的独立区域进程数，其他输入输出路径通过同一脚本的环境变量设置。
 
 取数重试沿用原提交、配置、目录和缓存。逐检测、逐源、自行配对及留出数据保留在 NERSC Scratch。允许列表脚本可导出阶段摘要，deep_pm.spatial_figures 从摘要复现图。
+
+v0.9 将 M3 与曝光／探测器级位置零点放到同一批检测上比较，先运行连续区域内的两个独立小试。冻结区域、试点阈值与可恢复的 NERSC 取数和拟合入口见 [v0.9 复现说明](docs/exposure_v09.md)。

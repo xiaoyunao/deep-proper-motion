@@ -1,0 +1,204 @@
+# Freeze of the first batch before inspecting proper-motion results.
+# Candidate geometries use the v0.8 preflight receipts.
+selection_seed = 73021
+candidate_count = 162
+completed_geometry = 147
+eligible_geometry = 82
+
+[fields.mid_18]
+batch = 1
+ra = 198.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+condition = ["short", "mostly_single", "c4d"]
+sdss_run_count = 6
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9817708333333334
+joint_nsc_span_median = 1.7774614504335204
+repeated_sdss_fraction = 0.3880208333333333
+faint_qso_positions = 89
+buffered_archive_candidates = 68357
+geometry_sha256 = "1bcf44a82a5e1bfb678b840062007d4419e28a4881e008737733efaab6552756"
+nscr_exposure_count = 9
+
+[fields.equator_12]
+batch = 1
+ra = 52.9
+dec = 0.35
+radius = 0.785
+role = "equator"
+condition = ["short", "repeated", "c4d"]
+sdss_run_count = 53
+area_sqdeg = 1.9358976499330334
+joint_fraction = 0.9752604166666666
+nsc_span_fraction = 0.7916666666666666
+joint_nsc_span_median = 1.1577094607373795
+repeated_sdss_fraction = 1.0
+faint_qso_positions = 168
+buffered_archive_candidates = 55846
+geometry_sha256 = "50abc468a078bbd46af71bfb3e44c4f00ed78fd04cd9704e6eec8abfa7e10e83"
+nscr_exposure_count = 9
+
+[fields.cap_24]
+batch = 1
+ra = 246.1
+dec = 21.5
+radius = 0.785
+role = "cap"
+condition = ["long", "repeated", "c4d"]
+sdss_run_count = 7
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9518229166666666
+joint_nsc_span_median = 2.934888496312851
+repeated_sdss_fraction = 0.8190104166666666
+faint_qso_positions = 143
+buffered_archive_candidates = 77822
+geometry_sha256 = "1c2fefa9c7d90e0dfc5c11a6dd23af6dfe5869f9a613e4cb7a8a9fbc9ff98e03"
+nscr_exposure_count = 10
+
+[fields.alto_09]
+batch = 1
+ra = 186.8
+dec = 43.5
+radius = 0.785
+role = "alto"
+condition = ["short", "mostly_single", "ksb"]
+sdss_run_count = 4
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9244791666666666
+joint_nsc_span_median = 0.9474095551310882
+repeated_sdss_fraction = 0.018229166666666668
+faint_qso_positions = 91
+buffered_archive_candidates = 23447
+geometry_sha256 = "19f84b98845145723bda8308aaae47b6dfeca56e8ec9acf083402a0ac6db5973"
+nscr_exposure_count = 13
+
+[fields.south_07]
+batch = 1
+ra = 144.8
+dec = 3.9
+radius = 0.785
+role = "south"
+condition = ["long", "mostly_single", "c4d"]
+sdss_run_count = 7
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9309895833333334
+joint_nsc_span_median = 3.145475611377492
+repeated_sdss_fraction = 0.203125
+faint_qso_positions = 221
+buffered_archive_candidates = 71044
+geometry_sha256 = "36c149911fc1b5221ca911b67582e757b38739c82c6ce2d96fa4cd1e350eaba2"
+nscr_exposure_count = 20
+
+[fields.north_10]
+batch = 1
+ra = 175.7
+dec = 33.3
+radius = 0.785
+role = "north"
+condition = ["long", "mostly_single", "ksb"]
+sdss_run_count = 5
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.8645833333333334
+joint_nsc_span_median = 2.1020332415429266
+repeated_sdss_fraction = 0.3268229166666667
+faint_qso_positions = 71
+buffered_archive_candidates = 52071
+geometry_sha256 = "2704f1bd8f7d1ee2de77d0f92cbcdb4cba6fe9b6671a887ebf93cddbc9ed56d0"
+nscr_exposure_count = 23
+
+[fields.arc_03]
+batch = 1
+ra = 131.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+condition = ["long", "repeated", "c4d"]
+sdss_run_count = 5
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9934895833333334
+joint_nsc_span_median = 2.086184296948204
+repeated_sdss_fraction = 0.8033854166666666
+faint_qso_positions = 165
+buffered_archive_candidates = 63461
+geometry_sha256 = "16329728ef314de7f6407e231e7d866aa793cf48307f009b74b47a249ca30a99"
+nscr_exposure_count = 13
+
+[fields.alto_14]
+batch = 1
+ra = 222.3
+dec = 43.5
+radius = 0.785
+role = "alto"
+condition = ["short", "repeated", "ksb"]
+sdss_run_count = 3
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9140625
+joint_nsc_span_median = 1.0130658563070938
+repeated_sdss_fraction = 0.49609375
+faint_qso_positions = 70
+buffered_archive_candidates = 25472
+geometry_sha256 = "aa844fe30b43d4e8869981ddb7f2e7b8d220b408d57cec70e105ee51c44b216e"
+nscr_exposure_count = 15
+
+[fields.north_04]
+batch = 1
+ra = 137.9
+dec = 33.3
+radius = 0.785
+role = "north"
+condition = ["long", "repeated", "ksb"]
+sdss_run_count = 8
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9986979166666666
+joint_nsc_span_median = 3.0876327344266485
+repeated_sdss_fraction = 0.8190104166666666
+faint_qso_positions = 52
+buffered_archive_candidates = 57688
+geometry_sha256 = "dd593e77c08722e0f8f10ba67a290a47ae78f7199b29fbee98d9a10ab3294456"
+nscr_exposure_count = 28
+
+[fields.cap_13]
+batch = 1
+ra = 183.4
+dec = 21.5
+radius = 0.785
+role = "cap"
+condition = ["long", "mostly_single", "c4d"]
+sdss_run_count = 4
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9192708333333334
+joint_nsc_span_median = 2.910591844775297
+repeated_sdss_fraction = 0.024739583333333332
+faint_qso_positions = 56
+buffered_archive_candidates = 61902
+geometry_sha256 = "2181f972165ca7dfb4caa6a0ea84cd2e6b8f78ad6c4801b4bcdb1ca0eb05bea1"
+nscr_exposure_count = 11
+
+[fields.arc_09]
+batch = 1
+ra = 170.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+condition = ["short", "mostly_single", "c4d"]
+sdss_run_count = 4
+area_sqdeg = 1.9358976499330334
+joint_fraction = 1.0
+nsc_span_fraction = 0.9010416666666666
+joint_nsc_span_median = 1.0376558159985052
+repeated_sdss_fraction = 0.078125
+faint_qso_positions = 181
+buffered_archive_candidates = 60419
+geometry_sha256 = "7edae6ae9de13e57353917f93694e828c988995a4ab3b0421735030648054471"
+nscr_exposure_count = 15

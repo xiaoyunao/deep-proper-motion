@@ -29,6 +29,7 @@ coverage_years = 0.60
 [spatial]
 batch_min_deg2 = 20
 batch_max_deg2 = 25
+batch_sizes = [11, 11, 11, 11]
 target_additional_deg2 = 78
 min_independent_blocks_for_high_precision = 3
 zero_limit_masyr = 0.5

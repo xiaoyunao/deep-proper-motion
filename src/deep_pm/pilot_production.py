@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None):
     prod = settings["production"]
     group = calibration_groups(data) if observation_groups is None else observation_groups
     nsc = data.survey.eq("NSC").to_numpy()
@@ -135,8 +135,19 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
                                                 [offsets[k] for k in group[use]])
             if model_cache is not None:
                 model_cache[j] = (use, model, error)
-        if (not np.isfinite(error).all() or error.max()>prod["max_axis_pm_error_masyr"]
-                or np.quantile(np.linalg.norm(model.residual/sigma[use],axis=1),.68)>3):
+        residual = np.quantile(np.linalg.norm(model.residual/sigma[use],axis=1),.68)
+        finite = np.isfinite(error).all()
+        formal = not finite or error.max()>prod["max_axis_pm_error_masyr"]
+        scatter = residual>3
+        if quality_audit is not None and bucket=="22_to_23":
+            weights = model.weight / np.mean(sigma[use]**2,axis=1)
+            lever = weights*(time[use]-np.average(time[use],weights=weights))**2
+            first = use[np.argmin(time[use])]
+            first_run_share = lever[exposure[use]==exposure[first]].sum()/lever.sum()
+            late = use[nsc[use]]
+            quality_audit.append((formal,scatter,finite,error.max(),residual,np.ptp(time[use]),
+                                  first_run_share,len(set(exposure[late])),np.median(mag[late])))
+        if formal or scatter:
             stats["final_quality_rejection"] += 1
             continue
         stats["final"] += 1

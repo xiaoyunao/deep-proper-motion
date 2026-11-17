@@ -122,9 +122,11 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
     fresh=make_tracks(xy,exp,keep & ~hold,prod["match_radius_mas"])
     initial=make_tracks(xy,exp,keep & ~hold & nsc,prod["match_radius_mas"])
     fresh_multi=augment_tracks(fresh,data,xy,expanded & ~hold,keep & ~hold,prod)
-    baseline=source_funnel(data,xy,t,w1,keep & ~hold,fresh,offsets,config,settings,spec["radius"],initial=initial)[1]
+    core=spec.get("core_members")
+    baseline=source_funnel(data,xy,t,w1,keep & ~hold,fresh,offsets,config,settings,spec["radius"],initial=initial,
+                           observation_groups=keys,core_members=core)[1]
     extra=source_funnel(data,xy,t,w1,expanded & ~hold,fresh_multi,offsets,config,settings,spec["radius"],
-                        reference_keep=keep & ~hold,initial=initial)[1]
+                        reference_keep=keep & ~hold,initial=initial,observation_groups=keys,core_members=core)[1]
     # Use W1 as the common anchor. A single observed position is compared to
     # both predictions. Newly supported sources are a distinct denominator.
     pool=[j for j,v in extra.items() if v[3] in ("20_to_21","21_to_22","22_to_23")]

@@ -12,6 +12,7 @@ import pandas as pd
 from scipy.spatial import cKDTree
 
 from .__main__ import tomllib
+from .access import Cache
 from .astrometry import project, unproject
 from .dark_precision import query_unique
 from .exposure_catalogues import inside
@@ -25,6 +26,7 @@ from .precision_v03 import calibration, fit_with_calibration
 from .provenance import run_stage
 from .regional_validation import official_table, tag_magnitude, valid_published
 from .validation import gaia_labels, groups_by_label
+from .validation_audit import boundary_pairs, dark_quality, gaia_bright, gaia_observation_quality, graph_support
 
 
 def matched_legacy(table, points, center):
@@ -200,7 +202,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 blind_quality={name:audit for name,(_,audit) in audits.items()})
 
 
-def run(work,inputs,legacy_path,spec,calibration_config):
+def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=False):
     start=monotonic()
     settings=tomllib.loads(Path("configs/spatial-v08.toml").read_text())
     settings["bootstrap_draws"]=400
@@ -230,12 +232,16 @@ def run(work,inputs,legacy_path,spec,calibration_config):
     print(f"{len(tracks):,} shared blind associations, {len(seeds):,} NSC anchors",flush=True)
     products={}
     yields={}
+    quality={}
+    def core(position):
+        ra,dec=unproject(position,center)[0]
+        return inside(ra,dec,spec)
     for name,obs,solution in zip(("C0","C1"),pairs,models):
-        def core(position):
-            ra,dec=unproject(position,center)[0]
-            return inside(ra,dec,spec)
+        failed=[] if audit else None
         yields[name],products[name]=source_funnel(data,xy,t,sigma,keep,tracks,solution,config,settings,radius,
-            initial=seeds,observation_groups=obs,core_members=core)
+            initial=seeds,observation_groups=obs,core_members=core,quality_audit=failed)
+        if audit:
+            quality[name]=dark_quality(failed)
         print(f"{name}: {len(products[name]):,} blind quality solutions",flush=True)
     original=pd.read_csv(inputs/"external_labels.csv",dtype=str).set_index("detection_id").original_object_id
     release=(original,official_table(inputs,{}))
@@ -249,6 +255,9 @@ def run(work,inputs,legacy_path,spec,calibration_config):
         np.zeros((len(qso),2)),np.zeros((len(qso),2)),release,old,tracks,products)
     print(f"QSO controls: {qso_stats['totals']}",flush=True)
     g=pd.read_csv(inputs/"validation/gaia.csv")
+    if audit and "visibility_periods_used" not in g.columns:
+        visibility=gaia_observation_quality(Cache(work/"gaia_quality_cache"),spec)
+        g=g.merge(visibility,on="source_id",how="left",validate="one_to_one")
     labels0,cat=gaia_labels(data.loc[keep].reset_index(drop=True),xy[keep],t[keep],sigma[keep],
                            g,center,dict(config,gaia_max_pm_error=2.))
     labels=np.full(len(data),-1)
@@ -258,15 +267,42 @@ def run(work,inputs,legacy_path,spec,calibration_config):
     mag=np.full(len(cat),np.nan)
     for i,idx in truth.items():
         mag[i]=np.median(data.magnitude.iloc[idx[nsc[idx]]])
+    gaia_audit={}
+    if audit:
+        bright=gaia_bright(cat,mag)
+        gaia_audit=dict(v09_quality_cross_survey_labels=len(truth),
+                        bright_labels=int(bright.sum()), faint_diagnostic_labels=int(np.count_nonzero(mag>=21)),
+                        other_bright_exits=int(np.count_nonzero((mag<21)&~bright)))
+        truth={i:idx for i,idx in truth.items() if bright[i]}
     old_gaia,old_gaia_counts=matched_legacy(legacy,project(cat.ra,cat.dec,center),center)
     gaia_stats=contrast_samples(truth,labels,data,xy,t,sigma,keep,nsc,settings,config,
         pairs,models,center,mag,np.repeat("Gaia",len(cat)),cat[["pm_tangent_x","pm_tangent_y"]].to_numpy(),
         cat[["pmra_error","pmdec_error"]].to_numpy(),release,old_gaia,tracks,products)
+    extras={}
+    if audit:
+        print(f"Bright Gaia: {gaia_stats['totals']}",flush=True)
+        extras=dict(gaia_policy=gaia_audit, dark_quality=quality,
+                    reference_graph=graph_support(refs,pairs[1],c1),
+                    physical_boundaries=boundary_pairs(refs,data,xy,data.detection_id.map(original),pairs,models,center,spec))
+        extras["sensitivity"]={}
+        if sensitivity:
+            for references,prior in ((10,50.),(25,50.),(15,25.),(15,100.)):
+                alternative=dict(calibration_config,min_child_references=references,child_prior_mas=prior)
+                altkeys,fit,diagnostic=hierarchy(data,refs,xy,sigma,config,alternative,c0)
+                held=held_galaxies(refs,data,xy,nsc,(pairs[0],altkeys),(c0,fit),pixels,fine,settings)
+                extras["sensitivity"][f"references_{references}_prior_{int(prior)}"]=dict(support=diagnostic,
+                                                                            matched_galaxies=held["comparison"])
+                print(f"Sensitivity {references} / {prior} complete",flush=True)
+        from .regional_production import prediction
+        multi=keep|(nsc&data.band.isin(["g","i","z"]).to_numpy()&data.magnitude_error.between(0,.21715).to_numpy())
+        shapes=dict(spec,radius=radius,core_members=core)
+        extras["annual_holdout"]=prediction(work,center,data,xy,t,sigma,sigma,keys,nsc,keep,multi,c1,
+                                             settings,config,shapes)
     save_json(work/"pilot_summary.json",dict(c0=c0_stats,c1=c1_stats,galaxies=galaxy,qso=qso_stats,
         gaia=gaia_stats,legacy_origin_counts=dict(qso=old_count,gaia=old_gaia_counts),source_yield=yields,
         gate=pilot_gate(galaxy,qso_stats,calibration_config),
         qso_origins=qso.origin.value_counts().to_dict(),elapsed_seconds=monotonic()-start,
-        acquisition=json.loads((inputs/"acquisition_summary.json").read_text())))
+        acquisition=json.loads((inputs/"acquisition_summary.json").read_text()),**extras))
 
 
 def main():
@@ -276,6 +312,8 @@ def main():
     p.add_argument("inputs",type=Path)
     p.add_argument("legacy",type=Path)
     p.add_argument("config",type=Path)
+    p.add_argument("--validation-audit",action="store_true")
+    p.add_argument("--sensitivity",action="store_true")
     a=p.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         p.error("Run on a Slurm compute node")
@@ -287,10 +325,12 @@ def main():
         (work/"input_manifest.json").symlink_to(input_receipt)
     if (work/"input_manifest.json").resolve()!=input_receipt:
         raise ValueError("Pilot is already bound to a different acquisition")
-    with run_stage(work,a.config,a.region,"exposure-pilot-v09",inputs=["input_manifest.json"],
+    stage="exposure-pilot-v10" if a.validation_audit else "exposure-pilot-v09"
+    with run_stage(work,a.config,a.region,stage,inputs=["input_manifest.json"],
                    outputs=["pilot_summary.json"]) as go:
         if go:
-            run(work,a.inputs/a.region,a.legacy,settings["fields"][a.region],settings["calibration"])
+            run(work,a.inputs/a.region,a.legacy,settings["fields"][a.region],settings["calibration"],
+                a.validation_audit,a.sensitivity)
 
 
 if __name__=="__main__":

@@ -53,6 +53,8 @@ def sdss(table):
         out[target] = t[source]
     out["color"] = t.psfmag_g - t.psfmag_i if {"psfmag_g", "psfmag_i"} <= set(t) else np.nan
     out["scan_detector"] = physical_id
+    if "field" in t:
+        out["field_id"] = t["field"]
     if "resolvestatus" in t:
         # RUN_PRIMARY = 0x1. Preserve runs and discard overlap duplicates.
         out = out[(t.resolvestatus.fillna(0).astype("int64") & 1) != 0]

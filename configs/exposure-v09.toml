@@ -12,3 +12,11 @@ dec = [-5.0, 5.0]
 [boxes.c]
 ra = [345.0, 355.0]
 dec = [-5.0, 5.0]
+
+[calibration]
+min_child_references = 15
+child_prior_mas = 50.0
+min_galaxy_gain = 0.05
+min_qso_count = 20
+max_qso_relative_loss = 0.10
+zero_limit_masyr = 0.50

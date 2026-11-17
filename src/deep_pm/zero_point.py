@@ -3,12 +3,13 @@ from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
 import pandas as pd
-from scipy.sparse import coo_matrix
+from scipy.sparse import coo_matrix, vstack
 from scipy.sparse.csgraph import connected_components
 from scipy.sparse.linalg import lsmr
 
 
-def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1):
+def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
+                parents=None, shrinkage_mas=50.):
     # Peel groups without independent references and objects without a link.
     pairs = pd.DataFrame(dict(ref=np.asarray(refs), group=group))
     active = pairs.copy()
@@ -22,10 +23,22 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1):
         active = reduced
     if active.empty:
         return {}
-    r, sources = pd.factorize(active.ref)
-    g, groups = pd.factorize(active.group)
+    def index(rows):
+        r, sources = pd.factorize(rows.ref)
+        groups = list(pd.unique(rows.group))
+        if parents:
+            groups.extend(p for p in dict.fromkeys(parents[k] for k in groups if k in parents)
+                          if p not in groups)
+        lookup = {name:j for j,name in enumerate(groups)}
+        g = rows.group.map(lookup).to_numpy()
+        child = np.array([lookup[name] for name in groups if parents and name in parents],dtype=int)
+        parent = np.array([lookup[parents[groups[j]]] for j in child],dtype=int)
+        return r,g,sources,groups,child,parent
+
+    r,g,sources,groups,child,parent = index(active)
     nr, ng = len(sources), len(groups)
-    graph = coo_matrix((np.ones(len(g)), (r, nr + g)), shape=(nr + ng, nr + ng))
+    graph = coo_matrix((np.ones(len(g)+len(child)),
+                        (np.r_[r,nr+child],nr+np.r_[g,parent])),shape=(nr+ng,nr+ng))
     ncomponents, component = connected_components(graph, directed=False)
     # Different connected components have different gauges. Only a shared
     # component can define a cross-survey proper motion.
@@ -36,12 +49,16 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1):
         return {}
     selected = max(candidates)[1]
     active = active.loc[component[r] == selected]
-    r, sources = pd.factorize(active.ref)
-    g, groups = pd.factorize(active.group)
+    r,g,sources,groups,child,parent = index(active)
     nr, ng = len(sources), len(groups)
     i = np.arange(len(g))
     design = coo_matrix((np.ones(len(g)*2), (np.r_[i, i], np.r_[r, nr + g])),
                         shape=(len(g), nr + ng)).tocsr()[:, :-1]
+    if len(child):
+        h = np.arange(len(child))
+        penalty = coo_matrix((np.r_[np.ones(len(h)),-np.ones(len(h))]/shrinkage_mas,
+                             (np.r_[h,h],nr+np.r_[child,parent])),
+                             shape=(len(h),nr+ng)).tocsr()[:,:-1]
     values = xy[active.index].copy()
     # Center each object's positions to keep the numerical scale in mas.
     for j, indexes in active.groupby("ref", sort=False).indices.items():
@@ -52,7 +69,10 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1):
         coeff = []
         for axis in range(2):
             w = np.sqrt(weights) / independent[:, axis]
-            answer = lsmr(design.multiply(w[:, None]), values[:, axis] * w,
+            matrix, rhs = design.multiply(w[:, None]), values[:,axis]*w
+            if len(child):
+                matrix, rhs = vstack((matrix,penalty),format="csr"),np.r_[rhs,np.zeros(len(child))]
+            answer = lsmr(matrix,rhs,
                           atol=1e-9, btol=1e-9, maxiter=4000)
             if answer[1] not in (0, 1, 2, 4, 5):
                 raise RuntimeError("Stationary reference solve did not converge")
@@ -80,4 +100,4 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1):
     support = active.groupby("group").ref.nunique()
     return {name: (np.r_[optimum[nr:], np.zeros((1, 2))][j],
                    np.concatenate((samples, np.zeros((draws, 1, 2))), axis=1)[:, j],
-                   int(support[name])) for j, name in enumerate(groups)}
+                   int(support.get(name,0))) for j, name in enumerate(groups)}

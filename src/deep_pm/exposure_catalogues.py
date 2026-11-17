@@ -76,7 +76,7 @@ def catalogue_audit(work, legacy, sdss, desi, boxes):
     all_flags = Counter()
     chunks = {name:[] for name in boxes}
     columns = ("objID","RA","DEC","PM_SOURCE","pmRA","pmDEC","pmRA_err","pmDEC_err")
-    with fits.open(legacy,memmap=True) as handle:
+    with fits.open(legacy,memmap=True,character_as_bytes=True) as handle:
         hdu=handle[1]
         table=hdu.data
         identifiers={k.casefold():k for k in table.names}
@@ -90,12 +90,13 @@ def catalogue_audit(work, legacy, sdss, desi, boxes):
             ra,dec=table[identifiers["ra"]][sl],table[identifiers["dec"]][sl]
             raw=table[identifiers["pm_source"]][sl]
             values,frequency=np.unique(raw,return_counts=True)
-            all_flags.update({str(v).strip():int(k) for v,k in zip(values,frequency)})
+            all_flags.update({v.decode("ascii").strip():int(k) for v,k in zip(values,frequency)})
             for name,box in boxes.items():
                 rows=np.flatnonzero(inside(ra,dec,box,.06))+lo
                 if len(rows):
-                    chunks[name].append(pd.DataFrame({k:table[k][rows].astype(
-                        table[k].dtype.newbyteorder("="),copy=False) for k in retain}))
+                    pieces={k:table[k][rows] for k in retain}
+                    chunks[name].append(pd.DataFrame({k:np.char.strip(v.astype(str)) if k.casefold()=="pm_source"
+                        else v.astype(v.dtype.newbyteorder("="),copy=False) for k,v in pieces.items()}))
             if lo%30_000_000==0:
                 print(f"Xiao rows scanned: {min(lo+1_000_000,n):,}/{n:,}",flush=True)
         schema={c.name:dict(format=c.format,unit=c.unit) for c in hdu.columns}

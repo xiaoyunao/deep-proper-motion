@@ -59,9 +59,9 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None):
     prod = settings["production"]
-    group = calibration_groups(data)
+    group = calibration_groups(data) if observation_groups is None else observation_groups
     nsc = data.survey.eq("NSC").to_numpy()
     exposure = data.exposure_id.to_numpy()
     owner = np.full(len(xy), -1, dtype=int)
@@ -80,7 +80,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         position = np.median(xy[anchor],axis=0)
         if trace is not None:
             touched = np.unique(owner[anchor])
-        if np.linalg.norm(position)>limit:
+        if (np.linalg.norm(position)>limit if core_members is None else not core_members(position)):
             if trace is not None:
                 update_anchor_trace(trace,touched,"outside_core")
             continue

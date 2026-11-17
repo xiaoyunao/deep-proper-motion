@@ -40,3 +40,7 @@
 !/configs/spatial-v08.toml
 !/configs/spatial-v08-fields.toml
 !/reports/experiment_A_v0.8_spatial.md
+
+!/configs/exposure-v09.toml
+!/configs/exposure-v09-fields.toml
+!/reports/experiment_A_v0.9_exposure.md

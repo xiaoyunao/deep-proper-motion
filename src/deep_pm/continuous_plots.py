@@ -1,5 +1,6 @@
 """Plot the measured C0 footprint and controls on the frozen 10° square."""
 import argparse
+import gzip
 import json
 from pathlib import Path
 
@@ -7,6 +8,12 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize, TwoSlopeNorm
 from matplotlib.lines import Line2D
 from matplotlib.patches import Rectangle
+
+
+def read_summary(path):
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rt") as source:
+        return json.load(source)
 
 
 def render_comparison(data, output):
@@ -151,9 +158,9 @@ def main():
     p.add_argument("--comparison",action="store_true",help="Also plot strict common QSO precision and paired gains")
     a=p.parse_args()
     a.figures.mkdir(parents=True,exist_ok=True)
-    data=json.loads(a.summary.read_text())
+    data=read_summary(a.summary)
     for path in a.additional:
-        extra=json.loads(path.read_text())
+        extra=read_summary(path)
         for name in ("cores","covered_cores"):
             if data[name].keys() & extra[name].keys():
                 p.error("Each verified core must appear once in the map")

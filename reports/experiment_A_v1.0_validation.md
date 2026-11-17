@@ -23,3 +23,5 @@
 ## 暗恒星外部参照
 
 Fajardo-Acosta 等的 HST ACS＋Subaru HSC 结果覆盖 COSMOS，样本到 i=25，早晚相差约 11 年，参考格由传播后的 Gaia DR2 校准。该场在本轮冻结 C 区域之外。Subaru HSC＋SDSS Stripe 82 的公开研究与本区部分重叠，但使用同一巡天早期位置。其对照可帮助判断相对表现，独立性低于 HST＋Subaru。HST HACKS 发布星团内部运动与摄影天测，须按具体目标、参考零点和重合检测审核后才能用于绝对精度。 [COSMOS 研究](https://authors.library.caltech.edu/records/8qtqw-50k24) · [HSC＋SDSS 研究](https://academic.oup.com/mnras/article/501/4/5149/6054531) · [HACKS 发布](https://archive.stsci.edu/hlsp/hacks)
+
+已实查 [STScI CAOM TAP](https://mast.stsci.edu/vo-tap/api/v0.1/caom/) 的 HST 图像观测中心。连续 C 区有 3,154 个去重后的 ACS/WFC、WFC3/UVIS 或 WFPC2/WFC 观测 ID，其中 590 个有距离不超过 72″ 且相隔至少五年的中心配对。逐一限制到两个旧试点和三个新增区域内部时，五区的长基线候选配对均为 0。这是中心和时间的初筛，无法代替图像足迹或逐源自行。已核验的公开产品在这五区未提供可直接使用的独立暗恒星绝对自行。后续可在整个 C 区内的 590 个潜在曝光观测 ID 上优先检查足迹、通带、参考格和现有星表。当前暗端验证依赖 QSO 与整年位置留出。 [HSC v4 天测文档](https://outerspace.stsci.edu/spaces/HSC/pages/421462929/HSCv4%2BAstrometry)

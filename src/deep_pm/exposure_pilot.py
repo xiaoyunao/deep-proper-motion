@@ -26,7 +26,7 @@ from .precision_v03 import calibration, fit_with_calibration
 from .provenance import run_stage
 from .regional_validation import official_table, tag_magnitude, valid_published
 from .validation import gaia_labels, groups_by_label
-from .validation_audit import (boundary_pairs, dark_quality, gaia_bright, gaia_observation_quality,
+from .validation_audit import (anchored_bright_gaia, boundary_pairs, dark_quality, gaia_bright, gaia_observation_quality,
                                graph_support, held_conditions, sdss_field_overlap)
 
 
@@ -208,7 +208,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 blind_quality={name:audit for name,(_,audit) in audits.items()})
 
 
-def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=False,sas=None):
+def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=False,sas=None,bright_only=False):
     start=monotonic()
     settings=tomllib.loads(Path("configs/spatial-v08.toml").read_text())
     settings["bootstrap_draws"]=400
@@ -253,20 +253,24 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
     release=(original,official_table(inputs,{}))
     legacy=pd.read_csv(legacy_path)
     legacy=legacy.loc[inside(legacy.RA,legacy.DEC,spec,.06)]
-    projected=project(qso.ra,qso.dec,center)
-    labels,matches=qso_matches(data,xy,keep,projected)
-    old,old_count=matched_legacy(legacy,projected,center)
-    block_records=[] if sas else None
-    qso_stats=contrast_samples(matches,labels,data,xy,t,sigma,keep,nsc,settings,config,
-        pairs,models,center,qso.reference_r.to_numpy(),qso.origin.to_numpy(),
-        np.zeros((len(qso),2)),np.zeros((len(qso),2)),release,old,tracks,products,block_records)
-    if sas:
-        save_json(work/"qso_observation_blocks.json",block_records)
-    print(f"QSO controls: {qso_stats['totals']}",flush=True)
+    if not bright_only:
+        projected=project(qso.ra,qso.dec,center)
+        labels,matches=qso_matches(data,xy,keep,projected)
+        old,old_count=matched_legacy(legacy,projected,center)
+        block_records=[] if sas else None
+        qso_stats=contrast_samples(matches,labels,data,xy,t,sigma,keep,nsc,settings,config,
+            pairs,models,center,qso.reference_r.to_numpy(),qso.origin.to_numpy(),
+            np.zeros((len(qso),2)),np.zeros((len(qso),2)),release,old,tracks,products,block_records)
+        if sas:
+            save_json(work/"qso_observation_blocks.json",block_records)
+        print(f"QSO controls: {qso_stats['totals']}",flush=True)
     g=pd.read_csv(inputs/"validation/gaia.csv")
     if audit and "visibility_periods_used" not in g.columns:
         visibility=gaia_observation_quality(Cache(work/"gaia_quality_cache"),spec)
         g=g.merge(visibility,on="source_id",how="left",validate="one_to_one")
+    gaia_audit={}
+    if audit:
+        g,gaia_audit=anchored_bright_gaia(g,seeds,xy,data.magnitude.to_numpy(),center)
     labels0,cat=gaia_labels(data.loc[keep].reset_index(drop=True),xy[keep],t[keep],sigma[keep],
                            g,center,dict(config,gaia_max_pm_error=2.))
     labels=np.full(len(data),-1)
@@ -276,17 +280,19 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
     mag=np.full(len(cat),np.nan)
     for i,idx in truth.items():
         mag[i]=np.median(data.magnitude.iloc[idx[nsc[idx]]])
-    gaia_audit={}
     if audit:
         bright=gaia_bright(cat,mag)
-        gaia_audit=dict(v09_quality_cross_survey_labels=len(truth),
-                        bright_labels=int(bright.sum()), faint_diagnostic_labels=int(np.count_nonzero(mag>=21)),
-                        other_bright_exits=int(np.count_nonzero((mag<21)&~bright)))
+        gaia_audit.update(cross_survey_labels=len(truth),bright_labels=int(bright.sum()),
+                          excluded_final_faint_labels=int(np.count_nonzero(mag>=21)))
         truth={i:idx for i,idx in truth.items() if bright[i]}
+        labels[~np.isin(labels,list(truth))]=-1
     old_gaia,old_gaia_counts=matched_legacy(legacy,project(cat.ra,cat.dec,center),center)
     gaia_stats=contrast_samples(truth,labels,data,xy,t,sigma,keep,nsc,settings,config,
         pairs,models,center,mag,np.repeat("Gaia",len(cat)),cat[["pm_tangent_x","pm_tangent_y"]].to_numpy(),
         cat[["pmra_error","pmdec_error"]].to_numpy(),release,old_gaia,tracks,products)
+    if bright_only:
+        save_json(work/"bright_summary.json",dict(gaia_policy=gaia_audit,gaia=gaia_stats))
+        return
     extras={}
     if audit:
         print(f"Bright Gaia: {gaia_stats['totals']}",flush=True)
@@ -327,6 +333,7 @@ def main():
     p.add_argument("--validation-audit",action="store_true")
     p.add_argument("--sensitivity",action="store_true")
     p.add_argument("--sdss-sas",type=Path)
+    p.add_argument("--bright-only",action="store_true")
     a=p.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         p.error("Run on a Slurm compute node")
@@ -338,12 +345,16 @@ def main():
         (work/"input_manifest.json").symlink_to(input_receipt)
     if (work/"input_manifest.json").resolve()!=input_receipt:
         raise ValueError("Pilot is already bound to a different acquisition")
-    stage="exposure-pilot-v10" if a.validation_audit else "exposure-pilot-v09"
-    outputs=["pilot_summary.json"] + (["qso_observation_blocks.json"] if a.sdss_sas else [])
+    if a.bright_only and (not a.validation_audit or a.sdss_sas):
+        p.error("Bright-only replay requires validation audit with cached measurements")
+    stage="validation-bright-v10" if a.bright_only else "exposure-pilot-v10" if a.validation_audit else "exposure-pilot-v09"
+    outputs=["bright_summary.json" if a.bright_only else "pilot_summary.json"]
+    if a.sdss_sas:
+        outputs.append("qso_observation_blocks.json")
     with run_stage(work,a.config,a.region,stage,inputs=["input_manifest.json"],outputs=outputs) as go:
         if go:
             run(work,a.inputs/a.region,a.legacy,settings["fields"][a.region],settings["calibration"],
-                a.validation_audit,a.sensitivity,a.sdss_sas)
+                a.validation_audit,a.sensitivity,a.sdss_sas,a.bright_only)
 
 
 if __name__=="__main__":

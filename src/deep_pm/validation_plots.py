@@ -92,6 +92,11 @@ def main():
             if len(paths)!=1:
                 p.error(f"Multiple receipts for {field}")
             data[field]=json.loads(paths[0].read_text())
+            bright=list(a.summary.glob(f"v10_{field}_validation_bright_*.json"))
+            if bright:
+                if len(bright)!=1:
+                    p.error(f"Multiple bright-only receipts for {field}")
+                data[field]["gaia"]=json.loads(bright[0].read_text())["gaia"]
     if not data:
         p.error("No validated pilot results")
     motion(data,a.output)

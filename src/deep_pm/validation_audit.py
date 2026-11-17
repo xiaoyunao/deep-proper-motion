@@ -6,7 +6,7 @@ from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import connected_components
 
 from . import access
-from .astrometry import unproject
+from .astrometry import project, unproject
 from .exposure_preflight import where_box
 
 
@@ -21,6 +21,26 @@ def gaia_observation_quality(cache, box):
     low, high = box["dec"]
     return access.checked_spatial(cache, "nsc", "source_id,visibility_periods_used",
         "gaia_dr3.gaia_source", where_box(box, halo), low-halo-1e-6, high+halo+1e-6)
+
+
+def anchored_bright_gaia(cat, anchors, xy, magnitude, center):
+    """Decide brightness using NSC positions alone before reading any Gaia motion."""
+    from scipy.spatial import cKDTree
+
+    from .dark_precision import query_unique
+
+    screened=cat.dropna(subset=["ra","dec"])
+    bright_precheck=gaia_bright(screened,np.zeros(len(screened)))
+    screened=screened.loc[bright_precheck].copy()
+    if not len(anchors) or screened.empty:
+        return screened.iloc[:0], dict(bright_position_anchors=0, excluded_faint_anchors=0)
+    positions=np.asarray([np.median(xy[a],axis=0) for a in anchors])
+    magnitudes=np.asarray([np.median(magnitude[a]) for a in anchors])
+    match,index=query_unique(cKDTree(positions),project(screened.ra,screened.dec,center),1000,300)
+    r=np.where(match,magnitudes[np.minimum(index,len(anchors)-1)],np.nan)
+    bright=gaia_bright(screened,r)
+    return screened.loc[bright], dict(bright_position_anchors=int(bright.sum()),
+                                      excluded_faint_anchors=int(np.count_nonzero(r>=21)))
 
 
 def quantiles(v):

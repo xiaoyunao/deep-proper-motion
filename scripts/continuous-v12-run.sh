@@ -50,16 +50,7 @@ elif [[ "$mode" == fit ]]; then
     fi
     "$python" -um deep_pm.continuous_fit "$dst" "$region" "$src" "$state/shared" "$legacy" "$config" --annual
 elif [[ "$mode" == summarize ]]; then
-    "$python" - "$state" <<'PY'
-import json,sys
-from pathlib import Path
-state=Path(sys.argv[1])
-cores={p.parent.name:str(p.parent) for p in (state/"outputs").glob("*/continuous_core_summary.json")}
-(state/"fits.json").write_text(json.dumps(cores))
-(state/"gauges.json").write_text(json.dumps({"all":str(state/"shared")}))
-if not cores:
-    raise ValueError("No completed W0 cores")
-PY
+    "$python" -um deep_pm.continuous_coverage "$state" "$config" --prepare-summary
     "$python" -um deep_pm.continuous_summary "$state/v12_full_continuous_summary.json" "$state/fits.json" "$state/gauges.json" "$config"
 else
     printf 'Unknown continuous run stage %s\n' "$mode" >&2

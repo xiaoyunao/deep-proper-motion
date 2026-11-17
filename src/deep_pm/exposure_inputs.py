@@ -26,7 +26,7 @@ def tap_rectangle(box, halo=0., alias=""):
             f"AND {alias}dec >= {south-halo:.9f} AND {alias}dec < {north+halo:.9f}")
 
 
-def tap_join(cache, archive, box, halo, service="tap", workers=3):
+def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000):
     """Partition on archive positions, then verify every joined measurement count."""
     table="nsc_dr2.meas m JOIN nsc_dr2.object o ON m.objectid=o.id"
     select=",".join("m."+k for k in access.MEAS.split(","))
@@ -34,8 +34,8 @@ def tap_join(cache, archive, box, halo, service="tap", workers=3):
     lo,hi=np.asarray(box["ra"])+[-halo,halo]
     south,north=np.asarray(box["dec"])+[-halo,halo]
     partitions=[]
-    target_rows = 80000 if service == "tap" else 26000
-    answer_cap = 100000 if service == "tap" else 30000
+    target_rows = 80000 if service == "tap" else int(.85*native_cap)
+    answer_cap = 100000 if service == "tap" else native_cap
 
     def split(low,high,data,finish):
         if finish and float(data.ndet.sum())<=target_rows:
@@ -107,7 +107,8 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     print(f"{len(ids):,} NSC archive objects",flush=True)
     archive.rename(columns={"objectid":"id"}).to_csv(work/"official_nsc.csv",index=False)
     if use_tap or native_join:
-        nsc=tap_join(cache,archive,spec,halo,service=route,workers=settings.get("download_workers",3))
+        nsc=tap_join(cache,archive,spec,halo,service=route,workers=settings.get("download_workers",3),
+                     native_cap=settings.get("native_row_cap",30000))
     else:
         nsc=access.fetch_measurements_for_objects(cache,ids,batch_size=250)
     returned=set(nsc.objectid.astype(str))

@@ -202,10 +202,11 @@ def solve(work, parts, specs, separate=False):
         for b, second in specs.items():
             if b<=a:
                 continue
-            adjacent = any(first[edge][1]==second[edge][0] or second[edge][1]==first[edge][0]
-                           for edge in ("ra","dec"))
-            if adjacent and all(min(first[axis][1],second[axis][1])>=max(first[axis][0],second[axis][0])
-                                for axis in ("ra","dec")):
+            adjacent = any(
+                (first[edge][1]==second[edge][0] or second[edge][1]==first[edge][0])
+                and min(first[along][1],second[along][1])>max(first[along][0],second[along][0])
+                for edge, along in (("ra","dec"),("dec","ra")))
+            if adjacent:
                 aa,bb = datasets[a],datasets[b]
                 shared = set(aa.group)&set(bb.group)&offsets.keys()
                 held_a = aa.loc[aa.is_holdout,"reference"]

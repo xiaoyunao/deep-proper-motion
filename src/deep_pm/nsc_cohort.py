@@ -67,11 +67,16 @@ def checked_rows(directory):
     return json.loads((directory/relative).read_text())
 
 
+def visit_ids(directory):
+    table = pd.read_csv(directory/"detections.csv", usecols=["survey","exposure_id"])
+    return {k:set(group.exposure_id.dropna()) for k,group in table.groupby("survey")}
+
+
 def survey_overlap(directories):
-    visits = {}
-    for directory in directories:
-        table = pd.read_csv(directory/"detections.csv", usecols=["survey", "exposure_id"])
-        visits[directory.name] = {k: set(group.exposure_id.dropna()) for k, group in table.groupby("survey")}
+    return overlap_from_visits({d.name:visit_ids(d) for d in directories})
+
+
+def overlap_from_visits(visits):
     blocks = {k:{k} for k in visits}
     counts = {}
     for a,b in combinations(sorted(visits),2):

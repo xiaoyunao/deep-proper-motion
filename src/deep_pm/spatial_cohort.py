@@ -1,6 +1,8 @@
 """Evaluate expansion batches and distinguish zero-point bias from statistical support."""
 import argparse
 from collections import Counter, defaultdict
+from concurrent.futures import ThreadPoolExecutor
+from hashlib import sha256
 import json
 import os
 from pathlib import Path
@@ -8,7 +10,7 @@ from pathlib import Path
 import numpy as np
 
 from .io import save_json
-from .nsc_cohort import survey_overlap
+from .nsc_cohort import overlap_from_visits, visit_ids
 from .nsc_comparison import comparison, configuration
 from .provenance import run_stage
 from .regional_cohort import load_output, resampling, summarize
@@ -140,6 +142,21 @@ def link_input(work, relative, target):
     return str(relative)
 
 
+def visit_snapshot(directory, cache):
+    source=(directory/"detections.csv").resolve(strict=True)
+    stat=source.stat()
+    identity=[str(source),stat.st_ino,stat.st_size,stat.st_mtime_ns]
+    key=sha256(json.dumps(identity).encode()).hexdigest()
+    path=cache/(key+".json")
+    if not path.is_file():
+        visits=visit_ids(directory)
+        current=source.stat()
+        if (current.st_size,current.st_mtime_ns)!=(stat.st_size,stat.st_mtime_ns):
+            raise ValueError(f"{directory.name}: detections changed while recording exposure IDs.")
+        save_json(path,{k:sorted(v) for k,v in visits.items()})
+    return path
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("work", type=Path)
@@ -149,6 +166,7 @@ def main():
     parser.add_argument("--comparison", nargs="*", type=Path, default=[])
     parser.add_argument("--config", type=Path, default=Path("configs/spatial-v08.toml"))
     parser.add_argument("--matrix", type=Path, default=Path("configs/spatial-v08-fields.toml"))
+    parser.add_argument("--visit-workers",type=int,default=4)
     parser.add_argument("--batches", nargs="*", type=int, default=[])
     parser.add_argument("--include-old", action="store_true")
     args = parser.parse_args()
@@ -172,10 +190,21 @@ def main():
                        if spec["batch"] in args.batches)
     if not directories or any(not (p / "regional_summary.json").is_file() for p in directories):
         parser.error("All locked cores in the requested cohort must have completed production.")
+    if args.visit_workers<1:
+        parser.error("Set at least one visit reader.")
     tracked = [link_input(work, "field_matrix.toml", args.matrix),
                link_input(work, "previous_config.toml", past_config)]
-    for core in [*directories, *args.comparison]:
-        tracked.append(link_input(work, Path(core.name) / "detections.csv", core / "detections.csv"))
+    all_cores=[*directories,*args.comparison]
+    if len(all_cores)!=len({d.name for d in all_cores}):
+        parser.error("An observation core may only appear once in a cohort.")
+    cache=args.work/"private_visits"
+    cache.mkdir(exist_ok=True)
+    with ThreadPoolExecutor(max_workers=args.visit_workers) as workers:
+        snapshots=list(workers.map(lambda d:visit_snapshot(d,cache),all_cores))
+    visits={}
+    for core,snapshot in zip(all_cores,snapshots):
+        tracked.append(link_input(work,Path(core.name)/"private_visits.json",snapshot))
+        visits[core.name]={k:set(v) for k,v in json.loads(snapshot.read_text()).items()}
         if core in directories:
             names=["regional_summary.json","private_qso_pairs.json","run_manifest.json"]
             if fields[core.name].get("series")=="v08":
@@ -187,7 +216,7 @@ def main():
                    inputs=tracked, outputs=[out]) as go:
         if go:
             data = assess(directories, dict(settings, fields=fields, bootstrap_draws=1200),
-                          args.comparison, survey_overlap([*directories, *args.comparison]), matrix["fields"])
+                          args.comparison, overlap_from_visits(visits), matrix["fields"])
             save_json(work / out, data)
 
 

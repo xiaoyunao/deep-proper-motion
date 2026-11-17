@@ -105,7 +105,8 @@ STAGES["exposure-pilot-v10"] = ("exposure-pilot-v10","pilot_summary.json",
     (*STAGES["exposure-pilot-v09"][2], "gaia_policy", "dark_quality", "reference_graph",
      "physical_boundaries", "sensitivity", "annual_holdout"))
 STAGES["overlap-pilot-v11"] = ("overlap-pilot-v11","pilot_summary.json",
-    (*STAGES["exposure-pilot-v10"][2], "overlap_training", "overlap_boundary", "c1b", "annual_holdout_c1b"))
+    (*(key for key in STAGES["exposure-pilot-v10"][2] if key != "gate"),
+     "overlap_training", "overlap_boundary", "c1b", "annual_holdout_c1b"))
 STAGES["validation-existing-v10"] = ("validation-existing-v10", "boundary_summary.json",
     ("sdss_adjacent_field", "held_conditions", "chromatic_trial"))
 STAGES["validation-bright-v10"] = ("validation-bright-v10", "bright_summary.json",
@@ -256,7 +257,7 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        suffix = re.search(r"-(v(?:0[3-9]|10))$", args.kind)
+        suffix = re.search(r"-(v(?:0[3-9]|1[01]))$", args.kind)
         series = suffix.group(1) if suffix else "v02"
         target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:

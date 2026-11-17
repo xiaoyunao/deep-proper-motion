@@ -188,6 +188,42 @@ def multiband_holdout(cohort, folder):
     output(fig,folder,"multiband_holdout")
 
 
+def spatial_field_zero(cohort, folder):
+    fig,axes=plt.subplots(1,2,figsize=(11.2,4.2),layout="constrained",sharey=True)
+    fields=cohort["fields"]
+    diagnostics=cohort["spatial_quality"]["conditional_by_field"]
+    first=None
+    for i,(ax,axis) in enumerate(zip(axes,("east","north"))):
+        points=[]
+        missing=[]
+        for name,row in fields.items():
+            ra,dec=row["center_deg"]
+            pos=((ra+105)%360-105,dec)
+            stats=row["faint_precision"]
+            if not stats.get("methods"):
+                missing.append(pos)
+                continue
+            estimate=stats["methods"]["W0"]["median"][i]
+            status=diagnostics[name]["conditional_zero"]
+            points.append((*pos,estimate,stats["n"],axis in status["exceeds_limit_axes"]))
+        if missing:
+            ax.scatter(*np.asarray(missing).T,s=17,color=".64",marker="x",label="Fewer than 3 QSOs")
+        if points:
+            x,y,zero,n,flag=np.asarray(points).T
+            first=ax.scatter(x,y,c=zero,s=12+8*np.sqrt(n),vmin=-6,vmax=6,cmap="RdBu_r",zorder=3)
+            limit=flag.astype(bool)
+            if limit.any():
+                ax.scatter(x[limit],y[limit],s=24+8*np.sqrt(n[limit]),lw=.8,
+                           facecolors="none",edgecolors="0.15",zorder=4,label="Object CI outside target")
+        ax.set(title=axis.capitalize(),xlabel="Right ascension (deg, wrapped)")
+        ax.legend(frameon=False,fontsize=7,loc="lower right")
+    axes[0].set_ylabel("Declination (deg)")
+    if first is not None:
+        fig.colorbar(first,ax=axes,label="Median proper motion (mas/yr)",extend="both")
+    fig.suptitle("Spatial zero points of common spectroscopic QSOs, r = 22–23")
+    output(fig,folder,"spatial_field_zero")
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--summaries",type=Path,default=Path("results/summary"))
@@ -210,6 +246,7 @@ def main():
     if cohort:
         performance(cohort,args.figures)
         multiband_holdout(cohort,args.figures)
+        spatial_field_zero(cohort,args.figures)
 
 
 if __name__=="__main__":

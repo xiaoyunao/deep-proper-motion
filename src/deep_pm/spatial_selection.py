@@ -5,7 +5,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 
-from .footprints import sdss_visits
+from .footprints import read_sdss_window, sdss_visits
 from .nsc_comparison import configuration
 from .regional_cohort import load_output
 from .regional_preflight import sample_cap
@@ -89,6 +89,7 @@ def main():
     candidates = {}
     rejected = Counter()
     stage = "regional-preflight-" + settings["run_series"]
+    window=read_sdss_window(args.window,301)
     for name, spec in settings["fields"].items():
         work = args.root / name
         try:
@@ -103,7 +104,7 @@ def main():
         center = spec["ra"], spec["dec"]
         size = spec["radius"]
         xy, sky, _ = sample_cap(center, size, options["preflight_points"], options["seed"])
-        visits = sdss_visits(args.window, center, size, rerun=301, vectorized=True)
+        visits = sdss_visits(args.window,center,size,vectorized=True,window=window)
         runs = {visit.exposure for visit in visits if visit.coverage(xy, sky).any()}
         candidates[name] = (sha256((work / "regional_preflight_summary.json").read_bytes()).hexdigest(),
                             spec, row, runs)

@@ -53,18 +53,41 @@ def nsc_visits(chips, center):
                     row["filter"], covered)
 
 
-def sdss_visits(path, center, radius, rerun=None, vectorized=False):
+SDSS_WINDOW_COLUMNS = ("RUN", "TAI", "NODE", "INCL", "MU_START", "MU_END", "NU_START", "NU_END")
+
+
+def sdss_window_mask(table, rerun):
+    return np.char.strip(np.asarray(table["RERUN"], dtype=str)) == str(rerun)
+
+
+def read_sdss_window(path, rerun):
+    """Load the columns needed by a multi-region geometry selection once."""
     with fits.open(path, memmap=True) as hdus:
         table = hdus[1].data
-        # Field center metadata preselection only; tests below use the native scan bounds.
-        preselect = ((np.abs(table["DEC"] - center[1]) <= radius + 1)
-                     & (np.abs(wrap(table["RA"] - center[0]))
-                        <= (radius + 1) / np.cos(np.deg2rad(center[1]))))
-        if rerun is not None:
-            preselect &= np.char.strip(np.asarray(table["RERUN"], dtype=str)) == str(rerun)
-        selected = table[np.flatnonzero(preselect)]
-        keys = ["RUN", "TAI", "NODE", "INCL", "MU_START", "MU_END", "NU_START", "NU_END"]
-        columns = {key: np.asarray(selected[key]).astype(float) for key in keys}
+        selected = np.flatnonzero(sdss_window_mask(table,rerun))
+        return {key:np.asarray(table[key][selected],dtype=float)
+                for key in ("RA","DEC",*SDSS_WINDOW_COLUMNS)}
+
+
+def sdss_window_selection(table, center, radius):
+    # Field centre metadata preselection only. Coverage uses native scan bounds.
+    return ((np.abs(table["DEC"] - center[1]) <= radius + 1)
+            & (np.abs(wrap(table["RA"] - center[0]))
+               <= (radius + 1) / np.cos(np.deg2rad(center[1]))))
+
+
+def sdss_visits(path, center, radius, rerun=None, vectorized=False, window=None):
+    if window is None:
+        with fits.open(path, memmap=True) as hdus:
+            table = hdus[1].data
+            mask = sdss_window_selection(table,center,radius)
+            if rerun is not None:
+                mask &= sdss_window_mask(table,rerun)
+            selected = table[np.flatnonzero(mask)]
+            columns = {key:np.asarray(selected[key],dtype=float) for key in SDSS_WINDOW_COLUMNS}
+    else:
+        mask = sdss_window_selection(window,center,radius)
+        columns = {key:window[key][mask] for key in SDSS_WINDOW_COLUMNS}
     for run in np.unique(columns["RUN"]):
         fields = columns["RUN"] == run
         mid = columns["TAI"][fields]
@@ -73,7 +96,7 @@ def sdss_visits(path, center, radius, rerun=None, vectorized=False):
         mid = mid[np.isfinite(mid) & (mid >= 4e9) & (mid < 6e9)]
         if not len(mid):
             continue
-        boundaries = [columns[key][fields] for key in keys[2:]]
+        boundaries = [columns[key][fields] for key in SDSS_WINDOW_COLUMNS[2:]]
 
         def covered(_xy, sky, limits=boundaries):
             node, incl, a, b, c, d = limits

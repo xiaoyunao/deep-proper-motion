@@ -152,7 +152,7 @@
     },
     "c_06_07": {
       "acquisition": "recorded",
-      "reference": "missing_receipt",
+      "reference": "recorded",
       "fit": "missing_receipt",
       "cells": 1,
       "area_sqdeg": 0.9990355413179951
@@ -166,7 +166,7 @@
     },
     "c_08_00": {
       "acquisition": "recorded",
-      "reference": "missing_receipt",
+      "reference": "recorded",
       "fit": "missing_receipt",
       "cells": 1,
       "area_sqdeg": 0.9969046805152265

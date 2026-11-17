@@ -1,3 +1,4 @@
+tap_join = true
 reference_epoch = 2015.5
 nside = 128
 halo_deg = 0.06

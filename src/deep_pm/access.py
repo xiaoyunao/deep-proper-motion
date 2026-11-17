@@ -26,7 +26,7 @@ def request(service, query):
         url, params = DATALAB, dict(sql=query, ofmt="csv", **{"async": "False"})
         headers = {"X-DL-AuthToken": "anonymous.0.0.anon_access"}
     elif service == "tap":
-        url, params = TAP, dict(REQUEST="doQuery", LANG="ADQL", FORMAT="csv", QUERY=query)
+        url, params = TAP, dict(REQUEST="doQuery", LANG="ADQL", FORMAT="csv", MAXREC=120000, QUERY=query)
         headers = {}
     else:
         url, params = SDSS, dict(cmd=query, format="csv")

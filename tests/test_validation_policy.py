@@ -3,7 +3,8 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from deep_pm.validation_audit import gaia_bright
+from deep_pm.astrometry import project
+from deep_pm.validation_audit import anchored_bright_gaia, gaia_bright, leave_one_median
 from deep_pm.validation_blocks import connected
 from deep_pm.exposure_inputs import tap_join
 
@@ -23,6 +24,15 @@ class ValidationPolicyTest(unittest.TestCase):
         self.assertEqual(sorted(map(len,connected(sample))),[1,3])
         self.assertEqual(sorted(map(len,connected(sample,True))),[4])
 
+    def test_static_bright_anchors_ignore_faint_gaia_motion(self):
+        center=(350.,0.)
+        table=pd.DataFrame(dict(ra=[350.,350.01],dec=[0.,0.],phot_g_mean_mag=[19.,19.],
+            visibility_periods_used=[12,12],pmra_error=[.1,.1],pmdec_error=[.1,.1],pmra=[0.,1e5]))
+        xy=project(table.ra,table.dec,center)
+        matched,counts=anchored_bright_gaia(table,[[0],[1]],xy,np.array([20.,21.]),center)
+        self.assertEqual(list(matched.index),[0])
+        self.assertEqual(counts["excluded_faint_anchors"],1)
+
     def test_tap_join_partitions_on_half_open_archive_coordinates(self):
         class Checked:
             def __init__(self):
@@ -39,6 +49,11 @@ class ValidationPolicyTest(unittest.TestCase):
         self.assertTrue(any("o.ra < 351.000000000" in row[2] for row in cache.queries))
         self.assertTrue(any("o.ra >= 351.000000000" in row[2] for row in cache.queries))
         self.assertTrue(all(row[0]=="tap" and "m.objectid=o.id" in row[1] for row in cache.queries))
+
+    def test_residual_reference_excludes_the_exposure_being_tested(self):
+        v=np.array([[0.,1.],[2.,4.],[6.,2.],[10.,8.],[9.,9.]])
+        result=leave_one_median(v,np.array([0,1,0,0,1]))
+        np.testing.assert_array_equal(result,[[8.,5.],[9.,9.],[5.,4.5],[3.,1.5],[2.,4.]])
 
 
 if __name__ == "__main__":

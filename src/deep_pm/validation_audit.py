@@ -216,22 +216,26 @@ def held_conditions(refs, data, xy, keys, offsets):
     """Summarize held-galaxy residuals within an NSC passband."""
     subset=refs.loc[refs.is_holdout & np.isin(keys[refs.index],list(offsets))]
     early=subset.loc[data.survey.loc[subset.index].eq("SDSS")]
-    colors=early.assign(gi=data.color).groupby("reference").gi.median()
+    observed_color=data.color.where(data.color.between(-.3,3.5))
+    colors=early.assign(gi=observed_color).groupby("reference").gi.median()
     subset=subset.loc[data.survey.loc[subset.index].eq("NSC")]
     ix=subset.index.to_numpy()
     corrected=xy[ix]-np.stack([offsets[g][0] for g in keys[ix]])
     clipped=pd.DataFrame(dict(reference=subset.reference.to_numpy(), band=data.band.iloc[ix].to_numpy(),
         east=corrected[:,0],north=corrected[:,1]))
-    group=clipped.groupby(["reference","band"])
-    med=group[["east","north"]].transform("median")
-    n=group.east.transform("size").to_numpy()
-    residual=(clipped[["east","north"]]-med).to_numpy()
+    group=clipped.groupby(["reference","band"]).ngroup().to_numpy()
+    n=np.bincount(group)[group]
+    residual=corrected-leave_one_median(corrected,group)
     conditions=dict(airmass=data.airmass.iloc[ix], fwhm=data.fwhm.iloc[ix], x=data.x.iloc[ix],y=data.y.iloc[ix],
                     g_minus_i=clipped.reference.map(colors),r_magnitude=data.magnitude.iloc[ix])
     output={}
     for name,v in conditions.items():
         value=np.asarray(v)
         m=(n>=3)&np.isfinite(value)&clipped.band.eq("r").to_numpy()
+        if name=="fwhm":
+            m &= value>0
+        if name=="airmass":
+            m &= value>=1
         if np.count_nonzero(m)<100:
             continue
         limits=np.quantile(value[m],[0,.33,.67,1])
@@ -242,6 +246,27 @@ def held_conditions(refs, data, xy, keys, offsets):
             if selected.any() else dict(n=0)
             for selected in (m & (bins==i) for i in range(3))])
     return output
+
+
+def leave_one_median(values,group):
+    """Return the per-column group median with the measurement itself removed."""
+    counts=np.bincount(group)
+    start=np.cumsum(counts)-counts
+    size=counts[group]
+    base=start[group]
+    valid=size>=2
+    result=np.full(values.shape,np.nan)
+    for axis,value in enumerate(values.T):
+        order=np.lexsort((value,group))
+        rank=np.empty(len(order),dtype=int)
+        rank[order]=np.arange(len(order))
+        within=rank[valid]-base[valid]
+        left=(size[valid]-2)//2
+        right=(size[valid]-1)//2
+        first=base[valid]+left+(within<=left)
+        second=base[valid]+right+(within<=right)
+        result[valid,axis]=(value[order[first]]+value[order[second]])/2
+    return result
 
 
 def color_control(refs, data, xy, time, sigma, keep, keys, offsets, points, config, settings):

@@ -38,6 +38,7 @@ python -m deep_pm.continuous_instruments "$INSTRUMENT_SUMMARY" --plan "$CORE_PLA
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --detailed
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --comparison
+MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --boundaries "$DETECTOR_SUMMARY" "$SEAM_SUMMARY"
 ```
 
 详细图使用同一色标对照东西与南北零点。暗 QSO 的 ±1σ 覆盖率以 68.27% 为色标中心。每幅图只渲染传入汇总中的已核验核心，未核验区留灰。QSO 面板标出各核心样本数。

@@ -3,6 +3,7 @@ import unittest
 import pandas as pd
 
 from deep_pm.continuous_ownership import close_pairs
+from deep_pm.public_summary import check_aggregate
 
 
 class OwnershipPairsTest(unittest.TestCase):
@@ -10,6 +11,8 @@ class OwnershipPairsTest(unittest.TestCase):
         data = pd.DataFrame(dict(ra=[359.999999, .000001, 359.999999], dec=[0., 0., 0.],
                                  pm_east=[1., 1., 20.], pm_north=[0., 0., 0.], core=["west", "east", "west"]))
         result = close_pairs(data)
+        check_aggregate(result)
+        self.assertEqual(result["catalogue_count"], 3)
         self.assertEqual(result["exact_position_duplicate_rows"], 2)
         for counts in result["cross_core_close_pairs_by_arcsec"].values():
             self.assertEqual(counts["cross_core_pairs"], 2)

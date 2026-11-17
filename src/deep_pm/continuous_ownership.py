@@ -12,6 +12,7 @@ from .__main__ import tomllib
 from .continuous_reference import verify_directory
 from .exposure_catalogues import coordinates, inside
 from .io import digest, save_json
+from .public_summary import check_aggregate
 
 
 def close_pairs(data):
@@ -27,7 +28,7 @@ def close_pairs(data):
         separation = np.linalg.norm(motion[pairs[:, 0]]-motion[pairs[:, 1]], axis=1)
         results[str(radius)] = dict(cross_core_pairs=len(pairs),
                                    motion_difference_below_1_masyr=int((separation < 1).sum()))
-    return dict(rows=len(data), exact_position_duplicate_rows=int(data.duplicated(["ra", "dec"], keep=False).sum()),
+    return dict(catalogue_count=len(data), exact_position_duplicate_rows=int(data.duplicated(["ra", "dec"], keep=False).sum()),
                 cross_core_close_pairs_by_arcsec=results)
 
 
@@ -59,6 +60,7 @@ def main():
     result.update(cores=len(frames), outside_common_epoch_owner=outside, graph_sha256=graph_hash,
                   fit_receipt_sha256=receipts, slurm_job=os.environ["SLURM_JOB_ID"],
                   close_pairs_are_candidates=True)
+    check_aggregate(result)
     save_json(args.output, result)
     if outside:
         parser.exit(2, "Sources found outside their common-epoch owner.\n")

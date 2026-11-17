@@ -26,11 +26,11 @@ def render_comparison(data, output):
     fig, axes = plt.subplots(2, 2, figsize=(12, 8), layout="constrained")
     for column, magnitude in enumerate(("21_to_22", "22_to_23")):
         precision, gain = axes[:, column]
+        sample_counts = []
         for index, band in enumerate(bands):
             sample = data["cohorts"].get(band, {}).get("bins", {}).get(magnitude, {}).get("common", {})
             count = sample.get("n", 0)
-            precision.text(index, 1.02, f"n={count}", transform=precision.get_xaxis_transform(),
-                           ha="center", fontsize=10)
+            sample_counts.append(count)
             for method_index, (name, label, color) in enumerate(methods):
                 value = sample.get("methods", {}).get(name, {}).get("radial_p68")
                 if value is not None:
@@ -51,6 +51,7 @@ def render_comparison(data, output):
         for axis in (precision, gain):
             axis.set(xticks=range(len(bands)), xticklabels=labels, xlim=(-.5, 2.5))
             axis.grid(axis="y", alpha=.2)
+        precision.set_xticklabels([f"{label}\n(n={count})" for label, count in zip(labels, sample_counts)])
         if column == 0:
             precision.legend(handles=[Line2D([], [], color=color, marker="o", linestyle="none", label=label)
                                       for _, label, color in methods], fontsize=9)
@@ -59,6 +60,60 @@ def render_comparison(data, output):
     fig.suptitle("Strict common spectroscopic QSOs · C0 uses the shared continuous reference graph")
     fig.supxlabel("Intervals show 95% SDSS-run weight sensitivity · positive values favor C0", fontsize=10)
     fig.savefig(output/"v12_continuous_paired_precision_summary.png", dpi=170)
+    plt.close(fig)
+
+
+def render_boundaries(data, detectors, seams, output):
+    graphs = {item["shared_solution_sha256"] for item in data["cores"].values()}
+    if graphs != {detectors["graph_sha256"]} or graphs != {seams["reference_graph_sha256"]}:
+        raise ValueError("Boundary plots require the same reference graph")
+    if set(detectors["cores"]) != set(data["covered_cores"]):
+        raise ValueError("Detector and science coverage differ")
+    measurements = []
+    for edge in seams["edges"].values():
+        for group in edge["by_gauge"].values():
+            values = group.get("median_positive_minus_negative_mas")
+            if values is not None:
+                measurements.append((edge, values[1]))
+    limit = max((abs(value) for _, values in measurements for value in values), default=1) or 1
+    norm = TwoSlopeNorm(0, vmin=-limit, vmax=limit)
+    fig, axes = plt.subplots(1, 3, figsize=(13, 5), layout="constrained")
+    colors = plt.get_cmap("RdBu_r")
+    for axis_index, axis in enumerate(axes[:2]):
+        for edge, values in measurements:
+            low, high = edge["edge_extent_deg"]
+            boundary = edge["boundary_deg"]
+            xs, ys = (((boundary, boundary), (low, high)) if edge["axis"] == "ra"
+                      else ((low, high), (boundary, boundary)))
+            axis.plot(xs, ys, color=colors(norm(values[axis_index])), linewidth=3)
+        axis.set_title(f"C0 processing-edge {'east' if axis_index == 0 else 'north'} jump [mas]", fontsize=11)
+        fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=colors), ax=axis, shrink=.65)
+    physical = {name: item["sdss_adjacent_field"] for name, item in detectors["cores"].items()}
+    maximum = max((item.get("radial_p68_mas", [0])[0] for item in physical.values()), default=1) or 1
+    physical_norm = Normalize(0, maximum)
+    physical_colors = plt.get_cmap("viridis")
+    for name, item in physical.items():
+        box = data["covered_cores"][name]
+        west, east = box["ra_bounds_deg"]
+        south, north = box["dec_bounds_deg"]
+        value = item.get("radial_p68_mas", [None])[0]
+        color = "#d4d4d4" if value is None else physical_colors(physical_norm(value))
+        axes[2].add_patch(Rectangle((west, south), east-west, north-south,
+                                    facecolor=color, edgecolor="white", linewidth=1))
+    axes[2].set_title("SDSS adjacent-field radial P68 [mas]", fontsize=11)
+    fig.colorbar(plt.cm.ScalarMappable(norm=physical_norm, cmap=physical_colors), ax=axes[2], shrink=.65)
+    for axis in axes:
+        axis.set(xlim=(355, 345), ylim=(-5, 5), aspect="equal", xlabel="RA [deg]", ylabel="Dec [deg]")
+    direct = next(iter(data["reference"].values()))["summary"]["held"]["cross_healpix"]
+    direct_label = f"Direct cross-HEALPix pairs n={direct['n']}"
+    if "radial_p68_mas" in direct:
+        before, after = direct["radial_p68_mas"]
+        direct_label += f": P68 {before:.1f} → {after:.1f} mas"
+    chips = sum(item["nsc_same_exposure_ccd"]["pair_count"] for item in detectors["cores"].values())
+    fig.suptitle(f"Shared-frame boundaries · {len(measurements)} processing edges · {len(physical)} detector-audited cores")
+    fig.supxlabel(f"{direct_label} · NSC same-exposure cross-CCD pairs n={chips}\n"
+                  "Processing edges compare two 2′ strips · up to 160 neighbouring SDSS fields inspected per core", fontsize=10)
+    fig.savefig(output/"v12_continuous_boundaries_summary.png", dpi=170)
     plt.close(fig)
 
 
@@ -156,6 +211,8 @@ def main():
     p.add_argument("--additional",nargs="*",type=Path,default=[])
     p.add_argument("--detailed",action="store_true",help="Include north zero, visit support and axis error coverage")
     p.add_argument("--comparison",action="store_true",help="Also plot strict common QSO precision and paired gains")
+    p.add_argument("--boundaries",nargs=2,type=Path,metavar=("DETECTORS","SEAMS"),
+                   help="Also plot same-graph physical and processing boundaries")
     a=p.parse_args()
     a.figures.mkdir(parents=True,exist_ok=True)
     data=read_summary(a.summary)
@@ -168,6 +225,9 @@ def main():
     render(data,a.figures,a.detailed)
     if a.comparison:
         render_comparison(data,a.figures)
+    if a.boundaries:
+        detectors,seams=map(read_summary,a.boundaries)
+        render_boundaries(data,detectors,seams,a.figures)
 
 
 if __name__=="__main__":

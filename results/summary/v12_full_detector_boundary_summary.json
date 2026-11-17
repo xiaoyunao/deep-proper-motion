@@ -1,0 +1,2920 @@
+{
+  "graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+  "cores": {
+    "repeat_rich": {
+      "held_core_detections": 423036,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 3229,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 548,
+        "independent_run_count": 34,
+        "unambiguous_pairs": 548,
+        "held_references": 385,
+        "held_runs": 34,
+        "median_mas": [
+          [
+            1.7303942600265145,
+            -0.9146349519724026
+          ],
+          [
+            1.7303942600265145,
+            -0.9146349519724026
+          ]
+        ],
+        "radial_p68_mas": [
+          38.24712642313931,
+          38.24712642313931
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 379.96566944598453
+    },
+    "repeat_sparse": {
+      "held_core_detections": 62167,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 246,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 324,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 324,
+        "held_references": 324,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            6.864801529794931,
+            3.6411450440064073
+          ],
+          [
+            6.864801529794931,
+            3.6411450440064073
+          ]
+        ],
+        "radial_p68_mas": [
+          61.729063713758165,
+          61.729063713758165
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 83.2111105939839
+    },
+    "sparse_north_outer": {
+      "held_core_detections": 37440,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 231,
+        "selected_fields": 160,
+        "fields_read": 159,
+        "pair_count": 276,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 276,
+        "held_references": 275,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            -2.825033735949546,
+            0.882901830598712
+          ],
+          [
+            -2.825033735949546,
+            0.882901830598712
+          ]
+        ],
+        "radial_p68_mas": [
+          47.38269564291078,
+          47.38269564291078
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 52.17240589798894
+    },
+    "south_se": {
+      "held_core_detections": 45185,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 57,
+        "selected_fields": 57,
+        "fields_read": 57,
+        "pair_count": 67,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 67,
+        "held_references": 67,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            4.3346846252679825,
+            1.4644221179187298
+          ],
+          [
+            4.3346846252679825,
+            1.4644221179187298
+          ]
+        ],
+        "radial_p68_mas": [
+          39.463101695444074,
+          39.463101695444074
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 67.44893816998228
+    },
+    "south_ne": {
+      "held_core_detections": 14823,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 75,
+        "selected_fields": 75,
+        "fields_read": 75,
+        "pair_count": 105,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 105,
+        "held_references": 105,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            -5.759607162326574,
+            -1.0926103442907333
+          ],
+          [
+            -5.759607162326574,
+            -1.0926103442907333
+          ]
+        ],
+        "radial_p68_mas": [
+          45.25779635024799,
+          45.25779635024799
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 22.864763851976022
+    },
+    "c_00_05": {
+      "held_core_detections": 502239,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 937,
+        "selected_fields": 160,
+        "fields_read": 157,
+        "pair_count": 433,
+        "independent_run_count": 37,
+        "unambiguous_pairs": 433,
+        "held_references": 322,
+        "held_runs": 37,
+        "median_mas": [
+          [
+            2.4864063039422035,
+            2.652849839651026
+          ],
+          [
+            2.4864063039422035,
+            2.652849839651026
+          ]
+        ],
+        "radial_p68_mas": [
+          50.089726248227564,
+          50.089726248227564
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 392.1300391500117
+    },
+    "c_04_04": {
+      "held_core_detections": 203357,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1051,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 342,
+        "independent_run_count": 31,
+        "unambiguous_pairs": 342,
+        "held_references": 260,
+        "held_runs": 31,
+        "median_mas": [
+          [
+            2.221045302168932,
+            6.275198001094395
+          ],
+          [
+            2.221045302168932,
+            6.275198001094395
+          ]
+        ],
+        "radial_p68_mas": [
+          56.43519488821824,
+          56.43519488821824
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 227.46231223497307
+    },
+    "c_06_07": {
+      "held_core_detections": 14832,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 58,
+        "selected_fields": 58,
+        "fields_read": 57,
+        "pair_count": 56,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 56,
+        "held_references": 56,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -2.0868844757787883,
+            -6.424212841317058
+          ],
+          [
+            -2.0868844757787883,
+            -6.424212841317058
+          ]
+        ],
+        "radial_p68_mas": [
+          39.19037119728534,
+          39.19037119728534
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 26.83672503597336
+    },
+    "c_08_01": {
+      "held_core_detections": 117722,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 77,
+        "selected_fields": 77,
+        "fields_read": 77,
+        "pair_count": 103,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 103,
+        "held_references": 103,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            -1.0138396732509136,
+            4.618884639814496
+          ],
+          [
+            -1.0138396732509136,
+            4.618884639814496
+          ]
+        ],
+        "radial_p68_mas": [
+          40.39635532364176,
+          40.39635532364176
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 175.73706432397012
+    },
+    "c_08_00": {
+      "held_core_detections": 137431,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 56,
+        "selected_fields": 56,
+        "fields_read": 56,
+        "pair_count": 57,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 57,
+        "held_references": 57,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -8.851037859916687,
+            -0.6679304949939251
+          ],
+          [
+            -8.851037859916687,
+            -0.6679304949939251
+          ]
+        ],
+        "radial_p68_mas": [
+          43.266892639506885,
+          43.266892639506885
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 218.373026131012
+    },
+    "c_02_00": {
+      "held_core_detections": 16268,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 85,
+        "selected_fields": 85,
+        "fields_read": 85,
+        "pair_count": 103,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 103,
+        "held_references": 103,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            -3.3621488232165575,
+            5.380631720647216
+          ],
+          [
+            -3.3621488232165575,
+            5.380631720647216
+          ]
+        ],
+        "radial_p68_mas": [
+          75.99022999034331,
+          75.99022999034331
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 21.58375334297307
+    },
+    "c_03_00": {
+      "held_core_detections": 19649,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 80,
+        "selected_fields": 80,
+        "fields_read": 80,
+        "pair_count": 108,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 108,
+        "held_references": 108,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            -4.714990775566548,
+            0.4705051463097334
+          ],
+          [
+            -4.714990775566548,
+            0.4705051463097334
+          ]
+        ],
+        "radial_p68_mas": [
+          65.94993803001913,
+          65.94993803001913
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 22.91825378598878
+    },
+    "c_04_00": {
+      "held_core_detections": 19644,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 79,
+        "selected_fields": 79,
+        "fields_read": 79,
+        "pair_count": 91,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 91,
+        "held_references": 91,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            10.208629161294084,
+            -0.7511043064296246
+          ],
+          [
+            10.208629161294084,
+            -0.7511043064296246
+          ]
+        ],
+        "radial_p68_mas": [
+          72.77455804502978,
+          72.77455804502978
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 35.027168609027285
+    },
+    "c_05_00": {
+      "held_core_detections": 52364,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 79,
+        "selected_fields": 79,
+        "fields_read": 79,
+        "pair_count": 78,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 78,
+        "held_references": 78,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            0.9679481963976286,
+            -2.761880765669048
+          ],
+          [
+            0.9679481963976286,
+            -2.761880765669048
+          ]
+        ],
+        "radial_p68_mas": [
+          76.52609624683188,
+          76.52609624683188
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 78.55096630298067
+    },
+    "c_06_00": {
+      "held_core_detections": 164932,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 85,
+        "selected_fields": 85,
+        "fields_read": 85,
+        "pair_count": 75,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 75,
+        "held_references": 75,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            1.0826744753867388,
+            -3.025240119546652
+          ],
+          [
+            1.0826744753867388,
+            -3.025240119546652
+          ]
+        ],
+        "radial_p68_mas": [
+          55.98615095491713,
+          55.98615095491713
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 242.77870259800693
+    },
+    "c_07_00": {
+      "held_core_detections": 177992,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 72,
+        "selected_fields": 72,
+        "fields_read": 69,
+        "pair_count": 68,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 68,
+        "held_references": 68,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            3.7687662225216627,
+            3.936841409653425
+          ],
+          [
+            3.7687662225216627,
+            3.936841409653425
+          ]
+        ],
+        "radial_p68_mas": [
+          33.81261392368408,
+          33.81261392368408
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 274.8419639909989
+    },
+    "c_02_01": {
+      "held_core_detections": 26789,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 84,
+        "selected_fields": 84,
+        "fields_read": 84,
+        "pair_count": 90,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 90,
+        "held_references": 90,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            -1.770719856955111,
+            1.155555747449398
+          ],
+          [
+            -1.770719856955111,
+            1.155555747449398
+          ]
+        ],
+        "radial_p68_mas": [
+          68.57805320242316,
+          68.57805320242316
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 29.637908091011923
+    },
+    "c_03_01": {
+      "held_core_detections": 34898,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 86,
+        "selected_fields": 86,
+        "fields_read": 86,
+        "pair_count": 104,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 104,
+        "held_references": 104,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            0.9308777218684554,
+            1.773760823532939
+          ],
+          [
+            0.9308777218684554,
+            1.773760823532939
+          ]
+        ],
+        "radial_p68_mas": [
+          59.05270546633157,
+          59.05270546633157
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 37.62079051602632
+    },
+    "c_04_01": {
+      "held_core_detections": 15280,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 83,
+        "selected_fields": 83,
+        "fields_read": 83,
+        "pair_count": 78,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 78,
+        "held_references": 78,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            -2.7973379580362234,
+            -4.324116487056017
+          ],
+          [
+            -2.7973379580362234,
+            -4.324116487056017
+          ]
+        ],
+        "radial_p68_mas": [
+          51.823226054284255,
+          51.823226054284255
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 23.063679009035695
+    },
+    "c_05_01": {
+      "held_core_detections": 11449,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 81,
+        "selected_fields": 81,
+        "fields_read": 79,
+        "pair_count": 69,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 69,
+        "held_references": 69,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            6.791368574602529,
+            -8.540231512859464
+          ],
+          [
+            6.791368574602529,
+            -8.540231512859464
+          ]
+        ],
+        "radial_p68_mas": [
+          67.48609454635002,
+          67.48609454635002
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 19.24994729598984
+    },
+    "c_06_01": {
+      "held_core_detections": 57642,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 85,
+        "selected_fields": 85,
+        "fields_read": 85,
+        "pair_count": 109,
+        "independent_run_count": 6,
+        "unambiguous_pairs": 109,
+        "held_references": 109,
+        "held_runs": 6,
+        "median_mas": [
+          [
+            1.546652840450406,
+            -3.555440790951252
+          ],
+          [
+            1.546652840450406,
+            -3.555440790951252
+          ]
+        ],
+        "radial_p68_mas": [
+          41.845074235222775,
+          41.845074235222775
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 90.34731815801933
+    },
+    "c_07_01": {
+      "held_core_detections": 192278,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 80,
+        "selected_fields": 80,
+        "fields_read": 79,
+        "pair_count": 85,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 85,
+        "held_references": 85,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            2.4962901324033737,
+            1.9678443390876055
+          ],
+          [
+            2.4962901324033737,
+            1.9678443390876055
+          ]
+        ],
+        "radial_p68_mas": [
+          45.93992243637403,
+          45.93992243637403
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 277.3623493100167
+    },
+    "c_00_02": {
+      "held_core_detections": 10769,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 56,
+        "selected_fields": 56,
+        "fields_read": 56,
+        "pair_count": 57,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 57,
+        "held_references": 57,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            1.3970724251121283,
+            0.13114688731729984
+          ],
+          [
+            1.3970724251121283,
+            0.13114688731729984
+          ]
+        ],
+        "radial_p68_mas": [
+          21.53975541122697,
+          21.53975541122697
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 22.895224131993018
+    },
+    "c_01_02": {
+      "held_core_detections": 13764,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 53,
+        "selected_fields": 53,
+        "fields_read": 53,
+        "pair_count": 51,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 51,
+        "held_references": 51,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -0.8639644235372543,
+            3.1961632426828146
+          ],
+          [
+            -0.8639644235372543,
+            3.1961632426828146
+          ]
+        ],
+        "radial_p68_mas": [
+          43.17380683783247,
+          43.17380683783247
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 27.140048409986775
+    },
+    "c_02_02": {
+      "held_core_detections": 29141,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 49,
+        "selected_fields": 49,
+        "fields_read": 49,
+        "pair_count": 66,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 66,
+        "held_references": 66,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -0.5858245473355055,
+            -2.124369665980339
+          ],
+          [
+            -0.5858245473355055,
+            -2.124369665980339
+          ]
+        ],
+        "radial_p68_mas": [
+          25.856414218629826,
+          25.856414218629826
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 39.93622553104069
+    },
+    "c_03_02": {
+      "held_core_detections": 30093,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 47,
+        "selected_fields": 47,
+        "fields_read": 47,
+        "pair_count": 57,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 57,
+        "held_references": 57,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            1.4944990212097764,
+            -1.435700872913003
+          ],
+          [
+            1.4944990212097764,
+            -1.435700872913003
+          ]
+        ],
+        "radial_p68_mas": [
+          26.535751174792683,
+          26.535751174792683
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 39.32423310802551
+    },
+    "c_04_02": {
+      "held_core_detections": 17799,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 48,
+        "selected_fields": 48,
+        "fields_read": 48,
+        "pair_count": 58,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 58,
+        "held_references": 58,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -1.2603727200475987,
+            2.9332583053037524
+          ],
+          [
+            -1.2603727200475987,
+            2.9332583053037524
+          ]
+        ],
+        "radial_p68_mas": [
+          21.08679646976338,
+          21.08679646976338
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 28.628203516011126
+    },
+    "c_05_02": {
+      "held_core_detections": 15559,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 58,
+        "selected_fields": 58,
+        "fields_read": 56,
+        "pair_count": 69,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 69,
+        "held_references": 69,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -0.13202791375806555,
+            2.340658728964627
+          ],
+          [
+            -0.13202791375806555,
+            2.340658728964627
+          ]
+        ],
+        "radial_p68_mas": [
+          25.36207860668963,
+          25.36207860668963
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 27.223530688963365
+    },
+    "c_06_02": {
+      "held_core_detections": 14235,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 79,
+        "selected_fields": 79,
+        "fields_read": 79,
+        "pair_count": 73,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 73,
+        "held_references": 73,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            -0.7560919877141714,
+            -1.2170998863875866
+          ],
+          [
+            -0.7560919877141714,
+            -1.2170998863875866
+          ]
+        ],
+        "radial_p68_mas": [
+          22.454777073215855,
+          22.454777073215855
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 27.280282581050415
+    },
+    "c_07_02": {
+      "held_core_detections": 50393,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 85,
+        "selected_fields": 85,
+        "fields_read": 85,
+        "pair_count": 99,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 99,
+        "held_references": 99,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            0.7015963839367032,
+            -1.9645965658128262
+          ],
+          [
+            0.7015963839367032,
+            -1.9645965658128262
+          ]
+        ],
+        "radial_p68_mas": [
+          39.084537072683524,
+          39.084537072683524
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 86.29683253000258
+    },
+    "c_08_02": {
+      "held_core_detections": 34805,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 86,
+        "selected_fields": 86,
+        "fields_read": 86,
+        "pair_count": 108,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 108,
+        "held_references": 108,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            0.1087950998917222,
+            1.0070477863773704
+          ],
+          [
+            0.1087950998917222,
+            1.0070477863773704
+          ]
+        ],
+        "radial_p68_mas": [
+          33.11322115940897,
+          33.11322115940897
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 59.11419607402058
+    },
+    "c_09_02": {
+      "held_core_detections": 17135,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 85,
+        "selected_fields": 85,
+        "fields_read": 85,
+        "pair_count": 96,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 96,
+        "held_references": 96,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            1.6238413099199533,
+            0.6426542941480875
+          ],
+          [
+            1.6238413099199533,
+            0.6426542941480875
+          ]
+        ],
+        "radial_p68_mas": [
+          20.48861487099151,
+          20.48861487099151
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 27.769248448021244
+    },
+    "c_00_03": {
+      "held_core_detections": 36838,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 386,
+        "selected_fields": 160,
+        "fields_read": 156,
+        "pair_count": 231,
+        "independent_run_count": 21,
+        "unambiguous_pairs": 231,
+        "held_references": 187,
+        "held_runs": 21,
+        "median_mas": [
+          [
+            -2.236346360296011,
+            4.251734240911901
+          ],
+          [
+            -2.236346360296011,
+            4.251734240911901
+          ]
+        ],
+        "radial_p68_mas": [
+          44.87080472266111,
+          44.87080472266111
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 70.15963124798145
+    },
+    "c_01_03": {
+      "held_core_detections": 52612,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 417,
+        "selected_fields": 160,
+        "fields_read": 159,
+        "pair_count": 269,
+        "independent_run_count": 30,
+        "unambiguous_pairs": 269,
+        "held_references": 202,
+        "held_runs": 30,
+        "median_mas": [
+          [
+            -1.5482499655336142,
+            2.471672766841948
+          ],
+          [
+            -1.5482499655336142,
+            2.471672766841948
+          ]
+        ],
+        "radial_p68_mas": [
+          46.4394867186712,
+          46.4394867186712
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 72.44599232502514
+    },
+    "c_02_03": {
+      "held_core_detections": 39363,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 422,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 289,
+        "independent_run_count": 19,
+        "unambiguous_pairs": 289,
+        "held_references": 221,
+        "held_runs": 19,
+        "median_mas": [
+          [
+            -1.1574205588549376,
+            1.4824550920166075
+          ],
+          [
+            -1.1574205588549376,
+            1.4824550920166075
+          ]
+        ],
+        "radial_p68_mas": [
+          48.35097387876855,
+          48.35097387876855
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 60.34681337000802
+    },
+    "c_03_03": {
+      "held_core_detections": 45876,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 415,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 266,
+        "independent_run_count": 23,
+        "unambiguous_pairs": 266,
+        "held_references": 208,
+        "held_runs": 23,
+        "median_mas": [
+          [
+            -1.4357091202400625,
+            -1.4026321466080844
+          ],
+          [
+            -1.4357091202400625,
+            -1.4026321466080844
+          ]
+        ],
+        "radial_p68_mas": [
+          47.85635697084174,
+          47.85635697084174
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 76.06382111395942
+    },
+    "c_04_03": {
+      "held_core_detections": 129298,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 412,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 347,
+        "independent_run_count": 17,
+        "unambiguous_pairs": 347,
+        "held_references": 264,
+        "held_runs": 17,
+        "median_mas": [
+          [
+            -3.337872849777341,
+            1.9136566445231438
+          ],
+          [
+            -3.337872849777341,
+            1.9136566445231438
+          ]
+        ],
+        "radial_p68_mas": [
+          52.75458248845751,
+          52.75458248845751
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 153.0633404009859
+    },
+    "c_05_03": {
+      "held_core_detections": 69685,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 414,
+        "selected_fields": 160,
+        "fields_read": 159,
+        "pair_count": 290,
+        "independent_run_count": 19,
+        "unambiguous_pairs": 290,
+        "held_references": 206,
+        "held_runs": 19,
+        "median_mas": [
+          [
+            1.0372610303456895,
+            0.38006955455057323
+          ],
+          [
+            1.0372610303456895,
+            0.38006955455057323
+          ]
+        ],
+        "radial_p68_mas": [
+          52.02965196596282,
+          52.02965196596282
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 91.11171567399288
+    },
+    "c_06_03": {
+      "held_core_detections": 32589,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 429,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 255,
+        "independent_run_count": 22,
+        "unambiguous_pairs": 255,
+        "held_references": 192,
+        "held_runs": 22,
+        "median_mas": [
+          [
+            2.455683631822467,
+            0.08053342066705227
+          ],
+          [
+            2.455683631822467,
+            0.08053342066705227
+          ]
+        ],
+        "radial_p68_mas": [
+          50.65985831118198,
+          50.65985831118198
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 49.55961919797119
+    },
+    "c_07_03": {
+      "held_core_detections": 42462,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 432,
+        "selected_fields": 160,
+        "fields_read": 159,
+        "pair_count": 242,
+        "independent_run_count": 19,
+        "unambiguous_pairs": 242,
+        "held_references": 187,
+        "held_runs": 19,
+        "median_mas": [
+          [
+            -1.2363161323592067,
+            1.550177589058876
+          ],
+          [
+            -1.2363161323592067,
+            1.550177589058876
+          ]
+        ],
+        "radial_p68_mas": [
+          43.62557410610909,
+          43.62557410610909
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 66.10262955998769
+    },
+    "c_08_03": {
+      "held_core_detections": 53779,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 439,
+        "selected_fields": 160,
+        "fields_read": 156,
+        "pair_count": 308,
+        "independent_run_count": 21,
+        "unambiguous_pairs": 308,
+        "held_references": 250,
+        "held_runs": 21,
+        "median_mas": [
+          [
+            -2.8198575153946877,
+            -2.002078260993585
+          ],
+          [
+            -2.8198575153946877,
+            -2.002078260993585
+          ]
+        ],
+        "radial_p68_mas": [
+          43.67641896696703,
+          43.67641896696703
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 73.14585158100817
+    },
+    "c_09_03": {
+      "held_core_detections": 47862,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 433,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 284,
+        "independent_run_count": 19,
+        "unambiguous_pairs": 284,
+        "held_references": 230,
+        "held_runs": 19,
+        "median_mas": [
+          [
+            -1.43264627084136,
+            -0.27873336151242256
+          ],
+          [
+            -1.43264627084136,
+            -0.27873336151242256
+          ]
+        ],
+        "radial_p68_mas": [
+          38.373845404022816,
+          38.373845404022816
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 57.82650820998242
+    },
+    "c_00_04": {
+      "held_core_detections": 470640,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1007,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 421,
+        "independent_run_count": 36,
+        "unambiguous_pairs": 421,
+        "held_references": 325,
+        "held_runs": 36,
+        "median_mas": [
+          [
+            1.3779454343020916,
+            2.967930486658588
+          ],
+          [
+            1.3779454343020916,
+            2.967930486658588
+          ]
+        ],
+        "radial_p68_mas": [
+          62.46883506719009,
+          62.46883506719009
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 389.00956101500196
+    },
+    "c_01_04": {
+      "held_core_detections": 99808,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1104,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 339,
+        "independent_run_count": 33,
+        "unambiguous_pairs": 339,
+        "held_references": 279,
+        "held_runs": 33,
+        "median_mas": [
+          [
+            -4.81196578592062,
+            0.7683406863361597
+          ],
+          [
+            -4.81196578592062,
+            0.7683406863361597
+          ]
+        ],
+        "radial_p68_mas": [
+          62.070409772901954,
+          62.070409772901954
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 116.86121974803973
+    },
+    "c_02_04": {
+      "held_core_detections": 126936,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1100,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 400,
+        "independent_run_count": 36,
+        "unambiguous_pairs": 400,
+        "held_references": 323,
+        "held_runs": 36,
+        "median_mas": [
+          [
+            -0.39466197323054075,
+            -9.425043438386638
+          ],
+          [
+            -0.39466197323054075,
+            -9.425043438386638
+          ]
+        ],
+        "radial_p68_mas": [
+          58.743671217000205,
+          58.743671217000205
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 138.000437677023
+    },
+    "c_03_04": {
+      "held_core_detections": 177950,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1065,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 343,
+        "independent_run_count": 36,
+        "unambiguous_pairs": 343,
+        "held_references": 281,
+        "held_runs": 36,
+        "median_mas": [
+          [
+            3.5829322738572955,
+            -1.0068791566882282
+          ],
+          [
+            3.5829322738572955,
+            -1.0068791566882282
+          ]
+        ],
+        "radial_p68_mas": [
+          41.43744733142723,
+          41.43744733142723
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 191.79794045101153
+    },
+    "c_05_04": {
+      "held_core_detections": 138513,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1053,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 365,
+        "independent_run_count": 33,
+        "unambiguous_pairs": 365,
+        "held_references": 274,
+        "held_runs": 33,
+        "median_mas": [
+          [
+            1.5773250465281308,
+            1.3058890656102449
+          ],
+          [
+            1.5773250465281308,
+            1.3058890656102449
+          ]
+        ],
+        "radial_p68_mas": [
+          60.9609751591532,
+          60.9609751591532
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 151.9257375310408
+    },
+    "c_06_04": {
+      "held_core_detections": 97512,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1080,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 439,
+        "independent_run_count": 32,
+        "unambiguous_pairs": 439,
+        "held_references": 301,
+        "held_runs": 32,
+        "median_mas": [
+          [
+            -2.7273840280249715,
+            0.5499182849307545
+          ],
+          [
+            -2.7273840280249715,
+            0.5499182849307545
+          ]
+        ],
+        "radial_p68_mas": [
+          40.805076475164086,
+          40.805076475164086
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 106.71306776301935
+    },
+    "c_07_04": {
+      "held_core_detections": 124698,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1122,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 444,
+        "independent_run_count": 38,
+        "unambiguous_pairs": 444,
+        "held_references": 313,
+        "held_runs": 38,
+        "median_mas": [
+          [
+            1.096943585202098,
+            -0.06724993215175346
+          ],
+          [
+            1.096943585202098,
+            -0.06724993215175346
+          ]
+        ],
+        "radial_p68_mas": [
+          44.31783220330611,
+          44.31783220330611
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 131.36238991701975
+    },
+    "c_01_05": {
+      "held_core_detections": 108962,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1074,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 413,
+        "independent_run_count": 36,
+        "unambiguous_pairs": 413,
+        "held_references": 310,
+        "held_runs": 36,
+        "median_mas": [
+          [
+            -5.213618904352188,
+            2.781861698720604
+          ],
+          [
+            -5.213618904352188,
+            2.781861698720604
+          ]
+        ],
+        "radial_p68_mas": [
+          61.550125337046,
+          61.550125337046
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 119.98789921600837
+    },
+    "c_02_05": {
+      "held_core_detections": 130646,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1094,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 324,
+        "independent_run_count": 39,
+        "unambiguous_pairs": 324,
+        "held_references": 261,
+        "held_runs": 39,
+        "median_mas": [
+          [
+            -1.8918287786655128,
+            -2.8087120541604236
+          ],
+          [
+            -1.8918287786655128,
+            -2.8087120541604236
+          ]
+        ],
+        "radial_p68_mas": [
+          51.2418683646564,
+          51.2418683646564
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 145.71161194099113
+    },
+    "c_03_05": {
+      "held_core_detections": 147407,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1071,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 390,
+        "independent_run_count": 35,
+        "unambiguous_pairs": 390,
+        "held_references": 297,
+        "held_runs": 35,
+        "median_mas": [
+          [
+            1.2435623733326793,
+            1.670802608365193
+          ],
+          [
+            1.2435623733326793,
+            1.670802608365193
+          ]
+        ],
+        "radial_p68_mas": [
+          41.18172659882419,
+          41.18172659882419
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 163.7835698670242
+    },
+    "c_04_05": {
+      "held_core_detections": 115405,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 989,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 402,
+        "independent_run_count": 38,
+        "unambiguous_pairs": 402,
+        "held_references": 258,
+        "held_runs": 38,
+        "median_mas": [
+          [
+            -3.0051468309538905,
+            5.121990476036444
+          ],
+          [
+            -3.0051468309538905,
+            5.121990476036444
+          ]
+        ],
+        "radial_p68_mas": [
+          59.64027483676703,
+          59.64027483676703
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 138.02854526799638
+    },
+    "c_05_05": {
+      "held_core_detections": 76635,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1065,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 329,
+        "independent_run_count": 36,
+        "unambiguous_pairs": 329,
+        "held_references": 241,
+        "held_runs": 36,
+        "median_mas": [
+          [
+            -5.435598607407883,
+            3.6789046602789313
+          ],
+          [
+            -5.435598607407883,
+            3.6789046602789313
+          ]
+        ],
+        "radial_p68_mas": [
+          61.65773883383932,
+          61.65773883383932
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 98.08803356497083
+    },
+    "c_06_05": {
+      "held_core_detections": 109785,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1065,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 389,
+        "independent_run_count": 36,
+        "unambiguous_pairs": 389,
+        "held_references": 280,
+        "held_runs": 36,
+        "median_mas": [
+          [
+            -2.4330471912398934,
+            -1.0151198257226497
+          ],
+          [
+            -2.4330471912398934,
+            -1.0151198257226497
+          ]
+        ],
+        "radial_p68_mas": [
+          40.557966552935696,
+          40.557966552935696
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 122.0603829069878
+    },
+    "c_07_05": {
+      "held_core_detections": 169425,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 1072,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 399,
+        "independent_run_count": 35,
+        "unambiguous_pairs": 399,
+        "held_references": 310,
+        "held_runs": 35,
+        "median_mas": [
+          [
+            -0.27417277731001377,
+            0.21373065887019038
+          ],
+          [
+            -0.27417277731001377,
+            0.21373065887019038
+          ]
+        ],
+        "radial_p68_mas": [
+          38.821551987634955,
+          38.821551987634955
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 181.21631255699322
+    },
+    "c_00_06": {
+      "held_core_detections": 43152,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 392,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 284,
+        "independent_run_count": 26,
+        "unambiguous_pairs": 284,
+        "held_references": 187,
+        "held_runs": 26,
+        "median_mas": [
+          [
+            -1.257395134307444,
+            0.84954974334687
+          ],
+          [
+            -1.257395134307444,
+            0.84954974334687
+          ]
+        ],
+        "radial_p68_mas": [
+          64.37094977870484,
+          64.37094977870484
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 72.04187669302337
+    },
+    "c_01_06": {
+      "held_core_detections": 53182,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 425,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 363,
+        "independent_run_count": 26,
+        "unambiguous_pairs": 363,
+        "held_references": 230,
+        "held_runs": 26,
+        "median_mas": [
+          [
+            1.4064641762524843,
+            -3.205929707735777
+          ],
+          [
+            1.4064641762524843,
+            -3.205929707735777
+          ]
+        ],
+        "radial_p68_mas": [
+          64.2332698475511,
+          64.2332698475511
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 72.97033319500042
+    },
+    "c_02_06": {
+      "held_core_detections": 52281,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 419,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 374,
+        "independent_run_count": 27,
+        "unambiguous_pairs": 374,
+        "held_references": 237,
+        "held_runs": 27,
+        "median_mas": [
+          [
+            0.9512415621429682,
+            -1.2631987549830228
+          ],
+          [
+            0.9512415621429682,
+            -1.2631987549830228
+          ]
+        ],
+        "radial_p68_mas": [
+          67.12252519201627,
+          67.12252519201627
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 70.86244980298216
+    },
+    "c_03_06": {
+      "held_core_detections": 51300,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 411,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 272,
+        "independent_run_count": 26,
+        "unambiguous_pairs": 272,
+        "held_references": 172,
+        "held_runs": 26,
+        "median_mas": [
+          [
+            0.12753499392420053,
+            2.4585303065832704
+          ],
+          [
+            0.12753499392420053,
+            2.4585303065832704
+          ]
+        ],
+        "radial_p68_mas": [
+          46.35699239579871,
+          46.35699239579871
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 75.41956994804787
+    },
+    "c_04_06": {
+      "held_core_detections": 47415,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 416,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 381,
+        "independent_run_count": 25,
+        "unambiguous_pairs": 381,
+        "held_references": 240,
+        "held_runs": 25,
+        "median_mas": [
+          [
+            1.5007781558670104,
+            1.3246725453063846
+          ],
+          [
+            1.5007781558670104,
+            1.3246725453063846
+          ]
+        ],
+        "radial_p68_mas": [
+          63.8407252677098,
+          63.8407252677098
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 63.91566286998568
+    },
+    "c_05_06": {
+      "held_core_detections": 41011,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 412,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 382,
+        "independent_run_count": 25,
+        "unambiguous_pairs": 382,
+        "held_references": 246,
+        "held_runs": 25,
+        "median_mas": [
+          [
+            -1.0796422204002738,
+            -0.7326142857782543
+          ],
+          [
+            -1.0796422204002738,
+            -0.7326142857782543
+          ]
+        ],
+        "radial_p68_mas": [
+          57.19933734733068,
+          57.19933734733068
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 59.22389560495503
+    },
+    "c_06_06": {
+      "held_core_detections": 40721,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 408,
+        "selected_fields": 160,
+        "fields_read": 159,
+        "pair_count": 295,
+        "independent_run_count": 25,
+        "unambiguous_pairs": 295,
+        "held_references": 194,
+        "held_runs": 25,
+        "median_mas": [
+          [
+            -3.381797216832638,
+            3.788173132110387
+          ],
+          [
+            -3.381797216832638,
+            3.788173132110387
+          ]
+        ],
+        "radial_p68_mas": [
+          41.2317270733115,
+          41.2317270733115
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 64.90728872903856
+    },
+    "c_07_06": {
+      "held_core_detections": 60466,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 422,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 284,
+        "independent_run_count": 26,
+        "unambiguous_pairs": 284,
+        "held_references": 184,
+        "held_runs": 26,
+        "median_mas": [
+          [
+            -1.3104188423603773,
+            0.16455354285426438
+          ],
+          [
+            -1.3104188423603773,
+            0.16455354285426438
+          ]
+        ],
+        "radial_p68_mas": [
+          41.032861983257476,
+          41.032861983257476
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 78.37019839999266
+    },
+    "c_08_06": {
+      "held_core_detections": 44265,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 413,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 294,
+        "independent_run_count": 26,
+        "unambiguous_pairs": 294,
+        "held_references": 184,
+        "held_runs": 26,
+        "median_mas": [
+          [
+            1.9826577054336667,
+            3.326386883156374
+          ],
+          [
+            1.9826577054336667,
+            3.326386883156374
+          ]
+        ],
+        "radial_p68_mas": [
+          43.97035233256343,
+          43.97035233256343
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 60.99299213499762
+    },
+    "c_09_06": {
+      "held_core_detections": 35655,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 411,
+        "selected_fields": 160,
+        "fields_read": 160,
+        "pair_count": 289,
+        "independent_run_count": 25,
+        "unambiguous_pairs": 289,
+        "held_references": 180,
+        "held_runs": 25,
+        "median_mas": [
+          [
+            -2.831040369346738,
+            1.3607189748436213
+          ],
+          [
+            -2.831040369346738,
+            1.3607189748436213
+          ]
+        ],
+        "radial_p68_mas": [
+          50.47360148850767,
+          50.47360148850767
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 55.42998600198189
+    },
+    "c_00_07": {
+      "held_core_detections": 12120,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 59,
+        "selected_fields": 59,
+        "fields_read": 56,
+        "pair_count": 51,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 51,
+        "held_references": 51,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -2.930523104965687,
+            -2.295297384262085
+          ],
+          [
+            -2.930523104965687,
+            -2.295297384262085
+          ]
+        ],
+        "radial_p68_mas": [
+          29.583959383165123,
+          29.583959383165123
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 24.264745993947145
+    },
+    "c_01_07": {
+      "held_core_detections": 18207,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 56,
+        "selected_fields": 56,
+        "fields_read": 55,
+        "pair_count": 78,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 78,
+        "held_references": 78,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -2.2248011883348227,
+            3.6778120528906584
+          ],
+          [
+            -2.2248011883348227,
+            3.6778120528906584
+          ]
+        ],
+        "radial_p68_mas": [
+          31.860359530770953,
+          31.860359530770953
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 26.465310034982394
+    },
+    "c_02_07": {
+      "held_core_detections": 15342,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 44,
+        "selected_fields": 44,
+        "fields_read": 43,
+        "pair_count": 48,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 48,
+        "held_references": 48,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -1.9269384071230888,
+            5.43152529746294
+          ],
+          [
+            -1.9269384071230888,
+            5.43152529746294
+          ]
+        ],
+        "radial_p68_mas": [
+          48.32580122192831,
+          48.32580122192831
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 27.96821996703511
+    },
+    "c_03_07": {
+      "held_core_detections": 13959,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 50,
+        "selected_fields": 50,
+        "fields_read": 50,
+        "pair_count": 50,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 50,
+        "held_references": 50,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            5.349563021212816,
+            -0.4276686618104577
+          ],
+          [
+            5.349563021212816,
+            -0.4276686618104577
+          ]
+        ],
+        "radial_p68_mas": [
+          33.57860472610516,
+          33.57860472610516
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 25.20164006401319
+    },
+    "c_04_07": {
+      "held_core_detections": 9185,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 49,
+        "selected_fields": 49,
+        "fields_read": 49,
+        "pair_count": 54,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 54,
+        "held_references": 54,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            0.054639974201563746,
+            -1.7561501590535045
+          ],
+          [
+            0.054639974201563746,
+            -1.7561501590535045
+          ]
+        ],
+        "radial_p68_mas": [
+          31.42758992674616,
+          31.42758992674616
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 17.876661079993937
+    },
+    "c_05_07": {
+      "held_core_detections": 15143,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 51,
+        "selected_fields": 51,
+        "fields_read": 50,
+        "pair_count": 61,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 61,
+        "held_references": 61,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            1.2078712459187955,
+            -5.191233903169632
+          ],
+          [
+            1.2078712459187955,
+            -5.191233903169632
+          ]
+        ],
+        "radial_p68_mas": [
+          35.167424301130815,
+          35.167424301130815
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 24.414734431018587
+    },
+    "c_07_07": {
+      "held_core_detections": 11433,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 59,
+        "selected_fields": 59,
+        "fields_read": 59,
+        "pair_count": 44,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 44,
+        "held_references": 44,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            4.463581195101142,
+            1.8298349790275097
+          ],
+          [
+            4.463581195101142,
+            1.8298349790275097
+          ]
+        ],
+        "radial_p68_mas": [
+          31.67287529928126,
+          31.67287529928126
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 23.246403263008688
+    },
+    "c_08_07": {
+      "held_core_detections": 14354,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 54,
+        "selected_fields": 54,
+        "fields_read": 52,
+        "pair_count": 43,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 43,
+        "held_references": 43,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            3.609533656388521,
+            8.451149066910148
+          ],
+          [
+            3.609533656388521,
+            8.451149066910148
+          ]
+        ],
+        "radial_p68_mas": [
+          30.567745259483186,
+          30.567745259483186
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 26.51300600700779
+    },
+    "c_09_07": {
+      "held_core_detections": 18476,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 58,
+        "selected_fields": 58,
+        "fields_read": 57,
+        "pair_count": 61,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 61,
+        "held_references": 61,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -2.247511401772499,
+            3.0675077605992556
+          ],
+          [
+            -2.247511401772499,
+            3.0675077605992556
+          ]
+        ],
+        "radial_p68_mas": [
+          29.007699409828486,
+          29.007699409828486
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 26.36895459605148
+    },
+    "c_00_08": {
+      "held_core_detections": 12164,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 72,
+        "selected_fields": 72,
+        "fields_read": 69,
+        "pair_count": 94,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 94,
+        "held_references": 94,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            8.271825077012181,
+            -4.59289659652859
+          ],
+          [
+            8.271825077012181,
+            -4.59289659652859
+          ]
+        ],
+        "radial_p68_mas": [
+          68.10645975468628,
+          68.10645975468628
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 17.892362165963277
+    },
+    "c_01_08": {
+      "held_core_detections": 15365,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 63,
+        "selected_fields": 63,
+        "fields_read": 63,
+        "pair_count": 73,
+        "independent_run_count": 4,
+        "unambiguous_pairs": 73,
+        "held_references": 73,
+        "held_runs": 4,
+        "median_mas": [
+          [
+            -1.5562949478626251,
+            -10.552233980968595
+          ],
+          [
+            -1.5562949478626251,
+            -10.552233980968595
+          ]
+        ],
+        "radial_p68_mas": [
+          66.29334340419122,
+          66.29334340419122
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 20.830514830944594
+    },
+    "c_02_08": {
+      "held_core_detections": 16809,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 65,
+        "selected_fields": 65,
+        "fields_read": 65,
+        "pair_count": 80,
+        "independent_run_count": 4,
+        "unambiguous_pairs": 80,
+        "held_references": 80,
+        "held_runs": 4,
+        "median_mas": [
+          [
+            6.026913766283542,
+            -1.9560523815453053
+          ],
+          [
+            6.026913766283542,
+            -1.9560523815453053
+          ]
+        ],
+        "radial_p68_mas": [
+          50.03167315785926,
+          50.03167315785926
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 21.793917783012148
+    },
+    "c_03_08": {
+      "held_core_detections": 11015,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 68,
+        "selected_fields": 68,
+        "fields_read": 68,
+        "pair_count": 90,
+        "independent_run_count": 4,
+        "unambiguous_pairs": 90,
+        "held_references": 90,
+        "held_runs": 4,
+        "median_mas": [
+          [
+            5.479085772298276,
+            -0.34891711827367544
+          ],
+          [
+            5.479085772298276,
+            -0.34891711827367544
+          ]
+        ],
+        "radial_p68_mas": [
+          85.79616187282461,
+          85.79616187282461
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 18.538681306003127
+    },
+    "c_04_08": {
+      "held_core_detections": 8997,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 69,
+        "selected_fields": 69,
+        "fields_read": 66,
+        "pair_count": 68,
+        "independent_run_count": 4,
+        "unambiguous_pairs": 68,
+        "held_references": 68,
+        "held_runs": 4,
+        "median_mas": [
+          [
+            1.5257481402950361,
+            -3.8195643480867147
+          ],
+          [
+            1.5257481402950361,
+            -3.8195643480867147
+          ]
+        ],
+        "radial_p68_mas": [
+          70.47070684643062,
+          70.47070684643062
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 16.766348347999156
+    },
+    "c_05_08": {
+      "held_core_detections": 8990,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 55,
+        "selected_fields": 55,
+        "fields_read": 54,
+        "pair_count": 58,
+        "independent_run_count": 4,
+        "unambiguous_pairs": 58,
+        "held_references": 58,
+        "held_runs": 4,
+        "median_mas": [
+          [
+            -7.6050359507789835,
+            1.363062591291964
+          ],
+          [
+            -7.6050359507789835,
+            1.363062591291964
+          ]
+        ],
+        "radial_p68_mas": [
+          58.668116701809666,
+          58.668116701809666
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 16.848643143021036
+    },
+    "c_08_08": {
+      "held_core_detections": 10565,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 64,
+        "selected_fields": 64,
+        "fields_read": 64,
+        "pair_count": 61,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 61,
+        "held_references": 61,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            1.6740984078496695,
+            5.927374737337232
+          ],
+          [
+            1.6740984078496695,
+            5.927374737337232
+          ]
+        ],
+        "radial_p68_mas": [
+          45.57103284515805,
+          45.57103284515805
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 18.662937851971947
+    },
+    "c_09_08": {
+      "held_core_detections": 12741,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 68,
+        "selected_fields": 68,
+        "fields_read": 67,
+        "pair_count": 99,
+        "independent_run_count": 5,
+        "unambiguous_pairs": 99,
+        "held_references": 98,
+        "held_runs": 5,
+        "median_mas": [
+          [
+            4.2771574556827545,
+            -2.9093726072460413
+          ],
+          [
+            4.2771574556827545,
+            -2.9093726072460413
+          ]
+        ],
+        "radial_p68_mas": [
+          54.257569177552874,
+          54.257569177552874
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 18.45156577398302
+    },
+    "c_00_09": {
+      "held_core_detections": 8238,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 78,
+        "selected_fields": 78,
+        "fields_read": 75,
+        "pair_count": 92,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 92,
+        "held_references": 92,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            -3.9536919482052326,
+            -2.3801548536866903
+          ],
+          [
+            -3.9536919482052326,
+            -2.3801548536866903
+          ]
+        ],
+        "radial_p68_mas": [
+          94.8484858669634,
+          94.8484858669634
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 16.230564562021755
+    },
+    "c_01_09": {
+      "held_core_detections": 7445,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 57,
+        "selected_fields": 57,
+        "fields_read": 57,
+        "pair_count": 51,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 51,
+        "held_references": 51,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -2.043530398979783,
+            3.527564834803343
+          ],
+          [
+            -2.043530398979783,
+            3.527564834803343
+          ]
+        ],
+        "radial_p68_mas": [
+          53.83669124875217,
+          53.83669124875217
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 14.875529440003447
+    },
+    "c_02_09": {
+      "held_core_detections": 10309,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 55,
+        "selected_fields": 55,
+        "fields_read": 55,
+        "pair_count": 78,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 78,
+        "held_references": 78,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -3.7159201465547085,
+            -4.750844105146825
+          ],
+          [
+            -3.7159201465547085,
+            -4.750844105146825
+          ]
+        ],
+        "radial_p68_mas": [
+          75.70765988515356,
+          75.70765988515356
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 16.140318124962505
+    },
+    "c_03_09": {
+      "held_core_detections": 12409,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 51,
+        "selected_fields": 51,
+        "fields_read": 51,
+        "pair_count": 74,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 74,
+        "held_references": 74,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -3.460889233276248,
+            5.08604546636343
+          ],
+          [
+            -3.460889233276248,
+            5.08604546636343
+          ]
+        ],
+        "radial_p68_mas": [
+          83.03434290842432,
+          83.03434290842432
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 18.10868116398342
+    },
+    "c_04_09": {
+      "held_core_detections": 9311,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 48,
+        "selected_fields": 48,
+        "fields_read": 48,
+        "pair_count": 77,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 77,
+        "held_references": 77,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            1.172570374328643,
+            14.70903129503131
+          ],
+          [
+            1.172570374328643,
+            14.70903129503131
+          ]
+        ],
+        "radial_p68_mas": [
+          90.88602412965271,
+          90.88602412965271
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 15.249863674049266
+    },
+    "c_05_09": {
+      "held_core_detections": 9150,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 55,
+        "selected_fields": 55,
+        "fields_read": 55,
+        "pair_count": 62,
+        "independent_run_count": 2,
+        "unambiguous_pairs": 62,
+        "held_references": 62,
+        "held_runs": 2,
+        "median_mas": [
+          [
+            -0.19703651103191078,
+            3.1955577274784446
+          ],
+          [
+            -0.19703651103191078,
+            3.1955577274784446
+          ]
+        ],
+        "radial_p68_mas": [
+          66.9914840898181,
+          66.9914840898181
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 17.426518784021027
+    },
+    "c_08_09": {
+      "held_core_detections": 9992,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 84,
+        "selected_fields": 84,
+        "fields_read": 84,
+        "pair_count": 85,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 85,
+        "held_references": 85,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            -0.6073806490749121,
+            5.024652322754264
+          ],
+          [
+            -0.6073806490749121,
+            5.024652322754264
+          ]
+        ],
+        "radial_p68_mas": [
+          38.1873674646175,
+          38.1873674646175
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 18.17695197300054
+    },
+    "c_09_09": {
+      "held_core_detections": 10302,
+      "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "sdss_adjacent_field": {
+        "eligible_neighbor_fields": 86,
+        "selected_fields": 86,
+        "fields_read": 83,
+        "pair_count": 86,
+        "independent_run_count": 3,
+        "unambiguous_pairs": 86,
+        "held_references": 83,
+        "held_runs": 3,
+        "median_mas": [
+          [
+            -1.1893235864117742,
+            -4.972087489441037
+          ],
+          [
+            -1.1893235864117742,
+            -4.972087489441037
+          ]
+        ],
+        "radial_p68_mas": [
+          53.81646295521533,
+          53.81646295521533
+        ]
+      },
+      "nsc_same_exposure_ccd": {
+        "pair_count": 0
+      },
+      "elapsed_seconds": 18.093886187009048
+    }
+  },
+  "missing_cores": [],
+  "failed_cores": [],
+  "summary_slurm_job": "61467874"
+}

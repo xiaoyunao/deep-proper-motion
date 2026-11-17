@@ -5,7 +5,54 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize, TwoSlopeNorm
+from matplotlib.lines import Line2D
 from matplotlib.patches import Rectangle
+
+
+def render_comparison(data, output):
+    """Show paired precision and the frozen physical-run sensitivity intervals."""
+    bands = ("ordinary", "transition", "repeat_band")
+    labels = ("Ordinary", "Transition", "Repeat band")
+    methods = (("NSC", "Official NSC", "#687581"),
+               ("Xiao", "Xiao 2025 ground", "#ce843d"),
+               ("C0", "SDSS + NSC C0", "#24689b"))
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8), layout="constrained")
+    for column, magnitude in enumerate(("21_to_22", "22_to_23")):
+        precision, gain = axes[:, column]
+        for index, band in enumerate(bands):
+            sample = data["cohorts"].get(band, {}).get("bins", {}).get(magnitude, {}).get("common", {})
+            count = sample.get("n", 0)
+            precision.text(index, 1.02, f"n={count}", transform=precision.get_xaxis_transform(),
+                           ha="center", fontsize=10)
+            for method_index, (name, label, color) in enumerate(methods):
+                value = sample.get("methods", {}).get(name, {}).get("radial_p68")
+                if value is not None:
+                    precision.scatter(index + (method_index-1)*.15, value, color=color, s=45)
+            for method_index, (name, label, color) in enumerate(methods[:2]):
+                estimate = sample.get("paired_radial_gain", {}).get(name, {})
+                value = estimate.get("relative_gain")
+                if value is None:
+                    continue
+                x = index + (method_index-.5)*.15
+                gain.scatter(x, 100*value, color=color, s=45)
+                interval = estimate.get("visit_weighted", {}).get("sdss_run", {}).get("relative_gain95")
+                if interval is not None:
+                    gain.vlines(x, 100*interval[0], 100*interval[1], color=color, linewidth=2)
+        precision.set(title=magnitude.replace("_to_", " ≤ r < "), ylabel="Radial P68 [mas/yr]", ylim=(0, None))
+        gain.axhline(0, color="#444444", linewidth=1)
+        gain.set(ylabel="C0 relative P68 improvement [%]")
+        for axis in (precision, gain):
+            axis.set(xticks=range(len(bands)), xticklabels=labels, xlim=(-.5, 2.5))
+            axis.grid(axis="y", alpha=.2)
+        if column == 0:
+            precision.legend(handles=[Line2D([], [], color=color, marker="o", linestyle="none", label=label)
+                                      for _, label, color in methods], fontsize=9)
+            gain.legend(handles=[Line2D([], [], color=color, marker="o", linestyle="none",
+                                       label=f"C0 vs {label}") for _, label, color in methods[:2]], fontsize=9)
+    fig.suptitle("Strict common spectroscopic QSOs · C0 uses the shared continuous reference graph")
+    fig.supxlabel("Intervals show 95% SDSS-run weight sensitivity · positive values favor C0", fontsize=10)
+    fig.savefig(output/"v12_continuous_paired_precision_summary.png", dpi=170)
+    plt.close(fig)
 
 
 def render(data, output, detailed=False):
@@ -101,6 +148,7 @@ def main():
     p.add_argument("figures",type=Path)
     p.add_argument("--additional",nargs="*",type=Path,default=[])
     p.add_argument("--detailed",action="store_true",help="Include north zero, visit support and axis error coverage")
+    p.add_argument("--comparison",action="store_true",help="Also plot strict common QSO precision and paired gains")
     a=p.parse_args()
     a.figures.mkdir(parents=True,exist_ok=True)
     data=json.loads(a.summary.read_text())
@@ -111,6 +159,8 @@ def main():
                 p.error("Each verified core must appear once in the map")
             data[name].update(extra[name])
     render(data,a.figures,a.detailed)
+    if a.comparison:
+        render_comparison(data,a.figures)
 
 
 if __name__=="__main__":

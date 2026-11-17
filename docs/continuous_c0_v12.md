@@ -37,9 +37,12 @@ python -m deep_pm.continuous_summary "$PUBLIC_SUMMARY" "$CORE_PLAN_JSON" "$SHARE
 python -m deep_pm.continuous_instruments "$INSTRUMENT_SUMMARY" --plan "$CORE_PLAN_JSON" --config "$config"
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures
 MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --detailed
+MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --comparison
 ```
 
 详细图使用同一色标对照东西与南北零点。暗 QSO 的 ±1σ 覆盖率以 68.27% 为色标中心。每幅图只渲染传入汇总中的已核验核心，未核验区留灰。QSO 面板标出各核心样本数。
+
+配对图按冻结的普通、过渡和重复带展示两个星等档的三路同源 P68，以及 C0 相对官方 NSC／Xiao 地基的改善。区间使用汇总中的 SDSS run 权重敏感性，样本量不足的项保留数量。绘图只读取已有统计，不能改变共同样本或验收。
 
 物理边界另行读取相邻 SDSS field 的 `photoObj` 原始重复记录，以及 NSC 同一曝光内不同 CCD 对同一留出星系的测量。SDSS 按候选数排序，每核心至多检查 160 个邻 field，并报告全部可选 field 数、读取数及匹配数。两类物理重复对都共享一个 C0 零点，位置差可测量这一尺度的重复性；对的数量决定证据范围。几何边界继续使用共享图的 HEALPix 与处理核心留出统计。
 

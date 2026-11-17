@@ -34,8 +34,10 @@ class CoverageTest(unittest.TestCase):
             graph.write_text("graph")
             plan = [(k, root / "src" / k, root / "ref" / k) for k in specs]
             for k, src, ref in plan[:2]:
-                record(src, "exposure-inputs-v09", FILES, {})
-                record(ref, "continuous-ref-input-v12", ("reference.csv.gz", "reference_summary.json"), {})
+                record(src, "exposure-inputs-v09", FILES, {"acquisition_summary.json": json.dumps({
+                    "downloaded_nsc_measures": 10, "elapsed_seconds": 5, "peak_rss_mib": 2})})
+                record(ref, "continuous-ref-input-v12", ("reference.csv.gz", "reference_summary.json"),
+                       {"reference_summary.json": json.dumps({"reference_sources": 3})})
                 sha = digest(graph) if k == "one" else "different"
                 record(root/"outputs"/k, "continuous-core-v12", FIT_FILES, {
                     FIT_FILES[0]: json.dumps({"reference_gauge": "main", "shared_solution_sha256": sha})})
@@ -44,6 +46,15 @@ class CoverageTest(unittest.TestCase):
             summary, paths = audit(box, specs, plan, root/"outputs", shared)
             self.assertEqual(list(paths), ["one"])
             self.assertEqual(summary["verified_cells"], 1)
+            self.assertEqual(summary["acquisition_receipt_cells"], 2)
+            self.assertEqual(summary["reference_receipt_cells"], 2)
+            self.assertEqual(summary["fit_supported_cells"], 1)
+            self.assertEqual(summary["cores"]["one"]["acquisition_resources"]["downloaded_nsc_measures_sum"], 10)
+            self.assertEqual(summary["cores"]["one"]["reference_counts"]["reference_sources"], 3)
             self.assertEqual(summary["unverified_cores"], ["two", "three"])
             self.assertEqual(summary["cores"]["two"]["fit"], "wrong_graph")
             self.assertEqual(summary["cores"]["three"]["fit"], "missing_receipt")
+            (plan[0][1] / "acquisition_summary.json").write_text("{}")
+            changed, paths = audit(box, specs, plan, root/"outputs", shared)
+            self.assertEqual(paths, {})
+            self.assertEqual(changed["cores"]["one"]["acquisition"], "unverified_summary")

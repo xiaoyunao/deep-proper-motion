@@ -11,6 +11,7 @@ from .public_summary import check_aggregate
 
 FIT_FILES = ("continuous_core_summary.json", "private_qso_blocks.json",
              "private_group_deletions.json", "private_catalogue.csv.gz")
+REFERENCE_FILES = ("reference.csv.gz", "reference_summary.json")
 
 
 def planned_cells(box, specs, names):
@@ -61,6 +62,26 @@ def stage_state(directory, name, outputs):
             else "missing_output")
 
 
+def acquisition_resources(source, report):
+    children = report.get("shard_resources", [report])
+    result = {"acquisition_parts": len(children),
+              "standardized_detection_bytes": (source / "detections.csv").stat().st_size}
+    for key in ("downloaded_nsc_measures", "sdss_measures", "objects",
+                "archive_objects_without_measures", "elapsed_seconds"):
+        values = [part[key] for part in children if key in part]
+        if len(values) == len(children) and values:
+            result[key + "_sum"] = sum(values)
+    memory = [part["peak_rss_mib"] for part in children if "peak_rss_mib" in part]
+    if memory:
+        result["max_acquisition_peak_rss_mib"] = max(memory)
+    return result
+
+
+def recorded_summary(directory, name):
+    verify_directory(directory, (name,))
+    return json.loads((directory / name).read_text())
+
+
 def audit(box, specs, plan, outputs, shared):
     cells = planned_cells(box, specs, (name for name, _, _ in plan))
     offsets = shared / "private_c0.npz"
@@ -68,14 +89,31 @@ def audit(box, specs, plan, outputs, shared):
     fit_paths = {}
     status = {}
     area_by_state = {}
+    acquisition_cells = reference_cells = supported_cells = 0
     for name, source, ref in plan:
         work = outputs / name
         record = {
             "acquisition": stage_state(source, None, FILES),
-            "reference": stage_state(ref, "continuous-ref-input-v12", ("reference.csv.gz", "reference_summary.json")),
+            "reference": stage_state(ref, "continuous-ref-input-v12", REFERENCE_FILES),
             "fit": stage_state(work, "continuous-core-v12", FIT_FILES),
         }
-        if all(v == "recorded" for v in record.values()):
+        if record["acquisition"] == "recorded":
+            try:
+                acquisition = recorded_summary(source, "acquisition_summary.json")
+                record["acquisition_resources"] = acquisition_resources(source, acquisition)
+                acquisition_cells += len(cells[name])
+            except (ValueError, OSError):
+                record["acquisition"] = "unverified_summary"
+        if record["reference"] == "recorded":
+            try:
+                statistics = recorded_summary(ref, "reference_summary.json")
+                record["reference_counts"] = {k: statistics[k] for k in
+                    ("local_reference_rows", "reference_sources", "r_sdss_runs", "r_nsc_visits")
+                    if k in statistics}
+                reference_cells += len(cells[name])
+            except (ValueError, OSError):
+                record["reference"] = "unverified_summary"
+        if all(record[key] == "recorded" for key in ("acquisition", "reference", "fit")):
             try:
                 verify_directory(work, FIT_FILES)
                 fit = json.loads((work / FIT_FILES[0]).read_text())
@@ -85,6 +123,8 @@ def audit(box, specs, plan, outputs, shared):
                     fit_paths[name] = str(work)
                     record["fit"] = "verified" if fit["reference_gauge"] is not None else "verified_no_gauge"
                     record["gauge"] = fit["reference_gauge"]
+                    if record["fit"] == "verified":
+                        supported_cells += len(cells[name])
             except (ValueError, OSError):
                 record["fit"] = "unverified_output"
         record["cells"] = len(cells[name])
@@ -98,6 +138,10 @@ def audit(box, specs, plan, outputs, shared):
         "planned_core_count": len(cells),
         "verified_core_count": len(fit_paths),
         "verified_cells": sum(len(cells[k]) for k in fit_paths),
+        "acquisition_receipt_cells": acquisition_cells,
+        "reference_receipt_cells": reference_cells,
+        "fit_supported_cells": supported_cells,
+        "download_counts_include_shard_halos": True,
         "area_by_fit_state_sqdeg": area_by_state,
         "unverified_cores": [k for k in cells if k not in fit_paths],
         "cores": status,
@@ -111,13 +155,14 @@ def main():
     parser.add_argument("state", type=Path)
     parser.add_argument("config", type=Path)
     parser.add_argument("--prepare-summary", action="store_true")
+    parser.add_argument("--output", type=Path, help="Write a coverage snapshot to this path")
     args = parser.parse_args()
     plan = [(name, Path(source), Path(ref)) for name, source, ref in
             (line.split("\t") for line in (args.state / "run-plan.tsv").read_text().splitlines())]
     conf = tomllib.loads(args.config.read_text())
     shared = args.state / "shared"
     result, fits = audit(conf["boxes"]["c"], conf["fields"], plan, args.state / "outputs", shared)
-    save_json(args.state / "v12_coverage_audit_summary.json", result)
+    save_json(args.output or args.state / "v12_coverage_audit_summary.json", result)
     if args.prepare_summary:
         save_json(args.state / "fits.json", fits)
         save_json(args.state / "gauges.json", {"all": str(shared)})

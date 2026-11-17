@@ -49,3 +49,5 @@ python -m deep_pm.continuous_seams "$SEAM_SUMMARY" "$SHARED" "$REFERENCE_PLAN_JS
 ```
 
 一次试运行以实际配套回执为边界。所有未取全的块以缺区记录，不能将已有的几何覆盖估算视为已处理数据。 [NSC 数据入口](https://datalab.noirlab.edu/data/nsc) · [SDSS DR17 Resolve](https://www.sdss4.org/dr17/algorithms/resolve/) · [NERSC CPU 队列](https://docs.nersc.gov/jobs/policy/)
+
+覆盖回执分别统计已有取数、参考提取、拟合回执和有可用参考分量的格数。逐核心汇总提供最新成功取数的读入行数、标准化记录大小、耗时、峰值内存和参考星系支持。读入行数含缓冲区及合并输入的重复读取。失败和重试的额外时长由 Slurm 回执记录。

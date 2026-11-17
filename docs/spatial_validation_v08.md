@@ -18,6 +18,6 @@
 
 ## 暗星外部参照
 
-Fajardo-Acosta et al. (2022) 在 COSMOS 的约 1.64 平方度内以 Hubble/ACS 和 Subaru/HSC 两历元测量 11,519 个 (i=19)–25 类星源，输入位置与 SDSS+NSC 不重叠，天球标定可含 Gaia。论文和项目产品网页核查可用性，只有候选逐源表、坐标历元、原始（未移除太阳反射）自行和逐源误差可验证后才加入固定关联的暗星测试。[论文](https://arxiv.org/html/2203.05658) · [IPAC JSP 产品](https://jsp.ipac.caltech.edu/page/dataproducts)
+Fajardo-Acosta et al. (2022) 在 COSMOS 的约 1.64 平方度内以 Hubble/ACS 和 Subaru/HSC 两历元测量 11,519 个 (i=19)–25 类星源，输入位置与 SDSS+NSC 不重叠，天球标定可含 Gaia。论文表 3 仅展示选择后的候选，运动已作太阳反射校正。IPAC 项目和 IRSA 论文目录未找到完整逐源表入口。只有候选逐源表、坐标历元、原始（未移除太阳反射）自行和逐源误差可验证后才加入固定关联的暗星测试。[论文](https://arxiv.org/html/2203.05658) · [IPAC JSP 产品](https://jsp.ipac.caltech.edu/page/dataproducts)
 
 Subaru HSC 与 SDSS Stripe 82 的暗端自行论文使用同一 SDSS 巡天位置，可作相关误差对照。Hubble Source Catalog 的公开深暗自行产品 SWEEPS 位于银心，和本次普通北天、赤道扩区分开。[HSC–SDSS](https://academic.oup.com/mnras/article/501/4/5149/6054531) · [MAST HSC 说明](https://outerspace.stsci.edu/spaces/HSC/overview)

@@ -57,7 +57,7 @@ def historical(audits, history, folder):
                 panel.vlines(xp,lo,hi,color=f"C{axis}",alpha=.75)
                 panel.scatter(xp,item["median"][axis],color=f"C{axis}",s=25,
                               label=label if j==0 else None)
-        panel.axhspan(-.5,.5,color="0.9")
+        panel.axhspan(-.5,.5,color="0.9",zorder=0)
         panel.axhline(0,color="0.5",lw=.7)
         panel.set(title=field,ylabel="Median proper motion (mas/yr)")
         panel.set_xticks(range(3),[f"{b[:2]}–{b[-2:]}\n n={row.get('magnitude__'+b,{}).get('n',0)}" for b in BINS])
@@ -107,10 +107,10 @@ def observing_conditions(audits, folder):
                 lo,hi=row["median95"][dim]
                 offset=i+(dim-.5)*.23
                 panel.hlines(offset,lo,hi,color=f"C{dim}",alpha=.63)
-                panel.scatter(row["median"][dim],offset,color=f"C{dim}",s=14)
+                panel.scatter(row["median"][dim],offset,color=f"C{dim}",s=14,zorder=3)
         panel.set_yticks(range(len(sample)),[name for name,_ in sample],fontsize=7)
         panel.invert_yaxis()
-        panel.axvspan(-.5,.5,color=".92")
+        panel.axvspan(-.5,.5,color=".92",zorder=0)
         panel.set_title(title,fontsize=10)
         panel.set_xlabel("Median proper motion (mas/yr)",fontsize=8)
     fig.suptitle("QSO zero points by observing conditions — East (blue), North (orange)")
@@ -144,7 +144,7 @@ def performance(cohort, folder):
             ax[1].vlines(x,lo,hi,color=f"C{axis}",alpha=.66)
             values=cohort["fields"][name]["faint_precision"]["methods"]["W0"]["median"]
             ax[1].scatter(x,values[axis],color=f"C{axis}",s=12)
-    ax[1].axhspan(-.5,.5,color="0.9")
+    ax[1].axhspan(-.5,.5,color="0.9",zorder=0)
     ax[1].set(xlabel="Completed cores (alphabetical)",ylabel="Zero point and object CI (mas/yr)",
               title="r = 22–23 by core")
     if len(fields)<=28:

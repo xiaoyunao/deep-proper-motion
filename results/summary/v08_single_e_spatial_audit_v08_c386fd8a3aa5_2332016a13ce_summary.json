@@ -1,0 +1,2720 @@
+{
+  "qso": {
+    "spectra_in_core": 65,
+    "photometric_funnel": {
+      "all": {
+        "no_nsc_or_sdss_position": 30,
+        "no_anchored_m3_span": 29,
+        "strict_common": 6
+      },
+      "22_to_23": {
+        "no_nsc_or_sdss_position": 18
+      },
+      "21_to_23": {
+        "no_nsc_or_sdss_position": 29,
+        "no_anchored_m3_span": 9,
+        "strict_common": 2
+      },
+      "20_to_21": {
+        "no_anchored_m3_span": 11,
+        "strict_common": 2,
+        "no_nsc_or_sdss_position": 1
+      },
+      "21_to_22": {
+        "no_anchored_m3_span": 9,
+        "no_nsc_or_sdss_position": 11,
+        "strict_common": 2
+      },
+      "lt20": {
+        "no_anchored_m3_span": 9,
+        "strict_common": 2
+      }
+    },
+    "strict_exits": {
+      "W0_all": {
+        "final": {
+          "n": 4,
+          "denominator": 6,
+          "value": 0.6666666666666666,
+          "wilson95": [
+            0.299993315138392,
+            0.9032285888942195
+          ]
+        },
+        "pointlike_morphology": {
+          "n": 1,
+          "denominator": 6,
+          "value": 0.16666666666666666,
+          "wilson95": [
+            0.030053369748306635,
+            0.5635028221864702
+          ]
+        },
+        "quality": {
+          "n": 1,
+          "denominator": 6,
+          "value": 0.16666666666666666,
+          "wilson95": [
+            0.030053369748306635,
+            0.5635028221864702
+          ]
+        }
+      },
+      "W0_20_to_21": {
+        "final": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      },
+      "W0_21_to_22": {
+        "pointlike_morphology": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "quality": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        }
+      },
+      "W0_21_to_23": {
+        "pointlike_morphology": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "quality": {
+          "n": 1,
+          "denominator": 2,
+          "value": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        }
+      },
+      "W0_lt20": {
+        "final": {
+          "n": 2,
+          "denominator": 2,
+          "value": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        }
+      }
+    },
+    "association": {
+      "W0": {
+        "cross_survey_recovered": {
+          "n": 35,
+          "denominator": 35,
+          "value": 1.0,
+          "wilson95": [
+            0.9010990076755959,
+            0.9999999999999999
+          ]
+        },
+        "final_recovered": {
+          "n": 4,
+          "denominator": 35,
+          "value": 0.11428571428571428,
+          "wilson95": [
+            0.04535179333097357,
+            0.2595146864621381
+          ]
+        },
+        "final_mixed_known_tracks": {
+          "n": 0,
+          "denominator": 4,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.4898908364545973
+          ]
+        },
+        "final_wrong_known_members": {
+          "n": 0,
+          "denominator": 18,
+          "value": 0.0,
+          "wilson95": [
+            0.0,
+            0.17587922364665765
+          ]
+        },
+        "final_unlabelled_members": 6699,
+        "repeated_final_truth_matches": 0
+      }
+    },
+    "precision": {
+      "all": {
+        "W0": {
+          "n": 4,
+          "methods": {
+            "published_nsc": {
+              "n": 4,
+              "median": [
+                8.670237969314348,
+                -8.372025127301116
+              ],
+              "nmad": [
+                17.710012538992554,
+                29.830800367565296
+              ],
+              "abs68": [
+                15.465962355922695,
+                33.82361240921063
+              ],
+              "abs_median": [
+                11.945239807765113,
+                24.498820059638792
+              ],
+              "fraction_abs_gt_tail": [
+                1.0,
+                0.75
+              ],
+              "standardized_nmad": [
+                0.5493886964261809,
+                0.5410100478289288
+              ],
+              "fraction_within_1sigma": [
+                0.75,
+                0.75
+              ],
+              "fraction_within_2sigma": [
+                1.0,
+                1.0
+              ],
+              "radial_abs68": 45.1624389887869,
+              "radial_median": 38.64887597213861,
+              "radial_tail_count": 4,
+              "axis_tail_count": [
+                4,
+                3
+              ]
+            },
+            "W0": {
+              "n": 4,
+              "median": [
+                -0.5546086116111248,
+                -0.9119171915642531
+              ],
+              "nmad": [
+                2.5124990905620908,
+                3.1586431837726825
+              ],
+              "abs68": [
+                1.9329110063442476,
+                2.572355254998298
+              ],
+              "abs_median": [
+                1.6946574197774793,
+                2.1304756399384073
+              ],
+              "fraction_abs_gt_tail": [
+                0.25,
+                0.0
+              ],
+              "standardized_nmad": [
+                0.4568504599152996,
+                0.5056552694991602
+              ],
+              "fraction_within_1sigma": [
+                1.0,
+                1.0
+              ],
+              "fraction_within_2sigma": [
+                1.0,
+                1.0
+              ],
+              "radial_abs68": 4.92690203628242,
+              "radial_median": 3.6352251898074837,
+              "radial_tail_count": 1,
+              "axis_tail_count": [
+                1,
+                0
+              ]
+            }
+          },
+          "paired": {
+            "W0_vs_published_nsc": {
+              "absolute68_delta95": [
+                [
+                  -84.50130602946487,
+                  -7.416748962387193
+                ],
+                [
+                  -36.949051258095004,
+                  -0.050402796462217125
+                ],
+                [
+                  -83.97291516649078,
+                  -19.166652919191826
+                ]
+              ],
+              "median_bias_delta95": [
+                [
+                  -95.51077163150288,
+                  10.576040737916511
+                ],
+                [
+                  -31.73341578985371,
+                  36.949051258095004
+                ]
+              ],
+              "fraction_improved": [
+                0.8750216144419852,
+                0.9239479442976998,
+                0.8909070868049068
+              ],
+              "fraction95": [
+                [
+                  0.8081044056656596,
+                  0.9388404059044689
+                ],
+                [
+                  0.019838451737597795,
+                  0.9522782802948824
+                ],
+                [
+                  0.8872709077308879,
+                  0.9479617978835833
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "20_to_21": {
+        "W0": {
+          "n": 2
+        }
+      },
+      "lt20": {
+        "W0": {
+          "n": 2
+        }
+      }
+    }
+  },
+  "morphology": {
+    "qso": {
+      "0.6": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 6,
+            "denominator": 6,
+            "value": 1.0,
+            "wilson95": [
+              0.6096657120978346,
+              1.0
+            ]
+          },
+          "final_recovered": {
+            "n": 4,
+            "denominator": 6,
+            "value": 0.6666666666666666,
+            "wilson95": [
+              0.299993315138392,
+              0.9032285888942195
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 4,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 18,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.17587922364665765
+            ]
+          },
+          "final_unlabelled_members": 7029,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          }
+        }
+      },
+      "0.7": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 6,
+            "denominator": 6,
+            "value": 1.0,
+            "wilson95": [
+              0.6096657120978346,
+              1.0
+            ]
+          },
+          "final_recovered": {
+            "n": 4,
+            "denominator": 6,
+            "value": 0.6666666666666666,
+            "wilson95": [
+              0.299993315138392,
+              0.9032285888942195
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 4,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 18,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.17587922364665765
+            ]
+          },
+          "final_unlabelled_members": 6865,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          }
+        }
+      },
+      "0.9": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 6,
+            "denominator": 6,
+            "value": 1.0,
+            "wilson95": [
+              0.6096657120978346,
+              1.0
+            ]
+          },
+          "final_recovered": {
+            "n": 4,
+            "denominator": 6,
+            "value": 0.6666666666666666,
+            "wilson95": [
+              0.299993315138392,
+              0.9032285888942195
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 4,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 18,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.17587922364665765
+            ]
+          },
+          "final_unlabelled_members": 6420,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          }
+        }
+      },
+      "0.8": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 6,
+            "denominator": 6,
+            "value": 1.0,
+            "wilson95": [
+              0.6096657120978346,
+              1.0
+            ]
+          },
+          "final_recovered": {
+            "n": 4,
+            "denominator": 6,
+            "value": 0.6666666666666666,
+            "wilson95": [
+              0.299993315138392,
+              0.9032285888942195
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 4,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 18,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.17587922364665765
+            ]
+          },
+          "final_unlabelled_members": 6699,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 0,
+              "denominator": 2,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.6576197724933469
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 2,
+              "denominator": 2,
+              "value": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 2
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "wilson95": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          }
+        }
+      }
+    },
+    "gaia": {
+      "0.6": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 2192,
+            "denominator": 2210,
+            "value": 0.9918552036199095,
+            "wilson95": [
+              0.9871616643237187,
+              0.9948418081191917
+            ]
+          },
+          "final_recovered": {
+            "n": 1356,
+            "denominator": 2210,
+            "value": 0.6135746606334842,
+            "wilson95": [
+              0.5930932011756268,
+              0.6336619704740242
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 1360,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.002816646169427796
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 5465,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.0007024264370469613
+            ]
+          },
+          "final_unlabelled_members": 1582,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 425,
+              "denominator": 644,
+              "value": 0.6599378881987578,
+              "wilson95": [
+                0.6224980683356205,
+                0.6954809637179848
+              ]
+            },
+            "precision": {
+              "n": 425,
+              "median": [
+                -0.47325237837353873,
+                0.41702702709912054
+              ],
+              "median95": [
+                [
+                  -0.8334880134148199,
+                  0.04545595077873229
+                ],
+                [
+                  -0.0024419786081881154,
+                  0.9313544163781984
+                ]
+              ],
+              "radial_abs68": 5.434308945943265
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 416,
+              "denominator": 618,
+              "value": 0.6731391585760518,
+              "wilson95": [
+                0.6351867028564735,
+                0.7089524614987712
+              ]
+            },
+            "precision": {
+              "n": 416,
+              "median": [
+                -0.4784747675402736,
+                0.3964328664433261
+              ],
+              "median95": [
+                [
+                  -0.8186280869800767,
+                  0.021008866355444637
+                ],
+                [
+                  -0.04708833632012781,
+                  0.8672926198644257
+                ]
+              ],
+              "radial_abs68": 5.425536567383082
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 425,
+              "denominator": 643,
+              "value": 0.6609642301710731,
+              "wilson95": [
+                0.6235152637326996,
+                0.6965013294791788
+              ]
+            },
+            "precision": {
+              "n": 425,
+              "median": [
+                -0.47325237837353873,
+                0.41702702709912054
+              ],
+              "median95": [
+                [
+                  -0.8334880134148199,
+                  0.04545595077873229
+                ],
+                [
+                  -0.0024419786081881154,
+                  0.9313544163781984
+                ]
+              ],
+              "radial_abs68": 5.434308945943265
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 881,
+              "denominator": 1475,
+              "value": 0.5972881355932204,
+              "wilson95": [
+                0.5720378002412463,
+                0.6220330369591585
+              ]
+            },
+            "precision": {
+              "n": 881,
+              "median": [
+                -0.5169924361644394,
+                -0.29595013110590696
+              ],
+              "median95": [
+                [
+                  -0.7380510185752058,
+                  -0.2354052202613346
+                ],
+                [
+                  -0.6803213817437844,
+                  -0.013645769167711956
+                ]
+              ],
+              "radial_abs68": 4.783292852796665
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 851,
+              "denominator": 1366,
+              "value": 0.62298682284041,
+              "wilson95": [
+                0.5969752409470328,
+                0.6483086186094336
+              ]
+            },
+            "precision": {
+              "n": 851,
+              "median": [
+                -0.4361700490813032,
+                -0.3586993006524022
+              ],
+              "median95": [
+                [
+                  -0.6595222016796236,
+                  -0.21601912089850828
+                ],
+                [
+                  -0.6803213817437844,
+                  -0.031744745286323095
+                ]
+              ],
+              "radial_abs68": 4.788807533992856
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 880,
+              "denominator": 1473,
+              "value": 0.5974202308214528,
+              "wilson95": [
+                0.5721536210258833,
+                0.6221800349571893
+              ]
+            },
+            "precision": {
+              "n": 880,
+              "median": [
+                -0.5196066912886185,
+                -0.3223279200789544
+              ],
+              "median95": [
+                [
+                  -0.7396337711356394,
+                  -0.24650234645289026
+                ],
+                [
+                  -0.6719850381357806,
+                  -0.012901165094798463
+                ]
+              ],
+              "radial_abs68": 4.777171582214528
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 30,
+              "denominator": 109,
+              "value": 0.27522935779816515,
+              "wilson95": [
+                0.20012023356731107,
+                0.36564220417411036
+              ]
+            },
+            "precision": {
+              "n": 30,
+              "median": [
+                -1.5332387900617812,
+                0.3448706201445675
+              ],
+              "median95": [
+                [
+                  -2.3913257519409856,
+                  -0.3594006803348364
+                ],
+                [
+                  -1.9231305974026296,
+                  1.0531241915105074
+                ]
+              ],
+              "radial_abs68": 4.667767975869226
+            }
+          },
+          "20_to_21__seeing_le_1p35": {
+            "retained": {
+              "n": 9,
+              "denominator": 26,
+              "value": 0.34615384615384615,
+              "wilson95": [
+                0.1941223032294052,
+                0.5377942881118918
+              ]
+            },
+            "precision": {
+              "n": 9
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 50,
+              "denominator": 91,
+              "value": 0.5494505494505495,
+              "wilson95": [
+                0.44729289373397435,
+                0.6476023146686639
+              ]
+            },
+            "precision": {
+              "n": 50,
+              "median": [
+                -1.3851086725784798,
+                0.05532465117310226
+              ],
+              "median95": [
+                [
+                  -3.0364018135623843,
+                  0.8692382702223487
+                ],
+                [
+                  -1.1616731061496977,
+                  0.961245710147594
+                ]
+              ],
+              "radial_abs68": 7.05146297219065
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 47,
+              "denominator": 84,
+              "value": 0.5595238095238095,
+              "wilson95": [
+                0.45307101720468923,
+                0.6607704436983275
+              ]
+            },
+            "precision": {
+              "n": 47,
+              "median": [
+                -1.6079164342726404,
+                0.07688643109365678
+              ],
+              "median95": [
+                [
+                  -2.966036415045167,
+                  0.5362824817200034
+                ],
+                [
+                  -0.9270944272965702,
+                  0.9240713291634055
+                ]
+              ],
+              "radial_abs68": 6.696556447691243
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 50,
+              "denominator": 91,
+              "value": 0.5494505494505495,
+              "wilson95": [
+                0.44729289373397435,
+                0.6476023146686639
+              ]
+            },
+            "precision": {
+              "n": 50,
+              "median": [
+                -1.3851086725784798,
+                0.05532465117310226
+              ],
+              "median95": [
+                [
+                  -3.0364018135623843,
+                  0.8692382702223487
+                ],
+                [
+                  -1.1616731061496977,
+                  0.961245710147594
+                ]
+              ],
+              "radial_abs68": 7.05146297219065
+            }
+          },
+          "lt20__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 1,
+              "denominator": 2,
+              "value": 0.5,
+              "wilson95": [
+                0.09453120573423074,
+                0.9054687942657693
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "20_to_21__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 0,
+              "denominator": 1,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_le_1p35": {
+            "retained": {
+              "n": 3,
+              "denominator": 7,
+              "value": 0.42857142857142855,
+              "wilson95": [
+                0.15821985525146975,
+                0.7495416354723428
+              ]
+            },
+            "precision": {
+              "n": 3
+            }
+          }
+        }
+      },
+      "0.7": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 2192,
+            "denominator": 2210,
+            "value": 0.9918552036199095,
+            "wilson95": [
+              0.9871616643237187,
+              0.9948418081191917
+            ]
+          },
+          "final_recovered": {
+            "n": 1348,
+            "denominator": 2210,
+            "value": 0.6099547511312218,
+            "wilson95": [
+              0.5894450532751447,
+              0.6300828619075851
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 1351,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.0028353567095871705
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 5430,
+            "value": 0.0,
+            "wilson95": [
+              5.421010862427522e-20,
+              0.0007069508468007155
+            ]
+          },
+          "final_unlabelled_members": 1453,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 419,
+              "denominator": 644,
+              "value": 0.6506211180124224,
+              "wilson95": [
+                0.6130036004606629,
+                0.6864523811820529
+              ]
+            },
+            "precision": {
+              "n": 419,
+              "median": [
+                -0.45227114720698713,
+                0.41439789734275223
+              ],
+              "median95": [
+                [
+                  -0.8334561832771534,
+                  0.05810181448156662
+                ],
+                [
+                  -0.09199747681512438,
+                  0.9104999171654803
+                ]
+              ],
+              "radial_abs68": 5.40998062078755
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 410,
+              "denominator": 618,
+              "value": 0.6634304207119741,
+              "wilson95": [
+                0.6252669746500776,
+                0.6995746664702935
+              ]
+            },
+            "precision": {
+              "n": 410,
+              "median": [
+                -0.46276176279026293,
+                0.37454368638516233
+              ],
+              "median95": [
+                [
+                  -0.8334880134148199,
+                  0.11288305617541905
+                ],
+                [
+                  -0.17525268575943845,
+                  0.895431499267429
+                ]
+              ],
+              "radial_abs68": 5.404603374696987
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 419,
+              "denominator": 643,
+              "value": 0.6516329704510109,
+              "wilson95": [
+                0.6140042408173793,
+                0.6874606658314916
+              ]
+            },
+            "precision": {
+              "n": 419,
+              "median": [
+                -0.45227114720698713,
+                0.41439789734275223
+              ],
+              "median95": [
+                [
+                  -0.8334561832771534,
+                  0.05810181448156662
+                ],
+                [
+                  -0.09199747681512438,
+                  0.9104999171654803
+                ]
+              ],
+              "radial_abs68": 5.40998062078755
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 880,
+              "denominator": 1475,
+              "value": 0.5966101694915255,
+              "wilson95": [
+                0.5713547837899621,
+                0.621363643395109
+              ]
+            },
+            "precision": {
+              "n": 880,
+              "median": [
+                -0.4908159514641601,
+                -0.3223279200789544
+              ],
+              "median95": [
+                [
+                  -0.6957183504872116,
+                  -0.23958880936614751
+                ],
+                [
+                  -0.6799268687858593,
+                  -0.02384668888382365
+                ]
+              ],
+              "radial_abs68": 4.777171582214528
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 850,
+              "denominator": 1366,
+              "value": 0.6222547584187409,
+              "wilson95": [
+                0.5962354510756238,
+                0.6475883855072921
+              ]
+            },
+            "precision": {
+              "n": 850,
+              "median": [
+                -0.43289867373967095,
+                -0.37076759276327187
+              ],
+              "median95": [
+                [
+                  -0.6348728119754623,
+                  -0.21498056939519508
+                ],
+                [
+                  -0.6957073871028658,
+                  -0.03151871849308536
+                ]
+              ],
+              "radial_abs68": 4.776620150588679
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 879,
+              "denominator": 1473,
+              "value": 0.5967413441955194,
+              "wilson95": [
+                0.5714696653599831,
+                0.6215097491179811
+              ]
+            },
+            "precision": {
+              "n": 879,
+              "median": [
+                -0.5169924361644394,
+                -0.3487057090520018
+              ],
+              "median95": [
+                [
+                  -0.6978765643335629,
+                  -0.24405207574594664
+                ],
+                [
+                  -0.696390605214716,
+                  -0.04857904599161457
+                ]
+              ],
+              "radial_abs68": 4.7712341708327015
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 30,
+              "denominator": 109,
+              "value": 0.27522935779816515,
+              "wilson95": [
+                0.20012023356731107,
+                0.36564220417411036
+              ]
+            },
+            "precision": {
+              "n": 30,
+              "median": [
+                -1.5332387900617812,
+                0.3448706201445675
+              ],
+              "median95": [
+                [
+                  -2.3913257519409856,
+                  -0.3594006803348364
+                ],
+                [
+                  -1.9231305974026296,
+                  1.0531241915105074
+                ]
+              ],
+              "radial_abs68": 4.667767975869226
+            }
+          },
+          "20_to_21__seeing_le_1p35": {
+            "retained": {
+              "n": 9,
+              "denominator": 26,
+              "value": 0.34615384615384615,
+              "wilson95": [
+                0.1941223032294052,
+                0.5377942881118918
+              ]
+            },
+            "precision": {
+              "n": 9
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 49,
+              "denominator": 91,
+              "value": 0.5384615384615384,
+              "wilson95": [
+                0.43656172336109367,
+                0.6372456609520694
+              ]
+            },
+            "precision": {
+              "n": 49,
+              "median": [
+                -1.6079164342726404,
+                0.03376287125254773
+              ],
+              "median95": [
+                [
+                  -3.1067672120796015,
+                  0.5687732346323529
+                ],
+                [
+                  -1.3985105529183675,
+                  0.9240713291634055
+                ]
+              ],
+              "radial_abs68": 7.217018869245385
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 46,
+              "denominator": 84,
+              "value": 0.5476190476190477,
+              "wilson95": [
+                0.44143037013820663,
+                0.6496427985842067
+              ]
+            },
+            "precision": {
+              "n": 46,
+              "median": [
+                -1.7502322725034185,
+                0.05532465117310226
+              ],
+              "median95": [
+                [
+                  -3.1721193110088755,
+                  0.5362824817200034
+                ],
+                [
+                  -1.3081598362966629,
+                  0.9426894924214443
+                ]
+              ],
+              "radial_abs68": 6.780712282111097
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 49,
+              "denominator": 91,
+              "value": 0.5384615384615384,
+              "wilson95": [
+                0.43656172336109367,
+                0.6372456609520694
+              ]
+            },
+            "precision": {
+              "n": 49,
+              "median": [
+                -1.6079164342726404,
+                0.03376287125254773
+              ],
+              "median95": [
+                [
+                  -3.1067672120796015,
+                  0.5687732346323529
+                ],
+                [
+                  -1.3985105529183675,
+                  0.9240713291634055
+                ]
+              ],
+              "radial_abs68": 7.217018869245385
+            }
+          },
+          "lt20__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 1,
+              "denominator": 2,
+              "value": 0.5,
+              "wilson95": [
+                0.09453120573423074,
+                0.9054687942657693
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "20_to_21__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 0,
+              "denominator": 1,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_le_1p35": {
+            "retained": {
+              "n": 3,
+              "denominator": 7,
+              "value": 0.42857142857142855,
+              "wilson95": [
+                0.15821985525146975,
+                0.7495416354723428
+              ]
+            },
+            "precision": {
+              "n": 3
+            }
+          }
+        }
+      },
+      "0.9": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 2192,
+            "denominator": 2210,
+            "value": 0.9918552036199095,
+            "wilson95": [
+              0.9871616643237187,
+              0.9948418081191917
+            ]
+          },
+          "final_recovered": {
+            "n": 1320,
+            "denominator": 2210,
+            "value": 0.5972850678733032,
+            "wilson95": [
+              0.5766857419309999,
+              0.6175467756175059
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 1323,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.0028951905257079023
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 5329,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.0007203399632929697
+            ]
+          },
+          "final_unlabelled_members": 1109,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 407,
+              "denominator": 644,
+              "value": 0.6319875776397516,
+              "wilson95": [
+                0.5940603430078906,
+                0.668349537813046
+              ]
+            },
+            "precision": {
+              "n": 407,
+              "median": [
+                -0.4222285894577045,
+                0.30784270913676437
+              ],
+              "median95": [
+                [
+                  -0.7632027247517552,
+                  0.06056195808883813
+                ],
+                [
+                  -0.16558035706449029,
+                  0.9100821877849388
+                ]
+              ],
+              "radial_abs68": 5.399363408750835
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 399,
+              "denominator": 618,
+              "value": 0.6456310679611651,
+              "wilson95": [
+                0.6071258178041332,
+                0.68233703071897
+              ]
+            },
+            "precision": {
+              "n": 399,
+              "median": [
+                -0.4222285894577045,
+                0.2775232031798396
+              ],
+              "median95": [
+                [
+                  -0.7612373018482792,
+                  0.13657230869831594
+                ],
+                [
+                  -0.16558035706449029,
+                  0.8401800338169139
+                ]
+              ],
+              "radial_abs68": 5.398201607783951
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 407,
+              "denominator": 643,
+              "value": 0.6329704510108864,
+              "wilson95": [
+                0.5950281399347819,
+                0.6693333935880741
+              ]
+            },
+            "precision": {
+              "n": 407,
+              "median": [
+                -0.4222285894577045,
+                0.30784270913676437
+              ],
+              "median95": [
+                [
+                  -0.7632027247517552,
+                  0.06056195808883813
+                ],
+                [
+                  -0.16558035706449029,
+                  0.9100821877849388
+                ]
+              ],
+              "radial_abs68": 5.399363408750835
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 868,
+              "denominator": 1475,
+              "value": 0.5884745762711865,
+              "wilson95": [
+                0.5631624336500933,
+                0.6133270733509717
+              ]
+            },
+            "precision": {
+              "n": 868,
+              "median": [
+                -0.46244983201769685,
+                -0.353702504852202
+              ],
+              "median95": [
+                [
+                  -0.6838143847938154,
+                  -0.24427378998914162
+                ],
+                [
+                  -0.6791169266501456,
+                  -0.031721826520895634
+                ]
+              ],
+              "radial_abs68": 4.724403876596516
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 838,
+              "denominator": 1366,
+              "value": 0.6134699853587116,
+              "wilson95": [
+                0.5873627941513677,
+                0.6389407667489433
+              ]
+            },
+            "precision": {
+              "n": 838,
+              "median": [
+                -0.4251147508503801,
+                -0.384575148020456
+              ],
+              "median95": [
+                [
+                  -0.6588727299971786,
+                  -0.19813542782869936
+                ],
+                [
+                  -0.7260111862519067,
+                  -0.049790454207261
+                ]
+              ],
+              "radial_abs68": 4.717271911528052
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 867,
+              "denominator": 1473,
+              "value": 0.5885947046843177,
+              "wilson95": [
+                0.5632660582731491,
+                0.6134624581435127
+              ]
+            },
+            "precision": {
+              "n": 867,
+              "median": [
+                -0.4646394667638809,
+                -0.3586993006524022
+              ],
+              "median95": [
+                [
+                  -0.6982501833775696,
+                  -0.23155697057150704
+                ],
+                [
+                  -0.6783474816212175,
+                  -0.044825376978650674
+                ]
+              ],
+              "radial_abs68": 4.712619465806168
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 30,
+              "denominator": 109,
+              "value": 0.27522935779816515,
+              "wilson95": [
+                0.20012023356731107,
+                0.36564220417411036
+              ]
+            },
+            "precision": {
+              "n": 30,
+              "median": [
+                -1.5332387900617812,
+                0.3448706201445675
+              ],
+              "median95": [
+                [
+                  -2.3913257519409856,
+                  -0.3594006803348364
+                ],
+                [
+                  -1.9231305974026296,
+                  1.0531241915105074
+                ]
+              ],
+              "radial_abs68": 4.667767975869226
+            }
+          },
+          "20_to_21__seeing_le_1p35": {
+            "retained": {
+              "n": 8,
+              "denominator": 26,
+              "value": 0.3076923076923077,
+              "wilson95": [
+                0.16501315595463767,
+                0.4998825832219837
+              ]
+            },
+            "precision": {
+              "n": 8
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 45,
+              "denominator": 91,
+              "value": 0.4945054945054945,
+              "wilson95": [
+                0.39410584110376173,
+                0.5953502468515007
+              ]
+            },
+            "precision": {
+              "n": 45,
+              "median": [
+                -1.6079164342726404,
+                0.07688643109365678
+              ],
+              "median95": [
+                [
+                  -3.1067672120796015,
+                  0.5362824817200034
+                ],
+                [
+                  -1.3081598362966629,
+                  0.963723531423156
+                ]
+              ],
+              "radial_abs68": 7.36188027916828
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 42,
+              "denominator": 84,
+              "value": 0.5,
+              "wilson95": [
+                0.3954393376854136,
+                0.6045606623145864
+              ]
+            },
+            "precision": {
+              "n": 42,
+              "median": [
+                -1.7502322725034185,
+                0.19880060070404681
+              ],
+              "median95": [
+                [
+                  -2.966036415045167,
+                  -0.06052462538149509
+                ],
+                [
+                  -1.0956582466188045,
+                  1.0042671927903135
+                ]
+              ],
+              "radial_abs68": 6.806394491775708
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 45,
+              "denominator": 91,
+              "value": 0.4945054945054945,
+              "wilson95": [
+                0.39410584110376173,
+                0.5953502468515007
+              ]
+            },
+            "precision": {
+              "n": 45,
+              "median": [
+                -1.6079164342726404,
+                0.07688643109365678
+              ],
+              "median95": [
+                [
+                  -3.1067672120796015,
+                  0.5362824817200034
+                ],
+                [
+                  -1.3081598362966629,
+                  0.963723531423156
+                ]
+              ],
+              "radial_abs68": 7.36188027916828
+            }
+          },
+          "lt20__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 1,
+              "denominator": 2,
+              "value": 0.5,
+              "wilson95": [
+                0.09453120573423074,
+                0.9054687942657693
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "20_to_21__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 0,
+              "denominator": 1,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_le_1p35": {
+            "retained": {
+              "n": 3,
+              "denominator": 7,
+              "value": 0.42857142857142855,
+              "wilson95": [
+                0.15821985525146975,
+                0.7495416354723428
+              ]
+            },
+            "precision": {
+              "n": 3
+            }
+          }
+        }
+      },
+      "0.8": {
+        "association": {
+          "cross_survey_recovered": {
+            "n": 2192,
+            "denominator": 2210,
+            "value": 0.9918552036199095,
+            "wilson95": [
+              0.9871616643237187,
+              0.9948418081191917
+            ]
+          },
+          "final_recovered": {
+            "n": 1344,
+            "denominator": 2210,
+            "value": 0.6081447963800904,
+            "wilson95": [
+              0.5876214198585069,
+              0.628292867090762
+            ]
+          },
+          "final_mixed_known_tracks": {
+            "n": 0,
+            "denominator": 1347,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.002843752533363745
+            ]
+          },
+          "final_wrong_known_members": {
+            "n": 0,
+            "denominator": 5419,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.0007083848661010879
+            ]
+          },
+          "final_unlabelled_members": 1298,
+          "repeated_final_truth_matches": 0
+        },
+        "by_condition": {
+          "20_to_21": {
+            "retained": {
+              "n": 418,
+              "denominator": 644,
+              "value": 0.6490683229813664,
+              "wilson95": [
+                0.611422685770322,
+                0.684946120803912
+              ]
+            },
+            "precision": {
+              "n": 418,
+              "median": [
+                -0.46276176279026293,
+                0.3964328664433261
+              ],
+              "median95": [
+                [
+                  -0.7925839240796178,
+                  0.059985900011284045
+                ],
+                [
+                  -0.0920488120121361,
+                  0.8993690859717987
+                ]
+              ],
+              "radial_abs68": 5.405108692185952
+            }
+          },
+          "20_to_21__seeing_gt_1p35": {
+            "retained": {
+              "n": 410,
+              "denominator": 618,
+              "value": 0.6634304207119741,
+              "wilson95": [
+                0.6252669746500776,
+                0.6995746664702935
+              ]
+            },
+            "precision": {
+              "n": 410,
+              "median": [
+                -0.46276176279026293,
+                0.37454368638516233
+              ],
+              "median95": [
+                [
+                  -0.8334880134148199,
+                  0.11288305617541905
+                ],
+                [
+                  -0.17525268575943845,
+                  0.895431499267429
+                ]
+              ],
+              "radial_abs68": 5.404603374696987
+            }
+          },
+          "20_to_21__neighbor_wider": {
+            "retained": {
+              "n": 418,
+              "denominator": 643,
+              "value": 0.6500777604976672,
+              "wilson95": [
+                0.6124205758492978,
+                0.6859523830390719
+              ]
+            },
+            "precision": {
+              "n": 418,
+              "median": [
+                -0.46276176279026293,
+                0.3964328664433261
+              ],
+              "median95": [
+                [
+                  -0.7925839240796178,
+                  0.059985900011284045
+                ],
+                [
+                  -0.0920488120121361,
+                  0.8993690859717987
+                ]
+              ],
+              "radial_abs68": 5.405108692185952
+            }
+          },
+          "lt20": {
+            "retained": {
+              "n": 878,
+              "denominator": 1475,
+              "value": 0.5952542372881356,
+              "wilson95": [
+                0.5699888992514629,
+                0.6200247079029405
+              ]
+            },
+            "precision": {
+              "n": 878,
+              "median": [
+                -0.4908159514641601,
+                -0.3223279200789544
+              ],
+              "median95": [
+                [
+                  -0.6967781555498942,
+                  -0.21650640938748564
+                ],
+                [
+                  -0.6783272330678247,
+                  -0.005078465503930335
+                ]
+              ],
+              "radial_abs68": 4.77402824677709
+            }
+          },
+          "lt20__seeing_gt_1p35": {
+            "retained": {
+              "n": 848,
+              "denominator": 1366,
+              "value": 0.6207906295754027,
+              "wilson95": [
+                0.5947560574653338,
+                0.6461477331704814
+              ]
+            },
+            "precision": {
+              "n": 848,
+              "median": [
+                -0.43289867373967095,
+                -0.37076759276327187
+              ],
+              "median95": [
+                [
+                  -0.6865050668167794,
+                  -0.2066881153030078
+                ],
+                [
+                  -0.6957366447297781,
+                  -0.04516077779127414
+                ]
+              ],
+              "radial_abs68": 4.770787960397754
+            }
+          },
+          "lt20__neighbor_wider": {
+            "retained": {
+              "n": 877,
+              "denominator": 1473,
+              "value": 0.5953835709436525,
+              "wilson95": [
+                0.5701019029189178,
+                0.6201690285488295
+              ]
+            },
+            "precision": {
+              "n": 877,
+              "median": [
+                -0.5169924361644394,
+                -0.3487057090520018
+              ],
+              "median95": [
+                [
+                  -0.751602164416855,
+                  -0.22779124553118715
+                ],
+                [
+                  -0.6783474816212175,
+                  -0.013645769167711956
+                ]
+              ],
+              "radial_abs68": 4.770109303804461
+            }
+          },
+          "lt20__seeing_le_1p35": {
+            "retained": {
+              "n": 30,
+              "denominator": 109,
+              "value": 0.27522935779816515,
+              "wilson95": [
+                0.20012023356731107,
+                0.36564220417411036
+              ]
+            },
+            "precision": {
+              "n": 30,
+              "median": [
+                -1.5332387900617812,
+                0.3448706201445675
+              ],
+              "median95": [
+                [
+                  -2.3913257519409856,
+                  -0.3594006803348364
+                ],
+                [
+                  -1.9231305974026296,
+                  1.0531241915105074
+                ]
+              ],
+              "radial_abs68": 4.667767975869226
+            }
+          },
+          "20_to_21__seeing_le_1p35": {
+            "retained": {
+              "n": 8,
+              "denominator": 26,
+              "value": 0.3076923076923077,
+              "wilson95": [
+                0.16501315595463767,
+                0.4998825832219837
+              ]
+            },
+            "precision": {
+              "n": 8
+            }
+          },
+          "21_to_22": {
+            "retained": {
+              "n": 48,
+              "denominator": 91,
+              "value": 0.5274725274725275,
+              "wilson95": [
+                0.42587759658425334,
+                0.6268419636394346
+              ]
+            },
+            "precision": {
+              "n": 48,
+              "median": [
+                -1.3851086725784798,
+                0.05532465117310226
+              ],
+              "median95": [
+                [
+                  -2.966036415045167,
+                  0.572400260309279
+                ],
+                [
+                  -1.1176271317966164,
+                  0.9426894924214443
+                ]
+              ],
+              "radial_abs68": 6.875387595833431
+            }
+          },
+          "21_to_22__seeing_gt_1p35": {
+            "retained": {
+              "n": 45,
+              "denominator": 84,
+              "value": 0.5357142857142857,
+              "wilson95": [
+                0.42984715937637186,
+                0.6384577171654381
+              ]
+            },
+            "precision": {
+              "n": 45,
+              "median": [
+                -1.6079164342726404,
+                0.07688643109365678
+              ],
+              "median95": [
+                [
+                  -2.966036415045167,
+                  0.5362824817200034
+                ],
+                [
+                  -0.9270944272965702,
+                  0.961245710147594
+                ]
+              ],
+              "radial_abs68": 6.617195426643606
+            }
+          },
+          "21_to_22__neighbor_wider": {
+            "retained": {
+              "n": 48,
+              "denominator": 91,
+              "value": 0.5274725274725275,
+              "wilson95": [
+                0.42587759658425334,
+                0.6268419636394346
+              ]
+            },
+            "precision": {
+              "n": 48,
+              "median": [
+                -1.3851086725784798,
+                0.05532465117310226
+              ],
+              "median95": [
+                [
+                  -2.966036415045167,
+                  0.572400260309279
+                ],
+                [
+                  -1.1176271317966164,
+                  0.9426894924214443
+                ]
+              ],
+              "radial_abs68": 6.875387595833431
+            }
+          },
+          "lt20__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 1,
+              "denominator": 2,
+              "value": 0.5,
+              "wilson95": [
+                0.09453120573423074,
+                0.9054687942657693
+              ]
+            },
+            "precision": {
+              "n": 1
+            }
+          },
+          "20_to_21__neighbor_le_2p5arcsec": {
+            "retained": {
+              "n": 0,
+              "denominator": 1,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "precision": {
+              "n": 0
+            }
+          },
+          "21_to_22__seeing_le_1p35": {
+            "retained": {
+              "n": 3,
+              "denominator": 7,
+              "value": 0.42857142857142855,
+              "wilson95": [
+                0.15821985525146975,
+                0.7495416354723428
+              ]
+            },
+            "precision": {
+              "n": 3
+            }
+          }
+        }
+      }
+    },
+    "catalogue_sizes": {
+      "0.6": 1733,
+      "0.7": 1692,
+      "0.9": 1580,
+      "0.8": 1650
+    }
+  },
+  "zero": {
+    "magnitude__20_to_21": {
+      "n": 2
+    },
+    "color__missing": {
+      "n": 4
+    },
+    "instrument__ksb": {
+      "n": 4
+    },
+    "scan_camera__b38adcf": {
+      "n": 3
+    },
+    "nsc_span__short": {
+      "n": 2
+    },
+    "nsc_time__early": {
+      "n": 4
+    },
+    "matched_condition__b38adcf__ksb__short__early__20_to_21": {
+      "n": 1
+    },
+    "nsc_span__long": {
+      "n": 2
+    },
+    "matched_condition__b38adcf__ksb__long__early__20_to_21": {
+      "n": 1
+    },
+    "magnitude__lt20": {
+      "n": 2
+    },
+    "matched_condition__b38adcf__ksb__long__early__lt20": {
+      "n": 1
+    },
+    "scan_camera__ef10a46": {
+      "n": 1
+    },
+    "matched_condition__ef10a46__ksb__short__early__lt20": {
+      "n": 1
+    }
+  },
+  "local_gradient": {
+    "status": "not_in_frozen_gradient_test"
+  },
+  "holdout_geometry": {},
+  "m3": {
+    "reference_counts": {
+      "all": 3513,
+      "train": 2471,
+      "holdout": 1042
+    },
+    "groups_before_uncertainty_cut": 68,
+    "groups_by_survey": {
+      "SDSS": 8,
+      "NSC": 54
+    },
+    "heldout_galaxy_position_difference_mas": {
+      "M2": {
+        "n": 1042,
+        "median": [
+          2.6542197795643006,
+          -5.196780235710321
+        ],
+        "nmad": [
+          80.14708185235617,
+          76.69423204358057
+        ]
+      },
+      "M3": {
+        "n": 1042,
+        "median": [
+          -3.8114366100053303,
+          1.9767152460408397
+        ],
+        "nmad": [
+          74.38674412342695,
+          71.6928394213057
+        ]
+      }
+    }
+  },
+  "resources": {
+    "wall_seconds": 27.222760264994577
+  },
+  "region": "single_e",
+  "role": "independent",
+  "receipt": {
+    "commit": "c386fd8a3aa580db93cfba900dd107c882865c06",
+    "config_sha256": "2332016a13cedb02ca01d850b6dd0c6310e5f8587196d058edad35444a2ee8f0",
+    "aggregate_sha256": "b98a33bee5c16e9ff21774ba017f725b1881952a8df22669af2664f464f9b391",
+    "slurm_job": "61439613",
+    "stage": "spatial-audit-v08"
+  }
+}

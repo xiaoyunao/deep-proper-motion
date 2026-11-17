@@ -3,6 +3,7 @@
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
+- [实验 A v0.8 中文报告](reports/experiment_A_v0.8_spatial.md) · [空间验证协议](docs/spatial_validation_v08.md)
 - [实验 A v0.7 中文报告](reports/experiment_A_v0.7_regional.md) · [实验 A v0.6 中文报告](reports/experiment_A_v0.6_astrometry.md) · [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
 - [科学问题](docs/science_case.md) · [数据与访问](docs/data_access.md) · [单位与选择](docs/selection_and_units.md) · [方法](docs/methods.md) · [验收协议](docs/validation_protocol.md)
 - [可公开的汇总](results/summary) · [统计图](figures) · [研究记录](WORKLOG.md)
@@ -58,3 +59,9 @@ bash scripts/regional-v07.sh north_a single_e
 ```
 
 `deep_pm.regional_cohort` 通过多个 `--region` 读取带回执的完成目录，`--previous` 接收历史区域目录以核查共享观测。公开汇总经 `scripts/sync-v02-summary.sh regional-pool-v07 regional_pool` 验证，并由 `deep_pm.regional_plots` 生成图。
+
+### v0.8 分节点扩区
+
+候选与入选范围分别见 [空间配置](configs/spatial-v08.toml) 和 [冻结矩阵](configs/spatial-v08-fields.toml)。在 NERSC CPU Slurm 分配内使用 scripts/spatial-v08.sh 的 acquire 或 reduce 模式，将每个 task 配置在独立节点。DEEP_PM_NODE_TASKS 为当前节点数，DEEP_PM_WORKERS 为各节点内的独立区域进程数，其他输入输出路径通过同一脚本的环境变量设置。
+
+取数重试沿用原提交、配置、目录和缓存。逐检测、逐源、自行配对及留出数据保留在 NERSC Scratch。允许列表脚本可导出阶段摘要，deep_pm.spatial_figures 从摘要复现图。

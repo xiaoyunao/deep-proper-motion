@@ -1,0 +1,85 @@
+{
+  "pilots": {
+    "repeat_rich": {
+      "NSC": {
+        "unique_visits": 440,
+        "unique_visit_detector": 8068,
+        "normalized_records": 5248988,
+        "bands": {
+          "r": 1527965,
+          "z": 1305757,
+          "i": 1221481,
+          "g": 883556,
+          "Y": 262511,
+          "VR": 40257,
+          "u": 7461
+        },
+        "instruments": {
+          "c4d": 5037445,
+          "ksb": 159914,
+          "k4m": 51629
+        },
+        "year_bounds": [
+          2013.58,
+          2018.75
+        ],
+        "approx_day_count": 75
+      },
+      "SDSS": {
+        "unique_visits": 40,
+        "unique_visit_detector": 238,
+        "normalized_records": 2094970,
+        "bands": {
+          "r": 2094970
+        },
+        "instruments": {},
+        "year_bounds": [
+          1998.72,
+          2004.95
+        ],
+        "approx_day_count": 39
+      }
+    },
+    "repeat_sparse": {
+      "NSC": {
+        "unique_visits": 75,
+        "unique_visit_detector": 1670,
+        "normalized_records": 1049921,
+        "bands": {
+          "r": 338987,
+          "i": 254159,
+          "z": 247032,
+          "g": 209743
+        },
+        "instruments": {
+          "c4d": 1049921
+        },
+        "year_bounds": [
+          2013.66,
+          2019.68
+        ],
+        "approx_day_count": 32
+      },
+      "SDSS": {
+        "unique_visits": 5,
+        "unique_visit_detector": 16,
+        "normalized_records": 144241,
+        "bands": {
+          "r": 144241
+        },
+        "instruments": {},
+        "year_bounds": [
+          2008.83,
+          2009.74
+        ],
+        "approx_day_count": 5
+      }
+    }
+  },
+  "shared": {
+    "SDSS": 0,
+    "NSC": 0
+  },
+  "slurm_job": "61459901",
+  "normalized_input_revision": "2df4d4bc3827a86802dbbb9cd1e3298acc801ca4"
+}

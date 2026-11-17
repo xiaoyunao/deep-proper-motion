@@ -60,6 +60,7 @@ def motion(pilots, figures):
                 ax.text(.5, .5, f"Four-way common sample: {n}", transform=ax.transAxes, ha="center")
                 ax.set_xticks([])
             ax.set(title=f"{field.replace('_',' ')} · {control.upper()}", ylabel="Radial P68 [mas yr$^{-1}$]")
+    fig.suptitle("Strict same-source comparisons on the common four-catalogue sample")
     fig.savefig(figures/"v09_exposure_motion_summary.png", dpi=180)
     plt.close(fig)
 
@@ -119,6 +120,34 @@ def zero_points(pilots, figures):
     plt.close(fig)
 
 
+def support(pilots, figures):
+    fig, axes = plt.subplots(1, 2, figsize=(8.5, 4.0), constrained_layout=True)
+    pos = np.arange(len(pilots))
+    fine = [p["c1"] for p in pilots.values()]
+    ticks = [name.replace("_", " ") for name in pilots]
+    for j, (key, label, color) in enumerate((("candidate_children", "Candidate", "#c5c9cc"),
+                                             ("supported_children", "C1 supported", "#009475"))):
+        values = [row[key] for row in fine]
+        bars = axes[0].bar(pos+(j-.5)*.34, values, width=.30, label=label, color=color)
+        axes[0].bar_label(bars, [f"{v:,}" for v in values], fontsize=8, padding=3)
+    axes[0].set(ylabel="Observation groups", title="CCD / SDSS field support")
+    axes[0].legend(frameon=False, fontsize=8)
+    spans = [p["galaxies"]["boundary"] for p in pilots.values()]
+    for j, (key, label, color) in enumerate((
+            ("cross_pixel_position", "HEALPix crossing", "#3b638c"),
+            ("physical_detector", "Same-parent detector overlap", "#a7622a"))):
+        values = [row.get(key, {}).get("n", 0) for row in spans]
+        bars = axes[1].bar(pos+(j-.5)*.34, values, width=.30, label=label, color=color)
+        axes[1].bar_label(bars, [str(v) for v in values], fontsize=8, padding=2)
+    axes[1].set(ylabel="Held galaxy comparisons", title="Boundary support")
+    axes[1].legend(frameon=False, fontsize=8)
+    for ax in axes:
+        ax.set_xticks(pos, ticks)
+        ax.margins(y=.26)
+    fig.savefig(figures/"v09_exposure_support_summary.png", dpi=180)
+    plt.close(fig)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--summary", type=Path, default=Path("results/summary"))
@@ -132,6 +161,7 @@ def main():
         motion(pilots, args.figures)
         calibration(pilots, args.figures)
         zero_points(pilots, args.figures)
+        support(pilots, args.figures)
 
 
 if __name__ == "__main__":

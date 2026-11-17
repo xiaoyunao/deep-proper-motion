@@ -3,6 +3,7 @@ import numpy as np
 from deep_pm.zero_point import fit_offsets
 from deep_pm.exposure_catalogues import inside
 from deep_pm.exposure_partition import owner, storage_pixels
+from deep_pm.exposure_pilot import pilot_gate
 
 
 class ExposureCalibrationTest(unittest.TestCase):
@@ -30,6 +31,16 @@ class ExposureCalibrationTest(unittest.TestCase):
         pix=owner(ra,dec,box,128)
         self.assertTrue(set(pix[:4]) <= set(storage_pixels(box,128,.06)))
         self.assertEqual(pix[-1],-1)
+
+    def test_gate_keeps_positive_point_estimate_separate_from_noninferiority(self):
+        galaxy={"comparison":{"paired":{"C1_vs_C0":{"fraction_improved":[0,0,.08],
+                                                       "fraction95":[None,None,[.03,.12]]}}}}
+        contrast={"fraction95":[None,None,[-.11,.28]]}
+        qso={"by_cohort":{"c0_c1":{"strict__all__all":{"n":35,"paired":{"C1_vs_C0":contrast}}}}}
+        settings={"min_qso_count":20,"min_galaxy_gain":.05,"max_qso_relative_loss":.10}
+        self.assertFalse(pilot_gate(galaxy,qso,settings)["primary_metrics_pass"])
+        contrast["fraction95"][-1][0]=-.10
+        self.assertTrue(pilot_gate(galaxy,qso,settings)["primary_metrics_pass"])
 
 
 if __name__=="__main__":

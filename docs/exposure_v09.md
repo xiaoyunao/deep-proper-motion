@@ -22,6 +22,7 @@ PYTHONPATH=src python -m deep_pm.exposure_partition "$cfg"
 python -m deep_pm.exposure_inputs "$v09_root/parts" "$part" "$v09_catalogues" "$v09_sas" "$cfg" --workers 6
 python -m deep_pm.exposure_merge "$v09_root/inputs" "$pilot" "$v09_root/parts" "$cfg"
 python -m deep_pm.exposure_pilot "$v09_root/output" "$pilot" "$v09_root/inputs" "$v09_catalogues/xiao_c.csv" "$cfg"
+python -m deep_pm.exposure_coverage "$v09_root/inputs"
 
 # Locally, after sync-v02-summary.sh has exported the public pilot receipts.
 PYTHONPATH=src MPLBACKEND=Agg python -m deep_pm.exposure_plots

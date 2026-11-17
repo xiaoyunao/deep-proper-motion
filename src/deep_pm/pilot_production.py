@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None):
     prod = settings["production"]
     group = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
@@ -69,7 +69,8 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         owner[members] = j
     sdss_tree = cKDTree(xy[keep & ~nsc])
     reference_keep = keep if reference_keep is None else reference_keep
-    initial = make_tracks(xy, exposure, reference_keep & nsc, prod["match_radius_mas"])
+    if initial is None:
+        initial = make_tracks(xy, exposure, reference_keep & nsc, prod["match_radius_mas"])
     support = np.isin(group, list(offsets))
     morphology, mag = data.morphology.to_numpy(), data.magnitude.to_numpy()
     p = {}
@@ -83,7 +84,8 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             if trace is not None:
                 update_anchor_trace(trace,touched,"outside_core")
             continue
-        if np.median(morphology[anchor])<.8:
+        shape = np.median(morphology[anchor])
+        if shape<prod.get('min_anchor_morphology', .8):
             if trace is not None:
                 update_anchor_trace(trace,touched,"pointlike_morphology")
             continue
@@ -133,6 +135,8 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         update_anchor_trace(trace,[j],"final")
         if fits is not None:
             fits[j] = model
+        if anchor_info is not None:
+            anchor_info[j] = (shape, position, anchor)
         results[j] = (model.coeff[0], model.coeff[1], error, bucket, use, len(index))
     return p, results
 

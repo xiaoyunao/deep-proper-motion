@@ -70,7 +70,8 @@ def main():
     args.work.mkdir(parents=True,exist_ok=True)
     outputs=["detections.csv","external_labels.csv","official_nsc.csv","spectroscopic_qso.csv",
              "validation/gaia.csv","sdss.csv","nsc_object.csv","acquisition_summary.json"]
-    with run_stage(args.work,args.config,args.region,"regional-inputs-v07",outputs=outputs) as go:
+    stage = "regional-inputs-" + settings.get("run_series", "v07")
+    with run_stage(args.work,args.config,args.region,stage,outputs=outputs) as go:
         if go:
             acquire(args.work,args.region,settings["fields"][args.region],settings,args.catalogue,args.sas)
 

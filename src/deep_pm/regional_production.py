@@ -29,11 +29,12 @@ def blind_products(data,xy,t,sigma,w1,nsc,keep,expanded,tracks,offsets,config,se
     samples={}
     outputs={}
     expanded_tracks=augment_tracks(tracks,data,xy,expanded,keep,settings["production"])
+    initial=make_tracks(xy,data.exposure_id.to_numpy(),keep & nsc,settings["production"]["match_radius_mas"])
     for name,error,flags,partition in (("W0",sigma,keep,tracks),("W1",w1,keep,tracks),
                                        ("multi",w1,expanded,expanded_tracks)):
         trace={}
         funnel,final=source_funnel(data,xy,t,error,flags,partition,offsets,config,settings,spec["radius"],
-                                  reference_keep=keep,trace=trace,fits=fits if name=="W0" else None)
+                                  reference_keep=keep,trace=trace,fits=fits if name=="W0" else None,initial=initial)
         samples[name]=partition,final,trace
         outputs[name]=funnel
     return samples,outputs
@@ -104,10 +105,11 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
     hold=nsc & (survey_year==year)
     prod=settings["production"]
     fresh=make_tracks(xy,exp,keep & ~hold,prod["match_radius_mas"])
+    initial=make_tracks(xy,exp,keep & ~hold & nsc,prod["match_radius_mas"])
     fresh_multi=augment_tracks(fresh,data,xy,expanded & ~hold,keep & ~hold,prod)
-    baseline=source_funnel(data,xy,t,w1,keep & ~hold,fresh,offsets,config,settings,spec["radius"])[1]
+    baseline=source_funnel(data,xy,t,w1,keep & ~hold,fresh,offsets,config,settings,spec["radius"],initial=initial)[1]
     extra=source_funnel(data,xy,t,w1,expanded & ~hold,fresh_multi,offsets,config,settings,spec["radius"],
-                        reference_keep=keep & ~hold)[1]
+                        reference_keep=keep & ~hold,initial=initial)[1]
     # Use W1 as the common anchor. A single observed position is compared to
     # both predictions. Newly supported sources are a distinct denominator.
     pool=[j for j,v in extra.items() if v[3] in ("20_to_21","21_to_22","22_to_23")]
@@ -252,19 +254,20 @@ def main():
             path.symlink_to(target)
         if path.resolve()!=target:
             p.error("Use a separate run directory when inputs change.")
-    with run_stage(work,args.config,args.region,"blind-r-v07",inputs=["detections.csv","m3_config.toml"],
+    series=settings.get("run_series","v07")
+    with run_stage(work,args.config,args.region,"blind-r-"+series,inputs=["detections.csv","m3_config.toml"],
                    outputs=["private_tracks.json"]) as go:
         if go:
             center=spec["ra"],spec["dec"]
             data,xy,_,_,keep=quality_detections(work,center,config,settings["production"])
             tracks=make_tracks(xy,data.exposure_id.to_numpy(),keep,settings["production"]["match_radius_mas"])
             save_json(work/"private_tracks.json",dict(tracks=tracks))
-    stage="legacy-exit-v07" if args.legacy else "regional-production-v07"
+    stage=("legacy-exit-" if args.legacy else "regional-production-")+series
     outputs=["legacy_exit_summary.json"] if args.legacy else [
            "regional_summary.json","private_catalogue.csv.gz","private_qso_pairs.json"]
     inputs=[*links,"private_tracks.json"]
     if not args.legacy:
-        with run_stage(work,args.config,args.region,"exposure-metadata-v07",inputs=["detections.csv"],
+        with run_stage(work,args.config,args.region,"exposure-metadata-"+series,inputs=["detections.csv"],
                        outputs=["exposures.csv"]) as go:
             if go:
                 frame=pd.read_csv(work/"detections.csv",usecols=["survey","exposure_id"])

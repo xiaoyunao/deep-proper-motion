@@ -1,0 +1,734 @@
+{
+  "box": {
+    "ra_bounds_deg": [
+      345.0,
+      355.0
+    ],
+    "dec_bounds_deg": [
+      -5.0,
+      5.0
+    ]
+  },
+  "area_sqdeg": 99.87312439537492,
+  "tiles": [
+    {
+      "region": {
+        "ra_bounds_deg": [
+          345.0,
+          347.0
+        ],
+        "dec_bounds_deg": [
+          -5.0,
+          -3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9525,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        7.0
+      ],
+      "objects": 109292,
+      "approximate_nsc_measurements": 943904
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          345.0,
+          347.0
+        ],
+        "dec_bounds_deg": [
+          -3.0,
+          -1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.99,
+      "long_sdss_repeat": 0.155,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        8.0,
+        12.0
+      ],
+      "objects": 151767,
+      "approximate_nsc_measurements": 2156345
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          345.0,
+          347.0
+        ],
+        "dec_bounds_deg": [
+          -1.0,
+          1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 1.0,
+      "sdss_visits": [
+        14.0,
+        16.0,
+        24.0
+      ],
+      "nsc_r_visits": [
+        13.0,
+        17.0,
+        253.0
+      ],
+      "objects": 223711,
+      "approximate_nsc_measurements": 13429654
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          345.0,
+          347.0
+        ],
+        "dec_bounds_deg": [
+          1.0,
+          3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.985,
+      "long_sdss_repeat": 0.1425,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        6.0,
+        12.0
+      ],
+      "objects": 147534,
+      "approximate_nsc_measurements": 2188096
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          345.0,
+          347.0
+        ],
+        "dec_bounds_deg": [
+          3.0,
+          5.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.46,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        4.0,
+        5.0
+      ],
+      "objects": 109066,
+      "approximate_nsc_measurements": 725815
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          347.0,
+          349.0
+        ],
+        "dec_bounds_deg": [
+          -5.0,
+          -3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9425,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        6.0,
+        8.0
+      ],
+      "objects": 112315,
+      "approximate_nsc_measurements": 1270528
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          347.0,
+          349.0
+        ],
+        "dec_bounds_deg": [
+          -3.0,
+          -1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 0.17,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        5.159999999999968
+      ],
+      "nsc_r_visits": [
+        5.0,
+        7.0,
+        9.0
+      ],
+      "objects": 149841,
+      "approximate_nsc_measurements": 2475726
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          347.0,
+          349.0
+        ],
+        "dec_bounds_deg": [
+          -1.0,
+          1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 1.0,
+      "sdss_visits": [
+        15.0,
+        17.0,
+        24.0
+      ],
+      "nsc_r_visits": [
+        15.0,
+        20.0,
+        24.0
+      ],
+      "objects": 217049,
+      "approximate_nsc_measurements": 7528218
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          347.0,
+          349.0
+        ],
+        "dec_bounds_deg": [
+          1.0,
+          3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9575,
+      "long_sdss_repeat": 0.145,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        7.0,
+        11.0
+      ],
+      "objects": 147688,
+      "approximate_nsc_measurements": 2352183
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          347.0,
+          349.0
+        ],
+        "dec_bounds_deg": [
+          3.0,
+          5.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.605,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "objects": 115577,
+      "approximate_nsc_measurements": 791815
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          349.0,
+          351.0
+        ],
+        "dec_bounds_deg": [
+          -5.0,
+          -3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9925,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        6.0,
+        11.0,
+        22.0
+      ],
+      "objects": 105802,
+      "approximate_nsc_measurements": 1874973
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          349.0,
+          351.0
+        ],
+        "dec_bounds_deg": [
+          -3.0,
+          -1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 0.14,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        7.0,
+        9.0,
+        13.159999999999968
+      ],
+      "objects": 154811,
+      "approximate_nsc_measurements": 3783826
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          349.0,
+          351.0
+        ],
+        "dec_bounds_deg": [
+          -1.0,
+          1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 1.0,
+      "sdss_visits": [
+        15.0,
+        17.0,
+        23.0
+      ],
+      "nsc_r_visits": [
+        11.0,
+        28.5,
+        55.0
+      ],
+      "objects": 173456,
+      "approximate_nsc_measurements": 7258081
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          349.0,
+          351.0
+        ],
+        "dec_bounds_deg": [
+          1.0,
+          3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.975,
+      "long_sdss_repeat": 0.1175,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        7.0,
+        10.0
+      ],
+      "objects": 139315,
+      "approximate_nsc_measurements": 1841556
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          349.0,
+          351.0
+        ],
+        "dec_bounds_deg": [
+          3.0,
+          5.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.76,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "objects": 103985,
+      "approximate_nsc_measurements": 669286
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          351.0,
+          353.0
+        ],
+        "dec_bounds_deg": [
+          -5.0,
+          -3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.8875,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "objects": 99318,
+      "approximate_nsc_measurements": 12825502
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          351.0,
+          353.0
+        ],
+        "dec_bounds_deg": [
+          -3.0,
+          -1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.995,
+      "long_sdss_repeat": 0.1225,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        8.0,
+        11.0
+      ],
+      "objects": 139149,
+      "approximate_nsc_measurements": 2620554
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          351.0,
+          353.0
+        ],
+        "dec_bounds_deg": [
+          -1.0,
+          1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 1.0,
+      "sdss_visits": [
+        16.0,
+        17.0,
+        24.0
+      ],
+      "nsc_r_visits": [
+        13.0,
+        23.0,
+        30.0
+      ],
+      "objects": 177873,
+      "approximate_nsc_measurements": 5529828
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          351.0,
+          353.0
+        ],
+        "dec_bounds_deg": [
+          1.0,
+          3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9825,
+      "long_sdss_repeat": 0.1725,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        13.159999999999968
+      ],
+      "nsc_r_visits": [
+        5.0,
+        8.0,
+        13.0
+      ],
+      "objects": 145819,
+      "approximate_nsc_measurements": 2174865
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          351.0,
+          353.0
+        ],
+        "dec_bounds_deg": [
+          3.0,
+          5.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9175,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.5,
+        5.0
+      ],
+      "objects": 107317,
+      "approximate_nsc_measurements": 659872
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          353.0,
+          355.0
+        ],
+        "dec_bounds_deg": [
+          -5.0,
+          -3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "objects": 110689,
+      "approximate_nsc_measurements": 6600173
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          353.0,
+          355.0
+        ],
+        "dec_bounds_deg": [
+          -3.0,
+          -1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9875,
+      "long_sdss_repeat": 0.14,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        7.0,
+        10.0
+      ],
+      "objects": 147133,
+      "approximate_nsc_measurements": 2515122
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          353.0,
+          355.0
+        ],
+        "dec_bounds_deg": [
+          -1.0,
+          1.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 1.0,
+      "sdss_visits": [
+        16.0,
+        18.0,
+        24.0
+      ],
+      "nsc_r_visits": [
+        13.0,
+        16.0,
+        21.0
+      ],
+      "objects": 184055,
+      "approximate_nsc_measurements": 4696659
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          353.0,
+          355.0
+        ],
+        "dec_bounds_deg": [
+          1.0,
+          3.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 1.0,
+      "long_sdss_repeat": 0.1425,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.840000000000003,
+        10.0,
+        13.0
+      ],
+      "objects": 137141,
+      "approximate_nsc_measurements": 1915533
+    },
+    {
+      "region": {
+        "ra_bounds_deg": [
+          353.0,
+          355.0
+        ],
+        "dec_bounds_deg": [
+          3.0,
+          5.0
+        ]
+      },
+      "joint": 1.0,
+      "joint_time": 0.9225,
+      "long_sdss_repeat": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "objects": 112070,
+      "approximate_nsc_measurements": 753641
+    }
+  ],
+  "sampled_positions": 10000,
+  "sampled_ring_pixels": 525,
+  "physical_sdss_runs": 53,
+  "sdss_scan_centres_buffered": 20868,
+  "sdss_year_span": 11.025585972090084,
+  "geometry_sdss_nights": 52,
+  "sdss_visits": [
+    1.0,
+    1.0,
+    16.0
+  ],
+  "nsc_r_visits": [
+    3.0,
+    7.0,
+    15.0
+  ],
+  "nsc_r_exposures": 749,
+  "ccd_coverage_by_instrument_band": {
+    "c4d:g": 29385,
+    "c4d:i": 23529,
+    "c4d:r": 27623,
+    "c4d:z": 24778,
+    "c4d:Y": 18171,
+    "c4d:u": 4814,
+    "c4d:VR": 25689,
+    "k4m:VR": 1030,
+    "ksb:r": 302,
+    "ksb:g": 290,
+    "k4m:z": 204
+  },
+  "joint_fraction": 1.0,
+  "joint_timed_fraction": 0.9285,
+  "long_sdss_repeat_fraction": 0.2579,
+  "objects": 3521773,
+  "approximate_nsc_measurements": 89581755,
+  "region": "c",
+  "role": "independent",
+  "receipt": {
+    "commit": "f7a5c579310c573ddc05bfb146447d10df07ca7f",
+    "config_sha256": "35caa5fe0f007608a6db3d99f5d60deadba97e8ab0143b5b8a1f63bf589f9c60",
+    "aggregate_sha256": "6f5b97727dee9b98d672fe800ca9a8ffc9f5b0f84a2727ec3517606367f74fe2",
+    "slurm_job": "61459025",
+    "stage": "exposure-preflight-v09"
+  }
+}

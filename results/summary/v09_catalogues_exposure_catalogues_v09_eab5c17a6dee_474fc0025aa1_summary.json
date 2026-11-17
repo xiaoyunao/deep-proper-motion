@@ -1,0 +1,157 @@
+{
+  "legacy_rows": 268314513,
+  "bytes": 46955050560,
+  "xiao_columns": {
+    "objID": {
+      "format": "K",
+      "unit": null
+    },
+    "ID": {
+      "format": "K",
+      "unit": null
+    },
+    "RA": {
+      "format": "D",
+      "unit": null
+    },
+    "RA_IVAR": {
+      "format": "D",
+      "unit": null
+    },
+    "DEC": {
+      "format": "D",
+      "unit": null
+    },
+    "DEC_IVAR": {
+      "format": "D",
+      "unit": null
+    },
+    "PM_SOURCE": {
+      "format": "4A",
+      "unit": null
+    },
+    "FLAG": {
+      "format": "K",
+      "unit": null
+    },
+    "PMRA": {
+      "format": "D",
+      "unit": null
+    },
+    "PMDEC": {
+      "format": "D",
+      "unit": null
+    },
+    "PMRA_ERR": {
+      "format": "D",
+      "unit": null
+    },
+    "PMDEC_ERR": {
+      "format": "D",
+      "unit": null
+    },
+    "MJD_SDSS": {
+      "format": "K",
+      "unit": null
+    },
+    "MJD_DESI": {
+      "format": "D",
+      "unit": null
+    },
+    "TIME": {
+      "format": "D",
+      "unit": null
+    },
+    "TYPE_SDSS": {
+      "format": "K",
+      "unit": null
+    },
+    "TYPE_DESI": {
+      "format": "3A",
+      "unit": null
+    },
+    "MAG_G": {
+      "format": "D",
+      "unit": null
+    },
+    "MAG_R": {
+      "format": "D",
+      "unit": null
+    },
+    "MAG_Z": {
+      "format": "D",
+      "unit": null
+    },
+    "MAGERR_G": {
+      "format": "D",
+      "unit": null
+    },
+    "MAGERR_R": {
+      "format": "D",
+      "unit": null
+    },
+    "MAGERR_Z": {
+      "format": "D",
+      "unit": null
+    }
+  },
+  "xiao_sources": {
+    "DESI": 223499702,
+    "Gaia": 44814811
+  },
+  "spectra": {
+    "dr16q": 750414,
+    "desi_quality": 1544056,
+    "overlap": 330008,
+    "ambiguous_dr16q": 69,
+    "ambiguous_desi": 132,
+    "union": 1964261
+  },
+  "boxes": {
+    "a": {
+      "xiao_sources": {
+        "DESI": 1457242,
+        "Gaia": 333014
+      },
+      "spectra": {
+        "DESI": 18705,
+        "both": 2300,
+        "DR16Q": 254
+      },
+      "reference_r_21_23": 12610
+    },
+    "b": {
+      "xiao_sources": {
+        "DESI": 1696313,
+        "Gaia": 310311
+      },
+      "spectra": {
+        "DESI": 20263,
+        "both": 2126,
+        "DR16Q": 190
+      },
+      "reference_r_21_23": 13296
+    },
+    "c": {
+      "xiao_sources": {
+        "DESI": 1693330,
+        "Gaia": 257520
+      },
+      "spectra": {
+        "DESI": 6756,
+        "both": 5119,
+        "DR16Q": 3489
+      },
+      "reference_r_21_23": 8965
+    }
+  },
+  "region": "catalogues",
+  "role": "independent",
+  "receipt": {
+    "commit": "eab5c17a6dee6425f5db5ae6ba607cd3cf10b4f8",
+    "config_sha256": "474fc0025aa11faca0734c3ed758d995feb2ad0486ec362608828e696eb48774",
+    "aggregate_sha256": "67f3bc2c402cffa46318a6ec6cd72d36e428119dfb99053255ef116d5178353b",
+    "slurm_job": "61459003",
+    "stage": "exposure-catalogues-v09"
+  }
+}

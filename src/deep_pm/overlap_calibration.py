@@ -67,3 +67,34 @@ def assess_boundary(rows, counts, offsets, options, seed):
         if bootstrap:
             counts["relative_loss95_vs_c0"] = np.quantile(bootstrap, [.025, .975], axis=0).T
     return counts
+
+
+def pair_audit(training, held, models):
+    """Keep per-field geometries and errors on NERSC for reproduction and audit."""
+    output = {}
+    for name, records in (("training", training), ("held", held)):
+        for keys, rows in records.groupby(["first", "second"], sort=True):
+            a, b = sorted(keys)
+            sign = 1 if keys == (a, b) else -1
+            entry = output.setdefault(f"{a}__{b}", {})
+            raw = sign * rows[["east", "north"]].to_numpy()
+            if name not in entry:
+                entry[name] = []
+            entry[name].extend(raw.tolist())
+    for key, entry in output.items():
+        a, b = key.split("__")
+        solution = {}
+        for name, model in zip(("C1", "C1b"), models[1:]):
+            if a in model and b in model:
+                delta = model[a][0]-model[b][0]
+                draws = model[a][1]-model[b][1]
+                solution[name] = dict(difference_mas=delta, uncertainty_mas=np.std(draws, axis=0, ddof=1))
+        entry["calibration"] = solution
+        for name in ("training", "held"):
+            raw = np.asarray(entry.get(name, []))
+            if len(raw):
+                entry[name] = dict(count=len(raw), raw_median_mas=np.median(raw, axis=0),
+                                   raw_radial_p68_mas=np.quantile(np.linalg.norm(raw, axis=1), .68))
+            else:
+                entry[name] = dict(count=0)
+    return output

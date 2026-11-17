@@ -1,0 +1,261 @@
+{
+  "solver_commit": "df39d7fa85e4809d9a398083458dbe8e97097422",
+  "slurm_job": 61469606,
+  "summary_sha256": "98dfd9823e478c2a25ba181106bec1481bf21f05714b40a5c83d95f7108efeca",
+  "actual_reference_area_sqdeg": 24.9500139803648,
+  "region_count": 16,
+  "shared_reference": {
+    "counts": {
+      "candidate_rows": 3737677,
+      "conflicting_match_rows": 0,
+      "multiple_exposure_rows": 0,
+      "unique_rows": 3579022
+    },
+    "by_survey": {
+      "SDSS": 274,
+      "NSC": 1489
+    },
+    "cores": {
+      "repeat_rich": {
+        "reference_rows": 1611924,
+        "safe_groups": 648,
+        "unsupported_groups": 28
+      },
+      "repeat_sparse": {
+        "reference_rows": 226227,
+        "safe_groups": 91,
+        "unsupported_groups": 0
+      },
+      "sparse_north_outer": {
+        "reference_rows": 140573,
+        "safe_groups": 83,
+        "unsupported_groups": 4
+      },
+      "south_se": {
+        "reference_rows": 186002,
+        "safe_groups": 287,
+        "unsupported_groups": 7
+      },
+      "south_ne": {
+        "reference_rows": 67187,
+        "safe_groups": 138,
+        "unsupported_groups": 0
+      },
+      "c_06_07": {
+        "reference_rows": 61865,
+        "safe_groups": 75,
+        "unsupported_groups": 2
+      },
+      "c_08_00": {
+        "reference_rows": 575951,
+        "safe_groups": 556,
+        "unsupported_groups": 2
+      },
+      "c_02_00": {
+        "reference_rows": 68481,
+        "safe_groups": 73,
+        "unsupported_groups": 0
+      },
+      "c_03_00": {
+        "reference_rows": 81686,
+        "safe_groups": 98,
+        "unsupported_groups": 14
+      },
+      "c_04_00": {
+        "reference_rows": 86201,
+        "safe_groups": 93,
+        "unsupported_groups": 47
+      },
+      "c_05_00": {
+        "reference_rows": 227905,
+        "safe_groups": 293,
+        "unsupported_groups": 50
+      },
+      "c_02_01": {
+        "reference_rows": 108545,
+        "safe_groups": 83,
+        "unsupported_groups": 0
+      },
+      "c_03_01": {
+        "reference_rows": 140070,
+        "safe_groups": 87,
+        "unsupported_groups": 0
+      },
+      "c_04_01": {
+        "reference_rows": 63598,
+        "safe_groups": 109,
+        "unsupported_groups": 12
+      },
+      "c_05_01": {
+        "reference_rows": 45901,
+        "safe_groups": 72,
+        "unsupported_groups": 14
+      },
+      "c_00_02": {
+        "reference_rows": 45561,
+        "safe_groups": 63,
+        "unsupported_groups": 5
+      }
+    },
+    "component_count": 2,
+    "unsupported_groups": 100,
+    "shared_calibrated_groups": 686,
+    "shared_groups_in_adjacent": {
+      "south_ne__south_se": {
+        "shared_groups": 16,
+        "common_reference_detections": 5651,
+        "common_holdout_references": 191
+      },
+      "c_06_07__sparse_north_outer": {
+        "shared_groups": 18,
+        "common_reference_detections": 4013,
+        "common_holdout_references": 118
+      },
+      "c_08_00__south_se": {
+        "shared_groups": 256,
+        "common_reference_detections": 42750,
+        "common_holdout_references": 170
+      },
+      "c_02_00__repeat_sparse": {
+        "shared_groups": 30,
+        "common_reference_detections": 6275,
+        "common_holdout_references": 177
+      },
+      "c_02_00__c_03_00": {
+        "shared_groups": 67,
+        "common_reference_detections": 8939,
+        "common_holdout_references": 192
+      },
+      "c_02_00__c_02_01": {
+        "shared_groups": 48,
+        "common_reference_detections": 6986,
+        "common_holdout_references": 183
+      },
+      "c_03_00__c_04_00": {
+        "shared_groups": 49,
+        "common_reference_detections": 8748,
+        "common_holdout_references": 185
+      },
+      "c_03_00__c_03_01": {
+        "shared_groups": 57,
+        "common_reference_detections": 10255,
+        "common_holdout_references": 193
+      },
+      "c_04_00__c_05_00": {
+        "shared_groups": 89,
+        "common_reference_detections": 9848,
+        "common_holdout_references": 154
+      },
+      "c_04_00__c_04_01": {
+        "shared_groups": 51,
+        "common_reference_detections": 7913,
+        "common_holdout_references": 165
+      },
+      "c_05_00__c_05_01": {
+        "shared_groups": 47,
+        "common_reference_detections": 6221,
+        "common_holdout_references": 136
+      },
+      "c_02_01__repeat_sparse": {
+        "shared_groups": 37,
+        "common_reference_detections": 5604,
+        "common_holdout_references": 141
+      },
+      "c_02_01__c_03_01": {
+        "shared_groups": 73,
+        "common_reference_detections": 16370,
+        "common_holdout_references": 180
+      },
+      "c_03_01__c_04_01": {
+        "shared_groups": 71,
+        "common_reference_detections": 12047,
+        "common_holdout_references": 145
+      },
+      "c_04_01__c_05_01": {
+        "shared_groups": 59,
+        "common_reference_detections": 4975,
+        "common_holdout_references": 126
+      },
+      "c_00_02__repeat_sparse": {
+        "shared_groups": 24,
+        "common_reference_detections": 5437,
+        "common_holdout_references": 137
+      }
+    },
+    "held": {
+      "cross_survey": {
+        "n": 34084,
+        "median_mas": [
+          [
+            -23.467917292378843,
+            -23.03624610292536
+          ],
+          [
+            -0.03445423441007733,
+            -1.2731983925914392
+          ]
+        ],
+        "radial_p68_mas": [
+          159.93067765690574,
+          147.41169944479265
+        ]
+      },
+      "cross_healpix": {
+        "n": 5,
+        "median_mas": [
+          [
+            -59.363317005336285,
+            -10.546368004754186
+          ],
+          [
+            -52.65270131081343,
+            11.335075845941901
+          ]
+        ],
+        "radial_p68_mas": [
+          147.87268474092542,
+          136.40743149683982
+        ]
+      },
+      "cross_core": {
+        "n": 2,
+        "median_mas": [
+          [
+            132.7534575238824,
+            122.72494795359671
+          ],
+          [
+            111.92185989115387,
+            98.5500429039821
+          ]
+        ],
+        "radial_p68_mas": [
+          250.77803159005282,
+          200.63023674694966
+        ]
+      }
+    },
+    "applied_gauges": {
+      "0": 772,
+      "1": 991
+    },
+    "offset_se_mas": [
+      [
+        1.0351835894662555,
+        1.0870324063798036
+      ],
+      [
+        1.8166128616563315,
+        1.770738139378189
+      ],
+      [
+        3.423230862837125,
+        3.2004655878296995
+      ]
+    ],
+    "max_rss_mib": 12451.12890625
+  },
+  "solver_elapsed_seconds": 92.19,
+  "slurm_wall_seconds": 108,
+  "solver_workers": 24
+}

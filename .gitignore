@@ -44,3 +44,5 @@
 !/configs/exposure-v09.toml
 !/configs/exposure-v09-fields.toml
 !/reports/experiment_A_v0.9_exposure.md
+!/configs/validation-v10.toml
+!/reports/experiment_A_v1.0_validation.md

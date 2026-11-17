@@ -20,5 +20,6 @@
   ],
   "slurm_job": 61470355,
   "source_commit": "a7335727a131e0822dd5890102bdaeab3e4b9df2",
-  "source_sha256": "ce5ce64d1b8157be0653dc14ed767bc4a2409e21c8b44cf92f4214a955017bef"
+  "source_sha256": "ce5ce64d1b8157be0653dc14ed767bc4a2409e21c8b44cf92f4214a955017bef",
+  "numeric_field_comparison": "pandas assert_frame_equal default numeric tolerance"
 }

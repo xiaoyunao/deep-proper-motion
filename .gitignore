@@ -37,3 +37,6 @@
 !/reports/experiment_A_v0.6_astrometry.md
 !/configs/regional-v07.toml
 !/reports/experiment_A_v0.7_regional.md
+!/configs/spatial-v08.toml
+!/configs/spatial-v08-fields.toml
+!/reports/experiment_A_v0.8_spatial.md

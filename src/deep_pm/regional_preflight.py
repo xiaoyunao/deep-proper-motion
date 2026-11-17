@@ -111,12 +111,13 @@ def main():
     if not os.environ.get("SLURM_JOB_ID"):
         p.error("Use a Slurm compute node.")
     _,settings=configuration(args.config)
+    stage = "regional-preflight-" + settings.get("run_series", "v07")
     failed = []
     for name in args.regions:
         work=args.root/name
         work.mkdir(parents=True,exist_ok=True)
         try:
-            with run_stage(work,args.config,name,"regional-preflight-v07",
+            with run_stage(work,args.config,name,stage,
                            outputs=["regional_preflight_summary.json"]) as go:
                 if go:
                     item=preflight(work,settings["fields"][name],settings,args.catalogue,args.window)

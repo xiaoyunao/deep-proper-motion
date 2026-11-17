@@ -1,0 +1,1020 @@
+run_series = "v08"
+frozen_model = "precision-v03.toml"
+seed = 45116
+bootstrap_draws = 3000
+min_publish_count = 3
+practical_gain = 0.15
+zero_point_limit_masyr = 0.5
+tail_masyr = 5
+short_nsc_baseline_years = 2
+reference_r_edges = [20, 21, 22, 23]
+calibration_buffer_deg = 0.04
+
+[regional]
+seed = 73021
+preflight_points = 768
+min_joint_fraction = 0.72
+min_two_nsc_span_fraction = 0.55
+min_faint_qso_positions = 8
+min_core_object_count = 1000
+max_archive_candidates = 85000
+max_fields = 16
+min_area_sqdeg = 20
+quality_zero_limit = 0.5
+quality_min_faint_qso = 20
+quality_min_final_faint_fraction = 0.50
+quality_max_known_member_contamination = 0.01
+coverage_years = 0.60
+
+[spatial]
+batch_min_deg2 = 20
+batch_max_deg2 = 25
+target_additional_deg2 = 78
+min_independent_blocks_for_high_precision = 3
+zero_limit_masyr = 0.5
+morphology_trials = [0.6, 0.7, 0.8, 0.9]
+min_publish_slice = 10
+
+[production]
+match_radius_mas = 1000
+competitor_margin_mas = 300
+min_snr = 5
+archive_r_limit = 24
+min_nsc_span_years = 0.60
+min_joint_span_years = 5
+max_axis_pm_error_masyr = 10
+holdout_year = 2017
+validation_min_recovery = 0.60
+comparison_radius_deg = 0.04
+
+[fields.equator_01]
+ra = 3.4
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_02]
+ra = 7.9
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_03]
+ra = 12.4
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_04]
+ra = 16.9
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_05]
+ra = 21.4
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_06]
+ra = 25.9
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_07]
+ra = 30.4
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_09]
+ra = 39.4
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_10]
+ra = 43.9
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_11]
+ra = 48.4
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.equator_12]
+ra = 52.9
+dec = 0.35
+radius = 0.785
+role = "equator"
+
+[fields.stripe_01]
+ra = 312.0
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_02]
+ra = 316.5
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_03]
+ra = 321.0
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_04]
+ra = 325.5
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_05]
+ra = 330.0
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_06]
+ra = 334.5
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_07]
+ra = 339.0
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_08]
+ra = 343.5
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_09]
+ra = 348.0
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_10]
+ra = 352.5
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.stripe_11]
+ra = 357.0
+dec = 0.27
+radius = 0.785
+role = "stripe"
+
+[fields.mid_01]
+ra = 113.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_02]
+ra = 118.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_03]
+ra = 123.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_04]
+ra = 128.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_05]
+ra = 133.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_06]
+ra = 138.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_07]
+ra = 143.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_08]
+ra = 148.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_09]
+ra = 153.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_10]
+ra = 158.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_11]
+ra = 163.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_12]
+ra = 168.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_13]
+ra = 173.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_14]
+ra = 178.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_15]
+ra = 183.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_16]
+ra = 188.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_17]
+ra = 193.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_18]
+ra = 198.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_19]
+ra = 203.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_20]
+ra = 208.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_21]
+ra = 213.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_22]
+ra = 218.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_23]
+ra = 223.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_24]
+ra = 228.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_25]
+ra = 233.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_26]
+ra = 238.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_27]
+ra = 243.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_28]
+ra = 248.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.mid_29]
+ra = 253.0
+dec = 10.8
+radius = 0.785
+role = "mid"
+
+[fields.cap_01]
+ra = 115.0
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_02]
+ra = 120.7
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_03]
+ra = 126.4
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_04]
+ra = 132.1
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_05]
+ra = 137.8
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_06]
+ra = 143.5
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_07]
+ra = 149.2
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_08]
+ra = 154.9
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_09]
+ra = 160.6
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_10]
+ra = 166.3
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_11]
+ra = 172.0
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_12]
+ra = 177.7
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_13]
+ra = 183.4
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_14]
+ra = 189.1
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_15]
+ra = 194.8
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_16]
+ra = 200.5
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_17]
+ra = 206.2
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_18]
+ra = 211.9
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_19]
+ra = 217.6
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_20]
+ra = 223.3
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_21]
+ra = 229.0
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_22]
+ra = 234.7
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_23]
+ra = 240.4
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_24]
+ra = 246.1
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.cap_25]
+ra = 251.8
+dec = 21.5
+radius = 0.785
+role = "cap"
+
+[fields.north_01]
+ra = 119.0
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_02]
+ra = 125.3
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_03]
+ra = 131.6
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_04]
+ra = 137.9
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_05]
+ra = 144.2
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_06]
+ra = 150.5
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_07]
+ra = 156.8
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_08]
+ra = 163.1
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_09]
+ra = 169.4
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_10]
+ra = 175.7
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_11]
+ra = 182.0
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_12]
+ra = 188.3
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_13]
+ra = 194.6
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_14]
+ra = 200.9
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_15]
+ra = 207.2
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_16]
+ra = 213.5
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_17]
+ra = 219.8
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_18]
+ra = 226.1
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_19]
+ra = 232.4
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_20]
+ra = 238.7
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_21]
+ra = 245.0
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.north_22]
+ra = 251.3
+dec = 33.3
+radius = 0.785
+role = "north"
+
+[fields.alto_01]
+ra = 130.0
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_02]
+ra = 137.1
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_03]
+ra = 144.2
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_04]
+ra = 151.3
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_05]
+ra = 158.4
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_06]
+ra = 165.5
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_07]
+ra = 172.6
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_08]
+ra = 179.7
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_09]
+ra = 186.8
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_10]
+ra = 193.9
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_11]
+ra = 201.0
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_12]
+ra = 208.1
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_13]
+ra = 215.2
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_14]
+ra = 222.3
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_15]
+ra = 229.4
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_16]
+ra = 236.5
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.alto_17]
+ra = 243.6
+dec = 43.5
+radius = 0.785
+role = "alto"
+
+[fields.south_01]
+ra = 113.0
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_02]
+ra = 118.3
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_03]
+ra = 123.6
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_04]
+ra = 128.9
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_05]
+ra = 134.2
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_06]
+ra = 139.5
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_07]
+ra = 144.8
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_08]
+ra = 150.1
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_09]
+ra = 155.4
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_10]
+ra = 160.7
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_11]
+ra = 166.0
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_12]
+ra = 171.3
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_13]
+ra = 176.6
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_14]
+ra = 181.9
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_15]
+ra = 187.2
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_16]
+ra = 192.5
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_17]
+ra = 197.8
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_18]
+ra = 203.1
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_19]
+ra = 208.4
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_21]
+ra = 219.0
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_22]
+ra = 224.3
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_23]
+ra = 229.6
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_24]
+ra = 234.9
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_25]
+ra = 240.2
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_26]
+ra = 245.5
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.south_27]
+ra = 250.8
+dec = 3.9
+radius = 0.785
+role = "south"
+
+[fields.arc_01]
+ra = 118.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_02]
+ra = 124.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_03]
+ra = 131.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_04]
+ra = 137.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_05]
+ra = 144.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_06]
+ra = 150.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_07]
+ra = 157.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_08]
+ra = 163.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_09]
+ra = 170.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_10]
+ra = 176.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_11]
+ra = 183.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_12]
+ra = 189.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_13]
+ra = 196.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_14]
+ra = 202.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_15]
+ra = 209.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_16]
+ra = 215.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_17]
+ra = 222.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_18]
+ra = 228.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_19]
+ra = 235.0
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_20]
+ra = 241.5
+dec = 16.0
+radius = 0.785
+role = "arc"
+
+[fields.arc_21]
+ra = 248.0
+dec = 16.0
+radius = 0.785
+role = "arc"

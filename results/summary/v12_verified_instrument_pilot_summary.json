@@ -1,0 +1,876 @@
+{
+  "commit": "346f52f33f6c738414bc70cae284a7bb20c9364d",
+  "slurm_job": 61468693,
+  "aggregate_sha256": "0b81bc549db0446a1fa9d3a148326658b26245f23438522bf95b7a20b362ca7b",
+  "cores": 7,
+  "metadata_complete_cores": 7,
+  "missing_or_unverified_metadata_cores": [],
+  "cohorts": {
+    "all": {
+      "21_to_22": {
+        "c4d": {
+          "n": 587,
+          "radial_p68_masyr": {
+            "NSC": 19.503158745024745,
+            "Xiao": 9.508179390378604,
+            "C0": 9.356128263986966
+          },
+          "shared_night_sizes": [
+            587
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 587,
+              "relative_gain": 0.5202762595380241,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 51,
+                  "n": 587,
+                  "equal_weight_visit_information": 16.553194597103516,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.38711313528877883,
+                    0.6054305265549845
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 128,
+                  "n": 587,
+                  "equal_weight_visit_information": 34.96052393810315,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4069062568868139,
+                    0.5952933518667366
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 48,
+                  "n": 587,
+                  "equal_weight_visit_information": 17.873116620992885,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.3620317304532165,
+                    0.6054252572062956
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 587,
+              "relative_gain": 0.01599161313105857,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 51,
+                  "n": 587,
+                  "equal_weight_visit_information": 16.553194597103516,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.01687579003563691,
+                    0.098834774604831
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 128,
+                  "n": 587,
+                  "equal_weight_visit_information": 34.96052393810315,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.01870244240523869,
+                    0.06458050974249943
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 48,
+                  "n": 587,
+                  "equal_weight_visit_information": 17.873116620992885,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.017325827125365716,
+                    0.10295055564147898
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "c4d_and_ksb": {
+          "n": 137,
+          "radial_p68_masyr": {
+            "NSC": 5.330961940420825,
+            "Xiao": 5.637366386412029,
+            "C0": 2.855885385939792
+          },
+          "shared_night_sizes": [
+            137
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 137,
+              "relative_gain": 0.4642832911100564,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 137,
+                  "equal_weight_visit_information": 38.04262580513997,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.45412695415978577,
+                    0.49562510676266314
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 80,
+                  "n": 137,
+                  "equal_weight_visit_information": 36.07992597085249,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.45129088092734737,
+                    0.4974948192492701
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 24,
+                  "n": 137,
+                  "equal_weight_visit_information": 16.21231912049417,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4516666338587707,
+                    0.49562510676266314
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 137,
+              "relative_gain": 0.49340078501488793,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 137,
+                  "equal_weight_visit_information": 38.04262580513997,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.48802113298855,
+                    0.5138589300315461
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 80,
+                  "n": 137,
+                  "equal_weight_visit_information": 36.07992597085249,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4795912703366119,
+                    0.5287002969509784
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 24,
+                  "n": 137,
+                  "equal_weight_visit_information": 16.21231912049417,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4843829021933153,
+                    0.526611487385358
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "22_to_23": {
+        "c4d": {
+          "n": 345,
+          "radial_p68_masyr": {
+            "NSC": 28.232245976808077,
+            "Xiao": 13.571475461039359,
+            "C0": 11.357640490850129
+          },
+          "shared_night_sizes": [
+            345
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 345,
+              "relative_gain": 0.5977068030584574,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 50,
+                  "n": 345,
+                  "equal_weight_visit_information": 18.674662402155075,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.43548879108500904,
+                    0.6906444099991408
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 112,
+                  "n": 345,
+                  "equal_weight_visit_information": 40.218259336468805,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4494332125853468,
+                    0.6932548861767162
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 42,
+                  "n": 345,
+                  "equal_weight_visit_information": 20.451082346780954,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.42765612879867626,
+                    0.6952112895435879
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 345,
+              "relative_gain": 0.1631241184162069,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 50,
+                  "n": 345,
+                  "equal_weight_visit_information": 18.674662402155075,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.06354055489310498,
+                    0.36666415117043355
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 112,
+                  "n": 345,
+                  "equal_weight_visit_information": 40.218259336468805,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.09121328110724398,
+                    0.28561488408732416
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 42,
+                  "n": 345,
+                  "equal_weight_visit_information": 20.451082346780954,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.0752121087615372,
+                    0.330639414531571
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "c4d_and_ksb": {
+          "n": 1,
+          "radial_p68_masyr": {},
+          "shared_night_sizes": [],
+          "paired_radial_gain": {}
+        }
+      }
+    },
+    "repeat_band": {
+      "21_to_22": {
+        "c4d": {
+          "n": 196,
+          "radial_p68_masyr": {
+            "NSC": 6.227000000770793,
+            "Xiao": 6.251812415920091,
+            "C0": 3.4404552586314816
+          },
+          "shared_night_sizes": [
+            196
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 196,
+              "relative_gain": 0.4474939363729542,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 196,
+                  "equal_weight_visit_information": 36.99280390891423,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4341498615093128,
+                    0.4725003099215963
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 72,
+                  "n": 196,
+                  "equal_weight_visit_information": 29.91829889153142,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4344980577983588,
+                    0.4813701132517872
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 27,
+                  "n": 196,
+                  "equal_weight_visit_information": 15.680827205253053,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4344980577983588,
+                    0.48250901913438093
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 196,
+              "relative_gain": 0.4496867420605193,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 196,
+                  "equal_weight_visit_information": 36.99280390891423,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4245772846364736,
+                    0.4989157294243882
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 72,
+                  "n": 196,
+                  "equal_weight_visit_information": 29.91829889153142,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4280656248594592,
+                    0.4951206256802744
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 27,
+                  "n": 196,
+                  "equal_weight_visit_information": 15.680827205253053,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4338553727161957,
+                    0.48284653082775697
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "c4d_and_ksb": {
+          "n": 137,
+          "radial_p68_masyr": {
+            "NSC": 5.330961940420825,
+            "Xiao": 5.637366386412029,
+            "C0": 2.855885385939792
+          },
+          "shared_night_sizes": [
+            137
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 137,
+              "relative_gain": 0.4642832911100564,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 137,
+                  "equal_weight_visit_information": 38.04262580513997,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.45412695415978577,
+                    0.49562510676266314
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 80,
+                  "n": 137,
+                  "equal_weight_visit_information": 36.07992597085249,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.45129088092734737,
+                    0.4974948192492701
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 24,
+                  "n": 137,
+                  "equal_weight_visit_information": 16.21231912049417,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4516666338587707,
+                    0.49562510676266314
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 137,
+              "relative_gain": 0.49340078501488793,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 137,
+                  "equal_weight_visit_information": 38.04262580513997,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.48802113298855,
+                    0.5138589300315461
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 80,
+                  "n": 137,
+                  "equal_weight_visit_information": 36.07992597085249,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4795912703366119,
+                    0.5287002969509784
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 24,
+                  "n": 137,
+                  "equal_weight_visit_information": 16.21231912049417,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4843829021933153,
+                    0.526611487385358
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "22_to_23": {
+        "c4d": {
+          "n": 163,
+          "radial_p68_masyr": {
+            "NSC": 9.185834893295814,
+            "Xiao": 10.698867017086346,
+            "C0": 4.858076322849429
+          },
+          "shared_night_sizes": [
+            163
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 163,
+              "relative_gain": 0.47113393836470485,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 163,
+                  "equal_weight_visit_information": 28.84979158028779,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.4497381190752888,
+                    0.4992040694120349
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 66,
+                  "n": 163,
+                  "equal_weight_visit_information": 29.471130039420213,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.45697340090673266,
+                    0.48575704951280463
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 25,
+                  "n": 163,
+                  "equal_weight_visit_information": 15.542623681405665,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.45865020216537955,
+                    0.4823320496296323
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 163,
+              "relative_gain": 0.5459260952499957,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 40,
+                  "n": 163,
+                  "equal_weight_visit_information": 28.84979158028779,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.5109519249803962,
+                    0.5632835765545265
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 66,
+                  "n": 163,
+                  "equal_weight_visit_information": 29.471130039420213,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.5275170387192962,
+                    0.5564233177069974
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 25,
+                  "n": 163,
+                  "equal_weight_visit_information": 15.542623681405665,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.5287645711412512,
+                    0.5559184799831584
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "c4d_and_ksb": {
+          "n": 1,
+          "radial_p68_masyr": {},
+          "shared_night_sizes": [],
+          "paired_radial_gain": {}
+        }
+      }
+    },
+    "ordinary": {
+      "21_to_22": {
+        "c4d": {
+          "n": 323,
+          "radial_p68_masyr": {
+            "NSC": 33.78759557520738,
+            "Xiao": 12.300593012322008,
+            "C0": 12.147360251210026
+          },
+          "shared_night_sizes": [
+            323
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 323,
+              "relative_gain": 0.6404787010022253,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 11,
+                  "n": 323,
+                  "equal_weight_visit_information": 8.5654430679973,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.5070662298829778,
+                    0.7104720334114969
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 50,
+                  "n": 323,
+                  "equal_weight_visit_information": 16.90430225674608,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.5669347231057744,
+                    0.694477526237163
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 22,
+                  "n": 323,
+                  "equal_weight_visit_information": 8.497203905618296,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.5501178171873063,
+                    0.6975741630384681
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 323,
+              "relative_gain": 0.012457347459466583,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 11,
+                  "n": 323,
+                  "equal_weight_visit_information": 8.5654430679973,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.02352366899912761,
+                    0.11738587265839129
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 50,
+                  "n": 323,
+                  "equal_weight_visit_information": 16.90430225674608,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.016908367345257986,
+                    0.07377905932766658
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 22,
+                  "n": 323,
+                  "equal_weight_visit_information": 8.497203905618296,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.014470443364737962,
+                    0.07824373029294587
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "22_to_23": {
+        "c4d": {
+          "n": 141,
+          "radial_p68_masyr": {
+            "NSC": 60.569331928844335,
+            "Xiao": 16.676980638313147,
+            "C0": 16.26526584849868
+          },
+          "shared_night_sizes": [
+            141
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 141,
+              "relative_gain": 0.7314603722622071,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 10,
+                  "n": 141,
+                  "equal_weight_visit_information": 7.6637327336973975,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.6469254314613258,
+                    0.783256540438791
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 41,
+                  "n": 141,
+                  "equal_weight_visit_information": 17.347319371210002,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.6816903351645869,
+                    0.774230052096224
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 17,
+                  "n": 141,
+                  "equal_weight_visit_information": 8.2343818311512,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.6725272295538606,
+                    0.7771235174492241
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 141,
+              "relative_gain": 0.024687609750448924,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 10,
+                  "n": 141,
+                  "equal_weight_visit_information": 7.6637327336973975,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.0558549662750308,
+                    0.14647992976779103
+                  ]
+                },
+                "nsc_exposure": {
+                  "groups": 41,
+                  "n": 141,
+                  "equal_weight_visit_information": 17.347319371210002,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.021217420308384343,
+                    0.11273695375134365
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 17,
+                  "n": 141,
+                  "equal_weight_visit_information": 8.2343818311512,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.019628744421298066,
+                    0.10222846848486945
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "transition": {
+      "21_to_22": {
+        "c4d": {
+          "n": 68,
+          "radial_p68_masyr": {
+            "NSC": 12.978811383000222,
+            "Xiao": 8.356096104053963,
+            "C0": 8.937154129627755
+          },
+          "shared_night_sizes": [
+            68
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 68,
+              "relative_gain": 0.311404267625483,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 2,
+                  "n": 68,
+                  "equal_weight_visit_information": 1.9961148284049213
+                },
+                "nsc_exposure": {
+                  "groups": 13,
+                  "n": 68,
+                  "equal_weight_visit_information": 6.710311676547278,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.1516049117197763,
+                    0.3452273158068757
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 13,
+                  "n": 68,
+                  "equal_weight_visit_information": 6.710311676547278,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    0.1516049117197763,
+                    0.3452273158068757
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 68,
+              "relative_gain": -0.06953702043851462,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 2,
+                  "n": 68,
+                  "equal_weight_visit_information": 1.9961148284049213
+                },
+                "nsc_exposure": {
+                  "groups": 13,
+                  "n": 68,
+                  "equal_weight_visit_information": 6.710311676547278,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.13506960338142368,
+                    -0.006879904031141804
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 13,
+                  "n": 68,
+                  "equal_weight_visit_information": 6.710311676547278,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.13506960338142368,
+                    -0.006879904031141804
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "22_to_23": {
+        "c4d": {
+          "n": 41,
+          "radial_p68_masyr": {
+            "NSC": 26.769008330758872,
+            "Xiao": 14.13462846893457,
+            "C0": 15.409110238622029
+          },
+          "shared_night_sizes": [
+            41
+          ],
+          "paired_radial_gain": {
+            "NSC": {
+              "n": 41,
+              "relative_gain": 0.4243675354639035,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 2,
+                  "n": 41,
+                  "equal_weight_visit_information": 1.7911561001598295
+                },
+                "nsc_exposure": {
+                  "groups": 11,
+                  "n": 41,
+                  "equal_weight_visit_information": 5.570262478691326,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.07294699500603596,
+                    0.5283559804296842
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 11,
+                  "n": 41,
+                  "equal_weight_visit_information": 5.570262478691326,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.07294699500603596,
+                    0.5283559804296842
+                  ]
+                }
+              }
+            },
+            "Xiao": {
+              "n": 41,
+              "relative_gain": -0.09016733425208501,
+              "visit_weighted": {
+                "sdss_run": {
+                  "groups": 2,
+                  "n": 41,
+                  "equal_weight_visit_information": 1.7911561001598295
+                },
+                "nsc_exposure": {
+                  "groups": 11,
+                  "n": 41,
+                  "equal_weight_visit_information": 5.570262478691326,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.1455324898299355,
+                    -0.02285326225650519
+                  ]
+                },
+                "nsc_night": {
+                  "groups": 11,
+                  "n": 41,
+                  "equal_weight_visit_information": 5.570262478691326,
+                  "valid_draws": 800,
+                  "relative_gain95": [
+                    -0.1455324898299355,
+                    -0.02285326225650519
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

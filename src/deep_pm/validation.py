@@ -79,17 +79,25 @@ def gaia_labels(data, xy, time, sigma, gaia, center, config):
         if use_parallax:
             search += 8 * fitted_parallax.max(initial=0) * np.ptp(time[indices])
         eligible = indices[np.max(sigma[indices],axis=1)*3 <= config["gaia_detection_gate_mas"]]
-        for i, candidates in zip(eligible,tree.query_ball_point(xy[eligible],search)):
-            if not candidates:
-                continue
-            near = np.asarray(candidates,dtype=int)
-            dot = propagated(near, time[i], observers[inverse[i]] if use_parallax else None)
-            dist = np.linalg.norm(dot - xy[i], axis=1)
-            order = np.argsort(dist)
-            if (len(order) and dist[order[0]] <= config["gaia_detection_gate_mas"]
-                    and reliable[near[order[0]]]
-                    and (len(order) == 1 or dist[order[1]] - dist[order[0]] >= 300)):
-                label[i] = near[order[0]]
+        if len(g) and config["gaia_detection_gate_mas"] >= 300 and np.ptp(time[indices]) == 0:
+            distances, nearest = tree.query(xy[eligible], k=2)
+            within = distances[:, 0] <= config["gaia_detection_gate_mas"]
+            nearby = np.flatnonzero(within)
+            unique = distances[nearby, 1] - distances[nearby, 0] >= 300
+            good = nearby[unique & reliable[nearest[nearby, 0]]]
+            label[eligible[good]] = nearest[good, 0]
+        else:
+            for i, candidates in zip(eligible,tree.query_ball_point(xy[eligible],search)):
+                if not candidates:
+                    continue
+                near = np.asarray(candidates,dtype=int)
+                dot = propagated(near, time[i], observers[inverse[i]] if use_parallax else None)
+                dist = np.linalg.norm(dot - xy[i], axis=1)
+                order = np.argsort(dist)
+                if (len(order) and dist[order[0]] <= config["gaia_detection_gate_mas"]
+                        and reliable[near[order[0]]]
+                        and (len(order) == 1 or dist[order[1]] - dist[order[0]] >= 300)):
+                    label[i] = near[order[0]]
         labeled = indices[label[indices] >= 0]
         duplicate = pd.Series(label[labeled]).duplicated(keep=False).to_numpy()
         label[labeled[duplicate]] = -1
@@ -104,8 +112,13 @@ def groups_by_label(labels, data, t, gaia, center, radius, config):
             ["pm_tangent_x", "pm_tangent_y"]].to_numpy()
     inside = np.linalg.norm(pos, axis=1) <= 3600000 * np.tan(np.deg2rad(radius)) * 180 / np.pi
     truth = {}
-    for label in sorted(set(labels[labels >= 0])):
-        i = np.flatnonzero(labels == label)
+    labeled = np.flatnonzero(labels >= 0)
+    ordered = labeled[np.argsort(labels[labeled], kind="stable")]
+    groups = np.split(ordered, np.flatnonzero(np.diff(labels[ordered]))+1)
+    for i in groups:
+        if not len(i):
+            continue
+        label = labels[i[0]]
         if inside[label] and data.survey.iloc[i].nunique() == 2 and np.ptp(t[i]) >= config["min_seed_years"]:
             truth[label] = i
     return truth

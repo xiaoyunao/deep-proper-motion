@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None):
     prod = settings["production"]
     group = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
@@ -125,8 +125,16 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             continue
         stats["calibrated"] += 1
         update_anchor_trace(trace,[j],"quality")
-        model, error = fit_with_calibration(xy[use],time[use],sigma[use],config["reference_epoch"],
-                                            [offsets[k] for k in group[use]])
+        cached = model_cache.get(j) if model_cache is not None else None
+        if cached is not None:
+            _, model, error = cached
+            if not np.array_equal(use, cached[0]):
+                raise ValueError("Trial must use the same calibrated detections for a cached fit")
+        else:
+            model, error = fit_with_calibration(xy[use],time[use],sigma[use],config["reference_epoch"],
+                                                [offsets[k] for k in group[use]])
+            if model_cache is not None:
+                model_cache[j] = (use, model, error)
         if (not np.isfinite(error).all() or error.max()>prod["max_axis_pm_error_masyr"]
                 or np.quantile(np.linalg.norm(model.residual/sigma[use],axis=1),.68)>3):
             stats["final_quality_rejection"] += 1

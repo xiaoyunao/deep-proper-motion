@@ -91,7 +91,7 @@ def record_catalogue(work,center,data,xy,t,sigma,keys,groups,night,nsc,offsets,p
     return result
 
 
-def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,settings,config,spec):
+def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,settings,config,spec,chip_shapes=None):
     # Choose the most observed interior calendar year by survey metadata alone.
     time_edges=Time([f"{y}-01-01" for y in range(2010,2021)],scale="utc").tt.jyear
     survey_year=np.searchsorted(time_edges,t,side="right")-1
@@ -127,7 +127,10 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
     outside=Counter()
     epoch=config["reference_epoch"]
     near=prod["competitor_margin_mas"]
-    for _, frame in data.loc[usable & hold].groupby("exposure_id",sort=False):
+    footprint_sources=np.zeros(len(pool),dtype=bool)
+    opportunity_sources=np.zeros(len(pool),dtype=bool)
+    chip_visits=0
+    for visit, frame in data.loc[usable & hold].groupby("exposure_id",sort=False):
         ii=frame.index.to_numpy()
         midpoint=np.median(t[ii])
         # Positions corrected onto the same reference frame using held-field
@@ -136,6 +139,11 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
         tree=cKDTree(coords)
         pred=key_pos+key_pm*(midpoint-epoch)
         distance=tree.query(pred)[0]
+        opportunity_sources |= distance <= 1000
+        if chip_shapes is not None and visit in chip_shapes:
+            chip_visits+=1
+            for shape in chip_shapes[visit]:
+                footprint_sources |= shape.contains_points(pred)
         accepted,closest=query_unique(tree,pred,500,near)
         for j in np.flatnonzero((distance<=1000)&~accepted):
             outside[compare[j]]+=1
@@ -155,13 +163,26 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
         stats=dict(train_sources=n,matched_sources=ratio(nstar,n),
                    near_r_detections=opportunities[key],not_unique_or_outside_500=outside[key],
                    unique_held_positions=len(part))
+        if chip_shapes is not None:
+            ii=np.array([j for j,k in enumerate(compare) if k==key],dtype=int)
+            matched=np.zeros(len(pool),dtype=bool)
+            matched[[v[0] for v in part]]=True
+            stats["chip_geometry"]=dict(covered=int(footprint_sources[ii].sum()),
+                covered_and_detected_within_1arcsec=int((footprint_sources & opportunity_sources)[ii].sum()),
+                inside_without_nearby_detection=int((footprint_sources & ~opportunity_sources)[ii].sum()),
+                geometric_or_archive_unknown=int((~footprint_sources)[ii].sum()),
+                outside_polygon_but_unique=int((~footprint_sources & matched)[ii].sum()),
+                near_but_no_unique_match=int((opportunity_sources & ~matched)[ii].sum()))
         if nstar>=settings["min_publish_count"]:
             a=np.asarray(part)[:,1:]
             stats["multi_p68_mas"]=np.quantile(a[:,1],.68)
             if kind=="common":
                 stats["common_w1_p68_mas"]=np.quantile(a[:,0],.68)
         output.setdefault(kind,{})[tag]=stats
-    return dict(status="completed",year=int(year+2010),test_r_visits=len(set(exp[usable&hold])),by_r=output)
+    result=dict(status="completed",year=int(year+2010),test_r_visits=len(set(exp[usable&hold])),by_r=output)
+    if chip_shapes is not None:
+        result["visits_with_chip_geometry"]=chip_visits
+    return result
 
 
 def compute(work,region,spec,config,settings,custom,legacy):

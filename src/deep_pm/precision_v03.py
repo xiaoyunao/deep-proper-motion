@@ -86,11 +86,11 @@ def reference_rows(frame, xy, object_ids, gaia_xy, settings, seed):
     return refs
 
 
-def calibration(work, center, config, veto_positions=None, return_references=False):
+def calibration(work, center, config, veto_positions=None, return_references=False, arrays=None):
     settings = config["calibration"]
     full = dict(config, smoke_max_error_mas=settings["astrometric_max_error_mas"])
     full.pop("smoke_max_mag", None)
-    data, xy, _, sigma = detection_arrays(work, center, full)
+    data, xy, _, sigma = detection_arrays(work, center, full) if arrays is None else arrays
     gaia = pd.read_csv(work / "validation" / "gaia.csv").dropna(subset=["ra", "dec"])
     raw_ids = pd.read_csv(work / "external_labels.csv", dtype=str).set_index("detection_id").original_object_id
     veto = project(gaia.ra, gaia.dec, center)

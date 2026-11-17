@@ -80,6 +80,12 @@ STAGES = {
 }
 STAGES["pilot-coverage-v05"] = STAGES["qso-coverage-v04"]
 
+for _base in ("regional-preflight","regional-production"):
+    _name, _file, _keys = STAGES[_base+"-v07"]
+    STAGES[_base+"-v08"] = (_base+"-v08", _file, _keys)
+STAGES["spatial-audit-v08"] = ("spatial-audit-v08", "spatial_audit_summary.json",
+                              ("qso","morphology","zero","local_gradient","holdout_geometry","m3","resources"))
+
 METADATA = {"region", "role", "receipt"}
 PRIVATE_KEYS = {"source_id", "source_ids", "object_ids", "objid", "objids", "detection_id",
                 "detection_ids", "designation", "track_id", "indices", "ra", "dec",
@@ -215,7 +221,7 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        series = "v07" if args.kind.endswith("v07") else "v06" if args.kind.endswith("v06") else "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
+        series = "v08" if args.kind.endswith("v08") else "v07" if args.kind.endswith("v07") else "v06" if args.kind.endswith("v06") else "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
         target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:
             raise ValueError("A different aggregate already exists for this run")

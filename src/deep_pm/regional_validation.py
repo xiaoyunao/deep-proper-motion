@@ -67,7 +67,7 @@ def first_exit(label, slots, truth, labels, trace, tracks, nsc, support, recover
     return "insufficient_member_recovery" if early_late else "no_cross_survey_track"
 
 
-def audit_qso(work,center,data,xy,t,nsc,keep,expanded,support,products,qso,settings):
+def audit_qso(work,center,data,xy,t,nsc,keep,expanded,support,products,qso,settings,details=None):
     qso = qso.loc[qso.in_core].reset_index(drop=True)
     positions=project(qso.ra,qso.dec,center)
     labels, matches=qso_matches(data,xy,keep,positions)
@@ -122,6 +122,7 @@ def audit_qso(work,center,data,xy,t,nsc,keep,expanded,support,products,qso,setti
         result={"published_nsc":official}
         for tag in tags:
             flows[tag]["strict_common"]+=1
+        reasons={}
         for name,(tracks,chosen,trace) in products.items():
             slot=finals[name].get(label)
             if slot is not None:
@@ -131,9 +132,12 @@ def audit_qso(work,center,data,xy,t,nsc,keep,expanded,support,products,qso,setti
             else:
                 reason=first_exit(label,slots_by_label[name][label],truth,method_labels[name],
                                   trace,tracks,nsc,support,prod["validation_min_recovery"])
+            reasons[name]=reason
             for tag in tags:
                 strict_exits[f"{name}_{tag}"][reason]+=1
         pairs.append((float(mag),result))
+        if details is not None:
+            details.append((label, float(mag), index, finals["W0"].get(label), reasons["W0"], result))
         for tag in tags:
             for name in ("W0","W1","multi"):
                 if name in result:

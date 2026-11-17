@@ -110,3 +110,8 @@ min_faint_qso = 60
 max_qso_loss = 0.10
 zero_limit_masyr = 0.50
 max_blind_yield_loss = 0.05
+
+[fields.south_17_overlap]
+ra = [197.30, 198.30]
+dec = [3.40, 4.40]
+source_field = "south_17"

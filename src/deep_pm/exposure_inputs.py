@@ -26,7 +26,7 @@ def tap_rectangle(box, halo=0., alias=""):
             f"AND {alias}dec >= {south-halo:.9f} AND {alias}dec < {north+halo:.9f}")
 
 
-def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000):
+def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False):
     """Partition on archive positions, then verify every joined measurement count."""
     table="nsc_dr2.meas m JOIN nsc_dr2.object o ON m.objectid=o.id"
     select=",".join("m."+k for k in access.MEAS.split(","))
@@ -59,6 +59,8 @@ def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=300
             radius = np.linalg.norm(high-low)/2+.003
             where = (f"q3c_radial_query(o.ra,o.dec,{mid[0]:.10f},{mid[1]:.10f},{radius:.10f}) AND "+where)
         try:
+            if service == "nsc" and native_window:
+                return cache.checked_native_window(select,table,where,cap=answer_cap)
             return cache.checked(service,select,table,where,cap=answer_cap)
         except access.PartitionTooLarge:
             axis=int(np.argmax(high-low))
@@ -92,6 +94,7 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     print(f"{len(data):,} SDSS detections in {nfiles} inspected files",flush=True)
     use_tap=settings.get("tap_join",False)
     native_join=settings.get("native_join",False)
+    native_window=settings.get("native_count_window",False) and native_join and not use_tap
     route="tap" if use_tap else "nsc"
     footprint=tap_rectangle if use_tap else where_box
     base=footprint(spec,halo)
@@ -108,7 +111,7 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     archive.rename(columns={"objectid":"id"}).to_csv(work/"official_nsc.csv",index=False)
     if use_tap or native_join:
         nsc=tap_join(cache,archive,spec,halo,service=route,workers=settings.get("download_workers",3),
-                     native_cap=settings.get("native_row_cap",30000))
+                     native_cap=settings.get("native_row_cap",30000),native_window=native_window)
     else:
         nsc=access.fetch_measurements_for_objects(cache,ids,batch_size=250)
     returned=set(nsc.objectid.astype(str))
@@ -140,8 +143,10 @@ def acquire(work, spec, settings, catalogues, sas, workers):
         qso["in_core"]=inside(qso.ra,qso.dec,spec)
         qso.to_csv(work/f"{stem}.csv",index=False)
     standardize(work,{},center,radius,"object")
+    method = ("tap_archive_join" if use_tap else "datalab_native_archive_join" if native_join
+              else "datalab_object_index")
     save_json(work/"acquisition_summary.json",dict(objects=len(ids),archive_objects_without_measures=len(missing),
-        measurement_route="tap_archive_join" if use_tap else "datalab_object_index",
+        measurement_route=method,native_count_window=native_window,
         downloaded_nsc_measures=len(nsc),chip_metadata_entries=len(chips),
         sdss_measures=len(data),sdss_fields=nfiles,gaia_positions=len(gaia),elapsed_seconds=monotonic()-start,
         peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024))

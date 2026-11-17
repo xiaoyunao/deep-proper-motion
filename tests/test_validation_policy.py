@@ -1,9 +1,14 @@
+from io import BytesIO
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
 
 from deep_pm.astrometry import project
+from deep_pm.access import Cache, PartitionTooLarge
 from deep_pm.validation_audit import anchored_bright_gaia, gaia_bright, leave_one_median
 from deep_pm.validation_blocks import connected
 from deep_pm.exposure_inputs import tap_join
@@ -49,6 +54,38 @@ class ValidationPolicyTest(unittest.TestCase):
         self.assertTrue(any("o.ra < 351.000000000" in row[2] for row in cache.queries))
         self.assertTrue(any("o.ra >= 351.000000000" in row[2] for row in cache.queries))
         self.assertTrue(all(row[0]=="tap" and "m.objectid=o.id" in row[1] for row in cache.queries))
+
+    def test_native_window_accepts_a_complete_result_and_reuses_it(self):
+        payload=b"measid,verified_partition_count\n1,2\n2,2\n"
+        with TemporaryDirectory() as tmp, patch("deep_pm.access.request") as request:
+            request.return_value=(pd.read_csv(BytesIO(payload)),payload)
+            cache=Cache(Path(tmp))
+            for _ in range(2):
+                frame=cache.checked_native_window("measid","public_table","x>0",cap=10)
+                self.assertEqual(frame.to_dict("list"),{"measid":[1,2]})
+            request.assert_called_once()
+            self.assertIn("LIMIT 11",request.call_args.args[1])
+
+    def test_native_window_verifies_empty_and_truncated_answers_independently(self):
+        for payload, count, result in (
+                (b"measid,verified_partition_count\n",0,b"measid\n"),
+                (b"measid,verified_partition_count\n1,2\n",2,b"measid\n1\n2\n")):
+            responses=(payload,f"n\n{count}\n".encode(),result)
+            with self.subTest(count=count), TemporaryDirectory() as tmp, patch("deep_pm.access.request") as request:
+                request.side_effect=[(pd.read_csv(BytesIO(v)),v) for v in responses]
+                cache=Cache(Path(tmp))
+                frame=cache.checked_native_window("measid","public_table","x>0",cap=10)
+                self.assertEqual(len(frame),count)
+                self.assertEqual(request.call_count,3)
+                self.assertEqual(len(list(Path(tmp).glob("*.json"))),2)
+
+    def test_native_window_bisects_an_over_cap_answer(self):
+        payload=b"measid,verified_partition_count\n1,12\n"
+        with TemporaryDirectory() as tmp, patch("deep_pm.access.request") as request:
+            request.return_value=(pd.read_csv(BytesIO(payload)),payload)
+            with self.assertRaises(PartitionTooLarge):
+                Cache(Path(tmp)).checked_native_window("measid","public_table","x>0",cap=10)
+            request.assert_called_once()
 
     def test_residual_reference_excludes_the_exposure_being_tested(self):
         v=np.array([[0.,1.],[2.,4.],[6.,2.],[10.,8.],[9.,9.]])

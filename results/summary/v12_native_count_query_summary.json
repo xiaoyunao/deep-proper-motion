@@ -1,0 +1,24 @@
+{
+  "same_selection": true,
+  "measurements": [
+    {
+      "expected_rows": 35959,
+      "observed_rows": 35959,
+      "paired_query_seconds": 93.73853980598506,
+      "count_window_query_seconds": 50.19016391102923,
+      "same_detections_and_values": true,
+      "walltime_saving": 0.46457279988668365
+    },
+    {
+      "expected_rows": 49546,
+      "observed_rows": 49546,
+      "paired_query_seconds": 70.03077160695102,
+      "count_window_query_seconds": 47.93020272505237,
+      "same_detections_and_values": true,
+      "walltime_saving": 0.31558368378315893
+    }
+  ],
+  "slurm_job": 61470355,
+  "source_commit": "a7335727a131e0822dd5890102bdaeab3e4b9df2",
+  "source_sha256": "ce5ce64d1b8157be0653dc14ed767bc4a2409e21c8b44cf92f4214a955017bef"
+}

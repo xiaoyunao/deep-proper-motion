@@ -59,7 +59,7 @@ class Cache:
         self.path = Path(path)
         self.path.mkdir(parents=True, exist_ok=True)
 
-    def query(self, service, query, expected=None):
+    def query(self, service, query, expected=None, *, validate=None):
         key = sha256((service + "\n" + query).encode()).hexdigest()
         csv = self.path / (key + ".csv")
         meta = csv.with_suffix(".json")
@@ -68,11 +68,14 @@ class Cache:
             data = csv.read_bytes()
             if sha256(data).hexdigest() == saved["sha256"]:
                 frame = pd.read_csv(BytesIO(data))
-                if len(frame) == saved["rows"] and (expected is None or len(frame) == expected):
+                if (len(frame) == saved["rows"] and (expected is None or len(frame) == expected)
+                        and (validate is None or validate(frame))):
                     return frame
         frame, data = request(service, query)
         if expected is not None and expected != len(frame):
             raise RuntimeError(f"{service}: expected {expected} rows, got {len(frame)} for {key}")
+        if validate is not None and not validate(frame):
+            raise ValueError(f"{service}: response failed validation for {key}")
         temporary = csv.with_suffix(".part")
         temporary.write_bytes(data)
         temporary.replace(csv)
@@ -88,6 +91,29 @@ class Cache:
         if expected > cap:
             raise PartitionTooLarge(f"{service}: partition has {expected} rows above explicit cap {cap}")
         return self.query(service, "SELECT " + columns + suffix, expected=expected)
+
+    def checked_native_window(self, columns, source, where, cap):
+        """Validate a bounded Data Lab result against its pre-LIMIT row count."""
+        count = "verified_partition_count"
+        query = f"SELECT {columns},COUNT(*) OVER () AS {count} FROM {source} WHERE {where} LIMIT {cap+1}"
+
+        def consistent(frame):
+            if frame.empty or count not in frame:
+                return False
+            total = frame[count].iat[0]
+            if not isinstance(total, (int, np.integer)) or not frame[count].eq(total).all():
+                return False
+            if total > cap:
+                raise PartitionTooLarge(f"nsc: partition has {total} rows above explicit cap {cap}")
+            return total == len(frame)
+
+        try:
+            return self.query("nsc", query, validate=consistent).drop(columns=count)
+        except PartitionTooLarge:
+            raise
+        except (RuntimeError, ValueError):
+            # Only the independent COUNT also verifies a zero-row result.
+            return self.checked("nsc", columns, source, where, cap)
 
 
 def bbox(ra, dec, width):

@@ -34,4 +34,10 @@ MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --de
 
 详细图使用同一色标对照东西与南北零点。暗 QSO 的 ±1σ 覆盖率以 68.27% 为色标中心。每幅图只渲染传入汇总中的已核验核心，未核验区留灰。QSO 面板标出各核心样本数。
 
+物理边界另行读取相邻 SDSS field 的 `photoObj` 原始重复记录，以及 NSC 同一曝光内不同 CCD 对同一留出星系的测量。SDSS 按候选数排序，每核心至多检查 160 个邻 field，并报告全部可选 field 数、读取数及匹配数。两类物理重复对都共享一个 C0 零点，位置差可测量这一尺度的重复性；对的数量决定证据范围。几何边界继续使用共享图的 HEALPix 与处理核心留出统计。
+
+```bash
+python -m deep_pm.continuous_detectors "$DETECTOR_OUTPUT" "$config" "$INPUT_SHARD" "$REFERENCE_SHARD" "$SHARED" "$SDSS_SAS" "$CORE"
+```
+
 一次试运行以实际配套回执为边界。所有未取全的块以缺区记录，不能将已有的几何覆盖估算视为已处理数据。 [NSC 数据入口](https://datalab.noirlab.edu/data/nsc) · [SDSS DR17 Resolve](https://www.sdss4.org/dr17/algorithms/resolve/) · [NERSC CPU 队列](https://docs.nersc.gov/jobs/policy/)

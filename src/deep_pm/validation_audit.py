@@ -84,7 +84,7 @@ def graph_support(refs, keys, solution):
                 fine_observation_support=summaries)
 
 
-def boundary_pairs(refs, data, xy, original_ids, obs, solutions, center, spec):
+def boundary_pairs(refs, data, xy, original_ids, obs, solutions, center, spec, *, include_geometric=True):
     """Evaluate genuine repeated detector entries and cross-boundary visit links."""
     groups=[]
     sid=pd.Series(original_ids.to_numpy(), index=data.index)
@@ -107,9 +107,9 @@ def boundary_pairs(refs, data, xy, original_ids, obs, solutions, center, spec):
                     groups.append((a,b))
     if groups:
         subsets["nsc_same_exposure_ccd"]=np.asarray(groups)
-    original=refs.loc[refs.is_holdout & common[refs.index]]
-    pairs=near_boundaries(original,data,xy,center,spec)
-    subsets.update(pairs)
+    if include_geometric:
+        original=refs.loc[refs.is_holdout & common[refs.index]]
+        subsets.update(near_boundaries(original,data,xy,center,spec))
     output={}
     for tag,pair in subsets.items():
         a,b=pair.T
@@ -120,6 +120,9 @@ def boundary_pairs(refs, data, xy, original_ids, obs, solutions, center, spec):
             values.append(before-offset)
         output[tag]=dict(pair_count=len(pair), median_mas=np.median(values,axis=1),
                          radial_p68_mas=np.quantile(np.linalg.norm(values,axis=2),.68,axis=1))
+        if tag == "nsc_same_exposure_ccd":
+            output[tag].update(held_references=sid.iloc[a].nunique(),
+                               held_exposures=data.exposure_id.iloc[a].nunique())
     return output
 
 
@@ -152,7 +155,8 @@ def near_boundaries(refs, data, xy, center, spec):
 
 
 def sdss_overlap_rows(sas, refs, data, xy, observation, solutions, center, *,
-                      holdout, max_fields=160, match_mas=500, margin_mas=300):
+                      holdout, max_fields=160, match_mas=500, margin_mas=300,
+                      search_radius_deg=1.7, require_fine_support=True):
     """Re-read adjacent photoObj fields before RUN_PRIMARY de-duplication."""
     from concurrent.futures import ThreadPoolExecutor
 
@@ -175,7 +179,7 @@ def sdss_overlap_rows(sas, refs, data, xy, observation, solutions, center, *,
                 requests.setdefault((int(run),301,int(camcol),neighbor), []).append(i)
     # A deterministic cap keeps this a small targeted audit even in Stripe 82.
     ordered = sorted(requests, key=lambda k:(-len(requests[k]),k))[:max_fields]
-    radius = np.deg2rad(1.7)
+    radius = np.deg2rad(search_radius_deg)
     def read(key):
         try:
             return select_sdss_field(sas,center,np.tan(radius)*206264806.247,key,run_primary=False)
@@ -199,7 +203,7 @@ def sdss_overlap_rows(sas, refs, data, xy, observation, solutions, center, *,
             for a,b in zip(ix[hit],j[hit]):
                 parent=keys[a]
                 bkey=f"{parent}|{key[-1]}"
-                if bkey not in solutions[1] or observation[1][a] not in solutions[1]:
+                if require_fine_support and (bkey not in solutions[1] or observation[1][a] not in solutions[1]):
                     continue
                 raw=xy[a]-counterpart[b]
                 pairs.append(dict(index=a, ref=refs.loc[a, "reference"], first=observation[1][a],

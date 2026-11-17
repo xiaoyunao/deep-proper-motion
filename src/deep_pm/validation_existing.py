@@ -13,7 +13,7 @@ from .io import save_json
 from .pilot_production import quality_detections
 from .precision_v03 import calibration
 from .provenance import run_stage
-from .validation_audit import held_conditions, sdss_field_overlap
+from .validation_audit import color_control, held_conditions, sdss_field_overlap
 
 
 def main():
@@ -32,7 +32,9 @@ def main():
     spec=cfg["fields"][a.name]
     center=tuple(np.mean(spec[k]) for k in ("ra","dec"))
     fit=tomllib.loads(Path("configs/precision-v03.toml").read_text())
-    production=tomllib.loads(Path("configs/spatial-v08.toml").read_text())["production"]
+    settings=tomllib.loads(Path("configs/spatial-v08.toml").read_text())
+    settings["bootstrap_draws"]=400
+    production=settings["production"]
     source=(a.inputs/a.name).resolve(strict=True)
     link=work/"input_manifest.json"
     if not link.exists():
@@ -41,7 +43,7 @@ def main():
                    outputs=["boundary_summary.json"]) as go:
         if not go:
             return
-        data,xy,time,sigma,_=quality_detections(source,center,fit,production)
+        data,xy,time,sigma,keep=quality_detections(source,center,fit,production)
         qso=pd.read_csv(source/"spectra_veto.csv")
         c0,_,refs=calibration(source,center,fit,project(qso.ra,qso.dec,center),return_references=True,
                               arrays=(data,xy,time,sigma))
@@ -49,7 +51,10 @@ def main():
         parent,_=observation_keys(data)
         edges=sdss_field_overlap(a.sas,refs,data,xy,(parent,key),(c0,c1),center,spec)
         conditions=held_conditions(refs,data,xy,key,c1)
-        save_json(work/"boundary_summary.json",dict(sdss_adjacent_field=edges,held_conditions=conditions))
+        qso=pd.read_csv(source/"spectra_union.csv").query("in_core")
+        trial=color_control(refs,data,xy,time,sigma,keep,key,c1,project(qso.ra,qso.dec,center),fit,settings)
+        save_json(work/"boundary_summary.json",dict(sdss_adjacent_field=edges,held_conditions=conditions,
+                                                   chromatic_trial=trial))
 
 
 if __name__=="__main__":

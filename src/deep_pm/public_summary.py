@@ -105,7 +105,7 @@ STAGES["exposure-pilot-v10"] = ("exposure-pilot-v10","pilot_summary.json",
     (*STAGES["exposure-pilot-v09"][2], "gaia_policy", "dark_quality", "reference_graph",
      "physical_boundaries", "sensitivity", "annual_holdout"))
 STAGES["validation-existing-v10"] = ("validation-existing-v10", "boundary_summary.json",
-    ("sdss_adjacent_field", "held_conditions"))
+    ("sdss_adjacent_field", "held_conditions", "chromatic_trial"))
 STAGES["validation-shared-v10"] = ("validation-shared-v10","shared_summary.json",
     ("cores","graph","deduplicated_measurements","supported_groups_used_in_both",
      "shared_sdss_groups","shared_nsc_groups","holdout_references_seen_in_both","calibrated_groups"))

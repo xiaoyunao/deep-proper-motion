@@ -222,3 +222,65 @@ def held_conditions(refs, data, xy, keys, offsets):
             if selected.any() else dict(n=0)
             for selected in (m & (bins==i) for i in range(3))])
     return output
+
+
+def color_control(refs, data, xy, time, sigma, keep, keys, offsets, points, config, settings):
+    """Train one relative g−i term on galaxies, then test galaxies and QSOs."""
+    from scipy.optimize import least_squares
+
+    from .nsc_comparison import comparison, qso_matches
+    from .pilot_production import valid_epochs
+    from .precision_v03 import fit_with_calibration
+
+    r=data.band.eq("r").to_numpy()
+    nsc=data.survey.eq("NSC").to_numpy()
+    color=data.color.to_numpy()
+    support=np.isin(keys,list(offsets))
+    chosen=refs.loc[(r & support)[refs.index]]
+    control={False:[],True:[]}
+    for (hold,_),group in chosen.groupby(["is_holdout","reference"],sort=False):
+        i=group.index.to_numpy()
+        early,late=i[~nsc[i]],i[nsc[i]]
+        usable=color[early]
+        usable=usable[np.isfinite(usable)&(usable>=-.3)&(usable<=3.5)]
+        if not (len(usable) and len(late)):
+            continue
+        delta=xy[i]-np.stack([offsets[k][0] for k in keys[i]])
+        control[hold].append((np.median(usable),np.median(delta[~nsc[i]],axis=0)-np.median(delta[nsc[i]],axis=0)))
+    if min(map(len,control.values()))<30:
+        return dict(status="insufficient_galaxy_color_support",train=len(control[False]),held=len(control[True]))
+    colors=np.array([v[0] for v in control[False]])
+    med=np.median(colors)
+    lower,upper=np.quantile(colors,[.02,.98])
+    target=np.stack([v[1] for v in control[False]])
+    slope=np.array([least_squares(lambda p:target[:,i]-p[0]-p[1]*(colors-med),
+                                 [0.,0.], loss="soft_l1",f_scale=75).x[1] for i in range(2)])
+    matches=[]
+    for col,value in control[True]:
+        if lower<=col<=upper:
+            matches.append(dict(C1=(value,np.ones(2)),C3=(value-(col-med)*slope,np.ones(2))))
+    galaxy=comparison(matches,dict(settings,tail_masyr=150),(("C3","C1"),))
+    _,tracks=qso_matches(data,xy,keep,points)
+    qa=[]
+    for i in tracks.values():
+        i=i[support[i]]
+        if not valid_epochs(i,nsc,time,settings["production"]):
+            continue
+        early=~nsc[i]
+        cols=color[i[early]]
+        cols=cols[np.isfinite(cols)&(cols>=-.3)&(cols<=3.5)]
+        if not len(cols):
+            continue
+        col=np.median(cols)
+        if not lower<=col<=upper:
+            continue
+        row=xy[i]
+        models=[]
+        for scale in (0.,1.):
+            fixed=row-early[:,None]*(scale*(col-med)*slope)
+            models.append(fit_with_calibration(fixed,time[i],sigma[i],config["reference_epoch"],
+                                                [offsets[k] for k in keys[i]]))
+        qa.append({name:(model.coeff[1],err) for name,(model,err) in zip(("C1","C3"),models)})
+    return dict(status="evaluated",train=len(colors),training_color_range=[lower,upper],
+                slope_mas_per_mag=slope, galaxy=galaxy,
+                qso=comparison(qa,settings,(("C3","C1"),)))

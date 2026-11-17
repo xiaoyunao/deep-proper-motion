@@ -26,7 +26,7 @@ def tap_rectangle(box, halo=0., alias=""):
             f"AND {alias}dec >= {south-halo:.9f} AND {alias}dec < {north+halo:.9f}")
 
 
-def tap_join(cache, archive, box, halo):
+def tap_join(cache, archive, box, halo, service="tap", workers=3):
     """Partition on archive positions, then verify every joined measurement count."""
     table="nsc_dr2.meas m JOIN nsc_dr2.object o ON m.objectid=o.id"
     select=",".join("m."+k for k in access.MEAS.split(","))
@@ -34,9 +34,11 @@ def tap_join(cache, archive, box, halo):
     lo,hi=np.asarray(box["ra"])+[-halo,halo]
     south,north=np.asarray(box["dec"])+[-halo,halo]
     partitions=[]
+    target_rows = 80000 if service == "tap" else 26000
+    answer_cap = 100000 if service == "tap" else 30000
 
     def split(low,high,data,finish):
-        if finish and float(data.ndet.sum())<=80000:
+        if finish and float(data.ndet.sum())<=target_rows:
             partitions.append((low,high))
             return
         axis=int(np.argmax(high-low))
@@ -52,8 +54,12 @@ def tap_join(cache, archive, box, halo):
     def receive(bounds):
         low,high=bounds
         where=tap_rectangle(dict(ra=[low[0],high[0]],dec=[low[1],high[1]]),alias="o.")+quality
+        if service == "nsc":
+            mid = (low+high)/2
+            radius = np.linalg.norm(high-low)/2+.003
+            where = (f"q3c_radial_query(o.ra,o.dec,{mid[0]:.10f},{mid[1]:.10f},{radius:.10f}) AND "+where)
         try:
-            return cache.checked("tap",select,table,where,cap=100000)
+            return cache.checked(service,select,table,where,cap=answer_cap)
         except access.PartitionTooLarge:
             axis=int(np.argmax(high-low))
             cut=round((low[axis]+high[axis])/2,9)
@@ -62,15 +68,15 @@ def tap_join(cache, archive, box, halo):
             return pd.concat([receive((low,lc)),receive((rc,high))],ignore_index=True)
 
     split(np.array([lo,south]),np.array([hi,north]),archive[["ra","dec","ndet"]],True)
-    print(f"TAP expected measurement partitions: {len(partitions)}",flush=True)
+    print(f"{service} expected measurement partitions: {len(partitions)}",flush=True)
     parts=[]
-    with ThreadPoolExecutor(max_workers=3) as pool:
+    with ThreadPoolExecutor(max_workers=workers) as pool:
         for i,part in enumerate(pool.map(receive,partitions),1):
             parts.append(part)
-            print(f"TAP verified measurements partition {i}/{len(partitions)}: {len(part):,}",flush=True)
+            print(f"{service} verified measurements partition {i}/{len(partitions)}: {len(part):,}",flush=True)
     result=pd.concat(parts,ignore_index=True)
     if result.measid.duplicated().any():
-        raise RuntimeError("Duplicate measurement IDs in disjoint TAP archive bins")
+        raise RuntimeError("Duplicate measurement IDs in disjoint archive bins")
     return result
 
 
@@ -85,13 +91,14 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     data.to_csv(work/"sdss.csv",index=False)
     print(f"{len(data):,} SDSS detections in {nfiles} inspected files",flush=True)
     use_tap=settings.get("tap_join",False)
+    native_join=settings.get("native_join",False)
     route="tap" if use_tap else "nsc"
     footprint=tap_rectangle if use_tap else where_box
     base=footprint(spec,halo)
     south,north=spec["dec"]
     lo,hi=south-halo-1e-7,north+halo+1e-7
     query=base+" AND ndetr>0 AND (rmag<24 OR nphotr=0 OR rmag IS NULL)"
-    columns="id AS objectid,ra,dec,pmra,pmdec,pmraerr,pmdecerr,deltamjd"+(" ,ndet" if use_tap else "")
+    columns="id AS objectid,ra,dec,pmra,pmdec,pmraerr,pmdecerr,deltamjd"+(" ,ndet" if use_tap or native_join else "")
     archive=access.checked_spatial(cache,route,columns,
                                    "nsc_dr2.object",query,lo,hi)
     ids=archive.objectid.astype(str).sort_values()
@@ -99,7 +106,10 @@ def acquire(work, spec, settings, catalogues, sas, workers):
         raise ValueError("Duplicate NSC object keys in disjoint archive partitions")
     print(f"{len(ids):,} NSC archive objects",flush=True)
     archive.rename(columns={"objectid":"id"}).to_csv(work/"official_nsc.csv",index=False)
-    nsc=tap_join(cache,archive,spec,halo) if use_tap else access.fetch_measurements_for_objects(cache,ids,batch_size=250)
+    if use_tap or native_join:
+        nsc=tap_join(cache,archive,spec,halo,service=route,workers=settings.get("download_workers",3))
+    else:
+        nsc=access.fetch_measurements_for_objects(cache,ids,batch_size=250)
     returned=set(nsc.objectid.astype(str))
     requested=set(ids)
     if returned-requested:
@@ -119,7 +129,7 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     if chips.duplicated(["exposure","ccdnum"]).any():
         raise ValueError("Conflicting NSC chip metadata for one physical detector")
     chips.to_csv(work/"chips.csv",index=False)
-    gaia_columns=GAIA_COLUMNS+(",visibility_periods_used" if use_tap else "")
+    gaia_columns=GAIA_COLUMNS+(",visibility_periods_used" if use_tap or native_join else "")
     gaia=access.checked_spatial(cache,route,gaia_columns,"gaia_dr3.gaia_source",base,lo,hi)
     (work/"validation").mkdir(exist_ok=True)
     gaia.to_csv(work/"validation/gaia.csv",index=False)

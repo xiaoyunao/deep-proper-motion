@@ -53,6 +53,27 @@ def compare(fits, archives):
     return result
 
 
+def chip_receipts(source):
+    manifest=json.loads(source.read_text())
+    merges=manifest["stages"].get("exposure-merge-v09",[])
+    receipts=[source]
+    if merges and merges[-1]["state"]=="completed":
+        receipts=[]
+        for name,checksum in merges[-1]["inputs"].items():
+            receipt=source.parent/name
+            if not receipt.is_file() or digest(receipt)!=checksum:
+                raise ValueError("Acquisition part receipt changed after merging")
+            receipts.append(receipt.resolve())
+    available=[]
+    for receipt in receipts:
+        try:
+            verify_directory(receipt.parent,("chips.csv",))
+        except (ValueError,OSError):
+            continue
+        available.append(receipt.parent/"chips.csv")
+    return available, len(available)==len(receipts) and bool(receipts)
+
+
 def compare_verified(fits, spec):
     archives=[]
     unavailable=[]
@@ -63,21 +84,18 @@ def compare_verified(fits, spec):
         source=core/"source_receipt.json"
         if digest(source)!=stage["inputs"]["source_receipt.json"]:
             raise ValueError(f"Source receipt changed for {name}")
-        source_dir=source.resolve().parent
-        try:
-            verify_directory(source_dir,("chips.csv",))
-        except (ValueError,OSError):
+        chips,complete=chip_receipts(source.resolve())
+        if not complete:
             unavailable.append(name)
-        else:
-            archives.append(source_dir/"chips.csv")
+        archives.extend(chips)
         records[name]=json.loads((core/"private_qso_blocks.json").read_text())
-    instrument=instrument_by_exposure(archives)
+    instrument=instrument_by_exposure(sorted(set(archives)))
     cohorts={}
     for name, selected in geographic_sets(fits,spec).items():
         grouped=instrument_bins((r for k in selected for r in records[k]),instrument)
         cohorts[name]={tag:{k:estimate(rows,METHODS,9137) for k,rows in groups.items()}
                        for tag,groups in grouped.items()}
-    result=dict(cores=len(fits),metadata_complete_cores=len(archives),
+    result=dict(cores=len(fits),metadata_complete_cores=len(fits)-len(unavailable),
                 missing_or_unverified_metadata_cores=unavailable,cohorts=cohorts)
     check_aggregate(result)
     return result

@@ -69,14 +69,19 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
         coeff = []
         for axis in range(2):
             w = np.sqrt(weights) / independent[:, axis]
-            matrix, rhs = design.multiply(w[:, None]), values[:,axis]*w
+            matrix, rhs = design.multiply(w[:, None]).tocsr(), values[:,axis]*w
             if len(child):
                 matrix, rhs = vstack((matrix,penalty),format="csr"),np.r_[rhs,np.zeros(len(child))]
+            # Balance columns with very different reference counts. This is
+            # an invertible reparameterization of the same weighted graph.
+            norms = np.sqrt(np.asarray(matrix.power(2).sum(axis=0)).ravel())
+            scale = np.divide(1., norms, out=np.ones_like(norms), where=norms > 0)
+            matrix.data *= scale[matrix.indices]
             answer = lsmr(matrix,rhs,
                           atol=1e-9, btol=1e-9, maxiter=4000)
             if answer[1] not in (0, 1, 2, 4, 5):
                 raise RuntimeError("Stationary reference solve did not converge")
-            coeff.append(answer[0])
+            coeff.append(scale*answer[0])
         return np.column_stack(coeff)
 
     weight = np.ones(len(g))
@@ -98,6 +103,7 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
     else:
         samples = np.asarray(list(map(draw, reference_weights)))
     support = active.groupby("group").ref.nunique()
-    return {name: (np.r_[optimum[nr:], np.zeros((1, 2))][j],
-                   np.concatenate((samples, np.zeros((draws, 1, 2))), axis=1)[:, j],
-                   int(support.get(name,0))) for j, name in enumerate(groups)}
+    positions = np.r_[optimum[nr:], np.zeros((1, 2))]
+    samples = np.concatenate((samples, np.zeros((draws, 1, 2))), axis=1)
+    return {name: (positions[j], samples[:, j], int(support.get(name, 0)))
+            for j, name in enumerate(groups)}

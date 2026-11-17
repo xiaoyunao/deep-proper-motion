@@ -1,0 +1,22 @@
+{
+  "slurm_job": 61469961,
+  "summary_commit": "be54c8381d2626b4c33ec1610ce472c341d22471",
+  "stage_sha256": {
+    "v12_coverage_audit_summary.json": "33dff96992a5ef9836da28f3453e1552056fd5cc91da33ab1a9707659befce4d",
+    "v12_full_continuous_summary.json": "41ddc0d761df7aa55211700668c1080b8be6402aa051f5aa673ee38fa0899ea0",
+    "v12_full_instrument_summary.json": "dceb1133d0803501364b5be73671d5aea3b1e8cd59ad43ecd21b69308cd3c2ad",
+    "v12_full_processing_seams_summary.json": "2e6145a3d3448506a2b5c872eacf31aac84a58b5e712a779cbf2870952809d0d"
+  },
+  "planned_cells": 100,
+  "acquisition_receipt_cells": 30,
+  "reference_receipt_cells": 27,
+  "verified_fit_cells": 2,
+  "verified_w0": 5733,
+  "fit_area_sqdeg": 1.993809361030453,
+  "expected_graph_sha256": "fd82f9dc59c7e9aa21a84c7289597bdc4caa34a38dc9a471719ac76b2bd1589d",
+  "instrument_metadata_cores": 2,
+  "seam_reference_cores": 16,
+  "seams": 16,
+  "slurm_wall_seconds": 143,
+  "max_rss_kib": 2691120
+}

@@ -144,13 +144,16 @@ def main():
     a=p.parse_args()
     files={k:Path(v) for k,v in json.loads(a.plan.read_text()).items()}
     graph_paths={k:Path(v) for k,v in json.loads(a.shared.read_text()).items()}
+    spec=tomllib.loads(a.config.read_text())["fields"]
     sets={"all":list(files)}
-    ordinary=[name for name in files if name!="repeat_rich"]
-    if ordinary and ordinary!=list(files):
-        sets["ordinary"]=ordinary
     for name in files:
         sets[name]=[name]
-    spec=tomllib.loads(a.config.read_text())["fields"]
+    ordinary=[name for name in files if spec[name]["dec"][1]<=-3 or spec[name]["dec"][0]>=3]
+    rich=[name for name in files if -1<=spec[name]["dec"][0] and spec[name]["dec"][1]<=1]
+    remaining=[name for name in files if name not in ordinary and name not in rich]
+    for label, names in (("ordinary",ordinary),("repeat_band",rich),("transition",remaining)):
+        if names:
+            sets[label]=names
     save_json(a.output,pool(spec,files,graph_paths,sets))
 
 

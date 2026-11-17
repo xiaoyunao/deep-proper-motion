@@ -89,6 +89,18 @@ STAGES["spatial-cohort-v08"] = ("spatial-cohort-v08", "spatial_cohort_summary.js
                                 (*STAGES["regional-pool-v07"][2],"spatial_quality"))
 STAGES["spatial-history-v08"] = ("spatial-history-v08", "spatial_history_summary.json",
                                  ("strict_faint_exits","morphology","same_conditions"))
+STAGES["exposure-catalogues-v09"] = ("exposure-catalogues-v09","catalogue_audit.json",
+    ("rows","bytes","xiao_columns","xiao_sources","spectra","boxes"))
+STAGES["exposure-qso-count-v09"] = ("exposure-qso-count-v09","qso_count_summary.json",
+    ("parent_rows","by_radius_arcsec","paper_sample","input_shards"))
+STAGES["exposure-preflight-v09"] = ("exposure-preflight-v09","geometry_summary.json",
+    ("box","area_sqdeg","tiles","sampled_positions","sampled_ring_pixels","physical_sdss_runs",
+     "sdss_scan_centres_buffered","sdss_year_span","geometry_sdss_nights","sdss_visits","nsc_r_visits",
+     "nsc_r_exposures","ccd_coverage_by_instrument_band","joint_fraction","joint_timed_fraction",
+     "long_sdss_repeat_fraction","objects","approximate_nsc_measurements"))
+STAGES["exposure-pilot-v09"] = ("exposure-pilot-v09","pilot_summary.json",
+    ("c0","c1","galaxies","qso","gaia","legacy_origin_counts","source_yield","qso_origins",
+     "elapsed_seconds","acquisition"))
 
 METADATA = {"region", "role", "receipt"}
 PRIVATE_KEYS = {"source_id", "source_ids", "object_ids", "objid", "objids", "detection_id",
@@ -172,6 +184,10 @@ def export(run_root, kind, region):
     if sha != attempt["outputs"][relative]:
         raise ValueError("Aggregate checksum differs from completed stage")
     aggregate = json.loads(summary_bytes)
+    if kind == "exposure-preflight-v09":
+        for bounds in [aggregate["box"],*(v["region"] for v in aggregate["tiles"])]:
+            bounds["ra_bounds_deg"] = bounds.pop("ra")
+            bounds["dec_bounds_deg"] = bounds.pop("dec")
     config = tomllib.loads(config_bytes.decode())
     role = "challenge_design" if kind == "challenge-design" else config.get("regions", {}).get(region, {}).get("role", "independent")
     payload = {key: aggregate[key] for key in fields}

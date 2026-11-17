@@ -29,7 +29,10 @@ def subboxes(box):
 
 def where_box(box, halo=0):
     ra,dec=box["ra"],box["dec"]
-    return (f"ra >= {ra[0]-halo:.6f} AND ra < {ra[1]+halo:.6f} "
+    center=np.mean(ra),np.mean(dec)
+    radius=np.hypot(np.ptp(ra)/2+halo,np.ptp(dec)/2+halo)+.002
+    return (access.q3c(*center,radius)+" AND "
+            f"ra >= {ra[0]-halo:.6f} AND ra < {ra[1]+halo:.6f} "
             f"AND dec >= {dec[0]-halo:.6f} AND dec < {dec[1]+halo:.6f}")
 
 

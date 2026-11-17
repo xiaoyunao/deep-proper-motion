@@ -1,0 +1,87 @@
+{
+  "scope": "first_two_production_count_window_inputs",
+  "cores": {
+    "c_08_02": {
+      "original_array_job": "61466719_20",
+      "original_reference_status": "argument_missing",
+      "acquisition_receipt": {
+        "commit": "105d42dabbe0287349ea46818ffd6b2371ab6d8b",
+        "config_sha256": "f18b1579571a163b2969b89bf8ce5c04b43a14e300f8778b2b5062c45c30685d",
+        "slurm_job": "61470699",
+        "summary_sha256": "3c72d6e9b94dc27b2f94a816d6722e564d7dce14fabda91f6d85993124b3311e"
+      },
+      "acquisition": {
+        "objects": 42785,
+        "archive_objects_without_measures": 0,
+        "measurement_route": "datalab_native_archive_join",
+        "native_count_window": true,
+        "downloaded_nsc_measures": 987049,
+        "chip_metadata_entries": 4265,
+        "sdss_measures": 46332,
+        "sdss_fields": 150,
+        "gaia_positions": 4172,
+        "elapsed_seconds": 1652.761694826011,
+        "peak_rss_mib": 2198.92578125
+      },
+      "nsc_verified_window_partitions": 22,
+      "nsc_fallback_join_cache_entries": 0,
+      "reference_receipt": {
+        "commit": "a7335727a131e0822dd5890102bdaeab3e4b9df2",
+        "config_sha256": "0b2671c86e11ba1f9ce6bc776056d84ab508c480cb8b61ccc22e1dbc22a80e86",
+        "slurm_job": "61471679",
+        "summary_sha256": "544e914aa44730fa44d7a5efa196effc14e61e600d4bd105c9b6a4d0f8903804",
+        "elapsed_seconds": 46,
+        "reused_acquisition_receipt": true
+      },
+      "reference": {
+        "raw_core_valid_error": 680244,
+        "local_reference_rows": 148814,
+        "reference_sources": 4591,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 11
+      }
+    },
+    "c_09_02": {
+      "original_array_job": "61466719_21",
+      "original_reference_status": "argument_missing",
+      "acquisition_receipt": {
+        "commit": "105d42dabbe0287349ea46818ffd6b2371ab6d8b",
+        "config_sha256": "f18b1579571a163b2969b89bf8ce5c04b43a14e300f8778b2b5062c45c30685d",
+        "slurm_job": "61470700",
+        "summary_sha256": "5b41d89d5c111a4957f6621393d2d55ed2a7517494748b186ac121810012dbf6"
+      },
+      "acquisition": {
+        "objects": 38552,
+        "archive_objects_without_measures": 0,
+        "measurement_route": "datalab_native_archive_join",
+        "native_count_window": true,
+        "downloaded_nsc_measures": 367373,
+        "chip_metadata_entries": 1650,
+        "sdss_measures": 49662,
+        "sdss_fields": 153,
+        "gaia_positions": 4182,
+        "elapsed_seconds": 951.9855341789662,
+        "peak_rss_mib": 1080.81640625
+      },
+      "nsc_verified_window_partitions": 8,
+      "nsc_fallback_join_cache_entries": 0,
+      "reference_receipt": {
+        "commit": "a7335727a131e0822dd5890102bdaeab3e4b9df2",
+        "config_sha256": "0b2671c86e11ba1f9ce6bc776056d84ab508c480cb8b61ccc22e1dbc22a80e86",
+        "slurm_job": "61471509",
+        "summary_sha256": "e8487d48f203cc5d9b4d9bfd2774c9c20eafbd91777d27c92abe87afe96fee61",
+        "elapsed_seconds": 47,
+        "reused_acquisition_receipt": true
+      },
+      "reference": {
+        "raw_core_valid_error": 275346,
+        "local_reference_rows": 71920,
+        "reference_sources": 4976,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 14
+      }
+    }
+  },
+  "verified_nsc_measurements": 1354422,
+  "verified_reference_rows": 220734
+}

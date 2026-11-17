@@ -13,6 +13,7 @@ NAMES = {
     "sparse_north_inner": "North inner",
     "sparse_north_outer": "North outer",
     "sparse_south_east": "South east",
+    "sparse_south_east_ready": "South east (east half)",
 }
 COLORS = ["#4479a4", "#008b70"]
 
@@ -87,6 +88,8 @@ def main():
     a=p.parse_args()
     data={}
     for field in NAMES:
+        if field=="sparse_south_east_ready" and "sparse_south_east" in data:
+            continue
         paths=list(a.summary.glob(f"v10_{field}_exposure_pilot_*.json"))
         if paths:
             if len(paths)!=1:
@@ -97,6 +100,12 @@ def main():
                 if len(bright)!=1:
                     p.error(f"Multiple bright-only receipts for {field}")
                 data[field]["gaia"]=json.loads(bright[0].read_text())["gaia"]
+            edges=list(a.summary.glob(f"v10_{field}_validation_existing_*.json"))
+            if edges:
+                if len(edges)!=1:
+                    p.error(f"Multiple physical-boundary receipts for {field}")
+                checked=json.loads(edges[0].read_text())
+                data[field]["physical_boundaries"]["sdss_adjacent_field"]=checked["sdss_adjacent_field"]
     if not data:
         p.error("No validated pilot results")
     motion(data,a.output)

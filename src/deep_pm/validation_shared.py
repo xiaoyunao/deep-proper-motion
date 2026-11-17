@@ -1,4 +1,4 @@
-"""Fit one common graph across two real northern processing cores."""
+"""Fit one common graph across two real adjacent processing cores."""
 import argparse
 import json
 import os
@@ -62,12 +62,14 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for key in ("work","parts","config"):
         p.add_argument(key,type=Path)
+    p.add_argument("--sites",nargs=2,default=("sparse_north_inner","sparse_north_outer"))
+    p.add_argument("--region",default="north_shared")
     a=p.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         p.error("Use a Slurm compute node")
     a.work.mkdir(parents=True,exist_ok=True)
     settings=tomllib.loads(a.config.read_text())
-    fields={name:settings["fields"][name] for name in ("sparse_north_inner","sparse_north_outer")}
+    fields={name:settings["fields"][name] for name in a.sites}
     parts=[a.parts/name for name in fields]
     input_names=[]
     for name,part in zip(fields,parts):
@@ -75,11 +77,13 @@ def main():
         if not manifest.exists():
             manifest.symlink_to((part/"run_manifest.json").resolve(strict=True))
         input_names.append(manifest.name)
-    with run_stage(a.work,a.config,"north_shared","validation-shared-input-v10",inputs=input_names,
+    box={axis:[min(spec[axis][0] for spec in fields.values()),max(spec[axis][1] for spec in fields.values())]
+         for axis in ("ra","dec")}
+    with run_stage(a.work,a.config,a.region,"validation-shared-input-v10",inputs=input_names,
                    outputs=(*FILES,"acquisition_summary.json")) as go:
         if go:
-            merge(a.work,parts,dict(ra=[349.,353.],dec=[1.,5.]))
-    with run_stage(a.work,a.config,"north_shared","validation-shared-v10",
+            merge(a.work,parts,box)
+    with run_stage(a.work,a.config,a.region,"validation-shared-v10",
                    inputs=input_names,outputs=["shared_summary.json"]) as go:
         if go:
             compute(a.work,fields,settings["calibration"])

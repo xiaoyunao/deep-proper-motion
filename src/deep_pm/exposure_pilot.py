@@ -103,7 +103,8 @@ def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
                        radial_p68_mas=np.quantile(np.linalg.norm(v,axis=2),.68,axis=0))
                        for k,v in diagnostics.items() if len(v)>=10},
                 dcr_metadata=dict(held_reference_measurements=len(rows),
-                                  finite_airmass=int(np.isfinite(airmass[rows.index]).sum())))
+                                  finite_airmass=int(np.isfinite(airmass[rows.index]).sum()),
+                                  nsc_airmass=int(np.count_nonzero(nsc[rows.index]&np.isfinite(airmass[rows.index])))))
 
 
 def pilot_gate(galaxy,qso,settings):
@@ -169,19 +170,29 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                     if len(values)==4:
                         records["all_four"][prefix].append(corrected)
     comparisons=(("C1","C0"),("C1","NSC"),("C1","Xiao"),("C0","Xiao"),("C0","NSC"))
-    return dict(totals=totals,archive_match_status=status,by_cohort={kind:{
-        label:comparison(r,settings,comparisons) for label,r in bins.items()} for kind,bins in records.items()})
+    cohorts={kind:{label:comparison(r,settings,comparisons) for label,r in bins.items()}
+             for kind,bins in records.items()}
+    for values in cohorts.values():
+        for cohort in values.values():
+            for stats in cohort.get("methods",{}).values():
+                lower,upper=np.asarray(stats["median_bias95"]).T
+                limit=settings["zero_point_limit_masyr"]
+                stats["zero_by_axis"]=["within" if lo>=-limit and hi<=limit else
+                    "outside" if lo>limit or hi<-limit else "unresolved" for lo,hi in zip(lower,upper)]
+    return dict(totals=totals,archive_match_status=status,by_cohort=cohorts)
 
 
 def run(work,inputs,legacy_path,spec,calibration_config):
     start=monotonic()
     settings=tomllib.loads(Path("configs/spatial-v08.toml").read_text())
     settings["bootstrap_draws"]=400
+    settings["bootstrap_absolute_zero"]=True
     config=tomllib.loads(Path("configs/precision-v03.toml").read_text())
     center=tuple(np.mean(spec[k]) for k in ("ra","dec"))
     radius=1.5
     data,xy,t,sigma,keep=quality_detections(inputs,center,config,settings["production"])
     nsc=data.survey.eq("NSC").to_numpy()
+    print(f"{len(data):,} normalized positions with usable errors, {np.count_nonzero(keep):,} r detections",flush=True)
     fine=observation_keys(data)[1]
     pixels=hp.ang2pix(128,data.ra_deg.to_numpy(),data.dec_deg.to_numpy(),lonlat=True)
     qso=pd.read_csv(inputs/"spectra_union.csv").query("in_core").reset_index(drop=True)
@@ -198,6 +209,7 @@ def run(work,inputs,legacy_path,spec,calibration_config):
     visits=data.exposure_id.to_numpy()
     tracks=make_tracks(xy,visits,keep,1000.)
     seeds=make_tracks(xy,visits,keep&nsc,1000.)
+    print(f"{len(tracks):,} shared blind associations, {len(seeds):,} NSC anchors",flush=True)
     products={}
     yields={}
     for name,obs,solution in zip(("C0","C1"),pairs,models):
@@ -206,6 +218,7 @@ def run(work,inputs,legacy_path,spec,calibration_config):
             return inside(ra,dec,spec)
         yields[name],products[name]=source_funnel(data,xy,t,sigma,keep,tracks,solution,config,settings,radius,
             initial=seeds,observation_groups=obs,core_members=core)
+        print(f"{name}: {len(products[name]):,} blind quality solutions",flush=True)
     original=pd.read_csv(inputs/"external_labels.csv",dtype=str).set_index("detection_id").original_object_id
     release=(original,official_table(inputs,{}))
     legacy=pd.read_csv(legacy_path)

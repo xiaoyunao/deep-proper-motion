@@ -41,6 +41,10 @@ def comparison(rows, settings, additional_contrasts=()):
         summaries[k] = summary
     resample = np.random.default_rng(settings["seed"]).integers(0, n, (settings["bootstrap_draws"], n))
     boot = {k: absolute68(v[resample], axis=1) for k, v in motion.items()}
+    if settings.get("bootstrap_absolute_zero"):
+        for key, residual in motion.items():
+            summaries[key]["median_bias95"] = np.quantile(
+                np.median(residual[resample], axis=1), [.025, .975], axis=0).T
     contrasts = {}
     standard = (("M1", "published_nsc"), ("M2", "published_nsc"), ("M3", "published_nsc"),
                  ("M1", "M0"), ("M2", "M1"), ("M3", "M2"),

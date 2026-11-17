@@ -40,9 +40,25 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     print(f"{len(ids):,} NSC archive objects",flush=True)
     archive.rename(columns={"objectid":"id"}).to_csv(work/"official_nsc.csv",index=False)
     nsc=access.fetch_measurements_for_objects(cache,ids,batch_size=250)
-    if set(nsc.objectid.astype(str))!=set(ids):
-        raise ValueError("Archive object and detection partition disagree")
+    returned=set(nsc.objectid.astype(str))
+    requested=set(ids)
+    if returned-requested:
+        raise ValueError("NSC returned measurements outside the requested archive IDs")
+    missing=sorted(requested-returned)
+    for start in range(0,len(missing),250):
+        check="objectid IN ("+",".join(map(access.literal,missing[start:start+250]))+")"
+        if len(cache.checked("nsc","objectid","nsc_dr2.meas",check)):
+            raise ValueError("Object IDs absent from batches have published measurement rows")
+    print(f"{len(missing):,} archive objects have no matching rows in meas",flush=True)
     nsc.loc[inside(nsc.ra,nsc.dec,spec,halo)].to_csv(work/"nsc_object.csv",index=False)
+    chip_pad=halo+.35
+    chips=access.checked_spatial(cache,"nsc","exposure,ccdnum,instrument,airmass",
+                                 "nsc_dr2.chip",where_box(spec,chip_pad),
+                                 south-chip_pad-1e-7,north+chip_pad+1e-7)
+    chips=chips.drop_duplicates()
+    if chips.duplicated(["exposure","ccdnum"]).any():
+        raise ValueError("Conflicting NSC chip metadata for one physical detector")
+    chips.to_csv(work/"chips.csv",index=False)
     gaia=access.checked_spatial(cache,"nsc",GAIA_COLUMNS,"gaia_dr3.gaia_source",base,lo,hi)
     (work/"validation").mkdir(exist_ok=True)
     gaia.to_csv(work/"validation/gaia.csv",index=False)
@@ -52,7 +68,8 @@ def acquire(work, spec, settings, catalogues, sas, workers):
         qso["in_core"]=inside(qso.ra,qso.dec,spec)
         qso.to_csv(work/f"{stem}.csv",index=False)
     standardize(work,{},center,radius,"object")
-    save_json(work/"acquisition_summary.json",dict(objects=len(ids),downloaded_nsc_measures=len(nsc),
+    save_json(work/"acquisition_summary.json",dict(objects=len(ids),archive_objects_without_measures=len(missing),
+        downloaded_nsc_measures=len(nsc),chip_metadata_entries=len(chips),
         sdss_measures=len(data),sdss_fields=nfiles,gaia_positions=len(gaia),elapsed_seconds=monotonic()-start,
         peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024))
 
@@ -72,7 +89,7 @@ def main():
     work=a.root/a.region
     work.mkdir(parents=True,exist_ok=True)
     outputs=("detections.csv","external_labels.csv","official_nsc.csv","spectra_union.csv","spectra_veto.csv",
-             "validation/gaia.csv","acquisition_summary.json","sdss.csv","nsc_object.csv")
+             "validation/gaia.csv","acquisition_summary.json","sdss.csv","nsc_object.csv","chips.csv")
     with run_stage(work,a.config,a.region,"exposure-inputs-v09",outputs=outputs) as go:
         if go:
             acquire(work,settings["fields"][a.region],settings,a.catalogues,a.sas,a.workers)

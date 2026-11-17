@@ -1,0 +1,37 @@
+{
+  "parent_rows": 750414,
+  "by_radius_arcsec": {
+    "0.5": {
+      "with_any_match": 732253,
+      "with_one_match": 732253,
+      "one_ground": 371065,
+      "one_gaia": 361188,
+      "ambiguous": 0
+    },
+    "1.0": {
+      "with_any_match": 732494,
+      "with_one_match": 732492,
+      "one_ground": 371249,
+      "one_gaia": 361243,
+      "ambiguous": 2
+    },
+    "2.0": {
+      "with_any_match": 732733,
+      "with_one_match": 732466,
+      "one_ground": 371198,
+      "one_gaia": 361268,
+      "ambiguous": 267
+    }
+  },
+  "paper_sample": 734012,
+  "input_shards": 4,
+  "region": "legacy_qso",
+  "role": "independent",
+  "receipt": {
+    "commit": "4a21f1af53f34fdbfecccf3e1e63c43e4c92de9d",
+    "config_sha256": "75581127d3f5410a79456e0d2c66f9627d23e66657cb7520f8920125b2747e71",
+    "aggregate_sha256": "8f25ceff031afdddfa85c57d639963bf5cc377dd51dc19fb071399aef0fd31bb",
+    "slurm_job": "61459164",
+    "stage": "exposure-qso-count-v09"
+  }
+}

@@ -70,9 +70,17 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("summary",type=Path)
     p.add_argument("figures",type=Path)
+    p.add_argument("--additional",nargs="*",type=Path,default=[])
     a=p.parse_args()
     a.figures.mkdir(parents=True,exist_ok=True)
-    render(json.loads(a.summary.read_text()),a.figures)
+    data=json.loads(a.summary.read_text())
+    for path in a.additional:
+        extra=json.loads(path.read_text())
+        for name in ("cores","covered_cores"):
+            if data[name].keys() & extra[name].keys():
+                p.error("Each verified core must appear once in the map")
+            data[name].update(extra[name])
+    render(data,a.figures)
 
 
 if __name__=="__main__":

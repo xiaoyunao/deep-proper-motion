@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Invoke with srun from a versioned Perlmutter worktree.
+# Run inside an allocated Perlmutter node from a versioned worktree.
 set -euo pipefail
 mode=${1:?plan, solve, fit or summarize}
 state=${2:?private run directory}

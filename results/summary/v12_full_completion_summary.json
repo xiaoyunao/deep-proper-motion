@@ -1,0 +1,978 @@
+{
+  "verified_utc": "2026-11-17T18:22:41.647988+00:00",
+  "source_revisions": {
+    "reference": "df39d7fa85e4809d9a398083458dbe8e97097422",
+    "fit": "eab6a2b11713b1cb5ac4af1c0ce7ee4ad5898830",
+    "summary": "be54c8381d2626b4c33ec1610ce472c341d22471",
+    "ownership": "c0825e090530bc52cfe29bc96c985a76e8a52308"
+  },
+  "completed_jobs": [
+    {
+      "job": "61466720",
+      "state": "COMPLETED",
+      "elapsed_seconds": 467
+    },
+    {
+      "job": "61466721",
+      "state": "COMPLETED",
+      "elapsed_seconds": 840
+    },
+    {
+      "job": "61466723",
+      "state": "COMPLETED",
+      "elapsed_seconds": 427
+    },
+    {
+      "job": "61466722_0",
+      "state": "COMPLETED",
+      "elapsed_seconds": 2591
+    },
+    {
+      "job": "61466722_1",
+      "state": "COMPLETED",
+      "elapsed_seconds": 421
+    },
+    {
+      "job": "61466722_2",
+      "state": "COMPLETED",
+      "elapsed_seconds": 464
+    },
+    {
+      "job": "61466722_3",
+      "state": "COMPLETED",
+      "elapsed_seconds": 452
+    },
+    {
+      "job": "61466722_4",
+      "state": "COMPLETED",
+      "elapsed_seconds": 189
+    },
+    {
+      "job": "61466722_5",
+      "state": "COMPLETED",
+      "elapsed_seconds": 2533
+    },
+    {
+      "job": "61466722_6",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1499
+    },
+    {
+      "job": "61466722_7",
+      "state": "COMPLETED",
+      "elapsed_seconds": 244
+    },
+    {
+      "job": "61466722_8",
+      "state": "COMPLETED",
+      "elapsed_seconds": 842
+    },
+    {
+      "job": "61466722_9",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1147
+    },
+    {
+      "job": "61466722_10",
+      "state": "COMPLETED",
+      "elapsed_seconds": 154
+    },
+    {
+      "job": "61466722_11",
+      "state": "COMPLETED",
+      "elapsed_seconds": 181
+    },
+    {
+      "job": "61466722_12",
+      "state": "COMPLETED",
+      "elapsed_seconds": 247
+    },
+    {
+      "job": "61466722_13",
+      "state": "COMPLETED",
+      "elapsed_seconds": 570
+    },
+    {
+      "job": "61466722_14",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1612
+    },
+    {
+      "job": "61466722_15",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1344
+    },
+    {
+      "job": "61466722_16",
+      "state": "COMPLETED",
+      "elapsed_seconds": 189
+    },
+    {
+      "job": "61466722_17",
+      "state": "COMPLETED",
+      "elapsed_seconds": 289
+    },
+    {
+      "job": "61466722_18",
+      "state": "COMPLETED",
+      "elapsed_seconds": 203
+    },
+    {
+      "job": "61466722_19",
+      "state": "COMPLETED",
+      "elapsed_seconds": 192
+    },
+    {
+      "job": "61466722_20",
+      "state": "COMPLETED",
+      "elapsed_seconds": 622
+    },
+    {
+      "job": "61466722_21",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1808
+    },
+    {
+      "job": "61466722_22",
+      "state": "COMPLETED",
+      "elapsed_seconds": 234
+    },
+    {
+      "job": "61466722_23",
+      "state": "COMPLETED",
+      "elapsed_seconds": 259
+    },
+    {
+      "job": "61466722_24",
+      "state": "COMPLETED",
+      "elapsed_seconds": 337
+    },
+    {
+      "job": "61466722_25",
+      "state": "COMPLETED",
+      "elapsed_seconds": 323
+    },
+    {
+      "job": "61466722_26",
+      "state": "COMPLETED",
+      "elapsed_seconds": 282
+    },
+    {
+      "job": "61466722_27",
+      "state": "COMPLETED",
+      "elapsed_seconds": 264
+    },
+    {
+      "job": "61466722_28",
+      "state": "COMPLETED",
+      "elapsed_seconds": 246
+    },
+    {
+      "job": "61466722_29",
+      "state": "COMPLETED",
+      "elapsed_seconds": 595
+    },
+    {
+      "job": "61466722_30",
+      "state": "COMPLETED",
+      "elapsed_seconds": 451
+    },
+    {
+      "job": "61466722_31",
+      "state": "COMPLETED",
+      "elapsed_seconds": 226
+    },
+    {
+      "job": "61466722_32",
+      "state": "COMPLETED",
+      "elapsed_seconds": 538
+    },
+    {
+      "job": "61466722_33",
+      "state": "COMPLETED",
+      "elapsed_seconds": 545
+    },
+    {
+      "job": "61466722_34",
+      "state": "COMPLETED",
+      "elapsed_seconds": 444
+    },
+    {
+      "job": "61466722_35",
+      "state": "COMPLETED",
+      "elapsed_seconds": 524
+    },
+    {
+      "job": "61466722_36",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1003
+    },
+    {
+      "job": "61466722_37",
+      "state": "COMPLETED",
+      "elapsed_seconds": 625
+    },
+    {
+      "job": "61466722_38",
+      "state": "COMPLETED",
+      "elapsed_seconds": 372
+    },
+    {
+      "job": "61466722_39",
+      "state": "COMPLETED",
+      "elapsed_seconds": 482
+    },
+    {
+      "job": "61466722_40",
+      "state": "COMPLETED",
+      "elapsed_seconds": 509
+    },
+    {
+      "job": "61466722_41",
+      "state": "COMPLETED",
+      "elapsed_seconds": 407
+    },
+    {
+      "job": "61466722_42",
+      "state": "COMPLETED",
+      "elapsed_seconds": 2403
+    },
+    {
+      "job": "61466722_43",
+      "state": "COMPLETED",
+      "elapsed_seconds": 773
+    },
+    {
+      "job": "61466722_44",
+      "state": "COMPLETED",
+      "elapsed_seconds": 894
+    },
+    {
+      "job": "61466722_45",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1242
+    },
+    {
+      "job": "61466722_46",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1043
+    },
+    {
+      "job": "61466722_47",
+      "state": "COMPLETED",
+      "elapsed_seconds": 706
+    },
+    {
+      "job": "61466722_48",
+      "state": "COMPLETED",
+      "elapsed_seconds": 833
+    },
+    {
+      "job": "61466722_49",
+      "state": "COMPLETED",
+      "elapsed_seconds": 873
+    },
+    {
+      "job": "61466722_50",
+      "state": "COMPLETED",
+      "elapsed_seconds": 968
+    },
+    {
+      "job": "61466722_51",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1037
+    },
+    {
+      "job": "61466722_52",
+      "state": "COMPLETED",
+      "elapsed_seconds": 916
+    },
+    {
+      "job": "61466722_53",
+      "state": "COMPLETED",
+      "elapsed_seconds": 674
+    },
+    {
+      "job": "61466722_54",
+      "state": "COMPLETED",
+      "elapsed_seconds": 746
+    },
+    {
+      "job": "61466722_55",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1042
+    },
+    {
+      "job": "61466722_56",
+      "state": "COMPLETED",
+      "elapsed_seconds": 539
+    },
+    {
+      "job": "61466722_57",
+      "state": "COMPLETED",
+      "elapsed_seconds": 534
+    },
+    {
+      "job": "61466722_58",
+      "state": "COMPLETED",
+      "elapsed_seconds": 520
+    },
+    {
+      "job": "61466722_59",
+      "state": "COMPLETED",
+      "elapsed_seconds": 573
+    },
+    {
+      "job": "61466722_60",
+      "state": "COMPLETED",
+      "elapsed_seconds": 494
+    },
+    {
+      "job": "61466722_61",
+      "state": "COMPLETED",
+      "elapsed_seconds": 472
+    },
+    {
+      "job": "61466722_62",
+      "state": "COMPLETED",
+      "elapsed_seconds": 493
+    },
+    {
+      "job": "61466722_63",
+      "state": "COMPLETED",
+      "elapsed_seconds": 588
+    },
+    {
+      "job": "61466722_64",
+      "state": "COMPLETED",
+      "elapsed_seconds": 489
+    },
+    {
+      "job": "61466722_65",
+      "state": "COMPLETED",
+      "elapsed_seconds": 426
+    },
+    {
+      "job": "61466722_66",
+      "state": "COMPLETED",
+      "elapsed_seconds": 280
+    },
+    {
+      "job": "61466722_67",
+      "state": "COMPLETED",
+      "elapsed_seconds": 262
+    },
+    {
+      "job": "61466722_68",
+      "state": "COMPLETED",
+      "elapsed_seconds": 296
+    },
+    {
+      "job": "61466722_69",
+      "state": "COMPLETED",
+      "elapsed_seconds": 269
+    },
+    {
+      "job": "61466722_70",
+      "state": "COMPLETED",
+      "elapsed_seconds": 230
+    },
+    {
+      "job": "61466722_71",
+      "state": "COMPLETED",
+      "elapsed_seconds": 263
+    },
+    {
+      "job": "61466722_72",
+      "state": "COMPLETED",
+      "elapsed_seconds": 253
+    },
+    {
+      "job": "61466722_73",
+      "state": "COMPLETED",
+      "elapsed_seconds": 297
+    },
+    {
+      "job": "61466722_74",
+      "state": "COMPLETED",
+      "elapsed_seconds": 285
+    },
+    {
+      "job": "61466722_75",
+      "state": "COMPLETED",
+      "elapsed_seconds": 215
+    },
+    {
+      "job": "61466722_76",
+      "state": "COMPLETED",
+      "elapsed_seconds": 186
+    },
+    {
+      "job": "61466722_77",
+      "state": "COMPLETED",
+      "elapsed_seconds": 195
+    },
+    {
+      "job": "61466722_78",
+      "state": "COMPLETED",
+      "elapsed_seconds": 156
+    },
+    {
+      "job": "61466722_79",
+      "state": "COMPLETED",
+      "elapsed_seconds": 181
+    },
+    {
+      "job": "61466722_80",
+      "state": "COMPLETED",
+      "elapsed_seconds": 195
+    },
+    {
+      "job": "61466722_81",
+      "state": "COMPLETED",
+      "elapsed_seconds": 176
+    },
+    {
+      "job": "61466722_82",
+      "state": "COMPLETED",
+      "elapsed_seconds": 211
+    },
+    {
+      "job": "61466722_83",
+      "state": "COMPLETED",
+      "elapsed_seconds": 163
+    },
+    {
+      "job": "61466722_84",
+      "state": "COMPLETED",
+      "elapsed_seconds": 144
+    },
+    {
+      "job": "61466722_85",
+      "state": "COMPLETED",
+      "elapsed_seconds": 157
+    },
+    {
+      "job": "61466722_86",
+      "state": "COMPLETED",
+      "elapsed_seconds": 163
+    },
+    {
+      "job": "61466722_87",
+      "state": "COMPLETED",
+      "elapsed_seconds": 177
+    },
+    {
+      "job": "61466722_88",
+      "state": "COMPLETED",
+      "elapsed_seconds": 204
+    },
+    {
+      "job": "61466722_89",
+      "state": "COMPLETED",
+      "elapsed_seconds": 189
+    },
+    {
+      "job": "61466722_90",
+      "state": "COMPLETED",
+      "elapsed_seconds": 196
+    },
+    {
+      "job": "61467874",
+      "state": "COMPLETED",
+      "elapsed_seconds": 88
+    },
+    {
+      "job": "61467873_0",
+      "state": "COMPLETED",
+      "elapsed_seconds": 440
+    },
+    {
+      "job": "61467873_1",
+      "state": "COMPLETED",
+      "elapsed_seconds": 143
+    },
+    {
+      "job": "61467873_2",
+      "state": "COMPLETED",
+      "elapsed_seconds": 111
+    },
+    {
+      "job": "61467873_3",
+      "state": "COMPLETED",
+      "elapsed_seconds": 140
+    },
+    {
+      "job": "61467873_4",
+      "state": "COMPLETED",
+      "elapsed_seconds": 98
+    },
+    {
+      "job": "61467873_5",
+      "state": "COMPLETED",
+      "elapsed_seconds": 459
+    },
+    {
+      "job": "61467873_6",
+      "state": "COMPLETED",
+      "elapsed_seconds": 293
+    },
+    {
+      "job": "61467873_7",
+      "state": "COMPLETED",
+      "elapsed_seconds": 90
+    },
+    {
+      "job": "61467873_8",
+      "state": "COMPLETED",
+      "elapsed_seconds": 250
+    },
+    {
+      "job": "61467873_9",
+      "state": "COMPLETED",
+      "elapsed_seconds": 290
+    },
+    {
+      "job": "61467873_10",
+      "state": "COMPLETED",
+      "elapsed_seconds": 94
+    },
+    {
+      "job": "61467873_11",
+      "state": "COMPLETED",
+      "elapsed_seconds": 96
+    },
+    {
+      "job": "61467873_12",
+      "state": "COMPLETED",
+      "elapsed_seconds": 109
+    },
+    {
+      "job": "61467873_13",
+      "state": "COMPLETED",
+      "elapsed_seconds": 150
+    },
+    {
+      "job": "61467873_14",
+      "state": "COMPLETED",
+      "elapsed_seconds": 315
+    },
+    {
+      "job": "61467873_15",
+      "state": "COMPLETED",
+      "elapsed_seconds": 355
+    },
+    {
+      "job": "61467873_16",
+      "state": "COMPLETED",
+      "elapsed_seconds": 108
+    },
+    {
+      "job": "61467873_17",
+      "state": "COMPLETED",
+      "elapsed_seconds": 117
+    },
+    {
+      "job": "61467873_18",
+      "state": "COMPLETED",
+      "elapsed_seconds": 93
+    },
+    {
+      "job": "61467873_19",
+      "state": "COMPLETED",
+      "elapsed_seconds": 97
+    },
+    {
+      "job": "61467873_20",
+      "state": "COMPLETED",
+      "elapsed_seconds": 174
+    },
+    {
+      "job": "61467873_21",
+      "state": "COMPLETED",
+      "elapsed_seconds": 364
+    },
+    {
+      "job": "61467873_22",
+      "state": "COMPLETED",
+      "elapsed_seconds": 109
+    },
+    {
+      "job": "61467873_23",
+      "state": "COMPLETED",
+      "elapsed_seconds": 110
+    },
+    {
+      "job": "61467873_24",
+      "state": "COMPLETED",
+      "elapsed_seconds": 121
+    },
+    {
+      "job": "61467873_25",
+      "state": "COMPLETED",
+      "elapsed_seconds": 127
+    },
+    {
+      "job": "61467873_26",
+      "state": "COMPLETED",
+      "elapsed_seconds": 92
+    },
+    {
+      "job": "61467873_27",
+      "state": "COMPLETED",
+      "elapsed_seconds": 96
+    },
+    {
+      "job": "61467873_28",
+      "state": "COMPLETED",
+      "elapsed_seconds": 95
+    },
+    {
+      "job": "61467873_29",
+      "state": "COMPLETED",
+      "elapsed_seconds": 155
+    },
+    {
+      "job": "61467873_30",
+      "state": "COMPLETED",
+      "elapsed_seconds": 131
+    },
+    {
+      "job": "61467873_31",
+      "state": "COMPLETED",
+      "elapsed_seconds": 93
+    },
+    {
+      "job": "61467873_32",
+      "state": "COMPLETED",
+      "elapsed_seconds": 145
+    },
+    {
+      "job": "61467873_33",
+      "state": "COMPLETED",
+      "elapsed_seconds": 145
+    },
+    {
+      "job": "61467873_34",
+      "state": "COMPLETED",
+      "elapsed_seconds": 139
+    },
+    {
+      "job": "61467873_35",
+      "state": "COMPLETED",
+      "elapsed_seconds": 154
+    },
+    {
+      "job": "61467873_36",
+      "state": "COMPLETED",
+      "elapsed_seconds": 234
+    },
+    {
+      "job": "61467873_37",
+      "state": "COMPLETED",
+      "elapsed_seconds": 168
+    },
+    {
+      "job": "61467873_38",
+      "state": "COMPLETED",
+      "elapsed_seconds": 127
+    },
+    {
+      "job": "61467873_39",
+      "state": "COMPLETED",
+      "elapsed_seconds": 135
+    },
+    {
+      "job": "61467873_40",
+      "state": "COMPLETED",
+      "elapsed_seconds": 148
+    },
+    {
+      "job": "61467873_41",
+      "state": "COMPLETED",
+      "elapsed_seconds": 135
+    },
+    {
+      "job": "61467873_42",
+      "state": "COMPLETED",
+      "elapsed_seconds": 450
+    },
+    {
+      "job": "61467873_43",
+      "state": "COMPLETED",
+      "elapsed_seconds": 181
+    },
+    {
+      "job": "61467873_44",
+      "state": "COMPLETED",
+      "elapsed_seconds": 195
+    },
+    {
+      "job": "61467873_45",
+      "state": "COMPLETED",
+      "elapsed_seconds": 249
+    },
+    {
+      "job": "61467873_46",
+      "state": "COMPLETED",
+      "elapsed_seconds": 209
+    },
+    {
+      "job": "61467873_47",
+      "state": "COMPLETED",
+      "elapsed_seconds": 174
+    },
+    {
+      "job": "61467873_48",
+      "state": "COMPLETED",
+      "elapsed_seconds": 194
+    },
+    {
+      "job": "61467873_49",
+      "state": "COMPLETED",
+      "elapsed_seconds": 183
+    },
+    {
+      "job": "61467873_50",
+      "state": "COMPLETED",
+      "elapsed_seconds": 215
+    },
+    {
+      "job": "61467873_51",
+      "state": "COMPLETED",
+      "elapsed_seconds": 239
+    },
+    {
+      "job": "61467873_52",
+      "state": "COMPLETED",
+      "elapsed_seconds": 207
+    },
+    {
+      "job": "61467873_53",
+      "state": "COMPLETED",
+      "elapsed_seconds": 166
+    },
+    {
+      "job": "61467873_54",
+      "state": "COMPLETED",
+      "elapsed_seconds": 192
+    },
+    {
+      "job": "61467873_55",
+      "state": "COMPLETED",
+      "elapsed_seconds": 253
+    },
+    {
+      "job": "61467873_56",
+      "state": "COMPLETED",
+      "elapsed_seconds": 148
+    },
+    {
+      "job": "61467873_57",
+      "state": "COMPLETED",
+      "elapsed_seconds": 140
+    },
+    {
+      "job": "61467873_58",
+      "state": "COMPLETED",
+      "elapsed_seconds": 135
+    },
+    {
+      "job": "61467873_59",
+      "state": "COMPLETED",
+      "elapsed_seconds": 147
+    },
+    {
+      "job": "61467873_60",
+      "state": "COMPLETED",
+      "elapsed_seconds": 134
+    },
+    {
+      "job": "61467873_61",
+      "state": "COMPLETED",
+      "elapsed_seconds": 128
+    },
+    {
+      "job": "61467873_62",
+      "state": "COMPLETED",
+      "elapsed_seconds": 142
+    },
+    {
+      "job": "61467873_63",
+      "state": "COMPLETED",
+      "elapsed_seconds": 147
+    },
+    {
+      "job": "61467873_64",
+      "state": "COMPLETED",
+      "elapsed_seconds": 133
+    },
+    {
+      "job": "61467873_65",
+      "state": "COMPLETED",
+      "elapsed_seconds": 137
+    },
+    {
+      "job": "61467873_66",
+      "state": "COMPLETED",
+      "elapsed_seconds": 102
+    },
+    {
+      "job": "61467873_67",
+      "state": "COMPLETED",
+      "elapsed_seconds": 104
+    },
+    {
+      "job": "61467873_68",
+      "state": "COMPLETED",
+      "elapsed_seconds": 103
+    },
+    {
+      "job": "61467873_69",
+      "state": "COMPLETED",
+      "elapsed_seconds": 100
+    },
+    {
+      "job": "61467873_70",
+      "state": "COMPLETED",
+      "elapsed_seconds": 87
+    },
+    {
+      "job": "61467873_71",
+      "state": "COMPLETED",
+      "elapsed_seconds": 101
+    },
+    {
+      "job": "61467873_72",
+      "state": "COMPLETED",
+      "elapsed_seconds": 104
+    },
+    {
+      "job": "61467873_73",
+      "state": "COMPLETED",
+      "elapsed_seconds": 108
+    },
+    {
+      "job": "61467873_74",
+      "state": "COMPLETED",
+      "elapsed_seconds": 103
+    },
+    {
+      "job": "61467873_75",
+      "state": "COMPLETED",
+      "elapsed_seconds": 93
+    },
+    {
+      "job": "61467873_76",
+      "state": "COMPLETED",
+      "elapsed_seconds": 96
+    },
+    {
+      "job": "61467873_77",
+      "state": "COMPLETED",
+      "elapsed_seconds": 94
+    },
+    {
+      "job": "61467873_78",
+      "state": "COMPLETED",
+      "elapsed_seconds": 90
+    },
+    {
+      "job": "61467873_79",
+      "state": "COMPLETED",
+      "elapsed_seconds": 87
+    },
+    {
+      "job": "61467873_80",
+      "state": "COMPLETED",
+      "elapsed_seconds": 111
+    },
+    {
+      "job": "61467873_81",
+      "state": "COMPLETED",
+      "elapsed_seconds": 107
+    },
+    {
+      "job": "61467873_82",
+      "state": "COMPLETED",
+      "elapsed_seconds": 101
+    },
+    {
+      "job": "61467873_83",
+      "state": "COMPLETED",
+      "elapsed_seconds": 99
+    },
+    {
+      "job": "61467873_84",
+      "state": "COMPLETED",
+      "elapsed_seconds": 140
+    },
+    {
+      "job": "61467873_85",
+      "state": "COMPLETED",
+      "elapsed_seconds": 144
+    },
+    {
+      "job": "61467873_86",
+      "state": "COMPLETED",
+      "elapsed_seconds": 147
+    },
+    {
+      "job": "61467873_87",
+      "state": "COMPLETED",
+      "elapsed_seconds": 146
+    },
+    {
+      "job": "61467873_88",
+      "state": "COMPLETED",
+      "elapsed_seconds": 147
+    },
+    {
+      "job": "61467873_89",
+      "state": "COMPLETED",
+      "elapsed_seconds": 146
+    },
+    {
+      "job": "61467873_90",
+      "state": "COMPLETED",
+      "elapsed_seconds": 148
+    },
+    {
+      "job": "61482413",
+      "state": "COMPLETED",
+      "elapsed_seconds": 40
+    }
+  ],
+  "output_files": {
+    "continuous": {
+      "sha256": "95c2ddbafd7049bb983e9f3d389ab1af5811ff10858f9297bb09d8fb571e705c",
+      "bytes": 43236038
+    },
+    "coverage": {
+      "sha256": "3a630dafe7da0394255a6541be03826a29d0f5ae3082496f8ebc56dc42cf7dc6",
+      "bytes": 68490
+    },
+    "instruments": {
+      "sha256": "c350a781dccd27af0d56741e8518c88e767164e4d0573a337fa5eb59050eee73",
+      "bytes": 93399
+    },
+    "processing_seams": {
+      "sha256": "27e5f71e67f8af1a911970a28c8c8a269b3de2688d373d14a4cebce28d132cea",
+      "bytes": 145167
+    },
+    "detector_boundaries": {
+      "sha256": "6ff48efec8604c9f24ec72f6a92889462a9f5e6bab81ec59bdfb3a125075c743",
+      "bytes": 79171
+    },
+    "ownership": {
+      "sha256": "414d8f9f85fe6ca76af9a1906a77da4bf75744117c1e3e337b51d4632f1924e9",
+      "bytes": 8106
+    }
+  },
+  "geometry_cells": 100,
+  "supported_cells": 100,
+  "area_sqdeg": 99.87312439537494,
+  "catalogue_count": 384232,
+  "all_outputs_share_reference_graph": true,
+  "graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030"
+}

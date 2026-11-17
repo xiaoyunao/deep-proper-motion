@@ -47,6 +47,8 @@ MPLBACKEND=Agg python -m deep_pm.continuous_plots "$PUBLIC_SUMMARY" figures --bo
 
 绘图入口同样接受 `.json.gz`，完整整区汇总可压缩保存。最终逐源几何审计在 Slurm 计算节点运行，使用 `deep_pm.continuous_ownership "$CORE_PLAN_JSON" "$config" "$SHARED" "$OWNERSHIP_SUMMARY"`。它核对来源回执、共同参考解、输出行数及统一参考历元的责任区域。0.05″ 与 0.2″ 的跨核心近邻作为待审计候选，保持逐源数据及位置在 NERSC。
 
+GitHub 可读的精简视图用 `deep_pm.continuous_overview "$PUBLIC_SUMMARY" "$OVERVIEW_SUMMARY"` 生成。保留全部已完成核心的主要质量统计、四个总体扫描带的统计和输入压缩汇总校验和。字段直接选自完整汇总，保留原数值；完整压缩文件用于检查其余分组及重绘。
+
 物理边界另行读取相邻 SDSS field 的 `photoObj` 原始重复记录，以及 NSC 同一曝光内不同 CCD 对同一留出星系的测量。SDSS 按候选数排序，每核心至多检查 160 个邻 field，并报告全部可选 field 数、读取数及匹配数。两类物理重复对都共享一个 C0 零点，位置差可测量这一尺度的重复性；对的数量决定证据范围。几何边界继续使用共享图的 HEALPix 与处理核心留出统计。
 
 整区分块边界以实际共边线段为单位，比较两侧各 2′ 内的留出星系跨巡天位置残差。仅使用解算时绑定的参考回执；同一星系取有双巡天支持、检测最多的参考图分量。每个分量每侧至少五颗才报告差值，样本不足的边界仍保留计数。位置差可受两侧样本与观测条件影响。

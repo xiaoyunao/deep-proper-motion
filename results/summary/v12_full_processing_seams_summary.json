@@ -1,0 +1,6894 @@
+{
+  "reference_graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+  "cores": 91,
+  "edges": {
+    "repeat_rich__c_08_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        62,
+        48
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            62,
+            48
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              16.488826126791537,
+              -1.46627359976992
+            ],
+            [
+              10.411410607397556,
+              -5.059404790634289
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              113.38412181023796,
+              97.21119762315445
+            ],
+            [
+              104.73505646746389,
+              101.56546974394008
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_rich__c_09_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        68,
+        47
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            68,
+            47
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -0.8875380037352443,
+              21.74834093428217
+            ],
+            [
+              5.950491167604923,
+              25.923251629341394
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              130.1122007585276,
+              100.64924059467886
+            ],
+            [
+              133.1940643256827,
+              125.6686648468122
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_rich__c_07_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        58,
+        48
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            58,
+            48
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              20.14355784561485,
+              7.8040867939416785
+            ],
+            [
+              22.695519149303436,
+              6.09937329182867
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              117.95195389683543,
+              109.72013436772518
+            ],
+            [
+              108.34458161217815,
+              91.64357874925004
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_rich__c_07_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        68,
+        49
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            68,
+            49
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              5.086809617467225,
+              2.704518834070768
+            ],
+            [
+              4.18551670294255,
+              2.3142590448842384
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              121.36914392390278,
+              106.8634998794397
+            ],
+            [
+              114.59881625471367,
+              91.35842097937632
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_rich__c_08_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        67,
+        52
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            67,
+            52
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -4.337589346803725,
+              30.40860891714692
+            ],
+            [
+              0.7753658052533865,
+              26.431308755883947
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              126.83972914135474,
+              103.01637783972546
+            ],
+            [
+              145.4924110504948,
+              121.42028620829159
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_rich__c_09_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        41,
+        58
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            41,
+            58
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              21.039132196456194,
+              10.98033797973767
+            ],
+            [
+              22.895903892815113,
+              10.69308142340742
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              124.44607940899198,
+              109.6068370613382
+            ],
+            [
+              138.9096440092701,
+              114.02388273743095
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_sparse__c_02_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        55,
+        38
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            55,
+            38
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -6.7489393493160605,
+              -51.60391741897911
+            ],
+            [
+              -21.31063646171242,
+              -29.693803075701
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              135.80154832454818,
+              133.1467416380969
+            ],
+            [
+              172.06450980457964,
+              180.31259668759236
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_sparse__c_02_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        35,
+        43
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            35,
+            43
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              30.65807651169598,
+              8.74462040886283
+            ],
+            [
+              36.13822431303561,
+              10.317441636696458
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              128.4128765304238,
+              133.12724592879874
+            ],
+            [
+              157.8258521222823,
+              155.43528050839498
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_sparse__c_00_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        41,
+        32
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            41,
+            32
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -17.40540218539536,
+              73.4621894787997
+            ],
+            [
+              -16.396024781279266,
+              73.59374633524567
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              209.4856719349308,
+              172.3653871937657
+            ],
+            [
+              146.8127694198455,
+              128.3165902222468
+            ]
+          ]
+        }
+      }
+    },
+    "repeat_sparse__c_01_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        29,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            29,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -61.13379366416484,
+              18.492288406938314
+            ],
+            [
+              -57.671514987014234,
+              12.350774448364973
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              176.54002965820683,
+              164.80568363624525
+            ],
+            [
+              97.23852869689973,
+              109.72912310322927
+            ]
+          ]
+        }
+      }
+    },
+    "sparse_north_outer__c_06_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        20,
+        38
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            20,
+            38
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -34.064880026038736,
+              -13.216520895250142
+            ],
+            [
+              -25.5945450020954,
+              -13.516452624462545
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              101.4409286443785,
+              101.74677791268459
+            ],
+            [
+              174.74809405384266,
+              139.77346059964069
+            ]
+          ]
+        }
+      }
+    },
+    "sparse_north_outer__c_07_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        20,
+        18
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            20,
+            18
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -49.27138472581282,
+              -7.49623772315681
+            ],
+            [
+              -38.33405471034348,
+              -17.79674210678786
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              108.64990720148282,
+              82.17694906432106
+            ],
+            [
+              148.69545039832968,
+              125.47742507956704
+            ]
+          ]
+        }
+      }
+    },
+    "sparse_north_outer__c_05_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        22,
+        25
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            22,
+            25
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              29.14040248421952,
+              -26.050913486629725
+            ],
+            [
+              23.67782345530577,
+              -30.841521728783846
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              190.27949938178196,
+              151.87607278351956
+            ],
+            [
+              184.5580285077553,
+              175.08025532699514
+            ]
+          ]
+        }
+      }
+    },
+    "sparse_north_outer__c_08_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        31,
+        32
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            31,
+            32
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -5.766030133701861,
+              49.586580611765385
+            ],
+            [
+              -14.692001504823565,
+              36.66617527697235
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              212.96381180985426,
+              172.47163150320267
+            ],
+            [
+              223.95619310956982,
+              179.29871555843832
+            ]
+          ]
+        }
+      }
+    },
+    "sparse_north_outer__c_05_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        26,
+        29
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            26,
+            29
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              55.41911069559865,
+              -0.8891034629195929
+            ],
+            [
+              51.2042120245751,
+              0.25971333868801594
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              144.1717924351758,
+              148.7859708301848
+            ],
+            [
+              125.14451194430495,
+              130.96836298014654
+            ]
+          ]
+        }
+      }
+    },
+    "sparse_north_outer__c_08_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        39,
+        37
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            39,
+            37
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              14.601808566600084,
+              -17.002023458480835
+            ],
+            [
+              27.196932587772608,
+              -15.053850157186389
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              153.29072905374912,
+              157.85380608628085
+            ],
+            [
+              150.92999100987046,
+              158.36732308816016
+            ]
+          ]
+        }
+      }
+    },
+    "south_se__south_ne": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        39,
+        45
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            39,
+            45
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              31.986561549827456,
+              18.900147948414087
+            ],
+            [
+              34.0417424608022,
+              20.37308755144477
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              177.39810177718226,
+              161.48564333603787
+            ],
+            [
+              166.79180706253405,
+              175.37020669579553
+            ]
+          ]
+        }
+      }
+    },
+    "south_se__c_08_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        37,
+        50
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            37,
+            50
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              26.143676970154047,
+              6.299514033831656
+            ],
+            [
+              24.361086703836918,
+              4.258780967444181
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              156.68791844859132,
+              149.42928518789788
+            ],
+            [
+              153.26959006034326,
+              146.21570983621896
+            ]
+          ]
+        }
+      }
+    },
+    "south_ne__c_08_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        48,
+        36
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            48,
+            36
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -18.999201281927526,
+              -22.216768193989992
+            ],
+            [
+              -2.735260622575879,
+              -14.878745916299522
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              175.10311816190003,
+              180.5567640033938
+            ],
+            [
+              216.44091762553936,
+              197.69226904921982
+            ]
+          ]
+        }
+      }
+    },
+    "south_ne__c_09_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        34,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              49.04887339286506,
+              -9.730233233422041
+            ],
+            [
+              54.718840395100415,
+              -14.7808375665918
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              178.95884410205994,
+              158.56709920076548
+            ],
+            [
+              147.651443874609,
+              142.74999820006778
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_05__c_00_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        62,
+        52
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            62,
+            52
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              6.5695821745321155,
+              26.255928147246777
+            ],
+            [
+              5.411073765717447,
+              27.07818687381132
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              93.09758296906648,
+              91.03768151999269
+            ],
+            [
+              118.46086570810317,
+              120.08110053119879
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_05__c_01_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        54,
+        63
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            54,
+            63
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              1.251450032927096,
+              7.387177548138425
+            ],
+            [
+              5.729169731028378,
+              10.782399690913735
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              130.6500846982594,
+              120.18073133006575
+            ],
+            [
+              94.39282339492291,
+              94.13336700518292
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_05__c_00_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        53,
+        49
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            53,
+            49
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -15.036025386303663,
+              -5.879824463278055
+            ],
+            [
+              -18.09981819242239,
+              -3.089889742434025
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              103.12646602261071,
+              103.81887198351231
+            ],
+            [
+              88.01627069223362,
+              88.71224067462857
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_04__c_04_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        71,
+        65
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            71,
+            65
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              2.008027676027268,
+              4.358161074575037
+            ],
+            [
+              0.9495644585695118,
+              4.381533068604767
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              161.53338980504128,
+              162.97377540333926
+            ],
+            [
+              125.32763945125583,
+              134.47813775005494
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_04__c_03_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        64,
+        65
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            64,
+            65
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              8.361551846843213,
+              4.427865589037538
+            ],
+            [
+              11.63209825172089,
+              0.7944848142160481
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              103.47685721165118,
+              104.11666168312016
+            ],
+            [
+              88.36536256266238,
+              84.77863414340617
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_04__c_05_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        42,
+        48
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            42,
+            48
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              6.7435030317446945,
+              13.085352949477965
+            ],
+            [
+              4.4999596273337374,
+              9.993911044875858
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              110.63721139107516,
+              94.60575650913671
+            ],
+            [
+              161.85733982571205,
+              138.73536721856252
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_04__c_04_05": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        60,
+        56
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            60,
+            56
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -15.014624404197093,
+              4.75825964669275
+            ],
+            [
+              -13.255745060872869,
+              4.970231369366957
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              95.02985381343055,
+              95.19640034107077
+            ],
+            [
+              141.51984380463404,
+              134.6431286508015
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_07__c_06_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        31,
+        35
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            31,
+            35
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -21.105825356207788,
+              9.176535544916987
+            ],
+            [
+              -3.827310054562986,
+              9.894929332658648
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              143.65221047523997,
+              142.5547852459941
+            ],
+            [
+              101.00180052300033,
+              95.99986591913137
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_07__c_05_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        31,
+        32
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            31,
+            32
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -2.8488069218583405,
+              22.731828081421554
+            ],
+            [
+              4.324801632203162,
+              14.604123083874583
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              154.83940421182473,
+              123.09810648168616
+            ],
+            [
+              166.2041177792912,
+              135.25388587214962
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_07__c_07_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        36,
+        25
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            25
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              20.512385804206133,
+              5.400428742170334
+            ],
+            [
+              22.73319758241996,
+              9.309540448710322
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              167.11311338890212,
+              148.2634052956839
+            ],
+            [
+              169.85794079850257,
+              163.5099994201174
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_01__c_08_00": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        37,
+        41
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            37,
+            41
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              23.583765076473355,
+              34.73047466017306
+            ],
+            [
+              20.834170907735825,
+              38.61012780480087
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              216.7418739288202,
+              208.47500834927396
+            ],
+            [
+              256.3923164499451,
+              269.23505321985317
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_01__c_07_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        22,
+        37
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            22,
+            37
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              2.7745903646573424,
+              17.280840904451907
+            ],
+            [
+              8.464850724674761,
+              20.382485263980925
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              140.84181338317003,
+              142.43275929684066
+            ],
+            [
+              165.3284623081605,
+              146.9417823237322
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_01__c_08_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        28,
+        33
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            28,
+            33
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              0.09244339726865292,
+              27.366311511956155
+            ],
+            [
+              -4.046952562406659,
+              31.99612873699516
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              172.57505383085305,
+              157.82018488784206
+            ],
+            [
+              139.2897052070928,
+              100.8638952795481
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_00__c_07_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        28,
+        29
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            28,
+            29
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -56.26266025658697,
+              -21.058830275200307
+            ],
+            [
+              -57.69840344693512,
+              -19.32298601139337
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              117.0913428828063,
+              126.12254796570286
+            ],
+            [
+              153.13428798318924,
+              171.25798244748026
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_00__c_03_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        49,
+        40
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            49,
+            40
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -9.819792289286852,
+              1.058735627681017
+            ],
+            [
+              -2.6055067987181246,
+              6.54281604103744
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              167.70587190357605,
+              158.62462599023195
+            ],
+            [
+              163.7919510482743,
+              174.8715326947051
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_00__c_02_01": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        40,
+        47
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            40,
+            47
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -14.647066393867135,
+              39.256872683763504
+            ],
+            [
+              -17.845855199731886,
+              37.2954322732985
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              149.67637974970015,
+              136.1193948199759
+            ],
+            [
+              175.55376533585653,
+              189.09377110419126
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_00__c_04_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        54,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            54,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -27.272229010704905,
+              -46.406775961630046
+            ],
+            [
+              -24.924427779391408,
+              -52.479060877114534
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              192.7249650972872,
+              190.43729370518358
+            ],
+            [
+              206.42299006434672,
+              183.1330055108916
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_00__c_03_01": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        47,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            47,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              13.497200552839786,
+              47.27992242015898
+            ],
+            [
+              -4.691890554036945,
+              49.05025780573487
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              148.6337350805331,
+              155.85052827125824
+            ],
+            [
+              164.10537336725835,
+              160.97820597751522
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_00__c_05_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        26,
+        41
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            26,
+            41
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -6.834300240639095,
+              -22.167461374774575
+            ],
+            [
+              -0.7171209505470415,
+              -35.121790821664035
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              186.6157765759222,
+              177.14431666776977
+            ],
+            [
+              190.470099824782,
+              173.37780780454455
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_00__c_04_01": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        28,
+        51
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            28,
+            51
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              47.29574305890128,
+              71.69295181240886
+            ],
+            [
+              53.42609187506605,
+              57.46097231563181
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              174.384761148917,
+              156.47256599945666
+            ],
+            [
+              176.34924942300307,
+              167.4686961163771
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_00__c_06_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        35,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            35,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              45.4031693644356,
+              -35.372675966471434
+            ],
+            [
+              46.27481848374009,
+              -64.30823093280196
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              152.3027387857365,
+              159.13718418335688
+            ],
+            [
+              174.57094428485678,
+              173.52333800651235
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_00__c_05_01": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        28,
+        43
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            28,
+            43
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -5.473221748950891,
+              69.41274645365775
+            ],
+            [
+              5.612245477677789,
+              52.957889940589666
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              159.65912573121616,
+              166.15184034839817
+            ],
+            [
+              156.5422692337463,
+              157.63005771400114
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_00__c_07_00": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        -5.0,
+        -4.0
+      ],
+      "held_independent_refs": [
+        31,
+        41
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            31,
+            41
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -2.6304879067465663,
+              -4.166175078600645
+            ],
+            [
+              -4.267937205731869,
+              -18.726151442155242
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              213.37996596185621,
+              207.57276021517842
+            ],
+            [
+              209.61511120519896,
+              190.9832072561863
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_00__c_06_01": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        34,
+        36
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            36
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              2.258841768838465,
+              -36.77974324300885
+            ],
+            [
+              5.799778871471062,
+              -37.77033425029367
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              154.2477297686957,
+              160.7446821311419
+            ],
+            [
+              199.0521861437814,
+              191.43489890868287
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_00__c_07_01": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -4.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        34,
+        29
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            29
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              36.02369986148551,
+              -3.3246909556910396
+            ],
+            [
+              35.772771591786295,
+              -3.0291292937472463
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              180.96950297262975,
+              172.32591055139102
+            ],
+            [
+              207.00358929407332,
+              185.52762818828958
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_01__c_03_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        38,
+        44
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            38,
+            44
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              0.8831013455055654,
+              -20.607118971645832
+            ],
+            [
+              -4.163998055271804,
+              -7.059979627840221
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              148.5967659654156,
+              152.79772080424937
+            ],
+            [
+              173.848656509551,
+              158.0016268895203
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_01__c_02_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        46,
+        31
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            46,
+            31
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -7.274254380725324,
+              -26.011613564565778
+            ],
+            [
+              -6.669917709194124,
+              -29.611523535102606
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              107.72340171227327,
+              103.29008925965857
+            ],
+            [
+              173.87408186468394,
+              161.20946340858833
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_01__c_04_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        36,
+        31
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            31
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -26.951467924984172,
+              26.205899871885777
+            ],
+            [
+              -33.97331732325256,
+              24.98312242049724
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              147.1827029106844,
+              158.1183286627353
+            ],
+            [
+              151.56350728755862,
+              163.97880446294855
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_01__c_03_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        47,
+        32
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            47,
+            32
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -42.39506359677762,
+              -1.1641084104776382
+            ],
+            [
+              -45.634537318721414,
+              -5.948726117610931
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              145.16405548396938,
+              147.01153249883862
+            ],
+            [
+              156.33137459092157,
+              157.44003596695202
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_01__c_05_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        24,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            24,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -17.5918616614872,
+              -26.16112682595849
+            ],
+            [
+              -27.301569875868154,
+              -27.874834578484297
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              156.08976504424876,
+              145.9848926491572
+            ],
+            [
+              150.6990652267146,
+              148.34010822392608
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_01__c_04_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        27,
+        23
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            27,
+            23
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              39.349626588402316,
+              22.914887685328722
+            ],
+            [
+              45.04915761272423,
+              22.766571041196585
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              157.7567464105047,
+              145.51397349123945
+            ],
+            [
+              152.42229888485792,
+              165.71267968512433
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_01__c_06_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        36,
+        26
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            26
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -4.932035485981032,
+              27.717295075766742
+            ],
+            [
+              8.419024928938597,
+              24.85570971760899
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              147.15609171681302,
+              163.7019446955246
+            ],
+            [
+              135.52553310963276,
+              148.86299695650837
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_01__c_05_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        32,
+        24
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            32,
+            24
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              3.111777467885986,
+              -38.12383293733001
+            ],
+            [
+              2.228764600935392,
+              -30.896984200924635
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              149.30416354604856,
+              148.5445380449455
+            ],
+            [
+              151.02173913190282,
+              130.17384321280255
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_01__c_07_01": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        -4.0,
+        -3.0
+      ],
+      "held_independent_refs": [
+        29,
+        41
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            29,
+            41
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              50.05429019406438,
+              -36.34366235695779
+            ],
+            [
+              31.818670477718115,
+              -23.17255754955113
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              175.70551809185034,
+              162.3735233075232
+            ],
+            [
+              193.68983369533134,
+              174.08377822762606
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_01__c_06_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        29,
+        22
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            29,
+            22
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -29.110119610559195,
+              -51.75133800692856
+            ],
+            [
+              -27.22499025380239,
+              -55.13277712743729
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              167.2859280947417,
+              161.39641510856657
+            ],
+            [
+              162.35025097180326,
+              173.36787349321153
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_01__c_07_02": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -3.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        32,
+        38
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            32,
+            38
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              16.36294501274824,
+              60.141260613687336
+            ],
+            [
+              16.28257737774402,
+              59.22161764744669
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              286.98679516896516,
+              268.33215354837085
+            ],
+            [
+              237.53189644214916,
+              202.0235314384718
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_02__c_01_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        22,
+        29
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            22,
+            29
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              11.085513917729259,
+              58.0593620473519
+            ],
+            [
+              4.449382218532264,
+              54.6560812946409
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              171.26412209839393,
+              136.26285552202657
+            ],
+            [
+              155.5566089233204,
+              140.40269920505824
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_02__c_00_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        34,
+        43
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            43
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -2.922798144631088,
+              16.70047972444445
+            ],
+            [
+              -6.2330818101763725,
+              19.784494475927204
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              158.51908596038032,
+              134.01519812805665
+            ],
+            [
+              164.99193683075424,
+              131.38499183518113
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_02__c_02_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        29,
+        38
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            29,
+            38
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              13.805117881856859,
+              32.16472133388743
+            ],
+            [
+              12.676071957685053,
+              25.123630681540817
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              131.0775418379324,
+              106.58069070772358
+            ],
+            [
+              117.31724015884969,
+              110.82968808449031
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_02__c_01_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        26,
+        33
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            26,
+            33
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              8.097373181022704,
+              18.509680568706244
+            ],
+            [
+              11.208135133609176,
+              22.52322575915605
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              141.62381162753226,
+              114.58791962149222
+            ],
+            [
+              118.6504932574389,
+              113.89569964670909
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_02__c_03_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        35,
+        46
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            35,
+            46
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -30.50992992799729,
+              24.59114289889112
+            ],
+            [
+              -21.014770832378417,
+              26.8733674781397
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              160.93212008739494,
+              133.76578372596524
+            ],
+            [
+              151.06162140416382,
+              123.50833350153586
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_02__c_02_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        35,
+        30
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            35,
+            30
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -3.142900826409459,
+              18.239997623488307
+            ],
+            [
+              -9.464298191014677,
+              19.115087787620723
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              119.56371639419825,
+              117.82002168535404
+            ],
+            [
+              128.89831112280143,
+              134.74487815708707
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_02__c_04_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        33,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            33,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              3.2786819604225457,
+              18.770685863681138
+            ],
+            [
+              8.693135007284582,
+              21.181903822347522
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              113.66264728044546,
+              129.45224113866195
+            ],
+            [
+              165.1183309843265,
+              189.81897885036966
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_02__c_03_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        25,
+        35
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            25,
+            35
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              14.768283586017787,
+              -9.418755086138844
+            ],
+            [
+              17.50940104946494,
+              -10.312840608879924
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              141.0270989008231,
+              151.1620995576045
+            ],
+            [
+              119.06285690163725,
+              130.46032942175225
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_02__c_05_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        22,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            22,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              14.594422010986818,
+              -17.50215475540608
+            ],
+            [
+              14.971341925347588,
+              -8.769439769443125
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              167.8118528301459,
+              136.4707403663329
+            ],
+            [
+              162.16585881033674,
+              137.41216733390277
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_02__c_04_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        34,
+        41
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            41
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -4.216378469951451,
+              -44.846664731390774
+            ],
+            [
+              -15.670319947996177,
+              -26.608139478601515
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              137.17883935539905,
+              155.89745425371422
+            ],
+            [
+              129.89835080918522,
+              122.6001932073881
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_02__c_06_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        37,
+        29
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            37,
+            29
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -36.684608545619994,
+              6.791519671678543
+            ],
+            [
+              -31.877466356381774,
+              -7.535461783409119
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              245.6911882168045,
+              211.17830752886798
+            ],
+            [
+              250.19943255625608,
+              219.02007954123465
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_02__c_05_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        32,
+        27
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            32,
+            27
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -19.77794191695284,
+              34.71394257154316
+            ],
+            [
+              -36.84880383039126,
+              55.71154242195189
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              125.9772860977998,
+              139.50210664344425
+            ],
+            [
+              131.12600272401292,
+              151.92068651276867
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_02__c_07_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        30,
+        26
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            30,
+            26
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              41.709665216039866,
+              -35.8075078506954
+            ],
+            [
+              32.62793584540486,
+              -37.90843195421621
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              152.29490860018473,
+              127.54777329027512
+            ],
+            [
+              162.79900425000812,
+              141.94725366210545
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_02__c_06_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        25,
+        28
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            25,
+            28
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -10.401072198990732,
+              40.9155894308351
+            ],
+            [
+              -23.033427111338824,
+              45.06730969669297
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              153.1928630489904,
+              146.78419714024946
+            ],
+            [
+              170.02079656153845,
+              184.9836975913193
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_02__c_08_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        36,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -0.39459662325680256,
+              -24.769448207691312
+            ],
+            [
+              -16.333287823945284,
+              -8.977762471418828
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              147.09134488131676,
+              124.55081596812958
+            ],
+            [
+              178.93052486834353,
+              156.083609866318
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_02__c_07_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        48,
+        35
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            48,
+            35
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              29.82084995182231,
+              -6.120532353408635
+            ],
+            [
+              9.041850955225527,
+              0.6816887981258333
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              167.56529049742988,
+              171.82549916478857
+            ],
+            [
+              154.58589562845665,
+              127.89282883181988
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_02__c_09_02": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        -3.0,
+        -2.0
+      ],
+      "held_independent_refs": [
+        37,
+        38
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            37,
+            38
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -28.877595288679004,
+              41.32077428512275
+            ],
+            [
+              -30.89904838707298,
+              35.581806145608425
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              181.77284275694956,
+              164.5083792291546
+            ],
+            [
+              168.10225941651535,
+              165.61041899624988
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_02__c_08_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        45,
+        29
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            45,
+            29
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              5.935623748227954,
+              18.234596202149987
+            ],
+            [
+              -21.95149277150631,
+              25.013023833744228
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              141.82576562183613,
+              141.101586093532
+            ],
+            [
+              151.18074205109832,
+              141.77294503810552
+            ]
+          ]
+        }
+      }
+    },
+    "c_09_02__c_09_03": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -2.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        38,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            38,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              21.4875274496153,
+              11.612986241001636
+            ],
+            [
+              18.396726272068918,
+              18.48227944597602
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              150.87373396330725,
+              124.94800389417787
+            ],
+            [
+              151.1313693802424,
+              119.46872467316423
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_03__c_01_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        39,
+        40
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            39,
+            40
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -3.6261070407927036,
+              -7.686530424747616
+            ],
+            [
+              -12.808809891343117,
+              -6.084301681257784
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              123.47547737098816,
+              109.35621176025938
+            ],
+            [
+              121.76075626150755,
+              103.27413489492334
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_03__c_00_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        47,
+        55
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            47,
+            55
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              9.492343658581376,
+              -8.466356183867902
+            ],
+            [
+              7.341414978727698,
+              0.20429411623626947
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              166.3922565109178,
+              174.70507006202376
+            ],
+            [
+              162.45967474722,
+              148.13643915875613
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_03__c_02_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        67,
+        67
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            67,
+            67
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              7.263261066749692,
+              -0.2759689623489976
+            ],
+            [
+              15.208791928365827,
+              10.586112845689058
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              147.65016740270192,
+              136.73291549578258
+            ],
+            [
+              135.80521533042244,
+              139.2894991176618
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_03__c_01_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        83,
+        53
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            83,
+            53
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              7.909347830340266,
+              0.9209659588523209
+            ],
+            [
+              3.49183863773942,
+              -0.24408943159505725
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              114.0761345288272,
+              102.98570510138066
+            ],
+            [
+              96.00107065314806,
+              98.20408241652169
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_03__c_03_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        55,
+        52
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            55,
+            52
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              18.956448873970658,
+              -0.9427259843796492
+            ],
+            [
+              23.146290965843946,
+              4.66437321016565
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              142.75937429923388,
+              128.56138480977447
+            ],
+            [
+              156.92790307451565,
+              152.16251707651907
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_03__c_02_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        68,
+        68
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            68,
+            68
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              6.043830420821905,
+              -7.950304484227672
+            ],
+            [
+              1.3849280197173357,
+              -6.515330100664869
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              110.45403660912993,
+              87.97247851827849
+            ],
+            [
+              95.2812243886447,
+              98.05745011177763
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_03__c_04_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        34,
+        38
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            38
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              11.721195348072797,
+              -10.393956472165883
+            ],
+            [
+              18.630914009641856,
+              -23.722971518989652
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              128.16599353806913,
+              111.7994338969398
+            ],
+            [
+              141.82874677511342,
+              127.9822227248296
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_03__c_03_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        64,
+        56
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            64,
+            56
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -2.057250428479165,
+              15.077561816200614
+            ],
+            [
+              -4.738245187792927,
+              20.753129864344373
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              126.07114265917457,
+              114.84583096167938
+            ],
+            [
+              89.60741649601124,
+              102.26904600171831
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_03__c_05_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        54,
+        44
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            54,
+            44
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -2.8629571826168103,
+              -0.47416813764721155
+            ],
+            [
+              6.017043866238964,
+              5.791414308361709
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              144.3593736385272,
+              118.51625476207151
+            ],
+            [
+              146.8508119106056,
+              137.4115565513799
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_03__c_06_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        42,
+        45
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            42,
+            45
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              18.425425451248884,
+              38.366976637393236
+            ],
+            [
+              14.60700305388309,
+              42.00205928646028
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              169.47313960230343,
+              161.4534152798573
+            ],
+            [
+              173.20734776271632,
+              167.0316630091199
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_03__c_05_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        76,
+        59
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            76,
+            59
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -13.631499649956822,
+              -10.571988781215623
+            ],
+            [
+              -6.205888560565654,
+              -13.28056319267489
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              125.38270803407873,
+              101.67133534531928
+            ],
+            [
+              152.95583287377076,
+              137.86402965192087
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_03__c_07_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        36,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -48.41794990003109,
+              -39.73605320719071
+            ],
+            [
+              -41.54783185990527,
+              -33.91487830015831
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              194.79486116860642,
+              183.6729725903531
+            ],
+            [
+              169.18325851200686,
+              145.2008614216537
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_03__c_06_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        51,
+        56
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            51,
+            56
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              4.318641317076981,
+              13.173434336902574
+            ],
+            [
+              -0.2459086924791336,
+              8.784429028863087
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              159.60871205990247,
+              145.00985702980537
+            ],
+            [
+              125.01877049057327,
+              103.00779602323364
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_03__c_08_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        49,
+        55
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            49,
+            55
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              34.37875410541892,
+              -20.27721223793924
+            ],
+            [
+              31.73992855474353,
+              -13.132561313919723
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              188.6317709951057,
+              187.44944558471204
+            ],
+            [
+              192.88957811217728,
+              162.15266671352396
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_03__c_07_04": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": -1.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        49,
+        69
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            49,
+            69
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -17.244056982919574,
+              -9.79975714115426
+            ],
+            [
+              -14.044393476098776,
+              -7.585846936330199
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              145.71936911118178,
+              145.51351371014835
+            ],
+            [
+              109.64345449232572,
+              105.534233432315
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_03__c_09_03": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        -2.0,
+        -1.0
+      ],
+      "held_independent_refs": [
+        43,
+        53
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            43,
+            53
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              2.483492787927389,
+              -1.9790296517312527
+            ],
+            [
+              0.7707286812365055,
+              -5.847770874854177
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              153.11737174541884,
+              143.62840715655486
+            ],
+            [
+              151.13185278758178,
+              121.51205489679968
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_04__c_01_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        79,
+        71
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            79,
+            71
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -6.149242032319307,
+              31.77517657750286
+            ],
+            [
+              -3.1341263968497515,
+              28.502315672347322
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              116.62666680456003,
+              106.61262287491967
+            ],
+            [
+              117.33927150141632,
+              115.5700587177767
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_04__c_02_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        62,
+        85
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            62,
+            85
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              2.2392958868294954,
+              -1.381258784327656
+            ],
+            [
+              -3.480228992179036,
+              -4.2241889500874095
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              108.78139373286842,
+              107.04686621300145
+            ],
+            [
+              72.22083263146583,
+              70.71405142311916
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_04__c_01_05": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        83,
+        71
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            83,
+            71
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -1.6208288967609406,
+              5.084005202908884
+            ],
+            [
+              3.3290401622653008,
+              9.526598844648106
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              116.75342705455516,
+              114.77797826597345
+            ],
+            [
+              108.84795442829923,
+              101.72512950184671
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_04__c_03_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        60,
+        59
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            60,
+            59
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              6.925277757458389,
+              -27.01863116642926
+            ],
+            [
+              3.142825489398092,
+              -17.83329747139942
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              124.84834338022479,
+              119.13944840277645
+            ],
+            [
+              125.81471782841803,
+              114.84302034159361
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_04__c_02_05": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        61,
+        54
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            61,
+            54
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -12.460563319735229,
+              5.615283767256187
+            ],
+            [
+              -12.649305520579219,
+              9.523479567860704
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              114.06177003656612,
+              106.42703983777425
+            ],
+            [
+              92.71630421107398,
+              94.34333420276003
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_04__c_03_05": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        67,
+        49
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            67,
+            49
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -51.45041767414659,
+              -12.130559544670177
+            ],
+            [
+              -47.77462623734027,
+              -5.737875265755065
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              104.30605805149602,
+              99.41314860819006
+            ],
+            [
+              142.3802450046643,
+              146.20386967751597
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_04__c_06_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        71,
+        52
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            71,
+            52
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -5.466468852944672,
+              2.2464080975041725
+            ],
+            [
+              -9.55587089410983,
+              4.5311408916604705
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              104.65850670506124,
+              96.46616040010316
+            ],
+            [
+              83.48095070163684,
+              81.40004182789177
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_04__c_05_05": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        47,
+        52
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            47,
+            52
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -4.071646779106231,
+              -23.12895620173731
+            ],
+            [
+              -8.388913845439674,
+              -19.605173349591496
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              105.71634590892374,
+              103.99436690107372
+            ],
+            [
+              92.92913464111037,
+              95.94545913202825
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_04__c_07_04": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        -1.0,
+        0.0
+      ],
+      "held_independent_refs": [
+        53,
+        55
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            53,
+            55
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -21.093910646624863,
+              0.6335087770130485
+            ],
+            [
+              -13.587372078560293,
+              1.7818769179284573
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              147.43851914704956,
+              121.68288739160926
+            ],
+            [
+              127.81432107735866,
+              109.53844260262963
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_04__c_06_05": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        54,
+        49
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            54,
+            49
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -15.346068595536053,
+              -22.03755538752921
+            ],
+            [
+              -8.156690000323579,
+              -26.494830632657795
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              148.69397100114065,
+              138.81318925978343
+            ],
+            [
+              132.1985272398218,
+              105.12746220238374
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_04__c_07_05": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 0.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        71,
+        50
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            71,
+            50
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              70.7533858679235,
+              23.967503026673512
+            ],
+            [
+              68.66518591437489,
+              26.80563548556529
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              136.47400535719356,
+              115.70782279955127
+            ],
+            [
+              115.2070521725326,
+              122.18056162682457
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_05__c_02_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        67,
+        70
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            67,
+            70
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              9.159705835394561,
+              -16.123397214571014
+            ],
+            [
+              10.068709111772478,
+              -12.10683222435182
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              127.17660694103,
+              122.40650582756378
+            ],
+            [
+              131.69231708758284,
+              127.69122280508786
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_05__c_01_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        66,
+        69
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            66,
+            69
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -8.194544459693134,
+              9.740417597116902
+            ],
+            [
+              -8.223956994712353,
+              15.662689676973969
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              124.85712170430824,
+              126.41264444723558
+            ],
+            [
+              130.71664353852603,
+              128.85172556757843
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_05__c_03_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        63,
+        50
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            63,
+            50
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              7.225568590685725,
+              11.748312894953415
+            ],
+            [
+              12.90429713157937,
+              10.567698371130973
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              129.65327096436894,
+              127.98701668940603
+            ],
+            [
+              127.9075904564888,
+              124.2763032129887
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_05__c_02_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        65,
+        74
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            65,
+            74
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              15.616328579373658,
+              -4.163378995610401
+            ],
+            [
+              10.71331666316837,
+              -5.0191706356126815
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              105.38321689655182,
+              102.15175562213433
+            ],
+            [
+              97.77180884036795,
+              89.34356717542452
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_05__c_04_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        50,
+        53
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            50,
+            53
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -24.610382999526337,
+              12.78427743841894
+            ],
+            [
+              -19.093366181943566,
+              16.712310795672238
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              108.07062872258626,
+              101.96772569427371
+            ],
+            [
+              114.97723505987673,
+              106.98932918343944
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_05__c_03_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        65,
+        54
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            65,
+            54
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -4.389074473641813,
+              6.298481022240594
+            ],
+            [
+              -2.359515743330121,
+              5.404306152602658
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              120.40533543104236,
+              113.46733371327414
+            ],
+            [
+              114.34795131334427,
+              114.00801621267516
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_05__c_05_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        52,
+        49
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            52,
+            49
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              6.023048386556184,
+              -6.2747671960969456
+            ],
+            [
+              0.04569756942873937,
+              -2.934092614305655
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              76.3013640065034,
+              78.68812633136278
+            ],
+            [
+              90.36112533020841,
+              104.20815238469648
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_05__c_04_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        62,
+        54
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            62,
+            54
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              0.22255123709328473,
+              -4.839109229622409
+            ],
+            [
+              -2.2915156492963433,
+              -9.010330795077607
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              91.46021842022508,
+              89.41429012143624
+            ],
+            [
+              104.33399092561235,
+              105.85606357103231
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_05__c_06_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        55,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            55,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -6.522827350068837,
+              -16.953364115499426
+            ],
+            [
+              -3.105871830834076,
+              -10.946735159843229
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              112.95244412340628,
+              114.05384372088173
+            ],
+            [
+              70.93007307757674,
+              79.07999251546293
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_05__c_05_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        61,
+        56
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            61,
+            56
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -9.762289663020056,
+              -6.000953691080213
+            ],
+            [
+              -16.005175549187697,
+              -7.645121964626014
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              123.84448516688046,
+              124.52868982209726
+            ],
+            [
+              150.74299142641317,
+              143.4921752837668
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_05__c_07_05": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        0.0,
+        1.0
+      ],
+      "held_independent_refs": [
+        66,
+        58
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            66,
+            58
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -11.603236040566117,
+              -4.384661341784522
+            ],
+            [
+              -10.246805680915713,
+              -4.625819835346192
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              101.49392334409713,
+              89.0994950948598
+            ],
+            [
+              118.63155672344142,
+              109.3606479747754
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_05__c_06_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        351.0,
+        352.0
+      ],
+      "held_independent_refs": [
+        59,
+        53
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            59,
+            53
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              20.321982328779995,
+              -2.090528547298163
+            ],
+            [
+              18.652567999903113,
+              -20.203498346731067
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              95.9896730047458,
+              93.19479915074105
+            ],
+            [
+              125.42216258477892,
+              119.49961016599526
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_05__c_07_06": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 1.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        66,
+        50
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            66,
+            50
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              23.529842331074178,
+              3.1297802049666643
+            ],
+            [
+              20.961173670366406,
+              3.7658392426092178
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              142.04142263809845,
+              132.83056689772565
+            ],
+            [
+              113.35443894375983,
+              111.29424089941932
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_06__c_01_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        29,
+        33
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            29,
+            33
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -29.90982372686267,
+              16.466896153986454
+            ],
+            [
+              -26.841378297656775,
+              6.9899683077819645
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              160.12935765991682,
+              170.04748410537914
+            ],
+            [
+              157.14845979254375,
+              162.41906262270663
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_06__c_00_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        30,
+        27
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            30,
+            27
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -1.696183703839779,
+              18.067774617578834
+            ],
+            [
+              4.734353589825332,
+              14.304700918495655
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              137.95382084001884,
+              133.21938209548915
+            ],
+            [
+              162.6445774417286,
+              161.29477568038624
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_06__c_02_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        47,
+        54
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            47,
+            54
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -29.93824163917452,
+              1.1794911110773683
+            ],
+            [
+              -24.320097277872264,
+              4.135616078507155
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              138.94470735054534,
+              142.48263080371137
+            ],
+            [
+              107.78121908946682,
+              133.3641998779461
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_06__c_01_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        27,
+        24
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            27,
+            24
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              5.072510772384703,
+              -6.8830427513457835
+            ],
+            [
+              5.716514525935054,
+              -6.780435200314969
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              78.45108055531598,
+              67.31539702170402
+            ],
+            [
+              81.38554034312524,
+              74.53571801178445
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_06__c_03_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        26,
+        32
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            26,
+            32
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              23.309774450492114,
+              37.95249979500659
+            ],
+            [
+              34.17480717226863,
+              32.6509638146963
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              120.69546945753511,
+              128.49712427950172
+            ],
+            [
+              82.30915129303908,
+              72.05477287409988
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_06__c_02_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        27,
+        15
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            27,
+            15
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -41.907977908849716,
+              -15.311290118843317
+            ],
+            [
+              -30.013188025914133,
+              -18.559552353806794
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              114.83474305523984,
+              129.6427694618742
+            ],
+            [
+              124.23347227328509,
+              123.75418296620781
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_06__c_04_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        58,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            58,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -38.178617676952854,
+              0.25970897055231035
+            ],
+            [
+              -49.06494928896427,
+              -4.483814488397911
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              116.69741136803877,
+              111.47693066974678
+            ],
+            [
+              104.11998203543101,
+              109.40437966256557
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_06__c_03_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        33,
+        22
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            33,
+            22
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -32.27752326382324,
+              8.04812357807532
+            ],
+            [
+              -31.352534198667854,
+              5.810325922444463
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              123.39012448418697,
+              129.30913824743433
+            ],
+            [
+              119.58536557723734,
+              128.42416811314092
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_06__c_05_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        36,
+        50
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            50
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              25.229824908694354,
+              9.531400684732944
+            ],
+            [
+              26.812174401089123,
+              12.606164690805599
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              117.87436182245703,
+              118.77986812441978
+            ],
+            [
+              156.31119490048783,
+              151.69358433645417
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_06__c_04_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        35,
+        26
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            35,
+            26
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -22.17463169246912,
+              50.69834503950551
+            ],
+            [
+              -11.088168370071799,
+              50.962327687069774
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              183.28874206948345,
+              164.2296307949807
+            ],
+            [
+              127.64189214626101,
+              123.31055750216002
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_06__c_06_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 351.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        41,
+        39
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            41,
+            39
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              46.38702672254294,
+              -2.7174569508060813
+            ],
+            [
+              57.12434817617759,
+              0.06627485575154424
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              104.58889715289837,
+              99.99576230263065
+            ],
+            [
+              125.30226981709082,
+              124.41676813766493
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_06__c_05_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        32,
+        36
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            32,
+            36
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              56.27280457800953,
+              -29.355243899859488
+            ],
+            [
+              68.33715803100495,
+              -28.354990030173212
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              143.4972979820763,
+              123.04932321837097
+            ],
+            [
+              155.62351958959087,
+              145.85014572927957
+            ]
+          ]
+        }
+      }
+    },
+    "c_06_06__c_07_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 352.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        31,
+        46
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            31,
+            46
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -25.472388399764895,
+              5.633619522210211
+            ],
+            [
+              -28.038432106841356,
+              4.883648963179439
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              126.35747801417169,
+              119.7240952987706
+            ],
+            [
+              102.16548633201757,
+              91.59177757269687
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_06__c_08_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        42,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            42,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              10.308030176907778,
+              -5.862585813971236
+            ],
+            [
+              5.955727143213153,
+              -6.113671871367842
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              129.2099153813747,
+              119.45474589584757
+            ],
+            [
+              95.59037356397683,
+              101.842230478083
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_06__c_07_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        352.0,
+        353.0
+      ],
+      "held_independent_refs": [
+        28,
+        31
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            28,
+            31
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              3.3134923046454787,
+              -11.87772614788264
+            ],
+            [
+              5.132339022587985,
+              -9.07069279300049
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              191.83526798100704,
+              183.38488713406412
+            ],
+            [
+              111.98556848821171,
+              112.6424210697577
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_06__c_09_06": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        1.0,
+        2.0
+      ],
+      "held_independent_refs": [
+        43,
+        31
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            43,
+            31
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              4.085960624739528,
+              16.243984364438802
+            ],
+            [
+              -14.21133073233068,
+              9.474824510049075
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              113.8934180992532,
+              94.03054550714191
+            ],
+            [
+              155.96519780431163,
+              117.56535752691384
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_06__c_08_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        33,
+        33
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            33,
+            33
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -19.418923592194915,
+              -25.1937373643741
+            ],
+            [
+              -21.853900875896215,
+              -33.178634096868336
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              157.5809076877416,
+              156.70840979117716
+            ],
+            [
+              126.58926425414876,
+              118.34242306155501
+            ]
+          ]
+        }
+      }
+    },
+    "c_09_06__c_09_07": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 2.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        39,
+        37
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            39,
+            37
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -27.464983511716127,
+              -56.092383115552366
+            ],
+            [
+              -31.10606909543276,
+              -51.24508963152766
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              181.95818854763186,
+              181.20514686939327
+            ],
+            [
+              118.34731692383087,
+              122.29086317549094
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_07__c_01_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        22,
+        39
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            22,
+            39
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              17.687846842221916,
+              -9.221791690215468
+            ],
+            [
+              26.56579457130283,
+              0.2265523551031947
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              103.15296003379045,
+              87.41195676425536
+            ],
+            [
+              107.25964495228375,
+              96.3251976488678
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_07__c_00_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        28,
+        26
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            28,
+            26
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              5.262501087039709,
+              2.071390066295862
+            ],
+            [
+              1.6177590768784285,
+              -4.008956300094724
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              154.32379154261326,
+              124.56436902781155
+            ],
+            [
+              141.46175882530326,
+              118.26322112143633
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_07__c_02_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        37,
+        21
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            37,
+            21
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -37.711603097617626,
+              -8.560341307893395
+            ],
+            [
+              -31.57821582071483,
+              -13.950263164937496
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              118.85605654968634,
+              116.45284579459283
+            ],
+            [
+              136.75320760610418,
+              136.95845242307826
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_07__c_01_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        58,
+        37
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            58,
+            37
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -8.941619590856135,
+              -16.40434678643942
+            ],
+            [
+              -6.696769094094634,
+              -12.439456074498594
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              123.9639324254417,
+              104.65977689779936
+            ],
+            [
+              130.57774294559525,
+              90.51536946443868
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_07__c_03_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        33,
+        33
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            33,
+            33
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              13.561654170043766,
+              -12.581404270604253
+            ],
+            [
+              14.234620600007474,
+              -24.741160278208554
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              123.8915341566206,
+              129.10646377825648
+            ],
+            [
+              119.06226999786075,
+              111.27369409203547
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_07__c_02_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        33,
+        48
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            33,
+            48
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              30.94590204115957,
+              -16.881970670074224
+            ],
+            [
+              34.90789619553834,
+              -14.483587021008134
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              129.84318237384025,
+              123.47268770013262
+            ],
+            [
+              116.0402363788104,
+              121.35005235073281
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_07__c_04_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        29,
+        26
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            29,
+            26
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -23.57903513801284,
+              -70.24903288669884
+            ],
+            [
+              -16.517915030941367,
+              -64.09206241834909
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              128.1418429955586,
+              132.77153969250065
+            ],
+            [
+              132.47303021199286,
+              154.3803194492134
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_07__c_03_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        27,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            27,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -10.466357881668955,
+              -30.176018992438912
+            ],
+            [
+              -8.085388553794473,
+              -20.7245760448277
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              131.90495838000805,
+              133.40487604859982
+            ],
+            [
+              119.26785587600281,
+              113.11801195021617
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_07__c_05_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        26,
+        33
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            26,
+            33
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -22.827102850458232,
+              -22.909215765073895
+            ],
+            [
+              -27.083100559748345,
+              -24.224045360460877
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              129.16159791853553,
+              127.09584399055053
+            ],
+            [
+              129.5653686662306,
+              110.84788801813804
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_07__c_04_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        31,
+        24
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            31,
+            24
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -77.84553624887485,
+              -48.43170588463545
+            ],
+            [
+              -80.97057379304897,
+              -49.04891812801361
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              140.69923470461902,
+              147.58776562302228
+            ],
+            [
+              142.76037594920177,
+              138.25228135941848
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_07__c_05_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        23,
+        24
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            23,
+            24
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -0.9568651297358883,
+              -10.306243732571602
+            ],
+            [
+              -4.505149368313141,
+              -9.268304051831365
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              121.91760288787074,
+              99.26422719686357
+            ],
+            [
+              158.8949591839114,
+              147.37629476051202
+            ]
+          ]
+        }
+      }
+    },
+    "c_07_07__c_08_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 353.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        39,
+        40
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            39,
+            40
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -10.962491570040584,
+              -25.27968444302678
+            ],
+            [
+              -9.09216511901468,
+              -20.752617569174618
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              139.21376386852506,
+              141.92961776095683
+            ],
+            [
+              141.77719028821502,
+              140.30803528806103
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_07__c_09_07": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        2.0,
+        3.0
+      ],
+      "held_independent_refs": [
+        27,
+        26
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            27,
+            26
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              16.538785132579505,
+              13.431059912778437
+            ],
+            [
+              15.45880896691233,
+              -0.3006081646308303
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              124.82095398743857,
+              139.59512385637
+            ],
+            [
+              127.921458209218,
+              132.79736335490722
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_07__c_08_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        24,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            24,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              20.141435539349914,
+              17.938159266486764
+            ],
+            [
+              21.62175599206239,
+              15.054720846936107
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              139.24665099086445,
+              105.98091121603652
+            ],
+            [
+              119.32842893097894,
+              95.14468668490441
+            ]
+          ]
+        }
+      }
+    },
+    "c_09_07__c_09_08": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 3.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        25,
+        25
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            25,
+            25
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              1.1110352780669928,
+              24.51686618104577
+            ],
+            [
+              -1.3525564186275005,
+              33.343893906101584
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              136.09667163623524,
+              119.49677423552846
+            ],
+            [
+              147.58641792940983,
+              127.70572433039344
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_08__c_01_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        25,
+        19
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            25,
+            19
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -42.44714435003698,
+              -13.091819986701012
+            ],
+            [
+              -64.69750092551112,
+              -19.34579853154719
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              112.98797403413113,
+              103.15696763939764
+            ],
+            [
+              118.1536454657169,
+              99.31177540211917
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_08__c_00_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        345.0,
+        346.0
+      ],
+      "held_independent_refs": [
+        43,
+        40
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            43,
+            40
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              11.846499478444457,
+              32.02876573521644
+            ],
+            [
+              12.147436397150159,
+              27.320860153995454
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              130.40352356325204,
+              103.01276538326223
+            ],
+            [
+              133.08034721874247,
+              126.63152382196449
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_08__c_02_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        36,
+        43
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            43
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -19.453491915017366,
+              -13.654213905334473
+            ],
+            [
+              -27.043849086388946,
+              -12.30974595155567
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              169.02072277024348,
+              155.47995915091929
+            ],
+            [
+              169.21298892109786,
+              148.5147922962625
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_08__c_01_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        346.0,
+        347.0
+      ],
+      "held_independent_refs": [
+        26,
+        24
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            26,
+            24
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              35.10227284859866,
+              9.886960450559855
+            ],
+            [
+              28.3081486672163,
+              17.89200817234814
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              130.38703114805517,
+              138.98527388060018
+            ],
+            [
+              183.63112266721942,
+              157.8306762407105
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_08__c_03_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        69,
+        49
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            69,
+            49
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -37.46487438958138,
+              -2.8644194789230824
+            ],
+            [
+              -40.12353299278766,
+              -11.73453382961452
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              154.2527038920432,
+              150.73978027203185
+            ],
+            [
+              132.96392694132794,
+              125.45941814209357
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_08__c_02_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        347.0,
+        348.0
+      ],
+      "held_independent_refs": [
+        43,
+        42
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            43,
+            42
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              13.499178785830736,
+              -2.7454622806981206
+            ],
+            [
+              10.277508771046996,
+              2.889975472353399
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              170.9701887900283,
+              132.97594554290174
+            ],
+            [
+              164.81816878961092,
+              153.99110115856874
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_08__c_04_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        27,
+        43
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            27,
+            43
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -22.611282599624246,
+              7.897805312648416
+            ],
+            [
+              -34.152619735337794,
+              11.431482154875994
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              130.87117313528526,
+              128.45190203608587
+            ],
+            [
+              194.3668131708241,
+              170.7968914485865
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_08__c_03_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        348.0,
+        349.0
+      ],
+      "held_independent_refs": [
+        51,
+        52
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            51,
+            52
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              19.924829300493002,
+              5.706598999910057
+            ],
+            [
+              18.585945171304047,
+              4.1111788945272565
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              123.54898720876335,
+              123.18904038316728
+            ],
+            [
+              128.51260458122812,
+              131.5790399604453
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_08__c_05_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        27,
+        30
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            27,
+            30
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -21.048307425239727,
+              6.09412073623389
+            ],
+            [
+              -40.39153374700163,
+              -0.6465906156226993
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              163.45161177890316,
+              141.41309294023452
+            ],
+            [
+              167.5496448254783,
+              169.74450832136299
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_08__c_04_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        349.0,
+        350.0
+      ],
+      "held_independent_refs": [
+        39,
+        28
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            39,
+            28
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              38.58650039799977,
+              -5.83495628554374
+            ],
+            [
+              13.228806499042548,
+              -3.155281128361821
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              157.79717460862463,
+              166.28032484056538
+            ],
+            [
+              200.1459390935135,
+              193.00444884857183
+            ]
+          ]
+        }
+      }
+    },
+    "c_05_08__c_05_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        350.0,
+        351.0
+      ],
+      "held_independent_refs": [
+        28,
+        28
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            28,
+            28
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -26.71181013106252,
+              -6.928135858848691
+            ],
+            [
+              -39.21387606509961,
+              -10.225895777344704
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              166.07792376046325,
+              176.49374047362178
+            ],
+            [
+              152.5099355618231,
+              152.39188317337425
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_08__c_09_08": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        3.0,
+        4.0
+      ],
+      "held_independent_refs": [
+        38,
+        33
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            38,
+            33
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -14.353131876327097,
+              -42.54788769315928
+            ],
+            [
+              -7.238656955771148,
+              -33.75473477970809
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              153.3721699081904,
+              114.80618495346714
+            ],
+            [
+              162.80389610907517,
+              138.33905795518902
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_08__c_08_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        353.0,
+        354.0
+      ],
+      "held_independent_refs": [
+        36,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            36,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -73.70255197025836,
+              -39.79927798360586
+            ],
+            [
+              -71.86478975508362,
+              -30.77023596316576
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              161.09128862603768,
+              133.77991986196466
+            ],
+            [
+              211.92984010515286,
+              189.57933800977423
+            ]
+          ]
+        }
+      }
+    },
+    "c_09_08__c_09_09": {
+      "axis": "dec",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 4.0,
+      "edge_extent_deg": [
+        354.0,
+        355.0
+      ],
+      "held_independent_refs": [
+        49,
+        36
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            49,
+            36
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -59.06132459267974,
+              46.59997638873756
+            ],
+            [
+              -54.04174197092652,
+              42.45831696968526
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              196.92246598998014,
+              213.34379559054167
+            ],
+            [
+              185.99747575431323,
+              212.01994303796187
+            ]
+          ]
+        }
+      }
+    },
+    "c_00_09__c_01_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 346.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        34,
+        34
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            34
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              12.639058349654078,
+              -10.910486145876348
+            ],
+            [
+              11.87616096995771,
+              -5.141443991102278
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              158.90952392293633,
+              156.86706557466377
+            ],
+            [
+              148.97487051762562,
+              141.14218657354812
+            ]
+          ]
+        }
+      }
+    },
+    "c_01_09__c_02_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 347.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        34,
+        29
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            34,
+            29
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              1.2153434688225389,
+              20.21539769601077
+            ],
+            [
+              20.999744369648397,
+              17.31184017751366
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              202.91866577932666,
+              176.69426615259937
+            ],
+            [
+              237.30923920272778,
+              224.36285909095528
+            ]
+          ]
+        }
+      }
+    },
+    "c_02_09__c_03_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 348.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        56,
+        54
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            56,
+            54
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -31.604077706113458,
+              3.1923706820234656
+            ],
+            [
+              -28.859492023475468,
+              -0.45121215749531984
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              206.25871883443858,
+              192.46452567696224
+            ],
+            [
+              177.94989188851005,
+              177.73075780370002
+            ]
+          ]
+        }
+      }
+    },
+    "c_03_09__c_04_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 349.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        32,
+        28
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            32,
+            28
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              1.7912597004324198,
+              -54.245329407043755
+            ],
+            [
+              2.6189340034034103,
+              -56.74349766224623
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              179.43148803234035,
+              182.46030164524376
+            ],
+            [
+              224.20544127462682,
+              245.21515601116394
+            ]
+          ]
+        }
+      }
+    },
+    "c_04_09__c_05_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 350.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        35,
+        39
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            35,
+            39
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              -4.849357663930277,
+              -31.379739832133055
+            ],
+            [
+              -15.310329109932354,
+              -22.60465233772993
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              146.9566886151566,
+              154.32480975953305
+            ],
+            [
+              129.8317068188726,
+              143.81765905274685
+            ]
+          ]
+        }
+      }
+    },
+    "c_08_09__c_09_09": {
+      "axis": "ra",
+      "strip_width_arcmin": 2.0,
+      "boundary_deg": 354.0,
+      "edge_extent_deg": [
+        4.0,
+        5.0
+      ],
+      "held_independent_refs": [
+        33,
+        45
+      ],
+      "by_gauge": {
+        "0": {
+          "held_independent_refs": [
+            33,
+            45
+          ],
+          "median_positive_minus_negative_mas": [
+            [
+              15.452470952644944,
+              29.575337678194046
+            ],
+            [
+              -6.957381313666701,
+              29.26624638773501
+            ]
+          ],
+          "radial_p68_mas": [
+            [
+              153.18272569009537,
+              138.9949518037327
+            ],
+            [
+              145.58897289649065,
+              140.9538540481782
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

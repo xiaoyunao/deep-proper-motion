@@ -50,7 +50,8 @@ def main():
         summary = json.loads((directory/"continuous_core_summary.json").read_text())
         if summary["shared_solution_sha256"] != graph_hash:
             raise ValueError(f"Reference graph changed for {core}")
-        data = pd.read_csv(directory/"private_catalogue.csv.gz", usecols=["ra", "dec", "pm_east", "pm_north"])
+        data = pd.read_csv(directory/"private_catalogue.csv.gz", dtype=float,
+                           usecols=["ra", "dec", "pm_east", "pm_north"])
         if len(data) != summary["owned_w0"] or not np.isfinite(data.to_numpy()).all():
             raise ValueError(f"Invalid catalogue coordinates or row count for {core}")
         outside += int((~inside(data.ra, data.dec, specs[core])).sum())

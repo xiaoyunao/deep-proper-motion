@@ -1,0 +1,2201 @@
+{
+  "target_area_sqdeg": 99.87312439537492,
+  "planned_cells": 100,
+  "planned_core_count": 91,
+  "verified_core_count": 91,
+  "verified_cells": 100,
+  "acquisition_receipt_cells": 100,
+  "reference_receipt_cells": 100,
+  "fit_supported_cells": 100,
+  "download_counts_include_shard_halos": true,
+  "area_by_fit_state_sqdeg": {
+    "verified": 99.87312439537494
+  },
+  "unverified_cores": [],
+  "cores": {
+    "repeat_rich": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 4,
+        "standardized_detection_bytes": 1829132658,
+        "downloaded_nsc_measures_sum": 5847519,
+        "sdss_measures_sum": 2343081,
+        "objects_sum": 229588,
+        "archive_objects_without_measures_sum": 57,
+        "elapsed_seconds_sum": 964822.070860916,
+        "max_acquisition_peak_rss_mib": 4817.69140625
+      },
+      "reference_counts": {
+        "local_reference_rows": 1611924,
+        "reference_sources": 26936,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 91
+      },
+      "gauge": "0",
+      "cells": 4,
+      "area_sqdeg": 3.999796924813179
+    },
+    "repeat_sparse": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 286838294,
+        "downloaded_nsc_measures_sum": 1049958,
+        "sdss_measures_sum": 144241,
+        "objects_sum": 122590,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 220.82218366500456,
+        "max_acquisition_peak_rss_mib": 2624.94140625
+      },
+      "reference_counts": {
+        "local_reference_rows": 226227,
+        "reference_sources": 17117,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 21
+      },
+      "gauge": "0",
+      "cells": 4,
+      "area_sqdeg": 3.9900536205334234
+    },
+    "sparse_north_outer": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 215331903,
+        "downloaded_nsc_measures_sum": 754196,
+        "sdss_measures_sum": 138548,
+        "objects_sum": 120843,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 930.893430497963,
+        "max_acquisition_peak_rss_mib": 2060.93359375
+      },
+      "reference_counts": {
+        "local_reference_rows": 140573,
+        "reference_sources": 14724,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 21
+      },
+      "gauge": "0",
+      "cells": 4,
+      "area_sqdeg": 3.9900536205334234
+    },
+    "south_se": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 253758466,
+        "downloaded_nsc_measures_sum": 1033580,
+        "sdss_measures_sum": 27169,
+        "objects_sum": 36612,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 490.1546279069735,
+        "max_acquisition_peak_rss_mib": 2189.3125
+      },
+      "reference_counts": {
+        "local_reference_rows": 186002,
+        "reference_sources": 5317,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 21
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "south_ne": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 85395735,
+        "downloaded_nsc_measures_sum": 302963,
+        "sdss_measures_sum": 46478,
+        "objects_sum": 36896,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 274.4993405130226,
+        "max_acquisition_peak_rss_mib": 949.0703125
+      },
+      "reference_counts": {
+        "local_reference_rows": 67187,
+        "reference_sources": 5308,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1693370238,
+        "downloaded_nsc_measures_sum": 6541410,
+        "sdss_measures_sum": 524466,
+        "objects_sum": 78998,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 817.5987644330016,
+        "max_acquisition_peak_rss_mib": 13533.375
+      },
+      "reference_counts": {
+        "local_reference_rows": 1956660,
+        "reference_sources": 8336,
+        "r_sdss_runs": 38,
+        "r_nsc_visits": 222
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_04_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1044486493,
+        "downloaded_nsc_measures_sum": 3711615,
+        "sdss_measures_sum": 566932,
+        "objects_sum": 59488,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 492.42749382404145,
+        "max_acquisition_peak_rss_mib": 8280.47265625
+      },
+      "reference_counts": {
+        "local_reference_rows": 902152,
+        "reference_sources": 6871,
+        "r_sdss_runs": 38,
+        "r_nsc_visits": 87
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 106560691,
+        "downloaded_nsc_measures_sum": 406863,
+        "sdss_measures_sum": 35901,
+        "objects_sum": 41925,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 57.41020701802336,
+        "max_acquisition_peak_rss_mib": 1132.73828125
+      },
+      "reference_counts": {
+        "local_reference_rows": 61865,
+        "reference_sources": 3856,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 14
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 712584178,
+        "downloaded_nsc_measures_sum": 2927721,
+        "sdss_measures_sum": 43616,
+        "objects_sum": 33741,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 307.252654573007,
+        "max_acquisition_peak_rss_mib": 5745.40234375
+      },
+      "reference_counts": {
+        "local_reference_rows": 468684,
+        "reference_sources": 4902,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 10
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_08_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 943276561,
+        "downloaded_nsc_measures_sum": 3930308,
+        "sdss_measures_sum": 25613,
+        "objects_sum": 31864,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 614.9923458989942,
+        "max_acquisition_peak_rss_mib": 7681.953125
+      },
+      "reference_counts": {
+        "local_reference_rows": 575951,
+        "reference_sources": 4375,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 77221064,
+        "downloaded_nsc_measures_sum": 276383,
+        "sdss_measures_sum": 41003,
+        "objects_sum": 35188,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 701.4476777120144,
+        "max_acquisition_peak_rss_mib": 913.02734375
+      },
+      "reference_counts": {
+        "local_reference_rows": 68481,
+        "reference_sources": 5820,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 10
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_03_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 86031901,
+        "downloaded_nsc_measures_sum": 313192,
+        "sdss_measures_sum": 41103,
+        "objects_sum": 32735,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 766.6418998749577,
+        "max_acquisition_peak_rss_mib": 1019.9765625
+      },
+      "reference_counts": {
+        "local_reference_rows": 81686,
+        "reference_sources": 6003,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 20
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_04_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 126646991,
+        "downloaded_nsc_measures_sum": 490900,
+        "sdss_measures_sum": 36167,
+        "objects_sum": 31514,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 536.1096773369936,
+        "max_acquisition_peak_rss_mib": 1335.83203125
+      },
+      "reference_counts": {
+        "local_reference_rows": 86201,
+        "reference_sources": 4494,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 27
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_05_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 340408354,
+        "downloaded_nsc_measures_sum": 1384479,
+        "sdss_measures_sum": 38391,
+        "objects_sum": 35610,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1607.7629968499823,
+        "max_acquisition_peak_rss_mib": 2954.50390625
+      },
+      "reference_counts": {
+        "local_reference_rows": 227905,
+        "reference_sources": 4963,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 26
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_06_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1055045374,
+        "downloaded_nsc_measures_sum": 4379723,
+        "sdss_measures_sum": 38227,
+        "objects_sum": 32522,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 5624.3792300460045,
+        "max_acquisition_peak_rss_mib": 8428.734375
+      },
+      "reference_counts": {
+        "local_reference_rows": 684151,
+        "reference_sources": 4660,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 27
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_07_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1181094357,
+        "downloaded_nsc_measures_sum": 4916132,
+        "sdss_measures_sum": 28605,
+        "objects_sum": 30047,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 5765.283995717997,
+        "max_acquisition_peak_rss_mib": 9273.953125
+      },
+      "reference_counts": {
+        "local_reference_rows": 736582,
+        "reference_sources": 4120,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 10
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 116371511,
+        "downloaded_nsc_measures_sum": 438087,
+        "sdss_measures_sum": 41724,
+        "objects_sum": 35933,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 822.4594997059903,
+        "max_acquisition_peak_rss_mib": 1214.66796875
+      },
+      "reference_counts": {
+        "local_reference_rows": 108545,
+        "reference_sources": 5568,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 12
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_03_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 147190049,
+        "downloaded_nsc_measures_sum": 567964,
+        "sdss_measures_sum": 41144,
+        "objects_sum": 36367,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1047.2924874240416,
+        "max_acquisition_peak_rss_mib": 1451.50390625
+      },
+      "reference_counts": {
+        "local_reference_rows": 140070,
+        "reference_sources": 5443,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_04_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 86423090,
+        "downloaded_nsc_measures_sum": 319142,
+        "sdss_measures_sum": 36719,
+        "objects_sum": 32821,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 741.341271435027,
+        "max_acquisition_peak_rss_mib": 965.640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 63598,
+        "reference_sources": 4142,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 18
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_05_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 73219600,
+        "downloaded_nsc_measures_sum": 264836,
+        "sdss_measures_sum": 36186,
+        "objects_sum": 32665,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 740.1101730390219,
+        "max_acquisition_peak_rss_mib": 873.05078125
+      },
+      "reference_counts": {
+        "local_reference_rows": 45901,
+        "reference_sources": 3844,
+        "r_sdss_runs": 6,
+        "r_nsc_visits": 17
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_06_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 370416592,
+        "downloaded_nsc_measures_sum": 1500420,
+        "sdss_measures_sum": 42129,
+        "objects_sum": 29242,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 3067.658920642978,
+        "max_acquisition_peak_rss_mib": 3113.84765625
+      },
+      "reference_counts": {
+        "local_reference_rows": 250185,
+        "reference_sources": 4087,
+        "r_sdss_runs": 6,
+        "r_nsc_visits": 18
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_07_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1178403965,
+        "downloaded_nsc_measures_sum": 4879824,
+        "sdss_measures_sum": 43243,
+        "objects_sum": 32417,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 2300.069995147991,
+        "max_acquisition_peak_rss_mib": 9364.8984375
+      },
+      "reference_counts": {
+        "local_reference_rows": 768512,
+        "reference_sources": 4691,
+        "r_sdss_runs": 6,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 88339137,
+        "downloaded_nsc_measures_sum": 328161,
+        "sdss_measures_sum": 35734,
+        "objects_sum": 40081,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 827.9914513029507,
+        "max_acquisition_peak_rss_mib": 1020.94921875
+      },
+      "reference_counts": {
+        "local_reference_rows": 45561,
+        "reference_sources": 3675,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 13
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_01_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 107461589,
+        "downloaded_nsc_measures_sum": 413273,
+        "sdss_measures_sum": 32093,
+        "objects_sum": 39345,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1172.8709551180364,
+        "max_acquisition_peak_rss_mib": 1133.078125
+      },
+      "reference_counts": {
+        "local_reference_rows": 59863,
+        "reference_sources": 3627,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 14
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_02_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 170224652,
+        "downloaded_nsc_measures_sum": 674626,
+        "sdss_measures_sum": 34038,
+        "objects_sum": 43290,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1647.4877898880222,
+        "max_acquisition_peak_rss_mib": 1690.375
+      },
+      "reference_counts": {
+        "local_reference_rows": 123429,
+        "reference_sources": 4551,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_03_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 163969232,
+        "downloaded_nsc_measures_sum": 649484,
+        "sdss_measures_sum": 32795,
+        "objects_sum": 39789,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1814.3340838429867,
+        "max_acquisition_peak_rss_mib": 1594.15625
+      },
+      "reference_counts": {
+        "local_reference_rows": 126883,
+        "reference_sources": 4246,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_04_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 122141610,
+        "downloaded_nsc_measures_sum": 472885,
+        "sdss_measures_sum": 33284,
+        "objects_sum": 41780,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1326.2325121529866,
+        "max_acquisition_peak_rss_mib": 1234.171875
+      },
+      "reference_counts": {
+        "local_reference_rows": 75508,
+        "reference_sources": 4003,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 19
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_05_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 110863755,
+        "downloaded_nsc_measures_sum": 427354,
+        "sdss_measures_sum": 31952,
+        "objects_sum": 39014,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1249.7212620920036,
+        "max_acquisition_peak_rss_mib": 1176.90234375
+      },
+      "reference_counts": {
+        "local_reference_rows": 62561,
+        "reference_sources": 3502,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 14
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_06_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 107656541,
+        "downloaded_nsc_measures_sum": 403645,
+        "sdss_measures_sum": 40852,
+        "objects_sum": 34276,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1347.589311643038,
+        "max_acquisition_peak_rss_mib": 1170.97265625
+      },
+      "reference_counts": {
+        "local_reference_rows": 65416,
+        "reference_sources": 3642,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 13
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_07_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 353327347,
+        "downloaded_nsc_measures_sum": 1433884,
+        "sdss_measures_sum": 43643,
+        "objects_sum": 40695,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1538.7605715729878,
+        "max_acquisition_peak_rss_mib": 3130.35546875
+      },
+      "reference_counts": {
+        "local_reference_rows": 216504,
+        "reference_sources": 4555,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 14
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 248182019,
+        "downloaded_nsc_measures_sum": 987049,
+        "sdss_measures_sum": 46332,
+        "objects_sum": 42785,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1652.761694826011,
+        "max_acquisition_peak_rss_mib": 2198.92578125
+      },
+      "reference_counts": {
+        "local_reference_rows": 148814,
+        "reference_sources": 4591,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_09_02": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 101706000,
+        "downloaded_nsc_measures_sum": 367373,
+        "sdss_measures_sum": 49662,
+        "objects_sum": 38552,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 951.9855341789662,
+        "max_acquisition_peak_rss_mib": 1080.81640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 71920,
+        "reference_sources": 4976,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 14
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_00_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 279330287,
+        "downloaded_nsc_measures_sum": 979543,
+        "sdss_measures_sum": 160959,
+        "objects_sum": 55475,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1371.6872518550372,
+        "max_acquisition_peak_rss_mib": 2360.91015625
+      },
+      "reference_counts": {
+        "local_reference_rows": 186413,
+        "reference_sources": 4787,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 24
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_01_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 299231937,
+        "downloaded_nsc_measures_sum": 1042732,
+        "sdss_measures_sum": 178108,
+        "objects_sum": 55232,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1722.2522944409866,
+        "max_acquisition_peak_rss_mib": 2530.98828125
+      },
+      "reference_counts": {
+        "local_reference_rows": 211789,
+        "reference_sources": 5278,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 23
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_02_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 241888552,
+        "downloaded_nsc_measures_sum": 803590,
+        "sdss_measures_sum": 176732,
+        "objects_sum": 51651,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1480.2238052219618,
+        "max_acquisition_peak_rss_mib": 2135.7890625
+      },
+      "reference_counts": {
+        "local_reference_rows": 175206,
+        "reference_sources": 5692,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 26
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_03_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 301884080,
+        "downloaded_nsc_measures_sum": 1060463,
+        "sdss_measures_sum": 172515,
+        "objects_sum": 53618,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 2619.1177469739923,
+        "max_acquisition_peak_rss_mib": 2551.01171875
+      },
+      "reference_counts": {
+        "local_reference_rows": 217322,
+        "reference_sources": 5308,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 69
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_04_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 637383298,
+        "downloaded_nsc_measures_sum": 2467123,
+        "sdss_measures_sum": 175479,
+        "objects_sum": 60533,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1541.3638794730068,
+        "max_acquisition_peak_rss_mib": 5178.51953125
+      },
+      "reference_counts": {
+        "local_reference_rows": 527196,
+        "reference_sources": 5616,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 70
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_05_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 382514195,
+        "downloaded_nsc_measures_sum": 1398864,
+        "sdss_measures_sum": 173114,
+        "objects_sum": 52314,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 909.2681074499851,
+        "max_acquisition_peak_rss_mib": 3278.06640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 317531,
+        "reference_sources": 5477,
+        "r_sdss_runs": 42,
+        "r_nsc_visits": 70
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_06_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 202919562,
+        "downloaded_nsc_measures_sum": 657277,
+        "sdss_measures_sum": 161719,
+        "objects_sum": 45487,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1930.9001656509936,
+        "max_acquisition_peak_rss_mib": 1775.296875
+      },
+      "reference_counts": {
+        "local_reference_rows": 138684,
+        "reference_sources": 4563,
+        "r_sdss_runs": 43,
+        "r_nsc_visits": 29
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_07_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 276660416,
+        "downloaded_nsc_measures_sum": 958767,
+        "sdss_measures_sum": 167883,
+        "objects_sum": 55830,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1852.574723354017,
+        "max_acquisition_peak_rss_mib": 2446.71875
+      },
+      "reference_counts": {
+        "local_reference_rows": 189678,
+        "reference_sources": 5263,
+        "r_sdss_runs": 43,
+        "r_nsc_visits": 22
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_08_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 304193337,
+        "downloaded_nsc_measures_sum": 1047606,
+        "sdss_measures_sum": 190522,
+        "objects_sum": 54480,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1892.4668236610014,
+        "max_acquisition_peak_rss_mib": 2533.61328125
+      },
+      "reference_counts": {
+        "local_reference_rows": 229332,
+        "reference_sources": 5895,
+        "r_sdss_runs": 43,
+        "r_nsc_visits": 22
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_09_03": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 240464311,
+        "downloaded_nsc_measures_sum": 788341,
+        "sdss_measures_sum": 183265,
+        "objects_sum": 47832,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1166.531869071012,
+        "max_acquisition_peak_rss_mib": 2159.8203125
+      },
+      "reference_counts": {
+        "local_reference_rows": 199754,
+        "reference_sources": 6359,
+        "r_sdss_runs": 42,
+        "r_nsc_visits": 28
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_00_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1652997050,
+        "downloaded_nsc_measures_sum": 6280658,
+        "sdss_measures_sum": 569740,
+        "objects_sum": 73793,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1332.7214819579967,
+        "max_acquisition_peak_rss_mib": 12722.25390625
+      },
+      "reference_counts": {
+        "local_reference_rows": 1877806,
+        "reference_sources": 8223,
+        "r_sdss_runs": 38,
+        "r_nsc_visits": 224
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_01_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 538560021,
+        "downloaded_nsc_measures_sum": 1518210,
+        "sdss_measures_sum": 621650,
+        "objects_sum": 61381,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 4197.027057123021,
+        "max_acquisition_peak_rss_mib": 4350.921875
+      },
+      "reference_counts": {
+        "local_reference_rows": 442151,
+        "reference_sources": 7409,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 229
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_02_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 614421380,
+        "downloaded_nsc_measures_sum": 1840040,
+        "sdss_measures_sum": 629527,
+        "objects_sum": 72973,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 4504.040394785989,
+        "max_acquisition_peak_rss_mib": 4809.41796875
+      },
+      "reference_counts": {
+        "local_reference_rows": 504632,
+        "reference_sources": 7561,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 42
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_03_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 871862639,
+        "downloaded_nsc_measures_sum": 2975359,
+        "sdss_measures_sum": 590330,
+        "objects_sum": 60271,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 8453.574965113017,
+        "max_acquisition_peak_rss_mib": 7063.3671875
+      },
+      "reference_counts": {
+        "local_reference_rows": 744422,
+        "reference_sources": 7037,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 85
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_05_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 708981196,
+        "downloaded_nsc_measures_sum": 2298338,
+        "sdss_measures_sum": 564884,
+        "objects_sum": 54706,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 4561.696193495009,
+        "max_acquisition_peak_rss_mib": 5687.59375
+      },
+      "reference_counts": {
+        "local_reference_rows": 593780,
+        "reference_sources": 6754,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 75
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 480029632,
+        "downloaded_nsc_measures_sum": 1317591,
+        "sdss_measures_sum": 579476,
+        "objects_sum": 54113,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1865.2514176879777,
+        "max_acquisition_peak_rss_mib": 3800.515625
+      },
+      "reference_counts": {
+        "local_reference_rows": 403876,
+        "reference_sources": 7193,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 47
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_07_04": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 582661981,
+        "downloaded_nsc_measures_sum": 1739703,
+        "sdss_measures_sum": 587602,
+        "objects_sum": 56967,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 3568.0631908440264,
+        "max_acquisition_peak_rss_mib": 4617.48828125
+      },
+      "reference_counts": {
+        "local_reference_rows": 512028,
+        "reference_sources": 7133,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 51
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_01_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 555186937,
+        "downloaded_nsc_measures_sum": 1654748,
+        "sdss_measures_sum": 576910,
+        "objects_sum": 64708,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 962.7267493850086,
+        "max_acquisition_peak_rss_mib": 4385.73046875
+      },
+      "reference_counts": {
+        "local_reference_rows": 481025,
+        "reference_sources": 7705,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 230
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_02_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 658680650,
+        "downloaded_nsc_measures_sum": 2131289,
+        "sdss_measures_sum": 560743,
+        "objects_sum": 77592,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 661.8641754310229,
+        "max_acquisition_peak_rss_mib": 5217.73828125
+      },
+      "reference_counts": {
+        "local_reference_rows": 560789,
+        "reference_sources": 6934,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 43
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_03_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 707293232,
+        "downloaded_nsc_measures_sum": 2358026,
+        "sdss_measures_sum": 545708,
+        "objects_sum": 58927,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 436.149901479017,
+        "max_acquisition_peak_rss_mib": 5532.50390625
+      },
+      "reference_counts": {
+        "local_reference_rows": 639625,
+        "reference_sources": 7188,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 88
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_04_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 630219072,
+        "downloaded_nsc_measures_sum": 2038916,
+        "sdss_measures_sum": 520807,
+        "objects_sum": 53399,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 287.19473270198796,
+        "max_acquisition_peak_rss_mib": 4958.46484375
+      },
+      "reference_counts": {
+        "local_reference_rows": 511386,
+        "reference_sources": 6451,
+        "r_sdss_runs": 38,
+        "r_nsc_visits": 86
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_05_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 459268285,
+        "downloaded_nsc_measures_sum": 1304458,
+        "sdss_measures_sum": 524584,
+        "objects_sum": 52015,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 193.7208698260365,
+        "max_acquisition_peak_rss_mib": 3650.6796875
+      },
+      "reference_counts": {
+        "local_reference_rows": 353315,
+        "reference_sources": 6467,
+        "r_sdss_runs": 39,
+        "r_nsc_visits": 71
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 504754042,
+        "downloaded_nsc_measures_sum": 1487659,
+        "sdss_measures_sum": 531986,
+        "objects_sum": 52593,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 207.99819876201218,
+        "max_acquisition_peak_rss_mib": 4023.38671875
+      },
+      "reference_counts": {
+        "local_reference_rows": 454903,
+        "reference_sources": 6967,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 52
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_07_05": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 713605710,
+        "downloaded_nsc_measures_sum": 2327339,
+        "sdss_measures_sum": 566989,
+        "objects_sum": 58553,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 326.00787740701344,
+        "max_acquisition_peak_rss_mib": 5739.796875
+      },
+      "reference_counts": {
+        "local_reference_rows": 718353,
+        "reference_sources": 7720,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 47
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_00_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 301040639,
+        "downloaded_nsc_measures_sum": 1051706,
+        "sdss_measures_sum": 184725,
+        "objects_sum": 54213,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1671.056459447951,
+        "max_acquisition_peak_rss_mib": 2565.39453125
+      },
+      "reference_counts": {
+        "local_reference_rows": 212476,
+        "reference_sources": 5025,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 22
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_01_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 297653228,
+        "downloaded_nsc_measures_sum": 1033749,
+        "sdss_measures_sum": 190072,
+        "objects_sum": 54137,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 398.13228971802164,
+        "max_acquisition_peak_rss_mib": 2541.46875
+      },
+      "reference_counts": {
+        "local_reference_rows": 217907,
+        "reference_sources": 5047,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 26
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_02_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 300060976,
+        "downloaded_nsc_measures_sum": 1048637,
+        "sdss_measures_sum": 188627,
+        "objects_sum": 56056,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 122.36646578501677,
+        "max_acquisition_peak_rss_mib": 2526.28515625
+      },
+      "reference_counts": {
+        "local_reference_rows": 222637,
+        "reference_sources": 5107,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 32
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_03_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 314795331,
+        "downloaded_nsc_measures_sum": 1118649,
+        "sdss_measures_sum": 181598,
+        "objects_sum": 49747,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 124.87022492004326,
+        "max_acquisition_peak_rss_mib": 2647.8515625
+      },
+      "reference_counts": {
+        "local_reference_rows": 226642,
+        "reference_sources": 4703,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 28
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_04_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 268644818,
+        "downloaded_nsc_measures_sum": 903790,
+        "sdss_measures_sum": 191463,
+        "objects_sum": 49007,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 111.37584885099204,
+        "max_acquisition_peak_rss_mib": 2270.84765625
+      },
+      "reference_counts": {
+        "local_reference_rows": 203578,
+        "reference_sources": 5235,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 25
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_05_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 238552251,
+        "downloaded_nsc_measures_sum": 775500,
+        "sdss_measures_sum": 191104,
+        "objects_sum": 51870,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 272.8209670559736,
+        "max_acquisition_peak_rss_mib": 2044.84375
+      },
+      "reference_counts": {
+        "local_reference_rows": 176985,
+        "reference_sources": 5702,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 21
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_06_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 254069575,
+        "downloaded_nsc_measures_sum": 860227,
+        "sdss_measures_sum": 175650,
+        "objects_sum": 50864,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 303.8046450850088,
+        "max_acquisition_peak_rss_mib": 2173.5390625
+      },
+      "reference_counts": {
+        "local_reference_rows": 186528,
+        "reference_sources": 5145,
+        "r_sdss_runs": 42,
+        "r_nsc_visits": 36
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_07_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 330787533,
+        "downloaded_nsc_measures_sum": 1179383,
+        "sdss_measures_sum": 181784,
+        "objects_sum": 50885,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 554.9467985710362,
+        "max_acquisition_peak_rss_mib": 2813.734375
+      },
+      "reference_counts": {
+        "local_reference_rows": 260314,
+        "reference_sources": 4910,
+        "r_sdss_runs": 42,
+        "r_nsc_visits": 40
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_08_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 258398971,
+        "downloaded_nsc_measures_sum": 865265,
+        "sdss_measures_sum": 187038,
+        "objects_sum": 48055,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 424.61102475901134,
+        "max_acquisition_peak_rss_mib": 2203.46484375
+      },
+      "reference_counts": {
+        "local_reference_rows": 197236,
+        "reference_sources": 4907,
+        "r_sdss_runs": 42,
+        "r_nsc_visits": 51
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_09_06": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 219521710,
+        "downloaded_nsc_measures_sum": 731137,
+        "sdss_measures_sum": 161852,
+        "objects_sum": 46445,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 366.61971982801333,
+        "max_acquisition_peak_rss_mib": 2020.34765625
+      },
+      "reference_counts": {
+        "local_reference_rows": 155175,
+        "reference_sources": 4688,
+        "r_sdss_runs": 41,
+        "r_nsc_visits": 38
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_00_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 96142227,
+        "downloaded_nsc_measures_sum": 363565,
+        "sdss_measures_sum": 35519,
+        "objects_sum": 39580,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 209.05506399698788,
+        "max_acquisition_peak_rss_mib": 1106.21484375
+      },
+      "reference_counts": {
+        "local_reference_rows": 52223,
+        "reference_sources": 3664,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 16
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_01_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 102867078,
+        "downloaded_nsc_measures_sum": 390604,
+        "sdss_measures_sum": 37950,
+        "objects_sum": 37417,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 231.23160537495278,
+        "max_acquisition_peak_rss_mib": 1091.83984375
+      },
+      "reference_counts": {
+        "local_reference_rows": 69671,
+        "reference_sources": 4178,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 16
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_02_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 113484365,
+        "downloaded_nsc_measures_sum": 438778,
+        "sdss_measures_sum": 34957,
+        "objects_sum": 40399,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 275.4680801050272,
+        "max_acquisition_peak_rss_mib": 1221.6171875
+      },
+      "reference_counts": {
+        "local_reference_rows": 69357,
+        "reference_sources": 3869,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 15
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_03_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 99775834,
+        "downloaded_nsc_measures_sum": 378396,
+        "sdss_measures_sum": 36275,
+        "objects_sum": 39166,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 323.92541699600406,
+        "max_acquisition_peak_rss_mib": 1119.546875
+      },
+      "reference_counts": {
+        "local_reference_rows": 57914,
+        "reference_sources": 3759,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 12
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_04_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 71128422,
+        "downloaded_nsc_measures_sum": 257328,
+        "sdss_measures_sum": 35888,
+        "objects_sum": 33444,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 288.3000230669859,
+        "max_acquisition_peak_rss_mib": 906.79296875
+      },
+      "reference_counts": {
+        "local_reference_rows": 41895,
+        "reference_sources": 3548,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 14
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_05_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 100231598,
+        "downloaded_nsc_measures_sum": 380241,
+        "sdss_measures_sum": 35801,
+        "objects_sum": 40226,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 293.0648779210169,
+        "max_acquisition_peak_rss_mib": 1122.56640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 58881,
+        "reference_sources": 3900,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 12
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_07_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 89366605,
+        "downloaded_nsc_measures_sum": 334120,
+        "sdss_measures_sum": 35795,
+        "objects_sum": 39493,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 221.29949185001897,
+        "max_acquisition_peak_rss_mib": 1033.8125
+      },
+      "reference_counts": {
+        "local_reference_rows": 50749,
+        "reference_sources": 3613,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 15
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 106979561,
+        "downloaded_nsc_measures_sum": 412127,
+        "sdss_measures_sum": 32562,
+        "objects_sum": 39509,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 138.66372176300501,
+        "max_acquisition_peak_rss_mib": 1124.31640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 60768,
+        "reference_sources": 3642,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 18
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_09_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 107354295,
+        "downloaded_nsc_measures_sum": 412934,
+        "sdss_measures_sum": 33488,
+        "objects_sum": 38164,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 115.64753306598868,
+        "max_acquisition_peak_rss_mib": 1174.59765625
+      },
+      "reference_counts": {
+        "local_reference_rows": 75029,
+        "reference_sources": 4396,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 22
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_00_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 67547812,
+        "downloaded_nsc_measures_sum": 231240,
+        "sdss_measures_sum": 44731,
+        "objects_sum": 34825,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 98.85996271995828,
+        "max_acquisition_peak_rss_mib": 868.29296875
+      },
+      "reference_counts": {
+        "local_reference_rows": 47295,
+        "reference_sources": 4707,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_01_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 82970598,
+        "downloaded_nsc_measures_sum": 306325,
+        "sdss_measures_sum": 37331,
+        "objects_sum": 33399,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 186.9003034000052,
+        "max_acquisition_peak_rss_mib": 984.81640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 62418,
+        "reference_sources": 4510,
+        "r_sdss_runs": 4,
+        "r_nsc_visits": 13
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_02_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 82389987,
+        "downloaded_nsc_measures_sum": 301099,
+        "sdss_measures_sum": 39081,
+        "objects_sum": 35941,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 87.82731946802232,
+        "max_acquisition_peak_rss_mib": 978.3359375
+      },
+      "reference_counts": {
+        "local_reference_rows": 69307,
+        "reference_sources": 5630,
+        "r_sdss_runs": 4,
+        "r_nsc_visits": 12
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_03_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 64135460,
+        "downloaded_nsc_measures_sum": 225084,
+        "sdss_measures_sum": 37951,
+        "objects_sum": 34627,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 78.07465538097313,
+        "max_acquisition_peak_rss_mib": 856.5
+      },
+      "reference_counts": {
+        "local_reference_rows": 46637,
+        "reference_sources": 4921,
+        "r_sdss_runs": 4,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_04_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 58035610,
+        "downloaded_nsc_measures_sum": 205215,
+        "sdss_measures_sum": 33075,
+        "objects_sum": 31796,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 81.66486359300325,
+        "max_acquisition_peak_rss_mib": 768.21875
+      },
+      "reference_counts": {
+        "local_reference_rows": 36087,
+        "reference_sources": 3790,
+        "r_sdss_runs": 4,
+        "r_nsc_visits": 10
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_05_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 60556285,
+        "downloaded_nsc_measures_sum": 215351,
+        "sdss_measures_sum": 33526,
+        "objects_sum": 31841,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 79.23132937098853,
+        "max_acquisition_peak_rss_mib": 832.65625
+      },
+      "reference_counts": {
+        "local_reference_rows": 36178,
+        "reference_sources": 3603,
+        "r_sdss_runs": 4,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_08_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 69884111,
+        "downloaded_nsc_measures_sum": 251531,
+        "sdss_measures_sum": 36305,
+        "objects_sum": 33135,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 82.16383958503138,
+        "max_acquisition_peak_rss_mib": 893.79296875
+      },
+      "reference_counts": {
+        "local_reference_rows": 44445,
+        "reference_sources": 3778,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_09_08": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 69174757,
+        "downloaded_nsc_measures_sum": 245071,
+        "sdss_measures_sum": 38941,
+        "objects_sum": 34608,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 84.0038055839832,
+        "max_acquisition_peak_rss_mib": 892.0859375
+      },
+      "reference_counts": {
+        "local_reference_rows": 50345,
+        "reference_sources": 4792,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 54646425,
+        "downloaded_nsc_measures_sum": 180310,
+        "sdss_measures_sum": 41641,
+        "objects_sum": 35271,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 83.24643996596569,
+        "max_acquisition_peak_rss_mib": 778.83984375
+      },
+      "reference_counts": {
+        "local_reference_rows": 35282,
+        "reference_sources": 4485,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_01_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 54405591,
+        "downloaded_nsc_measures_sum": 193529,
+        "sdss_measures_sum": 30046,
+        "objects_sum": 33177,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 56.338766783999745,
+        "max_acquisition_peak_rss_mib": 797.31640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 33591,
+        "reference_sources": 3918,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 61077039,
+        "downloaded_nsc_measures_sum": 218702,
+        "sdss_measures_sum": 32414,
+        "objects_sum": 36163,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 57.28364641900407,
+        "max_acquisition_peak_rss_mib": 818.3515625
+      },
+      "reference_counts": {
+        "local_reference_rows": 42510,
+        "reference_sources": 5007,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 7
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_03_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 67336401,
+        "downloaded_nsc_measures_sum": 243440,
+        "sdss_measures_sum": 33738,
+        "objects_sum": 37766,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 59.89827082498232,
+        "max_acquisition_peak_rss_mib": 826.90234375
+      },
+      "reference_counts": {
+        "local_reference_rows": 52167,
+        "reference_sources": 5793,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 10
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_04_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 56535814,
+        "downloaded_nsc_measures_sum": 201867,
+        "sdss_measures_sum": 30413,
+        "objects_sum": 33173,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 57.93583792698337,
+        "max_acquisition_peak_rss_mib": 761.9296875
+      },
+      "reference_counts": {
+        "local_reference_rows": 38737,
+        "reference_sources": 4450,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 8
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_05_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 63125824,
+        "downloaded_nsc_measures_sum": 230526,
+        "sdss_measures_sum": 29950,
+        "objects_sum": 34157,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 60.26634412497515,
+        "max_acquisition_peak_rss_mib": 858.6640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 39036,
+        "reference_sources": 4082,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 11
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_08_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 63101695,
+        "downloaded_nsc_measures_sum": 216735,
+        "sdss_measures_sum": 41494,
+        "objects_sum": 34784,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 59.78652406699257,
+        "max_acquisition_peak_rss_mib": 846.78515625
+      },
+      "reference_counts": {
+        "local_reference_rows": 44056,
+        "reference_sources": 4461,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 9
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_09_09": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "verified",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 65656692,
+        "downloaded_nsc_measures_sum": 226752,
+        "sdss_measures_sum": 42277,
+        "objects_sum": 38020,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 60.452247484005056,
+        "max_acquisition_peak_rss_mib": 867.45703125
+      },
+      "reference_counts": {
+        "local_reference_rows": 44981,
+        "reference_sources": 4806,
+        "r_sdss_runs": 4,
+        "r_nsc_visits": 10
+      },
+      "gauge": "0",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    }
+  }
+}

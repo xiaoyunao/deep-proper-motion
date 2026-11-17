@@ -1,7 +1,5 @@
 """Plot the measured C0 footprint and controls on the frozen 10° square."""
 import argparse
-import gzip
-import json
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -9,11 +7,7 @@ from matplotlib.colors import Normalize, TwoSlopeNorm
 from matplotlib.lines import Line2D
 from matplotlib.patches import Rectangle
 
-
-def read_summary(path):
-    opener = gzip.open if path.suffix == ".gz" else open
-    with opener(path, "rt") as source:
-        return json.load(source)
+from .io import read_summary
 
 
 def render_comparison(data, output):
@@ -108,7 +102,7 @@ def render_boundaries(data, detectors, seams, output):
     direct_label = f"Direct cross-HEALPix pairs n={direct['n']}"
     if "radial_p68_mas" in direct:
         before, after = direct["radial_p68_mas"]
-        direct_label += f": P68 {before:.1f} → {after:.1f} mas"
+        direct_label += f" · P68 {before:.1f} → {after:.1f} mas"
     chips = sum(item["nsc_same_exposure_ccd"]["pair_count"] for item in detectors["cores"].values())
     fig.suptitle(f"Shared-frame boundaries · {len(measurements)} processing edges · {len(physical)} detector-audited cores")
     fig.supxlabel(f"{direct_label} · NSC same-exposure cross-CCD pairs n={chips}\n"
@@ -198,7 +192,7 @@ def render(data, output, detailed=False):
         a.set(xlim=(355,345),ylim=(-5,5),xticks=(345,347,349,351,353,355),
               yticks=(-5,-3,-1,1,3,5),aspect="equal",xlabel="RA [deg]",ylabel="Dec [deg]",title=title)
         fig.colorbar(plt.cm.ScalarMappable(norm=norm,cmap=colors),ax=a,shrink=.65)
-    fig.suptitle("Continuous C field · labels: QSO counts at 22 ≤ r < 23 · gray: missing metric",fontsize=12)
+    fig.suptitle("Continuous C field · QSO counts at 22 ≤ r < 23 · gray marks missing metrics",fontsize=12)
     filename="v12_continuous_science_summary.png" if detailed else "v12_continuous_coverage_summary.png"
     fig.savefig(output/filename,dpi=170)
     plt.close(fig)

@@ -1,0 +1,9 @@
+{
+  "archive_key": "final-0904c22185df/private-results.tar.gz",
+  "files": 7411,
+  "cores": 91,
+  "archive_bytes": 55775573,
+  "archive_sha256": "e9355f18f424cb58f10034104c3583e8e52bfc6ea1f99563ea844a1395e97377",
+  "member_checksums_verified": true,
+  "slurm_job": "61483070"
+}

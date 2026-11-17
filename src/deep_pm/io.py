@@ -1,7 +1,14 @@
 from hashlib import sha256
+import gzip
 import json
 
 import numpy as np
+
+
+def read_summary(path):
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rt") as source:
+        return json.load(source)
 
 
 def json_default(value):

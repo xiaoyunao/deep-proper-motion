@@ -33,6 +33,7 @@
 !/results/
 !/results/summary/
 !/results/summary/*_summary.json
+!/results/summary/v12_full_continuous_summary.json.gz
 !/configs/astrometry-v06.toml
 !/reports/experiment_A_v0.6_astrometry.md
 !/configs/regional-v07.toml

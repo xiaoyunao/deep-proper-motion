@@ -3,6 +3,7 @@
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
+- [实验 A v1.2 连续区最终报告](reports/experiment_A_v1.2_continuous.md) · [复现命令](docs/continuous_c0_v12.md) · [配对精度图](figures/v12_continuous_paired_precision_summary.png)
 - [实验 A v0.8 中文报告](reports/experiment_A_v0.8_spatial.md) · [空间验证协议](docs/spatial_validation_v08.md)
 - [实验 A v0.7 中文报告](reports/experiment_A_v0.7_regional.md) · [实验 A v0.6 中文报告](reports/experiment_A_v0.6_astrometry.md) · [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
 - [科学问题](docs/science_case.md) · [数据与访问](docs/data_access.md) · [单位与选择](docs/selection_and_units.md) · [方法](docs/methods.md) · [验收协议](docs/validation_protocol.md)
@@ -72,4 +73,4 @@ v1.0 在同一框架内运行 `deep_pm.exposure_pilot --validation-audit`，应�
 
 ### 实验 A v1.1 复现
 
-[v1.1 计划](PLAN.md)与 [重叠模型及运行说明](docs/overlap_validation_v11.md)记录输入回执、物理观测块、扩区规则和可重放命令。exposure_pilot 在 overlap-v11.toml 配置下额外运行 C1b。overlap_blocks 在 NERSC 合并 QSO 验证块，overlap_plots 从公开汇总绘图。
+[v1.1 计划](docs/v11_completed_plan.md)与 [重叠模型及运行说明](docs/overlap_validation_v11.md)记录输入回执、物理观测块、扩区规则和可重放命令。exposure_pilot 在 overlap-v11.toml 配置下额外运行 C1b。overlap_blocks 在 NERSC 合并 QSO 验证块，overlap_plots 从公开汇总绘图。

@@ -1,0 +1,9 @@
+{
+  "archive_key": "final-0904c22185df/xiao_c.csv.gz",
+  "uncompressed_bytes": 273383686,
+  "catalogue_sha256": "ac0d12be38e166a70ad4b8cf21c31f1bfbdb3d50e69b0fdffd6dea7873725034",
+  "archive_bytes": 119998607,
+  "archive_sha256": "914866235a9ede8164fce206402871a896eeba78e6cbc2e6777524536fa427a9",
+  "roundtrip_verified": true,
+  "slurm_job": "61483658"
+}

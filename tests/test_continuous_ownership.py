@@ -7,6 +7,14 @@ from deep_pm.public_summary import check_aggregate
 
 
 class OwnershipPairsTest(unittest.TestCase):
+    def test_empty_catalogue(self):
+        data = pd.DataFrame({name: pd.Series(dtype=float) for name in ("ra", "dec", "pm_east", "pm_north")})
+        data["core"] = pd.Series(dtype=str)
+        result = close_pairs(data)
+        check_aggregate(result)
+        self.assertEqual(result["catalogue_count"], 0)
+        self.assertEqual(result["cross_core_close_pairs_by_arcsec"]["0.2"]["cross_core_pairs"], 0)
+
     def test_wrap_and_shared_core(self):
         data = pd.DataFrame(dict(ra=[359.999999, .000001, 359.999999], dec=[0., 0., 0.],
                                  pm_east=[1., 1., 20.], pm_north=[0., 0., 0.], core=["west", "east", "west"]))

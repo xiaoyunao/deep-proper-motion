@@ -1,4 +1,6 @@
-tap_join = true
+tap_join = false
+native_join = true
+download_workers = 1
 reference_epoch = 2015.5
 nside = 128
 halo_deg = 0.06

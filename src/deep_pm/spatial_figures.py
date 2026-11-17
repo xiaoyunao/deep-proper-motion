@@ -216,7 +216,7 @@ def spatial_field_zero(cohort, folder):
                 ax.scatter(x[limit],y[limit],s=24+8*np.sqrt(n[limit]),lw=.8,
                            facecolors="none",edgecolors="0.15",zorder=4,label="Object CI outside target")
         ax.set(title=axis.capitalize(),xlabel="Right ascension (deg, wrapped)")
-        ax.legend(frameon=False,fontsize=7,loc="lower right")
+        ax.legend(frameon=False,fontsize=7,loc="upper left")
     axes[0].set_ylabel("Declination (deg)")
     if first is not None:
         fig.colorbar(first,ax=axes,label="Median proper motion (mas/yr)",extend="both")

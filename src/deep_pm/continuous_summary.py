@@ -14,6 +14,7 @@ from .public_summary import check_aggregate
 from .validation_blocks import connected
 
 METHODS=("NSC","Xiao","C0")
+VISIT_FAMILIES=("sdss_run","nsc_exposure","nsc_night")
 
 
 def area(box):
@@ -45,44 +46,66 @@ def membership(records, kind):
     return matrix
 
 
-def resample(records, vectors, seed):
+def weighted_draws(values, membership_matrix, seed):
+    """Use the same weights for all methods in a paired draw."""
+    order=np.argsort(values,axis=0)
+    quantile=np.tile([.5,.5,.68],values.shape[1]//3)
     random=np.random.default_rng(seed)
-    result={}
-    for kind in ("sdss_run","nsc_exposure","nsc_night"):
-        matrix=membership(records,kind)
-        n=len(records)
-        groups=matrix.shape[1]
-        raw_load=np.asarray(matrix.sum(axis=0)).ravel()
-        info=(raw_load.sum()**2/(raw_load@raw_load)) if groups else 0
-        output=dict(groups=groups,equal_weight_visit_information=float(info))
-        if groups>=3 and n>=5:
-            weights=matrix @ random.exponential(size=(groups,800))
-            order=np.argsort(vectors,axis=0)
-            median=[]
-            for j in range(vectors.shape[1]):
-                selected=order[:,j]
-                cum=weights[selected].cumsum(axis=0)
-                k=(cum >= cum[-1:]*.5).argmax(axis=0)
-                median.append(vectors[selected[k],j])
-            output["weighted_zero95"]=np.quantile(median,[.025,.975],axis=1).T
-        result[kind]=output
-    return result
+    results=np.empty((800,values.shape[1]))
+    for start in range(0,len(results),40):
+        weights=membership_matrix @ random.exponential(size=(membership_matrix.shape[1],40))
+        for j, selected in enumerate(order.T):
+            cum=weights[selected].cumsum(axis=0)
+            index=(cum>=cum[-1:]*quantile[j]).argmax(axis=0)
+            results[start:start+40,j]=values[selected[index],j]
+    return results.reshape(-1,values.shape[1]//3,3)
 
 
 def estimate(records, methods, seed):
     if len(records)<5:
         return {"n":len(records)}
     vectors=np.array([[v["motion"][m] for m in methods] for v in records])
+    radial=np.linalg.norm(vectors,axis=2)
+    p68=np.quantile(radial,.68,axis=0)
     results={}
     for k,m in enumerate(methods):
         value=vectors[:,k]
         median=np.median(value,axis=0)
-        norm=np.linalg.norm(value,axis=1)
         results[m]=dict(median=median,nmad=1.4826*np.median(abs(value-median),axis=0),
-                        radial_p68=np.quantile(norm,.68),tail_gt_5=int(np.count_nonzero(norm>5)),
-                        visit_weighted_zero=resample(records,value,seed))
+                        radial_p68=p68[k],tail_gt_5=int(np.count_nonzero(radial[:,k]>5)),
+                        visit_weighted_zero={})
+    c0=methods.index("C0")
+    baseline=[(i,m) for i,m in enumerate(methods) if i!=c0]
+    gains={m:dict(n=len(records),relative_gain=1-p68[c0]/p68[i] if p68[i]>0 else None,
+                  visit_weighted={}) for i,m in baseline}
+    values=np.concatenate((vectors,radial[:,:,None]),axis=2).reshape(len(records),-1)
+    for kind in VISIT_FAMILIES:
+        matrix=membership(records,kind)
+        groups=matrix.shape[1]
+        supported=np.diff(matrix.indptr)>0
+        n=int(supported.sum())
+        load=np.asarray(matrix.sum(axis=0)).ravel()
+        info=float(load.sum()**2/(load@load)) if groups else 0.
+        diagnostics=dict(groups=groups,n=n,equal_weight_visit_information=info)
+        for m in methods:
+            results[m]["visit_weighted_zero"][kind]=dict(diagnostics)
+        for _,m in baseline:
+            gains[m]["visit_weighted"][kind]=dict(diagnostics)
+        if groups<3 or n<5:
+            continue
+        draws=weighted_draws(values[supported],matrix[supported],seed)
+        for i,m in enumerate(methods):
+            results[m]["visit_weighted_zero"][kind]["weighted_zero95"]=np.quantile(
+                draws[:,i,:2],[.025,.975],axis=0).T
+        for i,m in baseline:
+            valid=draws[:,i,2]>0
+            outcome=gains[m]["visit_weighted"][kind]
+            outcome["valid_draws"]=int(valid.sum())
+            if valid.any():
+                outcome["relative_gain95"]=np.quantile(1-draws[valid,c0,2]/draws[valid,i,2],[.025,.975])
     return dict(n=len(records),methods=results,connected_sizes=sorted(map(len,connected(records)),reverse=True),
-                shared_night_sizes=sorted(map(len,connected(records,True)),reverse=True))
+                shared_night_sizes=sorted(map(len,connected(records,True)),reverse=True),
+                paired_radial_gain=gains)
 
 
 def deletes(rows):
@@ -98,6 +121,15 @@ def deletes(rows):
                       shift_p16_p50_p84_masyr=np.quantile(affected[kind],[.16,.50,.84])
                       if affected[kind] else None)
             for kind,count in n.items()}
+
+
+def scan_strata(records):
+    strata=defaultdict(list)
+    for row in records:
+        visits=len(set(group_labels(row,"sdss_run")))
+        key="no_sdss_run" if visits==0 else "one_sdss_run" if visits==1 else "multiple_sdss_runs"
+        strata[key].append(row)
+    return {name:estimate(rows,METHODS,9137) for name,rows in sorted(strata.items())}
 
 
 def pool(specs, fits, shared, site_names):
@@ -126,6 +158,8 @@ def pool(specs, fits, shared, site_names):
             common=[v for v in selected if set(METHODS)<=v["motion"].keys()]
             grouped[f"{low}_to_{hi}"]=dict(strict=estimate(selected,("C0",),9137),
                                           common=estimate(common,METHODS,9137))
+            if name not in fits:
+                grouped[f"{low}_to_{hi}"]["common_by_sdss_runs"]=scan_strata(common)
         rows=[row for site in chosen for row in deletions[site]]
         result[name]=dict(bins=grouped,leave_group_out=deletes(rows))
     summaries=dict(

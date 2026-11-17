@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 from deep_pm.continuous_reference import deduplicate
-from deep_pm.continuous_summary import membership
+from deep_pm.continuous_summary import estimate, membership
 from deep_pm.validation_audit import boundary_pairs
 
 
@@ -41,3 +41,16 @@ class ContinuousReferenceTest(unittest.TestCase):
         self.assertEqual((overlap["pair_count"], overlap["held_references"], overlap["held_exposures"]),
                          (1, 1, 1))
         np.testing.assert_allclose(overlap["radial_p68_mas"], [5., 5.])
+
+    def test_paired_gain_uses_the_same_visit_weights_for_all_methods(self):
+        rows=[
+            dict(exposures=[f"SDSS:{i%3}",f"NSC:{i%4}"],nsc_epoch_days=[i%4],
+                 motion={"C0":[i+1.,0.],"Xiao":[2.*(i+1),0.]})
+            for i in range(12)
+        ]
+        result=estimate(rows,("Xiao","C0"),9137)["paired_radial_gain"]["Xiao"]
+        self.assertAlmostEqual(result["relative_gain"],.5)
+        for values in result["visit_weighted"].values():
+            self.assertEqual(values["n"],12)
+            self.assertEqual(values["valid_draws"],800)
+            np.testing.assert_allclose(values["relative_gain95"],[.5,.5])

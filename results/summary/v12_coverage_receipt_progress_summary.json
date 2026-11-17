@@ -1,0 +1,1004 @@
+{
+  "target_area_sqdeg": 99.87312439537492,
+  "planned_cells": 100,
+  "planned_core_count": 91,
+  "verified_core_count": 0,
+  "verified_cells": 0,
+  "acquisition_receipt_cells": 26,
+  "reference_receipt_cells": 23,
+  "fit_supported_cells": 0,
+  "download_counts_include_shard_halos": true,
+  "area_by_fit_state_sqdeg": {
+    "missing_receipt": 99.87312439537494
+  },
+  "unverified_cores": [
+    "repeat_rich",
+    "repeat_sparse",
+    "sparse_north_outer",
+    "south_se",
+    "south_ne",
+    "c_00_05",
+    "c_04_04",
+    "c_06_07",
+    "c_08_01",
+    "c_08_00",
+    "c_02_00",
+    "c_03_00",
+    "c_04_00",
+    "c_05_00",
+    "c_06_00",
+    "c_07_00",
+    "c_02_01",
+    "c_03_01",
+    "c_04_01",
+    "c_05_01",
+    "c_06_01",
+    "c_07_01",
+    "c_00_02",
+    "c_01_02",
+    "c_02_02",
+    "c_03_02",
+    "c_04_02",
+    "c_05_02",
+    "c_06_02",
+    "c_07_02",
+    "c_08_02",
+    "c_09_02",
+    "c_00_03",
+    "c_01_03",
+    "c_02_03",
+    "c_03_03",
+    "c_04_03",
+    "c_05_03",
+    "c_06_03",
+    "c_07_03",
+    "c_08_03",
+    "c_09_03",
+    "c_00_04",
+    "c_01_04",
+    "c_02_04",
+    "c_03_04",
+    "c_05_04",
+    "c_06_04",
+    "c_07_04",
+    "c_01_05",
+    "c_02_05",
+    "c_03_05",
+    "c_04_05",
+    "c_05_05",
+    "c_06_05",
+    "c_07_05",
+    "c_00_06",
+    "c_01_06",
+    "c_02_06",
+    "c_03_06",
+    "c_04_06",
+    "c_05_06",
+    "c_06_06",
+    "c_07_06",
+    "c_08_06",
+    "c_09_06",
+    "c_00_07",
+    "c_01_07",
+    "c_02_07",
+    "c_03_07",
+    "c_04_07",
+    "c_05_07",
+    "c_07_07",
+    "c_08_07",
+    "c_09_07",
+    "c_00_08",
+    "c_01_08",
+    "c_02_08",
+    "c_03_08",
+    "c_04_08",
+    "c_05_08",
+    "c_08_08",
+    "c_09_08",
+    "c_00_09",
+    "c_01_09",
+    "c_02_09",
+    "c_03_09",
+    "c_04_09",
+    "c_05_09",
+    "c_08_09",
+    "c_09_09"
+  ],
+  "cores": {
+    "repeat_rich": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 4,
+        "standardized_detection_bytes": 1829132658,
+        "downloaded_nsc_measures_sum": 5847519,
+        "sdss_measures_sum": 2343081,
+        "objects_sum": 229588,
+        "archive_objects_without_measures_sum": 57,
+        "elapsed_seconds_sum": 964822.070860916,
+        "max_acquisition_peak_rss_mib": 4817.69140625
+      },
+      "reference_counts": {
+        "local_reference_rows": 1611924,
+        "reference_sources": 26936,
+        "r_sdss_runs": 40,
+        "r_nsc_visits": 91
+      },
+      "cells": 4,
+      "area_sqdeg": 3.999796924813179
+    },
+    "repeat_sparse": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 286838294,
+        "downloaded_nsc_measures_sum": 1049958,
+        "sdss_measures_sum": 144241,
+        "objects_sum": 122590,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 220.82218366500456,
+        "max_acquisition_peak_rss_mib": 2624.94140625
+      },
+      "reference_counts": {
+        "local_reference_rows": 226227,
+        "reference_sources": 17117,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 21
+      },
+      "cells": 4,
+      "area_sqdeg": 3.9900536205334234
+    },
+    "sparse_north_outer": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 215331903,
+        "downloaded_nsc_measures_sum": 754196,
+        "sdss_measures_sum": 138548,
+        "objects_sum": 120843,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 930.893430497963,
+        "max_acquisition_peak_rss_mib": 2060.93359375
+      },
+      "reference_counts": {
+        "local_reference_rows": 140573,
+        "reference_sources": 14724,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 21
+      },
+      "cells": 4,
+      "area_sqdeg": 3.9900536205334234
+    },
+    "south_se": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 253758466,
+        "downloaded_nsc_measures_sum": 1033580,
+        "sdss_measures_sum": 27169,
+        "objects_sum": 36612,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 490.1546279069735,
+        "max_acquisition_peak_rss_mib": 2189.3125
+      },
+      "reference_counts": {
+        "local_reference_rows": 186002,
+        "reference_sources": 5317,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 21
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "south_ne": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 85395735,
+        "downloaded_nsc_measures_sum": 302963,
+        "sdss_measures_sum": 46478,
+        "objects_sum": 36896,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 274.4993405130226,
+        "max_acquisition_peak_rss_mib": 949.0703125
+      },
+      "reference_counts": {
+        "local_reference_rows": 67187,
+        "reference_sources": 5308,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 9
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_05": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1693370238,
+        "downloaded_nsc_measures_sum": 6541410,
+        "sdss_measures_sum": 524466,
+        "objects_sum": 78998,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 817.5987644330016,
+        "max_acquisition_peak_rss_mib": 13533.375
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_04_04": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 1044486493,
+        "downloaded_nsc_measures_sum": 3711615,
+        "sdss_measures_sum": 566932,
+        "objects_sum": 59488,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 492.42749382404145,
+        "max_acquisition_peak_rss_mib": 8280.47265625
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_07": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 106560691,
+        "downloaded_nsc_measures_sum": 406863,
+        "sdss_measures_sum": 35901,
+        "objects_sum": 41925,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 57.41020701802336,
+        "max_acquisition_peak_rss_mib": 1132.73828125
+      },
+      "reference_counts": {
+        "local_reference_rows": 61865,
+        "reference_sources": 3856,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 14
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_01": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 712584178,
+        "downloaded_nsc_measures_sum": 2927721,
+        "sdss_measures_sum": 43616,
+        "objects_sum": 33741,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 307.252654573007,
+        "max_acquisition_peak_rss_mib": 5745.40234375
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_08_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 943276561,
+        "downloaded_nsc_measures_sum": 3930308,
+        "sdss_measures_sum": 25613,
+        "objects_sum": 31864,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 614.9923458989942,
+        "max_acquisition_peak_rss_mib": 7681.953125
+      },
+      "reference_counts": {
+        "local_reference_rows": 575951,
+        "reference_sources": 4375,
+        "r_sdss_runs": 2,
+        "r_nsc_visits": 9
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 77221064,
+        "downloaded_nsc_measures_sum": 276383,
+        "sdss_measures_sum": 41003,
+        "objects_sum": 35188,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 701.4476777120144,
+        "max_acquisition_peak_rss_mib": 913.02734375
+      },
+      "reference_counts": {
+        "local_reference_rows": 68481,
+        "reference_sources": 5820,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 10
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_03_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 86031901,
+        "downloaded_nsc_measures_sum": 313192,
+        "sdss_measures_sum": 41103,
+        "objects_sum": 32735,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 766.6418998749577,
+        "max_acquisition_peak_rss_mib": 1019.9765625
+      },
+      "reference_counts": {
+        "local_reference_rows": 81686,
+        "reference_sources": 6003,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 20
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_04_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 126646991,
+        "downloaded_nsc_measures_sum": 490900,
+        "sdss_measures_sum": 36167,
+        "objects_sum": 31514,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 536.1096773369936,
+        "max_acquisition_peak_rss_mib": 1335.83203125
+      },
+      "reference_counts": {
+        "local_reference_rows": 86201,
+        "reference_sources": 4494,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 27
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_05_00": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 340408354,
+        "downloaded_nsc_measures_sum": 1384479,
+        "sdss_measures_sum": 38391,
+        "objects_sum": 35610,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1607.7629968499823,
+        "max_acquisition_peak_rss_mib": 2954.50390625
+      },
+      "reference_counts": {
+        "local_reference_rows": 227905,
+        "reference_sources": 4963,
+        "r_sdss_runs": 3,
+        "r_nsc_visits": 26
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_06_00": {
+      "acquisition": "incomplete_attempt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_07_00": {
+      "acquisition": "incomplete_attempt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 116371511,
+        "downloaded_nsc_measures_sum": 438087,
+        "sdss_measures_sum": 41724,
+        "objects_sum": 35933,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 822.4594997059903,
+        "max_acquisition_peak_rss_mib": 1214.66796875
+      },
+      "reference_counts": {
+        "local_reference_rows": 108545,
+        "reference_sources": 5568,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 12
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_03_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 147190049,
+        "downloaded_nsc_measures_sum": 567964,
+        "sdss_measures_sum": 41144,
+        "objects_sum": 36367,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 1047.2924874240416,
+        "max_acquisition_peak_rss_mib": 1451.50390625
+      },
+      "reference_counts": {
+        "local_reference_rows": 140070,
+        "reference_sources": 5443,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 11
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_04_01": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "acquisition_resources": {
+        "acquisition_parts": 1,
+        "standardized_detection_bytes": 86423090,
+        "downloaded_nsc_measures_sum": 319142,
+        "sdss_measures_sum": 36719,
+        "objects_sum": 32821,
+        "archive_objects_without_measures_sum": 0,
+        "elapsed_seconds_sum": 741.341271435027,
+        "max_acquisition_peak_rss_mib": 965.640625
+      },
+      "reference_counts": {
+        "local_reference_rows": 63598,
+        "reference_sources": 4142,
+        "r_sdss_runs": 5,
+        "r_nsc_visits": 18
+      },
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_05_01": {
+      "acquisition": "incomplete_attempt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_06_01": {
+      "acquisition": "incomplete_attempt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_07_01": {
+      "acquisition": "incomplete_attempt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_02": {
+      "acquisition": "incomplete_attempt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_01_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_02_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_03_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_04_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_05_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_06_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_07_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_09_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_00_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_01_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_02_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_03_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_04_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_05_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_06_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_07_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_08_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_09_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_00_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_01_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_02_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_03_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_05_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_07_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_01_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_02_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_03_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_04_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_05_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_07_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_00_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_01_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_02_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_03_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_04_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_05_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_06_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_07_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_08_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_09_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_00_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_01_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_02_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_03_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_04_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_05_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_07_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_09_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_00_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_01_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_02_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_03_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_04_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_05_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_08_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_09_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_01_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_03_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_04_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_05_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_08_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_09_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    }
+  },
+  "commit": "b50d81877bc176a9333d514239792b95c8984167",
+  "slurm_job": 61468830,
+  "aggregate_sha256": "a0c7532ec0260998ff0943858b3bf3895688233009e043b2a870ac45a112cb13",
+  "newly_ready_from_preflight": 7
+}

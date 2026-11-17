@@ -30,7 +30,7 @@ for ((lane=0; lane<workers; lane++)); do
                             "$py" -u -m deep_pm.regional_production "$root/$field" "$field" "$DEEP_PM_INPUTS/$field" --config "$cfg" --preflight "${DEEP_PM_PREFLIGHT:?set preflight root}/$field"
                             ;;
                         production)
-                            "$py" -u -m deep_pm.regional_inputs "$DEEP_PM_INPUTS/$field" "$field" "$DEEP_PM_QSO" "$DEEP_PM_SAS" --config "$cfg" &&
+                            "$py" -u -m deep_pm.regional_inputs "$DEEP_PM_INPUTS/$field" "$field" "$DEEP_PM_QSO" "$DEEP_PM_SAS" --config "$cfg" --sdss-workers "${DEEP_PM_SDSS_READERS:-1}" &&
                                 "$py" -u -m deep_pm.regional_production "$root/$field" "$field" "$DEEP_PM_INPUTS/$field" --config "$cfg" --preflight "${DEEP_PM_PREFLIGHT:?set preflight root}/$field"
                             ;;
                         audit)

@@ -152,6 +152,37 @@ def performance(cohort, folder):
     output(fig,folder,"precision")
 
 
+def multiband_holdout(cohort, folder):
+    fig,ax=plt.subplots(1,2,figsize=(9,3.8),layout="constrained")
+    for j,mag in enumerate(BINS):
+        for offset,method,label in [(-.19,"W1","W1 r"),(.19,"multi","W1 g/i/z + r")]:
+            row=cohort["counts"][method].get(mag,{})
+            ax[0].bar(j+offset,row.get("final",0),.36,label=label if j==0 else None,
+                      color="0.55" if method=="W1" else "C0")
+    ax[0].set(xlabel="NSC r (mag)",ylabel="Accepted proper motions")
+    ax[0].set_xticks(range(3),["20–21","21–22","22–23"])
+    ax[0].legend(frameon=False)
+
+    predictive=cohort["spatial_quality"]["whole_year_prediction"]
+    for dim,group in enumerate(("common","new")):
+        for j,mag in enumerate(BINS):
+            row=predictive.get(group,{}).get(mag,{})
+            fraction=row.get("matched_fraction",{})
+            if not fraction.get("denominator"):
+                continue
+            offset=(dim-.5)*.23
+            lo,hi=fraction["wilson95"]
+            ax[1].vlines(j+offset,lo,hi,color=f"C{dim}")
+            ax[1].scatter(j+offset,fraction["value"],color=f"C{dim}",zorder=3,
+                          label=("Both models" if dim==0 else "Multiband only") if j==0 else None)
+            ax[1].text(j+offset,hi+.055,str(fraction["denominator"]),ha="center",fontsize=8)
+    ax[1].set_ylim(0,1.1)
+    ax[1].set(xlabel="Training NSC r (mag)",ylabel="Unique whole-year prediction fraction")
+    ax[1].set_xticks(range(3),["20–21","21–22","22–23"])
+    ax[1].legend(frameon=False,fontsize=8)
+    output(fig,folder,"multiband_holdout")
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--summaries",type=Path,default=Path("results/summary"))
@@ -173,6 +204,7 @@ def main():
         context(tomllib.loads(args.matrix.read_text()),cohort,args.figures)
     if cohort:
         performance(cohort,args.figures)
+        multiband_holdout(cohort,args.figures)
 
 
 if __name__=="__main__":

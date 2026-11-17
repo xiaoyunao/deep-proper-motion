@@ -73,7 +73,23 @@ def gaia_cohort(directories, blocks, settings):
     return dict(per_field_common=totals,pooled=results)
 
 
-def assess(directories, settings, previous, overlap):
+def coverage_checks(fields, matrix):
+    verified = []
+    for name, row in fields.items():
+        if name not in matrix:
+            continue
+        geometry = matrix[name]
+        archive = row["acquisition"]
+        if (archive["objects"] != geometry["buffered_archive_candidates"]
+                or min(archive["measurements"], archive["sdss_measurements"]) <= 0):
+            raise ValueError(f"{name}: checked archive counts disagree with the locked coverage.")
+        verified.append(geometry)
+    return dict(new_fields=len(verified),
+                sampled_joint_deg2=sum(v["area_sqdeg"]*v["joint_fraction"] for v in verified),
+                sampled_joint_nsc_span_deg2=sum(v["area_sqdeg"]*v["nsc_span_fraction"] for v in verified))
+
+
+def assess(directories, settings, previous, overlap, matrix):
     product = summarize(directories, settings, previous, observation_overlap=overlap)
     rules = settings["regional"]
     spatial = settings["spatial"]
@@ -101,6 +117,7 @@ def assess(directories, settings, previous, overlap):
     replication = bool(gain is not None and gain[0] > 0 and delta is not None
                        and delta[2] >= settings["practical_gain"])
     product.update(spatial_quality=dict(
+        geometric_coverage=coverage_checks(fields,matrix),
         conditional_by_field=diagnostics,
         pooled_zero=zero_status(all_count, data.get("block_bootstrap"),
                                 rules["quality_min_faint_qso"], data.get("observation_blocks", 0),
@@ -170,7 +187,7 @@ def main():
                    inputs=tracked, outputs=[out]) as go:
         if go:
             data = assess(directories, dict(settings, fields=fields, bootstrap_draws=1200),
-                          args.comparison, survey_overlap([*directories, *args.comparison]))
+                          args.comparison, survey_overlap([*directories, *args.comparison]), matrix["fields"])
             save_json(work / out, data)
 
 

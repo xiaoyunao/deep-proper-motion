@@ -101,7 +101,11 @@ def deletes(rows):
 
 
 def pool(specs, fits, shared, site_names):
-    reference=verify_directory(shared,("continuous_reference_summary.json","private_c0.npz"))
+    reference={}
+    for name, path in shared.items():
+        receipt=verify_directory(path,("continuous_reference_summary.json","private_c0.npz"))
+        reference[name]=dict(summary=json.loads((path/"continuous_reference_summary.json").read_text()),
+                             commit=json.loads(receipt.read_text())["commit"])
     cores={}
     strict={}
     deletions={}
@@ -110,8 +114,9 @@ def pool(specs, fits, shared, site_names):
         cores[name]=json.loads((work/"continuous_core_summary.json").read_text())
         strict[name]=json.loads((work/"private_qso_blocks.json").read_text())
         deletions[name]=json.loads((work/"private_group_deletions.json").read_text())
-    if len({c["shared_solution_sha256"] for c in cores.values()})!=1:
-        raise ValueError("Cores do not share one reference solution")
+    gauges=defaultdict(list)
+    for name, c in cores.items():
+        gauges[c["shared_solution_sha256"]].append(name)
     result={}
     for name, chosen in site_names.items():
         records=[row for site in chosen for row in strict[site]]
@@ -127,8 +132,7 @@ def pool(specs, fits, shared, site_names):
         total_core_area_sqdeg=sum(area(specs[k]) for k in cores),
         covered_cores={k:dict(ra_bounds_deg=specs[k]["ra"],dec_bounds_deg=specs[k]["dec"],area_sqdeg=area(specs[k]))
                        for k in cores}, cores=cores, cohorts=result,
-        reference=json.loads((shared/"continuous_reference_summary.json").read_text()),
-        reference_commit=json.loads(reference.read_text())["commit"])
+        reference=reference, gauge_cores=list(gauges.values()))
     check_aggregate(summaries)
     return summaries
 
@@ -139,11 +143,15 @@ def main():
         p.add_argument(name,type=Path)
     a=p.parse_args()
     files={k:Path(v) for k,v in json.loads(a.plan.read_text()).items()}
+    graph_paths={k:Path(v) for k,v in json.loads(a.shared.read_text()).items()}
     sets={"all":list(files)}
+    ordinary=[name for name in files if name!="repeat_rich"]
+    if ordinary and ordinary!=list(files):
+        sets["ordinary"]=ordinary
     for name in files:
         sets[name]=[name]
     spec=tomllib.loads(a.config.read_text())["fields"]
-    save_json(a.output,pool(spec,files,a.shared,sets))
+    save_json(a.output,pool(spec,files,graph_paths,sets))
 
 
 if __name__=="__main__":

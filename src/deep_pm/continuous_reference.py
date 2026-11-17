@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import resource
 
+import healpy as hp
 import numpy as np
 import pandas as pd
 
@@ -103,6 +104,7 @@ def held_reports(rows, offsets, specs):
         holder[inside(held.ra_deg,held.dec_deg,spec)] = index
     held["core_index"] = holder
     held["sdss"] = held.exposure_id.str.startswith("SDSS:")
+    held["ring"] = hp.ang2pix(128,held.ra_deg,held.dec_deg,lonlat=True)
     from collections import defaultdict
 
     summaries = defaultdict(list)
@@ -112,13 +114,19 @@ def held_reports(rows, offsets, specs):
         side = group.sdss.to_numpy()
         if side.any() and (~side).any():
             summaries["cross_survey"].append(np.median(xyz[side],axis=0)-np.median(xyz[~side],axis=0))
+        edges = group.ring.to_numpy()
+        if len(set(edges))>1 and side.any() and (~side).any():
+            summaries["cross_healpix"].append(np.median(xyz[side],axis=0)-np.median(xyz[~side],axis=0))
         cores = np.unique(c[c>=0])
         if len(cores)>1:
             for a,b in zip(cores[:-1],cores[1:]):
                 summaries["cross_core"].append(np.median(xyz[c==a],axis=0)-np.median(xyz[c==b],axis=0))
-    return {name:dict(n=len(values),median_mas=np.median(values,axis=0),
-                      radial_p68_mas=np.quantile(np.linalg.norm(values,axis=2),.68,axis=0))
-            for name,values in summaries.items()}
+    result = {name:dict(n=len(v),median_mas=np.median(v,axis=0),
+                        radial_p68_mas=np.quantile(np.linalg.norm(v,axis=2),.68,axis=0))
+              for name,v in summaries.items()}
+    for key in ("cross_survey","cross_core","cross_healpix"):
+        result.setdefault(key,{"n":0})
+    return result
 
 
 def solve(work, parts, specs):

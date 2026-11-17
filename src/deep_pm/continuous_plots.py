@@ -61,7 +61,7 @@ def render(data, output):
         a.set(xlim=(355,345),ylim=(-5,5),xticks=(345,347,349,351,353,355),
               yticks=(-5,-3,-1,1,3,5),aspect="equal",xlabel="RA [deg]",ylabel="Dec [deg]",title=title)
         fig.colorbar(plt.cm.ScalarMappable(norm=norm,cmap=colors),ax=a,shrink=.65)
-    fig.suptitle("Continuous C field trial · gray = missing acquisition or metric · labels = QSO counts",fontsize=12)
+    fig.suptitle("Continuous C field trial · gray = no verified fit or metric · labels = QSO counts",fontsize=12)
     fig.savefig(output/"v12_continuous_coverage_summary.png",dpi=170)
     plt.close(fig)
 

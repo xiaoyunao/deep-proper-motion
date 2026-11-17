@@ -104,6 +104,9 @@ STAGES["exposure-pilot-v09"] = ("exposure-pilot-v09","pilot_summary.json",
 STAGES["exposure-pilot-v10"] = ("exposure-pilot-v10","pilot_summary.json",
     (*STAGES["exposure-pilot-v09"][2], "gaia_policy", "dark_quality", "reference_graph",
      "physical_boundaries", "sensitivity", "annual_holdout"))
+STAGES["validation-shared-v10"] = ("validation-shared-v10","shared_summary.json",
+    ("cores","graph","deduplicated_measurements","supported_groups_used_in_both",
+     "shared_sdss_groups","shared_nsc_groups","holdout_references_seen_in_both","calibrated_groups"))
 
 METADATA = {"region", "role", "receipt"}
 PRIVATE_KEYS = {"source_id", "source_ids", "object_ids", "objid", "objids", "detection_id",
@@ -165,7 +168,8 @@ def export(run_root, kind, region):
     if kind == "legacy-order-v03":
         directory = run_root / "legacy"
     else:
-        directory = run_root if kind in ("challenge-design","exposure-catalogues-v09","exposure-qso-count-v09") else run_root / region
+        direct = ("challenge-design", "exposure-catalogues-v09", "exposure-qso-count-v09", "validation-shared-v10")
+        directory = run_root if kind in direct else run_root / region
     stage_pattern, relative, fields = STAGES[kind]
     relative = relative.format(region=region)
     manifest = json.loads((directory / "run_manifest.json").read_bytes())
@@ -246,7 +250,8 @@ def main():
             raise ValueError("Accept only cohort-level results for single-target challenge cones")
         receipt = payload["receipt"]
         stamp = receipt["commit"][:12] + "_" + receipt["config_sha256"][:12]
-        series = "v09" if args.kind.endswith("v09") else "v08" if args.kind.endswith("v08") else "v07" if args.kind.endswith("v07") else "v06" if args.kind.endswith("v06") else "v05" if args.kind.endswith("v05") else "v04" if args.kind.endswith("v04") else "v03" if args.kind.endswith("v03") else "v02"
+        suffix = re.search(r"-(v(?:0[3-9]|10))$", args.kind)
+        series = suffix.group(1) if suffix else "v02"
         target = args.directory / f"{series}_{args.region}_{args.kind.replace('-', '_')}_{stamp}_summary.json"
         if target.is_file() and json.loads(target.read_bytes()) != payload:
             raise ValueError("A different aggregate already exists for this run")

@@ -88,3 +88,8 @@ dec = [-4.0,-3.0]
 [fields.south_ne]
 ra = [354.0,355.0]
 dec = [-4.0,-3.0]
+
+[fields.sparse_south_east_ready]
+ra = [354.0,355.0]
+dec = [-5.0,-3.0]
+parts = ["south_se","south_ne"]

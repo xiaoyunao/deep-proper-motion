@@ -129,3 +129,96 @@ def near_boundaries(refs, data, xy, center, spec):
         if selected:
             pairs[name]=np.asarray(selected)
     return pairs
+
+
+def sdss_field_overlap(sas, refs, data, xy, observation, solutions, center, spec):
+    """Re-read adjacent photoObj fields before RUN_PRIMARY de-duplication."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    from scipy.spatial import cKDTree
+
+    from .astrometry import project
+    from .dark_precision import query_unique
+    from .sdss_sas import select_sdss_field
+
+    opts = refs.loc[refs.is_holdout & data.survey.loc[refs.index].eq("SDSS")]
+    keys = observation[0]
+    fine = data.field_id.to_numpy()
+    eligible = np.isin(keys[opts.index],list(solutions[0])) & np.isfinite(fine[opts.index])
+    requests = {}
+    for i in opts.index[eligible]:
+        parent = keys[i]
+        _, run, camcol = parent.split(":")
+        for neighbor in (int(fine[i])-1,int(fine[i])+1):
+            if neighbor >= 0:
+                requests.setdefault((int(run),301,int(camcol),neighbor), []).append(i)
+    # A deterministic cap keeps this a small targeted audit even in Stripe 82.
+    ordered = sorted(requests, key=lambda k:(-len(requests[k]),k))[:160]
+    radius = np.deg2rad(1.7)
+    def read(key):
+        try:
+            return select_sdss_field(sas,center,np.tan(radius)*206264806.247,key,run_primary=False)
+        except FileNotFoundError:
+            return None
+    pairs=[]
+    scanned=0
+    runs=set()
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for key, table in zip(ordered,pool.map(read,ordered)):
+            if table is None:
+                continue
+            scanned+=1
+            good=table["type"].eq(3)&table.nChild.eq(0)&table.offsetRa_r.eq(0)&table.offsetDec_r.eq(0)
+            if not good.any():
+                continue
+            counterpart=project(table.ra[good],table.dec[good],center)
+            ix=np.asarray(requests[key],dtype=int)
+            hit, j=query_unique(cKDTree(counterpart),xy[ix],500,300)
+            for a,b in zip(ix[hit],j[hit]):
+                parent=keys[a]
+                bkey=f"{parent}|{key[-1]}"
+                if bkey not in solutions[1] or observation[1][a] not in solutions[1]:
+                    continue
+                raw=xy[a]-counterpart[b]
+                fine_delta=solutions[1][observation[1][a]][0]-solutions[1][bkey][0]
+                pairs.append(np.array([raw,raw,raw-fine_delta]))
+                runs.add(key[0])
+    result=dict(eligible_neighbor_fields=len(requests),selected_fields=len(ordered),
+                fields_read=scanned,pair_count=len(pairs),independent_run_count=len(runs))
+    if pairs:
+        values=np.asarray(pairs)
+        result.update(median_mas=np.median(values,axis=0),
+                      radial_p68_mas=np.quantile(np.linalg.norm(values,axis=2),.68,axis=0))
+    return result
+
+
+def held_conditions(refs, data, xy, keys, offsets):
+    """Summarize held-galaxy residuals within an NSC passband."""
+    subset=refs.loc[refs.is_holdout & np.isin(keys[refs.index],list(offsets))]
+    early=subset.loc[data.survey.loc[subset.index].eq("SDSS")]
+    colors=early.assign(gi=data.color).groupby("reference").gi.median()
+    subset=subset.loc[data.survey.loc[subset.index].eq("NSC")]
+    ix=subset.index.to_numpy()
+    corrected=xy[ix]-np.stack([offsets[g][0] for g in keys[ix]])
+    clipped=pd.DataFrame(dict(reference=subset.reference.to_numpy(), band=data.band.iloc[ix].to_numpy(),
+        east=corrected[:,0],north=corrected[:,1]))
+    group=clipped.groupby(["reference","band"])
+    med=group[["east","north"]].transform("median")
+    n=group.east.transform("size").to_numpy()
+    residual=(clipped[["east","north"]]-med).to_numpy()
+    conditions=dict(airmass=data.airmass.iloc[ix], fwhm=data.fwhm.iloc[ix], x=data.x.iloc[ix],y=data.y.iloc[ix],
+                    g_minus_i=clipped.reference.map(colors),r_magnitude=data.magnitude.iloc[ix])
+    output={}
+    for name,v in conditions.items():
+        value=np.asarray(v)
+        m=(n>=3)&np.isfinite(value)&clipped.band.eq("r").to_numpy()
+        if np.count_nonzero(m)<100:
+            continue
+        limits=np.quantile(value[m],[0,.33,.67,1])
+        bins=np.searchsorted(limits[1:-1],value,side="right")
+        output[name]=dict(valid_detection_count=int(m.sum()), edges=limits, bins=[
+            dict(n=int(selected.sum()), med_mas=np.median(residual[selected],axis=0),
+                 radial_p68_mas=np.quantile(np.linalg.norm(residual[selected],axis=1),.68))
+            if selected.any() else dict(n=0)
+            for selected in (m & (bins==i) for i in range(3))])
+    return output

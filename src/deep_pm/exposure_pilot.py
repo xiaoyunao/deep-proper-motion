@@ -26,7 +26,8 @@ from .precision_v03 import calibration, fit_with_calibration
 from .provenance import run_stage
 from .regional_validation import official_table, tag_magnitude, valid_published
 from .validation import gaia_labels, groups_by_label
-from .validation_audit import boundary_pairs, dark_quality, gaia_bright, gaia_observation_quality, graph_support
+from .validation_audit import (boundary_pairs, dark_quality, gaia_bright, gaia_observation_quality,
+                               graph_support, held_conditions, sdss_field_overlap)
 
 
 def matched_legacy(table, points, center):
@@ -135,7 +136,7 @@ def pilot_gate(galaxy,qso,settings):
 
 def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, config,
                      keys, offsets, points, magnitudes, origin, ref, ref_error,
-                     release, legacy, tracks, products):
+                     release, legacy, tracks, products, block_records=None):
     truth={k:i for k,i in truth.items() if nsc[i].any() and not nsc[i].all()}
     linked,status=common_catalogue_ids(truth,labels,data,release[0])
     published=release[1]
@@ -163,6 +164,11 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 base["NSC"]=values
         if k in legacy:
             base["Xiao"]=legacy[k]
+        if block_records is not None and 21<=magnitudes[k]<23:
+            block_records.append(dict(magnitude=magnitudes[k],
+                exposures=sorted(set(exposure[indices])),
+                nsc_epoch_days=sorted(set(np.floor((t[indices[nsc[indices]]]-2000)*365.25).astype(int))),
+                motion={name:pm-ref[k] for name,(pm,_) in base.items()}))
         blind={name:products[name][found[k]][1:3] for name,(found,_) in audits.items() if k in found}
         if all(name in blind for name in ("C0","C1")):
             blind.update({name:x for name,x in base.items() if name in ("Xiao","NSC")})
@@ -202,7 +208,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                 blind_quality={name:audit for name,(_,audit) in audits.items()})
 
 
-def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=False):
+def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=False,sas=None):
     start=monotonic()
     settings=tomllib.loads(Path("configs/spatial-v08.toml").read_text())
     settings["bootstrap_draws"]=400
@@ -250,9 +256,12 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
     projected=project(qso.ra,qso.dec,center)
     labels,matches=qso_matches(data,xy,keep,projected)
     old,old_count=matched_legacy(legacy,projected,center)
+    block_records=[] if sas else None
     qso_stats=contrast_samples(matches,labels,data,xy,t,sigma,keep,nsc,settings,config,
         pairs,models,center,qso.reference_r.to_numpy(),qso.origin.to_numpy(),
-        np.zeros((len(qso),2)),np.zeros((len(qso),2)),release,old,tracks,products)
+        np.zeros((len(qso),2)),np.zeros((len(qso),2)),release,old,tracks,products,block_records)
+    if sas:
+        save_json(work/"qso_observation_blocks.json",block_records)
     print(f"QSO controls: {qso_stats['totals']}",flush=True)
     g=pd.read_csv(inputs/"validation/gaia.csv")
     if audit and "visibility_periods_used" not in g.columns:
@@ -284,6 +293,9 @@ def run(work,inputs,legacy_path,spec,calibration_config,audit=False,sensitivity=
         extras=dict(gaia_policy=gaia_audit, dark_quality=quality,
                     reference_graph=graph_support(refs,pairs[1],c1),
                     physical_boundaries=boundary_pairs(refs,data,xy,data.detection_id.map(original),pairs,models,center,spec))
+        if sas:
+            extras["physical_boundaries"]["sdss_adjacent_field"] = sdss_field_overlap(sas,refs,data,xy,pairs,models,center,spec)
+            galaxy["held_observing_conditions"] = held_conditions(refs,data,xy,keys,c1)
         extras["sensitivity"]={}
         if sensitivity:
             for references,prior in ((10,50.),(25,50.),(15,25.),(15,100.)):
@@ -314,6 +326,7 @@ def main():
     p.add_argument("config",type=Path)
     p.add_argument("--validation-audit",action="store_true")
     p.add_argument("--sensitivity",action="store_true")
+    p.add_argument("--sdss-sas",type=Path)
     a=p.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         p.error("Run on a Slurm compute node")
@@ -326,11 +339,11 @@ def main():
     if (work/"input_manifest.json").resolve()!=input_receipt:
         raise ValueError("Pilot is already bound to a different acquisition")
     stage="exposure-pilot-v10" if a.validation_audit else "exposure-pilot-v09"
-    with run_stage(work,a.config,a.region,stage,inputs=["input_manifest.json"],
-                   outputs=["pilot_summary.json"]) as go:
+    outputs=["pilot_summary.json"] + (["qso_observation_blocks.json"] if a.sdss_sas else [])
+    with run_stage(work,a.config,a.region,stage,inputs=["input_manifest.json"],outputs=outputs) as go:
         if go:
             run(work,a.inputs/a.region,a.legacy,settings["fields"][a.region],settings["calibration"],
-                a.validation_audit,a.sensitivity)
+                a.validation_audit,a.sensitivity,a.sdss_sas)
 
 
 if __name__=="__main__":

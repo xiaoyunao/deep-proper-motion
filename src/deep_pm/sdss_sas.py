@@ -10,14 +10,15 @@ from .access import SDSS_COLUMNS
 from .astrometry import project
 
 
-def select_sdss_field(root, center, limit, key):
+def select_sdss_field(root, center, limit, key, run_primary=True):
     run, rerun, camera, field = key
     path = root/"photoObj"/str(rerun)/str(run)/str(camera)/f"photoObj-{run:06d}-{camera}-{field:04d}.fits"
     with fits.open(path, memmap=True) as hf:
         source = hf[1].data
         if source is None and hf[1].header.get("NAXIS2", 0)==0:
             return None
-        selected = np.flatnonzero((source["RESOLVE_STATUS"] & 1) != 0)
+        selected = (np.flatnonzero((source["RESOLVE_STATUS"] & 1) != 0)
+                    if run_primary else np.arange(len(source)))
         inside = np.linalg.norm(project(source["RA"][selected],source["DEC"][selected],center),axis=1) <= limit
         selected = selected[inside]
         if not len(selected):

@@ -134,6 +134,7 @@ def performance(cohort, folder):
               title=f"{cohort['area_sqdeg']:.1f} deg² completed")
     ax[0].legend(frameon=False)
     fields=sorted(cohort["fields"])
+    shown=False
     for i,name in enumerate(fields):
         interval=cohort["fields"][name]["zero95"]
         if interval is None:
@@ -143,12 +144,16 @@ def performance(cohort, folder):
             lo,hi=interval["zero95_masyr"][axis]
             ax[1].vlines(x,lo,hi,color=f"C{axis}",alpha=.66)
             values=cohort["fields"][name]["faint_precision"]["methods"]["W0"]["median"]
-            ax[1].scatter(x,values[axis],color=f"C{axis}",s=12)
+            ax[1].scatter(x,values[axis],color=f"C{axis}",s=12,
+                          label=("East","North")[axis] if not shown else None)
+        shown=True
     ax[1].axhspan(-.5,.5,color="0.9",zorder=0)
     ax[1].set(xlabel="Completed cores (alphabetical)",ylabel="Zero point and object CI (mas/yr)",
               title="r = 22–23 by core")
     if len(fields)<=28:
         ax[1].set_xticks(range(len(fields)),fields,rotation=90,fontsize=6)
+    if shown:
+        ax[1].legend(frameon=False,ncol=2,loc="lower right")
     output(fig,folder,"precision")
 
 

@@ -1,0 +1,21 @@
+{
+  "compatible_detection_and_reference_values": true,
+  "readout_counts": {
+    "detections.csv": 317382,
+    "external_labels.csv": 317382,
+    "spectra_veto.csv": 81,
+    "spectra_union.csv": 81,
+    "validation_gaia.csv": 4745,
+    "official_nsc.csv": 35188
+  },
+  "verified_window_parts": 6,
+  "verified_window_measurements": 276383,
+  "total_nsc_downloaded": 276383,
+  "reference_count": 68481,
+  "slurm_job": 61470523,
+  "elapsed_seconds": 389,
+  "configuration_commit": "105d42dabbe0287349ea46818ffd6b2371ab6d8b",
+  "source_sha256": "7adca4ebfcd578ab86c31964a7419ac5820d9244118ba9ba4e1c57fdebedca38",
+  "existing_input_directories_at_rollout": 24,
+  "fresh_tiles_at_rollout": 57
+}

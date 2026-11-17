@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 import numpy as np
 
 
@@ -26,12 +27,10 @@ def comparison(ax, data, kind, cohort, heading):
         for j,key in enumerate(("C0","C1")):
             if key in stats.get("methods",{}):
                 ax.bar(i+(j-.5)*.34,stats["methods"][key]["radial_abs68"],width=.32,color=COLORS[j])
-    for label,color in zip(("C0","C1"),COLORS):
-        ax.bar([],[],color=color,label=label)
     ax.set_ylabel("Radial proper-motion P68 [mas/yr]")
     ax.set_xticks(range(len(ticks)),ticks,fontsize=8)
     ax.set_title(heading)
-    ax.legend(frameon=False)
+    ax.legend(handles=[Patch(color=color,label=label) for label,color in zip(("C0","C1"),COLORS)],frameon=False)
 
 
 def motion(data, output):
@@ -81,6 +80,35 @@ def boundary(data, output):
     plt.close(fig)
 
 
+def shared_graph(summary, output):
+    fig, axes=plt.subplots(1,2,figsize=(10,4.0),layout="constrained",gridspec_kw={"width_ratios":[1.5,1]})
+    ax=axes[0]
+    cores=summary["cores"]
+    for x,y,tag in ((.20,.68,"south_se"),(.80,.68,"south_ne")):
+        core=cores[tag]
+        ax.annotate("", xy=(x,y-.1), xytext=(.5,.40), arrowprops={"arrowstyle":"-","color":"0.5"})
+        ax.text(x,y,f"{tag.replace('_',' ').upper()}\n{core['shared_solution_coverage']:,} supported positions",
+                ha="center",va="center",bbox={"facecolor":"#d8e7f2","edgecolor":"#4479a4","pad":8})
+    shared=summary["supported_groups_used_in_both"]
+    ax.text(.5,.29,f"{shared} common observation groups\n{summary['shared_sdss_groups']} SDSS · {summary['shared_nsc_groups']} NSC",
+            ha="center",va="center",bbox={"facecolor":"#e1f3ee","edgecolor":"#008b70","pad":8})
+    ax.set(xlim=(0,1),ylim=(0,1),title="Physical observation groups used on both sides")
+    ax.axis("off")
+    ax=axes[1]
+    stats=summary["graph"]["fine_observation_support"]
+    for j,(survey,v) in enumerate(stats.items()):
+        q=np.asarray(v["bootstrap_se_mas"])
+        for i,color in enumerate(COLORS):
+            ax.errorbar(q[1,i],j+.20*(i-.5),xerr=[[q[1,i]-q[0,i]],[q[2,i]-q[1,i]]],fmt="o",color=color)
+    ax.set_yticks(range(len(stats)),[f"{s} (n={v['count']:,})" for s,v in stats.items()])
+    for label,color in zip(("East","North"),COLORS):
+        ax.plot([],[],"o-",color=color,label=label)
+    ax.set(xlabel="Offset bootstrap standard error [mas]",title="Fine-group support")
+    ax.legend(frameon=False)
+    fig.savefig(output/"v10_shared_reference_summary.png",dpi=170)
+    plt.close(fig)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--summary",type=Path,default=Path("results/summary"))
@@ -111,6 +139,9 @@ def main():
     motion(data,a.output)
     quality(data,a.output)
     boundary(data,a.output)
+    shared=list(a.summary.glob("v10_south_shared_validation_shared_*.json"))
+    if shared:
+        shared_graph(json.loads(shared[0].read_text()),a.output)
 
 
 if __name__=="__main__":

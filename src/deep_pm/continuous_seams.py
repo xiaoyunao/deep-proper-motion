@@ -34,7 +34,7 @@ def adjacent_held(parts, specs, solution, width=2/60):
                 lo, hi = max(a[cross][0],b[cross][0]), min(a[cross][1],b[cross][1])
                 if lo>=hi:
                     continue
-                edges=(set(a[coord])&set(b[coord])) if a[coord]!=b[coord] else set()
+                edges={x for x,y in ((a[coord][1],b[coord][0]),(b[coord][1],a[coord][0])) if x==y}
                 if len(edges)!=1:
                     continue
                 line=edges.pop()

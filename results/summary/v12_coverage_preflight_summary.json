@@ -1,0 +1,742 @@
+{
+  "target_area_sqdeg": 99.87312439537492,
+  "planned_cells": 100,
+  "planned_core_count": 91,
+  "verified_core_count": 0,
+  "verified_cells": 0,
+  "area_by_fit_state_sqdeg": {
+    "missing_receipt": 99.87312439537494
+  },
+  "unverified_cores": [
+    "repeat_rich",
+    "repeat_sparse",
+    "sparse_north_outer",
+    "south_se",
+    "south_ne",
+    "c_00_05",
+    "c_04_04",
+    "c_06_07",
+    "c_08_01",
+    "c_08_00",
+    "c_02_00",
+    "c_03_00",
+    "c_04_00",
+    "c_05_00",
+    "c_06_00",
+    "c_07_00",
+    "c_02_01",
+    "c_03_01",
+    "c_04_01",
+    "c_05_01",
+    "c_06_01",
+    "c_07_01",
+    "c_00_02",
+    "c_01_02",
+    "c_02_02",
+    "c_03_02",
+    "c_04_02",
+    "c_05_02",
+    "c_06_02",
+    "c_07_02",
+    "c_08_02",
+    "c_09_02",
+    "c_00_03",
+    "c_01_03",
+    "c_02_03",
+    "c_03_03",
+    "c_04_03",
+    "c_05_03",
+    "c_06_03",
+    "c_07_03",
+    "c_08_03",
+    "c_09_03",
+    "c_00_04",
+    "c_01_04",
+    "c_02_04",
+    "c_03_04",
+    "c_05_04",
+    "c_06_04",
+    "c_07_04",
+    "c_01_05",
+    "c_02_05",
+    "c_03_05",
+    "c_04_05",
+    "c_05_05",
+    "c_06_05",
+    "c_07_05",
+    "c_00_06",
+    "c_01_06",
+    "c_02_06",
+    "c_03_06",
+    "c_04_06",
+    "c_05_06",
+    "c_06_06",
+    "c_07_06",
+    "c_08_06",
+    "c_09_06",
+    "c_00_07",
+    "c_01_07",
+    "c_02_07",
+    "c_03_07",
+    "c_04_07",
+    "c_05_07",
+    "c_07_07",
+    "c_08_07",
+    "c_09_07",
+    "c_00_08",
+    "c_01_08",
+    "c_02_08",
+    "c_03_08",
+    "c_04_08",
+    "c_05_08",
+    "c_08_08",
+    "c_09_08",
+    "c_00_09",
+    "c_01_09",
+    "c_02_09",
+    "c_03_09",
+    "c_04_09",
+    "c_05_09",
+    "c_08_09",
+    "c_09_09"
+  ],
+  "cores": {
+    "repeat_rich": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "cells": 4,
+      "area_sqdeg": 3.999796924813179
+    },
+    "repeat_sparse": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "cells": 4,
+      "area_sqdeg": 3.9900536205334234
+    },
+    "sparse_north_outer": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "cells": 4,
+      "area_sqdeg": 3.9900536205334234
+    },
+    "south_se": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "south_ne": {
+      "acquisition": "recorded",
+      "reference": "recorded",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_05": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_04_04": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_07": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_01": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_08_00": {
+      "acquisition": "recorded",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_00": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_03_00": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_04_00": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_05_00": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_06_00": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_07_00": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_01": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_03_01": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_04_01": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_05_01": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_06_01": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_07_01": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_01_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_02_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_03_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_04_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_05_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_06_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_07_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_09_02": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_00_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_01_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_02_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_03_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_04_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_05_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_06_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_07_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_08_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_09_03": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_00_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_01_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_02_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_03_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_05_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_07_04": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_01_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_02_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_03_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_04_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_05_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_06_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_07_05": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9999492312032947
+    },
+    "c_00_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_01_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_02_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_03_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_04_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_05_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_06_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_07_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_08_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_09_06": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9996446369807445
+    },
+    "c_00_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_01_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_02_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_03_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_04_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_05_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_07_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_08_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_09_07": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9990355413179951
+    },
+    "c_00_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_01_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_02_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_03_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_04_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_05_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_08_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_09_08": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9981221297514852
+    },
+    "c_00_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_01_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_02_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_03_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_04_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_05_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_08_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    },
+    "c_09_09": {
+      "acquisition": "missing_receipt",
+      "reference": "missing_receipt",
+      "fit": "missing_receipt",
+      "cells": 1,
+      "area_sqdeg": 0.9969046805152265
+    }
+  }
+}

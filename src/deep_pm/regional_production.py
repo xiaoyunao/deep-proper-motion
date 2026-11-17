@@ -211,7 +211,8 @@ def compute(work,region,spec,config,settings,custom,legacy,footprint_cache=None)
     archive=json.loads((work/"private_tracks.json").read_text())
     tracks=[np.asarray(index,dtype=int) for index in archive["tracks"]]
     qso=pd.read_csv(work/"spectroscopic_qso.csv")
-    offsets,calibration_info,refs=calibration(work,center,config,project(qso.ra,qso.dec,center),return_references=True)
+    offsets,calibration_info,refs=calibration(work,center,config,project(qso.ra,qso.dec,center),
+                                            return_references=True,arrays=(data,xy,t,sigma))
     calibration_info.pop("sdss_run_camcol",None)
     keys=calibration_groups(data)
     assigned=np.array([offsets[key][0] if key in offsets else np.full(2,np.nan) for key in keys])

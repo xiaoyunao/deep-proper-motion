@@ -15,8 +15,10 @@ class ZeroPointTest(unittest.TestCase):
         data = np.repeat(np.arange(12)[:, None] * np.array([[1000., -750.]]), 3, axis=0)
         data += np.tile(imposed, (12, 1))
         offsets = fit_offsets(refs, data, np.full(data.shape, 40.), groups, 10, 8, 1)
+        parallel = fit_offsets(refs, data, np.full(data.shape, 40.), groups, 10, 8, 1, workers=3)
         for group, expected in zip(groups[:3], imposed):
             np.testing.assert_allclose(offsets[group][0], expected, atol=1e-5)
+            np.testing.assert_array_equal(offsets[group][1], parallel[group][1])
         t = np.array([2000., 2015., 2017.])
         pos = imposed + (t - 2000)[:, None] * np.array([[2., -6.]])
         model, _ = fit_with_calibration(pos, t, np.full(pos.shape, 50.), 2015,

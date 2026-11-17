@@ -1,4 +1,6 @@
 """Relative visit offsets estimated from stationary reference objects."""
+from concurrent.futures import ThreadPoolExecutor
+
 import numpy as np
 import pandas as pd
 from scipy.sparse import coo_matrix
@@ -6,7 +8,7 @@ from scipy.sparse.csgraph import connected_components
 from scipy.sparse.linalg import lsmr
 
 
-def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed):
+def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1):
     # Peel groups without independent references and objects without a link.
     pairs = pd.DataFrame(dict(ref=np.asarray(refs), group=group))
     active = pairs.copy()
@@ -65,8 +67,16 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed):
     random = np.random.default_rng(seed)
     # Bayesian bootstrap by reference object preserves shared visit covariance
     # and the connected graph, including groups with relatively few references.
-    samples = np.array([solve(weight * random.exponential(size=nr)[r])[nr:]
-                        for _ in range(draws)])
+    reference_weights = random.exponential(size=(draws, nr))
+
+    def draw(ref_weight):
+        return solve(weight * ref_weight[r])[nr:]
+
+    if workers>1:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            samples = np.asarray(list(pool.map(draw, reference_weights)))
+    else:
+        samples = np.asarray(list(map(draw, reference_weights)))
     support = active.groupby("group").ref.nunique()
     return {name: (np.r_[optimum[nr:], np.zeros((1, 2))][j],
                    np.concatenate((samples, np.zeros((draws, 1, 2))), axis=1)[:, j],

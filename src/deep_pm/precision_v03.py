@@ -100,7 +100,8 @@ def calibration(work, center, config, veto_positions=None, return_references=Fal
     groups = calibration_groups(data)
     train = refs.loc[~refs.is_holdout]
     offsets = fit_offsets(train.reference, xy[train.index], sigma[train.index], groups[train.index],
-                          settings["min_references"], settings["bootstrap_draws"], config["seed"])
+                          settings["min_references"], settings["bootstrap_draws"], config["seed"],
+                          workers=int(os.environ.get("DEEP_PM_M3_WORKERS","1")))
     anchor, errors, support = {}, {}, {}
     for name, (delta, draws, n) in offsets.items():
         anchor[name] = delta

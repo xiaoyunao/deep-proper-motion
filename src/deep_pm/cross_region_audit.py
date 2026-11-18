@@ -51,8 +51,13 @@ def match_rows(left,right):
 
 def source_check(left,right,standard):
     pairs=match_rows(left,right)
-    values=[];shared=[];same=[];by_r={}
+    values=[];shared=[];same=[];by_r={};unsupported_identity=0
     for a,b in pairs:
+        if standard:
+            x,y=map(set,(a['detection_ids'],b['detection_ids']))
+            if len(x&y)<2:
+                unsupported_identity+=1
+                continue
         ma=a['pm_icrs_masyr'] if standard else a['motion_icrs']['C0']
         mb=b['pm_icrs_masyr'] if standard else b['motion_icrs']['C0']
         center=tuple(a['position_deg'])
@@ -61,9 +66,8 @@ def source_check(left,right,standard):
         tag=a.get('r_bin','unknown') if standard else str(int(a['magnitude']))
         by_r.setdefault(tag,[]).append(delta[[1,3]])
         if standard:
-            x,y=map(set,(a['detection_ids'],b['detection_ids']))
             shared.append(len(x&y));same.append(x==y)
-    out=dict(unique_common_count=len(pairs),
+    out=dict(unique_common_count=len(values),position_pairs_without_shared_identity_support=unsupported_identity,
         motion_difference_masyr=differences([v[[1,3]] for v in values]),
         position_difference_mas=differences([v[[0,2]] for v in values]),
         by_r={tag:differences(v) for tag,v in by_r.items()})
@@ -72,7 +76,7 @@ def source_check(left,right,standard):
     return out
 
 
-def galaxy_check(left,right,graphs,center):
+def galaxy_check(left,right,graphs,center,selected_gauges):
     tables=[]
     for path in (left,right):
         verify_directory(path,('reference.csv.gz','reference_summary.json'))
@@ -82,12 +86,13 @@ def galaxy_check(left,right,graphs,center):
     merged=tables[0].merge(tables[1],on='detection_id',suffixes=('_a','_b'),validate='one_to_one')
     held=merged.is_holdout_a.eq(True)&merged.is_holdout_b.eq(True)
     supported=np.ones(len(merged),bool);corrected=[]
-    for suffix,graph in zip(('a','b'),graphs):
-        offsets=read_offsets(graph);frame=reference_frame(graph)
+    for suffix,graph,selected in zip(('a','b'),graphs,selected_gauges):
+        offsets,gauges=read_offsets(graph,with_gauge=True);frame=reference_frame(graph)
+        offsets={key:value for key,value in offsets.items() if gauges[key]==selected}
         supported &= merged['group_'+suffix].isin(offsets).to_numpy()
         sky=merged[['ra_deg_'+suffix,'dec_deg_'+suffix]].to_numpy()
         xy=project(*sky.T,frame)
-        delta=np.array([offsets[k][0] if k in offsets else [0.,0.] for k in merged['group_'+suffix]])
+        delta=np.array([offsets[k][0] if k in offsets else [0.,0.] for k in merged['group_'+suffix]]).reshape(-1,2)
         corrected.append(project(*unproject(xy-delta,frame).T,center))
     np.testing.assert_allclose(merged[['ra_deg_a','dec_deg_a']].to_numpy(),merged[['ra_deg_b','dec_deg_b']].to_numpy(),atol=1e-10,rtol=0)
     delta=corrected[1]-corrected[0]
@@ -104,16 +109,19 @@ def galaxy_check(left,right,graphs,center):
 def audit(left,right,left_ref,right_ref,left_graph,right_graph,output):
     graphs=[p/'private_c0.npz' for p in (left_graph,right_graph)]
     for p in (left_graph,right_graph):verify_directory(p,('private_c0.npz','continuous_reference_summary.json'))
-    standard=[];qso=[]
+    standard=[];qso=[];gauges=[]
     for p in (left,right):
         verify_directory(p,('private_standard_motion.json.gz','private_qso_blocks.json','continuous_core_summary.json'))
         with gzip.open(p/'private_standard_motion.json.gz','rt') as f:standard.append(json.load(f))
         qso.append(json.loads((p/'private_qso_blocks.json').read_text()))
+        gauges.append(json.loads((p/'continuous_core_summary.json').read_text())['reference_gauge'])
     center=tuple(np.mean([reference_frame(p) for p in graphs],axis=0))
     result=dict(stars=source_check(*standard,True),spectral_qso=source_check(*qso,False),
-        held_galaxies=galaxy_check(left_ref,right_ref,graphs,center),
+        held_galaxies=galaxy_check(left_ref,right_ref,graphs,center,gauges),
+        applied_reference_components=gauges,
         graph_sha256=[digest(p) for p in graphs],projection_centers_deg=[reference_frame(p) for p in graphs],
         covariance_status='Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.',
+        matching_scope='Star pairs require unique position and at least two shared physical detections. Spectral pairs are stationary-QSO position controls. No blind-member purity claim.',
         spatial_zero_status='not_certified',slurm_job=os.environ['SLURM_JOB_ID'])
     check_aggregate(result);save_json(output,result)
 

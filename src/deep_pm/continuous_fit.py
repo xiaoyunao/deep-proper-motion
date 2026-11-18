@@ -10,6 +10,7 @@ from time import monotonic
 import healpy as hp
 import numpy as np
 import pandas as pd
+from astropy.time import Time
 
 from .__main__ import tomllib
 from .access import Cache
@@ -63,7 +64,16 @@ def group_deletions(truth, data, xy, t, sigma, keep, nsc, keys, solution, settin
     return changes
 
 
-def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covariance=False):
+def night_partition(data,parity):
+    """Metadata-only whole-NSC-night split; every SDSS observation is shared."""
+    nsc=data.survey.eq('NSC').to_numpy()
+    utc=Time(data.observation_time.to_numpy(),format='mjd',scale='tt').utc.mjd
+    night=np.floor(utc-.75).astype(int)
+    selected=np.unique(night[nsc])[parity::2]
+    return ~nsc|np.isin(night,selected)
+
+
+def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covariance=False,nsc_night_half=None):
     start = monotonic()
     center = reference_frame(shared)
     config = tomllib.loads(PRECISION.read_text())
@@ -72,6 +82,8 @@ def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covarian
     prod = settings["production"]
     solution, gauges = read_offsets(shared,with_gauge=True)
     data,xy,t,sigma,keep = quality_detections(source,center,config,prod)
+    if nsc_night_half is not None:
+        keep &= night_partition(data,nsc_night_half)
     keys = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
     visits = data.exposure_id.to_numpy()
@@ -99,7 +111,7 @@ def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covarian
                                               [solution[k] for k in keys[used]])
         if not np.allclose(np.sqrt(np.diag(covariance)[[1,3]]),err,rtol=1e-9,atol=1e-10):
             raise ValueError('Full covariance must preserve frozen tangent PM errors')
-        entry = dict(track_id=slot,projection_center_deg=center, **icrs_motion(pos,pm,center,covariance),
+        entry = dict(track_id=slot,r_bin=tag,projection_center_deg=center, **icrs_motion(pos,pm,center,covariance),
             tangent_covariance=covariance,independent_tangent_covariance=independent,
             reference_tangent_covariance=common, detection_ids=data.detection_id.iloc[used].tolist())
         if diagnostic_covariance:
@@ -188,11 +200,15 @@ def main():
         p.add_argument(name,type=Path)
     p.add_argument("--annual",action="store_true")
     p.add_argument("--diagnostic-covariance",action="store_true")
+    p.add_argument('--nsc-night-half',type=int,choices=(0,1))
     a = p.parse_args()
+    if a.nsc_night_half is not None and a.annual:
+        p.error('Night split is a separate validation fit; annual augmentation would restore excluded bands')
     if "SLURM_JOB_ID" not in os.environ:
         p.error("Run on a Slurm compute node")
     a.work.mkdir(parents=True,exist_ok=True)
     options = dict(annual=a.annual,diagnostic_covariance=a.diagnostic_covariance)
+    if a.nsc_night_half is not None:options['nsc_night_half']=a.nsc_night_half
     option_path = a.work/'fit_options.json'
     if option_path.exists():
         if json.loads(option_path.read_text())!=options:
@@ -209,7 +225,7 @@ def main():
                    outputs=outputs) as go:
         if go:
             spec = tomllib.loads(a.config.read_text())["fields"][a.region]
-            fit_core(a.work,a.source,spec,a.shared/"private_c0.npz",a.legacy,a.annual,a.diagnostic_covariance)
+            fit_core(a.work,a.source,spec,a.shared/"private_c0.npz",a.legacy,a.annual,a.diagnostic_covariance,a.nsc_night_half)
 
 
 if __name__=="__main__":

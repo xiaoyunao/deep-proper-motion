@@ -15,6 +15,7 @@ from .exposure_catalogues import coordinates
 from .io import digest,save_json
 from .public_summary import check_aggregate
 from .standard_motion import icrs_motion
+from .validation import ratio
 
 
 def common_frame(row,center):
@@ -74,6 +75,9 @@ def audit(left,right,output):
         for i in np.flatnonzero(good):
             delta,ind,ref=difference_covariance(a[i],b[idx[i]])
             pairs.append(dict(delta=delta,independent=ind,reference=ref,
+                r_bin=a[i].get('r_bin','unknown'),
+                identical_detections=set(a[i]['detection_ids'])==set(b[idx[i]]['detection_ids']),
+                shared_nsc_groups=len({g for g in a[i]['physical_groups'] if g.startswith('NSC:')} & set(b[idx[i]]['physical_groups'])),
                 shared_detections=len(set(a[i]['detection_ids'])&set(b[idx[i]]['detection_ids'])),
                 shared_groups=len(set(a[i]['physical_groups'])&set(b[idx[i]]['physical_groups']))))
     result=dict(left_count=len(a),right_count=len(b),unique_common_count=len(pairs),
@@ -83,13 +87,23 @@ def audit(left,right,output):
         slurm_job=os.environ['SLURM_JOB_ID'])
     if pairs:
         delta=np.array([p['delta'] for p in pairs])
+        variances=np.array([np.diag(p['independent']+p['reference'])[[1,3]] for p in pairs])
+        valid=variances>1e-12
+        z=np.divide(delta[:,[1,3]],np.sqrt(np.maximum(variances,0)),where=valid,out=np.full_like(variances,np.nan))
         result.update(median_position_difference_mas=np.median(delta[:,[0,2]],axis=0),
+            identical_detection_sets=int(sum(p['identical_detections'] for p in pairs)),
+            disjoint_nsc_group_sets=int(sum(p['shared_nsc_groups']==0 for p in pairs)),
+            normalized_pm_valid_count=valid.sum(axis=0),
+            normalized_pm_nmad=[1.4826*np.median(abs(v-np.median(v))) if len(v) else None for v in (z[valid[:,a],a] for a in range(2))],
+            normalized_pm_within_1sigma=[ratio(int(np.count_nonzero(abs(z[valid[:,a],a])<=1)),int(valid[:,a].sum())) for a in range(2)],
             median_motion_difference_masyr=np.median(delta[:,[1,3]],axis=0),
             radial_position_p68_mas=np.quantile(np.linalg.norm(delta[:,[0,2]],axis=1),.68),
             radial_motion_p68_masyr=np.quantile(np.linalg.norm(delta[:,[1,3]],axis=1),.68),
             shared_detection_count_quantiles=np.quantile([p['shared_detections'] for p in pairs],[.16,.5,.84]),
             shared_group_count_quantiles=np.quantile([p['shared_groups'] for p in pairs],[.16,.5,.84]),
             linearized_variance_quantiles=np.quantile([np.diag(p['independent']+p['reference']) for p in pairs],[.16,.5,.84],axis=0))
+        result['by_r']={tag:dict(n=sum(p['r_bin']==tag for p in pairs),radial_motion_difference_p68_masyr=np.quantile(
+            [np.linalg.norm(p['delta'][[1,3]]) for p in pairs if p['r_bin']==tag],.68)) for tag in sorted({p['r_bin'] for p in pairs})}
     check_aggregate(result)
     save_json(output,result)
 

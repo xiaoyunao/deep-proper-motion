@@ -51,3 +51,16 @@ class StandardMotionTest(unittest.TestCase):
         same = [(np.zeros(2),g,40)]*len(time)
         _,_,constant,_ = calibrated_covariance(model,time,sigma,same)
         np.testing.assert_allclose(constant[[1,3]][:,[1,3]],0,atol=1e-20)
+
+class NightPartitionTest(unittest.TestCase):
+    def test_whole_physical_nights_disjoint_while_sdss_shared(self):
+        import pandas as pd
+        from astropy.time import Time
+        from deep_pm.continuous_fit import night_partition
+        utc=Time(['2016-02-01T23:00','2016-02-02T05:00','2016-02-03T04:00','2017-03-01T03:00','2017-03-02T03:00','2005-01-01T00:00'],scale='utc')
+        data=pd.DataFrame(dict(survey=['NSC']*5+['SDSS'],observation_time=utc.tt.mjd))
+        first,second=night_partition(data,0),night_partition(data,1)
+        self.assertEqual(first[0],first[1])
+        self.assertTrue(first[-1] and second[-1])
+        self.assertFalse((first[:5]&second[:5]).any())
+        self.assertTrue((first|second).all())

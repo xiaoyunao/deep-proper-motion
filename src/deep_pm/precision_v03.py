@@ -53,6 +53,15 @@ def calibration_groups(frame):
     return group
 
 
+def calibration_support(groups, offsets):
+    """Exact string-group membership without NumPy's object-array full scans.
+
+    Calibration group names are strings. NumPy isin compares every object
+    against each allowed name; hashing preserves membership in linear work.
+    """
+    return pd.Series(groups,copy=False).isin(list(offsets)).to_numpy()
+
+
 def reference_rows(frame, xy, object_ids, gaia_xy, settings, seed):
     nsc = frame.survey.eq("NSC")
     nsc_good = nsc & object_ids.notna() & frame.magnitude.between(15, 23)

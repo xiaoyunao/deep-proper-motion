@@ -24,7 +24,7 @@ from .nsc_comparison import comparison, qso_matches
 from .paired_control import catalogue_motion, common_catalogue_ids
 from .pilot_production import make_tracks, quality_detections, source_funnel, valid_epochs
 from .pilot_validation import track_audit
-from .precision_v03 import calibration, fit_with_calibration
+from .precision_v03 import calibration, calibration_support, fit_with_calibration
 from .provenance import run_stage
 from .standard_motion import calibrated_covariance,icrs_motion
 from .regional_validation import official_table, tag_magnitude, valid_published
@@ -58,7 +58,7 @@ def held_galaxies(refs,data,xy,nsc,keys,offsets,pixels,fine,settings):
     a = keys[0]
     use = refs.is_holdout.copy()
     for key, model in zip(keys, offsets):
-        use &= np.isin(key[refs.index], list(model))
+        use &= calibration_support(key[refs.index],model)
     rows=refs.loc[use]
     points=[]
     boundary=defaultdict(list)
@@ -147,7 +147,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
     audits={k:track_audit(tracks,values,truth,labels,nsc,
                           settings["production"]["validation_min_recovery"]) for k,values in products.items()}
     names = ("C0", "C1", "C1b")[:len(offsets)]
-    support = np.logical_and.reduce([np.isin(k, list(m)) for k, m in zip(keys, offsets)])
+    support = np.logical_and.reduce([calibration_support(k,m) for k, m in zip(keys, offsets)])
     paired_key = ("c0", "c0_c1", "c0_c1_c1b")[len(names)-1]
     full_key = ("all_three", "all_four", "all_five")[len(names)-1]
     full_count = len(names) + 2

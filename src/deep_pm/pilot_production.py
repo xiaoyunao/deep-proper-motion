@@ -18,7 +18,7 @@ from .astrometry import fit_motion, project, unproject
 from .dark_precision import bin_name, query_unique
 from .io import save_json
 from .nsc_comparison import configuration
-from .precision_v03 import calibration, calibration_groups, fit_with_calibration
+from .precision_v03 import calibration, calibration_groups, calibration_support, fit_with_calibration
 from .provenance import run_stage
 
 
@@ -71,7 +71,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
     reference_keep = keep if reference_keep is None else reference_keep
     if initial is None:
         initial = make_tracks(xy, exposure, reference_keep & nsc, prod["match_radius_mas"])
-    support = np.isin(group, list(offsets))
+    support = calibration_support(group,offsets)
     morphology, mag = data.morphology.to_numpy(), data.magnitude.to_numpy()
     p = {}
     limit = np.tan(np.deg2rad(radius))*180/np.pi*3_600_000
@@ -172,7 +172,7 @@ def held_year(data, xy, t, sigma, keep, offsets, config, settings):
     if not visits_seen:
         return dict(year=year, held_visits=0, by_r={})
     groups = calibration_groups(data)
-    keep_cal = np.isin(groups,list(offsets))
+    keep_cal = calibration_support(groups,offsets)
     train = make_tracks(xy,data.exposure_id.to_numpy(),keep & ~held & keep_cal,prod["match_radius_mas"])
     epoch = config["reference_epoch"]
     estimates, corrected, bins = [], [], []

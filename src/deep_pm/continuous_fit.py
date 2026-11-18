@@ -21,7 +21,7 @@ from .exposure_pilot import contrast_samples, matched_legacy
 from .io import digest, save_json
 from .nsc_comparison import qso_matches
 from .pilot_production import make_tracks, quality_detections, source_funnel, valid_epochs
-from .precision_v03 import calibration_groups
+from .precision_v03 import calibration_groups,calibration_support
 from .provenance import run_stage
 from .regional_production import prediction, record_catalogue
 from .regional_validation import official_table
@@ -40,7 +40,7 @@ def groups_for_removal(visits, times, nsc):
 
 
 def group_deletions(truth, data, xy, t, sigma, keep, nsc, keys, solution, settings, config, magnitude):
-    support = np.isin(keys,list(solution))
+    support = calibration_support(keys,solution)
     positions = xy - np.array([solution[key][0] if key in solution else np.zeros(2) for key in keys])
     visits = data.exposure_id.to_numpy()
     group = groups_for_removal(visits,t,nsc)
@@ -172,7 +172,7 @@ def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covarian
         annual = prediction(work,center,data,xy,t,sigma,sigma,keys,nsc,keep,multi,solution,
                             settings,config,dict(radius=9.,core_members=core))
     on_core = inside(data.ra_deg,data.dec_deg,spec)
-    supported = np.isin(keys,list(solution))
+    supported = calibration_support(keys,solution)
     used = supported&keep&on_core
     pix = hp.ang2pix(128,data.ra_deg.to_numpy()[used],data.dec_deg.to_numpy()[used],lonlat=True)
     occupied = Counter(map(str,pix))

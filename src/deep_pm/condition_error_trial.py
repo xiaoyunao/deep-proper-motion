@@ -5,6 +5,7 @@ from hashlib import sha256
 import json
 import os
 from pathlib import Path
+import subprocess
 
 import numpy as np
 import pandas as pd
@@ -15,7 +16,7 @@ from .astrometry_weights import variance_model
 from .continuous_reference import FILES, PRECISION, SPATIAL, bind, read_offsets, reference_frame, verify_directory
 from .condition_holdout import fixed_year_prediction
 from .exposure_catalogues import inside
-from .io import save_json
+from .io import digest,save_json
 from .nsc_comparison import qso_matches, comparison
 from .pilot_production import quality_detections, valid_epochs
 from .precision_v03 import calibration_groups, fit_with_calibration
@@ -60,9 +61,10 @@ def learn_errors(refs, data, coord, time, sigma, keys, seed, minimum, reference_
     counts = Counter()
     for (ref,label), part in selected.loc[selected.error_training].groupby(['reference','family'],sort=False):
         indices = part.input_index.to_numpy()
-        for a,b in disjoint_pairs(indices,time,keys):
+        reference_pairs=disjoint_pairs(indices,time,keys)
+        for a,b in reference_pairs:
             pairs[label].append((coord[a]-coord[b],sigma[a],sigma[b]))
-        counts[label] += 1
+        counts[label] += bool(reference_pairs)
     raw = data[['sigma_east_mas','sigma_north_mas']].to_numpy(float)
     revised = np.hypot(raw,50.)
     models = {}
@@ -78,8 +80,11 @@ def learn_errors(refs, data, coord, time, sigma, keys, seed, minimum, reference_
                            for a,b in raw_pairs]) if reference_offsets else np.zeros((len(raw_pairs),2))
         parameters,valid = [],[]
         for axis in range(2):
-            parameters_axis, supported = variance_model(delta[:,axis],raw[left,axis],raw[right,axis],minimum,
-                                                        common_variance=common[:,axis])
+            if counts[label] < minimum:
+                parameters_axis,supported=np.array([1.,50.]),False
+            else:
+                parameters_axis, supported = variance_model(delta[:,axis],raw[left,axis],raw[right,axis],minimum,
+                                                            common_variance=common[:,axis])
             parameters.append(parameters_axis); valid.append(supported)
         parameters = np.array(parameters)
         if all(valid):
@@ -184,6 +189,13 @@ def main():
         if go:
             run(a.work,a.source,a.reference,a.shared,tomllib.loads(a.geometry_config.read_text())['fields'][a.region],
                 tomllib.loads(a.protocol.read_text()))
+            summary=json.loads((a.work/'error_trial_summary.json').read_text())
+            summary['receipt']=dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                slurm_job=os.environ['SLURM_JOB_ID'],protocol_sha256=digest(a.protocol),
+                source_receipt_sha256=digest(a.work/'source_receipt.json'),
+                reference_receipt_sha256=digest(a.work/'reference_receipt.json'),
+                shared_solution_sha256=digest(a.shared/'private_c0.npz'))
+            save_json(a.work/'error_trial_summary.json',summary)
 
 
 if __name__=='__main__':

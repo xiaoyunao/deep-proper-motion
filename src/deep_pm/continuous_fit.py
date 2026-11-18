@@ -63,7 +63,7 @@ def group_deletions(truth, data, xy, t, sigma, keep, nsc, keys, solution, settin
     return changes
 
 
-def fit_core(work, source, spec, shared, legacy, fit_annual):
+def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covariance=False):
     start = monotonic()
     center = reference_frame(shared)
     config = tomllib.loads(PRECISION.read_text())
@@ -95,13 +95,19 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
                                    {"W0":(tracks,owned,None)},models,config,settings)
     standard = []
     for slot, (pos,pm,err,tag,used,_) in owned.items():
-        covariance, independent, common, _ = calibrated_covariance(models[slot],t[used],sigma[used],
+        covariance, independent, common, influence = calibrated_covariance(models[slot],t[used],sigma[used],
                                               [solution[k] for k in keys[used]])
         if not np.allclose(np.sqrt(np.diag(covariance)[[1,3]]),err,rtol=1e-9,atol=1e-10):
             raise ValueError('Full covariance must preserve frozen tangent PM errors')
-        standard.append(dict(track_id=slot, **icrs_motion(pos,pm,center,covariance),
+        entry = dict(track_id=slot,projection_center_deg=center, **icrs_motion(pos,pm,center,covariance),
             tangent_covariance=covariance,independent_tangent_covariance=independent,
-            reference_tangent_covariance=common, detection_ids=data.detection_id.iloc[used].tolist()))
+            reference_tangent_covariance=common, detection_ids=data.detection_id.iloc[used].tolist())
+        if diagnostic_covariance:
+            samples = np.stack([solution[k][1] for k in keys[used]],axis=1)
+            entry.update(tangent_state=models[slot].coeff.T.ravel(),response=influence,
+                reference_state_draws=-np.einsum('pna,dna->dp',influence,samples),
+                measurement_sigma_mas=sigma[used],physical_groups=keys[used])
+        standard.append(entry)
     import gzip
     from .io import json_default
     with gzip.open(work/'private_standard_motion.json.gz','wt') as stream:
@@ -181,19 +187,29 @@ def main():
     for name in ("source","shared","legacy","config"):
         p.add_argument(name,type=Path)
     p.add_argument("--annual",action="store_true")
+    p.add_argument("--diagnostic-covariance",action="store_true")
     a = p.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         p.error("Run on a Slurm compute node")
     a.work.mkdir(parents=True,exist_ok=True)
+    options = dict(annual=a.annual,diagnostic_covariance=a.diagnostic_covariance)
+    option_path = a.work/'fit_options.json'
+    if option_path.exists():
+        if json.loads(option_path.read_text())!=options:
+            p.error('Fit options changed; use a separate versioned output directory')
+    elif (a.work/'run_manifest.json').exists():
+        p.error('Historical run has no option snapshot; preserve it and use a new directory')
+    else:
+        save_json(option_path,options)
     bind(a.work,"source_receipt.json",verify_directory(a.source,FILES))
     bind(a.work,"reference_receipt.json",verify_directory(a.shared,("private_c0.npz",)))
     outputs = ("continuous_core_summary.json","private_qso_blocks.json","private_group_deletions.json","private_catalogue.csv.gz",
                "private_standard_motion.json.gz")
-    with run_stage(a.work,a.config,a.region,"continuous-core-v12",inputs=("source_receipt.json","reference_receipt.json"),
+    with run_stage(a.work,a.config,a.region,"continuous-core-v12",inputs=("source_receipt.json","reference_receipt.json","fit_options.json"),
                    outputs=outputs) as go:
         if go:
             spec = tomllib.loads(a.config.read_text())["fields"][a.region]
-            fit_core(a.work,a.source,spec,a.shared/"private_c0.npz",a.legacy,a.annual)
+            fit_core(a.work,a.source,spec,a.shared/"private_c0.npz",a.legacy,a.annual,a.diagnostic_covariance)
 
 
 if __name__=="__main__":

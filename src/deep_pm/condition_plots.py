@@ -47,7 +47,46 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('summary',type=Path)
     p.add_argument('output',type=Path)
-    a=p.parse_args();plot(read_summary(a.summary),a.output)
+    p.add_argument('--error-trial',type=Path,help='Second ordinary-field error summary')
+    a=p.parse_args()
+    if a.error_trial:
+        plot_error_trials([read_summary(a.summary),read_summary(a.error_trial)],a.output)
+    else:
+        plot(read_summary(a.summary),a.output)
+
+
+def plot_error_trials(data,output):
+    plt.rcParams.update({'font.family':'serif','font.size':10,'savefig.dpi':180})
+    fig,axes=plt.subplots(1,3,figsize=(13,4.3))
+    colors={'W2_r':'#c37b26','W0_multi':'#2275b5','W2_multi':'#873da8'}
+    labels={'W2_r':'Trial errors, r','W0_multi':'W0 errors, multiband','W2_multi':'Trial errors, multiband'}
+    for ax,s,title in zip(axes[:2],data,['Ordinary south','Ordinary north']):
+        counts=[]
+        for name in colors:
+            values=[]
+            for low in (20,21,22):
+                sample=s['qso'][f'r{low}_{low+1}']
+                counts.append(sample['n'])
+                methods=sample.get('methods',{})
+                values.append(methods[name]['radial_abs68']/methods['W0_r']['radial_abs68'] if name in methods else np.nan)
+            ax.plot(range(3),values,'o-',color=colors[name],label=labels[name])
+        ax.axhline(1,color='k',lw=.8,ls=':')
+        ax.set(title=title,ylabel='QSO P68 / W0 r-only P68',xlabel='Reference r magnitude')
+        ax.set_xticks(range(3),[f'{low}–{low+1}\nN={s["qso"][f"r{low}_{low+1}"]["n"]}' for low in (20,21,22)])
+        ax.legend(fontsize=8,frameon=False)
+    held=data[1]['fixed_source_held_year']['by_r']
+    for j,name in enumerate(('W0_r','W2_r','W0_multi','W2_multi')):
+        values=[held[f'{low}_to_{low+1}']['methods'][name]['radial_p68_mas'] for low in (20,21,22)]
+        axes[2].plot(range(3),values,'o-',label=name,color='#666666' if name=='W0_r' else colors[name])
+    axes[2].set_xticks(range(3),[f'{low}–{low+1}\npositions={held[f"{low}_to_{low+1}"]["matched_positions"]}' for low in (20,21,22)])
+    axes[2].set(title='North: identical 2017 held r positions',ylabel='Held-position radial P68 (mas)',xlabel='NSC r magnitude')
+    axes[2].legend(fontsize=8,frameon=False)
+    for ax in axes:
+        ax.tick_params(direction='in',top=True,right=True)
+    fig.suptitle('Ordinary-field error and multiband trials — no new model adopted',y=1.01)
+    fig.tight_layout()
+    fig.savefig(output,bbox_inches='tight')
+    plt.close(fig)
 
 
 if __name__=='__main__':

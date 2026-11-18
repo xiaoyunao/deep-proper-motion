@@ -68,3 +68,18 @@ class ErrorTrialTest(unittest.TestCase):
         a = held_prediction_variance(model,t,sigma,[common]*4,common,observed_sigma,2016.)
         b = held_prediction_variance(model,t,sigma,[empty]*4,empty,observed_sigma,2016.)
         np.testing.assert_allclose(a,b)
+
+    def test_many_pairs_of_one_galaxy_do_not_meet_independent_training_support(self):
+        reference=next(str(i) for i in range(100) if split_reference(str(i),9137))
+        ids=[str(i) for i in range(120)]
+        refs=pd.DataFrame(dict(reference=reference,detection_id=ids,is_holdout=True))
+        data=pd.DataFrame(dict(detection_id=ids,survey='NSC',instrument='c4d',band='r',
+                               sigma_east_mas=40.,sigma_north_mas=40.))
+        t=np.arange(120)/365.25+2000
+        sigma=np.hypot(np.full((120,2),40.),50.)
+        revised,models,_=learn_errors(refs,data,np.zeros((120,2)),t,sigma,np.array(ids),9137,50)
+        model=models['NSC:c4d:r']
+        self.assertGreaterEqual(model['pair_count'],50)
+        self.assertEqual(model['reference_count'],1)
+        self.assertFalse(model['enabled_for_trial_only'])
+        np.testing.assert_allclose(revised,sigma)

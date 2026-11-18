@@ -2,6 +2,8 @@
 import argparse
 import json
 import os
+import sys
+from importlib import metadata
 from collections import defaultdict
 from pathlib import Path
 
@@ -62,7 +64,11 @@ def prepare(work,selection,protocol,previous=None):
         if not link.exists():link.symlink_to(target.resolve())
         if link.resolve()!=target.resolve():raise ValueError('Legacy cache target changed')
     (work/'tasks.tsv').write_text(''.join(f'{name}\t{box}\n' for name,box in plan))
-    save_json(work/'batch_preparation_summary.json',dict(selection_sha256=digest(selection),
+    versions={}
+    for name in ("numpy","scipy","pandas","astropy","matplotlib","scikit-learn","requests","healpy","tomli"):
+        try:versions[name]=metadata.version(name)
+        except metadata.PackageNotFoundError:versions[name]=None
+    save_json(work/'batch_preparation_summary.json',dict(runtime_versions=dict(python=sys.version.split()[0],packages=versions),selection_sha256=digest(selection),
         selected_parent_count=len(selected),acquisition_core_count=len(plan),configs=configs,
         final_test_box=config.get("final_test_box"),
         selection_uses_new_motion=False,area_sqdeg=sum(row['area_sqdeg'] for row in selected)))

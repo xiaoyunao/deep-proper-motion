@@ -1,0 +1,7 @@
+{
+  "source_count": 7789,
+  "all_catalogue_columns_exactly_equal": true,
+  "old_summary_sha256": "2a185695a7898a6c7d1ef7863a59c5f49f1300bc4ad24c9962a3758de11fa5ab",
+  "new_summary_sha256": "72a4b840d639a49730863416b33e2eecb612b96734f1f6403ee9281b21b00797",
+  "slurm_job": "61518489"
+}

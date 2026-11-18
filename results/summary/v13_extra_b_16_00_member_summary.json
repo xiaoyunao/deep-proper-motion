@@ -1,0 +1,613 @@
+{
+  "source_summary_sha256": "41111233e6b6fd805d3fb3ab8205884911c3d818140a31c889e85f967bc9e0b4",
+  "held_year": 2017,
+  "unique_spectral_sources": 117,
+  "ambiguous_validation_measurements": 0,
+  "member_counts": {
+    "total_members": 1106,
+    "wrong_known_members": 0,
+    "unknown_members": 0,
+    "bad_quality_members": 0
+  },
+  "floating_large_sdss_flag_count": 0,
+  "member_quality_by_survey_band": {
+    "SDSS:r": {
+      "total": 148,
+      "bad_quality": 0
+    },
+    "NSC:r": {
+      "total": 130,
+      "bad_quality": 0
+    },
+    "NSC:z": {
+      "total": 585,
+      "bad_quality": 0
+    },
+    "NSC:g": {
+      "total": 115,
+      "bad_quality": 0
+    },
+    "NSC:i": {
+      "total": 128,
+      "bad_quality": 0
+    }
+  },
+  "cohorts": {
+    "20_to_21": {
+      "count": 30,
+      "member_status_counts": {
+        "all_members_known_consistent": 30
+      },
+      "with_bad_quality_flags": {
+        "n": 0,
+        "denominator": 30,
+        "value": 0.0,
+        "wilson95": [
+          0.0,
+          0.11351339317396876
+        ]
+      },
+      "spectral_zero": {
+        "all": {
+          "n": 30,
+          "methods": {
+            "multi": {
+              "n": 30,
+              "median": [
+                -1.1006866985383832,
+                0.27832532890774586
+              ],
+              "nmad": [
+                2.0624694224745928,
+                1.8335148360654752
+              ],
+              "abs68": [
+                2.5115233761643605,
+                2.4364061977034144
+              ],
+              "abs_median": [
+                1.8649408710763384,
+                1.4821700518924739
+              ],
+              "fraction_abs_gt_tail": [
+                0.1,
+                0.16666666666666666
+              ],
+              "standardized_nmad": [
+                0.9679994263930943,
+                0.6772641667283775
+              ],
+              "fraction_within_1sigma": [
+                0.6,
+                0.7333333333333333
+              ],
+              "fraction_within_2sigma": [
+                0.8666666666666667,
+                0.9333333333333333
+              ],
+              "radial_abs68": 4.714443767591083,
+              "radial_median": 2.6206667212451284,
+              "radial_tail_count": 10,
+              "axis_tail_count": [
+                3,
+                5
+              ],
+              "median_bias95": [
+                [
+                  -1.955379726712545,
+                  -0.22613396507205769
+                ],
+                [
+                  -0.40002314424167684,
+                  0.8045689187231774
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        },
+        "all_members_known_consistent": {
+          "n": 30,
+          "methods": {
+            "multi": {
+              "n": 30,
+              "median": [
+                -1.1006866985383832,
+                0.27832532890774586
+              ],
+              "nmad": [
+                2.0624694224745928,
+                1.8335148360654752
+              ],
+              "abs68": [
+                2.5115233761643605,
+                2.4364061977034144
+              ],
+              "abs_median": [
+                1.8649408710763384,
+                1.4821700518924739
+              ],
+              "fraction_abs_gt_tail": [
+                0.1,
+                0.16666666666666666
+              ],
+              "standardized_nmad": [
+                0.9679994263930943,
+                0.6772641667283775
+              ],
+              "fraction_within_1sigma": [
+                0.6,
+                0.7333333333333333
+              ],
+              "fraction_within_2sigma": [
+                0.8666666666666667,
+                0.9333333333333333
+              ],
+              "radial_abs68": 4.714443767591083,
+              "radial_median": 2.6206667212451284,
+              "radial_tail_count": 10,
+              "axis_tail_count": [
+                3,
+                5
+              ],
+              "median_bias95": [
+                [
+                  -1.955379726712545,
+                  -0.22613396507205769
+                ],
+                [
+                  -0.40002314424167684,
+                  0.8045689187231774
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        },
+        "consistent_and_no_bad_flags": {
+          "n": 30,
+          "methods": {
+            "multi": {
+              "n": 30,
+              "median": [
+                -1.1006866985383832,
+                0.27832532890774586
+              ],
+              "nmad": [
+                2.0624694224745928,
+                1.8335148360654752
+              ],
+              "abs68": [
+                2.5115233761643605,
+                2.4364061977034144
+              ],
+              "abs_median": [
+                1.8649408710763384,
+                1.4821700518924739
+              ],
+              "fraction_abs_gt_tail": [
+                0.1,
+                0.16666666666666666
+              ],
+              "standardized_nmad": [
+                0.9679994263930943,
+                0.6772641667283775
+              ],
+              "fraction_within_1sigma": [
+                0.6,
+                0.7333333333333333
+              ],
+              "fraction_within_2sigma": [
+                0.8666666666666667,
+                0.9333333333333333
+              ],
+              "radial_abs68": 4.714443767591083,
+              "radial_median": 2.6206667212451284,
+              "radial_tail_count": 10,
+              "axis_tail_count": [
+                3,
+                5
+              ],
+              "median_bias95": [
+                [
+                  -1.955379726712545,
+                  -0.22613396507205769
+                ],
+                [
+                  -0.40002314424167684,
+                  0.8045689187231774
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        }
+      }
+    },
+    "21_to_22": {
+      "count": 50,
+      "member_status_counts": {
+        "all_members_known_consistent": 50
+      },
+      "with_bad_quality_flags": {
+        "n": 0,
+        "denominator": 50,
+        "value": 0.0,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ]
+      },
+      "spectral_zero": {
+        "all": {
+          "n": 50,
+          "methods": {
+            "multi": {
+              "n": 50,
+              "median": [
+                -1.417061102071294,
+                -0.7364154758557424
+              ],
+              "nmad": [
+                3.3344878926441313,
+                2.193809959499874
+              ],
+              "abs68": [
+                3.744664677625966,
+                2.996254269066574
+              ],
+              "abs_median": [
+                2.648888110937624,
+                1.807405563725942
+              ],
+              "fraction_abs_gt_tail": [
+                0.2,
+                0.04
+              ],
+              "standardized_nmad": [
+                0.8491643661162317,
+                0.5979920940218794
+              ],
+              "fraction_within_1sigma": [
+                0.7,
+                0.78
+              ],
+              "fraction_within_2sigma": [
+                1.0,
+                1.0
+              ],
+              "radial_abs68": 5.098011387948625,
+              "radial_median": 4.058996287983227,
+              "radial_tail_count": 17,
+              "axis_tail_count": [
+                10,
+                2
+              ],
+              "median_bias95": [
+                [
+                  -1.9855302247667583,
+                  0.1751449615742711
+                ],
+                [
+                  -1.5078994208119685,
+                  0.2464073254858857
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        },
+        "all_members_known_consistent": {
+          "n": 50,
+          "methods": {
+            "multi": {
+              "n": 50,
+              "median": [
+                -1.417061102071294,
+                -0.7364154758557424
+              ],
+              "nmad": [
+                3.3344878926441313,
+                2.193809959499874
+              ],
+              "abs68": [
+                3.744664677625966,
+                2.996254269066574
+              ],
+              "abs_median": [
+                2.648888110937624,
+                1.807405563725942
+              ],
+              "fraction_abs_gt_tail": [
+                0.2,
+                0.04
+              ],
+              "standardized_nmad": [
+                0.8491643661162317,
+                0.5979920940218794
+              ],
+              "fraction_within_1sigma": [
+                0.7,
+                0.78
+              ],
+              "fraction_within_2sigma": [
+                1.0,
+                1.0
+              ],
+              "radial_abs68": 5.098011387948625,
+              "radial_median": 4.058996287983227,
+              "radial_tail_count": 17,
+              "axis_tail_count": [
+                10,
+                2
+              ],
+              "median_bias95": [
+                [
+                  -1.9855302247667583,
+                  0.1751449615742711
+                ],
+                [
+                  -1.5078994208119685,
+                  0.2464073254858857
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        },
+        "consistent_and_no_bad_flags": {
+          "n": 50,
+          "methods": {
+            "multi": {
+              "n": 50,
+              "median": [
+                -1.417061102071294,
+                -0.7364154758557424
+              ],
+              "nmad": [
+                3.3344878926441313,
+                2.193809959499874
+              ],
+              "abs68": [
+                3.744664677625966,
+                2.996254269066574
+              ],
+              "abs_median": [
+                2.648888110937624,
+                1.807405563725942
+              ],
+              "fraction_abs_gt_tail": [
+                0.2,
+                0.04
+              ],
+              "standardized_nmad": [
+                0.8491643661162317,
+                0.5979920940218794
+              ],
+              "fraction_within_1sigma": [
+                0.7,
+                0.78
+              ],
+              "fraction_within_2sigma": [
+                1.0,
+                1.0
+              ],
+              "radial_abs68": 5.098011387948625,
+              "radial_median": 4.058996287983227,
+              "radial_tail_count": 17,
+              "axis_tail_count": [
+                10,
+                2
+              ],
+              "median_bias95": [
+                [
+                  -1.9855302247667583,
+                  0.1751449615742711
+                ],
+                [
+                  -1.5078994208119685,
+                  0.2464073254858857
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        }
+      }
+    },
+    "22_to_23": {
+      "count": 18,
+      "member_status_counts": {
+        "all_members_known_consistent": 18
+      },
+      "with_bad_quality_flags": {
+        "n": 0,
+        "denominator": 18,
+        "value": 0.0,
+        "wilson95": [
+          0.0,
+          0.17587922364665765
+        ]
+      },
+      "spectral_zero": {
+        "all": {
+          "n": 18,
+          "methods": {
+            "multi": {
+              "n": 18,
+              "median": [
+                -3.6117661890883133,
+                1.0157276399975412
+              ],
+              "nmad": [
+                5.158154723533048,
+                5.527993995815709
+              ],
+              "abs68": [
+                7.998314963434475,
+                5.218720694209573
+              ],
+              "abs_median": [
+                5.372400208247489,
+                4.036044325098558
+              ],
+              "fraction_abs_gt_tail": [
+                0.5555555555555556,
+                0.3333333333333333
+              ],
+              "standardized_nmad": [
+                0.737782898156936,
+                1.0553816361931687
+              ],
+              "fraction_within_1sigma": [
+                0.5555555555555556,
+                0.7222222222222222
+              ],
+              "fraction_within_2sigma": [
+                0.9444444444444444,
+                1.0
+              ],
+              "radial_abs68": 10.32093288052403,
+              "radial_median": 9.969130767808965,
+              "radial_tail_count": 14,
+              "axis_tail_count": [
+                10,
+                6
+              ],
+              "median_bias95": [
+                [
+                  -6.2769520665907645,
+                  -0.6471510191761654
+                ],
+                [
+                  -2.3309222140111148,
+                  4.18843185171516
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        },
+        "all_members_known_consistent": {
+          "n": 18,
+          "methods": {
+            "multi": {
+              "n": 18,
+              "median": [
+                -3.6117661890883133,
+                1.0157276399975412
+              ],
+              "nmad": [
+                5.158154723533048,
+                5.527993995815709
+              ],
+              "abs68": [
+                7.998314963434475,
+                5.218720694209573
+              ],
+              "abs_median": [
+                5.372400208247489,
+                4.036044325098558
+              ],
+              "fraction_abs_gt_tail": [
+                0.5555555555555556,
+                0.3333333333333333
+              ],
+              "standardized_nmad": [
+                0.737782898156936,
+                1.0553816361931687
+              ],
+              "fraction_within_1sigma": [
+                0.5555555555555556,
+                0.7222222222222222
+              ],
+              "fraction_within_2sigma": [
+                0.9444444444444444,
+                1.0
+              ],
+              "radial_abs68": 10.32093288052403,
+              "radial_median": 9.969130767808965,
+              "radial_tail_count": 14,
+              "axis_tail_count": [
+                10,
+                6
+              ],
+              "median_bias95": [
+                [
+                  -6.2769520665907645,
+                  -0.6471510191761654
+                ],
+                [
+                  -2.3309222140111148,
+                  4.18843185171516
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        },
+        "consistent_and_no_bad_flags": {
+          "n": 18,
+          "methods": {
+            "multi": {
+              "n": 18,
+              "median": [
+                -3.6117661890883133,
+                1.0157276399975412
+              ],
+              "nmad": [
+                5.158154723533048,
+                5.527993995815709
+              ],
+              "abs68": [
+                7.998314963434475,
+                5.218720694209573
+              ],
+              "abs_median": [
+                5.372400208247489,
+                4.036044325098558
+              ],
+              "fraction_abs_gt_tail": [
+                0.5555555555555556,
+                0.3333333333333333
+              ],
+              "standardized_nmad": [
+                0.737782898156936,
+                1.0553816361931687
+              ],
+              "fraction_within_1sigma": [
+                0.5555555555555556,
+                0.7222222222222222
+              ],
+              "fraction_within_2sigma": [
+                0.9444444444444444,
+                1.0
+              ],
+              "radial_abs68": 10.32093288052403,
+              "radial_median": 9.969130767808965,
+              "radial_tail_count": 14,
+              "axis_tail_count": [
+                10,
+                6
+              ],
+              "median_bias95": [
+                [
+                  -6.2769520665907645,
+                  -0.6471510191761654
+                ],
+                [
+                  -2.3309222140111148,
+                  4.18843185171516
+                ]
+              ]
+            }
+          },
+          "paired": {}
+        }
+      }
+    }
+  },
+  "scope": "Post-fit member labels use only spectral positions and training detections. No fit or association rerun. Unknown labels are not assumed correct; clean subcohorts are audits, not a newly adopted selection.",
+  "flags_scope": "Descriptive legacy quality_flags mask; unverified floating flags above 2^53 count as not clean (NSC saturation/truncation/etc; SDSS EDGE/SATURATED and children); original C0 and trial fits did not apply this veto.",
+  "slurm_job": "61518489"
+}

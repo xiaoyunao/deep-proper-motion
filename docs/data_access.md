@@ -26,3 +26,5 @@
 NSC 曝光元数据按实际测量中的 exposure ID 查询并核验。SDSS 的独立零运动对照从 `SpecObj` 按光谱分类和红移质量获取。出版 FITS 的首部用 HTTP 206 严格检查返回字节段及长度。原始光谱候选、单曝光行、范围缓存、DESI 切片和逐源结果均只留在 NERSC。
 
 `deep_pm.legacy_subset` 支持在计算节点按 HEALPix RING 试取小区或使用经首部检查的完整 FITS 副本。范围路径验证局部排序、区间两端与返回记录，每个下载块独立缓存；任一所需像素未成功即不写出切片。此路径依赖发布表实际按 RING 排序，目前仅有抽样证据。若已有完整副本，在 Slurm 中运行 `python -m deep_pm.legacy_subset "$DEEP_PM_WORK" --local-fits "$XIAO2025_FITS" --region test_equator`，工作目录需有 `legacy_header_summary.json`。 [ScienceDB V3](https://doi.org/10.57760/sciencedb.07990)
+
+本轮按用户明确的主workspace使用PScratch，原始／标准化／逐源数据不搬入Home。GitHub与本地只留代码、文档和汇总图，旧冻结小归档保持原样。较大结果的长期归档另行核实HPSS初始化及配额，不作为科研运行前置，也不以触碰文件规避Scratch清理；HPSS传输应使用官方xfer队列，htar不在CPU计算节点运行。[HPSS归档](https://docs.nersc.gov/filesystems/archive/) · [htar限制与校验](https://docs.nersc.gov/filesystems/htar/) · [xfer入口](https://docs.nersc.gov/jobs/examples/#xfer-qos)

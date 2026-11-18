@@ -1,0 +1,118 @@
+{
+  "source_summary_sha256": "655b098a42d8f0fc5fcc5f8ac1fc26f760172a34069655164f0baf87cdc16746",
+  "held_year": 2016,
+  "unique_spectral_sources": 3,
+  "ambiguous_validation_measurements": 0,
+  "member_counts": {
+    "total_members": 97,
+    "wrong_known_members": 0,
+    "unknown_members": 0,
+    "bad_quality_members": 0
+  },
+  "floating_large_sdss_flag_count": 0,
+  "member_quality_by_survey_band": {
+    "SDSS:r": {
+      "total": 3,
+      "bad_quality": 0
+    },
+    "NSC:r": {
+      "total": 28,
+      "bad_quality": 0
+    },
+    "NSC:g": {
+      "total": 38,
+      "bad_quality": 0
+    },
+    "NSC:i": {
+      "total": 25,
+      "bad_quality": 0
+    },
+    "NSC:z": {
+      "total": 3,
+      "bad_quality": 0
+    }
+  },
+  "cohorts": {
+    "20_to_21": {
+      "count": 1,
+      "member_status_counts": {
+        "all_members_known_consistent": 1
+      },
+      "with_bad_quality_flags": {
+        "n": 0,
+        "denominator": 1,
+        "value": 0.0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "spectral_zero": {
+        "all": {
+          "n": 1
+        },
+        "all_members_known_consistent": {
+          "n": 1
+        },
+        "consistent_and_no_bad_flags": {
+          "n": 1
+        }
+      }
+    },
+    "21_to_22": {
+      "count": 1,
+      "member_status_counts": {
+        "all_members_known_consistent": 1
+      },
+      "with_bad_quality_flags": {
+        "n": 0,
+        "denominator": 1,
+        "value": 0.0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "spectral_zero": {
+        "all": {
+          "n": 1
+        },
+        "all_members_known_consistent": {
+          "n": 1
+        },
+        "consistent_and_no_bad_flags": {
+          "n": 1
+        }
+      }
+    },
+    "22_to_23": {
+      "count": 1,
+      "member_status_counts": {
+        "all_members_known_consistent": 1
+      },
+      "with_bad_quality_flags": {
+        "n": 0,
+        "denominator": 1,
+        "value": 0.0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "spectral_zero": {
+        "all": {
+          "n": 1
+        },
+        "all_members_known_consistent": {
+          "n": 1
+        },
+        "consistent_and_no_bad_flags": {
+          "n": 1
+        }
+      }
+    }
+  },
+  "scope": "Post-fit member labels use only spectral positions and training detections. No fit or association rerun. Unknown labels are not assumed correct; clean subcohorts are audits, not a newly adopted selection.",
+  "flags_scope": "Descriptive legacy quality_flags mask; unverified floating flags above 2^53 count as not clean (NSC saturation/truncation/etc; SDSS EDGE/SATURATED and children); original C0 and trial fits did not apply this veto.",
+  "slurm_job": "61518489"
+}

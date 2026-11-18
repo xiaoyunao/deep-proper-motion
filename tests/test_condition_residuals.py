@@ -33,3 +33,11 @@ class ErrorCoverageDiagnosticTest(unittest.TestCase):
     def test_sparse_split_does_not_claim_calibrated_errors(self):
         from deep_pm.condition_spatial_pool import error_calibration
         self.assertEqual(error_calibration([])['status'],'insufficient_support')
+
+
+class SparseCellTest(unittest.TestCase):
+    def test_sparse_cell_reports_support_without_a_motion_estimate(self):
+        from deep_pm.condition_spatial_pool import describe
+        value=describe([dict(motion=[1.,2.],core="a",qso_index=0)])
+        self.assertEqual(value["spatial_zero"],dict(n=1))
+        check_aggregate(value)

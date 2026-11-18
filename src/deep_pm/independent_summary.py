@@ -122,6 +122,10 @@ def run(state,protocol,output):
     public['standard_icrs_comparison']['pooled']=comparison_cohorts([r for rows in records.values() for r in rows])
     public['blind_w0_comparison']={box:blind_cohorts(rows) for box,rows in records.items()}
     public['blind_w0_comparison']['pooled']=blind_cohorts([r for rows in records.values() for r in rows])
+    if (state/'batch_preparation_summary.json').exists():
+        preparation=json.loads((state/'batch_preparation_summary.json').read_text())
+        public['registered_cumulative_area_sqdeg']=preparation['area_sqdeg']
+        public['runtime_versions']=preparation.get('runtime_versions',dict(status='not_recorded_in_historical_preparation'))
     public.update(final_test_box=sealed,sealed_core_count=sum(box==sealed for _,box in tasks),
         test_results_read=False,protocol_sha256=digest(protocol),
         vector_conversion='Tangent velocity multiplied by inverse-gnomonic Jacobian; old private published inverse-conversion values ignored.',

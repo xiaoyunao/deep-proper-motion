@@ -45,7 +45,7 @@ def error_calibration(rows):
 
 def describe(rows):
     control=[dict(r,motion={'C0':r['motion']}) for r in rows]
-    result=dict(spatial_zero=spatial_mean(rows),physical_group_sensitivity=estimate(control,('C0',),9137),
+    result=dict(spatial_zero=spatial_mean(rows) if len(rows)>=5 else dict(n=len(rows)),physical_group_sensitivity=estimate(control,('C0',),9137),
                 source_error_calibration=error_calibration(rows),axis_zero_target_masyr=.5)
     # Deliberately do not infer certification from a linearized bootstrap alone.
     result['spatial_certification']='not_certified_pending_independent_group_and_spatial_systematic_tests'
@@ -101,7 +101,7 @@ def pool(frozen,conditions,spatial,output):
         for key,cuts in [('fwhm',(1.,1.5)),('airmass',(1.3,1.6))]:
             if row[key] is not None:labels.append(key+('_low' if row[key]<cuts[0] else '_mid' if row[key]<cuts[1] else '_high'))
         tagged.extend(dict(row,diagnostic_group=label) for label in labels)
-    public=dict(completed_cores=len(receipts),qso_count=len(motions),position_count=len(positions),receipts=receipts,
+    public=dict(spatial_zero_minimum_qso_count=5,completed_cores=len(receipts),qso_count=len(motions),position_count=len(positions),receipts=receipts,
         cohorts={key:describe(rows) for key,rows in groups.items()},spatial_nside16=sky,
         position_residual_strata=aggregate_positions(pd.DataFrame(tagged)),
         fixed_reference_leave_group_out=deletes(removed),

@@ -4552,50 +4552,7 @@
   "spatial_nside16": {
     "1374": {
       "spatial_zero": {
-        "n": 1,
-        "weighted_mean_masyr": [
-          -1.7972871316990326,
-          3.4154289464947665
-        ],
-        "independent_mean_covariance": [
-          [
-            43.30584817625865,
-            0.08678422199683833
-          ],
-          [
-            0.08678422199683831,
-            43.25098982320631
-          ]
-        ],
-        "reference_mean_covariance": [
-          [
-            0.03111242295631059,
-            0.0056863014924657986
-          ],
-          [
-            0.0056863014924657986,
-            0.04414832169983649
-          ]
-        ],
-        "model_mean95_masyr": [
-          [
-            -14.700126657863194,
-            11.105552394465128
-          ],
-          [
-            -9.481183116270845,
-            16.312041009260376
-          ]
-        ],
-        "median_masyr": [
-          -1.7972871316990326,
-          3.4154289464947665
-        ],
-        "nmad_masyr": [
-          0.0,
-          0.0
-        ],
-        "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+        "n": 1
       },
       "physical_group_sensitivity": {
         "n": 1
@@ -4606,7 +4563,39 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 0
+          },
+          "physical_group_sensitivity": {
+            "n": 0
+          },
+          "source_error_calibration": {
+            "training_count": 0,
+            "test_count": 0,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 0
+          },
+          "physical_group_sensitivity": {
+            "n": 0
+          },
+          "source_error_calibration": {
+            "training_count": 0,
+            "test_count": 0,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1375": {
       "spatial_zero": {
@@ -4732,7 +4721,39 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 4
+          },
+          "physical_group_sensitivity": {
+            "n": 4
+          },
+          "source_error_calibration": {
+            "training_count": 3,
+            "test_count": 1,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 1
+          },
+          "physical_group_sensitivity": {
+            "n": 1
+          },
+          "source_error_calibration": {
+            "training_count": 0,
+            "test_count": 1,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1437": {
       "spatial_zero": {
@@ -4902,7 +4923,305 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 143,
+            "weighted_mean_masyr": [
+              0.9378886151926062,
+              1.6436643112685905
+            ],
+            "independent_mean_covariance": [
+              [
+                0.514552131991091,
+                0.0019713166945295895
+              ],
+              [
+                0.001971316694529589,
+                0.5131577488268052
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.002474281307399147,
+                0.0003991429775595025
+              ],
+              [
+                0.0003991429775595025,
+                0.0022049623986822348
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.4714405405859434,
+                2.347217770971156
+              ],
+              [
+                0.23660447194268874,
+                3.050724150594492
+              ]
+            ],
+            "median_masyr": [
+              0.9237242753925046,
+              2.2620629875676683
+            ],
+            "nmad_masyr": [
+              6.378404340271877,
+              7.714282877731833
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 143,
+            "methods": {
+              "C0": {
+                "median": [
+                  0.9237242753925046,
+                  2.2620629875676683
+                ],
+                "nmad": [
+                  6.378404340271877,
+                  7.714282877731833
+                ],
+                "radial_p68": 12.146604691455739,
+                "tail_gt_5": 108,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 5,
+                    "n": 143,
+                    "equal_weight_visit_information": 3.7201418998817495,
+                    "weighted_zero95": [
+                      [
+                        -0.8340775054995448,
+                        1.4890132566171779
+                      ],
+                      [
+                        0.13389319452617748,
+                        4.129128770984011
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 23,
+                    "n": 143,
+                    "equal_weight_visit_information": 10.642968425968558,
+                    "weighted_zero95": [
+                      [
+                        -0.23526706929828506,
+                        1.4890132566171779
+                      ],
+                      [
+                        0.13389319452617748,
+                        3.7822992508576414
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 12,
+                    "n": 143,
+                    "equal_weight_visit_information": 6.619031049467137,
+                    "weighted_zero95": [
+                      [
+                        0.043753582154787043,
+                        1.469299659255457
+                      ],
+                      [
+                        0.13292168836578405,
+                        3.7420148208852315
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              143
+            ],
+            "shared_night_sizes": [
+              143
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 71,
+            "test_count": 72,
+            "scale": [
+              0.7670025897130954,
+              0.7372153530823229
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 57,
+                "denominator": 72,
+                "value": 0.7916666666666666,
+                "wilson95": [
+                  0.6843073658064066,
+                  0.869479450178993
+                ]
+              },
+              {
+                "n": 47,
+                "denominator": 72,
+                "value": 0.6527777777777778,
+                "wilson95": [
+                  0.5376130384560558,
+                  0.7524657699172488
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 48,
+                "denominator": 72,
+                "value": 0.6666666666666666,
+                "wilson95": [
+                  0.5517960435660519,
+                  0.764653565568462
+                ]
+              },
+              {
+                "n": 36,
+                "denominator": 72,
+                "value": 0.5,
+                "wilson95": [
+                  0.3874709230948976,
+                  0.6125290769051024
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 30,
+            "weighted_mean_masyr": [
+              2.7191704377720307,
+              2.3454296128845566
+            ],
+            "independent_mean_covariance": [
+              [
+                4.507872256950016,
+                0.01574231794735205
+              ],
+              [
+                0.015742317947352046,
+                4.328059651726494
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0027694563271085616,
+                0.0006833819503873222
+              ],
+              [
+                0.0006833819503873222,
+                0.0033396068397056216
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -1.4435307532486985,
+                6.88187162879276
+              ],
+              [
+                -1.7337251269736793,
+                6.424584352742793
+              ]
+            ],
+            "median_masyr": [
+              1.5892131802760787,
+              3.42147060692286
+            ],
+            "nmad_masyr": [
+              9.152837894538573,
+              10.648675403219043
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 30,
+            "methods": {
+              "C0": {
+                "median": [
+                  1.5892131802760787,
+                  3.42147060692286
+                ],
+                "nmad": [
+                  9.152837894538573,
+                  10.648675403219043
+                ],
+                "radial_p68": 18.482085359420257,
+                "tail_gt_5": 26,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 5,
+                    "n": 30,
+                    "equal_weight_visit_information": 1.842374616171955,
+                    "weighted_zero95": [
+                      [
+                        -2.401960509808693,
+                        19.079945584004154
+                      ],
+                      [
+                        -2.7960229594323085,
+                        5.6415276252382425
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 16,
+                    "n": 30,
+                    "equal_weight_visit_information": 7.707495777529321,
+                    "weighted_zero95": [
+                      [
+                        -1.1225426050026428,
+                        3.3332892610342095
+                      ],
+                      [
+                        -0.6487892968903487,
+                        5.6415276252382425
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 10,
+                    "n": 30,
+                    "equal_weight_visit_information": 5.221679640284292,
+                    "weighted_zero95": [
+                      [
+                        -1.1225426050026428,
+                        3.3332892610342095
+                      ],
+                      [
+                        -0.6487892968903487,
+                        5.6415276252382425
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              30
+            ],
+            "shared_night_sizes": [
+              30
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 16,
+            "test_count": 14,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1438": {
       "spatial_zero": {
@@ -5072,7 +5391,349 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 314,
+            "weighted_mean_masyr": [
+              1.0834228059173707,
+              1.126899877223376
+            ],
+            "independent_mean_covariance": [
+              [
+                0.24410359087019654,
+                -0.0005050579551727692
+              ],
+              [
+                -0.0005050579551727692,
+                0.24039695204940004
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0016445873060214292,
+                0.00018915646698596967
+              ],
+              [
+                0.00018915646698596967,
+                0.002565143206073593
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                0.111792114099868,
+                2.0550534977348733
+              ],
+              [
+                0.1607926444932678,
+                2.093007109953484
+              ]
+            ],
+            "median_masyr": [
+              1.0767858016790386,
+              0.7911358573139597
+            ],
+            "nmad_masyr": [
+              7.741213554500398,
+              9.071710251010861
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 314,
+            "methods": {
+              "C0": {
+                "median": [
+                  1.0767858016790386,
+                  0.7911358573139597
+                ],
+                "nmad": [
+                  7.741213554500398,
+                  9.071710251010861
+                ],
+                "radial_p68": 12.737461550130005,
+                "tail_gt_5": 264,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 5,
+                    "n": 314,
+                    "equal_weight_visit_information": 4.4733674117540305,
+                    "weighted_zero95": [
+                      [
+                        0.376380056494224,
+                        1.483892676201595
+                      ],
+                      [
+                        -0.13850909440029027,
+                        1.6588320139904325
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 33,
+                    "n": 314,
+                    "equal_weight_visit_information": 11.769997438721314,
+                    "weighted_zero95": [
+                      [
+                        0.4962687201840289,
+                        1.4765126531162103
+                      ],
+                      [
+                        0.007084393509028932,
+                        1.7849511961087556
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 19,
+                    "n": 314,
+                    "equal_weight_visit_information": 7.2110994000258355,
+                    "weighted_zero95": [
+                      [
+                        0.3611904643433019,
+                        1.4765126531162103
+                      ],
+                      [
+                        0.16694951941234995,
+                        1.8511972458026438
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              314
+            ],
+            "shared_night_sizes": [
+              314
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 160,
+            "test_count": 154,
+            "scale": [
+              0.8096749323710802,
+              0.9443139666141082
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 115,
+                "denominator": 154,
+                "value": 0.7467532467532467,
+                "wilson95": [
+                  0.672640717039935,
+                  0.8088550862035907
+                ]
+              },
+              {
+                "n": 114,
+                "denominator": 154,
+                "value": 0.7402597402597403,
+                "wilson95": [
+                  0.6657561799445755,
+                  0.8030686811083312
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 99,
+                "denominator": 154,
+                "value": 0.6428571428571429,
+                "wilson95": [
+                  0.5645487655499185,
+                  0.7142119626437017
+                ]
+              },
+              {
+                "n": 108,
+                "denominator": 154,
+                "value": 0.7012987012987013,
+                "wilson95": [
+                  0.624830182743683,
+                  0.767969025165509
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 129,
+            "weighted_mean_masyr": [
+              1.0832562271414368,
+              2.582783242086137
+            ],
+            "independent_mean_covariance": [
+              [
+                1.1030945245412294,
+                -0.002365726626089858
+              ],
+              [
+                -0.002365726626089858,
+                1.0294038683497195
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.002177899445897733,
+                0.0002614143262232082
+              ],
+              [
+                0.0002614143262232082,
+                0.0031296397451738554
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.9773297438845105,
+                3.143842198167384
+              ],
+              [
+                0.5911555849430299,
+                4.574410899229244
+              ]
+            ],
+            "median_masyr": [
+              0.8134712077921057,
+              2.8260192200016934
+            ],
+            "nmad_masyr": [
+              10.674416439970546,
+              11.783054413373558
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 129,
+            "methods": {
+              "C0": {
+                "median": [
+                  0.8134712077921057,
+                  2.8260192200016934
+                ],
+                "nmad": [
+                  10.674416439970546,
+                  11.783054413373558
+                ],
+                "radial_p68": 16.100078045739803,
+                "tail_gt_5": 120,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 5,
+                    "n": 129,
+                    "equal_weight_visit_information": 4.339055234453088,
+                    "weighted_zero95": [
+                      [
+                        -2.662597053832079,
+                        4.590669993811309
+                      ],
+                      [
+                        1.7043349014201452,
+                        5.020492714424228
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 31,
+                    "n": 129,
+                    "equal_weight_visit_information": 11.01115128211255,
+                    "weighted_zero95": [
+                      [
+                        -2.4999569778573494,
+                        2.2383331190472453
+                      ],
+                      [
+                        1.7043349014201452,
+                        5.454437965449729
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 17,
+                    "n": 129,
+                    "equal_weight_visit_information": 6.1845338134427905,
+                    "weighted_zero95": [
+                      [
+                        -1.9900936327903906,
+                        2.5908210925324604
+                      ],
+                      [
+                        1.7043349014201452,
+                        5.725422818848246
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              129
+            ],
+            "shared_night_sizes": [
+              129
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 60,
+            "test_count": 69,
+            "scale": [
+              0.7908557849053812,
+              1.0060038750579456
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 52,
+                "denominator": 69,
+                "value": 0.7536231884057971,
+                "wilson95": [
+                  0.6403933718423956,
+                  0.8401022218298245
+                ]
+              },
+              {
+                "n": 51,
+                "denominator": 69,
+                "value": 0.7391304347826086,
+                "wilson95": [
+                  0.6248942554937958,
+                  0.8281444471114402
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 44,
+                "denominator": 69,
+                "value": 0.6376811594202898,
+                "wilson95": [
+                  0.5197977087380359,
+                  0.7410427563983122
+                ]
+              },
+              {
+                "n": 51,
+                "denominator": 69,
+                "value": 0.7391304347826086,
+                "wilson95": [
+                  0.6248942554937958,
+                  0.8281444471114402
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1439": {
       "spatial_zero": {
@@ -5198,7 +5859,261 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 13,
+            "weighted_mean_masyr": [
+              -0.3183651121312948,
+              -1.3679527929298754
+            ],
+            "independent_mean_covariance": [
+              [
+                7.681925753690361,
+                -0.05375709520156999
+              ],
+              [
+                -0.053757095201569995,
+                7.716385571558692
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.014567010211041774,
+                -0.0010594286089532698
+              ],
+              [
+                -0.0010594286089532698,
+                0.013888268892006523
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -5.7559056041004,
+                5.119175379837811
+              ],
+              [
+                -6.817413315355504,
+                4.081507729495753
+              ]
+            ],
+            "median_masyr": [
+              -3.001665740927399,
+              -0.18072741902522294
+            ],
+            "nmad_masyr": [
+              9.15066999376786,
+              2.481288660593588
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 13,
+            "methods": {
+              "C0": {
+                "median": [
+                  -3.001665740927399,
+                  -0.18072741902522294
+                ],
+                "nmad": [
+                  9.15066999376786,
+                  2.481288660593588
+                ],
+                "radial_p68": 10.910518034378315,
+                "tail_gt_5": 8,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 3,
+                    "n": 13,
+                    "equal_weight_visit_information": 1.7915194346289756,
+                    "weighted_zero95": [
+                      [
+                        -6.242136955801298,
+                        4.365511871983514
+                      ],
+                      [
+                        -1.6773063660232534,
+                        0.552523920807378
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 5,
+                    "n": 13,
+                    "equal_weight_visit_information": 4.452901998097049,
+                    "weighted_zero95": [
+                      [
+                        -4.268870501348921,
+                        -2.206937340795072
+                      ],
+                      [
+                        -0.5854729145730606,
+                        -0.018846398986389647
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 5,
+                    "n": 13,
+                    "equal_weight_visit_information": 4.45290199809705,
+                    "weighted_zero95": [
+                      [
+                        -4.268870501348921,
+                        -2.206937340795072
+                      ],
+                      [
+                        -0.5854729145730606,
+                        -0.018846398986389647
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              13
+            ],
+            "shared_night_sizes": [
+              13
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 5,
+            "test_count": 8,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 6,
+            "weighted_mean_masyr": [
+              1.283501768375202,
+              -4.178894155617621
+            ],
+            "independent_mean_covariance": [
+              [
+                23.256017397716846,
+                -0.1617972888269413
+              ],
+              [
+                -0.1617972888269413,
+                22.44295241723773
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.012387783892429087,
+                -0.0007445825587246112
+              ],
+              [
+                -0.0007445825587246112,
+                0.010563827524435737
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -8.171015953099023,
+                10.738019489849428
+              ],
+              [
+                -13.466381867904424,
+                5.108593556669182
+              ]
+            ],
+            "median_masyr": [
+              -0.1167824366192506,
+              -4.11238763126957
+            ],
+            "nmad_masyr": [
+              6.72090697306984,
+              11.645289906464273
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 6,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.1167824366192506,
+                  -4.11238763126957
+                ],
+                "nmad": [
+                  6.72090697306984,
+                  11.645289906464273
+                ],
+                "radial_p68": 12.801389189102277,
+                "tail_gt_5": 4,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 3,
+                    "n": 6,
+                    "equal_weight_visit_information": 2.5714285714285716,
+                    "weighted_zero95": [
+                      [
+                        -0.3087349261069284,
+                        9.334571668796334
+                      ],
+                      [
+                        -4.975965341378946,
+                        4.85246562572002
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 5,
+                    "n": 6,
+                    "equal_weight_visit_information": 4.153846153846152,
+                    "weighted_zero95": [
+                      [
+                        -0.3087349261069284,
+                        0.07517005286842718
+                      ],
+                      [
+                        -4.975965341378946,
+                        -3.2488099211601935
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 5,
+                    "n": 6,
+                    "equal_weight_visit_information": 4.153846153846152,
+                    "weighted_zero95": [
+                      [
+                        -0.3087349261069284,
+                        0.07517005286842718
+                      ],
+                      [
+                        -4.975965341378946,
+                        -3.2488099211601935
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              6
+            ],
+            "shared_night_sizes": [
+              6
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 3,
+            "test_count": 3,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1501": {
       "spatial_zero": {
@@ -5314,7 +6229,241 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 41,
+            "weighted_mean_masyr": [
+              4.349200312156941,
+              2.9498583237658735
+            ],
+            "independent_mean_covariance": [
+              [
+                2.11469737245842,
+                0.0070367827949142205
+              ],
+              [
+                0.0070367827949142205,
+                2.0912663796702513
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.006168106782851438,
+                0.001698269375641846
+              ],
+              [
+                0.001698269375641846,
+                0.006121482946681798
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                1.4948147696884275,
+                7.203585854625454
+              ],
+              [
+                0.11131552630284958,
+                5.7884011212288975
+              ]
+            ],
+            "median_masyr": [
+              3.787418296410709,
+              2.403468480264684
+            ],
+            "nmad_masyr": [
+              6.977353159971645,
+              9.23148769538068
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 41,
+            "methods": {
+              "C0": {
+                "median": [
+                  3.787418296410709,
+                  2.403468480264684
+                ],
+                "nmad": [
+                  6.977353159971645,
+                  9.23148769538068
+                ],
+                "radial_p68": 12.323649551152991,
+                "tail_gt_5": 35,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 2,
+                    "n": 41,
+                    "equal_weight_visit_information": 1.8172972972972974
+                  },
+                  "nsc_exposure": {
+                    "groups": 14,
+                    "n": 41,
+                    "equal_weight_visit_information": 7.741061164163411,
+                    "weighted_zero95": [
+                      [
+                        2.8256701090380094,
+                        7.057642980423882
+                      ],
+                      [
+                        2.1085199384518907,
+                        4.43061959062709
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 14,
+                    "n": 41,
+                    "equal_weight_visit_information": 7.741061164163411,
+                    "weighted_zero95": [
+                      [
+                        2.8256701090380094,
+                        7.057642980423882
+                      ],
+                      [
+                        2.1085199384518907,
+                        4.43061959062709
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              41
+            ],
+            "shared_night_sizes": [
+              41
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 20,
+            "test_count": 21,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 24,
+            "weighted_mean_masyr": [
+              7.390187355923182,
+              5.662746774909802
+            ],
+            "independent_mean_covariance": [
+              [
+                6.107191831957061,
+                0.019899163639657384
+              ],
+              [
+                0.019899163639657384,
+                5.898932857264429
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.007373153931400149,
+                0.001968952585741177
+              ],
+              [
+                0.001968952585741177,
+                0.008572722853599668
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                2.54356865317906,
+                12.236806058667304
+              ],
+              [
+                0.8988960807148825,
+                10.426597469104722
+              ]
+            ],
+            "median_masyr": [
+              5.149564966051317,
+              4.742304837172943
+            ],
+            "nmad_masyr": [
+              11.287697854623964,
+              12.24158169309388
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 24,
+            "methods": {
+              "C0": {
+                "median": [
+                  5.149564966051317,
+                  4.742304837172943
+                ],
+                "nmad": [
+                  11.287697854623964,
+                  12.24158169309388
+                ],
+                "radial_p68": 19.52693982616351,
+                "tail_gt_5": 22,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 2,
+                    "n": 24,
+                    "equal_weight_visit_information": 1.986206896551724
+                  },
+                  "nsc_exposure": {
+                    "groups": 13,
+                    "n": 24,
+                    "equal_weight_visit_information": 7.704281005351409,
+                    "weighted_zero95": [
+                      [
+                        1.5919919933123925,
+                        8.312531993981096
+                      ],
+                      [
+                        3.838225237909947,
+                        9.630276570371976
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 13,
+                    "n": 24,
+                    "equal_weight_visit_information": 7.704281005351409,
+                    "weighted_zero95": [
+                      [
+                        1.5919919933123925,
+                        8.312531993981096
+                      ],
+                      [
+                        3.838225237909947,
+                        9.630276570371976
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              24
+            ],
+            "shared_night_sizes": [
+              24
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 13,
+            "test_count": 11,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1502": {
       "spatial_zero": {
@@ -5484,7 +6633,349 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 663,
+            "weighted_mean_masyr": [
+              -0.36020974257397764,
+              0.26552662563500806
+            ],
+            "independent_mean_covariance": [
+              [
+                0.031654812246481645,
+                1.4114963447031164e-05
+              ],
+              [
+                1.4114963447031164e-05,
+                0.031035443316129774
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0007234541582758601,
+                -3.4970256725075076e-05
+              ],
+              [
+                -3.4970256725075076e-05,
+                0.0004000861888990656
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.7128913953722433,
+                -0.007528089775711955
+              ],
+              [
+                -0.08198269819173298,
+                0.6130359494617491
+              ]
+            ],
+            "median_masyr": [
+              -0.010357625665109648,
+              -0.210497245586635
+            ],
+            "nmad_masyr": [
+              5.609789840657318,
+              5.019709533541129
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 663,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.010357625665109648,
+                  -0.210497245586635
+                ],
+                "nmad": [
+                  5.609789840657318,
+                  5.019709533541129
+                ],
+                "radial_p68": 9.389720662025878,
+                "tail_gt_5": 411,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 43,
+                    "n": 663,
+                    "equal_weight_visit_information": 3.459869446276864,
+                    "weighted_zero95": [
+                      [
+                        -0.5688415169375445,
+                        0.2680188743979317
+                      ],
+                      [
+                        -0.6507141350566285,
+                        0.6776900235092348
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 87,
+                    "n": 663,
+                    "equal_weight_visit_information": 36.20523464091889,
+                    "weighted_zero95": [
+                      [
+                        -0.3737685951212108,
+                        0.2771657134987532
+                      ],
+                      [
+                        -0.6639751823089888,
+                        0.14059893999974904
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 36,
+                    "n": 663,
+                    "equal_weight_visit_information": 21.32376859186302,
+                    "weighted_zero95": [
+                      [
+                        -0.3737685951212108,
+                        0.20248746844842824
+                      ],
+                      [
+                        -0.6580942707548425,
+                        0.16355813697182706
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              663
+            ],
+            "shared_night_sizes": [
+              663
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 331,
+            "test_count": 332,
+            "scale": [
+              0.7919569598881723,
+              0.7439316003421821
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 251,
+                "denominator": 332,
+                "value": 0.7560240963855421,
+                "wilson95": [
+                  0.7070696276115044,
+                  0.799121599037386
+                ]
+              },
+              {
+                "n": 250,
+                "denominator": 332,
+                "value": 0.7530120481927711,
+                "wilson95": [
+                  0.7039040757110394,
+                  0.7963319600360995
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 206,
+                "denominator": 332,
+                "value": 0.6204819277108434,
+                "wilson95": [
+                  0.5671861962362028,
+                  0.6710214398338634
+                ]
+              },
+              {
+                "n": 211,
+                "denominator": 332,
+                "value": 0.6355421686746988,
+                "wilson95": [
+                  0.5824957734620619,
+                  0.6854878171167624
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 365,
+            "weighted_mean_masyr": [
+              -0.14266032337603374,
+              1.2459293203401813
+            ],
+            "independent_mean_covariance": [
+              [
+                0.1367709480368216,
+                5.4576840892064104e-05
+              ],
+              [
+                5.4576840892064104e-05,
+                0.13095802643757096
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0008284905541756008,
+                -2.5390718047781003e-05
+              ],
+              [
+                -2.5390718047781003e-05,
+                0.00041839610702837604
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.8697105302332871,
+                0.5843898834812197
+              ],
+              [
+                0.5355099618994552,
+                1.9563486787809075
+              ]
+            ],
+            "median_masyr": [
+              -0.32607884225397027,
+              -0.0790373849270269
+            ],
+            "nmad_masyr": [
+              7.570988078215513,
+              7.468996738419935
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 365,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.32607884225397027,
+                  -0.0790373849270269
+                ],
+                "nmad": [
+                  7.570988078215513,
+                  7.468996738419935
+                ],
+                "radial_p68": 13.58339035095292,
+                "tail_gt_5": 273,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 43,
+                    "n": 365,
+                    "equal_weight_visit_information": 3.6527830833050574,
+                    "weighted_zero95": [
+                      [
+                        -0.6764472736067643,
+                        -0.032567196992307805
+                      ],
+                      [
+                        -0.5834778584322081,
+                        0.6260281457766189
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 69,
+                    "n": 365,
+                    "equal_weight_visit_information": 31.684973267471392,
+                    "weighted_zero95": [
+                      [
+                        -0.6159953848963484,
+                        0.15346134273109283
+                      ],
+                      [
+                        -0.455234011692429,
+                        0.2889936712713995
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 33,
+                    "n": 365,
+                    "equal_weight_visit_information": 19.041351692305682,
+                    "weighted_zero95": [
+                      [
+                        -0.6471199198575286,
+                        0.1114064836632961
+                      ],
+                      [
+                        -0.4797428194745214,
+                        0.2889936712713995
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              365
+            ],
+            "shared_night_sizes": [
+              365
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 194,
+            "test_count": 171,
+            "scale": [
+              0.7861346155293106,
+              0.7899688900016573
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 135,
+                "denominator": 171,
+                "value": 0.7894736842105263,
+                "wilson95": [
+                  0.7223505130172437,
+                  0.8438767460536606
+                ]
+              },
+              {
+                "n": 124,
+                "denominator": 171,
+                "value": 0.7251461988304093,
+                "wilson95": [
+                  0.6538405290327438,
+                  0.7865584502446261
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 108,
+                "denominator": 171,
+                "value": 0.631578947368421,
+                "wilson95": [
+                  0.557128625878821,
+                  0.7002474009715899
+                ]
+              },
+              {
+                "n": 109,
+                "denominator": 171,
+                "value": 0.6374269005847953,
+                "wilson95": [
+                  0.5630846801916938,
+                  0.7057302811854023
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1503": {
       "spatial_zero": {
@@ -5654,7 +7145,349 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 550,
+            "weighted_mean_masyr": [
+              1.232561921398385,
+              -0.7558256732731156
+            ],
+            "independent_mean_covariance": [
+              [
+                0.02894516536371585,
+                -3.7820324288853834e-05
+              ],
+              [
+                -3.7820324288853834e-05,
+                0.028731419853148518
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0005583009477501691,
+                1.785823445766464e-05
+              ],
+              [
+                1.785823445766464e-05,
+                0.0008832240771293625
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                0.8959010888352134,
+                1.5692227539615566
+              ],
+              [
+                -1.0931202272204859,
+                -0.41853111932574527
+              ]
+            ],
+            "median_masyr": [
+              0.5513960371867667,
+              -0.6895763992457986
+            ],
+            "nmad_masyr": [
+              5.126199426926285,
+              5.254288263304659
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 550,
+            "methods": {
+              "C0": {
+                "median": [
+                  0.5513960371867667,
+                  -0.6895763992457986
+                ],
+                "nmad": [
+                  5.126199426926285,
+                  5.254288263304659
+                ],
+                "radial_p68": 8.584353166282767,
+                "tail_gt_5": 339,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 550,
+                    "equal_weight_visit_information": 4.3411040599004584,
+                    "weighted_zero95": [
+                      [
+                        0.13508615150729347,
+                        1.1479527759290375
+                      ],
+                      [
+                        -0.8959251935572403,
+                        -0.6406245247969362
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 79,
+                    "n": 550,
+                    "equal_weight_visit_information": 31.638478500433017,
+                    "weighted_zero95": [
+                      [
+                        0.24544101290525283,
+                        0.7779802182161335
+                      ],
+                      [
+                        -1.0508163884773098,
+                        -0.5025588652398052
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 29,
+                    "n": 550,
+                    "equal_weight_visit_information": 18.459302283613273,
+                    "weighted_zero95": [
+                      [
+                        0.21437461444927236,
+                        0.8368555631666127
+                      ],
+                      [
+                        -1.0195496368065353,
+                        -0.5222117645189874
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              550
+            ],
+            "shared_night_sizes": [
+              550
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 292,
+            "test_count": 258,
+            "scale": [
+              0.8834778913811819,
+              0.9123175049118827
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 197,
+                "denominator": 258,
+                "value": 0.7635658914728682,
+                "wilson95": [
+                  0.7080896394162809,
+                  0.8113086278120237
+                ]
+              },
+              {
+                "n": 185,
+                "denominator": 258,
+                "value": 0.7170542635658915,
+                "wilson95": [
+                  0.6592192689066185,
+                  0.7685204805755148
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 184,
+                "denominator": 258,
+                "value": 0.7131782945736435,
+                "wilson95": [
+                  0.6551800620016579,
+                  0.7649214776682944
+                ]
+              },
+              {
+                "n": 175,
+                "denominator": 258,
+                "value": 0.6782945736434108,
+                "wilson95": [
+                  0.6190378332214707,
+                  0.7323198181388529
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 241,
+            "weighted_mean_masyr": [
+              0.959895283115668,
+              -0.6139398811084508
+            ],
+            "independent_mean_covariance": [
+              [
+                0.1518727829431165,
+                -0.00020438324592281183
+              ],
+              [
+                -0.00020438324592281183,
+                0.14708491872435867
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0006185727952727201,
+                4.3177999515961984e-05
+              ],
+              [
+                4.3177999515961984e-05,
+                0.0008622872074262815
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                0.19451250815623888,
+                1.725278058075097
+              ],
+              [
+                -1.3678324373175865,
+                0.1399526751006851
+              ]
+            ],
+            "median_masyr": [
+              -0.12166257172072648,
+              -0.6167348688237931
+            ],
+            "nmad_masyr": [
+              7.150166803256312,
+              7.3487514214058285
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 241,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.12166257172072648,
+                  -0.6167348688237931
+                ],
+                "nmad": [
+                  7.150166803256312,
+                  7.3487514214058285
+                ],
+                "radial_p68": 12.991463901563389,
+                "tail_gt_5": 180,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 241,
+                    "equal_weight_visit_information": 4.813364477697816,
+                    "weighted_zero95": [
+                      [
+                        -0.8868408521769047,
+                        1.8428057384626035
+                      ],
+                      [
+                        -1.0469974196818868,
+                        -0.12596767591498256
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 61,
+                    "n": 241,
+                    "equal_weight_visit_information": 29.111045350953603,
+                    "weighted_zero95": [
+                      [
+                        -0.6756698898855675,
+                        1.0623346800083722
+                      ],
+                      [
+                        -1.1025127305361766,
+                        -0.2795785685273082
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 28,
+                    "n": 241,
+                    "equal_weight_visit_information": 18.18725753719314,
+                    "weighted_zero95": [
+                      [
+                        -0.678544566245767,
+                        1.0623346800083722
+                      ],
+                      [
+                        -1.0469974196818868,
+                        -0.2795785685273082
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              241
+            ],
+            "shared_night_sizes": [
+              241
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 123,
+            "test_count": 118,
+            "scale": [
+              0.8611894003036872,
+              0.91102838738257
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 81,
+                "denominator": 118,
+                "value": 0.6864406779661016,
+                "wilson95": [
+                  0.5979749321048041,
+                  0.7631500940224013
+                ]
+              },
+              {
+                "n": 84,
+                "denominator": 118,
+                "value": 0.711864406779661,
+                "wilson95": [
+                  0.6244907711296903,
+                  0.7858785767421341
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 75,
+                "denominator": 118,
+                "value": 0.635593220338983,
+                "wilson95": [
+                  0.5457571272952054,
+                  0.7168792553427622
+                ]
+              },
+              {
+                "n": 77,
+                "denominator": 118,
+                "value": 0.652542372881356,
+                "wilson95": [
+                  0.5630478029984325,
+                  0.7324181274692811
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1565": {
       "spatial_zero": {
@@ -5824,7 +7657,349 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 738,
+            "weighted_mean_masyr": [
+              -0.31798315562641327,
+              -0.24628154787462903
+            ],
+            "independent_mean_covariance": [
+              [
+                0.00747154339281785,
+                1.4717047768095196e-07
+              ],
+              [
+                1.4717047768095202e-07,
+                0.007476570484796961
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0005156488536597093,
+                -7.073219155151089e-05
+              ],
+              [
+                -7.073219155151089e-05,
+                0.0003512951763177546
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.49315049771411007,
+                -0.14281581353871647
+              ],
+              [
+                -0.41969299133710153,
+                -0.07287010441215652
+              ]
+            ],
+            "median_masyr": [
+              -0.12701489056863657,
+              -0.1990621389509193
+            ],
+            "nmad_masyr": [
+              2.9978782664117882,
+              2.819659958657295
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 738,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.12701489056863657,
+                  -0.1990621389509193
+                ],
+                "nmad": [
+                  2.9978782664117882,
+                  2.819659958657295
+                ],
+                "radial_p68": 4.700654355585131,
+                "tail_gt_5": 213,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 43,
+                    "n": 738,
+                    "equal_weight_visit_information": 31.556510141423338,
+                    "weighted_zero95": [
+                      [
+                        -0.40891453292563884,
+                        0.11447101885388271
+                      ],
+                      [
+                        -0.413694928534448,
+                        -0.07826978943516094
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 275,
+                    "n": 738,
+                    "equal_weight_visit_information": 75.91763518419474,
+                    "weighted_zero95": [
+                      [
+                        -0.37948461665401606,
+                        -0.014965439753822812
+                      ],
+                      [
+                        -0.3531257894747372,
+                        -0.09661929383952389
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 193,
+                    "n": 738,
+                    "equal_weight_visit_information": 24.73156565327426,
+                    "weighted_zero95": [
+                      [
+                        -0.3297303230221921,
+                        -0.0021019251233624888
+                      ],
+                      [
+                        -0.3520012607225017,
+                        -0.10556483289700017
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              738
+            ],
+            "shared_night_sizes": [
+              738
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 363,
+            "test_count": 375,
+            "scale": [
+              0.9918951105356991,
+              1.0979558165137955
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 258,
+                "denominator": 375,
+                "value": 0.688,
+                "wilson95": [
+                  0.6394005343752753,
+                  0.7327868192446867
+                ]
+              },
+              {
+                "n": 262,
+                "denominator": 375,
+                "value": 0.6986666666666667,
+                "wilson95": [
+                  0.6504044623904676,
+                  0.7428999042008398
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 257,
+                "denominator": 375,
+                "value": 0.6853333333333333,
+                "wilson95": [
+                  0.6366540273500296,
+                  0.7302540730270961
+                ]
+              },
+              {
+                "n": 273,
+                "denominator": 375,
+                "value": 0.728,
+                "wilson95": [
+                  0.6808190378983343,
+                  0.770557114364173
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 481,
+            "weighted_mean_masyr": [
+              -0.5856750080428571,
+              -0.16091915920963934
+            ],
+            "independent_mean_covariance": [
+              [
+                0.0287392176243569,
+                2.229053403489019e-06
+              ],
+              [
+                2.229053403489019e-06,
+                0.02863199859624713
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0005930419495763744,
+                -9.169014548576684e-05
+              ],
+              [
+                -9.169014548576684e-05,
+                0.00038677732091266443
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.9213576086929683,
+                -0.24999240739274586
+              ],
+              [
+                -0.49480316536051966,
+                0.17296484694124098
+              ]
+            ],
+            "median_masyr": [
+              -0.5435843207183212,
+              -0.20450441471558095
+            ],
+            "nmad_masyr": [
+              4.011634068152134,
+              4.682138747271192
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 481,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.5435843207183212,
+                  -0.20450441471558095
+                ],
+                "nmad": [
+                  4.011634068152134,
+                  4.682138747271192
+                ],
+                "radial_p68": 6.868762984213475,
+                "tail_gt_5": 240,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 43,
+                    "n": 481,
+                    "equal_weight_visit_information": 30.03328968532672,
+                    "weighted_zero95": [
+                      [
+                        -0.7607454254336007,
+                        -0.31727952661324516
+                      ],
+                      [
+                        -0.40826452075203606,
+                        -0.03939008454735937
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 251,
+                    "n": 481,
+                    "equal_weight_visit_information": 64.67350682729105,
+                    "weighted_zero95": [
+                      [
+                        -0.7619630536668882,
+                        -0.38657434597561985
+                      ],
+                      [
+                        -0.4170128995098612,
+                        0.03143297407437818
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 173,
+                    "n": 481,
+                    "equal_weight_visit_information": 21.107769835899752,
+                    "weighted_zero95": [
+                      [
+                        -0.7607454254336007,
+                        -0.38657434597561985
+                      ],
+                      [
+                        -0.4170128995098612,
+                        -0.04012179667855225
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              481
+            ],
+            "shared_night_sizes": [
+              481
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 258,
+            "test_count": 223,
+            "scale": [
+              0.8272498907363828,
+              0.9945308541612456
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 157,
+                "denominator": 223,
+                "value": 0.7040358744394619,
+                "wilson95": [
+                  0.6410778373597379,
+                  0.7600833986554589
+                ]
+              },
+              {
+                "n": 153,
+                "denominator": 223,
+                "value": 0.6860986547085202,
+                "wilson95": [
+                  0.6224733541249191,
+                  0.7434209600427878
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 135,
+                "denominator": 223,
+                "value": 0.6053811659192825,
+                "wilson95": [
+                  0.5399667025612852,
+                  0.6672264632927175
+                ]
+              },
+              {
+                "n": 152,
+                "denominator": 223,
+                "value": 0.6816143497757847,
+                "wilson95": [
+                  0.6178384460591503,
+                  0.7392391376466841
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1566": {
       "spatial_zero": {
@@ -5994,7 +8169,349 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 927,
+            "weighted_mean_masyr": [
+              0.3582341457377612,
+              -0.1246032522403188
+            ],
+            "independent_mean_covariance": [
+              [
+                0.005315768202548089,
+                -2.1179826731093753e-07
+              ],
+              [
+                -2.117982673109375e-07,
+                0.00530128582116613
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.00035457156091266487,
+                4.1437290413693544e-05
+              ],
+              [
+                4.1437290413693544e-05,
+                0.0003203129581255226
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                0.21064289519996396,
+                0.5058253962755584
+              ],
+              [
+                -0.27155880290284673,
+                0.022352298422209135
+              ]
+            ],
+            "median_masyr": [
+              0.29046764230036864,
+              0.06839658257233855
+            ],
+            "nmad_masyr": [
+              2.9272552447592823,
+              2.7316680695166036
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 927,
+            "methods": {
+              "C0": {
+                "median": [
+                  0.29046764230036864,
+                  0.06839658257233855
+                ],
+                "nmad": [
+                  2.9272552447592823,
+                  2.7316680695166036
+                ],
+                "radial_p68": 4.477377284376496,
+                "tail_gt_5": 250,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 927,
+                    "equal_weight_visit_information": 40.47617570574191,
+                    "weighted_zero95": [
+                      [
+                        0.16713131327302677,
+                        0.3973714527752565
+                      ],
+                      [
+                        -0.11141324372524541,
+                        0.17105616160659692
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 177,
+                    "n": 927,
+                    "equal_weight_visit_information": 90.14955040718243,
+                    "weighted_zero95": [
+                      [
+                        0.16713131327302677,
+                        0.4242187787118136
+                      ],
+                      [
+                        -0.06940748925502059,
+                        0.20034816849626685
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 43,
+                    "n": 927,
+                    "equal_weight_visit_information": 19.414453202150384,
+                    "weighted_zero95": [
+                      [
+                        0.17503745438293367,
+                        0.3973714527752565
+                      ],
+                      [
+                        -0.02258950714304954,
+                        0.13247731089653125
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              927
+            ],
+            "shared_night_sizes": [
+              927
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 461,
+            "test_count": 466,
+            "scale": [
+              1.0918908241983771,
+              0.9541922249934413
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 283,
+                "denominator": 466,
+                "value": 0.6072961373390557,
+                "wilson95": [
+                  0.5622525824264446,
+                  0.6505851698038518
+                ]
+              },
+              {
+                "n": 303,
+                "denominator": 466,
+                "value": 0.6502145922746781,
+                "wilson95": [
+                  0.6058466695981753,
+                  0.6921261835242399
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 307,
+                "denominator": 466,
+                "value": 0.6587982832618026,
+                "wilson95": [
+                  0.6146102042816889,
+                  0.7003896690191501
+                ]
+              },
+              {
+                "n": 295,
+                "denominator": 466,
+                "value": 0.6330472103004292,
+                "wilson95": [
+                  0.5883649951300658,
+                  0.675553817635502
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 560,
+            "weighted_mean_masyr": [
+              0.34199719580406457,
+              0.31032532173816224
+            ],
+            "independent_mean_covariance": [
+              [
+                0.02114667870470267,
+                -4.461537284612497e-07
+              ],
+              [
+                -4.4615372846124976e-07,
+                0.020834582129248096
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.00038311482975689475,
+                4.893318684590642e-05
+              ],
+              [
+                4.893318684590642e-05,
+                0.0003577057713278425
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                0.05440572367392671,
+                0.6295886679342024
+              ],
+              [
+                0.02499692637791684,
+                0.5956537170984076
+              ]
+            ],
+            "median_masyr": [
+              -0.02910244022461133,
+              0.2705439438131182
+            ],
+            "nmad_masyr": [
+              4.138600757787001,
+              3.648057449645615
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 560,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.02910244022461133,
+                  0.2705439438131182
+                ],
+                "nmad": [
+                  4.138600757787001,
+                  3.648057449645615
+                ],
+                "radial_p68": 6.1274828877007925,
+                "tail_gt_5": 240,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 560,
+                    "equal_weight_visit_information": 34.13240127644745,
+                    "weighted_zero95": [
+                      [
+                        -0.2506127520995897,
+                        0.20982035104571242
+                      ],
+                      [
+                        -0.0538706714466245,
+                        0.395734600160594
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 163,
+                    "n": 560,
+                    "equal_weight_visit_information": 82.28618097409907,
+                    "weighted_zero95": [
+                      [
+                        -0.21563406853002345,
+                        0.13000108296345175
+                      ],
+                      [
+                        -0.045435543494292,
+                        0.4118220188152412
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 37,
+                    "n": 560,
+                    "equal_weight_visit_information": 17.10063573218087,
+                    "weighted_zero95": [
+                      [
+                        -0.07096910298813973,
+                        0.0822774844783544
+                      ],
+                      [
+                        0.021480250705261376,
+                        0.3487491607245712
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              560
+            ],
+            "shared_night_sizes": [
+              560
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 281,
+            "test_count": 279,
+            "scale": [
+              1.0364003301013958,
+              1.0073424324590128
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 195,
+                "denominator": 279,
+                "value": 0.6989247311827957,
+                "wilson95": [
+                  0.6426947330831194,
+                  0.7497512699279452
+                ]
+              },
+              {
+                "n": 191,
+                "denominator": 279,
+                "value": 0.6845878136200717,
+                "wilson95": [
+                  0.6278688252262142,
+                  0.7362927811714403
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 203,
+                "denominator": 279,
+                "value": 0.7275985663082437,
+                "wilson95": [
+                  0.6725321453585853,
+                  0.7764826508792992
+                ]
+              },
+              {
+                "n": 194,
+                "denominator": 279,
+                "value": 0.6953405017921147,
+                "wilson95": [
+                  0.6389826326959457,
+                  0.7463922711617664
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1567": {
       "spatial_zero": {
@@ -6120,7 +8637,261 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 26,
+            "weighted_mean_masyr": [
+              -2.9172971433305457,
+              -2.5160324502366085
+            ],
+            "independent_mean_covariance": [
+              [
+                0.16934279900701107,
+                5.666881756122272e-06
+              ],
+              [
+                5.666881756122271e-06,
+                0.1718463944364416
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0013800103506168603,
+                0.00031811633729423645
+              ],
+              [
+                0.00031811633729423645,
+                0.0013905847688224639
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -3.7271420324471367,
+                -2.1074522542139547
+              ],
+              [
+                -3.331818684071761,
+                -1.7002462164014558
+              ]
+            ],
+            "median_masyr": [
+              -3.1148386704425985,
+              -2.391938498083892
+            ],
+            "nmad_masyr": [
+              1.3855985214389255,
+              1.6292175313723496
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 26,
+            "methods": {
+              "C0": {
+                "median": [
+                  -3.1148386704425985,
+                  -2.391938498083892
+                ],
+                "nmad": [
+                  1.3855985214389255,
+                  1.6292175313723496
+                ],
+                "radial_p68": 5.013041442107584,
+                "tail_gt_5": 9,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 39,
+                    "n": 26,
+                    "equal_weight_visit_information": 36.39217442496758,
+                    "weighted_zero95": [
+                      [
+                        -3.2583062537134153,
+                        -2.9713710871717818
+                      ],
+                      [
+                        -2.4987157005117653,
+                        -2.182222826244816
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 32,
+                    "n": 26,
+                    "equal_weight_visit_information": 21.35621911249378,
+                    "weighted_zero95": [
+                      [
+                        -3.39663679492575,
+                        -2.9713710871717818
+                      ],
+                      [
+                        -2.405858214087229,
+                        -2.3780187820805554
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 17,
+                    "n": 26,
+                    "equal_weight_visit_information": 14.363856178030304,
+                    "weighted_zero95": [
+                      [
+                        -3.2583062537134153,
+                        -2.9713710871717818
+                      ],
+                      [
+                        -2.405858214087229,
+                        -2.3780187820805554
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              26
+            ],
+            "shared_night_sizes": [
+              26
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 13,
+            "test_count": 13,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 6,
+            "weighted_mean_masyr": [
+              -1.7291693729517335,
+              -3.368079223570408
+            ],
+            "independent_mean_covariance": [
+              [
+                3.645272972689981,
+                5.476663962276392e-05
+              ],
+              [
+                5.476663962276391e-05,
+                3.570430374745006
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0017650656866937538,
+                0.0003837976004328955
+              ],
+              [
+                0.0003837976004328955,
+                0.0024191446152957525
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -5.472224452459359,
+                2.0138857065558913
+              ],
+              [
+                -7.072867842854176,
+                0.3367093957133611
+              ]
+            ],
+            "median_masyr": [
+              -2.9371131410057982,
+              -2.589130962316685
+            ],
+            "nmad_masyr": [
+              3.1866276387750347,
+              3.2032128537856286
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 6,
+            "methods": {
+              "C0": {
+                "median": [
+                  -2.9371131410057982,
+                  -2.589130962316685
+                ],
+                "nmad": [
+                  3.1866276387750347,
+                  3.2032128537856286
+                ],
+                "radial_p68": 12.047617632436346,
+                "tail_gt_5": 4,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 31,
+                    "n": 6,
+                    "equal_weight_visit_information": 8.802414928649842,
+                    "weighted_zero95": [
+                      [
+                        -3.665737613160364,
+                        0.6329641793326009
+                      ],
+                      [
+                        -2.7904868659809536,
+                        3.8064436903280217
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 22,
+                    "n": 6,
+                    "equal_weight_visit_information": 16.75655707425193,
+                    "weighted_zero95": [
+                      [
+                        -2.9935776028550887,
+                        -2.8806486791565074
+                      ],
+                      [
+                        -2.6130878218258644,
+                        -2.5651741028075055
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 14,
+                    "n": 6,
+                    "equal_weight_visit_information": 12.482550547124779,
+                    "weighted_zero95": [
+                      [
+                        -2.9935776028550887,
+                        -2.8806486791565074
+                      ],
+                      [
+                        -2.6130878218258644,
+                        -2.5651741028075055
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              6
+            ],
+            "shared_night_sizes": [
+              6
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 4,
+            "test_count": 2,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1629": {
       "spatial_zero": {
@@ -6236,7 +9007,241 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 38,
+            "weighted_mean_masyr": [
+              1.3090947330022347,
+              6.022280561533847
+            ],
+            "independent_mean_covariance": [
+              [
+                1.7878339684984619,
+                -0.005928674263274596
+              ],
+              [
+                -0.005928674263274597,
+                1.764511069822514
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.006906230777605615,
+                0.000833668701829169
+              ],
+              [
+                0.000833668701829169,
+                0.003793228113382487
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -1.316676382220671,
+                3.93486584822514
+              ],
+              [
+                3.415919536857768,
+                8.628641586209927
+              ]
+            ],
+            "median_masyr": [
+              1.2411843105112457,
+              5.721315953380396
+            ],
+            "nmad_masyr": [
+              5.51112980197233,
+              6.599976090124552
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 38,
+            "methods": {
+              "C0": {
+                "median": [
+                  1.2411843105112457,
+                  5.721315953380396
+                ],
+                "nmad": [
+                  5.51112980197233,
+                  6.599976090124552
+                ],
+                "radial_p68": 11.196699569092901,
+                "tail_gt_5": 34,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 2,
+                    "n": 38,
+                    "equal_weight_visit_information": 1.978082191780822
+                  },
+                  "nsc_exposure": {
+                    "groups": 11,
+                    "n": 38,
+                    "equal_weight_visit_information": 6.184154175588865,
+                    "weighted_zero95": [
+                      [
+                        -0.16731187503183537,
+                        1.991318801446138
+                      ],
+                      [
+                        5.2215965914830065,
+                        7.114405066698254
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 11,
+                    "n": 38,
+                    "equal_weight_visit_information": 6.184154175588865,
+                    "weighted_zero95": [
+                      [
+                        -0.16731187503183537,
+                        1.991318801446138
+                      ],
+                      [
+                        5.2215965914830065,
+                        7.114405066698254
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              38
+            ],
+            "shared_night_sizes": [
+              38
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 23,
+            "test_count": 15,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 16,
+            "weighted_mean_masyr": [
+              -1.158642678993734,
+              4.082383452784258
+            ],
+            "independent_mean_covariance": [
+              [
+                9.416502621366691,
+                -0.03222994682346855
+              ],
+              [
+                -0.03222994682346855,
+                8.41302197601497
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0055650213536578876,
+                0.0003618233368640835
+              ],
+              [
+                0.0003618233368640835,
+                0.00316765369876425
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -7.1749384709469926,
+                4.857653112959525
+              ],
+              [
+                -1.6037078304707233,
+                9.76847473603924
+              ]
+            ],
+            "median_masyr": [
+              0.4360292944389367,
+              4.404159100741575
+            ],
+            "nmad_masyr": [
+              4.281171037502545,
+              5.9137266269571755
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 16,
+            "methods": {
+              "C0": {
+                "median": [
+                  0.4360292944389367,
+                  4.404159100741575
+                ],
+                "nmad": [
+                  4.281171037502545,
+                  5.9137266269571755
+                ],
+                "radial_p68": 11.918920609955311,
+                "tail_gt_5": 12,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 2,
+                    "n": 16,
+                    "equal_weight_visit_information": 1.9320754716981132
+                  },
+                  "nsc_exposure": {
+                    "groups": 10,
+                    "n": 16,
+                    "equal_weight_visit_information": 5.575992255566311,
+                    "weighted_zero95": [
+                      [
+                        -0.1062423222742891,
+                        1.1296782698985945
+                      ],
+                      [
+                        0.7041797819274987,
+                        6.812289417426376
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 10,
+                    "n": 16,
+                    "equal_weight_visit_information": 5.575992255566311,
+                    "weighted_zero95": [
+                      [
+                        -0.1062423222742891,
+                        1.1296782698985945
+                      ],
+                      [
+                        0.7041797819274987,
+                        6.812289417426376
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              16
+            ],
+            "shared_night_sizes": [
+              16
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 6,
+            "test_count": 10,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1630": {
       "spatial_zero": {
@@ -6406,7 +9411,349 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 566,
+            "weighted_mean_masyr": [
+              0.28716802022103144,
+              -0.9532887056144499
+            ],
+            "independent_mean_covariance": [
+              [
+                0.024985616861645594,
+                -9.39743472279144e-06
+              ],
+              [
+                -9.397434722791441e-06,
+                0.02518696873433725
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.00045560293633161786,
+                5.833417736446561e-05
+              ],
+              [
+                5.833417736446561e-05,
+                0.0005853617714873889
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.02545793835552257,
+                0.5997939787975854
+              ],
+              [
+                -1.267942459558648,
+                -0.6386349516702519
+              ]
+            ],
+            "median_masyr": [
+              0.3963035241083452,
+              -1.3234837369050898
+            ],
+            "nmad_masyr": [
+              5.487405210374761,
+              5.954011686608698
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 566,
+            "methods": {
+              "C0": {
+                "median": [
+                  0.3963035241083452,
+                  -1.3234837369050898
+                ],
+                "nmad": [
+                  5.487405210374761,
+                  5.954011686608698
+                ],
+                "radial_p68": 10.394136740185573,
+                "tail_gt_5": 362,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 566,
+                    "equal_weight_visit_information": 3.5871641740568236,
+                    "weighted_zero95": [
+                      [
+                        0.22605673739854062,
+                        0.7456900567278429
+                      ],
+                      [
+                        -1.6967965012069544,
+                        -0.7774331838408076
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 121,
+                    "n": 566,
+                    "equal_weight_visit_information": 45.8980239487822,
+                    "weighted_zero95": [
+                      [
+                        0.16536418728625032,
+                        0.8038428750275078
+                      ],
+                      [
+                        -1.635003697969906,
+                        -0.9537721164554903
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 40,
+                    "n": 566,
+                    "equal_weight_visit_information": 23.166096018939687,
+                    "weighted_zero95": [
+                      [
+                        0.21526255273041572,
+                        0.8042850789163706
+                      ],
+                      [
+                        -1.635003697969906,
+                        -1.0371617511087337
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              566
+            ],
+            "shared_night_sizes": [
+              566
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 287,
+            "test_count": 279,
+            "scale": [
+              0.8470062319043888,
+              0.9645146473336824
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 209,
+                "denominator": 279,
+                "value": 0.7491039426523297,
+                "wilson95": [
+                  0.6950839184041355,
+                  0.796357472753864
+                ]
+              },
+              {
+                "n": 199,
+                "denominator": 279,
+                "value": 0.7132616487455197,
+                "wilson95": [
+                  0.6575816325944449,
+                  0.7631487670300295
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 177,
+                "denominator": 279,
+                "value": 0.6344086021505376,
+                "wilson95": [
+                  0.5764280783100681,
+                  0.6887381399406511
+                ]
+              },
+              {
+                "n": 195,
+                "denominator": 279,
+                "value": 0.6989247311827957,
+                "wilson95": [
+                  0.6426947330831194,
+                  0.7497512699279452
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 283,
+            "weighted_mean_masyr": [
+              0.16241934620269002,
+              -0.371839047903372
+            ],
+            "independent_mean_covariance": [
+              [
+                0.10178080030863573,
+                -3.354166872519506e-05
+              ],
+              [
+                -3.354166872519506e-05,
+                0.10308515260048137
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0005234346639204043,
+                4.799664344704769e-05
+              ],
+              [
+                4.799664344704769e-05,
+                0.0005902077637351198
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.4644873047993324,
+                0.7893259972047125
+              ],
+              [
+                -1.0029327528119014,
+                0.25925465700515743
+              ]
+            ],
+            "median_masyr": [
+              -0.16840514333123133,
+              -0.4007507722064486
+            ],
+            "nmad_masyr": [
+              7.260785687203454,
+              7.252409797513744
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 283,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.16840514333123133,
+                  -0.4007507722064486
+                ],
+                "nmad": [
+                  7.260785687203454,
+                  7.252409797513744
+                ],
+                "radial_p68": 12.82157565587314,
+                "tail_gt_5": 210,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 283,
+                    "equal_weight_visit_information": 3.6998760440079113,
+                    "weighted_zero95": [
+                      [
+                        -0.4770371626516814,
+                        0.285429072170865
+                      ],
+                      [
+                        -1.1184064949732606,
+                        0.15072140809727375
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 119,
+                    "n": 283,
+                    "equal_weight_visit_information": 45.508795826668376,
+                    "weighted_zero95": [
+                      [
+                        -0.4806145013362246,
+                        0.285429072170865
+                      ],
+                      [
+                        -1.0982186060512285,
+                        -0.017296272115814772
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 38,
+                    "n": 283,
+                    "equal_weight_visit_information": 20.74580431943199,
+                    "weighted_zero95": [
+                      [
+                        -0.6201307100334169,
+                        0.285429072170865
+                      ],
+                      [
+                        -0.8220505901097047,
+                        -0.017296272115814772
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              283
+            ],
+            "shared_night_sizes": [
+              283
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 135,
+            "test_count": 148,
+            "scale": [
+              0.8302478513152405,
+              0.8705870985856241
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 112,
+                "denominator": 148,
+                "value": 0.7567567567567568,
+                "wilson95": [
+                  0.6817106205798019,
+                  0.8188114409853898
+                ]
+              },
+              {
+                "n": 113,
+                "denominator": 148,
+                "value": 0.7635135135135135,
+                "wilson95": [
+                  0.6889316529220393,
+                  0.8247620418422363
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 102,
+                "denominator": 148,
+                "value": 0.6891891891891891,
+                "wilson95": [
+                  0.6106317736646087,
+                  0.7581739559097429
+                ]
+              },
+              {
+                "n": 102,
+                "denominator": 148,
+                "value": 0.6891891891891891,
+                "wilson95": [
+                  0.6106317736646087,
+                  0.7581739559097429
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1631": {
       "spatial_zero": {
@@ -6576,7 +9923,349 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 398,
+            "weighted_mean_masyr": [
+              0.012625896185368185,
+              -0.3020646721072764
+            ],
+            "independent_mean_covariance": [
+              [
+                0.029608297723496598,
+                3.5968496386826505e-05
+              ],
+              [
+                3.5968496386826505e-05,
+                0.030104289787785246
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0009434025362097416,
+                2.83520870861888e-05
+              ],
+              [
+                2.83520870861888e-05,
+                0.0005378766173702253
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.32996337935852255,
+                0.3552151717292589
+              ],
+              [
+                -0.6451607905085857,
+                0.04103144629403288
+              ]
+            ],
+            "median_masyr": [
+              -0.5512124300313064,
+              0.08019495315531974
+            ],
+            "nmad_masyr": [
+              5.129170450208099,
+              4.757478897529147
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 398,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.5512124300313064,
+                  0.08019495315531974
+                ],
+                "nmad": [
+                  5.129170450208099,
+                  4.757478897529147
+                ],
+                "radial_p68": 8.589276849791114,
+                "tail_gt_5": 224,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 398,
+                    "equal_weight_visit_information": 10.691716357578946,
+                    "weighted_zero95": [
+                      [
+                        -1.005375823337523,
+                        0.1903450121503005
+                      ],
+                      [
+                        -0.2568383323182767,
+                        0.5769488728360057
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 67,
+                    "n": 398,
+                    "equal_weight_visit_information": 30.496133057794506,
+                    "weighted_zero95": [
+                      [
+                        -0.8736053239409983,
+                        -0.2399251653892188
+                      ],
+                      [
+                        -0.0817428068595287,
+                        0.49397782089819514
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 29,
+                    "n": 398,
+                    "equal_weight_visit_information": 18.09516644212827,
+                    "weighted_zero95": [
+                      [
+                        -0.8736053239409983,
+                        -0.24223250310442726
+                      ],
+                      [
+                        -0.18093225039403374,
+                        0.5243900397338473
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              398
+            ],
+            "shared_night_sizes": [
+              398
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 206,
+            "test_count": 192,
+            "scale": [
+              0.8858653254566322,
+              0.9559632795908792
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 130,
+                "denominator": 192,
+                "value": 0.6770833333333334,
+                "wilson95": [
+                  0.6080297131866683,
+                  0.7391899225813563
+                ]
+              },
+              {
+                "n": 144,
+                "denominator": 192,
+                "value": 0.75,
+                "wilson95": [
+                  0.6842530790331728,
+                  0.8059393479334501
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 115,
+                "denominator": 192,
+                "value": 0.5989583333333334,
+                "wilson95": [
+                  0.5283479854036718,
+                  0.6656865169372833
+                ]
+              },
+              {
+                "n": 142,
+                "denominator": 192,
+                "value": 0.7395833333333334,
+                "wilson95": [
+                  0.6732400664495175,
+                  0.796527676060163
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 166,
+            "weighted_mean_masyr": [
+              0.03448052728305068,
+              0.10255518372072649
+            ],
+            "independent_mean_covariance": [
+              [
+                0.15673584955575723,
+                0.00017835037858240276
+              ],
+              [
+                0.00017835037858240276,
+                0.1597694049026038
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0009530726921748515,
+                4.122988415453701e-05
+              ],
+              [
+                4.122988415453701e-05,
+                0.0005621935742226155
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.7438367368886083,
+                0.8127977914547095
+              ],
+              [
+                -0.6822568120518765,
+                0.8873671794933294
+              ]
+            ],
+            "median_masyr": [
+              -0.5917228853219327,
+              0.7781459010007455
+            ],
+            "nmad_masyr": [
+              6.609462709195414,
+              5.691152466616997
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 166,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.5917228853219327,
+                  0.7781459010007455
+                ],
+                "nmad": [
+                  6.609462709195414,
+                  5.691152466616997
+                ],
+                "radial_p68": 14.046627000819937,
+                "tail_gt_5": 113,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 45,
+                    "n": 166,
+                    "equal_weight_visit_information": 11.353894719868087,
+                    "weighted_zero95": [
+                      [
+                        -2.1699671460767807,
+                        0.18769132582028153
+                      ],
+                      [
+                        0.1022776916134408,
+                        1.6475236430228726
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 51,
+                    "n": 166,
+                    "equal_weight_visit_information": 31.595534324470222,
+                    "weighted_zero95": [
+                      [
+                        -2.069458160842677,
+                        0.0057069021391696105
+                      ],
+                      [
+                        0.1964214876570905,
+                        1.0365592803524422
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 27,
+                    "n": 166,
+                    "equal_weight_visit_information": 17.97165470376978,
+                    "weighted_zero95": [
+                      [
+                        -2.1699671460767807,
+                        0.0057069021391696105
+                      ],
+                      [
+                        0.1964214876570905,
+                        1.4213889837881322
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              166
+            ],
+            "shared_night_sizes": [
+              166
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 82,
+            "test_count": 84,
+            "scale": [
+              0.9898435113841322,
+              0.7654389241133018
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 64,
+                "denominator": 84,
+                "value": 0.7619047619047619,
+                "wilson95": [
+                  0.6606493369287688,
+                  0.8402530910445044
+                ]
+              },
+              {
+                "n": 64,
+                "denominator": 84,
+                "value": 0.7619047619047619,
+                "wilson95": [
+                  0.6606493369287688,
+                  0.8402530910445044
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 63,
+                "denominator": 84,
+                "value": 0.75,
+                "wilson95": [
+                  0.6478572653412803,
+                  0.8302768704513898
+                ]
+              },
+              {
+                "n": 53,
+                "denominator": 84,
+                "value": 0.6309523809523809,
+                "wilson95": [
+                  0.5241523990768391,
+                  0.7262988149097975
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1693": {
       "spatial_zero": {
@@ -6702,7 +10391,261 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 42,
+            "weighted_mean_masyr": [
+              1.7669884878607274,
+              -0.5362537696447104
+            ],
+            "independent_mean_covariance": [
+              [
+                1.8969664699163948,
+                -0.006260682900235337
+              ],
+              [
+                -0.006260682900235338,
+                1.9110514334981132
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0019485721577103105,
+                0.0002896962371745038
+              ],
+              [
+                0.0002896962371745038,
+                0.0022752767061050886
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -0.9339135884152494,
+                4.467890564136704
+              ],
+              [
+                -3.2473856162948374,
+                2.1748780770054164
+              ]
+            ],
+            "median_masyr": [
+              2.241948416638217,
+              -1.6126801922996359
+            ],
+            "nmad_masyr": [
+              6.281378829966539,
+              7.390279597746076
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 42,
+            "methods": {
+              "C0": {
+                "median": [
+                  2.241948416638217,
+                  -1.6126801922996359
+                ],
+                "nmad": [
+                  6.281378829966539,
+                  7.390279597746076
+                ],
+                "radial_p68": 10.662210518388685,
+                "tail_gt_5": 30,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 5,
+                    "n": 42,
+                    "equal_weight_visit_information": 4.519857651245552,
+                    "weighted_zero95": [
+                      [
+                        1.7326090016729845,
+                        3.5420630390392605
+                      ],
+                      [
+                        -4.10235728796789,
+                        2.4602789774423304
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 18,
+                    "n": 42,
+                    "equal_weight_visit_information": 10.524292182352124,
+                    "weighted_zero95": [
+                      [
+                        1.869304101703333,
+                        2.819249095477314
+                      ],
+                      [
+                        -3.402207954970848,
+                        1.9286818614282903
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 12,
+                    "n": 42,
+                    "equal_weight_visit_information": 7.415901962112381,
+                    "weighted_zero95": [
+                      [
+                        1.869304101703333,
+                        2.819249095477314
+                      ],
+                      [
+                        -2.905765491394002,
+                        1.9286818614282903
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              42
+            ],
+            "shared_night_sizes": [
+              42
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 18,
+            "test_count": 24,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 19,
+            "weighted_mean_masyr": [
+              -0.3028114240505151,
+              3.5329621813443643
+            ],
+            "independent_mean_covariance": [
+              [
+                8.69234932701973,
+                -0.02733740737305432
+              ],
+              [
+                -0.02733740737305432,
+                8.742800646405795
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0025837090268950947,
+                0.0003587929292225849
+              ],
+              [
+                0.0003587929292225849,
+                0.0016281839138941976
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -6.082297106295668,
+                5.476674258194638
+              ],
+              [
+                -2.2629499810815052,
+                9.328874343770234
+              ]
+            ],
+            "median_masyr": [
+              -0.12826692894519,
+              2.121983475848811
+            ],
+            "nmad_masyr": [
+              10.78834926878074,
+              11.969859187746936
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 19,
+            "methods": {
+              "C0": {
+                "median": [
+                  -0.12826692894519,
+                  2.121983475848811
+                ],
+                "nmad": [
+                  10.78834926878074,
+                  11.969859187746936
+                ],
+                "radial_p68": 18.417017099314343,
+                "tail_gt_5": 16,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 4,
+                    "n": 19,
+                    "equal_weight_visit_information": 3.8,
+                    "weighted_zero95": [
+                      [
+                        -2.326055620085,
+                        6.251771293337685
+                      ],
+                      [
+                        -0.3252969118123837,
+                        7.559658309540864
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 15,
+                    "n": 19,
+                    "equal_weight_visit_information": 9.405804443801117,
+                    "weighted_zero95": [
+                      [
+                        -1.8966917285416613,
+                        1.3957904596911783
+                      ],
+                      [
+                        0.3762079565747509,
+                        2.614683272898512
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 12,
+                    "n": 19,
+                    "equal_weight_visit_information": 8.167934133618253,
+                    "weighted_zero95": [
+                      [
+                        -1.8966917285416613,
+                        1.3957904596911783
+                      ],
+                      [
+                        0.3762079565747509,
+                        2.614683272898512
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              19
+            ],
+            "shared_night_sizes": [
+              19
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 7,
+            "test_count": 12,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1694": {
       "spatial_zero": {
@@ -6872,7 +10815,305 @@
         "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 182,
+            "weighted_mean_masyr": [
+              -1.9195474532379833,
+              -0.07861065015454102
+            ],
+            "independent_mean_covariance": [
+              [
+                0.5227295786430313,
+                0.0010955797262700803
+              ],
+              [
+                0.0010955797262700803,
+                0.519251232860036
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0024406052978278893,
+                8.63094334248164e-05
+              ],
+              [
+                8.63094334248164e-05,
+                0.0015850327240816322
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -3.3399325343435278,
+                -0.49916237213243875
+              ],
+              [
+                -1.4931227914484735,
+                1.3359014911393916
+              ]
+            ],
+            "median_masyr": [
+              -1.1818246147445035,
+              0.20013448713665025
+            ],
+            "nmad_masyr": [
+              9.2553365459819,
+              9.340200307124348
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 182,
+            "methods": {
+              "C0": {
+                "median": [
+                  -1.1818246147445035,
+                  0.20013448713665025
+                ],
+                "nmad": [
+                  9.2553365459819,
+                  9.340200307124348
+                ],
+                "radial_p68": 13.950891922774076,
+                "tail_gt_5": 164,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 6,
+                    "n": 182,
+                    "equal_weight_visit_information": 4.183643826965582,
+                    "weighted_zero95": [
+                      [
+                        -4.626649570232985,
+                        0.5124270333254828
+                      ],
+                      [
+                        -2.3876893291354815,
+                        1.2771804671383593
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 28,
+                    "n": 182,
+                    "equal_weight_visit_information": 16.10047105257189,
+                    "weighted_zero95": [
+                      [
+                        -4.104593748581815,
+                        -0.06506688222003874
+                      ],
+                      [
+                        -1.0228354119673102,
+                        1.9612449327064514
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 17,
+                    "n": 182,
+                    "equal_weight_visit_information": 9.733301924631848,
+                    "weighted_zero95": [
+                      [
+                        -4.3580310075030795,
+                        -0.06123814469848213
+                      ],
+                      [
+                        -1.0228354119673102,
+                        2.1525089754073745
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              182
+            ],
+            "shared_night_sizes": [
+              182
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 88,
+            "test_count": 94,
+            "scale": [
+              1.0537367203366537,
+              1.046254277614289
+            ],
+            "test_raw_within_1sigma": [
+              {
+                "n": 74,
+                "denominator": 94,
+                "value": 0.7872340425531915,
+                "wilson95": [
+                  0.6940820730069563,
+                  0.8578312023149222
+                ]
+              },
+              {
+                "n": 73,
+                "denominator": 94,
+                "value": 0.776595744680851,
+                "wilson95": [
+                  0.6824912052295027,
+                  0.848980837673047
+                ]
+              }
+            ],
+            "test_scaled_within_1sigma": [
+              {
+                "n": 81,
+                "denominator": 94,
+                "value": 0.8617021276595744,
+                "wilson95": [
+                  0.7776396834531167,
+                  0.9173622188040635
+                ]
+              },
+              {
+                "n": 77,
+                "denominator": 94,
+                "value": 0.8191489361702128,
+                "wilson95": [
+                  0.7293303791966494,
+                  0.8839065933832155
+                ]
+              }
+            ],
+            "scope": "Held QSO uncertainty diagnostic only; no motion correction or adopted error model. Source split can share physical calibration groups."
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 72,
+            "weighted_mean_masyr": [
+              -2.722239896003861,
+              0.22392742355284592
+            ],
+            "independent_mean_covariance": [
+              [
+                2.9221664860300653,
+                0.007425130372136735
+              ],
+              [
+                0.007425130372136734,
+                2.9823624085985916
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.0026604155889168694,
+                -4.2318287375362775e-05
+              ],
+              [
+                -4.2318287375362775e-05,
+                0.0019365969596920284
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -6.074256457010009,
+                0.6297766650022867
+              ],
+              [
+                -3.1619968313224316,
+                3.6098516784281234
+              ]
+            ],
+            "median_masyr": [
+              -4.447570615128476,
+              2.197369851167271
+            ],
+            "nmad_masyr": [
+              11.545621720361762,
+              10.330413768880709
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 72,
+            "methods": {
+              "C0": {
+                "median": [
+                  -4.447570615128476,
+                  2.197369851167271
+                ],
+                "nmad": [
+                  11.545621720361762,
+                  10.330413768880709
+                ],
+                "radial_p68": 17.110360419421216,
+                "tail_gt_5": 68,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 6,
+                    "n": 72,
+                    "equal_weight_visit_information": 3.9572519083969464,
+                    "weighted_zero95": [
+                      [
+                        -6.942668947203447,
+                        -2.7072997775210426
+                      ],
+                      [
+                        -1.7884175757135417,
+                        3.4978264413181868
+                      ]
+                    ]
+                  },
+                  "nsc_exposure": {
+                    "groups": 25,
+                    "n": 72,
+                    "equal_weight_visit_information": 14.833796995469356,
+                    "weighted_zero95": [
+                      [
+                        -5.903764750822083,
+                        -3.139254516441825
+                      ],
+                      [
+                        0.6065271894857474,
+                        3.4978264413181868
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 16,
+                    "n": 72,
+                    "equal_weight_visit_information": 8.167995728328709,
+                    "weighted_zero95": [
+                      [
+                        -5.903764750822083,
+                        -3.139254516441825
+                      ],
+                      [
+                        0.6065271894857474,
+                        3.665601551691001
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              72
+            ],
+            "shared_night_sizes": [
+              72
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 41,
+            "test_count": 31,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1695": {
       "spatial_zero": {
@@ -6988,7 +11229,241 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 14,
+            "weighted_mean_masyr": [
+              -1.3379189525007738,
+              -2.6491274440919006
+            ],
+            "independent_mean_covariance": [
+              [
+                7.229984445493586,
+                0.049110428116986016
+              ],
+              [
+                0.049110428116986016,
+                7.222134842806797
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.007631585477058067,
+                -1.339344761911945e-06
+              ],
+              [
+                -1.339344761911945e-06,
+                0.008508546728100395
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -6.610871232256093,
+                3.935033327254546
+              ],
+              [
+                -7.919539159056612,
+                2.62128427087281
+              ]
+            ],
+            "median_masyr": [
+              -1.8439754602305884,
+              -0.9251219954549997
+            ],
+            "nmad_masyr": [
+              9.441488732327098,
+              9.437340343087577
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 14,
+            "methods": {
+              "C0": {
+                "median": [
+                  -1.8439754602305884,
+                  -0.9251219954549997
+                ],
+                "nmad": [
+                  9.441488732327098,
+                  9.437340343087577
+                ],
+                "radial_p68": 14.854004814893747,
+                "tail_gt_5": 13,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 2,
+                    "n": 14,
+                    "equal_weight_visit_information": 2.0
+                  },
+                  "nsc_exposure": {
+                    "groups": 7,
+                    "n": 14,
+                    "equal_weight_visit_information": 4.13841642228739,
+                    "weighted_zero95": [
+                      [
+                        -3.2626331714560375,
+                        2.8667064226182033
+                      ],
+                      [
+                        -3.8181417176189516,
+                        3.2576302375000092
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 5,
+                    "n": 14,
+                    "equal_weight_visit_information": 2.6466616654163544,
+                    "weighted_zero95": [
+                      [
+                        -3.2626331714560375,
+                        2.8667064226182033
+                      ],
+                      [
+                        -3.8181417176189516,
+                        6.996907335188532
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              14
+            ],
+            "shared_night_sizes": [
+              14
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 6,
+            "test_count": 8,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 9,
+            "weighted_mean_masyr": [
+              1.3601649865731873,
+              0.5960831019247228
+            ],
+            "independent_mean_covariance": [
+              [
+                13.355655611735923,
+                0.09192052694577912
+              ],
+              [
+                0.09192052694577911,
+                15.008163673468715
+              ]
+            ],
+            "reference_mean_covariance": [
+              [
+                0.015340229454334523,
+                -0.00016044856290706492
+              ],
+              [
+                -0.00016044856290706492,
+                0.012469753526656854
+              ]
+            ],
+            "model_mean95_masyr": [
+              [
+                -5.80684398673754,
+                8.527173959883916
+              ],
+              [
+                -7.000183439814411,
+                8.192349643663857
+              ]
+            ],
+            "median_masyr": [
+              0.9432255518694624,
+              -2.8361809580907287
+            ],
+            "nmad_masyr": [
+              7.745766146186517,
+              18.937303677764017
+            ],
+            "qualification": "Linearized model interval; unmodeled spatial systematics and physical-block evidence still required."
+          },
+          "physical_group_sensitivity": {
+            "n": 9,
+            "methods": {
+              "C0": {
+                "median": [
+                  0.9432255518694624,
+                  -2.8361809580907287
+                ],
+                "nmad": [
+                  7.745766146186517,
+                  18.937303677764017
+                ],
+                "radial_p68": 16.830622713132083,
+                "tail_gt_5": 9,
+                "visit_weighted_zero": {
+                  "sdss_run": {
+                    "groups": 2,
+                    "n": 9,
+                    "equal_weight_visit_information": 1.8
+                  },
+                  "nsc_exposure": {
+                    "groups": 12,
+                    "n": 9,
+                    "equal_weight_visit_information": 5.624380028656451,
+                    "weighted_zero95": [
+                      [
+                        -2.1769877704359155,
+                        4.277639949745725
+                      ],
+                      [
+                        -4.895043903471166,
+                        9.936855381963243
+                      ]
+                    ]
+                  },
+                  "nsc_night": {
+                    "groups": 5,
+                    "n": 9,
+                    "equal_weight_visit_information": 3.1021276595744682,
+                    "weighted_zero95": [
+                      [
+                        -2.466262260408854,
+                        4.277639949745725
+                      ],
+                      [
+                        -4.895043903471166,
+                        9.936855381963243
+                      ]
+                    ]
+                  }
+                }
+              }
+            },
+            "connected_sizes": [
+              9
+            ],
+            "shared_night_sizes": [
+              9
+            ],
+            "paired_radial_gain": {}
+          },
+          "source_error_calibration": {
+            "training_count": 5,
+            "test_count": 4,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     },
     "1759": {
       "spatial_zero": {
@@ -7104,7 +11579,39 @@
         "status": "insufficient_support"
       },
       "axis_zero_target_masyr": 0.5,
-      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+      "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests",
+      "by_r": {
+        "r21_22": {
+          "spatial_zero": {
+            "n": 3
+          },
+          "physical_group_sensitivity": {
+            "n": 3
+          },
+          "source_error_calibration": {
+            "training_count": 1,
+            "test_count": 2,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        },
+        "r22_23": {
+          "spatial_zero": {
+            "n": 1
+          },
+          "physical_group_sensitivity": {
+            "n": 1
+          },
+          "source_error_calibration": {
+            "training_count": 1,
+            "test_count": 0,
+            "status": "insufficient_support"
+          },
+          "axis_zero_target_masyr": 0.5,
+          "spatial_certification": "not_certified_pending_independent_group_and_spatial_systematic_tests"
+        }
+      }
     }
   },
   "position_residual_strata": {
@@ -7917,5 +12424,6 @@
   },
   "motion_scope": "ICRS PM block rotation at fixed QSO positions; synchronized reference draw indices preserved throughout frozen C graph. No new correction applied.",
   "limitation": "Fixed-position PM Jacobian omits the tiny velocity-position derivative for stationary QSO; no native RA-Dec measurement covariance or empirical shared systematic certification. Legacy NSC night labels retain the original TT boundary.",
-  "slurm_job": "61517476"
+  "slurm_job": "61518034",
+  "spatial_zero_minimum_qso_count": 5
 }

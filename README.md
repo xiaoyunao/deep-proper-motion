@@ -3,6 +3,7 @@
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
+- [实验 A v1.3 观测条件研究](reports/experiment_A_v1.3_conditions.md) · [实际方法审计](docs/method_audit_v13.md) · [预登记与复现](docs/conditions_protocol_v13.md)
 - [实验 A v1.2 连续区最终报告](reports/experiment_A_v1.2_continuous.md) · [复现命令](docs/continuous_c0_v12.md) · [配对精度图](figures/v12_continuous_paired_precision_summary.png)
 - [实验 A v0.8 中文报告](reports/experiment_A_v0.8_spatial.md) · [空间验证协议](docs/spatial_validation_v08.md)
 - [实验 A v0.7 中文报告](reports/experiment_A_v0.7_regional.md) · [实验 A v0.6 中文报告](reports/experiment_A_v0.6_astrometry.md) · [实验 A v0.1 中文报告](reports/experiment_A_v0.1.md)
@@ -27,7 +28,7 @@ sbatch -A "${DEEP_PM_ACCOUNT:?set a verified CPU account}" -q "${DEEP_PM_QOS:?}"
 
 `scripts/experiment.sh` 依次执行 `normalize → inventory → associate → fit → validate → report`。先确认已有 `sdss.csv`、`nsc_object.csv` 和分离的 `validation/gaia.csv`。NSC CCD 路线可用 `fetch --route exposure` 执行。八个曝光的路线审计可在已有 object 路线数据的计算作业里用 `python -m deep_pm.audit "$DEEP_PM_WORK/smoke" --ra 30 --dec 0 --radius 0.037` 重跑。其他研究入口为 `deep_pm.counterfactual`、`deep_pm.diagnostics`、`deep_pm.injection`、`deep_pm.precision`、`deep_pm.exhaustive`、`deep_pm.solver_ablation`、`deep_pm.audit_plots`。
 
-测试用 `PYTHONPATH=src python -m unittest discover -s tests -v`。公开同步用本地 `bash scripts/sync-summary.sh`，先设置 `DEEP_PM_SSH_TARGET` 和 `DEEP_PM_REMOTE_SCRATCH`。该入口只接收预设名称的统计和图片。数据保留与持久化见 [数据文档](docs/data_access.md)。
+完整测试用 `OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q`，开发依赖可用 `pip install -e '.[test]'` 安装。该命令同时覆盖 unittest 类与 pytest 函数测试；线程限制沿用NERSC运行方式。公开同步用本地 `bash scripts/sync-summary.sh`，先设置 `DEEP_PM_SSH_TARGET` 和 `DEEP_PM_REMOTE_SCRATCH`。该入口只接收预设名称的统计和图片。数据保留与持久化见 [数据文档](docs/data_access.md)。
 
 实验 A v0.3 从 `b92912c` 单列普通源精度实验。用 `bash scripts/precision-v03.sh test_equator` 在 Slurm 上从冻结目录复现基线并检验独立星系零点。配置和验收口径见 [v0.3 计划](docs/experiment_a_v03_plan.md)，实测结果见 [v0.3 中文报告](reports/experiment_A_v0.3_precision.md)。
 

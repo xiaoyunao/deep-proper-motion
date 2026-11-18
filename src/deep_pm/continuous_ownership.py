@@ -13,19 +13,28 @@ from .continuous_reference import verify_directory
 from .exposure_catalogues import coordinates, inside
 from .io import digest, save_json
 from .public_summary import check_aggregate
+from .astrometry import project
+from .standard_motion import icrs_motion
 
 
-def close_pairs(data):
+def close_pairs(data,centers=None):
     tree = cKDTree(coordinates(data.ra, data.dec))
     cores = data.core.to_numpy()
-    motion = data[["pm_east", "pm_north"]].to_numpy()
+    motion = data[["pm_east", "pm_north"]].to_numpy(dtype=float)
     results = {}
     for radius in (.05, .2):
         chord = 2*np.sin(np.deg2rad(radius/3600)/2)
         pairs = np.asarray(sorted(tree.query_pairs(chord)), dtype=int).reshape(-1, 2)
         cross = cores[pairs[:, 0]] != cores[pairs[:, 1]]
         pairs = pairs[cross]
-        separation = np.linalg.norm(motion[pairs[:, 0]]-motion[pairs[:, 1]], axis=1)
+        native=motion
+        if centers is not None:
+            native=motion.copy()
+            for i in np.unique(pairs):
+                row=data.iloc[i];center=centers[row.core]
+                point=project([row.ra],[row.dec],center)[0]
+                native[i]=icrs_motion(point,motion[i],center)['pm_icrs_masyr']
+        separation = np.linalg.norm(native[pairs[:, 0]]-native[pairs[:, 1]], axis=1)
         results[str(radius)] = dict(cross_core_pairs=len(pairs),
                                    motion_difference_below_1_masyr=int((separation < 1).sum()))
     return dict(catalogue_count=len(data), exact_position_duplicate_rows=int(data.duplicated(["ra", "dec"], keep=False).sum()),

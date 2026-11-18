@@ -1,6 +1,7 @@
 import unittest
 
 import pandas as pd
+import numpy as np
 
 from deep_pm.continuous_ownership import close_pairs
 from deep_pm.public_summary import check_aggregate
@@ -33,3 +34,19 @@ class OwnershipPairsTest(unittest.TestCase):
         self.assertEqual(result["exact_position_duplicate_rows"], 0)
         for counts in result["cross_core_close_pairs_by_arcsec"].values():
             self.assertEqual(counts["cross_core_pairs"], 0)
+
+    def test_different_physical_planes_use_standard_icrs_velocity(self):
+        from deep_pm.astrometry import project
+        from deep_pm.standard_motion import icrs_motion
+        sky=[188.,29.];velocity=[1000.,2000.];centers={'west':(183.,33.),'east':(193.,33.)}
+        records=[]
+        for core,center in centers.items():
+            position=project([sky[0]],[sky[1]],center)[0]
+            jac=icrs_motion(position,[0.,0.],center)['state_jacobian'][np.ix_([1,3],[1,3])]
+            motion=np.linalg.solve(jac,velocity)
+            records.append(dict(ra=sky[0],dec=sky[1],pm_east=motion[0],pm_north=motion[1],core=core))
+        data=pd.DataFrame(records)
+        result=close_pairs(data,centers)
+        for counts in result['cross_core_close_pairs_by_arcsec'].values():
+            self.assertEqual(counts['cross_core_pairs'],1)
+            self.assertEqual(counts['motion_difference_below_1_masyr'],1)

@@ -50,3 +50,7 @@ python -m deep_pm.independent_runs "$GEOMETRY_SUMMARY" "$SDSS_WINDOW" "$WORK"
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src python3 -m pytest -q
 PYTHONPATH=src python3 -m deep_pm.condition_plots results/summary/v13_full_conditions_summary.json figures/v13_full_conditions_summary.png
 ```
+
+## 整区独立测试区域保留
+
+在查看任何A/B/北窗新自行结果前，保留全部已选 `north_two` 区域作为最终独立测试（空间旧试点已在选区中剔除）。首批可取数、解参考图并写密封结果，但模型选择期间不查看该区QSO／Gaia自行、残差、留出和产出指标。先从其他四窗及既有C区冻结采用方法、条件分层和质量规则，再统一解封，不根据测试结果回调参数。保守共享run清单与实际使用组仍单列，空间分离不等于统计完全独立。

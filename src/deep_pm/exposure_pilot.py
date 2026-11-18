@@ -10,6 +10,7 @@ import healpy as hp
 import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
+from astropy.time import Time
 
 from .__main__ import tomllib
 from .access import Cache
@@ -25,6 +26,7 @@ from .pilot_production import make_tracks, quality_detections, source_funnel, va
 from .pilot_validation import track_audit
 from .precision_v03 import calibration, fit_with_calibration
 from .provenance import run_stage
+from .standard_motion import calibrated_covariance,icrs_motion
 from .regional_validation import official_table, tag_magnitude, valid_published
 from .validation import gaia_labels, groups_by_label
 from .validation_audit import (anchored_bright_gaia, boundary_pairs, dark_quality, gaia_bright, gaia_observation_quality,
@@ -160,10 +162,19 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
         if not valid_epochs(indices,nsc,t,settings["production"]):
             continue
         base={}
+        standard,standard_error={},{}
+        reference_position=None
         for name,keyset,solution in zip(names,keys,offsets):
             fit,err=fit_with_calibration(xy[indices],t[indices],sigma[indices],config["reference_epoch"],
                                         [solution[keyset[i]] for i in indices])
             base[name]=(fit.coeff[1],err)
+            if block_records is not None:
+                covariance=calibrated_covariance(fit,t[indices],sigma[indices],
+                                                [solution[keyset[i]] for i in indices])[0]
+                converted=icrs_motion(fit.coeff[0],fit.coeff[1]-ref[k],points,covariance)
+                standard[name]=converted['pm_icrs_masyr']
+                standard_error[name]=np.hypot(converted['pm_error_masyr'],ref_error[k])
+                if reference_position is None:reference_position=fit.coeff[0]
         if linked.get(k) in published.index:
             values=valid_published(published.loc[linked[k]],points)
             if values is not None:
@@ -171,10 +182,23 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
         if k in legacy:
             base["Xiao"]=legacy[k]
         if block_records is not None and 21<=magnitudes[k]<23:
+            jacobian=icrs_motion(reference_position,np.zeros(2),points)['state_jacobian'][np.ix_([1,3],[1,3])]
+            for name in ('NSC','Xiao'):
+                if name in base:
+                    standard[name]=np.linalg.solve(jacobian,base[name][0]-ref[k])
+                    standard_error[name]=np.hypot(base[name][1],ref_error[k])
+            utc=Time(t[indices],format='jyear',scale='tt').utc
+            calendar_year=utc.datetime64.astype('datetime64[Y]').astype(int)+1970
             block_records.append(dict(magnitude=magnitudes[k],
                 exposures=sorted(set(exposure[indices])),
                 nsc_epoch_days=sorted(set(np.floor((t[indices[nsc[indices]]]-2000)*365.25).astype(int))),
-                motion={name:pm-ref[k] for name,(pm,_) in base.items()}))
+                motion={name:pm-ref[k] for name,(pm,_) in base.items()},motion_icrs=standard,error_icrs=standard_error,
+                position_deg=unproject(reference_position,points)[0],
+                nsc_nights_utc18=sorted(set(np.floor(utc.mjd[nsc[indices]]-.75).astype(int))),
+                calendar_year_count=len(set(calendar_year)),
+                sdss_span_years=float(np.ptp(t[indices[~nsc[indices]]])),
+                nsc_span_years=float(np.ptp(t[indices[nsc[indices]]])),
+                joint_span_years=float(np.ptp(t[indices]))))
         blind={name:products[name][found[k]][1:3] for name,(found,_) in audits.items() if k in found}
         if all(name in blind for name in names):
             blind.update({name:x for name,x in base.items() if name in ("Xiao","NSC")})

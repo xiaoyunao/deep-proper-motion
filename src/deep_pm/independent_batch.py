@@ -38,6 +38,7 @@ def prepare(work,selection,protocol):
     (work/'tasks.tsv').write_text(''.join(f'{name}\t{box}\n' for name,box in plan))
     save_json(work/'batch_preparation_summary.json',dict(selection_sha256=digest(selection),
         selected_parent_count=len(selected),acquisition_core_count=len(plan),configs=configs,
+        final_test_box=config.get("final_test_box"),
         selection_uses_new_motion=False,area_sqdeg=sum(row['area_sqdeg'] for row in selected)))
 
 

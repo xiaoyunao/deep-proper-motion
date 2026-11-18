@@ -69,6 +69,9 @@ def extract(source, work, spec, center=CENTER):
 
 def deduplicate(frames):
     rows = pd.concat(frames,ignore_index=True)
+    if not set(pd.unique(rows.is_holdout)) <= {True,False}:
+        raise ValueError('Reference split labels must be explicit booleans')
+    rows['is_holdout']=rows.is_holdout.astype(bool)
     clashes = rows.groupby("detection_id").reference.transform("nunique").gt(1)
     cleaned = rows.loc[~clashes].drop_duplicates("detection_id").copy()
     # Archive processing defines a physical exposure, irrespective of how many cores retrieved it.
@@ -176,7 +179,7 @@ def solve(work, parts, specs, separate=False):
     metadata = []
     for name, path in parts.items():
         verify_directory(path,("reference.csv.gz","reference_summary.json"))
-        datasets[name] = pd.read_csv(path/"reference.csv.gz",dtype={"reference":str})
+        datasets[name] = pd.read_csv(path/"reference.csv.gz",dtype={"reference":str,"is_holdout":bool})
         metadata.append(json.loads((path/'reference_summary.json').read_text()))
     center = common_reference_frame(metadata)
     rows, selection = deduplicate(list(datasets.values()))

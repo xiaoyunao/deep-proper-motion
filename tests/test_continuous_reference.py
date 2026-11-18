@@ -14,6 +14,16 @@ from deep_pm.validation_audit import boundary_pairs
 
 
 class ContinuousReferenceTest(unittest.TestCase):
+    def test_empty_reference_shard_preserves_the_boolean_train_split(self):
+        populated=pd.DataFrame(dict(reference=['a','a'],detection_id=['s','n'],
+            exposure_id=['SDSS:1','NSC:1'],is_holdout=[False,False]))
+        empty=populated.iloc[:0].astype({'is_holdout':object})
+        data,_=deduplicate([empty,populated])
+        self.assertEqual(data.is_holdout.dtype,bool)
+        self.assertEqual(len(data.loc[~data.is_holdout]),2)
+        populated['is_holdout']=['False','False']
+        with self.assertRaises(ValueError):deduplicate([populated])
+
     def test_projection_metadata_is_bound_and_mixed_planes_are_rejected(self):
         self.assertEqual(common_reference_frame([{},{}]),(350.,0.))
         self.assertEqual(common_reference_frame([{'projection_center_deg':[132.,35.]}]),(132.,35.))

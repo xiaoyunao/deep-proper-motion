@@ -1,5 +1,6 @@
 # Geometric candidate pool; no proper-motion outcomes are used for selection.
 seed = 9137
+final_test_box = "north_two"
 positions_per_tile = 400
 reference_epoch = 2015.5
 nside = 128

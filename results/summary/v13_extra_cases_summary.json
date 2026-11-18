@@ -1,0 +1,21 @@
+{
+  "cohort_metadata": {
+    "b": {
+      "cohort_count": 18,
+      "selection_component": "east",
+      "held_year": 2017,
+      "held_positions": 2,
+      "input_summary_sha256": "41111233e6b6fd805d3fb3ab8205884911c3d818140a31c889e85f967bc9e0b4"
+    },
+    "north_one": {
+      "cohort_count": 26,
+      "selection_component": "north",
+      "held_year": 2017,
+      "held_positions": 0,
+      "input_summary_sha256": "74b953523f8ddb57d4db483ed00dbf9fa1b06be9886a5d7a671fc412a138a287"
+    }
+  },
+  "selection": "Closest fitted component to the cohort median, not an extreme. No source identifiers or absolute sky coordinates exported.",
+  "scope": "Marginal position bars include trial noise and C0 reference terms; measurements remain correlated. Individual nonzero motions need not be significant.",
+  "slurm_job": "61519473"
+}

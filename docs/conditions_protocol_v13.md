@@ -60,3 +60,11 @@ PYTHONPATH=src python3 -m deep_pm.condition_plots results/summary/v13_full_condi
 `python -m deep_pm.independent_summary STATE configs/independent-v13-candidates.toml OUTPUT` 在读取拟合／参考文件之前剔除整个 north_two；不可用普通整区池化代替此保护入口。已保留的切平面运动通过每源逆gnomonic正向Jacobian恢复ICRS；早期私有NSC/Xiao的逆矩阵转换字段存在方向错误，汇总忽略这些字段重建，原冻结科学结果不改变。公开同时保留并明确标记旧切平面控制指标。
 
 最终新区汇总分别给出已知位置控制与W0盲产物。盲源以拟合完成后检测级标签审核映射到源级标准ICRS输出，在同一恢复子样本对照已知位置拟合及两发布目录；未知成员和形态／时间／误差选择不能包装成关联正确率。历史缺失映射标为不可评估。连通观测块少于3时不提供块重采样空间区间；固定参考解和同步参考抽样的不确定度仍分别说明。资源入口以DEEP_PM_BATCH_NODES和各阶段DEEP_PM_*_STREAMS记录并发，不改变科学参数；网络取数避免无界并发。
+
+### 最终测试的显式解封
+
+默认汇总继续在文件访问前隔离north_two。仅在非密封区审核完毕并提交最终方法、分层和质量决策后，生成绑定选区、协议、精度／产出配置、实际拟合及参考源码SHA和决策文档SHA的JSON回执，再通过 `independent_summary --release RECEIPT` 读取最终测试。当前新增误差／多波段均未获采用，因此该接口只允许C0/W0 r-only；解封后不得回调参数。缺失／变更回执会在加载任何结果前失败。
+
+新区仪器对照从校验过的实际chips元数据追溯各QSO所用NSC曝光，区分DECam、90Prime、Mosaic3、混合和不完整，不能把北天窗口名称当仪器。跨独立大区审计另用 `cross_region_audit` 比较同源ICRS运动及双方留出星系的实际校正差；不同参考图共享物理数据但抽样未同步，不生成假独立的标准化残差或认证区间。
+
+遇到深场年度扩展耗时，保留C0的所有核心与输入，以 `DEEP_PM_FIT_ANNUAL=0` 单独完成广域基准；默认1保持旧运行行为。失败作业和未完成阶段不改写，新代码／选项使用新目录，年度暗恒星验证保留为独立研究任务。

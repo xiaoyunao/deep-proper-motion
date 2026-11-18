@@ -6,11 +6,23 @@ from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from deep_pm.astrometry import project
 from deep_pm.independent_summary import run, standard_block
 from deep_pm.paired_control import catalogue_motion
 from deep_pm.standard_motion import icrs_motion
+
+
+def test_invalid_release_cannot_open_any_test_output(tmp_path):
+    from deep_pm.io import digest
+    protocol=tmp_path/'protocol.toml';protocol.write_text('final_test_box = "north_two"\n')
+    (tmp_path/'selection.json').write_text('{}')
+    release=tmp_path/'release.json'
+    release.write_text(json.dumps(dict(selection_sha256=digest(tmp_path/'selection.json'))))
+    with patch('deep_pm.independent_summary.pool') as pool,pytest.raises(ValueError):
+        run(tmp_path,protocol,tmp_path/'output.json',release)
+    pool.assert_not_called()
 
 
 def test_published_inverse_conversion_restores_native_motion_at_high_declination():

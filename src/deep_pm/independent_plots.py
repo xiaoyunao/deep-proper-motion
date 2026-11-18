@@ -42,7 +42,10 @@ def render(data,output):
         for axis in (upper,lower):axis.grid(axis='y',alpha=.2)
     axes[0,0].legend(handles=[Line2D([],[],color=c,marker='o',ls='',label=k) for k,c in methods])
     axes[1,0].legend(handles=[Line2D([],[],color=c,lw=2,label=k) for k,c in [('Object bootstrap 95%','#24689b'),('SDSS-run weight sensitivity','#ce843d')]],fontsize=8)
-    fig.suptitle('Independent batch 01: common spectroscopic QSO; north_two remains sealed',fontsize=12)
+    area=data.get('total_core_area_sqdeg')
+    size=f' ({area:.2f} deg²)' if area is not None else ''
+    scope='frozen final test included' if data.get('test_results_read') else 'north_two remains sealed'
+    fig.suptitle(f'Independent regions{size}: common spectroscopic QSO; {scope}',fontsize=12)
     output.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(output,dpi=170)
     plt.close(fig)

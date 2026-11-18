@@ -13,7 +13,7 @@
 
 每个科学 SQL 分块执行独立计数与等长下载，超上限禁止继续，NSC 对象批次可递归分块。缓存键由服务及查询计算，保存行数和 SHA-256，HTTP 错误重试后可从成功分块继续。TAP_SCHEMA 用于单位读取，科学 NSC 查询使用 Data Lab 提供的 PostgreSQL q3c 接口。包含 TOP/LIMIT 的连接测试与科学样本分开。曝光路线先筛 CCD 几何，再按曝光与 CCD 查询。八个曝光的实际路线比较见报告。
 
-服务器路径、环境、账户参数通过提交环境设置。原始数据、逐检测、逐源、认证及原始日志保存在远端。公开归档仅保存代码、脱敏文档、汇总统计图和数据检索方法。Scratch 可被清理。关键可复现摘要和配置同时保存在 HOME 与 GitHub；原始查询响应按需要重新取得；若必须保留难以再获取的文件，使用项目批准的持久区或 HPSS。 [NERSC Scratch](https://docs.nersc.gov/filesystems/perlmutter-scratch/)
+服务器路径、环境、账户参数通过提交环境设置。原始数据、逐检测、逐源、认证及原始日志保存在远端。公开归档仅保存代码、脱敏文档、汇总统计图和数据检索方法。Scratch 可被清理。关键可复现摘要和配置保存在本地与 GitHub；历史冻结的小型Home归档保留不动，后续不新增Home数据备份；原始查询响应按需要重新取得；若必须保留难以再获取的文件，使用项目批准的持久区或 HPSS。 [NERSC Scratch](https://docs.nersc.gov/filesystems/perlmutter-scratch/)
 
 | 读取核验 | SHA-256 |
 | --- | --- |

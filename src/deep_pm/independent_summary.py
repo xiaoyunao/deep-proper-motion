@@ -11,6 +11,7 @@ import numpy as np
 from .__main__ import tomllib
 from .astrometry import project
 from .continuous_reference import verify_directory
+from .continuous_instruments import chip_receipts,instrument_by_exposure
 from .continuous_summary import pool, estimate, METHODS
 from .io import digest, save_json
 from .nsc_comparison import comparison
@@ -18,6 +19,24 @@ from .public_summary import check_aggregate
 from .standard_motion import icrs_motion
 from .validation_blocks import metrics as block_metrics
 from .validation import ratio
+
+
+def validate_release(state,protocol,release):
+    """Require a recorded frozen decision before opening the reserved window."""
+    recorded=json.loads(release.read_text())
+    required=dict(selection_sha256=digest(state/'selection.json'),protocol_sha256=digest(protocol),
+        precision_sha256=digest(Path('configs/precision-v03.toml')),
+        production_sha256=digest(Path('configs/spatial-v08.toml')),
+        fit_source_sha256=digest(Path('src/deep_pm/continuous_fit.py')),
+        reference_source_sha256=digest(Path('src/deep_pm/continuous_reference.py')),
+        final_test_box=tomllib.loads(protocol.read_text())['final_test_box'],
+        adopted_models=['C0/W0 r-only'],no_test_retuning=True)
+    if any(recorded.get(k)!=v for k,v in required.items()):
+        raise ValueError('Test release is missing or does not bind the frozen selection/model')
+    decision=Path(recorded['decision_document'])
+    if digest(decision)!=recorded.get('decision_sha256'):
+        raise ValueError('Frozen decision document changed')
+    return digest(release)
 
 
 def standard_block(row, center):
@@ -45,6 +64,8 @@ def comparison_cohorts(records):
               'multiple_sdss_runs':[r for r in common if len({e for e in r['exposures'] if e.startswith('SDSS:')})>=2],
               'nsc_span_lt_2yr':[r for r in common if r['nsc_span_years']<2],
               'nsc_span_ge_2yr':[r for r in common if r['nsc_span_years']>=2]}
+        for instrument in sorted({r['instrument_mix'] for r in common if 'instrument_mix' in r}):
+            sets['instrument_'+instrument]=[r for r in common if r.get('instrument_mix')==instrument]
         out={}
         for name,rows in sets.items():
             values=[{k:(r['motion'][k],r['error_icrs'][k]) for k in METHODS} for r in rows]
@@ -83,19 +104,24 @@ def blind_cohorts(records):
     return out
 
 
-def run(state,protocol,output):
+def run(state,protocol,output,release=None):
     sealed=tomllib.loads(protocol.read_text())['final_test_box']
+    release_sha=validate_release(state,protocol,release) if release is not None else None
     tasks=[line.split() for line in (state/'tasks.tsv').read_text().splitlines()]
-    allowed=[(name,box) for name,box in tasks if box!=sealed]
+    allowed=[(name,box) for name,box in tasks if release_sha is not None or box!=sealed]
     # Filter BEFORE any fit/reference file access, not after loading outcomes.
     specs, fits, graphs, sets={}, {}, {}, defaultdict(list)
     records=defaultdict(list)
+    archives=[];missing_metadata=[]
     for name,box in allowed:
         config=tomllib.loads((state/f'batch-{box}.toml').read_text())
         specs[name]=config['fields'][name]
         fits[name]=state/'outputs'/name
         graphs[box]=state/'shared'/box
         sets[box].append(name)
+        chips,complete=chip_receipts((state/'inputs'/name/'run_manifest.json').resolve())
+        archives.extend(chips)
+        if not complete:missing_metadata.append(name)
         verify_directory(fits[name],('private_qso_blocks.json','continuous_core_summary.json'))
         rows=json.loads((fits[name]/'private_qso_blocks.json').read_text())
         if any(r.get('blind_track_ids',{}).get('C0') is not None for r in rows):
@@ -111,6 +137,12 @@ def run(state,protocol,output):
                 row['blind_visits']=star['exposures']
                 row['blind_nights']=star['nsc_nights_utc18']
             records[box].append(row)
+    instruments=instrument_by_exposure(sorted(set(archives)))
+    aliases={'c4d':'DECam','decam':'DECam','ksb':'90Prime','90prime':'90Prime','k4m':'Mosaic3','mosaic3':'Mosaic3'}
+    for rows in records.values():
+        for row in rows:
+            used={aliases.get(instruments.get(exp,'').strip().lower(),'unknown') for exp in row['exposures'] if exp.startswith('NSC:')}
+            row['instrument_mix']='_and_'.join(sorted(used)) if used and 'unknown' not in used else 'incomplete'
     # Reuse receipt/ownership checks, avoiding duplicated tangent-frame inference
     # and enormous per-core copies of the same cohort comparisons.
     public=pool(specs,fits,graphs,{})
@@ -122,14 +154,18 @@ def run(state,protocol,output):
     public['standard_icrs_comparison']['pooled']=comparison_cohorts([r for rows in records.values() for r in rows])
     public['blind_w0_comparison']={box:blind_cohorts(rows) for box,rows in records.items()}
     public['blind_w0_comparison']['pooled']=blind_cohorts([r for rows in records.values() for r in rows])
+    public['instrument_metadata']=dict(complete_cores=len(allowed)-len(missing_metadata),missing_cores=missing_metadata,
+        verified_chip_sha256=[digest(path) for path in sorted(set(archives))],
+        scope='Actual NSC exposures used by each known-position QSO control, not assumed from sky-window name.')
     if (state/'batch_preparation_summary.json').exists():
         preparation=json.loads((state/'batch_preparation_summary.json').read_text())
         public['registered_cumulative_area_sqdeg']=preparation['area_sqdeg']
         public['runtime_versions']=preparation.get('runtime_versions',dict(status='not_recorded_in_historical_preparation'))
-    public.update(final_test_box=sealed,sealed_core_count=sum(box==sealed for _,box in tasks),
-        test_results_read=False,protocol_sha256=digest(protocol),
+    public.update(final_test_box=sealed,sealed_core_count=sum(box==sealed for _,box in tasks) if release_sha is None else 0,
+        registered_test_core_count=sum(box==sealed for _,box in tasks),test_release_sha256=release_sha,
+        test_results_read=release_sha is not None,protocol_sha256=digest(protocol),
         vector_conversion='Tangent velocity multiplied by inverse-gnomonic Jacobian; old private published inverse-conversion values ignored.',
-        inference_scope='Known-position spectroscopic QSO. Whole-region holdout unopened. Physical-group weight sensitivity is not independent spatial confidence.',
+        inference_scope='Known-position spectroscopic QSO. Reserved region included only with a recorded frozen release. Physical-group weight sensitivity is not independent spatial confidence.',
         slurm_job=os.environ['SLURM_JOB_ID'])
     check_aggregate(public)
     save_json(output,public)
@@ -138,9 +174,10 @@ def run(state,protocol,output):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('state','protocol','output'):p.add_argument(name,type=Path)
+    p.add_argument('--release',type=Path,help='Explicit frozen selection/model decision receipt for the reserved final region')
     a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
-    run(a.state,a.protocol,a.output)
+    run(a.state,a.protocol,a.output,a.release)
 
 
 if __name__=='__main__':main()

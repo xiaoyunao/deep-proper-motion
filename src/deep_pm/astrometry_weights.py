@@ -7,16 +7,19 @@ from scipy.optimize import minimize
 from .astrometry import basis
 
 
-def variance_model(delta, left, right, minimum):
+def variance_model(delta, left, right, minimum, common_variance=None):
     """Estimate marginal variance from differences of disjoint galaxy epochs."""
     if len(delta) < minimum:
         return np.array([1., 50.]), False
     difference = np.asarray(delta)
     formal = np.asarray(left)**2 + np.asarray(right)**2
+    common_variance = 0. if common_variance is None else np.asarray(common_variance)
+    if np.any(~np.isfinite(common_variance)) or np.any(common_variance < 0):
+        raise ValueError('Known reference variance must be finite and nonnegative')
 
     def objective(parameters):
         scale, floor = np.exp(parameters)
-        variance = scale**2 * formal + 2 * floor**2
+        variance = scale**2 * formal + 2 * floor**2 + common_variance
         # Student likelihood with finite variance to limit the impact of mismatches.
         return np.sum(.5*np.log(variance) + 3*np.log1p(difference**2/(3*variance)))
 

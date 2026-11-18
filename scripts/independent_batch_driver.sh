@@ -21,6 +21,7 @@ import json,os,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path
 event=dict(phase=sys.argv[2],state=sys.argv[3],utc=datetime.now(timezone.utc).isoformat(),
+           annual_validation=os.environ.get('DEEP_PM_FIT_ANNUAL','1'),
            nodes=int(os.environ.get('DEEP_PM_BATCH_NODES','2')),m3_workers=int(os.environ.get('DEEP_PM_M3_WORKERS','8')),
            streams={k:os.environ.get(k,'2') for k in ('DEEP_PM_FETCH_STREAMS','DEEP_PM_REFERENCE_STREAMS','DEEP_PM_FIT_STREAMS')},
            slurm_job=os.environ['SLURM_JOB_ID'],commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip())

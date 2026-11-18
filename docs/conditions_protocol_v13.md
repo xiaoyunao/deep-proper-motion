@@ -54,3 +54,7 @@ PYTHONPATH=src python3 -m deep_pm.condition_plots results/summary/v13_full_condi
 ## 整区独立测试区域保留
 
 在查看任何A/B/北窗新自行结果前，保留全部已选 `north_two` 区域作为最终独立测试（空间旧试点已在选区中剔除）。首批可取数、解参考图并写密封结果，但模型选择期间不查看该区QSO／Gaia自行、残差、留出和产出指标。先从其他四窗及既有C区冻结采用方法、条件分层和质量规则，再统一解封，不根据测试结果回调参数。保守共享run清单与实际使用组仍单列，空间分离不等于统计完全独立。
+
+### 首批标准坐标汇总
+
+`python -m deep_pm.independent_summary STATE configs/independent-v13-candidates.toml OUTPUT` 在读取拟合／参考文件之前剔除整个 north_two；不可用普通整区池化代替此保护入口。已保留的切平面运动通过每源逆gnomonic正向Jacobian恢复ICRS；早期私有NSC/Xiao的逆矩阵转换字段存在方向错误，汇总忽略这些字段重建，原冻结科学结果不改变。公开同时保留并明确标记旧切平面控制指标。

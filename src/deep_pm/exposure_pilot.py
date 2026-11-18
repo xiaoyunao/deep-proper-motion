@@ -185,10 +185,10 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
             jacobian=icrs_motion(reference_position,np.zeros(2),points)['state_jacobian'][np.ix_([1,3],[1,3])]
             for name in ('NSC','Xiao'):
                 if name in base:
-                    standard[name]=np.linalg.solve(jacobian,base[name][0]-ref[k])
+                    standard[name]=jacobian@(base[name][0]-ref[k])
                     standard_error[name]=np.hypot(base[name][1],ref_error[k])
-            utc=Time(t[indices],format='jyear',scale='tt').utc
-            calendar_year=utc.datetime64.astype('datetime64[Y]').astype(int)+1970
+            utc=Time(data.observation_time.iloc[indices].to_numpy(),format='mjd',scale='tt').utc
+            calendar_year=np.array([int(value[:4]) for value in utc.isot])
             block_records.append(dict(magnitude=magnitudes[k],
                 exposures=sorted(set(exposure[indices])),
                 nsc_epoch_days=sorted(set(np.floor((t[indices[nsc[indices]]]-2000)*365.25).astype(int))),

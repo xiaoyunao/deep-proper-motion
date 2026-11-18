@@ -16,9 +16,9 @@ from .io import digest,save_json
 from .public_summary import check_aggregate
 
 
-def audit(state,protocol,output,release=None):
+def audit(state,protocol,output,release=None,frozen_code=None):
     sealed=tomllib.loads(protocol.read_text())['final_test_box']
-    release_sha=validate_release(state,protocol,release) if release is not None else None
+    release_sha=validate_release(state,protocol,release,frozen_code or Path('.')) if release is not None else None
     tasks=[line.split() for line in (state/'tasks.tsv').read_text().splitlines()]
     allowed=[(core,box) for core,box in tasks if release_sha is not None or box!=sealed]
     frames=[];centers={};outside=0;receipts={};components={}
@@ -30,7 +30,7 @@ def audit(state,protocol,output,release=None):
         if summary['shared_solution_sha256']!=digest(graph):raise ValueError('Source reference solution changed')
         config=tomllib.loads((state/f'batch-{box}.toml').read_text())
         centers[core]=config['projection_center_deg']
-        rows=pd.read_csv(work/'private_catalogue.csv.gz',usecols=['ra','dec','pm_east','pm_north'])
+        rows=pd.read_csv(work/'private_catalogue.csv.gz',usecols=['ra','dec','pm_east','pm_north'],dtype=float)
         if len(rows)!=summary['owned_w0'] or not np.isfinite(rows.to_numpy()).all():raise ValueError('Invalid source count or coordinates')
         outside+=int((~inside(rows.ra,rows.dec,config['fields'][core])).sum())
         frames.append(rows.assign(core=core));receipts[core]=digest(receipt)
@@ -40,6 +40,8 @@ def audit(state,protocol,output,release=None):
     result=close_pairs(data,centers)
     result.update(outside_common_epoch_owner=outside,core_count=len(allowed),source_receipt_sha256=receipts,
         applied_reference_components=components,test_results_read=release_sha is not None,test_release_sha256=release_sha,
+        diagnostic_source_sha256=digest(Path(__file__)),
+        frozen_evaluation_source_sha256=digest((frozen_code or Path('.'))/'src/deep_pm/independent_summary.py'),
         motion_comparison_frame='Per-source ICRS proper motion, transformed only for close-pair candidates.',
         scope='Geometric duplicates and candidate same-source pairs; no claim of catalogue purity or reference-zero certification.',
         slurm_job=os.environ['SLURM_JOB_ID'])
@@ -51,6 +53,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('state','protocol','output'):p.add_argument(name,type=Path)
     p.add_argument('--release',type=Path)
+    p.add_argument('--frozen-code',type=Path,help='Original frozen evaluation checkout for a post-test diagnostic bug fix; original release stays unchanged')
     a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
     audit(**vars(a))

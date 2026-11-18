@@ -21,20 +21,21 @@ from .validation_blocks import metrics as block_metrics
 from .validation import ratio
 
 
-def validate_release(state,protocol,release):
+def validate_release(state,protocol,release,code_root=Path('.')):
     """Require a recorded frozen decision before opening the reserved window."""
     recorded=json.loads(release.read_text())
     required=dict(selection_sha256=digest(state/'selection.json'),protocol_sha256=digest(protocol),
-        method_sources_sha256={p.name:digest(p) for p in sorted(Path('src/deep_pm').glob('*.py'))},
-        precision_sha256=digest(Path('configs/precision-v03.toml')),
-        production_sha256=digest(Path('configs/spatial-v08.toml')),
-        fit_source_sha256=digest(Path('src/deep_pm/continuous_fit.py')),
-        reference_source_sha256=digest(Path('src/deep_pm/continuous_reference.py')),
+        method_sources_sha256={p.name:digest(p) for p in sorted((code_root/'src/deep_pm').glob('*.py'))},
+        precision_sha256=digest(code_root/'configs/precision-v03.toml'),
+        production_sha256=digest(code_root/'configs/spatial-v08.toml'),
+        fit_source_sha256=digest(code_root/'src/deep_pm/continuous_fit.py'),
+        reference_source_sha256=digest(code_root/'src/deep_pm/continuous_reference.py'),
         final_test_box=tomllib.loads(protocol.read_text())['final_test_box'],
         adopted_models=['C0/W0 r-only'],no_test_retuning=True)
     if any(recorded.get(k)!=v for k,v in required.items()):
         raise ValueError('Test release is missing or does not bind the frozen selection/model')
     decision=Path(recorded['decision_document'])
+    if not decision.is_absolute():decision=code_root/decision
     if digest(decision)!=recorded.get('decision_sha256'):
         raise ValueError('Frozen decision document changed')
     return digest(release)

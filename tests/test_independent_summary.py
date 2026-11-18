@@ -25,6 +25,28 @@ def test_invalid_release_cannot_open_any_test_output(tmp_path):
     pool.assert_not_called()
 
 
+def test_post_test_diagnostic_verifies_original_frozen_code_without_releasing_again(tmp_path):
+    from deep_pm.independent_summary import validate_release
+    from deep_pm.io import digest
+    frozen=tmp_path/'frozen';(frozen/'src/deep_pm').mkdir(parents=True)
+    (frozen/'configs').mkdir();(frozen/'docs').mkdir()
+    for name in ('continuous_fit.py','continuous_reference.py'):(frozen/'src/deep_pm'/name).write_text('# frozen\n')
+    for name in ('precision-v03.toml','spatial-v08.toml'):(frozen/'configs'/name).write_text('# frozen\n')
+    decision=frozen/'docs/decision.md';decision.write_text('C0 only, no retuning')
+    (tmp_path/'selection.json').write_text('{}')
+    protocol=tmp_path/'protocol.toml';protocol.write_text('final_test_box="north_two"\n')
+    recorded=dict(selection_sha256=digest(tmp_path/'selection.json'),protocol_sha256=digest(protocol),
+        method_sources_sha256={p.name:digest(p) for p in (frozen/'src/deep_pm').glob('*.py')},
+        precision_sha256=digest(frozen/'configs/precision-v03.toml'),production_sha256=digest(frozen/'configs/spatial-v08.toml'),
+        fit_source_sha256=digest(frozen/'src/deep_pm/continuous_fit.py'),reference_source_sha256=digest(frozen/'src/deep_pm/continuous_reference.py'),
+        final_test_box='north_two',adopted_models=['C0/W0 r-only'],no_test_retuning=True,
+        decision_document='docs/decision.md',decision_sha256=digest(decision))
+    release=tmp_path/'release.json';release.write_text(json.dumps(recorded))
+    assert validate_release(tmp_path,protocol,release,frozen)==digest(release)
+    decision.write_text('retuned')
+    with pytest.raises(ValueError):validate_release(tmp_path,protocol,release,frozen)
+
+
 def test_shape_diagnostic_partitions_the_same_common_controls_without_dropping_unknowns():
     from deep_pm.independent_summary import comparison_cohorts
     rows=[]

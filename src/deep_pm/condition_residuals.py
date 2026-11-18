@@ -40,6 +40,7 @@ def spatial_mean(records):
     error=np.sqrt(np.diag(ind+common))
     return dict(n=len(records),weighted_mean_masyr=zero,independent_mean_covariance=ind,
                 reference_mean_covariance=common,model_mean95_masyr=np.stack([zero-1.96*error,zero+1.96*error],axis=1),
+                median_masyr=np.median(pm,axis=0),nmad_masyr=1.4826*np.median(abs(pm-np.median(pm,axis=0)),axis=0),
                 qualification='Linearized model interval; unmodeled spatial systematics and physical-block evidence still required.')
 
 

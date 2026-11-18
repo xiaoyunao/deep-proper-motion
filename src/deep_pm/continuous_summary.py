@@ -66,7 +66,7 @@ def weighted_draws(values, membership_matrix, seed):
     return results.reshape(-1,values.shape[1]//3,3)
 
 
-def estimate(records, methods, seed):
+def estimate(records, methods, seed, candidate="C0"):
     if len(records)<5:
         return {"n":len(records)}
     vectors=np.array([[v["motion"][m] for m in methods] for v in records])
@@ -79,7 +79,7 @@ def estimate(records, methods, seed):
         results[m]=dict(median=median,nmad=1.4826*np.median(abs(value-median),axis=0),
                         radial_p68=p68[k],tail_gt_5=int(np.count_nonzero(radial[:,k]>5)),
                         visit_weighted_zero={})
-    c0=methods.index("C0")
+    c0=methods.index(candidate)
     baseline=[(i,m) for i,m in enumerate(methods) if i!=c0]
     gains={m:dict(n=len(records),relative_gain=1-p68[c0]/p68[i] if p68[i]>0 else None,
                   visit_weighted={}) for i,m in baseline}

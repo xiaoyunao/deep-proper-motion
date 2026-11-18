@@ -25,3 +25,28 @@ A/B已有v0.9纯几何预查可复用，旧试点落在窗内的面积不能算�
 ## 科学采用与生产
 
 最小误差或多波段模型须在两处普通区的独立QSO、留出星系和整年预测中取得可复现收益；反向偏差、尾部或额外源污染不得隐藏。失败、样本不足和缺元数据都保存。每轴0.5mas/yr为高精度目标，按能支持区间的空间尺度认证。跨大区要绑定投影中心、标准ICRS与完整协方差、共享物理组及弱支持标志。阶段8依据独立新区证据选择单C0、分层模型或质量分区，并在支持广域产出时开始分批有效覆盖生产。
+
+## 当前核验与复现入口
+
+91核心消融已完成；原7071条21–23等控制轨迹零差。`independent_groups`是不同校准组的数量，`effective_weighted_epochs`是检测Kish数，`effective_groups`是按校准组斜率信息的Kish数，均不等于独立年份；同夜关联另外检查。归档SHA已复核。第五北窗加入后几何候选226.963平方度，实际run复用及星系支持先登记再作新PM。
+
+在Slurm计算节点、相应不可变提交目录中执行，路径由未提交的个人配置提供：
+
+```bash
+export PYTHONPATH="$PWD/src" OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+python -m deep_pm.continuous_conditions "$WORK" "$SOURCE" "$SHARED" "$XIAO_CSV" configs/continuous-v12.toml "$CORE"
+python -m deep_pm.continuous_condition_pool "$FROZEN" "$ANALYSIS" "$PUBLIC_SUMMARY"
+python -m deep_pm.condition_error_trial "$WORK" "$SOURCE" "$REFERENCE" "$SHARED" configs/continuous-v12.toml configs/conditions-v13.toml "$CORE"
+python -m deep_pm.condition_residuals "$WORK" "$SOURCE" "$SHARED" configs/continuous-v12.toml "$CORE"
+python -m deep_pm.continuous_fit "$WORK" "$CORE" "$SOURCE" "$SHARED" "$XIAO_CSV" configs/adjacent-v13.toml --diagnostic-covariance
+python -m deep_pm.adjacent_consistency "$LEFT" "$RIGHT" "$PUBLIC_SUMMARY"
+python -m deep_pm.condition_trial_compare "$TRIAL" "$CONDITIONS" "$SOURCE" "$PUBLIC_SUMMARY"
+python -m deep_pm.independent_runs "$GEOMETRY_SUMMARY" "$SDSS_WINDOW" "$WORK"
+```
+
+各阶段使用独立WORK；新旧配置、提交或拟合选项不能复用写入同一目录。本地重绘只读公开汇总，完整测试限制原生线程与NERSC一致，避免本地sklearn多线程环境崩溃：
+
+```bash
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=src python3 -m pytest -q
+PYTHONPATH=src python3 -m deep_pm.condition_plots results/summary/v13_full_conditions_summary.json figures/v13_full_conditions_summary.png
+```

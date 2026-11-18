@@ -1,0 +1,52 @@
+{
+  "left_count": 377,
+  "right_count": 377,
+  "unique_common_count": 377,
+  "shared_solution_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+  "source_summaries_sha256": [
+    "ce3e059c4fd2078ffd475084a119daef5d46713f53d2ae08ec5eeed1f2b00fbb",
+    "2d457d72ef38330c3811be0292338fd1922feff8ba8cf8737f4e3d8d73fc13c0"
+  ],
+  "covariance_scope": "Linear response to the same physical measurement errors and synchronous C0 draws; original IRLS weights held fixed.",
+  "slurm_job": "61514306",
+  "median_position_difference_mas": [
+    0.0,
+    0.0
+  ],
+  "median_motion_difference_masyr": [
+    0.0,
+    0.0
+  ],
+  "radial_position_p68_mas": 0.0,
+  "radial_motion_p68_masyr": 0.0,
+  "shared_detection_count_quantiles": [
+    3.0,
+    4.0,
+    5.0
+  ],
+  "shared_group_count_quantiles": [
+    3.0,
+    4.0,
+    5.0
+  ],
+  "linearized_variance_quantiles": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ]
+}

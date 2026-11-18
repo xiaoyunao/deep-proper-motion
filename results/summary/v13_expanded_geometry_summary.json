@@ -1,0 +1,4071 @@
+{
+  "selection_scope": "Geometry and spectral positions only; no new proper-motion catalogue read.",
+  "candidate_receipts": {
+    "a": {
+      "geometry_sha256": "ec5a1feee237642c4c9adbf8199ec59fb29fcb7ffad21b2f34e14f8e30a830f2",
+      "instrument_band_ccd_counts": {
+        "c4d:r": 13885,
+        "c4d:g": 175252,
+        "c4d:z": 18620,
+        "c4d:i": 4258,
+        "c4d:Y": 5462,
+        "k4m:VR": 28,
+        "c4d:u": 1194,
+        "c4d:VR": 306
+      }
+    },
+    "b": {
+      "geometry_sha256": "30f7c995811cf68a584e77fd47876120ff0a0dd134302898e60f852efa44cde4",
+      "instrument_band_ccd_counts": {
+        "c4d:i": 20878,
+        "c4d:r": 34812,
+        "c4d:z": 30376,
+        "c4d:g": 29098,
+        "c4d:VR": 10180,
+        "c4d:u": 11850,
+        "c4d:Y": 8387
+      }
+    },
+    "north_one": {
+      "geometry_sha256": "8c10e5b9645741faeb3ed37f3ee03724fdf8412d8deb1be0be70b929864eda74",
+      "instrument_band_ccd_counts": {
+        "c4d:g": 4140,
+        "c4d:z": 5533,
+        "c4d:r": 4436,
+        "ksb:r": 937,
+        "ksb:g": 838,
+        "k4m:z": 2530
+      }
+    },
+    "north_two": {
+      "geometry_sha256": "978af56ed34c275189d925b02848b72e094664631957bc536a6c9a61c8789d08",
+      "instrument_band_ccd_counts": {
+        "k4m:z": 3334,
+        "ksb:r": 1192,
+        "ksb:g": 1018,
+        "c4d:g": 3251,
+        "c4d:z": 2545,
+        "c4d:r": 2255
+      }
+    },
+    "north_three": {
+      "geometry_sha256": "d987280120dd16347d6a6d9d6d80bb29a1553725e1c094e9ee9ab25de37288d7",
+      "instrument_band_ccd_counts": {
+        "c4d:g": 3962,
+        "c4d:r": 3962,
+        "c4d:z": 5335,
+        "ksb:g": 795,
+        "ksb:r": 821,
+        "k4m:z": 2636
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "a_00",
+      "box": "a",
+      "ra_bounds_deg": [
+        132.0,
+        134.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.035,
+      "joint_timed_fraction": 0.035,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        6.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 537,
+      "objects": 137034,
+      "approximate_nsc_measurements": 15026590,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_01",
+      "box": "a",
+      "ra_bounds_deg": [
+        132.0,
+        134.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9575,
+      "joint_timed_fraction": 0.8775,
+      "long_sdss_repeat_fraction": 0.8425,
+      "sdss_visits": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 469,
+      "objects": 139278,
+      "approximate_nsc_measurements": 1265139,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_02",
+      "box": "a",
+      "ra_bounds_deg": [
+        132.0,
+        134.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.905,
+      "long_sdss_repeat_fraction": 0.6625,
+      "sdss_visits": [
+        2.0,
+        4.0,
+        5.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 539,
+      "objects": 147764,
+      "approximate_nsc_measurements": 1590046,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_03",
+      "box": "a",
+      "ra_bounds_deg": [
+        132.0,
+        134.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.985,
+      "long_sdss_repeat_fraction": 0.0525,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 482,
+      "objects": 144228,
+      "approximate_nsc_measurements": 1378124,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_04",
+      "box": "a",
+      "ra_bounds_deg": [
+        132.0,
+        134.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.98,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        6.0,
+        10.159999999999968
+      ],
+      "spectroscopic_qso_21_23_count": 483,
+      "objects": 143954,
+      "approximate_nsc_measurements": 1819355,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_05",
+      "box": "a",
+      "ra_bounds_deg": [
+        134.0,
+        136.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.0,
+      "joint_timed_fraction": 0.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 515,
+      "objects": 137788,
+      "approximate_nsc_measurements": 36922530,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_06",
+      "box": "a",
+      "ra_bounds_deg": [
+        134.0,
+        136.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.94,
+      "joint_timed_fraction": 0.845,
+      "long_sdss_repeat_fraction": 0.3025,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 523,
+      "objects": 141002,
+      "approximate_nsc_measurements": 35922085,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_07",
+      "box": "a",
+      "ra_bounds_deg": [
+        134.0,
+        136.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.915,
+      "long_sdss_repeat_fraction": 0.985,
+      "sdss_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 495,
+      "objects": 138023,
+      "approximate_nsc_measurements": 2689091,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_08",
+      "box": "a",
+      "ra_bounds_deg": [
+        134.0,
+        136.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.21,
+      "sdss_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        8.0,
+        10.0
+      ],
+      "spectroscopic_qso_21_23_count": 509,
+      "objects": 149198,
+      "approximate_nsc_measurements": 2469406,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_09",
+      "box": "a",
+      "ra_bounds_deg": [
+        134.0,
+        136.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9975,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        10.0,
+        13.0
+      ],
+      "spectroscopic_qso_21_23_count": 473,
+      "objects": 153134,
+      "approximate_nsc_measurements": 2426250,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_10",
+      "box": "a",
+      "ra_bounds_deg": [
+        136.0,
+        138.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.0,
+      "joint_timed_fraction": 0.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        11.0,
+        13.0
+      ],
+      "spectroscopic_qso_21_23_count": 485,
+      "objects": 154032,
+      "approximate_nsc_measurements": 20142474,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_11",
+      "box": "a",
+      "ra_bounds_deg": [
+        136.0,
+        138.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9875,
+      "joint_timed_fraction": 0.94,
+      "long_sdss_repeat_fraction": 0.005,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        9.0
+      ],
+      "spectroscopic_qso_21_23_count": 524,
+      "objects": 136495,
+      "approximate_nsc_measurements": 19158174,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_12",
+      "box": "a",
+      "ra_bounds_deg": [
+        136.0,
+        138.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9575,
+      "long_sdss_repeat_fraction": 0.74,
+      "sdss_visits": [
+        2.0,
+        4.0,
+        5.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        7.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 513,
+      "objects": 139771,
+      "approximate_nsc_measurements": 5068442,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_13",
+      "box": "a",
+      "ra_bounds_deg": [
+        136.0,
+        138.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.99,
+      "long_sdss_repeat_fraction": 0.74,
+      "sdss_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 456,
+      "objects": 132109,
+      "approximate_nsc_measurements": 3087957,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_14",
+      "box": "a",
+      "ra_bounds_deg": [
+        136.0,
+        138.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.965,
+      "long_sdss_repeat_fraction": 0.01,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 474,
+      "objects": 135335,
+      "approximate_nsc_measurements": 1000541,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_15",
+      "box": "a",
+      "ra_bounds_deg": [
+        138.0,
+        140.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.005,
+      "joint_timed_fraction": 0.0025,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        8.0,
+        11.0
+      ],
+      "spectroscopic_qso_21_23_count": 506,
+      "objects": 155471,
+      "approximate_nsc_measurements": 2679925,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_16",
+      "box": "a",
+      "ra_bounds_deg": [
+        138.0,
+        140.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.9925,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        9.0,
+        11.0
+      ],
+      "spectroscopic_qso_21_23_count": 533,
+      "objects": 146705,
+      "approximate_nsc_measurements": 2491929,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_17",
+      "box": "a",
+      "ra_bounds_deg": [
+        138.0,
+        140.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9875,
+      "long_sdss_repeat_fraction": 0.14,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        9.0,
+        11.0
+      ],
+      "spectroscopic_qso_21_23_count": 511,
+      "objects": 155281,
+      "approximate_nsc_measurements": 3407449,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_18",
+      "box": "a",
+      "ra_bounds_deg": [
+        138.0,
+        140.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9975,
+      "long_sdss_repeat_fraction": 0.9425,
+      "sdss_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        7.0,
+        11.0
+      ],
+      "spectroscopic_qso_21_23_count": 480,
+      "objects": 144465,
+      "approximate_nsc_measurements": 2274181,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_19",
+      "box": "a",
+      "ra_bounds_deg": [
+        138.0,
+        140.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9625,
+      "long_sdss_repeat_fraction": 0.415,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 528,
+      "objects": 128860,
+      "approximate_nsc_measurements": 1125982,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_20",
+      "box": "a",
+      "ra_bounds_deg": [
+        140.0,
+        142.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.0225,
+      "joint_timed_fraction": 0.0225,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        9.0,
+        12.0
+      ],
+      "spectroscopic_qso_21_23_count": 518,
+      "objects": 138000,
+      "approximate_nsc_measurements": 2193991,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_21",
+      "box": "a",
+      "ra_bounds_deg": [
+        140.0,
+        142.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        3.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        9.0,
+        12.0
+      ],
+      "spectroscopic_qso_21_23_count": 506,
+      "objects": 144435,
+      "approximate_nsc_measurements": 2438670,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "a_22",
+      "box": "a",
+      "ra_bounds_deg": [
+        140.0,
+        142.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9725,
+      "long_sdss_repeat_fraction": 0.065,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        10.5,
+        13.0
+      ],
+      "spectroscopic_qso_21_23_count": 527,
+      "objects": 150773,
+      "approximate_nsc_measurements": 2577927,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_23",
+      "box": "a",
+      "ra_bounds_deg": [
+        140.0,
+        142.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9825,
+      "long_sdss_repeat_fraction": 0.4575,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        9.0,
+        11.0
+      ],
+      "spectroscopic_qso_21_23_count": 518,
+      "objects": 141054,
+      "approximate_nsc_measurements": 2229173,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "a_24",
+      "box": "a",
+      "ra_bounds_deg": [
+        140.0,
+        142.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9225,
+      "long_sdss_repeat_fraction": 0.93,
+      "sdss_visits": [
+        2.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        14.0
+      ],
+      "spectroscopic_qso_21_23_count": 506,
+      "objects": 125786,
+      "approximate_nsc_measurements": 1316431,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_00",
+      "box": "b",
+      "ra_bounds_deg": [
+        212.0,
+        214.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.21,
+      "joint_timed_fraction": 0.1975,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 501,
+      "objects": 136704,
+      "approximate_nsc_measurements": 3125170,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_01",
+      "box": "b",
+      "ra_bounds_deg": [
+        212.0,
+        214.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.95,
+      "long_sdss_repeat_fraction": 0.3825,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 547,
+      "objects": 137866,
+      "approximate_nsc_measurements": 1466519,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_02",
+      "box": "b",
+      "ra_bounds_deg": [
+        212.0,
+        214.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 0.9925,
+      "joint_timed_fraction": 0.9375,
+      "long_sdss_repeat_fraction": 0.4375,
+      "sdss_visits": [
+        1.0,
+        3.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 581,
+      "objects": 134588,
+      "approximate_nsc_measurements": 1161257,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_03",
+      "box": "b",
+      "ra_bounds_deg": [
+        212.0,
+        214.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.875,
+      "long_sdss_repeat_fraction": 0.025,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        14.0
+      ],
+      "spectroscopic_qso_21_23_count": 544,
+      "objects": 137888,
+      "approximate_nsc_measurements": 1263741,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_04",
+      "box": "b",
+      "ra_bounds_deg": [
+        212.0,
+        214.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.9875,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        6.0,
+        24.0,
+        43.0
+      ],
+      "spectroscopic_qso_21_23_count": 459,
+      "objects": 128816,
+      "approximate_nsc_measurements": 1861546,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_05",
+      "box": "b",
+      "ra_bounds_deg": [
+        214.0,
+        216.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.2725,
+      "joint_timed_fraction": 0.2725,
+      "long_sdss_repeat_fraction": 0.0975,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.5,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 476,
+      "objects": 132270,
+      "approximate_nsc_measurements": 2479561,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_06",
+      "box": "b",
+      "ra_bounds_deg": [
+        214.0,
+        216.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.995,
+      "joint_timed_fraction": 0.9625,
+      "long_sdss_repeat_fraction": 0.5725,
+      "sdss_visits": [
+        1.0,
+        3.0,
+        4.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 528,
+      "objects": 135967,
+      "approximate_nsc_measurements": 1359046,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_07",
+      "box": "b",
+      "ra_bounds_deg": [
+        214.0,
+        216.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9825,
+      "joint_timed_fraction": 0.91,
+      "long_sdss_repeat_fraction": 0.1325,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 594,
+      "objects": 145490,
+      "approximate_nsc_measurements": 1707761,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_08",
+      "box": "b",
+      "ra_bounds_deg": [
+        214.0,
+        216.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.865,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        18.0
+      ],
+      "spectroscopic_qso_21_23_count": 515,
+      "objects": 135260,
+      "approximate_nsc_measurements": 1245721,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_09",
+      "box": "b",
+      "ra_bounds_deg": [
+        214.0,
+        216.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.995,
+      "joint_timed_fraction": 0.975,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        43.5,
+        54.0
+      ],
+      "spectroscopic_qso_21_23_count": 519,
+      "objects": 123373,
+      "approximate_nsc_measurements": 1086107,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_10",
+      "box": "b",
+      "ra_bounds_deg": [
+        216.0,
+        218.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.5125,
+      "joint_timed_fraction": 0.3875,
+      "long_sdss_repeat_fraction": 0.08,
+      "sdss_visits": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 517,
+      "objects": 131384,
+      "approximate_nsc_measurements": 2231525,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_11",
+      "box": "b",
+      "ra_bounds_deg": [
+        216.0,
+        218.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9575,
+      "long_sdss_repeat_fraction": 0.35,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.159999999999968
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 565,
+      "objects": 142157,
+      "approximate_nsc_measurements": 1544267,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_12",
+      "box": "b",
+      "ra_bounds_deg": [
+        216.0,
+        218.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 0.9925,
+      "joint_timed_fraction": 0.7,
+      "long_sdss_repeat_fraction": 0.1175,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 576,
+      "objects": 142236,
+      "approximate_nsc_measurements": 1717688,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_13",
+      "box": "b",
+      "ra_bounds_deg": [
+        216.0,
+        218.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9025,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        21.0
+      ],
+      "spectroscopic_qso_21_23_count": 542,
+      "objects": 132936,
+      "approximate_nsc_measurements": 2117616,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_14",
+      "box": "b",
+      "ra_bounds_deg": [
+        216.0,
+        218.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9925,
+      "joint_timed_fraction": 0.9825,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        26.0,
+        47.0
+      ],
+      "spectroscopic_qso_21_23_count": 533,
+      "objects": 128552,
+      "approximate_nsc_measurements": 1212394,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_15",
+      "box": "b",
+      "ra_bounds_deg": [
+        218.0,
+        220.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.5825,
+      "joint_timed_fraction": 0.57,
+      "long_sdss_repeat_fraction": 0.04,
+      "sdss_visits": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 461,
+      "objects": 143648,
+      "approximate_nsc_measurements": 2062412,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_16",
+      "box": "b",
+      "ra_bounds_deg": [
+        218.0,
+        220.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.955,
+      "long_sdss_repeat_fraction": 0.1425,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 559,
+      "objects": 142659,
+      "approximate_nsc_measurements": 1401811,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_17",
+      "box": "b",
+      "ra_bounds_deg": [
+        218.0,
+        220.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.835,
+      "long_sdss_repeat_fraction": 0.0975,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        10.959999999999809
+      ],
+      "spectroscopic_qso_21_23_count": 588,
+      "objects": 151983,
+      "approximate_nsc_measurements": 9261159,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_18",
+      "box": "b",
+      "ra_bounds_deg": [
+        218.0,
+        220.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.91,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        17.0,
+        22.0
+      ],
+      "spectroscopic_qso_21_23_count": 566,
+      "objects": 157679,
+      "approximate_nsc_measurements": 5855311,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_19",
+      "box": "b",
+      "ra_bounds_deg": [
+        218.0,
+        220.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.9575,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        9.0
+      ],
+      "spectroscopic_qso_21_23_count": 539,
+      "objects": 138025,
+      "approximate_nsc_measurements": 1328419,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_20",
+      "box": "b",
+      "ra_bounds_deg": [
+        220.0,
+        222.0
+      ],
+      "dec_bounds_deg": [
+        -5.0,
+        -3.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.245,
+      "joint_timed_fraction": 0.2375,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 422,
+      "objects": 145588,
+      "approximate_nsc_measurements": 2679560,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_21",
+      "box": "b",
+      "ra_bounds_deg": [
+        220.0,
+        222.0
+      ],
+      "dec_bounds_deg": [
+        -3.0,
+        -1.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9775,
+      "long_sdss_repeat_fraction": 0.135,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 573,
+      "objects": 147165,
+      "approximate_nsc_measurements": 1813076,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "b_22",
+      "box": "b",
+      "ra_bounds_deg": [
+        220.0,
+        222.0
+      ],
+      "dec_bounds_deg": [
+        -1.0,
+        1.0
+      ],
+      "area_sqdeg": 3.999796924813179,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 0.995,
+      "joint_timed_fraction": 0.985,
+      "long_sdss_repeat_fraction": 0.1175,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        250.5,
+        290.0
+      ],
+      "spectroscopic_qso_21_23_count": 573,
+      "objects": 186153,
+      "approximate_nsc_measurements": 25410899,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_23",
+      "box": "b",
+      "ra_bounds_deg": [
+        220.0,
+        222.0
+      ],
+      "dec_bounds_deg": [
+        1.0,
+        3.0
+      ],
+      "area_sqdeg": 3.997360356597479,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.93,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 524,
+      "objects": 126002,
+      "approximate_nsc_measurements": 1162804,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "b_24",
+      "box": "b",
+      "ra_bounds_deg": [
+        220.0,
+        222.0
+      ],
+      "dec_bounds_deg": [
+        3.0,
+        5.0
+      ],
+      "area_sqdeg": 3.9900536205334234,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.9575,
+      "long_sdss_repeat_fraction": 0.005,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 494,
+      "objects": 133978,
+      "approximate_nsc_measurements": 1228558,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_00",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        178.0,
+        180.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.995,
+      "joint_timed_fraction": 0.795,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 190,
+      "objects": 106700,
+      "approximate_nsc_measurements": 769449,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_01",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        178.0,
+        180.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.99,
+      "joint_timed_fraction": 0.99,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        6.0,
+        7.0,
+        9.0
+      ],
+      "spectroscopic_qso_21_23_count": 67,
+      "objects": 99765,
+      "approximate_nsc_measurements": 831954,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_02",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        178.0,
+        180.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 274,
+      "objects": 95852,
+      "approximate_nsc_measurements": 902573,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_03",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        178.0,
+        180.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.3375,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 281,
+      "objects": 52418,
+      "approximate_nsc_measurements": 441945,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_one_04",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        178.0,
+        180.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.3625,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 313,
+      "objects": 35549,
+      "approximate_nsc_measurements": 219844,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_one_05",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        180.0,
+        182.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.6125,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 107,
+      "objects": 109733,
+      "approximate_nsc_measurements": 788488,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_06",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        180.0,
+        182.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        7.0,
+        10.0
+      ],
+      "spectroscopic_qso_21_23_count": 151,
+      "objects": 111680,
+      "approximate_nsc_measurements": 971734,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_07",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        180.0,
+        182.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        7.0,
+        10.0
+      ],
+      "spectroscopic_qso_21_23_count": 343,
+      "objects": 95922,
+      "approximate_nsc_measurements": 974124,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_08",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        180.0,
+        182.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.435,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 333,
+      "objects": 42987,
+      "approximate_nsc_measurements": 299160,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_one_09",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        180.0,
+        182.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.61,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 302,
+      "objects": 34594,
+      "approximate_nsc_measurements": 215169,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_one_10",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        182.0,
+        184.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.835,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 40,
+      "objects": 113455,
+      "approximate_nsc_measurements": 783607,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_11",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        182.0,
+        184.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9975,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 146,
+      "objects": 97761,
+      "approximate_nsc_measurements": 792707,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_12",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        182.0,
+        184.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.985,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        6.0,
+        9.0
+      ],
+      "spectroscopic_qso_21_23_count": 400,
+      "objects": 86881,
+      "approximate_nsc_measurements": 865545,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_13",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        182.0,
+        184.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.28,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 262,
+      "objects": 43696,
+      "approximate_nsc_measurements": 318590,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_one_14",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        182.0,
+        184.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.79,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 309,
+      "objects": 35156,
+      "approximate_nsc_measurements": 221388,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_15",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        184.0,
+        186.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.505,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 44,
+      "objects": 95128,
+      "approximate_nsc_measurements": 643843,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_16",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        184.0,
+        186.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.895,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 259,
+      "objects": 87842,
+      "approximate_nsc_measurements": 689515,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_17",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        184.0,
+        186.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.94,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 470,
+      "objects": 82810,
+      "approximate_nsc_measurements": 762212,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_18",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        184.0,
+        186.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.21,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 382,
+      "objects": 36351,
+      "approximate_nsc_measurements": 292181,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_one_19",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        184.0,
+        186.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.89,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 404,
+      "objects": 34280,
+      "approximate_nsc_measurements": 258001,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_20",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        186.0,
+        188.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.67,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 60,
+      "objects": 91291,
+      "approximate_nsc_measurements": 565965,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_21",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        186.0,
+        188.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.9075,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 362,
+      "objects": 91575,
+      "approximate_nsc_measurements": 662738,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_22",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        186.0,
+        188.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9925,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        6.0,
+        7.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 482,
+      "objects": 89389,
+      "approximate_nsc_measurements": 870160,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_one_23",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        186.0,
+        188.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.1675,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 415,
+      "objects": 39811,
+      "approximate_nsc_measurements": 362189,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_one_24",
+      "box": "north_one",
+      "ra_bounds_deg": [
+        186.0,
+        188.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.415,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.5,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 360,
+      "objects": 33841,
+      "approximate_nsc_measurements": 258578,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_00",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        145.0,
+        147.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 160,
+      "objects": 97594,
+      "approximate_nsc_measurements": 738629,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_01",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        145.0,
+        147.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.8825,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        7.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 183,
+      "objects": 92538,
+      "approximate_nsc_measurements": 803185,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_02",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        145.0,
+        147.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.16,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 250,
+      "objects": 34816,
+      "approximate_nsc_measurements": 236805,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_03",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        145.0,
+        147.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.7125,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 359,
+      "objects": 36977,
+      "approximate_nsc_measurements": 256581,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_04",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        145.0,
+        147.0
+      ],
+      "dec_bounds_deg": [
+        38.0,
+        40.0
+      ],
+      "area_sqdeg": 3.1084260267665633,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.96,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 270,
+      "objects": 36371,
+      "approximate_nsc_measurements": 265635,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_05",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        147.0,
+        149.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 205,
+      "objects": 101739,
+      "approximate_nsc_measurements": 685762,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_06",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        147.0,
+        149.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.8675,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 252,
+      "objects": 85507,
+      "approximate_nsc_measurements": 735841,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_07",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        147.0,
+        149.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.365,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 205,
+      "objects": 36955,
+      "approximate_nsc_measurements": 251933,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_08",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        147.0,
+        149.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.96,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 345,
+      "objects": 34995,
+      "approximate_nsc_measurements": 277132,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_09",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        147.0,
+        149.0
+      ],
+      "dec_bounds_deg": [
+        38.0,
+        40.0
+      ],
+      "area_sqdeg": 3.1084260267665633,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.935,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        3.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 360,
+      "objects": 34182,
+      "approximate_nsc_measurements": 277103,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_10",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        149.0,
+        151.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 227,
+      "objects": 98651,
+      "approximate_nsc_measurements": 771270,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_11",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        149.0,
+        151.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.855,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 191,
+      "objects": 81177,
+      "approximate_nsc_measurements": 723940,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_12",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        149.0,
+        151.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.3475,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 157,
+      "objects": 35481,
+      "approximate_nsc_measurements": 294873,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_13",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        149.0,
+        151.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.95,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        5.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 382,
+      "objects": 34599,
+      "approximate_nsc_measurements": 232857,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_14",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        149.0,
+        151.0
+      ],
+      "dec_bounds_deg": [
+        38.0,
+        40.0
+      ],
+      "area_sqdeg": 3.1084260267665633,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.96,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 218,
+      "objects": 31600,
+      "approximate_nsc_measurements": 221983,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_15",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        151.0,
+        153.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 139,
+      "objects": 96604,
+      "approximate_nsc_measurements": 754797,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_16",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        151.0,
+        153.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.8575,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        4.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 131,
+      "objects": 79326,
+      "approximate_nsc_measurements": 653352,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_17",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        151.0,
+        153.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.38,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 125,
+      "objects": 40803,
+      "approximate_nsc_measurements": 308216,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_18",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        151.0,
+        153.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9125,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 298,
+      "objects": 36260,
+      "approximate_nsc_measurements": 239681,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_19",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        151.0,
+        153.0
+      ],
+      "dec_bounds_deg": [
+        38.0,
+        40.0
+      ],
+      "area_sqdeg": 3.1084260267665633,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.8025,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "spectroscopic_qso_21_23_count": 187,
+      "objects": 31322,
+      "approximate_nsc_measurements": 231446,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_20",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        153.0,
+        155.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9975,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        6.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 197,
+      "objects": 94983,
+      "approximate_nsc_measurements": 702056,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_21",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        153.0,
+        155.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.7875,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        6.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 263,
+      "objects": 78577,
+      "approximate_nsc_measurements": 661155,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_22",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        153.0,
+        155.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.225,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 150,
+      "objects": 39050,
+      "approximate_nsc_measurements": 327648,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_two_23",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        153.0,
+        155.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.7575,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 248,
+      "objects": 35584,
+      "approximate_nsc_measurements": 263082,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_two_24",
+      "box": "north_two",
+      "ra_bounds_deg": [
+        153.0,
+        155.0
+      ],
+      "dec_bounds_deg": [
+        38.0,
+        40.0
+      ],
+      "area_sqdeg": 3.1084260267665633,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.8725,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        2.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 178,
+      "objects": 33184,
+      "approximate_nsc_measurements": 204804,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_00",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        188.0,
+        190.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.8125,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 59,
+      "objects": 94187,
+      "approximate_nsc_measurements": 600440,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_01",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        188.0,
+        190.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.995,
+      "joint_timed_fraction": 0.7425,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        7.0
+      ],
+      "spectroscopic_qso_21_23_count": 375,
+      "objects": 88254,
+      "approximate_nsc_measurements": 623204,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_02",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        188.0,
+        190.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 1.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        6.0,
+        7.0,
+        9.0
+      ],
+      "spectroscopic_qso_21_23_count": 407,
+      "objects": 87634,
+      "approximate_nsc_measurements": 897169,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_03",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        188.0,
+        190.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.35,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 439,
+      "objects": 49751,
+      "approximate_nsc_measurements": 411285,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_04",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        188.0,
+        190.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.2175,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 396,
+      "objects": 33040,
+      "approximate_nsc_measurements": 236397,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_05",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        190.0,
+        192.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.31,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 79,
+      "objects": 93158,
+      "approximate_nsc_measurements": 654011,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_06",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        190.0,
+        192.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.8925,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        5.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 306,
+      "objects": 88889,
+      "approximate_nsc_measurements": 685769,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_07",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        190.0,
+        192.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.855,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        6.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 436,
+      "objects": 75880,
+      "approximate_nsc_measurements": 753106,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_08",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        190.0,
+        192.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.05,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 413,
+      "objects": 39117,
+      "approximate_nsc_measurements": 280217,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_09",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        190.0,
+        192.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.2475,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 416,
+      "objects": 34326,
+      "approximate_nsc_measurements": 301478,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_10",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        192.0,
+        194.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.1075,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 272,
+      "objects": 101379,
+      "approximate_nsc_measurements": 698697,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_11",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        192.0,
+        194.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.67,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 174,
+      "objects": 86997,
+      "approximate_nsc_measurements": 694034,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_12",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        192.0,
+        194.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9075,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        7.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 448,
+      "objects": 77494,
+      "approximate_nsc_measurements": 783893,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_13",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        192.0,
+        194.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "spectroscopic_qso_21_23_count": 387,
+      "objects": 37650,
+      "approximate_nsc_measurements": 253061,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_14",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        192.0,
+        194.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.18,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 414,
+      "objects": 35494,
+      "approximate_nsc_measurements": 313174,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_15",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        194.0,
+        196.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 0.9975,
+      "joint_timed_fraction": 0.4725,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 529,
+      "objects": 95843,
+      "approximate_nsc_measurements": 669046,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_16",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        194.0,
+        196.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.4725,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 213,
+      "objects": 90232,
+      "approximate_nsc_measurements": 741794,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_17",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        194.0,
+        196.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9825,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        6.0,
+        7.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 488,
+      "objects": 85292,
+      "approximate_nsc_measurements": 848013,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_18",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        194.0,
+        196.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": true,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.055,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 418,
+      "objects": 37711,
+      "approximate_nsc_measurements": 308515,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_19",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        194.0,
+        196.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.2525,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 388,
+      "objects": 37276,
+      "approximate_nsc_measurements": 323908,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_20",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        196.0,
+        198.0
+      ],
+      "dec_bounds_deg": [
+        28.0,
+        30.0
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.4225,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "spectroscopic_qso_21_23_count": 166,
+      "objects": 83796,
+      "approximate_nsc_measurements": 520608,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_21",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        196.0,
+        198.0
+      ],
+      "dec_bounds_deg": [
+        30.0,
+        32.0
+      ],
+      "area_sqdeg": 3.4284951333987226,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.37,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        6.0
+      ],
+      "spectroscopic_qso_21_23_count": 258,
+      "objects": 92383,
+      "approximate_nsc_measurements": 723629,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_22",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        196.0,
+        198.0
+      ],
+      "dec_bounds_deg": [
+        32.0,
+        34.0
+      ],
+      "area_sqdeg": 3.354511958599444,
+      "overlaps_previous_science": false,
+      "eligible": true,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.9975,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nsc_r_visits": [
+        5.0,
+        7.0,
+        8.0
+      ],
+      "spectroscopic_qso_21_23_count": 460,
+      "objects": 86828,
+      "approximate_nsc_measurements": 851614,
+      "selected_for_reference_precheck": true
+    },
+    {
+      "name": "north_three_23",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        196.0,
+        198.0
+      ],
+      "dec_bounds_deg": [
+        34.0,
+        36.0
+      ],
+      "area_sqdeg": 3.2764418277015306,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.2075,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        3.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 406,
+      "objects": 43892,
+      "approximate_nsc_measurements": 373965,
+      "selected_for_reference_precheck": false
+    },
+    {
+      "name": "north_three_24",
+      "box": "north_three",
+      "ra_bounds_deg": [
+        196.0,
+        198.0
+      ],
+      "dec_bounds_deg": [
+        36.0,
+        38.0
+      ],
+      "area_sqdeg": 3.194379857133767,
+      "overlaps_previous_science": false,
+      "eligible": false,
+      "joint_fraction": 1.0,
+      "joint_timed_fraction": 0.0,
+      "long_sdss_repeat_fraction": 0.0,
+      "sdss_visits": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "nsc_r_visits": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "spectroscopic_qso_21_23_count": 373,
+      "objects": 34504,
+      "approximate_nsc_measurements": 312739,
+      "selected_for_reference_precheck": false
+    }
+  ],
+  "provisional_new_area_sqdeg": 226.96287843138091,
+  "target_area_supported": true,
+  "selected_count": 64,
+  "reference_graph_support": "Must verify on first acquired batches before final field lock.",
+  "selected_approximate_nsc_measurements": 111191612,
+  "excluded_previous_cell_count": 34
+}

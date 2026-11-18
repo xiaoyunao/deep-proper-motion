@@ -1,0 +1,9 @@
+{
+  "frozen_commit": "13d4e29",
+  "verified_by_slurm_job": "61511963",
+  "home_archive_checksums": {
+    "private-results.tar.gz": "e9355f18f424cb58f10034104c3583e8e52bfc6ea1f99563ea844a1395e97377",
+    "xiao_c.csv.gz": "914866235a9ede8164fce206402871a896eeba78e6cbc2e6777524536fa427a9"
+  },
+  "all_match_frozen_receipts": true
+}

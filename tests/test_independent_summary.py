@@ -39,3 +39,28 @@ def test_sealed_region_filtered_before_any_outcome_access():
         result=json.loads(output.read_text())
         assert result['test_results_read'] is False
         assert result['sealed_core_count']==1
+
+
+def test_historical_unknown_blind_membership_is_not_zero_recovery():
+    from deep_pm.independent_summary import blind_cohorts
+    result=blind_cohorts([dict(magnitude=21.5)])['r21_22']
+    assert result['status']=='unavailable_in_historical_private_records'
+    assert 'blind_recovered' not in result
+
+
+def test_blind_quality_is_compared_on_the_identical_recovered_subset():
+    from deep_pm.independent_summary import blind_cohorts
+    rows=[]
+    for i in range(6):
+        rows.append(dict(magnitude=21.5,blind_track_ids={'C0':i if i<5 else None},
+            motion={'NSC':[8.,0.],'Xiao':[5.,0.],'C0':[3.,0.]},error_icrs={k:[2.,2.] for k in ('NSC','Xiao','C0')},
+            blind_C0=([3.,0.],[2.,2.]) if i<5 else None,exposures=['SDSS:1','NSC:a'],nsc_epoch_days=[50000],
+            blind_visits=['SDSS:1','NSC:a','NSC:b'],blind_nights=[50000,50100]))
+    result=blind_cohorts(rows)['r21_22']
+    assert result['blind_recovered']['n']==5
+    assert result['blind_recovered']['denominator']==6
+    sample=result['strict_common_comparison']
+    assert sample['n']==5
+    np.testing.assert_allclose(sample['paired']['C0_blind_vs_C0_known']['fraction_improved'][2],0)
+    assert sample['paired']['C0_blind_vs_C0_known']['fraction_improved'][1] is None
+    np.testing.assert_allclose(sample['paired']['C0_blind_vs_Xiao']['fraction_improved'][2],.4)

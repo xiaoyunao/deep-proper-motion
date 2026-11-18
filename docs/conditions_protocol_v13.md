@@ -58,3 +58,5 @@ PYTHONPATH=src python3 -m deep_pm.condition_plots results/summary/v13_full_condi
 ### 首批标准坐标汇总
 
 `python -m deep_pm.independent_summary STATE configs/independent-v13-candidates.toml OUTPUT` 在读取拟合／参考文件之前剔除整个 north_two；不可用普通整区池化代替此保护入口。已保留的切平面运动通过每源逆gnomonic正向Jacobian恢复ICRS；早期私有NSC/Xiao的逆矩阵转换字段存在方向错误，汇总忽略这些字段重建，原冻结科学结果不改变。公开同时保留并明确标记旧切平面控制指标。
+
+最终新区汇总分别给出已知位置控制与W0盲产物。盲源以拟合完成后检测级标签审核映射到源级标准ICRS输出，在同一恢复子样本对照已知位置拟合及两发布目录；未知成员和形态／时间／误差选择不能包装成关联正确率。历史缺失映射标为不可评估。连通观测块少于3时不提供块重采样空间区间；固定参考解和同步参考抽样的不确定度仍分别说明。资源入口以DEEP_PM_BATCH_NODES和各阶段DEEP_PM_*_STREAMS记录并发，不改变科学参数；网络取数避免无界并发。

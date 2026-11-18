@@ -3,6 +3,7 @@ import argparse
 from collections import defaultdict
 import json
 import os
+import gzip
 from pathlib import Path
 
 import numpy as np
@@ -15,6 +16,8 @@ from .io import digest, save_json
 from .nsc_comparison import comparison
 from .public_summary import check_aggregate
 from .standard_motion import icrs_motion
+from .validation_blocks import metrics as block_metrics
+from .validation import ratio
 
 
 def standard_block(row, center):
@@ -49,8 +52,35 @@ def comparison_cohorts(records):
             out[name]=dict(common=stats,physical_group_sensitivity=estimate(rows,METHODS,9137),
                 sampling_columns=['sdss_span_years','nsc_span_years','joint_span_years','calendar_year_count'],
                 sampling_p16_p50_p84=np.quantile([[r[k] for k in ('sdss_span_years','nsc_span_years','joint_span_years','calendar_year_count')] for r in rows],[.16,.5,.84],axis=0) if rows else None)
+            if name=='all':
+                blocks=[dict(r,motion={'C0':r['motion']['Xiao'],'C1':r['motion']['C0']}) for r in rows]
+                out[name]['observational_blocks']=dict(method_order=['Xiao','C0'],physical=block_metrics(blocks),
+                    conservative_nights=block_metrics(blocks,True),scope='Connected observed groups; fixed fitted reference solution. No spatial interval when fewer than three components.')
         grouped[f'r{low}_{low+1}']=dict(eligible_count=len(selected),strict_common_count=len(common),conditions=out)
     return grouped
+
+
+def blind_cohorts(records):
+    settings=dict(min_publish_count=5,tail_masyr=5,bootstrap_draws=800,bootstrap_absolute_zero=True,seed=9137)
+    out={}
+    for low in (21,22):
+        eligible=[r for r in records if low<=r['magnitude']<low+1]
+        selected=[r for r in eligible if 'blind_track_ids' in r]
+        if len(selected)!=len(eligible):
+            out[f'r{low}_{low+1}']=dict(status='unavailable_in_historical_private_records',known_control_count=len(eligible),missing_blind_membership_count=len(eligible)-len(selected))
+            continue
+        matched=[r for r in selected if r.get('blind_C0') is not None]
+        common=[r for r in matched if set(METHODS)<=r['motion'].keys()]
+        values=[dict(NSC=(r['motion']['NSC'],r['error_icrs']['NSC']),Xiao=(r['motion']['Xiao'],r['error_icrs']['Xiao']),
+                     C0_known=(r['motion']['C0'],r['error_icrs']['C0']),C0_blind=r['blind_C0']) for r in common]
+        weighted=[dict(exposures=sorted(set(r['exposures'])|set(r['blind_visits'])),
+            nsc_epoch_days=sorted(set(r['nsc_epoch_days'])|set(r['blind_nights'])),
+            motion={key:pair[0] for key,pair in value.items()}) for r,value in zip(common,values)]
+        out[f'r{low}_{low+1}']=dict(eligible_known_controls=len(selected),blind_recovered=ratio(len(matched),len(selected)),
+            strict_common_comparison=comparison(values,settings,(('C0_blind','Xiao'),('C0_blind','C0_known'))),
+            physical_group_sensitivity=estimate(weighted,('NSC','Xiao','C0_known','C0_blind'),9137,candidate='C0_blind'),
+            scope='W0 usability including morphology/time/error/association cuts, conditional on eligible known-position spectral controls. No purity claim for unlabelled members.')
+    return out
 
 
 def run(state,protocol,output):
@@ -67,8 +97,20 @@ def run(state,protocol,output):
         graphs[box]=state/'shared'/box
         sets[box].append(name)
         verify_directory(fits[name],('private_qso_blocks.json','continuous_core_summary.json'))
-        for row in json.loads((fits[name]/'private_qso_blocks.json').read_text()):
-            records[box].append(standard_block(row,config['projection_center_deg']))
+        rows=json.loads((fits[name]/'private_qso_blocks.json').read_text())
+        if any(r.get('blind_track_ids',{}).get('C0') is not None for r in rows):
+            with gzip.open(fits[name]/'private_standard_motion.json.gz','rt') as stream:
+                standard={r['track_id']:r for r in json.load(stream)}
+        else:standard={}
+        for row in rows:
+            row=standard_block(row,config['projection_center_deg'])
+            slot=row.get('blind_track_ids',{}).get('C0')
+            if slot is not None:
+                star=standard[slot]
+                row['blind_C0']=(star['pm_icrs_masyr'],star['pm_error_masyr'])
+                row['blind_visits']=star['exposures']
+                row['blind_nights']=star['nsc_nights_utc18']
+            records[box].append(row)
     # Reuse receipt/ownership checks, avoiding duplicated tangent-frame inference
     # and enormous per-core copies of the same cohort comparisons.
     public=pool(specs,fits,graphs,{})
@@ -78,6 +120,8 @@ def run(state,protocol,output):
         core.pop('gaia')
     public['standard_icrs_comparison']={box:comparison_cohorts(rows) for box,rows in records.items()}
     public['standard_icrs_comparison']['pooled']=comparison_cohorts([r for rows in records.values() for r in rows])
+    public['blind_w0_comparison']={box:blind_cohorts(rows) for box,rows in records.items()}
+    public['blind_w0_comparison']['pooled']=blind_cohorts([r for rows in records.values() for r in rows])
     public.update(final_test_box=sealed,sealed_core_count=sum(box==sealed for _,box in tasks),
         test_results_read=False,protocol_sha256=digest(protocol),
         vector_conversion='Tangent velocity multiplied by inverse-gnomonic Jacobian; old private published inverse-conversion values ignored.',

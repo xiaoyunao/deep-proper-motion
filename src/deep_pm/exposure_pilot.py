@@ -190,6 +190,7 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
             utc=Time(data.observation_time.iloc[indices].to_numpy(),format='mjd',scale='tt').utc
             calendar_year=np.array([int(value[:4]) for value in utc.isot])
             block_records.append(dict(magnitude=magnitudes[k],
+                blind_track_ids={name:audits[name][0].get(k) for name in names},
                 exposures=sorted(set(exposure[indices])),
                 nsc_epoch_days=sorted(set(np.floor((t[indices[nsc[indices]]]-2000)*365.25).astype(int))),
                 motion={name:pm-ref[k] for name,(pm,_) in base.items()},motion_icrs=standard,error_icrs=standard_error,

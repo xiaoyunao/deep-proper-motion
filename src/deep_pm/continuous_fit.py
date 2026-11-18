@@ -87,6 +87,8 @@ def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covarian
     keys = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
     visits = data.exposure_id.to_numpy()
+    visit_times=data.loc[keep&nsc,['exposure_id','observation_time']].drop_duplicates('exposure_id')
+    visit_nights=dict(zip(visit_times.exposure_id,np.floor(Time(visit_times.observation_time.to_numpy(),format='mjd',scale='tt').utc.mjd-.75).astype(int)))
     on_core = inside(data.ra_deg,data.dec_deg,spec)
     available = pd.Series(keys[on_core&keep]).map(gauges)
     counts = available.value_counts()
@@ -112,6 +114,7 @@ def fit_core(work, source, spec, shared, legacy, fit_annual, diagnostic_covarian
         if not np.allclose(np.sqrt(np.diag(covariance)[[1,3]]),err,rtol=1e-9,atol=1e-10):
             raise ValueError('Full covariance must preserve frozen tangent PM errors')
         entry = dict(track_id=slot,r_bin=tag,projection_center_deg=center, **icrs_motion(pos,pm,center,covariance),
+            exposures=sorted(set(visits[used])),nsc_nights_utc18=sorted({visit_nights[e] for e in visits[used] if e.startswith('NSC:')}),
             tangent_covariance=covariance,independent_tangent_covariance=independent,
             reference_tangent_covariance=common, detection_ids=data.detection_id.iloc[used].tolist())
         if diagnostic_covariance:

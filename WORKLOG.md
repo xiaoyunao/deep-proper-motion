@@ -2,6 +2,8 @@
 
 ## 2026-11-18
 
+- 首批shared Canary排队约5分钟后仍为PENDING/None，已核验desi账户支持debug，改申请单CPU节点20分钟并在节点内并行三处，原shared仅在仍pending时取消，未影响其他项目。冻结两处普通开发区与四窗纯几何独立候选池；候选不是已取回有效面积，旧研究足迹须剔除。新增预登记协议，模型采用需独立QSO／星系／年份复现，Gaia暗端与盲目录限制保留。
+
 - 增加 `standard_motion.py`：在固定稳健权重下补全4×4独立与参考bootstrap协方差，同步抽样保留跨轴及位置—自行项；逆gnomonic速度及全状态Jacobian转换为每源ICRS，并保留旧切平面输出。`continuous_fit`新增私有标准输出、核验两轴误差与冻结算法相等；共享图增加投影中心绑定及混合平面拒绝，旧NPZ缺字段时明确兼容(350°,0°)。全套100项测试通过，含独立球面传播、高赤纬／RA回绕、Jacobian、公共平移和协方差一致性。真实相邻区验证尚未完成。消融Canary作业61511424三项仍排队，未据此填写科学结论。
 
 - v1.3 启动，从干净的 `13d4e29` 建立 `experiment-a-v1.3-observation-conditions`。完整阅读四份指定文档及五个核心源码并追查实际调用；NERSC认证有效，原结果与Home归档存在。新增 `method_audit_v13.md`、冻结旧PLAN、八阶段新PLAN与AGENTS约束；明确当前ICRS自行与完整协方差缺项。`continuous_conditions.py` 固定QSO检测开展NSC-only／最早SDSS／全部SDSS及原位置对照，解决普通区精度负结果的归因瓶颈；验收为复现旧C0及独立条件分组，不改善则保留负结果。`py_compile`和3项定向测试通过，真实Canary待Slurm。

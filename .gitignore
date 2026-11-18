@@ -51,3 +51,6 @@
 !/reports/experiment_A_v1.1_overlap.md
 !/configs/continuous-v12.toml
 !/reports/experiment_A_v1.2_continuous.md
+!/configs/conditions-v13.toml
+!/configs/independent-v13-candidates.toml
+!/reports/experiment_A_v1.3_conditions.md

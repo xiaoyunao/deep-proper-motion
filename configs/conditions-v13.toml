@@ -1,0 +1,14 @@
+# Frozen research protocol before inspecting the new ablation outcomes.
+seed = 9137
+reference_epoch = 2015.5
+frozen_baseline = "13d4e29"
+nside = 128
+r_edges = [20,21,22,23]
+ordinary_development_cores = ["repeat_sparse", "sparse_north_outer"]
+min_variance_pairs = 50
+error_training_fraction_of_held_galaxies = 0.5
+# A revised model is not adopted from a single residual or a gain in selected yield.
+require_independent_qso_replication = true
+require_held_galaxy_validation = true
+require_held_year_validation = true
+high_precision_axis_zero_target_masyr = 0.5

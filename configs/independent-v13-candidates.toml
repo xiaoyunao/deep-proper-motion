@@ -1,0 +1,30 @@
+# Geometric candidate pool; no proper-motion outcomes are used for selection.
+seed = 9137
+positions_per_tile = 400
+reference_epoch = 2015.5
+nside = 128
+halo_deg = 0.06
+tap_join = false
+native_join = true
+native_count_window = true
+native_row_cap = 80000
+download_workers = 1
+target_new_area_min_deg2 = 200
+target_new_area_max_deg2 = 300
+minimum_joint_fraction = 0.65
+minimum_nsc_time_fraction = 0.50
+minimum_reference_count_per_group = 10
+# Prior pilot footprints must be removed before declaring independent new area.
+exclude_previous_science_footprints = true
+[boxes.a]
+ra = [132.0,142.0]
+dec = [-5.0,5.0]
+[boxes.b]
+ra = [212.0,222.0]
+dec = [-5.0,5.0]
+[boxes.north_one]
+ra = [178.0,188.0]
+dec = [28.0,38.0]
+[boxes.north_two]
+ra = [145.0,155.0]
+dec = [30.0,40.0]

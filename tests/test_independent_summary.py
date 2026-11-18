@@ -28,17 +28,17 @@ def test_invalid_release_cannot_open_any_test_output(tmp_path):
 def test_shape_diagnostic_partitions_the_same_common_controls_without_dropping_unknowns():
     from deep_pm.independent_summary import comparison_cohorts
     rows=[]
-    for shape in [.9]*5+[.2,None]:
+    for shape in [.9]*5+[.2,None,99.]:
         rows.append(dict(magnitude=21.5,median_nsc_r_class_star=shape,
             motion={'NSC':[10.,1.],'Xiao':[5.,1.],'C0':[3.,1.]},
             error_icrs={key:[2.,2.] for key in ('NSC','Xiao','C0')},
             exposures=['SDSS:42','NSC:a'],nsc_epoch_days=[50000],nsc_span_years=1.,
             sdss_span_years=0.,joint_span_years=8.,calendar_year_count=3))
     result=comparison_cohorts(rows)['r21_22']['conditions']
-    assert result['all']['common']['n']==7
+    assert result['all']['common']['n']==8
     assert result['pointlike_qso']['common']['n']==5
     assert result['nonpointlike_qso']['common']['n']==1
-    assert result['shape_unavailable']['common']['n']==1
+    assert result['shape_unavailable']['common']['n']==2
 
 
 def test_published_inverse_conversion_restores_native_motion_at_high_declination():

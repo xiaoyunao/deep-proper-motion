@@ -67,10 +67,15 @@ def comparison_cohorts(records):
               'nsc_span_ge_2yr':[r for r in common if r['nsc_span_years']>=2]}
         for instrument in sorted({r['instrument_mix'] for r in common if 'instrument_mix' in r}):
             sets['instrument_'+instrument]=[r for r in common if r.get('instrument_mix')==instrument]
+        for component in sorted({r['reference_component'] for r in common if 'reference_component' in r}):
+            sets['reference_component_'+component]=[r for r in common if r.get('reference_component')==component]
         if any('median_nsc_r_class_star' in r for r in common):
-            sets.update(pointlike_qso=[r for r in common if r.get('median_nsc_r_class_star') is not None and r['median_nsc_r_class_star']>=.8],
-                nonpointlike_qso=[r for r in common if r.get('median_nsc_r_class_star') is not None and r['median_nsc_r_class_star']<.8],
-                shape_unavailable=[r for r in common if r.get('median_nsc_r_class_star') is None])
+            def shape_bin(row):
+                value=row.get('median_nsc_r_class_star')
+                if value is None or not 0<=value<=1:return 'shape_unavailable'
+                return 'pointlike_qso' if value>=.8 else 'nonpointlike_qso'
+            sets.update({key:[r for r in common if shape_bin(r)==key]
+                         for key in ('pointlike_qso','nonpointlike_qso','shape_unavailable')})
         out={}
         for name,rows in sets.items():
             values=[{k:(r['motion'][k],r['error_icrs'][k]) for k in METHODS} for r in rows]
@@ -128,6 +133,7 @@ def run(state,protocol,output,release=None):
         archives.extend(chips)
         if not complete:missing_metadata.append(name)
         verify_directory(fits[name],('private_qso_blocks.json','continuous_core_summary.json'))
+        gauge=json.loads((fits[name]/'continuous_core_summary.json').read_text())['reference_gauge']
         rows=json.loads((fits[name]/'private_qso_blocks.json').read_text())
         if any(r.get('blind_track_ids',{}).get('C0') is not None for r in rows):
             with gzip.open(fits[name]/'private_standard_motion.json.gz','rt') as stream:
@@ -135,6 +141,7 @@ def run(state,protocol,output,release=None):
         else:standard={}
         for row in rows:
             row=standard_block(row,config['projection_center_deg'])
+            row['reference_component']=f'{box}:{gauge}'
             slot=row.get('blind_track_ids',{}).get('C0')
             if slot is not None:
                 star=standard[slot]

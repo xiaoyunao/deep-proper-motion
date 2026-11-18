@@ -1,0 +1,8 @@
+{
+  "verified_completed_prior_core_count": 40,
+  "compared_catalogue_count": 220742,
+  "all_columns_exactly_equal": true,
+  "old_incomplete_outputs_ignored": true,
+  "final_test_results_read": false,
+  "slurm_job": "61520583"
+}

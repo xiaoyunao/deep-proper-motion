@@ -72,7 +72,10 @@ def source_check(left,right,standard):
         position_difference_mas=differences([v[[0,2]] for v in values]),
         by_r={tag:differences(v) for tag,v in by_r.items()})
     if standard:
-        out.update(identical_detection_sets=sum(same),shared_detection_p16_p50_p84=np.quantile(shared,[.16,.5,.84]) if shared else None)
+        out.update(identical_detection_sets=sum(same),shared_detection_p16_p50_p84=np.quantile(shared,[.16,.5,.84]) if shared else None,
+            identical_detection_subset_motion_difference_masyr=differences([v[[1,3]] for v,identical in zip(values,same) if identical]),
+            identical_detection_subset_position_difference_mas=differences([v[[0,2]] for v,identical in zip(values,same) if identical]),
+            changed_detection_subset_motion_difference_masyr=differences([v[[1,3]] for v,identical in zip(values,same) if not identical]))
     return out
 
 

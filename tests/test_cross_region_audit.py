@@ -20,3 +20,17 @@ def test_duplicate_position_claims_are_not_common_sources():
     result=source_check([row,row],[row],True)
     assert result['unique_common_count']==0
     assert 'median' not in result['motion_difference_masyr']
+
+
+def test_fixed_detection_comparison_is_separate_from_changed_inputs():
+    left=[];right=[]
+    for i in range(6):
+        row=dict(position_deg=[188.+i*.01,29.],pm_icrs_masyr=[1.,2.],
+                 detection_ids=[f'a{i}',f'b{i}'],r_bin='22_to_23')
+        left.append(row)
+        right.append(dict(row,detection_ids=row['detection_ids']+(['extra'] if i==5 else [])))
+    result=source_check(left,right,True)
+    assert result['unique_common_count']==6
+    assert result['identical_detection_sets']==5
+    assert result['identical_detection_subset_motion_difference_masyr']['n']==5
+    assert result['changed_detection_subset_motion_difference_masyr']['n']==1

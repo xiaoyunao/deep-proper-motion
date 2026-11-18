@@ -17,7 +17,8 @@ from scipy.spatial import cKDTree
 from .astrometry import project,unproject
 from .continuous_reference import verify_directory,read_offsets,reference_frame
 from .dark_precision import query_unique
-from .exposure_catalogues import coordinates
+from .exposure_catalogues import coordinates,inside
+from .__main__ import tomllib
 from .io import digest,save_json
 from .public_summary import check_aggregate
 from .standard_motion import icrs_motion
@@ -79,7 +80,7 @@ def source_check(left,right,standard):
     return out
 
 
-def galaxy_check(left,right,graphs,center,selected_gauges):
+def galaxy_check(left,right,graphs,center,selected_gauges,spec):
     tables=[]
     for path in (left,right):
         verify_directory(path,('reference.csv.gz','reference_summary.json'))
@@ -87,6 +88,8 @@ def galaxy_check(left,right,graphs,center,selected_gauges):
         if table.detection_id.duplicated().any():raise ValueError('Duplicate physical reference detections')
         tables.append(table)
     merged=tables[0].merge(tables[1],on='detection_id',suffixes=('_a','_b'),validate='one_to_one')
+    merged=merged.loc[inside(merged.ra_deg_a,merged.dec_deg_a,spec)].reset_index(drop=True)
+    np.testing.assert_array_equal(merged.group_a,merged.group_b)
     held=merged.is_holdout_a.eq(True)&merged.is_holdout_b.eq(True)
     supported=np.ones(len(merged),bool);corrected=[]
     for suffix,graph,selected in zip(('a','b'),graphs,selected_gauges):
@@ -103,6 +106,7 @@ def galaxy_check(left,right,graphs,center,selected_gauges):
     common=set(merged.group_a)&set(merged.group_b)
     return dict(shared_physical_group_count=len(common),common_detection_count=len(merged),
         both_held_supported_detection_count=int(use.sum()),
+        both_held_supported_group_count=len(set(merged.loc[use,'group_a'])),
         both_held_reference_pair_count=int(merged.loc[use,['reference_a','reference_b']].drop_duplicates().shape[0]),
         held_position_difference_mas=differences(delta[use]),
         by_survey={survey:differences(delta[use&merged.group_a.str.startswith(survey+':').to_numpy()]) for survey in ('SDSS','NSC')},
@@ -112,15 +116,19 @@ def galaxy_check(left,right,graphs,center,selected_gauges):
 def audit(left,right,left_ref,right_ref,left_graph,right_graph,output):
     graphs=[p/'private_c0.npz' for p in (left_graph,right_graph)]
     for p in (left_graph,right_graph):verify_directory(p,('private_c0.npz','continuous_reference_summary.json'))
-    standard=[];qso=[];gauges=[]
+    standard=[];qso=[];gauges=[];specs=[]
     for p in (left,right):
         verify_directory(p,('private_standard_motion.json.gz','private_qso_blocks.json','continuous_core_summary.json'))
         with gzip.open(p/'private_standard_motion.json.gz','rt') as f:standard.append(json.load(f))
         qso.append(json.loads((p/'private_qso_blocks.json').read_text()))
         gauges.append(json.loads((p/'continuous_core_summary.json').read_text())['reference_gauge'])
+        region=json.loads((p/'run_manifest.json').read_text())['region']
+        specs.append(tomllib.loads((p/'config_snapshot.toml').read_text())['fields'][region])
+    if specs[0]!=specs[1]:raise ValueError('Reference-frame audit requires identical output geometry')
     center=tuple(np.mean([reference_frame(p) for p in graphs],axis=0))
     result=dict(stars=source_check(*standard,True),spectral_qso=source_check(*qso,False),
-        held_galaxies=galaxy_check(left_ref,right_ref,graphs,center,gauges),
+        held_galaxies=galaxy_check(left_ref,right_ref,graphs,center,gauges,specs[0]),
+        comparison_geometry=dict(ra_bounds_deg=specs[0]['ra'],dec_bounds_deg=specs[0]['dec']),
         applied_reference_components=gauges,
         graph_sha256=[digest(p) for p in graphs],projection_centers_deg=[reference_frame(p) for p in graphs],
         covariance_status='Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.',

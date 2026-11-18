@@ -1,0 +1,83 @@
+# Fixed from registered adjacent geometry, before overlap motion outcomes.
+reference_epoch = 2015.5
+nside = 128
+boundary_ra_deg = 188.0
+half_width_deg = 0.06
+
+[[comparisons]]
+name = "dec28"
+left_region = "left_28"
+right_region = "right_28"
+left_input_core = "north_one_20_10"
+right_input_core = "north_three_00_00"
+[fields.left_28]
+ra = [187.94, 188.06]
+dec = [28.0, 29.0]
+[fields.right_28]
+ra = [187.94, 188.06]
+dec = [28.0, 29.0]
+
+[[comparisons]]
+name = "dec29"
+left_region = "left_29"
+right_region = "right_29"
+left_input_core = "north_one_20_11"
+right_input_core = "north_three_00_01"
+[fields.left_29]
+ra = [187.94, 188.06]
+dec = [29.0, 30.0]
+[fields.right_29]
+ra = [187.94, 188.06]
+dec = [29.0, 30.0]
+
+[[comparisons]]
+name = "dec30"
+left_region = "left_30"
+right_region = "right_30"
+left_input_core = "north_one_21_10"
+right_input_core = "north_three_01_00"
+[fields.left_30]
+ra = [187.94, 188.06]
+dec = [30.0, 31.0]
+[fields.right_30]
+ra = [187.94, 188.06]
+dec = [30.0, 31.0]
+
+[[comparisons]]
+name = "dec31"
+left_region = "left_31"
+right_region = "right_31"
+left_input_core = "north_one_21_11"
+right_input_core = "north_three_01_01"
+[fields.left_31]
+ra = [187.94, 188.06]
+dec = [31.0, 32.0]
+[fields.right_31]
+ra = [187.94, 188.06]
+dec = [31.0, 32.0]
+
+[[comparisons]]
+name = "dec32"
+left_region = "left_32"
+right_region = "right_32"
+left_input_core = "north_one_22_10"
+right_input_core = "north_three_02_00"
+[fields.left_32]
+ra = [187.94, 188.06]
+dec = [32.0, 33.0]
+[fields.right_32]
+ra = [187.94, 188.06]
+dec = [32.0, 33.0]
+
+[[comparisons]]
+name = "dec33"
+left_region = "left_33"
+right_region = "right_33"
+left_input_core = "north_one_22_11"
+right_input_core = "north_three_02_01"
+[fields.left_33]
+ra = [187.94, 188.06]
+dec = [33.0, 34.0]
+[fields.right_33]
+ra = [187.94, 188.06]
+dec = [33.0, 34.0]

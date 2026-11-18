@@ -1,0 +1,1259 @@
+{
+  "segments": [
+    {
+      "stars": {
+        "unique_common_count": 331,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 331,
+          "median": [
+            0.013156625859100046,
+            -0.6967433739083875
+          ],
+          "nmad": [
+            0.4426294759054757,
+            1.1957597320375957
+          ],
+          "radial_abs_p68": 2.6241216217194427
+        },
+        "position_difference_mas": {
+          "n": 331,
+          "median": [
+            1.516090002990855,
+            -19.81024113415047
+          ],
+          "nmad": [
+            1.6513415905576159,
+            4.372272116423867
+          ],
+          "radial_abs_p68": 21.181551420757497
+        },
+        "by_r": {
+          "lt20": {
+            "n": 103,
+            "median": [
+              0.0033698068542333814,
+              -0.6304235889877701
+            ],
+            "nmad": [
+              0.5366281435305769,
+              1.0656850310539832
+            ],
+            "radial_abs_p68": 2.6808981104358915
+          },
+          "20_to_21": {
+            "n": 69,
+            "median": [
+              0.048615967987571285,
+              -0.8199270910622749
+            ],
+            "nmad": [
+              0.481365548951797,
+              1.8690323804637996
+            ],
+            "radial_abs_p68": 2.8076184583565937
+          },
+          "21_to_22": {
+            "n": 137,
+            "median": [
+              0.018144917222494783,
+              -0.6409156550805228
+            ],
+            "nmad": [
+              0.43773734806939396,
+              1.1146988498653718
+            ],
+            "radial_abs_p68": 2.4892650539585524
+          },
+          "22_to_23": {
+            "n": 22,
+            "median": [
+              -0.002573878888300518,
+              -0.7158740783476856
+            ],
+            "nmad": [
+              0.44820345576385584,
+              1.1274727510093459
+            ],
+            "radial_abs_p68": 2.012388698446034
+          }
+        },
+        "identical_detection_sets": 244,
+        "shared_detection_p16_p50_p84": [
+          4.0,
+          5.0,
+          5.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 244,
+          "median": [
+            -0.004474055812615063,
+            -0.1654064328513154
+          ],
+          "nmad": [
+            0.3819712981384075,
+            1.3168002188982113
+          ],
+          "radial_abs_p68": 2.5308779024619827
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 244,
+          "median": [
+            1.6353023423792137,
+            -20.18996330651175
+          ],
+          "nmad": [
+            1.2183670073175905,
+            3.7242296675753352
+          ],
+          "radial_abs_p68": 21.26518035787824
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 87,
+          "median": [
+            0.1097359961299823,
+            -0.9619332694705509
+          ],
+          "nmad": [
+            1.2634659429360284,
+            0.9023741830314587
+          ],
+          "radial_abs_p68": 3.3869951369745537
+        }
+      },
+      "spectral_qso": {
+        "unique_common_count": 0,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 0
+        },
+        "position_difference_mas": {
+          "n": 0
+        },
+        "by_r": {}
+      },
+      "held_galaxies": {
+        "shared_physical_group_count": 27,
+        "common_detection_count": 3949,
+        "both_held_supported_detection_count": 1076,
+        "both_held_supported_group_count": 26,
+        "both_held_reference_pair_count": 109,
+        "held_position_difference_mas": {
+          "n": 1076,
+          "median": [
+            1.3037810081004864,
+            -16.465199690312147
+          ],
+          "nmad": [
+            3.8656731308928025,
+            8.704956742476671
+          ],
+          "radial_abs_p68": 22.617991429816776
+        },
+        "by_survey": {
+          "SDSS": {
+            "n": 115,
+            "median": [
+              1.862840012734523,
+              -10.318095425143838
+            ],
+            "nmad": [
+              3.045071140316367,
+              17.20791709368378
+            ],
+            "radial_abs_p68": 26.85487914265826
+          },
+          "NSC": {
+            "n": 961,
+            "median": [
+              0.838789054992958,
+              -19.08221175149083
+            ],
+            "nmad": [
+              4.3443312056589605,
+              6.789686591635644
+            ],
+            "radial_abs_p68": 22.249632563263027
+          }
+        },
+        "interpretation": "Same physical held measurements corrected by two graphs. Descriptive shared-error difference, not independent astrometric accuracy."
+      },
+      "comparison_geometry": {
+        "ra_bounds_deg": [
+          187.94,
+          188.06
+        ],
+        "dec_bounds_deg": [
+          28.0,
+          29.0
+        ]
+      },
+      "applied_reference_components": [
+        "0",
+        "0"
+      ],
+      "graph_sha256": [
+        "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55",
+        "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886"
+      ],
+      "projection_centers_deg": [
+        [
+          183.0,
+          33.0
+        ],
+        [
+          193.0,
+          33.0
+        ]
+      ],
+      "covariance_status": "Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.",
+      "matching_scope": "Star pairs require unique position and at least two shared physical detections. Spectral pairs are stationary-QSO position controls. No blind-member purity claim.",
+      "spatial_zero_status": "not_certified",
+      "slurm_job": "61522309"
+    },
+    {
+      "stars": {
+        "unique_common_count": 113,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 113,
+          "median": [
+            -0.01869668985556494,
+            -0.35024006589830403
+          ],
+          "nmad": [
+            0.6830081109065848,
+            0.39003457735082603
+          ],
+          "radial_abs_p68": 0.8693270279788423
+        },
+        "position_difference_mas": {
+          "n": 113,
+          "median": [
+            0.13088396569146682,
+            -18.270518842692535
+          ],
+          "nmad": [
+            1.4854446183193084,
+            5.779851245611016
+          ],
+          "radial_abs_p68": 21.494888521170008
+        },
+        "by_r": {
+          "20_to_21": {
+            "n": 27,
+            "median": [
+              -0.059424181610623794,
+              -0.20213575400650186
+            ],
+            "nmad": [
+              0.7412739392753421,
+              0.3113087645599317
+            ],
+            "radial_abs_p68": 0.8355257796564836
+          },
+          "21_to_22": {
+            "n": 34,
+            "median": [
+              0.038375692627855784,
+              -0.3105045987722733
+            ],
+            "nmad": [
+              0.6007164780758453,
+              0.3539166307012998
+            ],
+            "radial_abs_p68": 0.9203122310870773
+          },
+          "lt20": {
+            "n": 40,
+            "median": [
+              0.19843190123830046,
+              -0.5533800609449855
+            ],
+            "nmad": [
+              0.4102794952062738,
+              0.5464699180256845
+            ],
+            "radial_abs_p68": 0.8232611560127263
+          },
+          "22_to_23": {
+            "n": 12,
+            "median": [
+              -0.05161473239081252,
+              -0.4111427074392946
+            ],
+            "nmad": [
+              0.7801395068531783,
+              0.5016772616470341
+            ],
+            "radial_abs_p68": 1.362302921907343
+          }
+        },
+        "identical_detection_sets": 113,
+        "shared_detection_p16_p50_p84": [
+          3.0,
+          4.0,
+          5.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 113,
+          "median": [
+            -0.01869668985556494,
+            -0.35024006589830403
+          ],
+          "nmad": [
+            0.6830081109065848,
+            0.39003457735082603
+          ],
+          "radial_abs_p68": 0.8693270279788423
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 113,
+          "median": [
+            0.13088396569146682,
+            -18.270518842692535
+          ],
+          "nmad": [
+            1.4854446183193084,
+            5.779851245611016
+          ],
+          "radial_abs_p68": 21.494888521170008
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "spectral_qso": {
+        "unique_common_count": 0,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 0
+        },
+        "position_difference_mas": {
+          "n": 0
+        },
+        "by_r": {}
+      },
+      "held_galaxies": {
+        "shared_physical_group_count": 31,
+        "common_detection_count": 2894,
+        "both_held_supported_detection_count": 751,
+        "both_held_supported_group_count": 28,
+        "both_held_reference_pair_count": 93,
+        "held_position_difference_mas": {
+          "n": 751,
+          "median": [
+            3.189372111173725,
+            -5.924503494054079
+          ],
+          "nmad": [
+            2.8105770354498305,
+            8.593917893099784
+          ],
+          "radial_abs_p68": 14.694819169117338
+        },
+        "by_survey": {
+          "SDSS": {
+            "n": 96,
+            "median": [
+              54.40240875021118,
+              16.934364149346948
+            ],
+            "nmad": [
+              37.914547426962244,
+              31.20173147932291
+            ],
+            "radial_abs_p68": 66.35547517325502
+          },
+          "NSC": {
+            "n": 655,
+            "median": [
+              3.016924741285038,
+              -5.925386652350426
+            ],
+            "nmad": [
+              2.418743014039614,
+              8.588876760653033
+            ],
+            "radial_abs_p68": 10.412162133734748
+          }
+        },
+        "interpretation": "Same physical held measurements corrected by two graphs. Descriptive shared-error difference, not independent astrometric accuracy."
+      },
+      "comparison_geometry": {
+        "ra_bounds_deg": [
+          187.94,
+          188.06
+        ],
+        "dec_bounds_deg": [
+          29.0,
+          30.0
+        ]
+      },
+      "applied_reference_components": [
+        "0",
+        "0"
+      ],
+      "graph_sha256": [
+        "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55",
+        "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886"
+      ],
+      "projection_centers_deg": [
+        [
+          183.0,
+          33.0
+        ],
+        [
+          193.0,
+          33.0
+        ]
+      ],
+      "covariance_status": "Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.",
+      "matching_scope": "Star pairs require unique position and at least two shared physical detections. Spectral pairs are stationary-QSO position controls. No blind-member purity claim.",
+      "spatial_zero_status": "not_certified",
+      "slurm_job": "61522309"
+    },
+    {
+      "stars": {
+        "unique_common_count": 145,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 145,
+          "median": [
+            -2.174209784110392,
+            -0.03931956852077789
+          ],
+          "nmad": [
+            0.18967825241217082,
+            0.3179021899014597
+          ],
+          "radial_abs_p68": 2.437644818760148
+        },
+        "position_difference_mas": {
+          "n": 145,
+          "median": [
+            7.490423292480599,
+            -0.566999770380653
+          ],
+          "nmad": [
+            0.6956815347078344,
+            2.091731318952517
+          ],
+          "radial_abs_p68": 8.244781462158809
+        },
+        "by_r": {
+          "lt20": {
+            "n": 74,
+            "median": [
+              -2.1685477513842337,
+              -0.1498733858126431
+            ],
+            "nmad": [
+              0.1703393191073024,
+              0.6520796487401862
+            ],
+            "radial_abs_p68": 2.5112783716634115
+          },
+          "20_to_21": {
+            "n": 55,
+            "median": [
+              -2.1782898747658637,
+              -0.010735359780747356
+            ],
+            "nmad": [
+              0.17011886591407074,
+              0.2595700904010221
+            ],
+            "radial_abs_p68": 2.42426038409628
+          },
+          "21_to_22": {
+            "n": 16,
+            "median": [
+              -2.20870280537725,
+              -0.0068673500283531475
+            ],
+            "nmad": [
+              0.2982500315695889,
+              0.18845735187777687
+            ],
+            "radial_abs_p68": 2.413213543875926
+          }
+        },
+        "identical_detection_sets": 145,
+        "shared_detection_p16_p50_p84": [
+          4.0,
+          5.0,
+          6.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 145,
+          "median": [
+            -2.174209784110392,
+            -0.03931956852077789
+          ],
+          "nmad": [
+            0.18967825241217082,
+            0.3179021899014597
+          ],
+          "radial_abs_p68": 2.437644818760148
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 145,
+          "median": [
+            7.490423292480599,
+            -0.566999770380653
+          ],
+          "nmad": [
+            0.6956815347078344,
+            2.091731318952517
+          ],
+          "radial_abs_p68": 8.244781462158809
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "spectral_qso": {
+        "unique_common_count": 1,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 1
+        },
+        "position_difference_mas": {
+          "n": 1
+        },
+        "by_r": {
+          "21": {
+            "n": 1
+          }
+        }
+      },
+      "held_galaxies": {
+        "shared_physical_group_count": 25,
+        "common_detection_count": 3214,
+        "both_held_supported_detection_count": 1035,
+        "both_held_supported_group_count": 22,
+        "both_held_reference_pair_count": 121,
+        "held_position_difference_mas": {
+          "n": 1035,
+          "median": [
+            3.8621780293469783,
+            -0.6636988641694188
+          ],
+          "nmad": [
+            2.4790314628903505,
+            4.51953299525734
+          ],
+          "radial_abs_p68": 7.280366094865421
+        },
+        "by_survey": {
+          "SDSS": {
+            "n": 123,
+            "median": [
+              31.33619966264814,
+              7.990262012928724
+            ],
+            "nmad": [
+              2.989750791449212,
+              17.63510287654437
+            ],
+            "radial_abs_p68": 40.77613666221303
+          },
+          "NSC": {
+            "n": 912,
+            "median": [
+              3.8602252029595547,
+              -0.665198780130595
+            ],
+            "nmad": [
+              2.0404915495319362,
+              4.5158160746022125
+            ],
+            "radial_abs_p68": 6.813758378365748
+          }
+        },
+        "interpretation": "Same physical held measurements corrected by two graphs. Descriptive shared-error difference, not independent astrometric accuracy."
+      },
+      "comparison_geometry": {
+        "ra_bounds_deg": [
+          187.94,
+          188.06
+        ],
+        "dec_bounds_deg": [
+          30.0,
+          31.0
+        ]
+      },
+      "applied_reference_components": [
+        "0",
+        "0"
+      ],
+      "graph_sha256": [
+        "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55",
+        "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886"
+      ],
+      "projection_centers_deg": [
+        [
+          183.0,
+          33.0
+        ],
+        [
+          193.0,
+          33.0
+        ]
+      ],
+      "covariance_status": "Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.",
+      "matching_scope": "Star pairs require unique position and at least two shared physical detections. Spectral pairs are stationary-QSO position controls. No blind-member purity claim.",
+      "spatial_zero_status": "not_certified",
+      "slurm_job": "61522309"
+    },
+    {
+      "stars": {
+        "unique_common_count": 269,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 269,
+          "median": [
+            -1.1008066576509643,
+            -0.9208172846133076
+          ],
+          "nmad": [
+            1.1769081187487018,
+            1.2429509388121918
+          ],
+          "radial_abs_p68": 2.785888250167824
+        },
+        "position_difference_mas": {
+          "n": 269,
+          "median": [
+            -6.876306113101872,
+            4.1896155960039145
+          ],
+          "nmad": [
+            3.7044192398464117,
+            1.7125089644973697
+          ],
+          "radial_abs_p68": 9.89016180219751
+        },
+        "by_r": {
+          "21_to_22": {
+            "n": 73,
+            "median": [
+              -0.22502710207041154,
+              -0.6425902049784509
+            ],
+            "nmad": [
+              1.1102562466278136,
+              0.45743431125410067
+            ],
+            "radial_abs_p68": 1.5038390769443226
+          },
+          "lt20": {
+            "n": 118,
+            "median": [
+              -1.1379419123727361,
+              -0.9785378885330238
+            ],
+            "nmad": [
+              1.188971098473978,
+              1.5215717380661418
+            ],
+            "radial_abs_p68": 2.869406698493886
+          },
+          "20_to_21": {
+            "n": 76,
+            "median": [
+              -1.1411747963058156,
+              -0.9588000414024824
+            ],
+            "nmad": [
+              0.29863741774909247,
+              1.385255755271742
+            ],
+            "radial_abs_p68": 2.780429892719124
+          },
+          "22_to_23": {
+            "n": 2
+          }
+        },
+        "identical_detection_sets": 269,
+        "shared_detection_p16_p50_p84": [
+          5.0,
+          7.0,
+          7.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 269,
+          "median": [
+            -1.1008066576509643,
+            -0.9208172846133076
+          ],
+          "nmad": [
+            1.1769081187487018,
+            1.2429509388121918
+          ],
+          "radial_abs_p68": 2.785888250167824
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 269,
+          "median": [
+            -6.876306113101872,
+            4.1896155960039145
+          ],
+          "nmad": [
+            3.7044192398464117,
+            1.7125089644973697
+          ],
+          "radial_abs_p68": 9.89016180219751
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "spectral_qso": {
+        "unique_common_count": 5,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 5,
+          "median": [
+            -1.2648025101204996,
+            -0.958707747892583
+          ],
+          "nmad": [
+            1.304013089006912,
+            0.6952013757708354
+          ],
+          "radial_abs_p68": 2.508555123446966
+        },
+        "position_difference_mas": {
+          "n": 5,
+          "median": [
+            -7.8989506752956045,
+            4.180184472749698
+          ],
+          "nmad": [
+            2.5629532382458913,
+            1.7723907933921108
+          ],
+          "radial_abs_p68": 10.397353542217333
+        },
+        "by_r": {
+          "21": {
+            "n": 5,
+            "median": [
+              -1.2648025101204996,
+              -0.958707747892583
+            ],
+            "nmad": [
+              1.304013089006912,
+              0.6952013757708354
+            ],
+            "radial_abs_p68": 2.508555123446966
+          }
+        }
+      },
+      "held_galaxies": {
+        "shared_physical_group_count": 43,
+        "common_detection_count": 5731,
+        "both_held_supported_detection_count": 1757,
+        "both_held_supported_group_count": 38,
+        "both_held_reference_pair_count": 135,
+        "held_position_difference_mas": {
+          "n": 1757,
+          "median": [
+            -10.986980969493743,
+            0.9568002512678504
+          ],
+          "nmad": [
+            7.858443261115806,
+            3.8109143667776135
+          ],
+          "radial_abs_p68": 15.955584601071745
+        },
+        "by_survey": {
+          "SDSS": {
+            "n": 141,
+            "median": [
+              6.104292005125899,
+              14.738923178985715
+            ],
+            "nmad": [
+              1.8060712183201044,
+              6.959727238285727
+            ],
+            "radial_abs_p68": 20.643207043810563
+          },
+          "NSC": {
+            "n": 1616,
+            "median": [
+              -10.989330661399435,
+              0.19424766721203923
+            ],
+            "nmad": [
+              7.852546497964747,
+              2.6953127148482947
+            ],
+            "radial_abs_p68": 15.352132413478508
+          }
+        },
+        "interpretation": "Same physical held measurements corrected by two graphs. Descriptive shared-error difference, not independent astrometric accuracy."
+      },
+      "comparison_geometry": {
+        "ra_bounds_deg": [
+          187.94,
+          188.06
+        ],
+        "dec_bounds_deg": [
+          31.0,
+          32.0
+        ]
+      },
+      "applied_reference_components": [
+        "0",
+        "0"
+      ],
+      "graph_sha256": [
+        "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55",
+        "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886"
+      ],
+      "projection_centers_deg": [
+        [
+          183.0,
+          33.0
+        ],
+        [
+          193.0,
+          33.0
+        ]
+      ],
+      "covariance_status": "Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.",
+      "matching_scope": "Star pairs require unique position and at least two shared physical detections. Spectral pairs are stationary-QSO position controls. No blind-member purity claim.",
+      "spatial_zero_status": "not_certified",
+      "slurm_job": "61522309"
+    },
+    {
+      "stars": {
+        "unique_common_count": 304,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 304,
+          "median": [
+            0.48175211408282625,
+            -1.3810087127528194
+          ],
+          "nmad": [
+            0.25638943655304836,
+            0.31497081425754486
+          ],
+          "radial_abs_p68": 1.5609655997499776
+        },
+        "position_difference_mas": {
+          "n": 304,
+          "median": [
+            -12.516284653333162,
+            8.955220789285965
+          ],
+          "nmad": [
+            1.7773616298362538,
+            6.405562183035096
+          ],
+          "radial_abs_p68": 17.876120340824194
+        },
+        "by_r": {
+          "lt20": {
+            "n": 115,
+            "median": [
+              0.5669276188602108,
+              -1.3754645457389882
+            ],
+            "nmad": [
+              0.20566601535945525,
+              0.29133091239911146
+            ],
+            "radial_abs_p68": 1.536680719182726
+          },
+          "20_to_21": {
+            "n": 67,
+            "median": [
+              0.48148106225895115,
+              -1.3792817222226676
+            ],
+            "nmad": [
+              0.24395864907886766,
+              0.3959322097956236
+            ],
+            "radial_abs_p68": 1.493373728481581
+          },
+          "21_to_22": {
+            "n": 108,
+            "median": [
+              0.44388369041758224,
+              -1.3926301067546045
+            ],
+            "nmad": [
+              0.3100351963368562,
+              0.28695702653581145
+            ],
+            "radial_abs_p68": 1.5703368377302875
+          },
+          "22_to_23": {
+            "n": 14,
+            "median": [
+              0.4605717942977141,
+              -1.451614634979375
+            ],
+            "nmad": [
+              0.24673451856421277,
+              0.22582969449919105
+            ],
+            "radial_abs_p68": 1.6242027859085655
+          }
+        },
+        "identical_detection_sets": 304,
+        "shared_detection_p16_p50_p84": [
+          5.0,
+          6.0,
+          7.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 304,
+          "median": [
+            0.48175211408282625,
+            -1.3810087127528194
+          ],
+          "nmad": [
+            0.25638943655304836,
+            0.31497081425754486
+          ],
+          "radial_abs_p68": 1.5609655997499776
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 304,
+          "median": [
+            -12.516284653333162,
+            8.955220789285965
+          ],
+          "nmad": [
+            1.7773616298362538,
+            6.405562183035096
+          ],
+          "radial_abs_p68": 17.876120340824194
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "spectral_qso": {
+        "unique_common_count": 5,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 5,
+          "median": [
+            0.23686530976351516,
+            -1.4382996393006944
+          ],
+          "nmad": [
+            0.4438760166091148,
+            0.050671446377659204
+          ],
+          "radial_abs_p68": 1.9068377066177213
+        },
+        "position_difference_mas": {
+          "n": 5,
+          "median": [
+            -11.991265654594521,
+            13.034082603881084
+          ],
+          "nmad": [
+            0.7947547773004674,
+            5.533044001315006
+          ],
+          "radial_abs_p68": 18.78079491729589
+        },
+        "by_r": {
+          "21": {
+            "n": 4
+          },
+          "22": {
+            "n": 1
+          }
+        }
+      },
+      "held_galaxies": {
+        "shared_physical_group_count": 57,
+        "common_detection_count": 5071,
+        "both_held_supported_detection_count": 1437,
+        "both_held_supported_group_count": 49,
+        "both_held_reference_pair_count": 107,
+        "held_position_difference_mas": {
+          "n": 1437,
+          "median": [
+            -10.994401342351921,
+            5.8623910517198965
+          ],
+          "nmad": [
+            4.327227447613273,
+            8.363390129316947
+          ],
+          "radial_abs_p68": 18.108508831905144
+        },
+        "by_survey": {
+          "SDSS": {
+            "n": 111,
+            "median": [
+              -18.847770458560262,
+              29.935356554342434
+            ],
+            "nmad": [
+              3.544851770047585,
+              13.603727133128839
+            ],
+            "radial_abs_p68": 33.6296353889125
+          },
+          "NSC": {
+            "n": 1326,
+            "median": [
+              -10.990454931177737,
+              5.843003777321428
+            ],
+            "nmad": [
+              4.33138149404985,
+              8.165286221108632
+            ],
+            "radial_abs_p68": 17.206593093689225
+          }
+        },
+        "interpretation": "Same physical held measurements corrected by two graphs. Descriptive shared-error difference, not independent astrometric accuracy."
+      },
+      "comparison_geometry": {
+        "ra_bounds_deg": [
+          187.94,
+          188.06
+        ],
+        "dec_bounds_deg": [
+          32.0,
+          33.0
+        ]
+      },
+      "applied_reference_components": [
+        "0",
+        "0"
+      ],
+      "graph_sha256": [
+        "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55",
+        "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886"
+      ],
+      "projection_centers_deg": [
+        [
+          183.0,
+          33.0
+        ],
+        [
+          193.0,
+          33.0
+        ]
+      ],
+      "covariance_status": "Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.",
+      "matching_scope": "Star pairs require unique position and at least two shared physical detections. Spectral pairs are stationary-QSO position controls. No blind-member purity claim.",
+      "spatial_zero_status": "not_certified",
+      "slurm_job": "61522309"
+    },
+    {
+      "stars": {
+        "unique_common_count": 257,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 257,
+          "median": [
+            0.8991730611357927,
+            -0.21003738776839143
+          ],
+          "nmad": [
+            0.3733460813709632,
+            0.49377961187807695
+          ],
+          "radial_abs_p68": 1.4866672981554108
+        },
+        "position_difference_mas": {
+          "n": 257,
+          "median": [
+            -14.160160918092425,
+            13.28791943024266
+          ],
+          "nmad": [
+            3.2032398281254704,
+            3.685412459281109
+          ],
+          "radial_abs_p68": 19.91390579672206
+        },
+        "by_r": {
+          "lt20": {
+            "n": 117,
+            "median": [
+              0.9467658066590818,
+              0.08975776066238694
+            ],
+            "nmad": [
+              0.44530631784553326,
+              0.8872928012233356
+            ],
+            "radial_abs_p68": 1.4987276274649954
+          },
+          "20_to_21": {
+            "n": 75,
+            "median": [
+              0.9472181970021039,
+              -0.25777816239704165
+            ],
+            "nmad": [
+              0.25090293586512197,
+              0.3979160504569953
+            ],
+            "radial_abs_p68": 1.4499314646564332
+          },
+          "21_to_22": {
+            "n": 65,
+            "median": [
+              0.7777626466399481,
+              -0.24212606621932276
+            ],
+            "nmad": [
+              0.4159148216276691,
+              0.5150496543875197
+            ],
+            "radial_abs_p68": 1.3700368866819599
+          }
+        },
+        "identical_detection_sets": 257,
+        "shared_detection_p16_p50_p84": [
+          6.0,
+          7.0,
+          9.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 257,
+          "median": [
+            0.8991730611357927,
+            -0.21003738776839143
+          ],
+          "nmad": [
+            0.3733460813709632,
+            0.49377961187807695
+          ],
+          "radial_abs_p68": 1.4866672981554108
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 257,
+          "median": [
+            -14.160160918092425,
+            13.28791943024266
+          ],
+          "nmad": [
+            3.2032398281254704,
+            3.685412459281109
+          ],
+          "radial_abs_p68": 19.91390579672206
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "spectral_qso": {
+        "unique_common_count": 3,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 3
+        },
+        "position_difference_mas": {
+          "n": 3
+        },
+        "by_r": {
+          "21": {
+            "n": 3
+          }
+        }
+      },
+      "held_galaxies": {
+        "shared_physical_group_count": 57,
+        "common_detection_count": 7223,
+        "both_held_supported_detection_count": 2307,
+        "both_held_supported_group_count": 50,
+        "both_held_reference_pair_count": 151,
+        "held_position_difference_mas": {
+          "n": 2307,
+          "median": [
+            -10.98764664862199,
+            12.794519653136376
+          ],
+          "nmad": [
+            4.857774955800492,
+            5.002422173551598
+          ],
+          "radial_abs_p68": 20.612111871521517
+        },
+        "by_survey": {
+          "SDSS": {
+            "n": 160,
+            "median": [
+              -23.024120324289015,
+              17.56570934742922
+            ],
+            "nmad": [
+              7.4050740523097325,
+              34.33971159360444
+            ],
+            "radial_abs_p68": 35.428802358693495
+          },
+          "NSC": {
+            "n": 2147,
+            "median": [
+              -10.91089748485274,
+              12.793536920216866
+            ],
+            "nmad": [
+              4.748144203226641,
+              4.858626237559947
+            ],
+            "radial_abs_p68": 19.107945237302072
+          }
+        },
+        "interpretation": "Same physical held measurements corrected by two graphs. Descriptive shared-error difference, not independent astrometric accuracy."
+      },
+      "comparison_geometry": {
+        "ra_bounds_deg": [
+          187.94,
+          188.06
+        ],
+        "dec_bounds_deg": [
+          33.0,
+          34.0
+        ]
+      },
+      "applied_reference_components": [
+        "0",
+        "0"
+      ],
+      "graph_sha256": [
+        "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55",
+        "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886"
+      ],
+      "projection_centers_deg": [
+        [
+          183.0,
+          33.0
+        ],
+        [
+          193.0,
+          33.0
+        ]
+      ],
+      "covariance_status": "Cross-graph galaxy/measurement covariance not solved. Do not normalize differences with independent quadrature or pair bootstrap draws.",
+      "matching_scope": "Star pairs require unique position and at least two shared physical detections. Spectral pairs are stationary-QSO position controls. No blind-member purity claim.",
+      "spatial_zero_status": "not_certified",
+      "slurm_job": "61522309"
+    }
+  ],
+  "registered_config_sha256": "a4337f4819314e2dd93bc7e1598cfb50c664e585e6a3adc3f0d983ce56c78005",
+  "comparison": "Independent north_one/north_three graphs on the same predeclared physical strips; source measurements may differ and identical-detection subsets are separately reported.",
+  "slurm_job": "61522309"
+}

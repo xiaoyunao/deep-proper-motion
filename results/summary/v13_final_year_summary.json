@@ -1,0 +1,698 @@
+{
+  "regions": {
+    "a_09_00": {
+      "status": "insufficient_calibrated_nsc_years",
+      "n_years": 0,
+      "reference_gauge": null,
+      "slurm_job": "61522493"
+    },
+    "b_16_00": {
+      "status": "completed",
+      "year": 2017,
+      "held_exposure_count": 5,
+      "shared_detection_claims_rejected": 0,
+      "by_r": {
+        "20_to_21": {
+          "train_sources": 141,
+          "matched_sources": {
+            "n": 125,
+            "denominator": 141,
+            "value": 0.8865248226950354,
+            "wilson95": [
+              0.8236128062225586,
+              0.928934157108818
+            ]
+          },
+          "matched_positions": 180,
+          "chip_covered_sources": 130,
+          "near_held_detection_sources": 125,
+          "covered_without_near_detection": 5,
+          "geometric_or_archive_unknown": 11,
+          "shifted_position_matches": [
+            {
+              "n": 0,
+              "denominator": 141,
+              "value": 0.0,
+              "wilson95": [
+                1.734723475976807e-18,
+                0.026521818075925643
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 141,
+              "value": 0.0,
+              "wilson95": [
+                1.734723475976807e-18,
+                0.026521818075925643
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 141,
+              "value": 0.0,
+              "wilson95": [
+                1.734723475976807e-18,
+                0.026521818075925643
+              ]
+            },
+            {
+              "n": 1,
+              "denominator": 141,
+              "value": 0.0070921985815602835,
+              "wilson95": [
+                0.0012530461940498637,
+                0.03907697304391938
+              ]
+            }
+          ],
+          "radial_p68_mas": 47.034246088673754,
+          "median_mas": [
+            -2.7895267102867365,
+            -4.767127155326307
+          ],
+          "nmad_mas": [
+            28.366338125083267,
+            32.36504244549013
+          ],
+          "within_1sigma_fraction": [
+            0.9888888888888889,
+            0.95
+          ],
+          "within_2sigma_fraction": [
+            0.9944444444444445,
+            1.0
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        },
+        "21_to_22": {
+          "train_sources": 222,
+          "matched_sources": {
+            "n": 193,
+            "denominator": 222,
+            "value": 0.8693693693693694,
+            "wilson95": [
+              0.8186885565513087,
+              0.9074845777189897
+            ]
+          },
+          "matched_positions": 280,
+          "chip_covered_sources": 207,
+          "near_held_detection_sources": 193,
+          "covered_without_near_detection": 14,
+          "geometric_or_archive_unknown": 15,
+          "shifted_position_matches": [
+            {
+              "n": 1,
+              "denominator": 222,
+              "value": 0.0045045045045045045,
+              "wilson95": [
+                0.0007955986955411783,
+                0.02506970899064379
+              ]
+            },
+            {
+              "n": 1,
+              "denominator": 222,
+              "value": 0.0045045045045045045,
+              "wilson95": [
+                0.0007955986955411783,
+                0.02506970899064379
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 222,
+              "value": 0.0,
+              "wilson95": [
+                1.734723475976807e-18,
+                0.017009537756059373
+              ]
+            },
+            {
+              "n": 2,
+              "denominator": 222,
+              "value": 0.009009009009009009,
+              "wilson95": [
+                0.0024740819890443928,
+                0.03224699562726616
+              ]
+            }
+          ],
+          "radial_p68_mas": 64.36634979722761,
+          "median_mas": [
+            -1.734161261934787,
+            -9.389577051158994
+          ],
+          "nmad_mas": [
+            42.91024474075231,
+            40.51568280161284
+          ],
+          "within_1sigma_fraction": [
+            0.9714285714285714,
+            0.9428571428571428
+          ],
+          "within_2sigma_fraction": [
+            1.0,
+            1.0
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        },
+        "22_to_23": {
+          "train_sources": 79,
+          "matched_sources": {
+            "n": 70,
+            "denominator": 79,
+            "value": 0.8860759493670886,
+            "wilson95": [
+              0.7974520728901779,
+              0.9388942067188184
+            ]
+          },
+          "matched_positions": 101,
+          "chip_covered_sources": 76,
+          "near_held_detection_sources": 70,
+          "covered_without_near_detection": 6,
+          "geometric_or_archive_unknown": 3,
+          "shifted_position_matches": [
+            {
+              "n": 2,
+              "denominator": 79,
+              "value": 0.02531645569620253,
+              "wilson95": [
+                0.006970367306584818,
+                0.08768584628891136
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 79,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.04637121165392266
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 79,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.04637121165392266
+              ]
+            },
+            {
+              "n": 2,
+              "denominator": 79,
+              "value": 0.02531645569620253,
+              "wilson95": [
+                0.006970367306584818,
+                0.08768584628891136
+              ]
+            }
+          ],
+          "radial_p68_mas": 86.42674896362817,
+          "median_mas": [
+            -10.57052164990455,
+            7.568846805021167
+          ],
+          "nmad_mas": [
+            47.79628410843406,
+            47.403377158806094
+          ],
+          "within_1sigma_fraction": [
+            0.9900990099009901,
+            0.9603960396039604
+          ],
+          "within_2sigma_fraction": [
+            1.0,
+            1.0
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "training_has_no_held_year_detections": true,
+      "scope": "Frozen C0/W0 r-only; training-only association; 1 arcsec prediction gate, unique competing detections and exclusive claims. Residual and formal coverage conditional on that gate; shifted positions estimate held-position chance matches only. Chip polygons identify geometric opportunities, not image-level completeness. Reference galaxies may calibrate held exposures; no target held detections enter training.",
+      "reference_gauge": "0",
+      "slurm_job": "61522493"
+    },
+    "north_one_00_00": {
+      "status": "completed",
+      "year": 2017,
+      "held_exposure_count": 3,
+      "shared_detection_claims_rejected": 0,
+      "by_r": {
+        "20_to_21": {
+          "train_sources": 652,
+          "matched_sources": {
+            "n": 522,
+            "denominator": 652,
+            "value": 0.8006134969325154,
+            "wilson95": [
+              0.7682241366108309,
+              0.8294812916261665
+            ]
+          },
+          "matched_positions": 570,
+          "chip_covered_sources": 550,
+          "near_held_detection_sources": 522,
+          "covered_without_near_detection": 28,
+          "geometric_or_archive_unknown": 102,
+          "shifted_position_matches": [
+            {
+              "n": 4,
+              "denominator": 652,
+              "value": 0.006134969325153374,
+              "wilson95": [
+                0.002388279988443787,
+                0.01566708790791782
+              ]
+            },
+            {
+              "n": 3,
+              "denominator": 652,
+              "value": 0.004601226993865031,
+              "wilson95": [
+                0.0015660402197793704,
+                0.01343981018557715
+              ]
+            },
+            {
+              "n": 1,
+              "denominator": 652,
+              "value": 0.0015337423312883436,
+              "wilson95": [
+                0.000270794507776507,
+                0.008636020915569836
+              ]
+            },
+            {
+              "n": 3,
+              "denominator": 652,
+              "value": 0.004601226993865031,
+              "wilson95": [
+                0.0015660402197793704,
+                0.01343981018557715
+              ]
+            }
+          ],
+          "radial_p68_mas": 45.18458794252691,
+          "median_mas": [
+            -4.606639198958874,
+            -3.1947661163285375
+          ],
+          "nmad_mas": [
+            25.767093145264123,
+            30.412396709987146
+          ],
+          "within_1sigma_fraction": [
+            0.9736842105263158,
+            0.9614035087719298
+          ],
+          "within_2sigma_fraction": [
+            0.9964912280701754,
+            0.9982456140350877
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        },
+        "21_to_22": {
+          "train_sources": 542,
+          "matched_sources": {
+            "n": 423,
+            "denominator": 542,
+            "value": 0.7804428044280443,
+            "wilson95": [
+              0.7436867400133673,
+              0.8132515340722997
+            ]
+          },
+          "matched_positions": 483,
+          "chip_covered_sources": 452,
+          "near_held_detection_sources": 423,
+          "covered_without_near_detection": 29,
+          "geometric_or_archive_unknown": 90,
+          "shifted_position_matches": [
+            {
+              "n": 0,
+              "denominator": 542,
+              "value": 0.0,
+              "wilson95": [
+                4.336808689942018e-19,
+                0.007037682386738643
+              ]
+            },
+            {
+              "n": 1,
+              "denominator": 542,
+              "value": 0.0018450184501845018,
+              "wilson95": [
+                0.0003257653391748657,
+                0.010375984640232639
+              ]
+            },
+            {
+              "n": 3,
+              "denominator": 542,
+              "value": 0.005535055350553505,
+              "wilson95": [
+                0.0018841667225458734,
+                0.016145718442199353
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 542,
+              "value": 0.0,
+              "wilson95": [
+                4.336808689942018e-19,
+                0.007037682386738643
+              ]
+            }
+          ],
+          "radial_p68_mas": 59.20867623380379,
+          "median_mas": [
+            -1.2061430532485247,
+            -1.3080406840890646
+          ],
+          "nmad_mas": [
+            39.560555576823276,
+            38.03093200983144
+          ],
+          "within_1sigma_fraction": [
+            0.9710144927536232,
+            0.9627329192546584
+          ],
+          "within_2sigma_fraction": [
+            0.9958592132505176,
+            1.0
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        },
+        "22_to_23": {
+          "train_sources": 32,
+          "matched_sources": {
+            "n": 26,
+            "denominator": 32,
+            "value": 0.8125,
+            "wilson95": [
+              0.6469084479862404,
+              0.9111045531043405
+            ]
+          },
+          "matched_positions": 31,
+          "chip_covered_sources": 27,
+          "near_held_detection_sources": 26,
+          "covered_without_near_detection": 1,
+          "geometric_or_archive_unknown": 5,
+          "shifted_position_matches": [
+            {
+              "n": 0,
+              "denominator": 32,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.1071791982550706
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 32,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.1071791982550706
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 32,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.1071791982550706
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 32,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.1071791982550706
+              ]
+            }
+          ],
+          "radial_p68_mas": 71.51907302208319,
+          "median_mas": [
+            2.5202600993216038,
+            -0.5048746652901173
+          ],
+          "nmad_mas": [
+            28.661088968975097,
+            44.23969344131313
+          ],
+          "within_1sigma_fraction": [
+            1.0,
+            0.9354838709677419
+          ],
+          "within_2sigma_fraction": [
+            1.0,
+            1.0
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "training_has_no_held_year_detections": true,
+      "scope": "Frozen C0/W0 r-only; training-only association; 1 arcsec prediction gate, unique competing detections and exclusive claims. Residual and formal coverage conditional on that gate; shifted positions estimate held-position chance matches only. Chip polygons identify geometric opportunities, not image-level completeness. Reference galaxies may calibrate held exposures; no target held detections enter training.",
+      "reference_gauge": "0",
+      "slurm_job": "61522493"
+    },
+    "north_two_04_00": {
+      "status": "completed",
+      "year": 2017,
+      "held_exposure_count": 3,
+      "shared_detection_claims_rejected": 0,
+      "by_r": {
+        "20_to_21": {
+          "train_sources": 128,
+          "matched_sources": {
+            "n": 7,
+            "denominator": 128,
+            "value": 0.0546875,
+            "wilson95": [
+              0.026740201381346355,
+              0.10858490029974707
+            ]
+          },
+          "matched_positions": 7,
+          "chip_covered_sources": 128,
+          "near_held_detection_sources": 7,
+          "covered_without_near_detection": 121,
+          "geometric_or_archive_unknown": 0,
+          "shifted_position_matches": [
+            {
+              "n": 0,
+              "denominator": 128,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.029136956273508416
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 128,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.029136956273508416
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 128,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.029136956273508416
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 128,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.029136956273508416
+              ]
+            }
+          ],
+          "radial_p68_mas": 56.96959622968554,
+          "median_mas": [
+            -18.680209655314684,
+            -18.68962307460606
+          ],
+          "nmad_mas": [
+            34.611185688126454,
+            51.26288219648413
+          ],
+          "within_1sigma_fraction": [
+            1.0,
+            1.0
+          ],
+          "within_2sigma_fraction": [
+            1.0,
+            1.0
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        },
+        "21_to_22": {
+          "train_sources": 46,
+          "matched_sources": {
+            "n": 8,
+            "denominator": 46,
+            "value": 0.17391304347826086,
+            "wilson95": [
+              0.09085791702246311,
+              0.30723353716378493
+            ]
+          },
+          "matched_positions": 8,
+          "chip_covered_sources": 46,
+          "near_held_detection_sources": 8,
+          "covered_without_near_detection": 38,
+          "geometric_or_archive_unknown": 0,
+          "shifted_position_matches": [
+            {
+              "n": 0,
+              "denominator": 46,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.07707356308558039
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 46,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.07707356308558039
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 46,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.07707356308558039
+              ]
+            },
+            {
+              "n": 0,
+              "denominator": 46,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.07707356308558039
+              ]
+            }
+          ],
+          "radial_p68_mas": 89.13812084265618,
+          "median_mas": [
+            -9.227350165136158,
+            -4.44124807510525
+          ],
+          "nmad_mas": [
+            71.78077809390966,
+            72.7274012812687
+          ],
+          "within_1sigma_fraction": [
+            1.0,
+            1.0
+          ],
+          "within_2sigma_fraction": [
+            1.0,
+            1.0
+          ],
+          "beyond_3sigma_fraction": [
+            0.0,
+            0.0
+          ]
+        },
+        "22_to_23": {
+          "train_sources": 0,
+          "matched_sources": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "matched_positions": 0,
+          "chip_covered_sources": 0,
+          "near_held_detection_sources": 0,
+          "covered_without_near_detection": 0,
+          "geometric_or_archive_unknown": 0,
+          "shifted_position_matches": [
+            {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            },
+            {
+              "n": 0,
+              "denominator": 0,
+              "value": null,
+              "wilson95": null
+            }
+          ]
+        }
+      },
+      "training_has_no_held_year_detections": true,
+      "scope": "Frozen C0/W0 r-only; training-only association; 1 arcsec prediction gate, unique competing detections and exclusive claims. Residual and formal coverage conditional on that gate; shifted positions estimate held-position chance matches only. Chip polygons identify geometric opportunities, not image-level completeness. Reference galaxies may calibrate held exposures; no target held detections enter training.",
+      "reference_gauge": "0",
+      "slurm_job": "61522493"
+    }
+  },
+  "registered_choice": "Three previously tested fixed cores and the preselected first-batch north_two_04_00; no outcome-based choice or fit tuning.",
+  "evaluation_commit": "406eff2d5543d953f589aee538ad6a42e6a61954",
+  "test_release_sha256": "e10489556d4e27f0e6bbcde689b0105c21610c8426d5d0633e7b07e57e72f534",
+  "slurm_job": "61522493"
+}

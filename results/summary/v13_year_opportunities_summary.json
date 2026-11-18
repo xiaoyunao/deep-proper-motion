@@ -1,0 +1,148 @@
+{
+  "regions": {
+    "north_two_04_00": {
+      "year": 2017,
+      "raw_retrieved_r_count": 6873,
+      "finite_native_error_r_count": 3376,
+      "snr_qualified_r_count": 3376,
+      "reference_supported_r_count": 3376,
+      "coverage": {
+        "all_archive_r_chips": {
+          "held_visits": 5,
+          "by_r": {
+            "20_to_21": {
+              "train_sources": 128,
+              "covered_sources": 128
+            },
+            "21_to_22": {
+              "train_sources": 46,
+              "covered_sources": 46
+            },
+            "22_to_23": {
+              "train_sources": 0,
+              "covered_sources": 0
+            }
+          }
+        },
+        "supported_reference_groups": {
+          "held_visits": 3,
+          "by_r": {
+            "20_to_21": {
+              "train_sources": 128,
+              "covered_sources": 7
+            },
+            "21_to_22": {
+              "train_sources": 46,
+              "covered_sources": 10
+            },
+            "22_to_23": {
+              "train_sources": 0,
+              "covered_sources": 0
+            }
+          }
+        },
+        "retrieved_eligible_exposures": {
+          "held_visits": 3,
+          "by_r": {
+            "20_to_21": {
+              "train_sources": 128,
+              "covered_sources": 7
+            },
+            "21_to_22": {
+              "train_sources": 46,
+              "covered_sources": 10
+            },
+            "22_to_23": {
+              "train_sources": 0,
+              "covered_sources": 0
+            }
+          }
+        }
+      },
+      "usable_exposure_counts": [
+        122,
+        1274,
+        1980
+      ],
+      "input_receipt_sha256": "96b0cf8ba11eee9d7cd603ce3a74644f886e3a4e7876bd7a6a2bb1802f9ab782",
+      "year_summary_sha256": "8aa8b55cc6f3fae92f3aaef2c22d5123a06b73bb1421deed72545a23b39ac0ae",
+      "diagnostic_source_sha256": "24f2cb8be613cbc46df9d7537ea150101e9de2ebaa4b6be46407312291e7e21f",
+      "scope": "Metadata and fixed saved training predictions only. No fitting or new selection. Chip presence alone does not establish a retrievable, SNR/error-qualified, reference-supported detection.",
+      "slurm_job": "61522700"
+    },
+    "b_16_00": {
+      "year": 2017,
+      "raw_retrieved_r_count": 65587,
+      "finite_native_error_r_count": 59173,
+      "snr_qualified_r_count": 59145,
+      "reference_supported_r_count": 59145,
+      "coverage": {
+        "all_archive_r_chips": {
+          "held_visits": 8,
+          "by_r": {
+            "20_to_21": {
+              "train_sources": 141,
+              "covered_sources": 130
+            },
+            "21_to_22": {
+              "train_sources": 222,
+              "covered_sources": 207
+            },
+            "22_to_23": {
+              "train_sources": 79,
+              "covered_sources": 76
+            }
+          }
+        },
+        "supported_reference_groups": {
+          "held_visits": 6,
+          "by_r": {
+            "20_to_21": {
+              "train_sources": 141,
+              "covered_sources": 130
+            },
+            "21_to_22": {
+              "train_sources": 222,
+              "covered_sources": 207
+            },
+            "22_to_23": {
+              "train_sources": 79,
+              "covered_sources": 76
+            }
+          }
+        },
+        "retrieved_eligible_exposures": {
+          "held_visits": 5,
+          "by_r": {
+            "20_to_21": {
+              "train_sources": 141,
+              "covered_sources": 130
+            },
+            "21_to_22": {
+              "train_sources": 222,
+              "covered_sources": 207
+            },
+            "22_to_23": {
+              "train_sources": 79,
+              "covered_sources": 76
+            }
+          }
+        }
+      },
+      "usable_exposure_counts": [
+        8350,
+        10239,
+        10367,
+        13490,
+        16699
+      ],
+      "input_receipt_sha256": "d2462cacee39e4a0b16007a9e284f68dca6ce189f49356f71ed93f05f09ce869",
+      "year_summary_sha256": "0a69a734590cfe34888c18a3675841c299356b624f7c15566856c896aeeae529",
+      "diagnostic_source_sha256": "24f2cb8be613cbc46df9d7537ea150101e9de2ebaa4b6be46407312291e7e21f",
+      "scope": "Metadata and fixed saved training predictions only. No fitting or new selection. Chip presence alone does not establish a retrievable, SNR/error-qualified, reference-supported detection.",
+      "slurm_job": "61522700"
+    }
+  },
+  "model_unchanged": true,
+  "slurm_job": "61522700"
+}

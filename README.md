@@ -2,6 +2,8 @@
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
+当前v1.3完成新增226.963平方度与冻结保留区验证。重复扫描有条件性收益，普通单扫描未显示普遍优势；真实跨参考图差异和支持缺口尚未解决。当前保留C0研究版本，不启动全覆盖正式生产。[最终结论与统计图](reports/experiment_A_v1.3_conditions.md)
+
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
 - [实验 A v1.3 观测条件研究](reports/experiment_A_v1.3_conditions.md) · [实际方法审计](docs/method_audit_v13.md) · [预登记与复现](docs/conditions_protocol_v13.md)
 - [实验 A v1.2 连续区最终报告](reports/experiment_A_v1.2_continuous.md) · [复现命令](docs/continuous_c0_v12.md) · [配对精度图](figures/v12_continuous_paired_precision_summary.png)
@@ -75,3 +77,16 @@ v1.0 在同一框架内运行 `deep_pm.exposure_pilot --validation-audit`，应�
 ### 实验 A v1.1 复现
 
 [v1.1 计划](docs/v11_completed_plan.md)与 [重叠模型及运行说明](docs/overlap_validation_v11.md)记录输入回执、物理观测块、扩区规则和可重放命令。exposure_pilot 在 overlap-v11.toml 配置下额外运行 C1b。overlap_blocks 在 NERSC 合并 QSO 验证块，overlap_plots 从公开汇总绘图。
+
+### v1.3 条件研究与最终验证
+
+本轮冻结方法、分层和解封要求见[协议](docs/conditions_protocol_v13.md)、[最终测试规则](docs/final_test_decision_v13.md)及[中文报告](reports/experiment_A_v1.3_conditions.md)。新增独立区使用只读缓存和每窗共同参考图。不要用普通整区汇总绕过保留窗过滤，也不要在解封后改参数再声称盲测。以下命令在对应不可变版本的Slurm节点运行，变量由未提交的本机配置给出：
+
+```bash
+python -m deep_pm.independent_summary "$STATE" configs/independent-v13-candidates.toml "$SUMMARY" --release "$RELEASE"
+python -m deep_pm.independent_ownership "$STATE" configs/independent-v13-candidates.toml "$OWNERSHIP" --release "$RELEASE"
+python -m deep_pm.independent_year "$YEAR_WORK" "$CORE" "$SOURCE" "$SHARED" "$GEOMETRY_CONFIG"
+python -m deep_pm.cross_region_audit "$LEFT" "$RIGHT" "$LEFT_REF" "$RIGHT_REF" "$LEFT_GRAPH" "$RIGHT_GRAPH" "$OVERLAP_SUMMARY"
+```
+
+`independent_year`从训练关联建立前移除整个目标年，使用原C0/W0，只检验门限内区域切平面位置预测。`cross_region_audit`对不同参考图只报告实测差分；共享误差未求解时不以独立平方和构造置信度。暗恒星外部参照的范围和缺项见[核验记录](docs/dark_reference_v13.md)。数据和新代码快照均放个人PScratch，不追加Home数据备份。

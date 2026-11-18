@@ -1,0 +1,100 @@
+{
+  "left_count": 7513,
+  "right_count": 5973,
+  "unique_common_count": 5688,
+  "shared_solution_sha256": "778113aa6d67093af154b1fa769004c5c70a7690712f681c5262eaae2548d42f",
+  "source_summaries_sha256": [
+    "c34a3662211f858361710ad5b604c7ef428acd00074bb30e73634668a52abc7a",
+    "facdad381457f655218c915dd703d818783b3f0245b86403e565115fb245fc2d"
+  ],
+  "covariance_scope": "Linear response to the same physical measurement errors and synchronous C0 draws; original IRLS weights held fixed.",
+  "slurm_job": "61517621",
+  "median_position_difference_mas": [
+    -0.6386304839634392,
+    0.5729406049821495
+  ],
+  "identical_detection_sets": 0,
+  "disjoint_nsc_group_sets": 5688,
+  "normalized_pm_valid_count": [
+    5688,
+    5688
+  ],
+  "normalized_pm_nmad": [
+    0.39854467794283144,
+    0.38865928268331573
+  ],
+  "normalized_pm_within_1sigma": [
+    {
+      "n": 5516,
+      "denominator": 5688,
+      "value": 0.969760900140647,
+      "wilson95": [
+        0.9649838180117475,
+        0.9739038932259502
+      ]
+    },
+    {
+      "n": 5535,
+      "denominator": 5688,
+      "value": 0.9731012658227848,
+      "wilson95": [
+        0.9685667859535739,
+        0.9769971477816971
+      ]
+    }
+  ],
+  "median_motion_difference_masyr": [
+    -0.05113873722847023,
+    0.0393381703159289
+  ],
+  "radial_position_p68_mas": 23.23819178306999,
+  "radial_motion_p68_masyr": 1.8606707319945848,
+  "shared_detection_count_quantiles": [
+    1.0,
+    2.0,
+    3.0
+  ],
+  "shared_group_count_quantiles": [
+    1.0,
+    2.0,
+    3.0
+  ],
+  "linearized_variance_quantiles": [
+    [
+      1014.5815119585978,
+      5.851411025958779,
+      1019.4118457919395,
+      5.829882418872714
+    ],
+    [
+      1361.287044264559,
+      7.734707947160212,
+      1368.8997427784675,
+      7.768792422723732
+    ],
+    [
+      2325.1174770481252,
+      14.40903705802737,
+      2349.8796836879937,
+      14.369806175164296
+    ]
+  ],
+  "by_r": {
+    "20_to_21": {
+      "n": 1245,
+      "radial_motion_difference_p68_masyr": 1.7662253089729472
+    },
+    "21_to_22": {
+      "n": 1581,
+      "radial_motion_difference_p68_masyr": 2.583491727349742
+    },
+    "22_to_23": {
+      "n": 512,
+      "radial_motion_difference_p68_masyr": 3.5113310161186067
+    },
+    "lt20": {
+      "n": 2350,
+      "radial_motion_difference_p68_masyr": 1.235928318474836
+    }
+  }
+}

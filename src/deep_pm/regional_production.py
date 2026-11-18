@@ -107,6 +107,8 @@ def r_chip_shapes(chips, center):
 
 
 def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,settings,config,spec,chip_shapes=None):
+    record_extra=spec.get('record_extra_sources',False)
+    if record_extra:save_json(work/'private_extra_training_sources.json',[])
     # Choose the most observed interior calendar year by survey metadata alone.
     time_edges=Time([f"{y}-01-01" for y in range(2010,2021)],scale="utc").tt.jyear
     survey_year=np.searchsorted(time_edges,t,side="right")-1
@@ -125,8 +127,20 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
     core=spec.get("core_members")
     baseline=source_funnel(data,xy,t,w1,keep & ~hold,fresh,offsets,config,settings,spec["radius"],initial=initial,
                            observation_groups=keys,core_members=core)[1]
+    extra_models={} if record_extra else None
     extra=source_funnel(data,xy,t,w1,expanded & ~hold,fresh_multi,offsets,config,settings,spec["radius"],
-                        reference_keep=keep & ~hold,initial=initial,observation_groups=keys,core_members=core)[1]
+                        reference_keep=keep & ~hold,initial=initial,observation_groups=keys,core_members=core,fits=extra_models)[1]
+    if record_extra:
+        from .standard_motion import calibrated_covariance,icrs_motion
+        records=[]
+        for slot,value in extra.items():
+            if slot in baseline:continue
+            use=value[4]
+            covariance=calibrated_covariance(extra_models[slot],t[use],w1[use],[offsets[keys[j]] for j in use])[0]
+            records.append(dict(r_bin=value[3],**icrs_motion(value[0],value[1],center,covariance),
+                detection_ids=data.detection_id.iloc[use].tolist(),exposures=sorted(set(exp[use])),
+                nsc_epoch_days=sorted(set(np.floor((t[use[nsc[use]]]-2000)*365.25).astype(int)))))
+        save_json(work/'private_extra_training_sources.json',records)
     # Use W1 as the common anchor. A single observed position is compared to
     # both predictions. Newly supported sources are a distinct denominator.
     pool=[j for j,v in extra.items() if v[3] in ("20_to_21","21_to_22","22_to_23")]
@@ -142,6 +156,8 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
     pairs=defaultdict(list)
     opportunities=Counter()
     outside=Counter()
+    shifted=defaultdict(set)
+    null_shifts=[np.array(v) for v in ((30000.,10000.),(-30000.,10000.),(10000.,-30000.),(-10000.,30000.))] if spec.get('position_null_control',False) else []
     epoch=config["reference_epoch"]
     near=prod["competitor_margin_mas"]
     footprint_sources=np.zeros(len(pool),dtype=bool)
@@ -165,6 +181,9 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
         distance=tree.query(pred)[0]
         opportunity_sources |= distance <= 1000
         accepted,closest=query_unique(tree,pred,500,near)
+        for shift_id,shift in enumerate(null_shifts):
+            null,_=query_unique(tree,pred+shift,500,near)
+            for j in np.flatnonzero(null):shifted[(compare[j],shift_id)].add(int(j))
         for j in np.flatnonzero((distance<=1000)&~accepted):
             outside[compare[j]]+=1
         for j in np.flatnonzero(distance<=1000):
@@ -183,6 +202,8 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
         stats=dict(train_sources=n,matched_sources=ratio(nstar,n),
                    near_r_detections=opportunities[key],not_unique_or_outside_500=outside[key],
                    unique_held_positions=len(part))
+        if null_shifts:
+            stats['shifted_position_null']=[ratio(len(shifted[(key,j)]),n) for j in range(len(null_shifts))]
         if chip_shapes is not None:
             ii=np.array([j for j,k in enumerate(compare) if k==key],dtype=int)
             matched=np.zeros(len(pool),dtype=bool)
@@ -200,6 +221,8 @@ def prediction(work,center,data,xy,t,sigma,w1,keys,nsc,keep,expanded,offsets,set
                 stats["common_w1_p68_mas"]=np.quantile(a[:,0],.68)
         output.setdefault(kind,{})[tag]=stats
     result=dict(status="completed",year=int(year+2010),test_r_visits=len(set(exp[usable&hold])),by_r=output)
+    if null_shifts:
+        result['null_scope']='Four fixed 31.6 arcsec position shifts at actual held times. Held-position chance coincidence only; not a whole-track contamination estimate or absolute PM truth.'
     if chip_shapes is not None:
         result["visits_with_chip_geometry"]=chip_visits
     return result

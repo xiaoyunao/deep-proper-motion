@@ -92,6 +92,8 @@ def pool(frozen,conditions,spatial,output):
             groups[f"{label}__r{int(row['magnitude'])}_{int(row['magnitude'])+1}"].append(row)
     pixels=hp.ang2pix(16,[r['ra'] for r in motions],[r['dec'] for r in motions],lonlat=True)
     sky={str(k):describe([r for r,pixel in zip(motions,pixels) if pixel==k]) for k in sorted(set(pixels))}
+    for key,value in sky.items():
+        value['by_r']={f'r{low}_{low+1}':describe([r for r,pixel in zip(motions,pixels) if pixel==int(key) and low<=r['magnitude']<low+1]) for low in (21,22)}
     tagged=[]
     for row in positions:
         labels=[row['survey']+':'+str(row['instrument'])+':'+row['band'],f"r{int(row['r'])}_{int(row['r'])+1}",f"year_{row['year']}"]

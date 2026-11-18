@@ -4,10 +4,12 @@
 - SDSS `RAERR` 以角秒给出，含 cos(dec)。`DECERR` 同单位。按 1000 转换到 mas。SDSS `TAI_r` 是自 MJD 零点起的 TAI 秒。与 `offsetRa_r = offsetDec_r = 0` 同时满足时采用 r 时刻。不确定参考波段的检测仍进入检测表，但暂缺时刻。统一转换加 32.184 秒到 TT。SAS FITS 类型列是 `OBJC_TYPE`，SQL `type` 是归并类型。
 - SDSS 使用 `RUN_PRIMARY`（bit 0，掩码 1）去掉同 run 邻 field 的重复。保留不同 run。同一物理 run 不合并其他版本的处理结果。本次所有观测来自同一 release，未导入 coadd。颜色采用同一次扫描的 PSF g−i，可缺。
 - NSC `mjd` 按 UTC 输入。TAP_SCHEMA 标为天，NSC 组合源码从 `DATE-OBS` 明确按 UTC 计算。位置误差为角秒。校准源码及在切平面用法支持将 `raerr` 解释为东向角距离误差，不再乘余弦。本轮公开小区的赤纬接近零度或 35°，尚缺其他高赤纬与误差残差的外部核验。
-- 无时间或非正、非有限误差的检测保留记录，从当前拟合排除。演示控制样本共用误差 ≤150 mas、已知原生波段星等 ≤20.5 的阈值，星等缺测不单独删除，形态不作硬切。每轴在加权拟合中加 50 mas 独立位置底噪。阈值与完整度均针对取回、入选的检测。
+- 无时间或非正、非有限误差的检测保留记录，从拟合排除。当前冻结C0/W0要求原生两轴误差≤200 mas，按各轴sqrt(native_sigma²+50²)加权。普通W0采用r-only、SNR≥5、NSC锚点形态中位≥0.8等完整门槛；已知位置光谱QSO控制不要求点形态或10mas/yr形式误差门槛。见[实际方法审计](method_audit_v13.md)。历史v0.1演示的≤150mas、≤20.5等门槛不是当前生产方法。所有完整度只针对成功取回并入选的检测。
 
 [SDSS Resolve](https://www.sdss4.org/dr16/algorithms/resolve) · [SDSS 质量位](https://www.sdss4.org/dr16/algorithms/bitmasks) · [NSC schema](https://datalab.noirlab.edu/data-explorer?showTable=nsc_dr2.meas)
 
 在开发区的 DR17 run 3325、camcol 4、field 308，SAS 与 CAS 同一检测的 `TAI_r` 完全一致，位置和 RAERR 在浮点精度内一致。TAI 换算成 MJD 后比该记录的 CAS 整数 MJD 大 0.3972 天。匹配 photoField 确有 airmass、REF_TAI 及 DCR 颜色列。
 
 SDSS CAS 官方 astrometry 说明把质心误差与 frame 标定误差平方相加，并在坐标变换后产生 RA/DEC 协方差。v0.3 保留发布的边际 `RAERR/DECERR`，沿用 50 mas 每轴实验底噪；未将 `photoField` 标定误差再次加到独立逐源项。参考星系重采样传播的是新增零点估计的不确定度，发布误差的逐源与共模分量仍待拆分。 [SDSS CAS 天测说明](https://classic.sdss.org/dr7/algorithms/astrometry.php)
+
+v1.3在保留原切平面列的同时，另输出每源ICRS自行、4×4协方差及投影中心。解析逆gnomonic的全状态Jacobian传播包括位置—自行项；发布目录的切平面速度恢复为ICRS时正向乘此速度Jacobian。原始RA/Dec边际误差直接当作局部平面误差的近似与缺少原生相关系数仍是限制，不能把输出坐标变换等同于修复输入误差模型。

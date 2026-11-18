@@ -22,7 +22,13 @@ from .pilot_production import quality_detections, valid_epochs
 from .precision_v03 import calibration_groups, fit_with_calibration
 from .provenance import run_stage
 from .public_summary import check_aggregate
-from .regional_production import prediction
+from .regional_production import prediction,r_chip_shapes
+from .regional_preflight import r_chips
+from .access import Cache
+from .continuous_summary import estimate
+from .exposure_catalogues import coordinates
+from .dark_precision import query_unique
+from scipy.spatial import cKDTree
 from .standard_motion import calibrated_covariance,icrs_motion
 
 
@@ -47,6 +53,25 @@ def families(data):
     label = 'NSC:'+instrument+':'+data.band.astype(str)
     label.loc[data.survey.eq('SDSS')] = 'SDSS:r'
     return label.to_numpy()
+
+
+def extra_qso_zero(work,qso,settings):
+    records=json.loads((work/'private_extra_training_sources.json').read_text())
+    if not records:return dict(extra_training_count=0,unique_spectral_qso_count=0)
+    positions=np.asarray([r['position_deg'] for r in records])
+    radius=lambda mas:2*np.sin(np.deg2rad(mas/3600000)/2)
+    good,closest=query_unique(cKDTree(coordinates(qso.ra.to_numpy(),qso.dec.to_numpy())),coordinates(*positions.T),radius(500),radius(300))
+    # Reject multiple training candidates claiming the same spectrum.
+    counts=Counter(closest[good])
+    selected=[r for i,r in enumerate(records) if good[i] and counts[closest[i]]==1]
+    by_r={}
+    for tag in ('20_to_21','21_to_22','22_to_23'):
+        part=[r for r in selected if r['r_bin']==tag]
+        values=[dict(multi=(r['pm_icrs_masyr'],r['pm_error_masyr'])) for r in part]
+        control=[dict(r,motion={'multi':r['pm_icrs_masyr']}) for r in part]
+        by_r[tag]=dict(zero=comparison(values,settings),physical_group_sensitivity=estimate(control,('multi',),9137,candidate='multi'))
+    return dict(extra_training_count=len(records),unique_spectral_qso_count=len(selected),by_r=by_r,
+        scope='Blind extra training sources matched afterward to spectra at 500mas with 300mas competitor margin; many-to-one claims rejected. No held stellar positions entered training. Spectral subsample, not correctness of all unlabelled extra stars.')
 
 
 def learn_errors(refs, data, coord, time, sigma, keys, seed, minimum, reference_offsets=None):
@@ -163,13 +188,21 @@ def run(work, source, reference, shared, spec, protocol):
     def core(pos):
         return inside(*unproject(pos,center)[0],spec)
     # Both held-year arms use the SAME trial errors; isolates adding bands.
+    footprint=protocol.get('enable_chip_and_null_validation',False)
+    chips=None
+    if footprint:
+        region_center=tuple(float(np.mean(spec[k])) for k in ('ra','dec'))
+        radius=float(np.hypot(np.ptp(spec['ra']),np.ptp(spec['dec']))/2+.06)
+        chips=r_chip_shapes(r_chips(Cache(work/'footprint_cache'),region_center,radius),center)
     annual = prediction(work,center,data,xy,time,revised,revised,keys,nsc,keep,expanded,offsets,
-                         settings,config,dict(radius=9.,core_members=core))
+                         settings,config,dict(radius=9.,core_members=core,position_null_control=footprint,record_extra_sources=footprint),chip_shapes=chips)
+    extra_zero=extra_qso_zero(work,qso,settings) if footprint else dict(status='not_requested')
     fixed_annual,held_pairs = fixed_year_prediction(data,xy,time,sigma,revised,keys,nsc,keep,expanded,
                                                    offsets,settings,config,spec,center)
     save_json(work/'private_error_pairs.json',records)
     save_json(work/'private_held_error_pairs.json',held_pairs)
     summary = dict(error_models=models,independent_galaxy_pairs=galaxy,qso=qso_summary,
+                   extra_multiband_spectral_zero=extra_zero,
                    annual_same_errors_multiband=annual,fixed_source_held_year=fixed_annual,exits=exits,
                    adoption_status='research_trial_only_pending_independent_replication',
                    training_scope='Half of C0 held-out physical galaxies; QSO excluded from error learning.')
@@ -190,9 +223,10 @@ def main():
     bind(a.work,'reference_receipt.json',verify_directory(a.reference,('reference.csv.gz','reference_summary.json')))
     bind(a.work,'shared_receipt.json',verify_directory(a.shared,('private_c0.npz',)))
     bind(a.work,'geometry_config.toml',a.geometry_config)
+    additional=('private_extra_training_sources.json',) if tomllib.loads(a.protocol.read_text()).get('enable_chip_and_null_validation',False) else ()
     with run_stage(a.work,a.protocol,a.region,'conditions-error-trial-v13',
         inputs=('source_receipt.json','reference_receipt.json','shared_receipt.json','geometry_config.toml'),
-        outputs=('private_error_pairs.json','private_held_error_pairs.json','error_trial_summary.json')) as go:
+        outputs=('private_error_pairs.json','private_held_error_pairs.json','error_trial_summary.json')+additional) as go:
         if go:
             run(a.work,a.source,a.reference,a.shared,tomllib.loads(a.geometry_config.read_text())['fields'][a.region],
                 tomllib.loads(a.protocol.read_text()))

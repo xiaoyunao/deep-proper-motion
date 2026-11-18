@@ -1,0 +1,12 @@
+{
+  "left_count": 1806,
+  "right_count": 0,
+  "unique_common_count": 0,
+  "shared_solution_sha256": "966d2aab3f5e8aed27dca9108d9fdaba716bbc81d80fbf8a7f98db061db79a31",
+  "source_summaries_sha256": [
+    "b252161858177f0e893f0490713c7e640f135b338272b21c4b3260007903035d",
+    "7479ab27b678ab064b46277a21829df3692f0eaca4d6e7a0de19e05b3221a734"
+  ],
+  "covariance_scope": "Linear response to the same physical measurement errors and synchronous C0 draws; original IRLS weights held fixed.",
+  "slurm_job": "61517621"
+}

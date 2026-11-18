@@ -55,3 +55,5 @@
 !/configs/independent-v13-candidates.toml
 !/reports/experiment_A_v1.3_conditions.md
 !/configs/adjacent-v13.toml
+
+!/configs/conditions-footprints-v13.toml

@@ -83,3 +83,21 @@ class ErrorTrialTest(unittest.TestCase):
         self.assertEqual(model['reference_count'],1)
         self.assertFalse(model['enabled_for_trial_only'])
         np.testing.assert_allclose(revised,sigma)
+
+class ExtraSpectrumAuditTest(unittest.TestCase):
+    def test_competing_extra_sources_do_not_become_unique_qso_truth(self):
+        import json
+        import pandas as pd
+        from tempfile import TemporaryDirectory
+        from pathlib import Path
+        from deep_pm.condition_error_trial import extra_qso_zero
+        from deep_pm.public_summary import check_aggregate
+        with TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            records=[dict(position_deg=[ra,0.],r_bin='21_to_22',pm_icrs_masyr=[1.,-1.],pm_error_masyr=[2.,2.],exposures=['SDSS:1','NSC:a'],nsc_epoch_days=[50000]) for ra in (10.,10.+.01/3600,10.1,20.)]
+            (root/'private_extra_training_sources.json').write_text(json.dumps(records))
+            result=extra_qso_zero(root,pd.DataFrame(dict(ra=[10.,10.1],dec=[0.,0.])),dict(min_publish_count=3))
+            self.assertEqual(result['extra_training_count'],4)
+            self.assertEqual(result['unique_spectral_qso_count'],1)
+            self.assertEqual(result['by_r']['21_to_22']['zero']['n'],1)
+            check_aggregate(result)

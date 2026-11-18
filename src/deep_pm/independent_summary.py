@@ -69,9 +69,13 @@ def run(state,protocol,output):
         verify_directory(fits[name],('private_qso_blocks.json','continuous_core_summary.json'))
         for row in json.loads((fits[name]/'private_qso_blocks.json').read_text()):
             records[box].append(standard_block(row,config['projection_center_deg']))
-    # The general pool retains original per-core controls (explicitly tangent).
-    public=pool(specs,fits,graphs,dict(sets))
-    public['tangent_legacy_cohorts']=public.pop('cohorts')
+    # Reuse receipt/ownership checks, avoiding duplicated tangent-frame inference
+    # and enormous per-core copies of the same cohort comparisons.
+    public=pool(specs,fits,graphs,{})
+    public.pop('cohorts')
+    for core in public['cores'].values():
+        core['qso_counts']=core.pop('qso')['totals']
+        core.pop('gaia')
     public['standard_icrs_comparison']={box:comparison_cohorts(rows) for box,rows in records.items()}
     public['standard_icrs_comparison']['pooled']=comparison_cohorts([r for rows in records.values() for r in rows])
     public.update(final_test_box=sealed,sealed_core_count=sum(box==sealed for _,box in tasks),

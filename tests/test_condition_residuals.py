@@ -16,3 +16,20 @@ class SpatialCovarianceTest(unittest.TestCase):
 
     def test_empty_spatial_cells_have_no_invented_uncertainty(self):
         self.assertEqual(spatial_mean([]),dict(n=0))
+
+class ErrorCoverageDiagnosticTest(unittest.TestCase):
+    def test_source_split_changes_error_diagnostic_without_refitting_motion(self):
+        from deep_pm.condition_spatial_pool import error_calibration
+        random=np.random.default_rng(5)
+        rows=[dict(core='a',qso_index=i,motion=random.normal(size=2)*2,error=np.array([4.,4.])) for i in range(600)]
+        before=np.array([r['motion'].copy() for r in rows])
+        result=error_calibration(rows)
+        self.assertGreater(result['training_count'],50)
+        self.assertGreater(result['test_count'],50)
+        self.assertTrue(np.all((np.array(result['scale'])>.35)&(np.array(result['scale'])<.65)))
+        np.testing.assert_array_equal(before,[r['motion'] for r in rows])
+        check_aggregate(result)
+
+    def test_sparse_split_does_not_claim_calibrated_errors(self):
+        from deep_pm.condition_spatial_pool import error_calibration
+        self.assertEqual(error_calibration([])['status'],'insufficient_support')

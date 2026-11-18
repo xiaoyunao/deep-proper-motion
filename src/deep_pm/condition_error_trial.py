@@ -23,6 +23,7 @@ from .precision_v03 import calibration_groups, fit_with_calibration
 from .provenance import run_stage
 from .public_summary import check_aggregate
 from .regional_production import prediction
+from .standard_motion import calibrated_covariance,icrs_motion
 
 
 def split_reference(name, seed):
@@ -132,12 +133,18 @@ def run(work, source, reference, shared, spec, protocol):
         multi = multi[support[multi]]
         if not set(ix).issubset(multi):
             raise ValueError('Multiband matching changed the r detection identities')
-        values = {}
+        values,standard_values = {},{}
+        reference_position=None
         for name,use,error in [('W0_r',ix,sigma),('W2_r',ix,revised),('W0_multi',multi,sigma),('W2_multi',multi,revised)]:
             fit,err = fit_with_calibration(xy[use],time[use],error[use],config['reference_epoch'],
                                             [offsets[keys[j]] for j in use])
             values[name] = (fit.coeff[1],err)
+            covariance=calibrated_covariance(fit,time[use],error[use],[offsets[keys[j]] for j in use])[0]
+            converted=icrs_motion(fit.coeff[0],fit.coeff[1],center,covariance)
+            standard_values[name]=(converted['pm_icrs_masyr'],converted['pm_error_masyr'])
+            if reference_position is None:reference_position=converted['position_deg']
         records.append(dict(magnitude=qso.reference_r.iloc[k],values=values,
+                            standard_values=standard_values,position_deg=reference_position,
                             r_detection_ids=data.detection_id.iloc[ix].tolist(),
                             multi_detection_ids=data.detection_id.iloc[multi].tolist()))
     contrasts = (('W2_r','W0_r'),('W0_multi','W0_r'),('W2_multi','W0_r'),('W2_multi','W2_r'))

@@ -8,11 +8,13 @@ import numpy as np
 import pandas as pd
 from astropy.time import Time
 
-from .continuous_reference import verify_directory
+from .continuous_reference import reference_frame,verify_directory
 from .continuous_summary import estimate
 from .io import digest,save_json
 from .nsc_comparison import comparison
 from .public_summary import check_aggregate
+from .astrometry import project
+from .standard_motion import icrs_motion
 
 
 def join_controls(trial,baseline):
@@ -38,6 +40,8 @@ def run(trial,conditions,source,output):
         raise ValueError('Source input receipts differ')
     joined=join_controls(json.loads((trial/'private_error_pairs.json').read_text()),
                          json.loads((conditions/'private_conditions.json').read_text()))
+    standard=all('standard_values' in new for new,old in joined)
+    center=reference_frame((trial/'shared_receipt.json').resolve().parent/'private_c0.npz') if standard else None
     table=pd.read_csv(source/'detections.csv',usecols=['detection_id','exposure_id','observation_time']).set_index('detection_id')
     records=[]
     for new,old in joined:
@@ -46,7 +50,12 @@ def run(trial,conditions,source,output):
         rows=table.loc[new['multi_detection_ids']]
         nsc=rows.exposure_id.str.startswith('NSC:')
         times=Time(rows.observation_time.to_numpy(),format='mjd',scale='tt').utc.mjd
-        records.append(dict(magnitude=new['magnitude'],values=dict(new['values'],NSC=old['published'],Xiao=old['legacy']),
+        values=dict(new['values'],NSC=old['published'],Xiao=old['legacy'])
+        if standard:
+            position=project([new['position_deg'][0]],[new['position_deg'][1]],center)[0]
+            jac=icrs_motion(position,np.zeros(2),center)['state_jacobian'][np.ix_([1,3],[1,3])]
+            values=dict(new['standard_values'],**{key:(jac@np.asarray(values[key][0]),values[key][1]) for key in ('NSC','Xiao')})
+        records.append(dict(magnitude=new['magnitude'],values=values,
                             exposures=sorted(set(rows.exposure_id)),nsc_epoch_days=sorted(set(np.floor(times[nsc]-.75).astype(int)))))
     settings=dict(min_publish_count=3,tail_masyr=5,bootstrap_draws=800,bootstrap_absolute_zero=True,seed=9137)
     results={}
@@ -62,6 +71,7 @@ def run(trial,conditions,source,output):
                 weighted[candidate]=estimate(rows,methods,9137,candidate=candidate)
         results[f'r{low}_{low+1}']=dict(common=stats,physical_group_sensitivity=weighted)
     public=dict(fixed_r_reproduction_count=len(joined),common_count=len(records),cohorts=results,
+        motion_frame='ICRS with full fitted-state covariance; published native marginal errors' if standard else 'original tangent frame; published native marginal errors',
         input_summary_sha256=digest(trial/'error_trial_summary.json'),baseline_summary_sha256=digest(conditions/'conditions_summary.json'),
         physical_weight_scope='Union of actual r and multiband observations; NSC observing nights grouped at 18:00 UTC. Source-weight sensitivity, not independent spatial confidence.',
         slurm_job=os.environ['SLURM_JOB_ID'])

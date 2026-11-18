@@ -94,7 +94,7 @@ def run(work,source,shared,spec):
             groups=sorted(set(keys[ix])),ring=int(hp.ang2pix(128,qso.ra.iloc[source_index],qso.dec.iloc[source_index],lonlat=True))))
         color=data.color.iloc[ix] if 'color' in data else pd.Series(dtype=float)
         color=float(color.median()) if color.notna().any() else None
-        if color is not None and not np.isfinite(color):
+        if color is not None and (not np.isfinite(color) or not -3<=color<=6):
             color=None
         all_index=truth[source_index]
         for i in all_index[support[all_index]]:
@@ -126,7 +126,12 @@ def run(work,source,shared,spec):
         json.dump(motions,f,default=json_default,allow_nan=False)
     strata=defaultdict(list)
     for p in positions:
-        tags=[p['survey']+':'+str(p['instrument'])+':'+p['band'],f"r{int(p['r'])}_{int(p['r'])+1}",f"year_{p['year']}"]
+        tags=[p['survey']+':'+str(p['instrument'])+':'+p['band'],f"r{int(p['r'])}_{int(p['r'])+1}",
+              f"year_{p['year']}","physical_group:"+p['group']]
+        if p['detector_id'] is not None:
+            tags.append(p['survey']+':'+str(p['instrument'])+':detector_'+str(p['detector_id']))
+        if p['field_id'] is not None:
+            tags.append('field:'+p['group']+':'+str(p['field_id']))
         if p['color'] is not None:
             tags.append('color_blue' if p['color']<.5 else 'color_mid' if p['color']<1.2 else 'color_red')
         for key,cuts in [('fwhm',(1.,1.5)),('airmass',(1.3,1.6))]:

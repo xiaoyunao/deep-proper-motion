@@ -1,0 +1,19 @@
+# Independent adjacent control, outside the frozen C area; diagnostic overlap is separate.
+projection_center_deg = [350.0,0.0]
+reference_epoch = 2015.5
+nside = 128
+seed = 9137
+halo_deg = 0.06
+native_join = true
+native_count_window = true
+native_row_cap = 80000
+download_workers = 1
+[fields.adjacent_east]
+ra = [355.0,356.0]
+dec = [3.0,4.0]
+[fields.left_overlap]
+ra = [354.94,355.06]
+dec = [3.0,4.0]
+[fields.right_overlap]
+ra = [354.94,355.06]
+dec = [3.0,4.0]

@@ -28,3 +28,8 @@ dec = [28.0,38.0]
 [boxes.north_two]
 ra = [145.0,155.0]
 dec = [30.0,40.0]
+# Added after the four-window geometry precheck found 196.407 usable deg2,
+# before viewing any new-field proper motions; selection cuts remain fixed.
+[boxes.north_three]
+ra = [188.0,198.0]
+dec = [28.0,38.0]

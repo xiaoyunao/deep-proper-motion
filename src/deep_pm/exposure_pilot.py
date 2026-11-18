@@ -189,7 +189,10 @@ def contrast_samples(truth, labels, data, xy, t, sigma, keep, nsc, settings, con
                     standard_error[name]=np.hypot(base[name][1],ref_error[k])
             utc=Time(data.observation_time.iloc[indices].to_numpy(),format='mjd',scale='tt').utc
             calendar_year=np.array([int(value[:4]) for value in utc.isot])
+            shapes=data.morphology.iloc[indices[nsc[indices]&data.band.iloc[indices].eq('r').to_numpy()]].to_numpy(float)
+            shapes=shapes[np.isfinite(shapes)]
             block_records.append(dict(magnitude=magnitudes[k],
+                median_nsc_r_class_star=float(np.median(shapes)) if len(shapes) else None,
                 blind_track_ids={name:audits[name][0].get(k) for name in names},
                 exposures=sorted(set(exposure[indices])),
                 nsc_epoch_days=sorted(set(np.floor((t[indices[nsc[indices]]]-2000)*365.25).astype(int))),

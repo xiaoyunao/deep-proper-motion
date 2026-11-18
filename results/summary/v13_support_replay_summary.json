@@ -1,0 +1,15 @@
+{
+  "catalogue_count": 7789,
+  "all_catalogue_columns_exactly_equal": true,
+  "all_science_summary_fields_exactly_equal": true,
+  "private_qso_and_group_deletions_equal": true,
+  "real_detection_mask_count": 1099575,
+  "unique_physical_groups": 114,
+  "allowed_groups": 1652,
+  "mask_exactly_equal": true,
+  "hash_query_seconds": 0.032220146999861754,
+  "new_elapsed_seconds": 57.07580624399998,
+  "old_elapsed_seconds": 69.58229883600006,
+  "final_test_results_read": false,
+  "slurm_job": "61519759"
+}

@@ -25,6 +25,7 @@ def validate_release(state,protocol,release):
     """Require a recorded frozen decision before opening the reserved window."""
     recorded=json.loads(release.read_text())
     required=dict(selection_sha256=digest(state/'selection.json'),protocol_sha256=digest(protocol),
+        method_sources_sha256={p.name:digest(p) for p in sorted(Path('src/deep_pm').glob('*.py'))},
         precision_sha256=digest(Path('configs/precision-v03.toml')),
         production_sha256=digest(Path('configs/spatial-v08.toml')),
         fit_source_sha256=digest(Path('src/deep_pm/continuous_fit.py')),
@@ -66,6 +67,10 @@ def comparison_cohorts(records):
               'nsc_span_ge_2yr':[r for r in common if r['nsc_span_years']>=2]}
         for instrument in sorted({r['instrument_mix'] for r in common if 'instrument_mix' in r}):
             sets['instrument_'+instrument]=[r for r in common if r.get('instrument_mix')==instrument]
+        if any('median_nsc_r_class_star' in r for r in common):
+            sets.update(pointlike_qso=[r for r in common if r.get('median_nsc_r_class_star') is not None and r['median_nsc_r_class_star']>=.8],
+                nonpointlike_qso=[r for r in common if r.get('median_nsc_r_class_star') is not None and r['median_nsc_r_class_star']<.8],
+                shape_unavailable=[r for r in common if r.get('median_nsc_r_class_star') is None])
         out={}
         for name,rows in sets.items():
             values=[{k:(r['motion'][k],r['error_icrs'][k]) for k in METHODS} for r in rows]

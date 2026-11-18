@@ -14,7 +14,7 @@ import pandas as pd
 from .__main__ import tomllib
 from .access import Cache
 from .astrometry import fit_motion, project, unproject
-from .continuous_reference import CENTER, FILES, PRECISION, SPATIAL, bind, read_offsets, verify_directory
+from .continuous_reference import FILES, PRECISION, SPATIAL, bind, read_offsets, reference_frame, verify_directory
 from .exposure_catalogues import inside
 from .exposure_pilot import contrast_samples, matched_legacy
 from .io import digest, save_json
@@ -24,6 +24,7 @@ from .precision_v03 import calibration_groups
 from .provenance import run_stage
 from .regional_production import prediction, record_catalogue
 from .regional_validation import official_table
+from .standard_motion import calibrated_covariance, icrs_motion
 from .validation import gaia_labels, groups_by_label
 from .validation_audit import anchored_bright_gaia, gaia_bright, gaia_observation_quality, quantiles
 
@@ -64,12 +65,13 @@ def group_deletions(truth, data, xy, t, sigma, keep, nsc, keys, solution, settin
 
 def fit_core(work, source, spec, shared, legacy, fit_annual):
     start = monotonic()
+    center = reference_frame(shared)
     config = tomllib.loads(PRECISION.read_text())
     settings = tomllib.loads(SPATIAL.read_text())
     settings.update(bootstrap_draws=400,bootstrap_absolute_zero=True)
     prod = settings["production"]
     solution, gauges = read_offsets(shared,with_gauge=True)
-    data,xy,t,sigma,keep = quality_detections(source,CENTER,config,prod)
+    data,xy,t,sigma,keep = quality_detections(source,center,config,prod)
     keys = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
     visits = data.exposure_id.to_numpy()
@@ -79,7 +81,7 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
     main_gauge = min(counts.index,key=lambda k:(-counts[k],k)) if len(counts) else None
     solution = {k:v for k,v in solution.items() if gauges[k]==main_gauge}
     def core(position):
-        return inside(*unproject(position,CENTER)[0],spec)
+        return inside(*unproject(position,center)[0],spec)
 
     tracks = make_tracks(xy,visits,keep,prod["match_radius_mas"])
     seeds = make_tracks(xy,visits,nsc&keep,prod["match_radius_mas"])
@@ -89,22 +91,35 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
     # The final catalogue uses half-open ownership at the common reference epoch.
     owned = {k:v for k,v in products.items() if core(v[0])}
     nights = np.floor((t-2000)*365.25).astype(int)
-    diagnostics = record_catalogue(work,CENTER,data,xy,t,sigma,keys,visits,nights,nsc,solution,
+    diagnostics = record_catalogue(work,center,data,xy,t,sigma,keys,visits,nights,nsc,solution,
                                    {"W0":(tracks,owned,None)},models,config,settings)
+    standard = []
+    for slot, (pos,pm,err,tag,used,_) in owned.items():
+        covariance, independent, common, _ = calibrated_covariance(models[slot],t[used],sigma[used],
+                                              [solution[k] for k in keys[used]])
+        if not np.allclose(np.sqrt(np.diag(covariance)[[1,3]]),err,rtol=1e-9,atol=1e-10):
+            raise ValueError('Full covariance must preserve frozen tangent PM errors')
+        standard.append(dict(track_id=slot, **icrs_motion(pos,pm,center,covariance),
+            tangent_covariance=covariance,independent_tangent_covariance=independent,
+            reference_tangent_covariance=common, detection_ids=data.detection_id.iloc[used].tolist()))
+    import gzip
+    from .io import json_default
+    with gzip.open(work/'private_standard_motion.json.gz','wt') as stream:
+        json.dump(standard,stream,default=json_default,allow_nan=False)
     original = pd.read_csv(source/"external_labels.csv",dtype=str).set_index("detection_id").original_object_id
     official = original,official_table(source,{})
     qso = pd.read_csv(source/"spectra_union.csv")
     qso = qso.loc[inside(qso.ra,qso.dec,spec)].reset_index(drop=True)
-    projected = project(qso.ra,qso.dec,CENTER)
+    projected = project(qso.ra,qso.dec,center)
     labels,truth = qso_matches(data,xy,keep,projected)
     archive = pd.read_csv(legacy)
     archive = archive.loc[inside(archive.RA,archive.DEC,spec,.06)]
-    archive_qso,_ = matched_legacy(archive,projected,CENTER)
+    archive_qso,_ = matched_legacy(archive,projected,center)
     ref = np.zeros((len(qso),2))
     mag = qso.reference_r.to_numpy()
     blocks = []
     qso_stats = contrast_samples(truth,labels,data,xy,t,sigma,keep,nsc,settings,config,(keys,),(solution,),
-                                  CENTER,mag,qso.origin.to_numpy(),ref,ref,official,archive_qso,
+                                  center,mag,qso.origin.to_numpy(),ref,ref,official,archive_qso,
                                   tracks,{"C0":owned},blocks)
     save_json(work/"private_qso_blocks.json",blocks)
     removed = group_deletions(truth,data,xy,t,sigma,keep,nsc,keys,solution,settings,config,mag)
@@ -113,11 +128,11 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
     if "visibility_periods_used" not in gaia:
         visibility = gaia_observation_quality(Cache(work/"gaia_quality_cache"),spec)
         gaia = gaia.merge(visibility,on="source_id",how="left",validate="one_to_one")
-    gaia,bright = anchored_bright_gaia(gaia,seeds,xy,data.magnitude.to_numpy(),CENTER)
-    lab,cat = gaia_labels(data.loc[keep].reset_index(drop=True),xy[keep],t[keep],sigma[keep],gaia,CENTER,config)
+    gaia,bright = anchored_bright_gaia(gaia,seeds,xy,data.magnitude.to_numpy(),center)
+    lab,cat = gaia_labels(data.loc[keep].reset_index(drop=True),xy[keep],t[keep],sigma[keep],gaia,center,config)
     label = np.full(len(data),-1)
     label[keep] = lab
-    truth = groups_by_label(label,data,t,cat,CENTER,9.,config)
+    truth = groups_by_label(label,data,t,cat,center,9.,config)
     use = inside(cat.ra,cat.dec,spec)
     magnitude = np.full(len(cat),np.nan)
     for k,ix in truth.items():
@@ -126,21 +141,21 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
     bright_mask = gaia_bright(cat,magnitude)
     truth = {i:idx for i,idx in truth.items() if bright_mask[i]}
     label[~np.isin(label,list(truth))] = -1
-    archive_gaia,_ = matched_legacy(archive,project(cat.ra,cat.dec,CENTER),CENTER)
+    archive_gaia,_ = matched_legacy(archive,project(cat.ra,cat.dec,center),center)
     gaia_stats = contrast_samples(truth,label,data,xy,t,sigma,keep,nsc,settings,config,(keys,),(solution,),
-                    CENTER,magnitude,np.repeat("Gaia",len(cat)),cat[["pm_tangent_x","pm_tangent_y"]].to_numpy(),
+                    center,magnitude,np.repeat("Gaia",len(cat)),cat[["pm_tangent_x","pm_tangent_y"]].to_numpy(),
                     cat[["pmra_error","pmdec_error"]].to_numpy(),official,archive_gaia,tracks,{"C0":owned})
     annual = {}
     if fit_annual:
         multi = keep|(nsc&data.band.isin(["g","i","z"]).to_numpy()&data.magnitude_error.between(0,.21715).to_numpy())
-        annual = prediction(work,CENTER,data,xy,t,sigma,sigma,keys,nsc,keep,multi,solution,
+        annual = prediction(work,center,data,xy,t,sigma,sigma,keys,nsc,keep,multi,solution,
                             settings,config,dict(radius=9.,core_members=core))
     on_core = inside(data.ra_deg,data.dec_deg,spec)
     supported = np.isin(keys,list(solution))
     used = supported&keep&on_core
     pix = hp.ang2pix(128,data.ra_deg.to_numpy()[used],data.dec_deg.to_numpy()[used],lonlat=True)
     occupied = Counter(map(str,pix))
-    positions = unproject([v[0] for v in owned.values()],CENTER) if owned else np.empty((0,2))
+    positions = unproject([v[0] for v in owned.values()],center) if owned else np.empty((0,2))
     owned_pixel = hp.ang2pix(128,*positions.T,lonlat=True)
     pixel_w0 = Counter(map(str,owned_pixel))
     observations = {}
@@ -149,7 +164,8 @@ def fit_core(work, source, spec, shared, legacy, fit_annual):
         observations[name] = dict(n_rows=int(valid.sum()),distinct_visits=len(set(ids)), nights=len(set(nights[valid])),
             span_years=float(np.ptp(t[valid])) if valid.any() else None,unconstrained=int(np.count_nonzero(
                 keep&on_core&~supported&(nsc if name=="NSC" else ~nsc))))
-    save_json(work/"continuous_core_summary.json",dict(w0_funnel=funnel,owned_w0=len(owned),ownership_exits=len(products)-len(owned),
+    save_json(work/"continuous_core_summary.json",dict(projection_center_deg=center,standard_covariance_count=len(standard),
+        w0_funnel=funnel,owned_w0=len(owned),ownership_exits=len(products)-len(owned),
         formal_error_masyr=quantiles([p[2] for p in owned.values()]),observations=observations,gaia=gaia_stats,
         gaia_policy=bright,qso=qso_stats,annual=annual,leverage=diagnostics,w0_ring_counts=pixel_w0,
         supported_ring_measurements=occupied,shared_solution_sha256=digest(shared),
@@ -171,7 +187,8 @@ def main():
     a.work.mkdir(parents=True,exist_ok=True)
     bind(a.work,"source_receipt.json",verify_directory(a.source,FILES))
     bind(a.work,"reference_receipt.json",verify_directory(a.shared,("private_c0.npz",)))
-    outputs = ("continuous_core_summary.json","private_qso_blocks.json","private_group_deletions.json","private_catalogue.csv.gz")
+    outputs = ("continuous_core_summary.json","private_qso_blocks.json","private_group_deletions.json","private_catalogue.csv.gz",
+               "private_standard_motion.json.gz")
     with run_stage(a.work,a.config,a.region,"continuous-core-v12",inputs=("source_receipt.json","reference_receipt.json"),
                    outputs=outputs) as go:
         if go:

@@ -2,6 +2,7 @@ import unittest
 import numpy as np
 from deep_pm.continuous_conditions import experiment_indices, time_information, summaries
 from deep_pm.public_summary import check_aggregate
+from deep_pm.continuous_condition_pool import reproduce
 
 
 class ConditionsTest(unittest.TestCase):
@@ -26,3 +27,14 @@ class ConditionsTest(unittest.TestCase):
         out = summaries([], 9137)
         self.assertEqual(out['ordinary__r21_22__common_releases']['n'], 0)
         check_aggregate(out)
+
+    def test_freeze_comparison_rejects_changed_support_and_motion(self):
+        records = [dict(magnitude=21.5,exposures=['a','b'],motion={'all_SDSS':[1.,2.]})]
+        frozen = [dict(magnitude=21.5,exposures=['a','b'],motion={'C0':[1.,2.]})]
+        self.assertEqual(reproduce(records,frozen)['maximum_absolute_motion_difference_masyr'],0.)
+        frozen[0]['motion']['C0'] = [1.001,2.]
+        with self.assertRaises(ValueError):
+            reproduce(records,frozen)
+        frozen[0]['exposures'] = ['a','c']
+        with self.assertRaises(ValueError):
+            reproduce(records,frozen)

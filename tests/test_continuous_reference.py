@@ -5,7 +5,8 @@ from tempfile import TemporaryDirectory
 import numpy as np
 import pandas as pd
 
-from deep_pm.continuous_reference import deduplicate
+from deep_pm.continuous_reference import (deduplicate, common_reference_frame, reference_frame,
+                                          serialize_offsets)
 from deep_pm.continuous_instruments import instrument_bins, instrument_by_exposure
 from deep_pm.continuous_seams import adjacent_held
 from deep_pm.continuous_summary import SAMPLING_COLUMNS, estimate, membership, summarize_sampling
@@ -13,6 +14,19 @@ from deep_pm.validation_audit import boundary_pairs
 
 
 class ContinuousReferenceTest(unittest.TestCase):
+    def test_projection_metadata_is_bound_and_mixed_planes_are_rejected(self):
+        self.assertEqual(common_reference_frame([{},{}]),(350.,0.))
+        self.assertEqual(common_reference_frame([{'projection_center_deg':[132.,35.]}]),(132.,35.))
+        with self.assertRaises(ValueError):
+            common_reference_frame([{}, {'projection_center_deg':[132.,35.]}])
+        with TemporaryDirectory() as directory:
+            path=Path(directory)/'offset.npz'
+            offsets={'NSC:a':(np.zeros(2),np.zeros((48,2)),50)}
+            serialize_offsets(path,offsets,center=(132.,35.))
+            self.assertEqual(reference_frame(path),(132.,35.))
+            np.savez(path,names=np.array(['NSC:a']))
+            self.assertEqual(reference_frame(path),(350.,0.))
+
     def test_common_reference_deduplicates_and_drops_cross_shard_identity_conflicts(self):
         rows = pd.DataFrame([
             ("a", "SDSS-1", "SDSS:5", False),

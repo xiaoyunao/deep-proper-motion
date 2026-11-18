@@ -43,14 +43,14 @@ def verify_directory(path, files):
     return receipt
 
 
-def extract(source, work, spec):
+def extract(source, work, spec, center=CENTER):
     config = tomllib.loads(PRECISION.read_text())
     prod = tomllib.loads(SPATIAL.read_text())["production"]
-    data, xy, time, sigma, keep = quality_detections(source,CENTER,config,prod)
+    data, xy, time, sigma, keep = quality_detections(source,center,config,prod)
     labels = pd.read_csv(source/"external_labels.csv",dtype=str).set_index("detection_id").original_object_id
     veto = pd.concat([pd.read_csv(source/name,usecols=["ra","dec"])
                       for name in ("spectra_veto.csv","validation/gaia.csv")],ignore_index=True).dropna()
-    refs = reference_rows(data,xy,data.detection_id.map(labels),project(veto.ra,veto.dec,CENTER),
+    refs = reference_rows(data,xy,data.detection_id.map(labels),project(veto.ra,veto.dec,center),
                           config["calibration"],config["seed"])
     i = refs.index.to_numpy()
     frame = refs[["reference","is_holdout","detection_id","exposure_id","ra_deg","dec_deg"]].copy()
@@ -60,7 +60,7 @@ def extract(source, work, spec):
     frame.to_csv(work/"reference.csv.gz",index=False)
     core = inside(data.ra_deg,data.dec_deg,spec)
     visits = data.loc[core&keep,["survey","exposure_id","observation_time"]].drop_duplicates()
-    counts = dict(raw_core_valid_error=int(core.sum()), local_reference_rows=len(frame),
+    counts = dict(projection_center_deg=list(center), raw_core_valid_error=int(core.sum()), local_reference_rows=len(frame),
                   reference_sources=frame.reference.nunique(),
                   r_sdss_runs=visits.loc[visits.survey.eq("SDSS"),"exposure_id"].nunique(),
                   r_nsc_visits=visits.loc[visits.survey.eq("NSC"),"exposure_id"].nunique())
@@ -80,13 +80,27 @@ def deduplicate(frames):
                          multiple_exposure_rows=int(duplicate_exposure.sum()), unique_rows=len(cleaned))
 
 
-def serialize_offsets(path, offsets, gauges=None):
+def serialize_offsets(path, offsets, gauges=None, center=CENTER):
     names = sorted(offsets)
     np.savez_compressed(path,names=np.asarray(names),
                         position=np.stack([offsets[k][0] for k in names]),
                         draws=np.stack([offsets[k][1] for k in names]),
                         counts=np.array([offsets[k][2] for k in names]),
-                        gauge=np.asarray([gauges[k] if gauges else "main" for k in names]))
+                        gauge=np.asarray([gauges[k] if gauges else "main" for k in names]),
+                        projection_center_deg=np.asarray(center,dtype=float))
+
+
+def reference_frame(path):
+    """Old v1.2 snapshots use CENTER; newer graphs bind the actual projection."""
+    with np.load(path,allow_pickle=False) as t:
+        return tuple(t['projection_center_deg']) if 'projection_center_deg' in t else CENTER
+
+
+def common_reference_frame(metadata):
+    centers = [tuple(m.get('projection_center_deg',CENTER)) for m in metadata]
+    if not centers or len(set(centers)) != 1:
+        raise ValueError('Reference shards must share one explicitly known projection')
+    return centers[0]
 
 
 def read_offsets(path, with_gauge=False):
@@ -159,9 +173,12 @@ def held_reports(rows, offsets, specs, gauges):
 
 def solve(work, parts, specs, separate=False):
     datasets = {}
+    metadata = []
     for name, path in parts.items():
         verify_directory(path,("reference.csv.gz","reference_summary.json"))
         datasets[name] = pd.read_csv(path/"reference.csv.gz",dtype={"reference":str})
+        metadata.append(json.loads((path/'reference_summary.json').read_text()))
+    center = common_reference_frame(metadata)
     rows, selection = deduplicate(list(datasets.values()))
     train = rows.loc[~rows.is_holdout]
     opts = tomllib.loads(PRECISION.read_text())
@@ -185,13 +202,13 @@ def solve(work, parts, specs, separate=False):
                 gauges[k] = str(component)
     if not offsets:
         raise ValueError("No jointly solvable SDSS–NSC component")
-    serialize_offsets(work/"private_c0.npz",offsets,gauges)
+    serialize_offsets(work/"private_c0.npz",offsets,gauges,center)
     membership = Counter(k for d in datasets.values() for k in set(d.group) if k in offsets)
     by_survey = Counter(k.split(":")[0] for k in offsets)
     counts = {name:dict(reference_rows=len(d), safe_groups=len(set(d.group)&offsets.keys()),
                         unsupported_groups=len(set(d.group)-offsets.keys()))
               for name,d in datasets.items()}
-    summary = dict(counts=selection, by_survey=by_survey, cores=counts, component_count=graph_support(
+    summary = dict(projection_center_deg=center, counts=selection, by_survey=by_survey, cores=counts, component_count=graph_support(
                        rows,rows.group.to_numpy(),offsets)["components"],
                    unsupported_groups=len(set(rows.group)-offsets.keys()),
                    shared_calibrated_groups=sum(v>1 for v in membership.values()),
@@ -237,13 +254,14 @@ def main():
     if "SLURM_JOB_ID" not in os.environ:
         parser.error("Run on a Slurm compute node")
     args.work.mkdir(parents=True,exist_ok=True)
-    specs = tomllib.loads(args.config.read_text())["fields"]
+    run_config = tomllib.loads(args.config.read_text())
+    specs = run_config["fields"]
     if args.command=="extract":
         bind(args.work,"source_receipt.json",verify_directory(args.source,FILES))
         with run_stage(args.work,args.config,args.region,"continuous-ref-input-v12",
                        inputs=("source_receipt.json",),outputs=("reference.csv.gz","reference_summary.json")) as go:
             if go:
-                extract(args.source,args.work,specs[args.region])
+                extract(args.source,args.work,specs[args.region],tuple(run_config.get('projection_center_deg',CENTER)))
     else:
         parts = {k:Path(v) for k,v in json.loads(args.source.read_text()).items()}
         names = []

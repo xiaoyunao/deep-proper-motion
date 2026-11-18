@@ -11,7 +11,7 @@ import pandas as pd
 
 from .__main__ import tomllib
 from .astrometry import fit_motion, project
-from .continuous_reference import CENTER, FILES, PRECISION, SPATIAL, bind, read_offsets, verify_directory
+from .continuous_reference import FILES, PRECISION, SPATIAL, bind, read_offsets, reference_frame, verify_directory
 from .exposure_catalogues import inside
 from .exposure_pilot import matched_legacy
 from .io import digest, save_json
@@ -86,9 +86,10 @@ def summaries(records, seed):
 
 def run(work, source, shared, legacy, spec, seed):
     start = monotonic()
+    center = reference_frame(shared/"private_c0.npz")
     config = tomllib.loads(PRECISION.read_text())
     settings = tomllib.loads(SPATIAL.read_text())
-    data, xy, time, sigma, keep = quality_detections(source, CENTER, config, settings["production"])
+    data, xy, time, sigma, keep = quality_detections(source, center, config, settings["production"])
     keys = calibration_groups(data)
     nsc = data.survey.eq("NSC").to_numpy()
     offsets, gauges = read_offsets(shared/"private_c0.npz", with_gauge=True)
@@ -98,7 +99,7 @@ def run(work, source, shared, legacy, spec, seed):
     support = np.isin(keys, list(offsets))
     qso = pd.read_csv(source/"spectra_union.csv")
     qso = qso.loc[inside(qso.ra, qso.dec, spec)].reset_index(drop=True)
-    points = project(qso.ra, qso.dec, CENTER)
+    points = project(qso.ra, qso.dec, center)
     labels, truth = qso_matches(data, xy, keep, points)
     original = pd.read_csv(source/"external_labels.csv", dtype=str).set_index("detection_id").original_object_id
     joint = {k: i for k,i in truth.items() if nsc[i].any() and not nsc[i].all()}
@@ -106,7 +107,7 @@ def run(work, source, shared, legacy, spec, seed):
     released = official_table(source, {})
     archive = pd.read_csv(legacy)
     archive = archive.loc[inside(archive.RA, archive.DEC, spec, .06)]
-    xiao, _ = matched_legacy(archive, points, CENTER)
+    xiao, _ = matched_legacy(archive, points, center)
     records, exits = [], Counter()
     for k, indices in joint.items():
         magnitude = qso.reference_r.iloc[k]
@@ -125,7 +126,7 @@ def run(work, source, shared, legacy, spec, seed):
             motion[name], errors[name] = model.coeff[1], err
             timing[name] = time_information(time[ix], sigma[ix], model.weight, keys[ix])
         raw = fit_motion(xy[indices], time[indices], sigma[indices], config["reference_epoch"])
-        pub = valid_published(released.loc[linked[k]], CENTER) if linked.get(k) in released.index else None
+        pub = valid_published(released.loc[linked[k]], center) if linked.get(k) in released.index else None
         early, late = sets["all_SDSS"][~nsc[indices]], sets["NSC_only"]
         records.append(dict(qso_index=int(k), magnitude=float(magnitude), latitude_deg=float(qso.dec.iloc[k]),
             detection_ids=data.detection_id.iloc[indices].tolist(), motion=motion, error=errors, timing=timing,

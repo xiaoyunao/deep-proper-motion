@@ -33,7 +33,7 @@ def test_sealed_region_filtered_before_any_outcome_access():
         protocol=root/'protocol.toml'
         protocol.write_text('final_test_box = "north_two"\n')
         output=root/'summary.json'
-        with patch.dict(os.environ,SLURM_JOB_ID='test'), patch('deep_pm.independent_summary.pool',return_value={'cohorts':{}}) as pool:
+        with patch.dict(os.environ,SLURM_JOB_ID='test'), patch('deep_pm.independent_summary.pool',return_value={'cohorts':{},'cores':{}}) as pool:
             run(root,protocol,output)
         pool.assert_called_once_with({}, {}, {}, {})
         result=json.loads(output.read_text())

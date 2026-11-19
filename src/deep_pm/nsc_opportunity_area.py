@@ -15,6 +15,7 @@ from .__main__ import tomllib
 from .astrometry import project,years,sdss_tai_to_tt,utc_to_tt
 from .continuous_reference import bind,read_offsets,verify_directory
 from .continuous_summary import area
+from .exposure_catalogues import inside
 from .footprints import sdss_great_circle,sdss_window_mask,sdss_window_selection
 from .io import digest,save_json
 from .provenance import run_stage
@@ -40,8 +41,16 @@ def scan_members(table,sky,xy,center,margin):
     return {k:np.unique(np.concatenate(v)) for k,v in byrun.items()},epochs
 
 
-def estimate(chips,window,box,solution,step):
-    sky,unit=equal_area_grid(box,step);center=tuple(float(np.mean(box[k])) for k in ('ra','dec'));xy=project(*sky.T,center);tree=cKDTree(xy);n=len(sky)
+def estimate(chips,window,box,solution,step,domain=None):
+    sky,unit=equal_area_grid(box,step)
+    if domain is not None:
+        coverage=np.zeros(len(sky),dtype=int)
+        for core in domain:
+            coverage+=inside(*sky.T,core)
+        if (coverage>1).any():
+            raise ValueError('Overlapping active ownership cores')
+        sky=sky[coverage==1]
+    center=tuple(float(np.mean(box[k])) for k in ('ra','dec'));xy=project(*sky.T,center);tree=cKDTree(xy);n=len(sky)
     layers={k:dict(count=np.zeros(n,int),first=np.full(n,np.inf),last=np.full(n,-np.inf)) for k in ('r','all')}
     def update(layer,indices,epoch):
         layer['count'][indices]+=1;layer['first'][indices]=np.minimum(layer['first'][indices],epoch);layer['last'][indices]=np.maximum(layer['last'][indices],epoch)

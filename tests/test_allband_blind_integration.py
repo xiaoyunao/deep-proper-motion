@@ -94,3 +94,12 @@ def test_held_target_positions_cannot_change_allband_or_nonr_training(tmp_path,m
     assert result['frozen_blind_source_count']==2
     for cohort in result['cohorts'].values():
         assert cohort['known_competing_member_fraction']['n']==0
+
+    from deep_pm import nsc_information as information
+    monkeypatch.setattr(information,'reference_frame',lambda path:(0.,0.))
+    monkeypatch.setattr(information,'read_offsets',lambda path,with_gauge=False:(solution,{k:'0' for k in solution}))
+    monkeypatch.setattr(information,'quality_detections',lambda *a,**kw:(data,xy,t,sigma,keep))
+    info_work=tmp_path/'time-information';info_work.mkdir();information.year(info_work,frozen)
+    ablation=json.loads((info_work/'nsc_information_summary.json').read_text())
+    assert ablation['fixed_r_training_sources']==1
+    assert ablation['cohorts']['r21']['B_new_nights_vs_A_r']['source_count']==1

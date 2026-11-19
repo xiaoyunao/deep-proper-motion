@@ -108,6 +108,7 @@ def run(work,probe_work,sas):
                             published=np.column_stack([table[names['RAERR']][valid],table[names['DECERR']][valid]])*1000
                             reference_r=(offsets[valid,2]==0).all(axis=1)&np.isfinite(published).all(axis=1)&(published>0).all(axis=1)
                             if reference_r.any():
+                                stats[band]['native_error_propagation']['centroid_only_to_published_r_error_ratio_p16_p50_p84']=np.quantile(np.sqrt(np.diagonal(centroid,axis1=1,axis2=2))[reference_r]/published[reference_r],[.16,.5,.84],axis=0)
                                 stats[band]['native_error_propagation']['rowc_total_to_published_r_error_ratio_p16_p50_p84']=np.quantile(std[reference_r]/published[reference_r],[.16,.5,.84],axis=0)
                                 if 'OBJC_ROWCERR' in names and 'OBJC_COLCERR' in names:
                                     objc=np.column_stack([table[names['OBJC_ROWCERR']][valid],table[names['OBJC_COLCERR']][valid]])

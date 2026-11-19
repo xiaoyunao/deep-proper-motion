@@ -1,0 +1,5438 @@
+{
+  "trials": {
+    "paired": {
+      "a_09_00": {
+        "status": "completed",
+        "year": 2015,
+        "fixed_r_existing_training_count": 4545,
+        "common_held_position_count": 3947,
+        "exits": {},
+        "maximum_replayed_allband_pm_difference_masyr": 0.0,
+        "cohorts": {
+          "r20__all_held_bands": {
+            "source_count": 1285,
+            "held_positions": 1329,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 31.64260888347648,
+                "position_radial_p68_mas": 31.816299749493755,
+                "position_median_mas": [
+                  2.8293327689170837,
+                  -4.5727975852787495
+                ],
+                "position_nmad_mas": [
+                  18.68809859601371,
+                  21.773418687041847
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1285,
+                    "denominator": 1329,
+                    "value": 0.9668924003009782,
+                    "wilson95": [
+                      0.9558476225964685,
+                      0.975245863269468
+                    ]
+                  },
+                  {
+                    "n": 1275,
+                    "denominator": 1329,
+                    "value": 0.9593679458239278,
+                    "wilson95": [
+                      0.9473620963085306,
+                      0.9687258539270122
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 30.354558631185952,
+                "position_radial_p68_mas": 30.63060931532622,
+                "position_median_mas": [
+                  2.5227250987663865,
+                  -5.4797960836440325
+                ],
+                "position_nmad_mas": [
+                  16.864956049396657,
+                  21.09366635193005
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1296,
+                    "denominator": 1329,
+                    "value": 0.9751693002257337,
+                    "wilson95": [
+                      0.9653342978406263,
+                      0.9822652772187435
+                    ]
+                  },
+                  {
+                    "n": 1285,
+                    "denominator": 1329,
+                    "value": 0.9668924003009782,
+                    "wilson95": [
+                      0.9558476225964685,
+                      0.975245863269468
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.040706196414896034,
+            "object_bootstrap_gain95": [
+              0.014829455225115399,
+              0.06758675925289732
+            ]
+          },
+          "r20__held_z": {
+            "source_count": 1285,
+            "held_positions": 1329,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 31.64260888347648,
+                "position_radial_p68_mas": 31.816299749493755,
+                "position_median_mas": [
+                  2.8293327689170837,
+                  -4.5727975852787495
+                ],
+                "position_nmad_mas": [
+                  18.68809859601371,
+                  21.773418687041847
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1285,
+                    "denominator": 1329,
+                    "value": 0.9668924003009782,
+                    "wilson95": [
+                      0.9558476225964685,
+                      0.975245863269468
+                    ]
+                  },
+                  {
+                    "n": 1275,
+                    "denominator": 1329,
+                    "value": 0.9593679458239278,
+                    "wilson95": [
+                      0.9473620963085306,
+                      0.9687258539270122
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 30.354558631185952,
+                "position_radial_p68_mas": 30.63060931532622,
+                "position_median_mas": [
+                  2.5227250987663865,
+                  -5.4797960836440325
+                ],
+                "position_nmad_mas": [
+                  16.864956049396657,
+                  21.09366635193005
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1296,
+                    "denominator": 1329,
+                    "value": 0.9751693002257337,
+                    "wilson95": [
+                      0.9653342978406263,
+                      0.9822652772187435
+                    ]
+                  },
+                  {
+                    "n": 1285,
+                    "denominator": 1329,
+                    "value": 0.9668924003009782,
+                    "wilson95": [
+                      0.9558476225964685,
+                      0.975245863269468
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.040706196414896034,
+            "object_bootstrap_gain95": [
+              0.014829455225115399,
+              0.06758675925289732
+            ]
+          },
+          "r21__all_held_bands": {
+            "source_count": 1657,
+            "held_positions": 1733,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 47.5141009603239,
+                "position_radial_p68_mas": 48.48175521839179,
+                "position_median_mas": [
+                  3.0199738685041666,
+                  -6.318105502054095
+                ],
+                "position_nmad_mas": [
+                  29.048592217103764,
+                  30.936339836125818
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1673,
+                    "denominator": 1733,
+                    "value": 0.9653779572994806,
+                    "wilson95": [
+                      0.9556893527423167,
+                      0.9730079626103569
+                    ]
+                  },
+                  {
+                    "n": 1657,
+                    "denominator": 1733,
+                    "value": 0.9561454125793422,
+                    "wilson95": [
+                      0.945453582944414,
+                      0.9648194831266195
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 44.34050233413167,
+                "position_radial_p68_mas": 44.668591477091034,
+                "position_median_mas": [
+                  1.0643132701516151,
+                  -5.985411444678903
+                ],
+                "position_nmad_mas": [
+                  25.829966552537307,
+                  28.938205896195395
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1683,
+                    "denominator": 1733,
+                    "value": 0.9711482977495672,
+                    "wilson95": [
+                      0.9621653581038918,
+                      0.978047113049807
+                    ]
+                  },
+                  {
+                    "n": 1664,
+                    "denominator": 1733,
+                    "value": 0.9601846508944027,
+                    "wilson95": [
+                      0.949915279156521,
+                      0.96841839597523
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.06679277439853715,
+            "object_bootstrap_gain95": [
+              0.038899401451893856,
+              0.09355387706515153
+            ]
+          },
+          "r21__held_z": {
+            "source_count": 1657,
+            "held_positions": 1733,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 47.5141009603239,
+                "position_radial_p68_mas": 48.48175521839179,
+                "position_median_mas": [
+                  3.0199738685041666,
+                  -6.318105502054095
+                ],
+                "position_nmad_mas": [
+                  29.048592217103764,
+                  30.936339836125818
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1673,
+                    "denominator": 1733,
+                    "value": 0.9653779572994806,
+                    "wilson95": [
+                      0.9556893527423167,
+                      0.9730079626103569
+                    ]
+                  },
+                  {
+                    "n": 1657,
+                    "denominator": 1733,
+                    "value": 0.9561454125793422,
+                    "wilson95": [
+                      0.945453582944414,
+                      0.9648194831266195
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 44.34050233413167,
+                "position_radial_p68_mas": 44.668591477091034,
+                "position_median_mas": [
+                  1.0643132701516151,
+                  -5.985411444678903
+                ],
+                "position_nmad_mas": [
+                  25.829966552537307,
+                  28.938205896195395
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1683,
+                    "denominator": 1733,
+                    "value": 0.9711482977495672,
+                    "wilson95": [
+                      0.9621653581038918,
+                      0.978047113049807
+                    ]
+                  },
+                  {
+                    "n": 1664,
+                    "denominator": 1733,
+                    "value": 0.9601846508944027,
+                    "wilson95": [
+                      0.949915279156521,
+                      0.96841839597523
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.06679277439853715,
+            "object_bootstrap_gain95": [
+              0.038899401451893856,
+              0.09355387706515153
+            ]
+          },
+          "r22__all_held_bands": {
+            "source_count": 837,
+            "held_positions": 885,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 63.89908634436336,
+                "position_radial_p68_mas": 63.954956903391306,
+                "position_median_mas": [
+                  0.3188083693385124,
+                  -8.683193495497108
+                ],
+                "position_nmad_mas": [
+                  38.23982399410419,
+                  40.34591778465584
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 851,
+                    "denominator": 885,
+                    "value": 0.9615819209039548,
+                    "wilson95": [
+                      0.9467948860611336,
+                      0.9723791599875141
+                    ]
+                  },
+                  {
+                    "n": 845,
+                    "denominator": 885,
+                    "value": 0.9548022598870056,
+                    "wilson95": [
+                      0.9390390711800319,
+                      0.9666342544860164
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 58.99927096730809,
+                "position_radial_p68_mas": 59.74390179078245,
+                "position_median_mas": [
+                  -3.5086598452180624,
+                  -6.453041657805443
+                ],
+                "position_nmad_mas": [
+                  34.55274267410338,
+                  36.49049187699258
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 861,
+                    "denominator": 885,
+                    "value": 0.9728813559322034,
+                    "wilson95": [
+                      0.9599655604824818,
+                      0.9817096862038318
+                    ]
+                  },
+                  {
+                    "n": 849,
+                    "denominator": 885,
+                    "value": 0.9593220338983051,
+                    "wilson95": [
+                      0.9441993875645103,
+                      0.9704744183566043
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.07668052326522024,
+            "object_bootstrap_gain95": [
+              0.03334760508093275,
+              0.10346949058525906
+            ]
+          },
+          "r22__held_z": {
+            "source_count": 837,
+            "held_positions": 885,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 63.89908634436336,
+                "position_radial_p68_mas": 63.954956903391306,
+                "position_median_mas": [
+                  0.3188083693385124,
+                  -8.683193495497108
+                ],
+                "position_nmad_mas": [
+                  38.23982399410419,
+                  40.34591778465584
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 851,
+                    "denominator": 885,
+                    "value": 0.9615819209039548,
+                    "wilson95": [
+                      0.9467948860611336,
+                      0.9723791599875141
+                    ]
+                  },
+                  {
+                    "n": 845,
+                    "denominator": 885,
+                    "value": 0.9548022598870056,
+                    "wilson95": [
+                      0.9390390711800319,
+                      0.9666342544860164
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 58.99927096730809,
+                "position_radial_p68_mas": 59.74390179078245,
+                "position_median_mas": [
+                  -3.5086598452180624,
+                  -6.453041657805443
+                ],
+                "position_nmad_mas": [
+                  34.55274267410338,
+                  36.49049187699258
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 861,
+                    "denominator": 885,
+                    "value": 0.9728813559322034,
+                    "wilson95": [
+                      0.9599655604824818,
+                      0.9817096862038318
+                    ]
+                  },
+                  {
+                    "n": 849,
+                    "denominator": 885,
+                    "value": 0.9593220338983051,
+                    "wilson95": [
+                      0.9441993875645103,
+                      0.9704744183566043
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.07668052326522024,
+            "object_bootstrap_gain95": [
+              0.03334760508093275,
+              0.10346949058525906
+            ]
+          }
+        },
+        "slurm_job": "61556892",
+        "scope": "Exactly frozen r-existing objects. The original r subset is an identity-preserving subset of appended all-band members. Refit r and all on training-only detections; compare the same held observation only if both predictions give its same unique match. Common-source competition universe and 1arcsec gate explicitly condition these metrics. Bootstrap resamples physical sources using each source median radial held error, not individual repeated detections. Shared reference terms propagate between train and held groups; this is conditional position precision, not absolute PM truth."
+      },
+      "b_16_00": {
+        "status": "completed",
+        "year": 2017,
+        "fixed_r_existing_training_count": 441,
+        "common_held_position_count": 1454,
+        "exits": {},
+        "maximum_replayed_allband_pm_difference_masyr": 0.0,
+        "cohorts": {
+          "r20__all_held_bands": {
+            "source_count": 133,
+            "held_positions": 456,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 46.970350328093296,
+                "position_radial_p68_mas": 52.02901831846112,
+                "position_median_mas": [
+                  -2.73392804665491,
+                  -3.9286532439291477
+                ],
+                "position_nmad_mas": [
+                  31.169386655387374,
+                  35.94067307534907
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 433,
+                    "denominator": 456,
+                    "value": 0.9495614035087719,
+                    "wilson95": [
+                      0.9254536854928431,
+                      0.9661579605111575
+                    ]
+                  },
+                  {
+                    "n": 434,
+                    "denominator": 456,
+                    "value": 0.9517543859649122,
+                    "wilson95": [
+                      0.9280346734361938,
+                      0.9679262976702653
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 39.94226899270428,
+                "position_radial_p68_mas": 44.88917515895001,
+                "position_median_mas": [
+                  -3.141508303117007,
+                  -2.8737889523617923
+                ],
+                "position_nmad_mas": [
+                  26.14102427519993,
+                  26.87476100002555
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 423,
+                    "denominator": 456,
+                    "value": 0.9276315789473685,
+                    "wilson95": [
+                      0.900109918882608,
+                      0.9480084760968073
+                    ]
+                  },
+                  {
+                    "n": 423,
+                    "denominator": 456,
+                    "value": 0.9276315789473685,
+                    "wilson95": [
+                      0.900109918882608,
+                      0.9480084760968073
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.14962803739586916,
+            "object_bootstrap_gain95": [
+              0.09136931367302403,
+              0.24422400950085335
+            ]
+          },
+          "r20__held_VR": {
+            "source_count": 30,
+            "held_positions": 57,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 44.72329337376021,
+                "position_radial_p68_mas": 40.763764026187786,
+                "position_median_mas": [
+                  -2.0176816754974425,
+                  -4.020972250960767
+                ],
+                "position_nmad_mas": [
+                  29.721427216778228,
+                  28.01377669080645
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 52,
+                    "denominator": 57,
+                    "value": 0.9122807017543859,
+                    "wilson95": [
+                      0.8105512290044132,
+                      0.9619483282220778
+                    ]
+                  },
+                  {
+                    "n": 56,
+                    "denominator": 57,
+                    "value": 0.9824561403508771,
+                    "wilson95": [
+                      0.9070925082143229,
+                      0.9968963353485918
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 33.438839910797384,
+                "position_radial_p68_mas": 36.35598019990578,
+                "position_median_mas": [
+                  -5.5581253143027425,
+                  2.466578253544867
+                ],
+                "position_nmad_mas": [
+                  29.988002201256805,
+                  14.484076182976551
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 48,
+                    "denominator": 57,
+                    "value": 0.8421052631578947,
+                    "wilson95": [
+                      0.7263682305936197,
+                      0.9146420402964472
+                    ]
+                  },
+                  {
+                    "n": 51,
+                    "denominator": 57,
+                    "value": 0.8947368421052632,
+                    "wilson95": [
+                      0.7887718941661297,
+                      0.9508553414762553
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.25231713972083225,
+            "object_bootstrap_gain95": [
+              -0.1913996636123867,
+              0.397157400095015
+            ]
+          },
+          "r20__held_g": {
+            "source_count": 124,
+            "held_positions": 176,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 57.19298355145752,
+                "position_radial_p68_mas": 59.01329753904235,
+                "position_median_mas": [
+                  -4.960136047098786,
+                  1.6176261776126921
+                ],
+                "position_nmad_mas": [
+                  37.19753321210621,
+                  41.837477672415595
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 164,
+                    "denominator": 176,
+                    "value": 0.9318181818181818,
+                    "wilson95": [
+                      0.884618660586976,
+                      0.9605702129727481
+                    ]
+                  },
+                  {
+                    "n": 167,
+                    "denominator": 176,
+                    "value": 0.9488636363636364,
+                    "wilson95": [
+                      0.9056847740581433,
+                      0.972866818194728
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 56.728482307921496,
+                "position_radial_p68_mas": 58.416641615459525,
+                "position_median_mas": [
+                  -7.302302097436041,
+                  1.0885395184159279
+                ],
+                "position_nmad_mas": [
+                  32.33611653078189,
+                  39.539889597866306
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 159,
+                    "denominator": 176,
+                    "value": 0.9034090909090909,
+                    "wilson95": [
+                      0.8507675136024497,
+                      0.9388168288020295
+                    ]
+                  },
+                  {
+                    "n": 161,
+                    "denominator": 176,
+                    "value": 0.9147727272727273,
+                    "wilson95": [
+                      0.8641540642072312,
+                      0.9476720906593461
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.008121647354139339,
+            "object_bootstrap_gain95": [
+              -0.07112904260650099,
+              0.0793011810805926
+            ]
+          },
+          "r20__held_r": {
+            "source_count": 124,
+            "held_positions": 179,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 47.66156768560835,
+                "position_radial_p68_mas": 46.7356572364118,
+                "position_median_mas": [
+                  -2.9466452933847904,
+                  -5.64557159692049
+                ],
+                "position_nmad_mas": [
+                  28.129488990553465,
+                  31.16059366996139
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 177,
+                    "denominator": 179,
+                    "value": 0.9888268156424581,
+                    "wilson95": [
+                      0.9601828007411792,
+                      0.996930542855669
+                    ]
+                  },
+                  {
+                    "n": 170,
+                    "denominator": 179,
+                    "value": 0.9497206703910615,
+                    "wilson95": [
+                      0.9072188558991141,
+                      0.9733254202099861
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 35.24577499791111,
+                "position_radial_p68_mas": 35.58651744796135,
+                "position_median_mas": [
+                  -2.0994605026207864,
+                  -4.446051908656955
+                ],
+                "position_nmad_mas": [
+                  20.39258237059163,
+                  21.198337960568814
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 174,
+                    "denominator": 179,
+                    "value": 0.9720670391061452,
+                    "wilson95": [
+                      0.9362870793666515,
+                      0.9880109495925905
+                    ]
+                  },
+                  {
+                    "n": 170,
+                    "denominator": 179,
+                    "value": 0.9497206703910615,
+                    "wilson95": [
+                      0.9072188558991141,
+                      0.9733254202099861
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.2604990412735888,
+            "object_bootstrap_gain95": [
+              0.20075498396451327,
+              0.33647380069236915
+            ]
+          },
+          "r20__held_z": {
+            "source_count": 44,
+            "held_positions": 44,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 57.1632472456896,
+                "position_radial_p68_mas": 57.1632472456896,
+                "position_median_mas": [
+                  0.4055659915320575,
+                  -20.074535651598126
+                ],
+                "position_nmad_mas": [
+                  36.22510509344665,
+                  31.194893441324492
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 40,
+                    "denominator": 44,
+                    "value": 0.9090909090909091,
+                    "wilson95": [
+                      0.7884076083340138,
+                      0.9640778067726837
+                    ]
+                  },
+                  {
+                    "n": 41,
+                    "denominator": 44,
+                    "value": 0.9318181818181818,
+                    "wilson95": [
+                      0.8177495562977846,
+                      0.9765406040926183
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 41.457663338109654,
+                "position_radial_p68_mas": 41.457663338109654,
+                "position_median_mas": [
+                  -0.3104254389181733,
+                  -9.954492265358567
+                ],
+                "position_nmad_mas": [
+                  27.727565735232364,
+                  27.259895103662554
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 42,
+                    "denominator": 44,
+                    "value": 0.9545454545454546,
+                    "wilson95": [
+                      0.8486500156237035,
+                      0.987444890050405
+                    ]
+                  },
+                  {
+                    "n": 41,
+                    "denominator": 44,
+                    "value": 0.9318181818181818,
+                    "wilson95": [
+                      0.8177495562977846,
+                      0.9765406040926183
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.2747496803335333,
+            "object_bootstrap_gain95": [
+              0.08566019942915243,
+              0.3891049433731494
+            ]
+          },
+          "r21__all_held_bands": {
+            "source_count": 211,
+            "held_positions": 741,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 66.17383608448291,
+                "position_radial_p68_mas": 71.36819709557493,
+                "position_median_mas": [
+                  -3.2093800334259868,
+                  -6.232328589074314
+                ],
+                "position_nmad_mas": [
+                  44.89802501680255,
+                  46.10281922729909
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 708,
+                    "denominator": 741,
+                    "value": 0.9554655870445344,
+                    "wilson95": [
+                      0.9381175028275299,
+                      0.9681156183372426
+                    ]
+                  },
+                  {
+                    "n": 694,
+                    "denominator": 741,
+                    "value": 0.9365721997300944,
+                    "wilson95": [
+                      0.916672821699396,
+                      0.9519684070318748
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 55.8016878618386,
+                "position_radial_p68_mas": 60.14110039564601,
+                "position_median_mas": [
+                  -3.2948102969676256,
+                  -3.541247697547078
+                ],
+                "position_nmad_mas": [
+                  36.884792431524396,
+                  39.72607409679964
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 694,
+                    "denominator": 741,
+                    "value": 0.9365721997300944,
+                    "wilson95": [
+                      0.916672821699396,
+                      0.9519684070318748
+                    ]
+                  },
+                  {
+                    "n": 694,
+                    "denominator": 741,
+                    "value": 0.9365721997300944,
+                    "wilson95": [
+                      0.916672821699396,
+                      0.9519684070318748
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.1567409241532013,
+            "object_bootstrap_gain95": [
+              0.07913412584705218,
+              0.22252674841197992
+            ]
+          },
+          "r21__held_VR": {
+            "source_count": 52,
+            "held_positions": 98,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 52.347039920044836,
+                "position_radial_p68_mas": 53.49015548165655,
+                "position_median_mas": [
+                  -1.638947262428701,
+                  -3.2569706342183053
+                ],
+                "position_nmad_mas": [
+                  32.37073377979304,
+                  44.72637693093214
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 95,
+                    "denominator": 98,
+                    "value": 0.9693877551020408,
+                    "wilson95": [
+                      0.9138297983152016,
+                      0.9895351089175063
+                    ]
+                  },
+                  {
+                    "n": 95,
+                    "denominator": 98,
+                    "value": 0.9693877551020408,
+                    "wilson95": [
+                      0.9138297983152016,
+                      0.9895351089175063
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 41.33855778210403,
+                "position_radial_p68_mas": 40.582231989450364,
+                "position_median_mas": [
+                  -5.629430043743923,
+                  -1.1213432783260942
+                ],
+                "position_nmad_mas": [
+                  29.37402732024458,
+                  23.550068301359563
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 90,
+                    "denominator": 98,
+                    "value": 0.9183673469387755,
+                    "wilson95": [
+                      0.8471171284576644,
+                      0.9580559410323579
+                    ]
+                  },
+                  {
+                    "n": 87,
+                    "denominator": 98,
+                    "value": 0.8877551020408163,
+                    "wilson95": [
+                      0.8101006663032684,
+                      0.9361573005411425
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.21029808284776408,
+            "object_bootstrap_gain95": [
+              0.0235961062885757,
+              0.3686488374317665
+            ]
+          },
+          "r21__held_g": {
+            "source_count": 200,
+            "held_positions": 281,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 86.07611026040131,
+                "position_radial_p68_mas": 87.24529020291496,
+                "position_median_mas": [
+                  -6.346852821763605,
+                  -1.0842172913253307
+                ],
+                "position_nmad_mas": [
+                  50.62235706287669,
+                  51.06002212666366
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 266,
+                    "denominator": 281,
+                    "value": 0.9466192170818505,
+                    "wilson95": [
+                      0.9138049373482748,
+                      0.967387010759261
+                    ]
+                  },
+                  {
+                    "n": 259,
+                    "denominator": 281,
+                    "value": 0.9217081850533808,
+                    "wilson95": [
+                      0.8843105426678534,
+                      0.9477312569396609
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 79.04082475500309,
+                "position_radial_p68_mas": 80.49644863887816,
+                "position_median_mas": [
+                  -3.997381408698857,
+                  1.2727436311542988
+                ],
+                "position_nmad_mas": [
+                  45.752759673510674,
+                  51.331330356140434
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 255,
+                    "denominator": 281,
+                    "value": 0.9074733096085409,
+                    "wilson95": [
+                      0.8678813317298816,
+                      0.9360746687347629
+                    ]
+                  },
+                  {
+                    "n": 261,
+                    "denominator": 281,
+                    "value": 0.9288256227758007,
+                    "wilson95": [
+                      0.8926284251532167,
+                      0.9534562740257323
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.08173331118372751,
+            "object_bootstrap_gain95": [
+              -0.009197203247634544,
+              0.17165436924574776
+            ]
+          },
+          "r21__held_r": {
+            "source_count": 193,
+            "held_positions": 280,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 62.22726367011668,
+                "position_radial_p68_mas": 64.36634979722761,
+                "position_median_mas": [
+                  -1.734161261934787,
+                  -9.389577051158994
+                ],
+                "position_nmad_mas": [
+                  42.91024474075231,
+                  40.51568280161284
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 272,
+                    "denominator": 280,
+                    "value": 0.9714285714285714,
+                    "wilson95": [
+                      0.9446439353792738,
+                      0.9854527499212756
+                    ]
+                  },
+                  {
+                    "n": 264,
+                    "denominator": 280,
+                    "value": 0.9428571428571428,
+                    "wilson95": [
+                      0.909203304955577,
+                      0.9645238842661512
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 49.455133479627,
+                "position_radial_p68_mas": 52.71024591580922,
+                "position_median_mas": [
+                  -0.6722208857536316,
+                  -7.880681459326297
+                ],
+                "position_nmad_mas": [
+                  32.09357486999184,
+                  35.90846152694961
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 272,
+                    "denominator": 280,
+                    "value": 0.9714285714285714,
+                    "wilson95": [
+                      0.9446439353792738,
+                      0.9854527499212756
+                    ]
+                  },
+                  {
+                    "n": 269,
+                    "denominator": 280,
+                    "value": 0.9607142857142857,
+                    "wilson95": [
+                      0.9310338901194122,
+                      0.9779242341515795
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.20524974805574203,
+            "object_bootstrap_gain95": [
+              0.12991353720514093,
+              0.26426142264933794
+            ]
+          },
+          "r21__held_z": {
+            "source_count": 82,
+            "held_positions": 82,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 75.98923457099937,
+                "position_radial_p68_mas": 75.98923457099937,
+                "position_median_mas": [
+                  -2.487062379717827,
+                  -15.055273215752095
+                ],
+                "position_nmad_mas": [
+                  47.33617162555195,
+                  47.85697354056313
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 75,
+                    "denominator": 82,
+                    "value": 0.9146341463414634,
+                    "wilson95": [
+                      0.8341245443721832,
+                      0.9580334750067581
+                    ]
+                  },
+                  {
+                    "n": 76,
+                    "denominator": 82,
+                    "value": 0.926829268292683,
+                    "wilson95": [
+                      0.8494215619114518,
+                      0.9660352227433409
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 65.85686084750478,
+                "position_radial_p68_mas": 65.85686084750478,
+                "position_median_mas": [
+                  -2.3630535188131034,
+                  -9.265569081995636
+                ],
+                "position_nmad_mas": [
+                  45.18153738026507,
+                  35.53712353041479
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 77,
+                    "denominator": 82,
+                    "value": 0.9390243902439024,
+                    "wilson95": [
+                      0.8650795049984596,
+                      0.973676044932184
+                    ]
+                  },
+                  {
+                    "n": 77,
+                    "denominator": 82,
+                    "value": 0.9390243902439024,
+                    "wilson95": [
+                      0.8650795049984596,
+                      0.973676044932184
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.1333395944925273,
+            "object_bootstrap_gain95": [
+              -0.03804725303675302,
+              0.31401777301725836
+            ]
+          },
+          "r22__all_held_bands": {
+            "source_count": 77,
+            "held_positions": 257,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 81.76893016069398,
+                "position_radial_p68_mas": 90.47960221940309,
+                "position_median_mas": [
+                  -8.949794900603592,
+                  7.568846805021167
+                ],
+                "position_nmad_mas": [
+                  57.283660510624664,
+                  56.737455334951356
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 247,
+                    "denominator": 257,
+                    "value": 0.9610894941634242,
+                    "wilson95": [
+                      0.9298683069121767,
+                      0.9787295865036738
+                    ]
+                  },
+                  {
+                    "n": 248,
+                    "denominator": 257,
+                    "value": 0.9649805447470817,
+                    "wilson95": [
+                      0.9347966694919543,
+                      0.981468716695338
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 66.21147763525394,
+                "position_radial_p68_mas": 78.05130254193627,
+                "position_median_mas": [
+                  -3.864876437932253,
+                  3.639120019041002
+                ],
+                "position_nmad_mas": [
+                  44.03480479748491,
+                  46.90098619687054
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 243,
+                    "denominator": 257,
+                    "value": 0.9455252918287937,
+                    "wilson95": [
+                      0.910651295823208,
+                      0.9672766265068753
+                    ]
+                  },
+                  {
+                    "n": 234,
+                    "denominator": 257,
+                    "value": 0.9105058365758755,
+                    "wilson95": [
+                      0.8692950229921697,
+                      0.9396254643949378
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.1902611724877189,
+            "object_bootstrap_gain95": [
+              0.018028820747870995,
+              0.26330928766179645
+            ]
+          },
+          "r22__held_VR": {
+            "source_count": 18,
+            "held_positions": 33,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 65.289617758961,
+                "position_radial_p68_mas": 63.663053281812935,
+                "position_median_mas": [
+                  7.743899653665721,
+                  11.462168420664966
+                ],
+                "position_nmad_mas": [
+                  39.10033133370112,
+                  54.1488325974131
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 33,
+                    "denominator": 33,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.895730002457548,
+                      1.0
+                    ]
+                  },
+                  {
+                    "n": 33,
+                    "denominator": 33,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.895730002457548,
+                      1.0
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 53.966379322543354,
+                "position_radial_p68_mas": 50.93251815653562,
+                "position_median_mas": [
+                  -1.9988989913836122,
+                  13.715735450387001
+                ],
+                "position_nmad_mas": [
+                  30.6918457347122,
+                  43.360346681917456
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 33,
+                    "denominator": 33,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.895730002457548,
+                      1.0
+                    ]
+                  },
+                  {
+                    "n": 29,
+                    "denominator": 33,
+                    "value": 0.8787878787878788,
+                    "wilson95": [
+                      0.7267449482892476,
+                      0.9518383869058644
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.17343091941847877,
+            "object_bootstrap_gain95": [
+              -0.02785309340992227,
+              0.3609751021195242
+            ]
+          },
+          "r22__held_g": {
+            "source_count": 67,
+            "held_positions": 92,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 99.07651756394796,
+                "position_radial_p68_mas": 111.79633951080069,
+                "position_median_mas": [
+                  -4.107352348975837,
+                  9.747371226549149
+                ],
+                "position_nmad_mas": [
+                  68.53087155143245,
+                  71.20257394764461
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 85,
+                    "denominator": 92,
+                    "value": 0.9239130434782609,
+                    "wilson95": [
+                      0.8511875992283273,
+                      0.9626564402903846
+                    ]
+                  },
+                  {
+                    "n": 88,
+                    "denominator": 92,
+                    "value": 0.9565217391304348,
+                    "wilson95": [
+                      0.8934831434470112,
+                      0.9829642837269863
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 99.98729576476131,
+                "position_radial_p68_mas": 101.4436215510107,
+                "position_median_mas": [
+                  -1.4051237497478724,
+                  2.5987510359846056
+                ],
+                "position_nmad_mas": [
+                  56.002422786456854,
+                  50.36537992740953
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 83,
+                    "denominator": 92,
+                    "value": 0.9021739130434783,
+                    "wilson95": [
+                      0.8244322048381333,
+                      0.9476762429103883
+                    ]
+                  },
+                  {
+                    "n": 80,
+                    "denominator": 92,
+                    "value": 0.8695652173913043,
+                    "wilson95": [
+                      0.7857198638002064,
+                      0.9237851962930296
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": -0.00919267474480523,
+            "object_bootstrap_gain95": [
+              -0.25220899864212293,
+              0.17358974245587433
+            ]
+          },
+          "r22__held_r": {
+            "source_count": 70,
+            "held_positions": 101,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 84.02195112120556,
+                "position_radial_p68_mas": 86.42674896362817,
+                "position_median_mas": [
+                  -10.57052164990455,
+                  7.568846805021167
+                ],
+                "position_nmad_mas": [
+                  47.79628410843406,
+                  47.403377158806094
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 100,
+                    "denominator": 101,
+                    "value": 0.9900990099009901,
+                    "wilson95": [
+                      0.9460328420055449,
+                      0.9982500887510318
+                    ]
+                  },
+                  {
+                    "n": 97,
+                    "denominator": 101,
+                    "value": 0.9603960396039604,
+                    "wilson95": [
+                      0.9025608084288009,
+                      0.9844928537970742
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 66.08934790320099,
+                "position_radial_p68_mas": 72.31440937451433,
+                "position_median_mas": [
+                  -2.2565915868617594,
+                  6.509229086339474
+                ],
+                "position_nmad_mas": [
+                  44.807302405455985,
+                  44.07247669452634
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 99,
+                    "denominator": 101,
+                    "value": 0.9801980198019802,
+                    "wilson95": [
+                      0.9306538303741566,
+                      0.994552677538853
+                    ]
+                  },
+                  {
+                    "n": 97,
+                    "denominator": 101,
+                    "value": 0.9603960396039604,
+                    "wilson95": [
+                      0.9025608084288009,
+                      0.9844928537970742
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.21342759813011203,
+            "object_bootstrap_gain95": [
+              0.05878024551709184,
+              0.29174609591793
+            ]
+          },
+          "r22__held_z": {
+            "source_count": 31,
+            "held_positions": 31,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 91.14274805891543,
+                "position_radial_p68_mas": 91.14274805891543,
+                "position_median_mas": [
+                  -22.06492444407195,
+                  0.6617100005969405
+                ],
+                "position_nmad_mas": [
+                  63.70138882741816,
+                  36.20153118801992
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 29,
+                    "denominator": 31,
+                    "value": 0.9354838709677419,
+                    "wilson95": [
+                      0.7928136326370188,
+                      0.9821252164780854
+                    ]
+                  },
+                  {
+                    "n": 30,
+                    "denominator": 31,
+                    "value": 0.967741935483871,
+                    "wilson95": [
+                      0.838058948352751,
+                      0.9942827784745831
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 73.20924158548785,
+                "position_radial_p68_mas": 73.20924158548785,
+                "position_median_mas": [
+                  -15.135858596302569,
+                  -3.4985073348507285
+                ],
+                "position_nmad_mas": [
+                  43.41452271786723,
+                  33.155446158579736
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 28,
+                    "denominator": 31,
+                    "value": 0.9032258064516129,
+                    "wilson95": [
+                      0.7510006155660716,
+                      0.9665353558368026
+                    ]
+                  },
+                  {
+                    "n": 28,
+                    "denominator": 31,
+                    "value": 0.9032258064516129,
+                    "wilson95": [
+                      0.7510006155660716,
+                      0.9665353558368026
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.19676284570479718,
+            "object_bootstrap_gain95": [
+              -0.03551411150114989,
+              0.3598308283392492
+            ]
+          }
+        },
+        "slurm_job": "61556892",
+        "scope": "Exactly frozen r-existing objects. The original r subset is an identity-preserving subset of appended all-band members. Refit r and all on training-only detections; compare the same held observation only if both predictions give its same unique match. Common-source competition universe and 1arcsec gate explicitly condition these metrics. Bootstrap resamples physical sources using each source median radial held error, not individual repeated detections. Shared reference terms propagate between train and held groups; this is conditional position precision, not absolute PM truth."
+      },
+      "north_one_00_00": {
+        "status": "completed",
+        "year": 2018,
+        "fixed_r_existing_training_count": 587,
+        "common_held_position_count": 2583,
+        "exits": {},
+        "maximum_replayed_allband_pm_difference_masyr": 0.0,
+        "cohorts": {
+          "r20__all_held_bands": {
+            "source_count": 439,
+            "held_positions": 1932,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 61.68682929297532,
+                "position_radial_p68_mas": 67.38066566759271,
+                "position_median_mas": [
+                  5.943109534680843,
+                  4.757015377283096
+                ],
+                "position_nmad_mas": [
+                  34.772485641516745,
+                  49.93253470692783
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1875,
+                    "denominator": 1932,
+                    "value": 0.9704968944099379,
+                    "wilson95": [
+                      0.9619678528235808,
+                      0.9771586400595281
+                    ]
+                  },
+                  {
+                    "n": 1758,
+                    "denominator": 1932,
+                    "value": 0.9099378881987578,
+                    "wilson95": [
+                      0.8963461457847528,
+                      0.92190267969756
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 56.71715166744411,
+                "position_radial_p68_mas": 62.309355307539114,
+                "position_median_mas": [
+                  4.301037579774857,
+                  3.511747813783586
+                ],
+                "position_nmad_mas": [
+                  27.65655953708589,
+                  47.34045841918252
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 1865,
+                    "denominator": 1932,
+                    "value": 0.9653209109730849,
+                    "wilson95": [
+                      0.9561949211650347,
+                      0.9726001471539036
+                    ]
+                  },
+                  {
+                    "n": 1664,
+                    "denominator": 1932,
+                    "value": 0.8612836438923396,
+                    "wilson95": [
+                      0.8451525386356052,
+                      0.8759808959435037
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.08056302589209496,
+            "object_bootstrap_gain95": [
+              0.028994185355454057,
+              0.12594892428966195
+            ]
+          },
+          "r20__held_g": {
+            "source_count": 435,
+            "held_positions": 1004,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 78.3120187265951,
+                "position_radial_p68_mas": 79.14633673917902,
+                "position_median_mas": [
+                  4.511871175840497,
+                  3.5789744248613715
+                ],
+                "position_nmad_mas": [
+                  36.90409947831519,
+                  67.84773857675995
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 972,
+                    "denominator": 1004,
+                    "value": 0.9681274900398407,
+                    "wilson95": [
+                      0.955352463909512,
+                      0.9773339142634226
+                    ]
+                  },
+                  {
+                    "n": 864,
+                    "denominator": 1004,
+                    "value": 0.8605577689243028,
+                    "wilson95": [
+                      0.8377528946753013,
+                      0.8806140604281077
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 82.27012446626394,
+                "position_radial_p68_mas": 82.59264849478663,
+                "position_median_mas": [
+                  3.156871112063527,
+                  3.11294190492481
+                ],
+                "position_nmad_mas": [
+                  31.328361125203593,
+                  76.34317443990614
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 969,
+                    "denominator": 1004,
+                    "value": 0.9651394422310757,
+                    "wilson95": [
+                      0.9519042161796601,
+                      0.9748288446857877
+                    ]
+                  },
+                  {
+                    "n": 778,
+                    "denominator": 1004,
+                    "value": 0.7749003984063745,
+                    "wilson95": [
+                      0.7480466032917235,
+                      0.7996585889970635
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": -0.05054276219704512,
+            "object_bootstrap_gain95": [
+              -0.1061812400805102,
+              0.01958512956186345
+            ]
+          },
+          "r20__held_r": {
+            "source_count": 433,
+            "held_positions": 827,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 54.53245676119563,
+                "position_radial_p68_mas": 55.87675002898504,
+                "position_median_mas": [
+                  6.653645318001509,
+                  5.390159904956818
+                ],
+                "position_nmad_mas": [
+                  31.879239711894837,
+                  37.08194432706311
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 803,
+                    "denominator": 827,
+                    "value": 0.9709794437726723,
+                    "wilson95": [
+                      0.9571817313807152,
+                      0.9804219374416394
+                    ]
+                  },
+                  {
+                    "n": 802,
+                    "denominator": 827,
+                    "value": 0.969770253929867,
+                    "wilson95": [
+                      0.955755009330395,
+                      0.9794414613691809
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 41.61976456545046,
+                "position_radial_p68_mas": 42.89201779978424,
+                "position_median_mas": [
+                  5.424559198319912,
+                  3.4692958667874336
+                ],
+                "position_nmad_mas": [
+                  24.12592273897603,
+                  32.431322346027194
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 797,
+                    "denominator": 827,
+                    "value": 0.9637243047158404,
+                    "wilson95": [
+                      0.9486869793494457,
+                      0.974473500736236
+                    ]
+                  },
+                  {
+                    "n": 793,
+                    "denominator": 827,
+                    "value": 0.9588875453446191,
+                    "wilson95": [
+                      0.9430993424094568,
+                      0.9704323451851095
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.23678911537566416,
+            "object_bootstrap_gain95": [
+              0.16354116736878452,
+              0.27347904186566424
+            ]
+          },
+          "r20__held_z": {
+            "source_count": 101,
+            "held_positions": 101,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 62.10455008993315,
+                "position_radial_p68_mas": 62.10455008993315,
+                "position_median_mas": [
+                  10.956838112324476,
+                  2.0331524070352316
+                ],
+                "position_nmad_mas": [
+                  37.07192292690128,
+                  43.364441729550805
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 100,
+                    "denominator": 101,
+                    "value": 0.9900990099009901,
+                    "wilson95": [
+                      0.9460328420055449,
+                      0.9982500887510318
+                    ]
+                  },
+                  {
+                    "n": 92,
+                    "denominator": 101,
+                    "value": 0.9108910891089109,
+                    "wilson95": [
+                      0.8392607857800266,
+                      0.9524107622280126
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 46.48793161595834,
+                "position_radial_p68_mas": 46.48793161595834,
+                "position_median_mas": [
+                  9.491965036839247,
+                  6.949527055025101
+                ],
+                "position_nmad_mas": [
+                  25.26626572758928,
+                  34.00701693039089
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 99,
+                    "denominator": 101,
+                    "value": 0.9801980198019802,
+                    "wilson95": [
+                      0.9306538303741566,
+                      0.994552677538853
+                    ]
+                  },
+                  {
+                    "n": 93,
+                    "denominator": 101,
+                    "value": 0.9207920792079208,
+                    "wilson95": [
+                      0.8514289441723368,
+                      0.9593190266792695
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.25145691340425935,
+            "object_bootstrap_gain95": [
+              0.16401140434511785,
+              0.36563089363754786
+            ]
+          },
+          "r21__all_held_bands": {
+            "source_count": 140,
+            "held_positions": 619,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 70.44092620652366,
+                "position_radial_p68_mas": 79.73995768985701,
+                "position_median_mas": [
+                  3.98657014593482,
+                  -2.9000082295387983
+                ],
+                "position_nmad_mas": [
+                  44.7316538299866,
+                  58.55123133096434
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 599,
+                    "denominator": 619,
+                    "value": 0.9676898222940227,
+                    "wilson95": [
+                      0.9506222193931037,
+                      0.9789883449008906
+                    ]
+                  },
+                  {
+                    "n": 583,
+                    "denominator": 619,
+                    "value": 0.9418416801292407,
+                    "wilson95": [
+                      0.9205352752259535,
+                      0.957697848554383
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 68.3837262739501,
+                "position_radial_p68_mas": 75.40554739615597,
+                "position_median_mas": [
+                  4.679846275597811,
+                  0.8155042584985495
+                ],
+                "position_nmad_mas": [
+                  34.441035223992166,
+                  56.15123702811822
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 603,
+                    "denominator": 619,
+                    "value": 0.9741518578352181,
+                    "wilson95": [
+                      0.9584269451287637,
+                      0.9840279792936448
+                    ]
+                  },
+                  {
+                    "n": 560,
+                    "denominator": 619,
+                    "value": 0.9046849757673667,
+                    "wilson95": [
+                      0.8789927904398347,
+                      0.9253852626021188
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.02920461219578674,
+            "object_bootstrap_gain95": [
+              -0.04004825440369873,
+              0.10661850006308758
+            ]
+          },
+          "r21__held_g": {
+            "source_count": 139,
+            "held_positions": 327,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 95.16771344958856,
+                "position_radial_p68_mas": 96.92048108827336,
+                "position_median_mas": [
+                  1.3762974627315998,
+                  -4.22430744767189
+                ],
+                "position_nmad_mas": [
+                  52.41432221474424,
+                  77.41372148372456
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 316,
+                    "denominator": 327,
+                    "value": 0.9663608562691132,
+                    "wilson95": [
+                      0.9407772396361791,
+                      0.9811144757709296
+                    ]
+                  },
+                  {
+                    "n": 297,
+                    "denominator": 327,
+                    "value": 0.908256880733945,
+                    "wilson95": [
+                      0.8720524706768332,
+                      0.9349806047779144
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 92.58342097689554,
+                "position_radial_p68_mas": 95.85008188870026,
+                "position_median_mas": [
+                  2.8194415755569935,
+                  -5.150431597605348
+                ],
+                "position_nmad_mas": [
+                  42.60885734038576,
+                  87.3656265545234
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 316,
+                    "denominator": 327,
+                    "value": 0.9663608562691132,
+                    "wilson95": [
+                      0.9407772396361791,
+                      0.9811144757709296
+                    ]
+                  },
+                  {
+                    "n": 279,
+                    "denominator": 327,
+                    "value": 0.8532110091743119,
+                    "wilson95": [
+                      0.8107558480387697,
+                      0.8874637790400569
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.027155138849289995,
+            "object_bootstrap_gain95": [
+              -0.0753541142821699,
+              0.08663463631990234
+            ]
+          },
+          "r21__held_r": {
+            "source_count": 137,
+            "held_positions": 258,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 60.17528057972964,
+                "position_radial_p68_mas": 62.70025483910866,
+                "position_median_mas": [
+                  4.066394070163369,
+                  -2.881133216433227
+                ],
+                "position_nmad_mas": [
+                  40.421082345359395,
+                  45.30545567218568
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 250,
+                    "denominator": 258,
+                    "value": 0.9689922480620154,
+                    "wilson95": [
+                      0.940017601697359,
+                      0.9842057855765357
+                    ]
+                  },
+                  {
+                    "n": 255,
+                    "denominator": 258,
+                    "value": 0.9883720930232558,
+                    "wilson95": [
+                      0.9663767070750482,
+                      0.9960377292597515
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 45.97262507331841,
+                "position_radial_p68_mas": 51.03363726854488,
+                "position_median_mas": [
+                  4.237223429605365,
+                  0.13162353541702032
+                ],
+                "position_nmad_mas": [
+                  30.136721674887834,
+                  37.565891632176005
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 255,
+                    "denominator": 258,
+                    "value": 0.9883720930232558,
+                    "wilson95": [
+                      0.9663767070750482,
+                      0.9960377292597515
+                    ]
+                  },
+                  {
+                    "n": 247,
+                    "denominator": 258,
+                    "value": 0.9573643410852714,
+                    "wilson95": [
+                      0.9252799878046107,
+                      0.9760287700327415
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.23602142556848282,
+            "object_bootstrap_gain95": [
+              0.12906551946740197,
+              0.2957836592178592
+            ]
+          },
+          "r21__held_z": {
+            "source_count": 34,
+            "held_positions": 34,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 61.241857154603885,
+                "position_radial_p68_mas": 61.241857154603885,
+                "position_median_mas": [
+                  11.083399707451463,
+                  8.140312130562961
+                ],
+                "position_nmad_mas": [
+                  27.614926931146904,
+                  49.945675401114485
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 33,
+                    "denominator": 34,
+                    "value": 0.9705882352941176,
+                    "wilson95": [
+                      0.8508442670731406,
+                      0.9947890937237309
+                    ]
+                  },
+                  {
+                    "n": 31,
+                    "denominator": 34,
+                    "value": 0.9117647058823529,
+                    "wilson95": [
+                      0.7703951343719113,
+                      0.9695340563253514
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 41.50370102677555,
+                "position_radial_p68_mas": 41.50370102677555,
+                "position_median_mas": [
+                  15.60949369519949,
+                  9.609149536117911
+                ],
+                "position_nmad_mas": [
+                  18.664975385778398,
+                  29.258524455307423
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 32,
+                    "denominator": 34,
+                    "value": 0.9411764705882353,
+                    "wilson95": [
+                      0.80906393095719,
+                      0.9837173447898772
+                    ]
+                  },
+                  {
+                    "n": 34,
+                    "denominator": 34,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.8984854458466761,
+                      0.9999999999999999
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.3222984580300976,
+            "object_bootstrap_gain95": [
+              0.047295657425868456,
+              0.4974062712634133
+            ]
+          },
+          "r22__all_held_bands": {
+            "source_count": 7,
+            "held_positions": 32,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 109.69686598460191,
+                "position_radial_p68_mas": 116.33030922396168,
+                "position_median_mas": [
+                  27.438640890643,
+                  -40.67194922734052
+                ],
+                "position_nmad_mas": [
+                  68.71689229827895,
+                  64.92615443126019
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 31,
+                    "denominator": 32,
+                    "value": 0.96875,
+                    "wilson95": [
+                      0.8425573617998744,
+                      0.9944621398359969
+                    ]
+                  },
+                  {
+                    "n": 27,
+                    "denominator": 32,
+                    "value": 0.84375,
+                    "wilson95": [
+                      0.682458504024696,
+                      0.9313557971749429
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 93.73829948822447,
+                "position_radial_p68_mas": 96.92336056173465,
+                "position_median_mas": [
+                  15.951295601204038,
+                  -27.142003479413688
+                ],
+                "position_nmad_mas": [
+                  51.02520354974046,
+                  58.35598873637561
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 31,
+                    "denominator": 32,
+                    "value": 0.96875,
+                    "wilson95": [
+                      0.8425573617998744,
+                      0.9944621398359969
+                    ]
+                  },
+                  {
+                    "n": 28,
+                    "denominator": 32,
+                    "value": 0.875,
+                    "wilson95": [
+                      0.7193169451834978,
+                      0.9502986561251991
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.14547878239855583,
+            "object_bootstrap_gain95": [
+              -0.2139265275127531,
+              0.20092931481262066
+            ]
+          },
+          "r22__held_g": {
+            "source_count": 7,
+            "held_positions": 17,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 107.82181855646344,
+                "position_radial_p68_mas": 115.45114390212015,
+                "position_median_mas": [
+                  6.781818974763155,
+                  -49.7015732973814
+                ],
+                "position_nmad_mas": [
+                  49.820420976448055,
+                  79.85395126523896
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 17,
+                    "denominator": 17,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.8156818649911483,
+                      1.0
+                    ]
+                  },
+                  {
+                    "n": 15,
+                    "denominator": 17,
+                    "value": 0.8823529411764706,
+                    "wilson95": [
+                      0.6566364940511412,
+                      0.9671202262362074
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 93.6198685882303,
+                "position_radial_p68_mas": 99.29197856161792,
+                "position_median_mas": [
+                  3.332269746810198,
+                  -56.63464419543743
+                ],
+                "position_nmad_mas": [
+                  52.18222785466164,
+                  44.80616542037241
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 16,
+                    "denominator": 17,
+                    "value": 0.9411764705882353,
+                    "wilson95": [
+                      0.7301796936242461,
+                      0.9895395990150025
+                    ]
+                  },
+                  {
+                    "n": 15,
+                    "denominator": 17,
+                    "value": 0.8823529411764706,
+                    "wilson95": [
+                      0.6566364940511412,
+                      0.9671202262362074
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.13171684690882812,
+            "object_bootstrap_gain95": [
+              -0.0854554652953412,
+              0.20092931481262066
+            ]
+          },
+          "r22__held_r": {
+            "source_count": 7,
+            "held_positions": 13,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 94.7208574789927,
+                "position_radial_p68_mas": 94.20667753091477,
+                "position_median_mas": [
+                  33.78864932432771,
+                  -35.526500256732106
+                ],
+                "position_nmad_mas": [
+                  67.89228645836413,
+                  25.89033733266592
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 12,
+                    "denominator": 13,
+                    "value": 0.9230769230769231,
+                    "wilson95": [
+                      0.6668604907890041,
+                      0.9862895787574435
+                    ]
+                  },
+                  {
+                    "n": 11,
+                    "denominator": 13,
+                    "value": 0.8461538461538461,
+                    "wilson95": [
+                      0.5776536898051745,
+                      0.9567418216419186
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 75.821598441281,
+                "position_radial_p68_mas": 72.90878988405944,
+                "position_median_mas": [
+                  16.214663572609425,
+                  -25.578566011041403
+                ],
+                "position_nmad_mas": [
+                  53.25779996004179,
+                  50.5299975437276
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 13,
+                    "denominator": 13,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.7719046276458016,
+                      0.9999999999999999
+                    ]
+                  },
+                  {
+                    "n": 11,
+                    "denominator": 13,
+                    "value": 0.8461538461538461,
+                    "wilson95": [
+                      0.5776536898051745,
+                      0.9567418216419186
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.19952584405080165,
+            "object_bootstrap_gain95": [
+              0.06480848482168544,
+              0.36472732270625696
+            ]
+          },
+          "r22__held_z": {
+            "source_count": 2,
+            "held_positions": 2,
+            "models": {
+              "r_only": {
+                "source_median_radial_p68_mas": 158.49224830332545,
+                "position_radial_p68_mas": 158.49224830332545,
+                "position_median_mas": [
+                  81.38818113692105,
+                  119.04056564159691
+                ],
+                "position_nmad_mas": [
+                  79.0997465088766,
+                  41.19973020398207
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 2,
+                    "denominator": 2,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.34238022750665303,
+                      1.0
+                    ]
+                  },
+                  {
+                    "n": 1,
+                    "denominator": 2,
+                    "value": 0.5,
+                    "wilson95": [
+                      0.09453120573423074,
+                      0.9054687942657693
+                    ]
+                  }
+                ]
+              },
+              "all_nsc": {
+                "source_median_radial_p68_mas": 127.82927578618441,
+                "position_radial_p68_mas": 127.82927578618441,
+                "position_median_mas": [
+                  69.14340875297785,
+                  99.18420474044979
+                ],
+                "position_nmad_mas": [
+                  49.40631340338886,
+                  30.382915631740538
+                ],
+                "position_within_1sigma": [
+                  {
+                    "n": 2,
+                    "denominator": 2,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.34238022750665303,
+                      1.0
+                    ]
+                  },
+                  {
+                    "n": 2,
+                    "denominator": 2,
+                    "value": 1.0,
+                    "wilson95": [
+                      0.34238022750665303,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            "relative_source_p68_gain": 0.19346670165507196,
+            "object_bootstrap_gain95": [
+              0.16429728994310844,
+              0.20607580246604118
+            ]
+          }
+        },
+        "slurm_job": "61556892",
+        "scope": "Exactly frozen r-existing objects. The original r subset is an identity-preserving subset of appended all-band members. Refit r and all on training-only detections; compare the same held observation only if both predictions give its same unique match. Common-source competition universe and 1arcsec gate explicitly condition these metrics. Bootstrap resamples physical sources using each source median radial held error, not individual repeated detections. Shared reference terms propagate between train and held groups; this is conditional position precision, not absolute PM truth."
+      }
+    },
+    "sdss": {
+      "b_16_00": {
+        "physical_fields": 2,
+        "fields": [
+          {
+            "photoobj_sha256": "34691eb56398899d7b9571f87aac90b1381dda11daa113c64324555ce8318139",
+            "photofield_sha256": "8dae5aa2939df72a8e7c72c73b8c3bade8859138433aee14cdc5e41c2f8995e3",
+            "band_wcs_offset_reconstruction": {
+              "u": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1247,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      62.87145691933724,
+                      63.124074121450896
+                    ],
+                    [
+                      102.61629586356432,
+                      105.5018969458574
+                    ],
+                    [
+                      165.93478313874334,
+                      164.2852428668691
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      39.690408694580164,
+                      36.10574837513874
+                    ],
+                    [
+                      39.69136762344829,
+                      36.10575517708714
+                    ],
+                    [
+                      39.692107538411534,
+                      36.10576121565776
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      74.35245054680875,
+                      72.72051884727922
+                    ],
+                    [
+                      110.02461716006863,
+                      111.50908103327963
+                    ],
+                    [
+                      170.615849135804,
+                      168.20603341814962
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.008114549464891867,
+                    0.0012192590285202635,
+                    0.007900764427336728
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1247,
+                    "median_mas": [
+                      8.112539591413224,
+                      -6.473662835807772
+                    ],
+                    "radial_p68_mas": 24.5055102567971,
+                    "recentered_radial_p68_mas": 22.03343912309957,
+                    "nmad_mas": [
+                      9.228831052021432,
+                      19.04078805226513
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      8.112539591413224,
+                      -6.473662835807772
+                    ],
+                    "radial_p68_mas": 24.5055102567971,
+                    "recentered_radial_p68_mas": 22.03343912309957,
+                    "nmad_mas": [
+                      9.228831052021432,
+                      19.04078805226513
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      8.112539591413224,
+                      -6.473662835807772
+                    ],
+                    "radial_p68_mas": 24.5055102567971,
+                    "recentered_radial_p68_mas": 22.03343912309957,
+                    "nmad_mas": [
+                      9.228831052021432,
+                      19.04078805226513
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1247,
+                    "median_mas": [
+                      9.145670876663644,
+                      -4.309388846100774
+                    ],
+                    "radial_p68_mas": 25.47067406804284,
+                    "recentered_radial_p68_mas": 23.340860675738995,
+                    "nmad_mas": [
+                      8.951905927971227,
+                      18.642167500254867
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      9.145670876663644,
+                      -4.309388846100774
+                    ],
+                    "radial_p68_mas": 25.47067406804284,
+                    "recentered_radial_p68_mas": 23.340860675738995,
+                    "nmad_mas": [
+                      8.951905927971227,
+                      18.642167500254867
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      9.145670876663644,
+                      -4.309388846100774
+                    ],
+                    "radial_p68_mas": 25.47067406804284,
+                    "recentered_radial_p68_mas": 23.340860675738995,
+                    "nmad_mas": [
+                      8.951905927971227,
+                      18.642167500254867
+                    ]
+                  }
+                }
+              },
+              "g": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1247,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      15.168312007228781,
+                      16.31631328738307
+                    ],
+                    [
+                      102.07354368598943,
+                      105.78373027859655
+                    ],
+                    [
+                      162.21121549673916,
+                      164.94499355301284
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      22.279771478512803,
+                      26.5571977566555
+                    ],
+                    [
+                      22.280315859310505,
+                      26.557203997950257
+                    ],
+                    [
+                      22.280721381113892,
+                      26.557211096343682
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      26.9530203285128,
+                      31.169024435048634
+                    ],
+                    [
+                      104.47674334864156,
+                      109.0664135976048
+                    ],
+                    [
+                      163.73422306311463,
+                      167.06925559130354
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.010798248419053132,
+                    -0.005003222202769326,
+                    0.008063007225274222
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1247,
+                    "median_mas": [
+                      -28.54460922841099,
+                      -13.571299307106528
+                    ],
+                    "radial_p68_mas": 48.240992382685725,
+                    "recentered_radial_p68_mas": 37.142479566464594,
+                    "nmad_mas": [
+                      22.86687350231409,
+                      33.70129891964233
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      -28.54460922841099,
+                      -13.571299307106528
+                    ],
+                    "radial_p68_mas": 48.240992382685725,
+                    "recentered_radial_p68_mas": 37.142479566464594,
+                    "nmad_mas": [
+                      22.86687350231409,
+                      33.70129891964233
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      -28.54460922841099,
+                      -13.571299307106528
+                    ],
+                    "radial_p68_mas": 48.240992382685725,
+                    "recentered_radial_p68_mas": 37.142479566464594,
+                    "nmad_mas": [
+                      22.86687350231409,
+                      33.70129891964233
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1247,
+                    "median_mas": [
+                      -23.869372753135394,
+                      -6.81980543670943
+                    ],
+                    "radial_p68_mas": 43.49742986057879,
+                    "recentered_radial_p68_mas": 32.88477890485615,
+                    "nmad_mas": [
+                      24.02933017555889,
+                      35.29983705947004
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      -23.869372753135394,
+                      -6.81980543670943
+                    ],
+                    "radial_p68_mas": 43.49742986057879,
+                    "recentered_radial_p68_mas": 32.88477890485615,
+                    "nmad_mas": [
+                      24.02933017555889,
+                      35.29983705947004
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1247,
+                    "median_mas": [
+                      -23.869372753135394,
+                      -6.81980543670943
+                    ],
+                    "radial_p68_mas": 43.49742986057879,
+                    "recentered_radial_p68_mas": 32.88477890485615,
+                    "nmad_mas": [
+                      24.02933017555889,
+                      35.29983705947004
+                    ]
+                  }
+                }
+              },
+              "r": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1246,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      6.587229552837725,
+                      6.7791722332003435
+                    ],
+                    [
+                      78.05468178057339,
+                      80.59762361114265
+                    ],
+                    [
+                      144.6654174052209,
+                      141.59375324476815
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      48.08411902295988,
+                      47.96499396441672
+                    ],
+                    [
+                      48.08527928807898,
+                      47.96499462717384
+                    ],
+                    [
+                      48.08617489928982,
+                      47.964995100864165
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      48.534673180230065,
+                      48.44169552432896
+                    ],
+                    [
+                      91.67725453355237,
+                      93.79029734025795
+                    ],
+                    [
+                      152.44746738327046,
+                      149.4972663137942
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.008038810282031347,
+                    0.00011105367400385667,
+                    0.007826141708906043
+                  ],
+                  "rowc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0665755380496837,
+                      1.0658224544647208
+                    ],
+                    [
+                      1.2803271528784994,
+                      1.281211808683542
+                    ],
+                    [
+                      8.444681495220012,
+                      8.614903657614198
+                    ]
+                  ],
+                  "objc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0665755380496837,
+                      1.0658224544647208
+                    ],
+                    [
+                      1.2803271528784994,
+                      1.281211808683542
+                    ],
+                    [
+                      8.444681495220012,
+                      8.614903657614198
+                    ]
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1246,
+                    "median_mas": [
+                      6.29612279970401,
+                      -0.06243278331385227
+                    ],
+                    "radial_p68_mas": 6.354845768460565,
+                    "recentered_radial_p68_mas": 0.5709792596745544,
+                    "nmad_mas": [
+                      0.08915791514432002,
+                      0.14300184218997747
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1246,
+                    "median_mas": [
+                      6.29612279970401,
+                      -0.06243278331385227
+                    ],
+                    "radial_p68_mas": 6.354845768460565,
+                    "recentered_radial_p68_mas": 0.5709792596745544,
+                    "nmad_mas": [
+                      0.08915791514432002,
+                      0.14300184218997747
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1246,
+                    "median_mas": [
+                      6.29612279970401,
+                      -0.06243278331385227
+                    ],
+                    "radial_p68_mas": 6.354845768460565,
+                    "recentered_radial_p68_mas": 0.5709792596745544,
+                    "nmad_mas": [
+                      0.08915791514432002,
+                      0.14300184218997747
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1246,
+                    "median_mas": [
+                      6.296040401882237,
+                      -0.06262142250488978
+                    ],
+                    "radial_p68_mas": 6.307666531797163,
+                    "recentered_radial_p68_mas": 0.19753271776787865,
+                    "nmad_mas": [
+                      0.040758983126681414,
+                      0.04923673881257709
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1246,
+                    "median_mas": [
+                      6.296040401882237,
+                      -0.06262142250488978
+                    ],
+                    "radial_p68_mas": 6.307666531797163,
+                    "recentered_radial_p68_mas": 0.19753271776787865,
+                    "nmad_mas": [
+                      0.040758983126681414,
+                      0.04923673881257709
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1246,
+                    "median_mas": [
+                      6.296040401882237,
+                      -0.06262142250488978
+                    ],
+                    "radial_p68_mas": 6.307666531797163,
+                    "recentered_radial_p68_mas": 0.19753271776787865,
+                    "nmad_mas": [
+                      0.040758983126681414,
+                      0.04923673881257709
+                    ]
+                  }
+                }
+              },
+              "i": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1251,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      6.130321854619534,
+                      5.997022670775973
+                    ],
+                    [
+                      69.9018060379856,
+                      70.81093603635522
+                    ],
+                    [
+                      146.62697533426808,
+                      138.64985611205955
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      24.077581871149288,
+                      25.0571780095062
+                    ],
+                    [
+                      24.078162421524805,
+                      25.057179584312358
+                    ],
+                    [
+                      24.07860898797732,
+                      25.057181306701796
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      24.84670219391762,
+                      25.764833379403008
+                    ],
+                    [
+                      73.93231338816575,
+                      75.11358625089665
+                    ],
+                    [
+                      148.59069010267578,
+                      140.8958655954267
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.008634020174841125,
+                    -0.0016009802061260645,
+                    0.010063499344183343
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1251,
+                    "median_mas": [
+                      -15.369502582940186,
+                      -0.36296168906847015
+                    ],
+                    "radial_p68_mas": 15.426554658699603,
+                    "recentered_radial_p68_mas": 0.5629598823827453,
+                    "nmad_mas": [
+                      0.16809703752579153,
+                      0.119124804792559
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -15.369502582940186,
+                      -0.36296168906847015
+                    ],
+                    "radial_p68_mas": 15.426554658699603,
+                    "recentered_radial_p68_mas": 0.5629598823827453,
+                    "nmad_mas": [
+                      0.16809703752579153,
+                      0.119124804792559
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -15.369502582940186,
+                      -0.36296168906847015
+                    ],
+                    "radial_p68_mas": 15.426554658699603,
+                    "recentered_radial_p68_mas": 0.5629598823827453,
+                    "nmad_mas": [
+                      0.16809703752579153,
+                      0.119124804792559
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1251,
+                    "median_mas": [
+                      -15.369202052766923,
+                      -0.36303672114263463
+                    ],
+                    "radial_p68_mas": 15.434103397803739,
+                    "recentered_radial_p68_mas": 0.30725381361273335,
+                    "nmad_mas": [
+                      0.14593157697214046,
+                      0.03909611059504205
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -15.369202052766923,
+                      -0.36303672114263463
+                    ],
+                    "radial_p68_mas": 15.434103397803739,
+                    "recentered_radial_p68_mas": 0.30725381361273335,
+                    "nmad_mas": [
+                      0.14593157697214046,
+                      0.03909611059504205
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -15.369202052766923,
+                      -0.36303672114263463
+                    ],
+                    "radial_p68_mas": 15.434103397803739,
+                    "recentered_radial_p68_mas": 0.30725381361273335,
+                    "nmad_mas": [
+                      0.14593157697214046,
+                      0.03909611059504205
+                    ]
+                  }
+                }
+              },
+              "z": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1251,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      23.929529528983643,
+                      20.948787414018874
+                    ],
+                    [
+                      103.73689235737662,
+                      102.98052656183499
+                    ],
+                    [
+                      175.01686684892059,
+                      168.81954297381037
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      25.94023521051405,
+                      24.224481517525437
+                    ],
+                    [
+                      25.94086236392603,
+                      24.224484712692245
+                    ],
+                    [
+                      25.94134966759074,
+                      24.224487631901024
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      35.29232717127147,
+                      32.02619630720289
+                    ],
+                    [
+                      106.93118191951196,
+                      105.79137206346012
+                    ],
+                    [
+                      176.92891059079818,
+                      170.5487141659422
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.009481359521466974,
+                    0.001963333959245387,
+                    0.011413691579365382
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1251,
+                    "median_mas": [
+                      -4.658434212382417,
+                      0.060255946442339336
+                    ],
+                    "radial_p68_mas": 4.708870916854773,
+                    "recentered_radial_p68_mas": 0.28578364982662147,
+                    "nmad_mas": [
+                      0.11891457448148285,
+                      0.03901864427114269
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -4.658434212382417,
+                      0.060255946442339336
+                    ],
+                    "radial_p68_mas": 4.708870916854773,
+                    "recentered_radial_p68_mas": 0.28578364982662147,
+                    "nmad_mas": [
+                      0.11891457448148285,
+                      0.03901864427114269
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -4.658434212382417,
+                      0.060255946442339336
+                    ],
+                    "radial_p68_mas": 4.708870916854773,
+                    "recentered_radial_p68_mas": 0.28578364982662147,
+                    "nmad_mas": [
+                      0.11891457448148285,
+                      0.03901864427114269
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1251,
+                    "median_mas": [
+                      -4.662694429483963,
+                      0.0602464083895029
+                    ],
+                    "radial_p68_mas": 4.7129443713449515,
+                    "recentered_radial_p68_mas": 0.18244840568226725,
+                    "nmad_mas": [
+                      0.09118875115349656,
+                      0.013457457918101863
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -4.662694429483963,
+                      0.0602464083895029
+                    ],
+                    "radial_p68_mas": 4.7129443713449515,
+                    "recentered_radial_p68_mas": 0.18244840568226725,
+                    "nmad_mas": [
+                      0.09118875115349656,
+                      0.013457457918101863
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1251,
+                    "median_mas": [
+                      -4.662694429483963,
+                      0.0602464083895029
+                    ],
+                    "radial_p68_mas": 4.7129443713449515,
+                    "recentered_radial_p68_mas": 0.18244840568226725,
+                    "nmad_mas": [
+                      0.09118875115349656,
+                      0.013457457918101863
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "photoobj_sha256": "4d75765c5533e8ed820d897bb098f7f98a8ac4e70f2b16b153aa2f4de5f9fbce",
+            "photofield_sha256": "b5162089eb020a90b21deebf7cfe7d572cbff3ec719d6af166408aa93993ec29",
+            "band_wcs_offset_reconstruction": {
+              "u": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1222,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      57.33339100521415,
+                      55.22435488402333
+                    ],
+                    [
+                      101.43953221190426,
+                      98.62503339064733
+                    ],
+                    [
+                      168.09789149996064,
+                      161.02226196431397
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      25.64384797326386,
+                      32.78557757229388
+                    ],
+                    [
+                      25.644175558292147,
+                      32.78558726267412
+                    ],
+                    [
+                      25.644442621413063,
+                      32.78559787378605
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      62.807063151021275,
+                      64.2232325359958
+                    ],
+                    [
+                      104.63076361504676,
+                      103.93167092298934
+                    ],
+                    [
+                      170.04271957464704,
+                      164.32609826484048
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.010818574341193881,
+                    -0.0010294138406055598,
+                    0.009355449770997493
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1222,
+                    "median_mas": [
+                      -4.337094802976935,
+                      -7.376262498641154
+                    ],
+                    "radial_p68_mas": 23.14539045445355,
+                    "recentered_radial_p68_mas": 21.136431633478843,
+                    "nmad_mas": [
+                      8.715919852734592,
+                      18.04161464214684
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -4.337094802976935,
+                      -7.376262498641154
+                    ],
+                    "radial_p68_mas": 23.14539045445355,
+                    "recentered_radial_p68_mas": 21.136431633478843,
+                    "nmad_mas": [
+                      8.715919852734592,
+                      18.04161464214684
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -4.337094802976935,
+                      -7.376262498641154
+                    ],
+                    "radial_p68_mas": 23.14539045445355,
+                    "recentered_radial_p68_mas": 21.136431633478843,
+                    "nmad_mas": [
+                      8.715919852734592,
+                      18.04161464214684
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1222,
+                    "median_mas": [
+                      -2.8762173141294625,
+                      -4.496661273093196
+                    ],
+                    "radial_p68_mas": 22.619558886374527,
+                    "recentered_radial_p68_mas": 22.198835963749872,
+                    "nmad_mas": [
+                      8.793256114550505,
+                      18.058852875442035
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -2.8762173141294625,
+                      -4.496661273093196
+                    ],
+                    "radial_p68_mas": 22.619558886374527,
+                    "recentered_radial_p68_mas": 22.198835963749872,
+                    "nmad_mas": [
+                      8.793256114550505,
+                      18.058852875442035
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -2.8762173141294625,
+                      -4.496661273093196
+                    ],
+                    "radial_p68_mas": 22.619558886374527,
+                    "recentered_radial_p68_mas": 22.198835963749872,
+                    "nmad_mas": [
+                      8.793256114550505,
+                      18.058852875442035
+                    ]
+                  }
+                }
+              },
+              "g": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1222,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      11.718447443405244,
+                      12.287017497795992
+                    ],
+                    [
+                      109.88238724035668,
+                      102.77469587528617
+                    ],
+                    [
+                      173.70968059813185,
+                      177.68151678899176
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      24.087949463787453,
+                      18.498407310401724
+                    ],
+                    [
+                      24.088259396005164,
+                      18.498417843226385
+                    ],
+                    [
+                      24.0885094199018,
+                      18.498427720441725
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      26.787401379995803,
+                      22.207246024117648
+                    ],
+                    [
+                      112.49177068854539,
+                      104.42619218070021
+                    ],
+                    [
+                      175.3719228365291,
+                      178.64185669703537
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.008574342639709742,
+                    0.005116118552218717,
+                    0.012586358715003826
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1222,
+                    "median_mas": [
+                      -20.387986368936254,
+                      -13.960880365339108
+                    ],
+                    "radial_p68_mas": 38.481365017366564,
+                    "recentered_radial_p68_mas": 33.20951952036903,
+                    "nmad_mas": [
+                      21.674953631261538,
+                      25.493284944031533
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -20.387986368936254,
+                      -13.960880365339108
+                    ],
+                    "radial_p68_mas": 38.481365017366564,
+                    "recentered_radial_p68_mas": 33.20951952036903,
+                    "nmad_mas": [
+                      21.674953631261538,
+                      25.493284944031533
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -20.387986368936254,
+                      -13.960880365339108
+                    ],
+                    "radial_p68_mas": 38.481365017366564,
+                    "recentered_radial_p68_mas": 33.20951952036903,
+                    "nmad_mas": [
+                      21.674953631261538,
+                      25.493284944031533
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1222,
+                    "median_mas": [
+                      -16.93553695952778,
+                      -9.72178731476015
+                    ],
+                    "radial_p68_mas": 36.682553036959206,
+                    "recentered_radial_p68_mas": 32.3821600208291,
+                    "nmad_mas": [
+                      23.76904708870496,
+                      28.29452534595912
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -16.93553695952778,
+                      -9.72178731476015
+                    ],
+                    "radial_p68_mas": 36.682553036959206,
+                    "recentered_radial_p68_mas": 32.3821600208291,
+                    "nmad_mas": [
+                      23.76904708870496,
+                      28.29452534595912
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1222,
+                    "median_mas": [
+                      -16.93553695952778,
+                      -9.72178731476015
+                    ],
+                    "radial_p68_mas": 36.682553036959206,
+                    "recentered_radial_p68_mas": 32.3821600208291,
+                    "nmad_mas": [
+                      23.76904708870496,
+                      28.29452534595912
+                    ]
+                  }
+                }
+              },
+              "r": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1219,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      6.300899839264111,
+                      6.639914804082128
+                    ],
+                    [
+                      77.64049828090496,
+                      78.95304274965342
+                    ],
+                    [
+                      145.16253791545154,
+                      144.92024581700943
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      48.517582334159094,
+                      41.01163423679512
+                    ],
+                    [
+                      48.51820588175554,
+                      41.01164761015404
+                    ],
+                    [
+                      48.518708141987446,
+                      41.01166031837854
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      48.92599909169046,
+                      41.54572594047825
+                    ],
+                    [
+                      91.5532097072569,
+                      88.96931514882519
+                    ],
+                    [
+                      153.05610726741722,
+                      150.61153579499953
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.006629164676537923,
+                    0.006393734609383918,
+                    0.010407860396599897
+                  ],
+                  "rowc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0750803024811868,
+                      1.0489210957795785
+                    ],
+                    [
+                      1.2883710912804252,
+                      1.2072116467196792
+                    ],
+                    [
+                      10.837713572283006,
+                      8.681746636392885
+                    ]
+                  ],
+                  "objc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0750803024811868,
+                      1.049736282319859
+                    ],
+                    [
+                      1.2883710912804252,
+                      1.2072116467196792
+                    ],
+                    [
+                      10.837713572283006,
+                      8.681746636392885
+                    ]
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1219,
+                    "median_mas": [
+                      20.523332986267633,
+                      0.5909967123516253
+                    ],
+                    "radial_p68_mas": 20.53256010798263,
+                    "recentered_radial_p68_mas": 0.5685153726169768,
+                    "nmad_mas": [
+                      0.07309589291249576,
+                      0.11244042183855635
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1219,
+                    "median_mas": [
+                      20.523332986267633,
+                      0.5909967123516253
+                    ],
+                    "radial_p68_mas": 20.53256010798263,
+                    "recentered_radial_p68_mas": 0.5685153726169768,
+                    "nmad_mas": [
+                      0.07309589291249576,
+                      0.11244042183855635
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1219,
+                    "median_mas": [
+                      20.523332986267633,
+                      0.5909967123516253
+                    ],
+                    "radial_p68_mas": 20.53256010798263,
+                    "recentered_radial_p68_mas": 0.5685153726169768,
+                    "nmad_mas": [
+                      0.07309589291249576,
+                      0.11244042183855635
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1219,
+                    "median_mas": [
+                      20.523339357081568,
+                      0.5917239364716806
+                    ],
+                    "radial_p68_mas": 20.540524684959944,
+                    "recentered_radial_p68_mas": 0.15844215195863626,
+                    "nmad_mas": [
+                      0.03841004191066604,
+                      0.05943047021778911
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1219,
+                    "median_mas": [
+                      20.523339357081568,
+                      0.5917239364716806
+                    ],
+                    "radial_p68_mas": 20.540524684959944,
+                    "recentered_radial_p68_mas": 0.15844215195863626,
+                    "nmad_mas": [
+                      0.03841004191066604,
+                      0.05943047021778911
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1219,
+                    "median_mas": [
+                      20.523339357081568,
+                      0.5917239364716806
+                    ],
+                    "radial_p68_mas": 20.540524684959944,
+                    "recentered_radial_p68_mas": 0.15844215195863626,
+                    "nmad_mas": [
+                      0.03841004191066604,
+                      0.05943047021778911
+                    ]
+                  }
+                }
+              },
+              "i": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1224,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      5.937627808124074,
+                      5.822654573289639
+                    ],
+                    [
+                      71.37151912031669,
+                      68.77705166597573
+                    ],
+                    [
+                      141.2558263067501,
+                      138.9861479400217
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      16.190645485197273,
+                      16.96305248974167
+                    ],
+                    [
+                      16.190853959617513,
+                      16.963053633639344
+                    ],
+                    [
+                      16.19102101120027,
+                      16.963054892845534
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      17.245440311354425,
+                      17.934788297083603
+                    ],
+                    [
+                      73.18496198374751,
+                      70.83804951637131
+                    ],
+                    [
+                      142.18071990713852,
+                      140.01747983852223
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.008294072846803825,
+                    -0.001679354313713256,
+                    0.009408089510860272
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1224,
+                    "median_mas": [
+                      7.006618586383411,
+                      0.07908664657952613
+                    ],
+                    "radial_p68_mas": 7.121762905121636,
+                    "recentered_radial_p68_mas": 0.5353192637515016,
+                    "nmad_mas": [
+                      0.15258126484789244,
+                      0.09449570553721859
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      7.006618586383411,
+                      0.07908664657952613
+                    ],
+                    "radial_p68_mas": 7.121762905121636,
+                    "recentered_radial_p68_mas": 0.5353192637515016,
+                    "nmad_mas": [
+                      0.15258126484789244,
+                      0.09449570553721859
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      7.006618586383411,
+                      0.07908664657952613
+                    ],
+                    "radial_p68_mas": 7.121762905121636,
+                    "recentered_radial_p68_mas": 0.5353192637515016,
+                    "nmad_mas": [
+                      0.15258126484789244,
+                      0.09449570553721859
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1224,
+                    "median_mas": [
+                      7.005688268167432,
+                      0.078152677201615
+                    ],
+                    "radial_p68_mas": 7.0608377654453145,
+                    "recentered_radial_p68_mas": 0.24617013229956067,
+                    "nmad_mas": [
+                      0.09903372048796154,
+                      0.047825988195237
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      7.005688268167432,
+                      0.078152677201615
+                    ],
+                    "radial_p68_mas": 7.0608377654453145,
+                    "recentered_radial_p68_mas": 0.24617013229956067,
+                    "nmad_mas": [
+                      0.09903372048796154,
+                      0.047825988195237
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      7.005688268167432,
+                      0.078152677201615
+                    ],
+                    "radial_p68_mas": 7.0608377654453145,
+                    "recentered_radial_p68_mas": 0.24617013229956067,
+                    "nmad_mas": [
+                      0.09903372048796154,
+                      0.047825988195237
+                    ]
+                  }
+                }
+              },
+              "z": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1224,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      23.621360323431166,
+                      22.462123311051954
+                    ],
+                    [
+                      101.14522741322392,
+                      97.99810516157322
+                    ],
+                    [
+                      164.68590670043224,
+                      158.10256091854095
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      27.9022734485377,
+                      25.598531664645222
+                    ],
+                    [
+                      27.902630325761486,
+                      25.598535661909757
+                    ],
+                    [
+                      27.90292064569434,
+                      25.598539478923236
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      36.5589674667255,
+                      34.05778571141402
+                    ],
+                    [
+                      104.92334791404298,
+                      101.28629639733532
+                    ],
+                    [
+                      167.0329557474159,
+                      160.16149658234067
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.007330233766197146,
+                    0.0040147738117311624,
+                    0.011587128949879755
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1224,
+                    "median_mas": [
+                      9.322856447030063,
+                      0.30599250760496943
+                    ],
+                    "radial_p68_mas": 9.374009337602022,
+                    "recentered_radial_p68_mas": 0.2618684614157561,
+                    "nmad_mas": [
+                      0.0995037682226597,
+                      0.032134670414101126
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      9.322856447030063,
+                      0.30599250760496943
+                    ],
+                    "radial_p68_mas": 9.374009337602022,
+                    "recentered_radial_p68_mas": 0.2618684614157561,
+                    "nmad_mas": [
+                      0.0995037682226597,
+                      0.032134670414101126
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      9.322856447030063,
+                      0.30599250760496943
+                    ],
+                    "radial_p68_mas": 9.374009337602022,
+                    "recentered_radial_p68_mas": 0.2618684614157561,
+                    "nmad_mas": [
+                      0.0995037682226597,
+                      0.032134670414101126
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1224,
+                    "median_mas": [
+                      9.317013812149526,
+                      0.30528967864302103
+                    ],
+                    "radial_p68_mas": 9.349966134927191,
+                    "recentered_radial_p68_mas": 0.13955140782192638,
+                    "nmad_mas": [
+                      0.0654201084686938,
+                      0.016697463896300904
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      9.317013812149526,
+                      0.30528967864302103
+                    ],
+                    "radial_p68_mas": 9.349966134927191,
+                    "recentered_radial_p68_mas": 0.13955140782192638,
+                    "nmad_mas": [
+                      0.0654201084686938,
+                      0.016697463896300904
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1224,
+                    "median_mas": [
+                      9.317013812149526,
+                      0.30528967864302103
+                    ],
+                    "radial_p68_mas": 9.349966134927191,
+                    "recentered_radial_p68_mas": 0.13955140782192638,
+                    "nmad_mas": [
+                      0.0654201084686938,
+                      0.016697463896300904
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "slurm_job": "61556892",
+        "coefficient_precision_note": "A/D are actual float32 FITS 5E coefficients. Their half-ULP gives a possible constant great-circle-coordinate roundoff, not a target centroid error. Recentered residual is a diagnostic, not a new astrometric correction.",
+        "scope": "Position-only reconstruction from published row/column, optical-distortion/DCR and affine coefficients; compares exact published per-band angular offsets. No proper-motion truth, no extra astrometric correction. Scalar r errors are not cloned.",
+        "native_error_scope": "Centroid covariance assumes independent native row/column errors and fixed color; field MUERR/NUERR treated as great-circle coordinate errors in arcsec. Published r error ratios test the convention. Cross-band shared scan/calibration covariance and color-error propagation remain unverified.",
+        "adoption": "Not approved for joint fitting yet: centroid/WCS covariance, shared-scan errors, per-band detection flags and independent held-object validation still required."
+      },
+      "north_one_00_00": {
+        "physical_fields": 2,
+        "fields": [
+          {
+            "photoobj_sha256": "c55900a9177507c5d9a1d049c4121547c6c3f63d4ca4a263d528c0fe1a90e833",
+            "photofield_sha256": "14f0f330fbb351f2bbc23efd98c52f19f5ee3d62e2f5bd4fedc7c974e251eccf",
+            "band_wcs_offset_reconstruction": {
+              "u": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1151,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      65.08383784974211,
+                      66.81639338947645
+                    ],
+                    [
+                      103.60536301384148,
+                      101.49158582643192
+                    ],
+                    [
+                      158.78422626614645,
+                      157.48867121655363
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      23.909017096629803,
+                      31.435201267467193
+                    ],
+                    [
+                      23.90984846550261,
+                      31.435631996969345
+                    ],
+                    [
+                      23.91064307062082,
+                      31.43606539770842
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      69.33661661162759,
+                      73.84217284983853
+                    ],
+                    [
+                      106.32822163437964,
+                      106.2483488173691
+                    ],
+                    [
+                      160.57429365188284,
+                      160.59527484842317
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.03433860310994049,
+                    -0.004649924772682181,
+                    0.026446913682791923
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1151,
+                    "median_mas": [
+                      15.189628328575054,
+                      -1.519011598720681
+                    ],
+                    "radial_p68_mas": 21.02822491183726,
+                    "recentered_radial_p68_mas": 11.309884341434934,
+                    "nmad_mas": [
+                      8.83000175567703,
+                      1.997577740913775
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1151,
+                    "median_mas": [
+                      15.189628328575054,
+                      -1.519011598720681
+                    ],
+                    "radial_p68_mas": 21.02822491183726,
+                    "recentered_radial_p68_mas": 11.309884341434934,
+                    "nmad_mas": [
+                      8.83000175567703,
+                      1.997577740913775
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1151,
+                    "median_mas": [
+                      15.189628328575054,
+                      -1.519011598720681
+                    ],
+                    "radial_p68_mas": 21.02822491183726,
+                    "recentered_radial_p68_mas": 11.309884341434934,
+                    "nmad_mas": [
+                      8.83000175567703,
+                      1.997577740913775
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1151,
+                    "median_mas": [
+                      14.272705942334142,
+                      -1.0679094294901006
+                    ],
+                    "radial_p68_mas": 20.233164464789436,
+                    "recentered_radial_p68_mas": 12.432005097058186,
+                    "nmad_mas": [
+                      9.71809304115884,
+                      2.26353973265877
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1151,
+                    "median_mas": [
+                      14.272705942334142,
+                      -1.0679094294901006
+                    ],
+                    "radial_p68_mas": 20.233164464789436,
+                    "recentered_radial_p68_mas": 12.432005097058186,
+                    "nmad_mas": [
+                      9.71809304115884,
+                      2.26353973265877
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1151,
+                    "median_mas": [
+                      14.272705942334142,
+                      -1.0679094294901006
+                    ],
+                    "radial_p68_mas": 20.233164464789436,
+                    "recentered_radial_p68_mas": 12.432005097058186,
+                    "nmad_mas": [
+                      9.71809304115884,
+                      2.26353973265877
+                    ]
+                  }
+                }
+              },
+              "g": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1150,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      42.27448546671766,
+                      43.29684000467813
+                    ],
+                    [
+                      98.74247648659374,
+                      101.68898337911264
+                    ],
+                    [
+                      151.84207144554816,
+                      152.61662323776503
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      20.17338593695495,
+                      29.87478449225207
+                    ],
+                    [
+                      20.174323458780847,
+                      29.8753126241719
+                    ],
+                    [
+                      20.175188486149942,
+                      29.875842716163266
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      46.841587604137146,
+                      52.603940793369155
+                    ],
+                    [
+                      100.78228338345656,
+                      105.98662247979365
+                    ],
+                    [
+                      153.17644302768204,
+                      155.5132003773452
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.04831009800873509,
+                    -0.010145723276408055,
+                    0.02541384716995387
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1150,
+                    "median_mas": [
+                      -16.660009640458156,
+                      -12.751613145243027
+                    ],
+                    "radial_p68_mas": 33.95772914192066,
+                    "recentered_radial_p68_mas": 25.514933691000053,
+                    "nmad_mas": [
+                      9.35406586481705,
+                      21.308275357409716
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1150,
+                    "median_mas": [
+                      -16.660009640458156,
+                      -12.751613145243027
+                    ],
+                    "radial_p68_mas": 33.95772914192066,
+                    "recentered_radial_p68_mas": 25.514933691000053,
+                    "nmad_mas": [
+                      9.35406586481705,
+                      21.308275357409716
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1150,
+                    "median_mas": [
+                      -16.660009640458156,
+                      -12.751613145243027
+                    ],
+                    "radial_p68_mas": 33.95772914192066,
+                    "recentered_radial_p68_mas": 25.514933691000053,
+                    "nmad_mas": [
+                      9.35406586481705,
+                      21.308275357409716
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1150,
+                    "median_mas": [
+                      -15.724729980538541,
+                      -6.556101996640791
+                    ],
+                    "radial_p68_mas": 31.30576552718031,
+                    "recentered_radial_p68_mas": 22.826503630126464,
+                    "nmad_mas": [
+                      9.180663636714632,
+                      21.736958550191712
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1150,
+                    "median_mas": [
+                      -15.724729980538541,
+                      -6.556101996640791
+                    ],
+                    "radial_p68_mas": 31.30576552718031,
+                    "recentered_radial_p68_mas": 22.826503630126464,
+                    "nmad_mas": [
+                      9.180663636714632,
+                      21.736958550191712
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1150,
+                    "median_mas": [
+                      -15.724729980538541,
+                      -6.556101996640791
+                    ],
+                    "radial_p68_mas": 31.30576552718031,
+                    "recentered_radial_p68_mas": 22.826503630126464,
+                    "nmad_mas": [
+                      9.180663636714632,
+                      21.736958550191712
+                    ]
+                  }
+                }
+              },
+              "r": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1154,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      22.911792658452434,
+                      22.009589928698688
+                    ],
+                    [
+                      81.72252338956102,
+                      78.5869165340729
+                    ],
+                    [
+                      136.82426981710486,
+                      134.71200989414928
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      49.06204674647282,
+                      49.81561432934791
+                    ],
+                    [
+                      49.06342858068767,
+                      49.815663855942375
+                    ],
+                    [
+                      49.06462758728955,
+                      49.81571159961067
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      54.15019174356015,
+                      54.461639874259184
+                    ],
+                    [
+                      95.31899970030594,
+                      93.04573821746526
+                    ],
+                    [
+                      145.35552038148,
+                      143.62771380958063
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.02130545559036308,
+                    -0.0017120820044644281,
+                    0.0233079939356308
+                  ],
+                  "rowc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0773470146875828,
+                      1.075072458959101
+                    ],
+                    [
+                      1.2408466965360376,
+                      1.2646103488199731
+                    ],
+                    [
+                      3.0877698485185614,
+                      3.115102526963347
+                    ]
+                  ],
+                  "objc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0773470146875828,
+                      1.075072458959101
+                    ],
+                    [
+                      1.2408466965360376,
+                      1.2646103488199731
+                    ],
+                    [
+                      3.0877698485185614,
+                      3.115102526963347
+                    ]
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1154,
+                    "median_mas": [
+                      -22.77790986969194,
+                      -1.4567692254204303
+                    ],
+                    "radial_p68_mas": 22.829804397815053,
+                    "recentered_radial_p68_mas": 0.6425535113672504,
+                    "nmad_mas": [
+                      0.3763607825729996,
+                      0.1008271610479187
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1154,
+                    "median_mas": [
+                      -22.77790986969194,
+                      -1.4567692254204303
+                    ],
+                    "radial_p68_mas": 22.829804397815053,
+                    "recentered_radial_p68_mas": 0.6425535113672504,
+                    "nmad_mas": [
+                      0.3763607825729996,
+                      0.1008271610479187
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1154,
+                    "median_mas": [
+                      -22.77790986969194,
+                      -1.4567692254204303
+                    ],
+                    "radial_p68_mas": 22.829804397815053,
+                    "recentered_radial_p68_mas": 0.6425535113672504,
+                    "nmad_mas": [
+                      0.3763607825729996,
+                      0.1008271610479187
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1154,
+                    "median_mas": [
+                      -22.78140979965883,
+                      -1.4487073946520468
+                    ],
+                    "radial_p68_mas": 22.829099443078128,
+                    "recentered_radial_p68_mas": 0.10503502975868477,
+                    "nmad_mas": [
+                      0.00440741022930597,
+                      0.01352245708998962
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1154,
+                    "median_mas": [
+                      -22.78140979965883,
+                      -1.4487073946520468
+                    ],
+                    "radial_p68_mas": 22.829099443078128,
+                    "recentered_radial_p68_mas": 0.10503502975868477,
+                    "nmad_mas": [
+                      0.00440741022930597,
+                      0.01352245708998962
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1154,
+                    "median_mas": [
+                      -22.78140979965883,
+                      -1.4487073946520468
+                    ],
+                    "radial_p68_mas": 22.829099443078128,
+                    "recentered_radial_p68_mas": 0.10503502975868477,
+                    "nmad_mas": [
+                      0.00440741022930597,
+                      0.01352245708998962
+                    ]
+                  }
+                }
+              },
+              "i": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1159,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      23.998758122844343,
+                      21.472195645364234
+                    ],
+                    [
+                      82.52406783188569,
+                      79.61133977762877
+                    ],
+                    [
+                      141.59189452711226,
+                      135.10083344972415
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      20.23923884150627,
+                      21.4803593211608
+                    ],
+                    [
+                      20.23980356588501,
+                      21.48043861086642
+                    ],
+                    [
+                      20.240334817884037,
+                      21.480517753678765
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      31.394608712495458,
+                      30.372157597667087
+                    ],
+                    [
+                      84.96978341869665,
+                      82.45833961578867
+                    ],
+                    [
+                      143.03115336171277,
+                      136.7978284007176
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.026631979800506474,
+                    -0.000670008360900876,
+                    0.03125835692471174
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1159,
+                    "median_mas": [
+                      -15.428395716793602,
+                      -1.1036219066736521
+                    ],
+                    "radial_p68_mas": 18.724962911504925,
+                    "recentered_radial_p68_mas": 8.887352804109389,
+                    "nmad_mas": [
+                      6.400757144800597,
+                      0.07904039167976297
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -15.428395716793602,
+                      -1.1036219066736521
+                    ],
+                    "radial_p68_mas": 18.724962911504925,
+                    "recentered_radial_p68_mas": 8.887352804109389,
+                    "nmad_mas": [
+                      6.400757144800597,
+                      0.07904039167976297
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -15.428395716793602,
+                      -1.1036219066736521
+                    ],
+                    "radial_p68_mas": 18.724962911504925,
+                    "recentered_radial_p68_mas": 8.887352804109389,
+                    "nmad_mas": [
+                      6.400757144800597,
+                      0.07904039167976297
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1159,
+                    "median_mas": [
+                      -15.587322861480061,
+                      -1.0970141199941281
+                    ],
+                    "radial_p68_mas": 18.784496872579542,
+                    "recentered_radial_p68_mas": 9.088882484958129,
+                    "nmad_mas": [
+                      6.6065803115336745,
+                      0.016223489523207534
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -15.587322861480061,
+                      -1.0970141199941281
+                    ],
+                    "radial_p68_mas": 18.784496872579542,
+                    "recentered_radial_p68_mas": 9.088882484958129,
+                    "nmad_mas": [
+                      6.6065803115336745,
+                      0.016223489523207534
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -15.587322861480061,
+                      -1.0970141199941281
+                    ],
+                    "radial_p68_mas": 18.784496872579542,
+                    "recentered_radial_p68_mas": 9.088882484958129,
+                    "nmad_mas": [
+                      6.6065803115336745,
+                      0.016223489523207534
+                    ]
+                  }
+                }
+              },
+              "z": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.21457672119140625
+                },
+                "native_error_propagation": {
+                  "valid_count": 1159,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      66.28578691110096,
+                      63.953445064917396
+                    ],
+                    [
+                      109.10025373164343,
+                      107.24518806733889
+                    ],
+                    [
+                      164.71684171226624,
+                      162.20927542666962
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      21.45150164167972,
+                      25.535857217364736
+                    ],
+                    [
+                      21.45213667689131,
+                      25.536102370652422
+                    ],
+                    [
+                      21.452754507624185,
+                      25.53634789630073
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      69.67059129941109,
+                      68.86320070318544
+                    ],
+                    [
+                      111.1892799200439,
+                      110.2434417249029
+                    ],
+                    [
+                      166.10787690033047,
+                      164.20704938554792
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.027425740204480447,
+                    -0.0015691672691859962,
+                    0.028607021015247435
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1159,
+                    "median_mas": [
+                      -24.691901421028888,
+                      -1.4194641486392356
+                    ],
+                    "radial_p68_mas": 26.084323133088162,
+                    "recentered_radial_p68_mas": 3.989689088556105,
+                    "nmad_mas": [
+                      2.6217944595712526,
+                      0.0281759980089264
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -24.691901421028888,
+                      -1.4194641486392356
+                    ],
+                    "radial_p68_mas": 26.084323133088162,
+                    "recentered_radial_p68_mas": 3.989689088556105,
+                    "nmad_mas": [
+                      2.6217944595712526,
+                      0.0281759980089264
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -24.691901421028888,
+                      -1.4194641486392356
+                    ],
+                    "radial_p68_mas": 26.084323133088162,
+                    "recentered_radial_p68_mas": 3.989689088556105,
+                    "nmad_mas": [
+                      2.6217944595712526,
+                      0.0281759980089264
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1159,
+                    "median_mas": [
+                      -24.704862734506605,
+                      -1.4149111520091537
+                    ],
+                    "radial_p68_mas": 26.067494966852266,
+                    "recentered_radial_p68_mas": 4.0419205000040845,
+                    "nmad_mas": [
+                      2.638500067705731,
+                      0.008736928350519155
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -24.704862734506605,
+                      -1.4149111520091537
+                    ],
+                    "radial_p68_mas": 26.067494966852266,
+                    "recentered_radial_p68_mas": 4.0419205000040845,
+                    "nmad_mas": [
+                      2.638500067705731,
+                      0.008736928350519155
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1159,
+                    "median_mas": [
+                      -24.704862734506605,
+                      -1.4149111520091537
+                    ],
+                    "radial_p68_mas": 26.067494966852266,
+                    "recentered_radial_p68_mas": 4.0419205000040845,
+                    "nmad_mas": [
+                      2.638500067705731,
+                      0.008736928350519155
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "photoobj_sha256": "2fca6a14b2a6466c6af091c3f6cc0f5049e46b4e327b9fc7723d510453e296db",
+            "photofield_sha256": "a9149bfef75c789ac9af231c1ce91ce054e089db40d01a273200be023ff466c0",
+            "band_wcs_offset_reconstruction": {
+              "u": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1235,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      58.74028145539899,
+                      66.09827783011474
+                    ],
+                    [
+                      98.35303230175874,
+                      104.53399148710956
+                    ],
+                    [
+                      164.7607685929934,
+                      178.41692592029588
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      17.515243988722574,
+                      29.398596110451734
+                    ],
+                    [
+                      17.51620250383673,
+                      29.399253472074662
+                    ],
+                    [
+                      17.517298584312282,
+                      29.399832425157808
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      61.29607887418105,
+                      72.34164256784562
+                    ],
+                    [
+                      99.90089442438071,
+                      108.5894248947409
+                    ],
+                    [
+                      165.68923731329215,
+                      180.82294614952716
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.049308025137991415,
+                    -0.01806699398913331,
+                    0.01848652698935391
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1235,
+                    "median_mas": [
+                      10.174837814673083,
+                      -1.4120779681252316
+                    ],
+                    "radial_p68_mas": 16.16031643038291,
+                    "recentered_radial_p68_mas": 10.72716946092295,
+                    "nmad_mas": [
+                      9.366552430341942,
+                      2.0874567143572436
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1235,
+                    "median_mas": [
+                      10.174837814673083,
+                      -1.4120779681252316
+                    ],
+                    "radial_p68_mas": 16.16031643038291,
+                    "recentered_radial_p68_mas": 10.72716946092295,
+                    "nmad_mas": [
+                      9.366552430341942,
+                      2.0874567143572436
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1235,
+                    "median_mas": [
+                      10.174837814673083,
+                      -1.4120779681252316
+                    ],
+                    "radial_p68_mas": 16.16031643038291,
+                    "recentered_radial_p68_mas": 10.72716946092295,
+                    "nmad_mas": [
+                      9.366552430341942,
+                      2.0874567143572436
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1235,
+                    "median_mas": [
+                      8.350421135051874,
+                      -0.913198745547561
+                    ],
+                    "radial_p68_mas": 14.739709294723596,
+                    "recentered_radial_p68_mas": 11.526281393819305,
+                    "nmad_mas": [
+                      10.245283914700988,
+                      2.3935067233910026
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1235,
+                    "median_mas": [
+                      8.350421135051874,
+                      -0.913198745547561
+                    ],
+                    "radial_p68_mas": 14.739709294723596,
+                    "recentered_radial_p68_mas": 11.526281393819305,
+                    "nmad_mas": [
+                      10.245283914700988,
+                      2.3935067233910026
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1235,
+                    "median_mas": [
+                      8.350421135051874,
+                      -0.913198745547561
+                    ],
+                    "radial_p68_mas": 14.739709294723596,
+                    "recentered_radial_p68_mas": 11.526281393819305,
+                    "nmad_mas": [
+                      10.245283914700988,
+                      2.3935067233910026
+                    ]
+                  }
+                }
+              },
+              "g": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1234,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      41.55010475291984,
+                      51.224201224846254
+                    ],
+                    [
+                      99.34184203112132,
+                      110.6924760732806
+                    ],
+                    [
+                      170.52675180569264,
+                      194.42784873685633
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      22.27748191905216,
+                      25.61438182866756
+                    ],
+                    [
+                      22.27790016780285,
+                      25.614598363769147
+                    ],
+                    [
+                      22.278293393819155,
+                      25.614789156196977
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      47.14670113498612,
+                      57.271572178859266
+                    ],
+                    [
+                      101.8092447108945,
+                      113.6174960306272
+                    ],
+                    [
+                      171.97585592637165,
+                      196.10785119150611
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.05254049709870849,
+                    -0.01680919750343617,
+                    0.0239830248965946
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1234,
+                    "median_mas": [
+                      3.858555303839239,
+                      -8.76807140535675
+                    ],
+                    "radial_p68_mas": 24.769005986801485,
+                    "recentered_radial_p68_mas": 21.217716039667458,
+                    "nmad_mas": [
+                      12.472857602995392,
+                      15.02855120603182
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1234,
+                    "median_mas": [
+                      3.858555303839239,
+                      -8.76807140535675
+                    ],
+                    "radial_p68_mas": 24.769005986801485,
+                    "recentered_radial_p68_mas": 21.217716039667458,
+                    "nmad_mas": [
+                      12.472857602995392,
+                      15.02855120603182
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1234,
+                    "median_mas": [
+                      3.858555303839239,
+                      -8.76807140535675
+                    ],
+                    "radial_p68_mas": 24.769005986801485,
+                    "recentered_radial_p68_mas": 21.217716039667458,
+                    "nmad_mas": [
+                      12.472857602995392,
+                      15.02855120603182
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1234,
+                    "median_mas": [
+                      4.743442134737052,
+                      -4.953367605427047
+                    ],
+                    "radial_p68_mas": 23.608410857332842,
+                    "recentered_radial_p68_mas": 21.790165000561423,
+                    "nmad_mas": [
+                      12.287254833370168,
+                      15.71181432515176
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1234,
+                    "median_mas": [
+                      4.743442134737052,
+                      -4.953367605427047
+                    ],
+                    "radial_p68_mas": 23.608410857332842,
+                    "recentered_radial_p68_mas": 21.790165000561423,
+                    "nmad_mas": [
+                      12.287254833370168,
+                      15.71181432515176
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1234,
+                    "median_mas": [
+                      4.743442134737052,
+                      -4.953367605427047
+                    ],
+                    "radial_p68_mas": 23.608410857332842,
+                    "recentered_radial_p68_mas": 21.790165000561423,
+                    "nmad_mas": [
+                      12.287254833370168,
+                      15.71181432515176
+                    ]
+                  }
+                }
+              },
+              "r": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1243,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      27.4836882742832,
+                      26.243835668589412
+                    ],
+                    [
+                      85.4210336830919,
+                      86.97728562117214
+                    ],
+                    [
+                      158.0517737690342,
+                      167.8803359522247
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      44.70156620527136,
+                      49.93664567734865
+                    ],
+                    [
+                      44.702342574049624,
+                      49.93699233366398
+                    ],
+                    [
+                      44.70312178804087,
+                      49.937299458867656
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      52.47548719998229,
+                      56.41325202518704
+                    ],
+                    [
+                      96.41127270414346,
+                      100.29313531335715
+                    ],
+                    [
+                      164.25174465034053,
+                      175.1499902154895
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.03323089980151698,
+                    -0.00984210343294125,
+                    0.024541520817329233
+                  ],
+                  "rowc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0581962650574133,
+                      1.074319676424702
+                    ],
+                    [
+                      1.1852872701069828,
+                      1.2295662129531437
+                    ],
+                    [
+                      2.713745642315141,
+                      2.996739000561535
+                    ]
+                  ],
+                  "objc_total_to_published_r_error_ratio_p16_p50_p84": [
+                    [
+                      1.0581962650574133,
+                      1.074319676424702
+                    ],
+                    [
+                      1.1852872701069828,
+                      1.2295662129531437
+                    ],
+                    [
+                      2.713745642315141,
+                      2.996739000561535
+                    ]
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1243,
+                    "median_mas": [
+                      -7.803064985724632,
+                      -0.420495351718273
+                    ],
+                    "radial_p68_mas": 7.907065086731792,
+                    "recentered_radial_p68_mas": 0.9288911354921231,
+                    "nmad_mas": [
+                      0.47250117705462324,
+                      0.12011556418783147
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1243,
+                    "median_mas": [
+                      -7.803064985724632,
+                      -0.420495351718273
+                    ],
+                    "radial_p68_mas": 7.907065086731792,
+                    "recentered_radial_p68_mas": 0.9288911354921231,
+                    "nmad_mas": [
+                      0.47250117705462324,
+                      0.12011556418783147
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1243,
+                    "median_mas": [
+                      -7.803064985724632,
+                      -0.420495351718273
+                    ],
+                    "radial_p68_mas": 7.907065086731792,
+                    "recentered_radial_p68_mas": 0.9288911354921231,
+                    "nmad_mas": [
+                      0.47250117705462324,
+                      0.12011556418783147
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1243,
+                    "median_mas": [
+                      -7.892081944344682,
+                      -0.41118804393772734
+                    ],
+                    "radial_p68_mas": 7.907105901914035,
+                    "recentered_radial_p68_mas": 0.3472179629653783,
+                    "nmad_mas": [
+                      0.009525216829331475,
+                      0.014426879398886375
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1243,
+                    "median_mas": [
+                      -7.892081944344682,
+                      -0.41118804393772734
+                    ],
+                    "radial_p68_mas": 7.907105901914035,
+                    "recentered_radial_p68_mas": 0.3472179629653783,
+                    "nmad_mas": [
+                      0.009525216829331475,
+                      0.014426879398886375
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1243,
+                    "median_mas": [
+                      -7.892081944344682,
+                      -0.41118804393772734
+                    ],
+                    "radial_p68_mas": 7.907105901914035,
+                    "recentered_radial_p68_mas": 0.3472179629653783,
+                    "nmad_mas": [
+                      0.009525216829331475,
+                      0.014426879398886375
+                    ]
+                  }
+                }
+              },
+              "i": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1248,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      24.976794916182982,
+                      26.558123788919943
+                    ],
+                    [
+                      87.20670688921601,
+                      90.14242762773897
+                    ],
+                    [
+                      156.02503348849976,
+                      170.15495981660936
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      21.273212392109112,
+                      24.620657509916658
+                    ],
+                    [
+                      21.273612544159114,
+                      24.620875694470968
+                    ],
+                    [
+                      21.273990448211336,
+                      24.621068873361622
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      32.8083523271891,
+                      36.21502819841413
+                    ],
+                    [
+                      89.76392350323013,
+                      93.44434440391561
+                    ],
+                    [
+                      157.4685978523452,
+                      171.92700164376936
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.0424242347282382,
+                    -0.012605542596510689,
+                    0.02424935598660812
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1248,
+                    "median_mas": [
+                      -24.024086471268674,
+                      -1.5849086565212929
+                    ],
+                    "radial_p68_mas": 26.98705768863208,
+                    "recentered_radial_p68_mas": 8.97560770265009,
+                    "nmad_mas": [
+                      6.387767598994594,
+                      0.09861537876803922
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -24.024086471268674,
+                      -1.5849086565212929
+                    ],
+                    "radial_p68_mas": 26.98705768863208,
+                    "recentered_radial_p68_mas": 8.97560770265009,
+                    "nmad_mas": [
+                      6.387767598994594,
+                      0.09861537876803922
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -24.024086471268674,
+                      -1.5849086565212929
+                    ],
+                    "radial_p68_mas": 26.98705768863208,
+                    "recentered_radial_p68_mas": 8.97560770265009,
+                    "nmad_mas": [
+                      6.387767598994594,
+                      0.09861537876803922
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1248,
+                    "median_mas": [
+                      -24.25596358101211,
+                      -1.58059468630654
+                    ],
+                    "radial_p68_mas": 26.96323267473414,
+                    "recentered_radial_p68_mas": 9.411489643056706,
+                    "nmad_mas": [
+                      6.441636209120924,
+                      0.01063785396575838
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -24.25596358101211,
+                      -1.58059468630654
+                    ],
+                    "radial_p68_mas": 26.96323267473414,
+                    "recentered_radial_p68_mas": 9.411489643056706,
+                    "nmad_mas": [
+                      6.441636209120924,
+                      0.01063785396575838
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -24.25596358101211,
+                      -1.58059468630654
+                    ],
+                    "radial_p68_mas": 26.96323267473414,
+                    "recentered_radial_p68_mas": 9.411489643056706,
+                    "nmad_mas": [
+                      6.441636209120924,
+                      0.01063785396575838
+                    ]
+                  }
+                }
+              },
+              "z": {
+                "coefficient_roundoff_half_ulp_mas": {
+                  "A": 27.4658203125,
+                  "D": 0.10728836059570312
+                },
+                "native_error_propagation": {
+                  "valid_count": 1248,
+                  "centroid_sigma_p16_p50_p84_mas": [
+                    [
+                      57.23089549169449,
+                      62.096080013923135
+                    ],
+                    [
+                      100.8646064797731,
+                      107.16104840491127
+                    ],
+                    [
+                      168.03251545299094,
+                      179.13175121443666
+                    ]
+                  ],
+                  "calibration_sigma_p16_p50_p84_mas": [
+                    [
+                      15.958162317110611,
+                      22.377092794878024
+                    ],
+                    [
+                      15.958653280781215,
+                      22.377476711911058
+                    ],
+                    [
+                      15.959231152715782,
+                      22.377817082651546
+                    ]
+                  ],
+                  "total_sigma_p16_p50_p84_mas": [
+                    [
+                      59.41423682775411,
+                      66.00516142383604
+                    ],
+                    [
+                      102.11925172962353,
+                      109.47248905314885
+                    ],
+                    [
+                      168.7886588185263,
+                      180.52404650778772
+                    ]
+                  ],
+                  "cross_axis_correlation_p16_p50_p84": [
+                    -0.0444919240306065,
+                    -0.01345407779957531,
+                    0.024480035294352432
+                  ]
+                },
+                "PSFMAG": {
+                  "frame_pixels": {
+                    "n": 1248,
+                    "median_mas": [
+                      -19.603358498437956,
+                      -1.2811645428228076
+                    ],
+                    "radial_p68_mas": 21.52563781237202,
+                    "recentered_radial_p68_mas": 4.6316810368440064,
+                    "nmad_mas": [
+                      3.3350217444121957,
+                      0.03204367296178825
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -19.603358498437956,
+                      -1.2811645428228076
+                    ],
+                    "radial_p68_mas": 21.52563781237202,
+                    "recentered_radial_p68_mas": 4.6316810368440064,
+                    "nmad_mas": [
+                      3.3350217444121957,
+                      0.03204367296178825
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -19.603358498437956,
+                      -1.2811645428228076
+                    ],
+                    "radial_p68_mas": 21.52563781237202,
+                    "recentered_radial_p68_mas": 4.6316810368440064,
+                    "nmad_mas": [
+                      3.3350217444121957,
+                      0.03204367296178825
+                    ]
+                  }
+                },
+                "MODELMAG": {
+                  "frame_pixels": {
+                    "n": 1248,
+                    "median_mas": [
+                      -19.63929577714589,
+                      -1.2762458970892112
+                    ],
+                    "radial_p68_mas": 21.55311333920289,
+                    "recentered_radial_p68_mas": 4.6096038105914845,
+                    "nmad_mas": [
+                      3.399146619299452,
+                      0.012865232387644936
+                    ]
+                  },
+                  "add_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -19.63929577714589,
+                      -1.2762458970892112
+                    ],
+                    "radial_p68_mas": 21.55311333920289,
+                    "recentered_radial_p68_mas": 4.6096038105914845,
+                    "nmad_mas": [
+                      3.399146619299452,
+                      0.012865232387644936
+                    ]
+                  },
+                  "subtract_frame_offset": {
+                    "n": 1248,
+                    "median_mas": [
+                      -19.63929577714589,
+                      -1.2762458970892112
+                    ],
+                    "radial_p68_mas": 21.55311333920289,
+                    "recentered_radial_p68_mas": 4.6096038105914845,
+                    "nmad_mas": [
+                      3.399146619299452,
+                      0.012865232387644936
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "slurm_job": "61556892",
+        "coefficient_precision_note": "A/D are actual float32 FITS 5E coefficients. Their half-ULP gives a possible constant great-circle-coordinate roundoff, not a target centroid error. Recentered residual is a diagnostic, not a new astrometric correction.",
+        "scope": "Position-only reconstruction from published row/column, optical-distortion/DCR and affine coefficients; compares exact published per-band angular offsets. No proper-motion truth, no extra astrometric correction. Scalar r errors are not cloned.",
+        "native_error_scope": "Centroid covariance assumes independent native row/column errors and fixed color; field MUERR/NUERR treated as great-circle coordinate errors in arcsec. Published r error ratios test the convention. Cross-band shared scan/calibration covariance and color-error propagation remain unverified.",
+        "adoption": "Not approved for joint fitting yet: centroid/WCS covariance, shared-scan errors, per-band detection flags and independent held-object validation still required."
+      }
+    }
+  },
+  "failures": [],
+  "slurm_job": "61556892",
+  "source_code_commit": "adf77a9814f825ff284d60c560d70d36d3c72b65"
+}

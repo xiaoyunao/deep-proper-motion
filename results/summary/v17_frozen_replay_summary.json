@@ -1,0 +1,10 @@
+{
+  "core": "north_two_00_00",
+  "all_nsc": 3223,
+  "r_control": 3013,
+  "compared_files": 4,
+  "all_scientific_fields_exact": true,
+  "fit_receipt_sha256": "e0a4c9cbdabd14feb97624473af14bfe8217f11675d1e6baf143bbf127b2aff5",
+  "slurm_job": "61576317",
+  "source_code_commit": "5251612889a9b18b7e3d230f32f74b7abdcf86c2"
+}

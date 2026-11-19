@@ -1,0 +1,58 @@
+{
+  "cores": 184,
+  "nominal_area_sqdeg": 168.24283746908753,
+  "windows": {
+    "a": 32,
+    "b": 48,
+    "north_one": 68,
+    "north_three": 36
+  },
+  "input_commit": "992c9f1dc810a31cfcbee10b6eb443dbe08c638a",
+  "geometry_sha256": {
+    "a": "f8d7af96deba2932502478f357796964fbd47aa17738371619c5bfb607224e25",
+    "b": "d74bc48ac4c2ffe23698942c6668bdc0e46a4223d73347bb9e7b17fdeb13c654",
+    "north_one": "6ee255e9000a0a87657383eae1727e1a0ae5869d3be5e3b20e2be6fcaa6ef763",
+    "north_three": "a1f1d5851ba38cf4d8c4e63dfe075a35e8eb144c9a46c552d32851aff50e19d7",
+    "north_two": "72fb9e420ce7632ae78e910112c0e84c8771ce6b924ac626caa88b876544e599"
+  },
+  "slurm_job": "61576317",
+  "graph": {
+    "a": {
+      "retained_groups": 1726,
+      "components": 1,
+      "reference_shards": 32
+    },
+    "b": {
+      "retained_groups": 1392,
+      "components": 1,
+      "reference_shards": 48
+    },
+    "north_one": {
+      "retained_groups": 942,
+      "components": 2,
+      "reference_shards": 68
+    },
+    "north_three": {
+      "retained_groups": 622,
+      "components": 1,
+      "reference_shards": 36
+    },
+    "north_two": {
+      "retained_groups": 1346,
+      "components": 1,
+      "reference_shards": 72
+    }
+  },
+  "supported_group_intersections": {
+    "a__b": 1,
+    "a__north_one": 0,
+    "a__north_three": 0,
+    "a__north_two": 0,
+    "b__north_one": 0,
+    "b__north_three": 0,
+    "b__north_two": 0,
+    "north_one__north_three": 131,
+    "north_one__north_two": 8,
+    "north_three__north_two": 3
+  }
+}

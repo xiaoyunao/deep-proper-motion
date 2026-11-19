@@ -26,11 +26,14 @@ def tap_rectangle(box, halo=0., alias=""):
             f"AND {alias}dec >= {south-halo:.9f} AND {alias}dec < {north+halo:.9f}")
 
 
-def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False):
+def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False):
     """Partition on archive positions, then verify every joined measurement count."""
     table="nsc_dr2.meas m JOIN nsc_dr2.object o ON m.objectid=o.id"
     select=",".join("m."+k for k in access.MEAS.split(","))
-    quality="" if all_objects else " AND o.ndetr>0 AND (o.rmag<24 OR o.nphotr=0 OR o.rmag IS NULL)"
+    r_selection="o.ndetr>0 AND (o.rmag<24 OR o.nphotr=0 OR o.rmag IS NULL)"
+    if complement_r and (service!="nsc" or all_objects):
+        raise ValueError("The r selection complement requires the native query service")
+    quality=f" AND (({r_selection}) IS NOT TRUE)" if complement_r else ("" if all_objects else " AND "+r_selection)
     lo,hi=np.asarray(box["ra"])+[-halo,halo]
     south,north=np.asarray(box["dec"])+[-halo,halo]
     partitions=[]

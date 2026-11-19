@@ -1,0 +1,83 @@
+{
+  "bootstrap_modes": {
+    "rejected_group_count": 212,
+    "marginal_se_p16_p50_p84_mas": [
+      [
+        36.00914316153794,
+        18.035285630593457
+      ],
+      [
+        36.228640100992884,
+        18.218859478770913
+      ],
+      [
+        36.37941002325546,
+        18.407985456707962
+      ]
+    ],
+    "cluster_median_common_translation_se_mas": [
+      36.18269933088394,
+      18.138890580237717
+    ],
+    "relative_to_cluster_translation_se_p16_p50_p84_mas": [
+      [
+        0.6051203934693572,
+        0.5990783538542696
+      ],
+      [
+        1.0172802671937533,
+        1.0072061880966872
+      ],
+      [
+        2.409067381950844,
+        2.4850225771774257
+      ]
+    ],
+    "cluster_translation_covariance_mas2": [
+      [
+        1309.1877308691492,
+        -300.83237614651233
+      ],
+      [
+        -300.83237614651233,
+        329.0193514818365
+      ]
+    ],
+    "scope": "Synchronous bootstrap decomposition only; subtracting a common translation here is diagnostic, not an adopted removal of absolute position uncertainty."
+  },
+  "rejected_training_reference_count": 40926,
+  "rejected_group_training_count_p16_p50_p84": [
+    813.0399999999997,
+    3541.5,
+    5376.68
+  ],
+  "connecting_reference_count": 509,
+  "connecting_reference_measurement_count": 185111,
+  "connecting_reference_groups": 1449,
+  "connecting_measurement_sigma_p16_p50_p84_mas": [
+    [
+      56.92198191384414,
+      61.216039614794674
+    ],
+    [
+      63.65629276827233,
+      67.34041627432964
+    ],
+    [
+      82.257586209419,
+      84.60533375621185
+    ]
+  ],
+  "connected_group_sizes_without_connecting_references": [
+    1730,
+    202
+  ],
+  "reference_deduplication": {
+    "candidate_rows": 14993216,
+    "conflicting_match_rows": 0,
+    "multiple_exposure_rows": 0,
+    "unique_rows": 12104746
+  },
+  "slurm_job": "61555295",
+  "scope": "All original training references and same model; no new data, no QSO tuning, no support restored. Counts show physical links between retained and SE-rejected subgraphs. Full reference covariance must be retained if support criteria are later tested."
+}

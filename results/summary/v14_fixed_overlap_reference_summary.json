@@ -1,0 +1,1387 @@
+{
+  "strips": {
+    "dec28_29": {
+      "original_independent_graphs": {
+        "unique_common_count": 331,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 331,
+          "median": [
+            0.013156625859100046,
+            -0.6967433739083875
+          ],
+          "nmad": [
+            0.4426294759054757,
+            1.1957597320375957
+          ],
+          "radial_abs_p68": 2.6241216217194427
+        },
+        "position_difference_mas": {
+          "n": 331,
+          "median": [
+            1.516090002990855,
+            -19.81024113415047
+          ],
+          "nmad": [
+            1.6513415905576159,
+            4.372272116423867
+          ],
+          "radial_abs_p68": 21.181551420757497
+        },
+        "by_r": {
+          "lt20": {
+            "n": 103,
+            "median": [
+              0.0033698068542333814,
+              -0.6304235889877701
+            ],
+            "nmad": [
+              0.5366281435305769,
+              1.0656850310539832
+            ],
+            "radial_abs_p68": 2.6808981104358915
+          },
+          "20_to_21": {
+            "n": 69,
+            "median": [
+              0.048615967987571285,
+              -0.8199270910622749
+            ],
+            "nmad": [
+              0.481365548951797,
+              1.8690323804637996
+            ],
+            "radial_abs_p68": 2.8076184583565937
+          },
+          "21_to_22": {
+            "n": 137,
+            "median": [
+              0.018144917222494783,
+              -0.6409156550805228
+            ],
+            "nmad": [
+              0.43773734806939396,
+              1.1146988498653718
+            ],
+            "radial_abs_p68": 2.4892650539585524
+          },
+          "22_to_23": {
+            "n": 22,
+            "median": [
+              -0.002573878888300518,
+              -0.7158740783476856
+            ],
+            "nmad": [
+              0.44820345576385584,
+              1.1274727510093459
+            ],
+            "radial_abs_p68": 2.012388698446034
+          }
+        },
+        "identical_detection_sets": 244,
+        "shared_detection_p16_p50_p84": [
+          4.0,
+          5.0,
+          5.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 244,
+          "median": [
+            -0.004474055812615063,
+            -0.1654064328513154
+          ],
+          "nmad": [
+            0.3819712981384075,
+            1.3168002188982113
+          ],
+          "radial_abs_p68": 2.5308779024619827
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 244,
+          "median": [
+            1.6353023423792137,
+            -20.18996330651175
+          ],
+          "nmad": [
+            1.2183670073175905,
+            3.7242296675753352
+          ],
+          "radial_abs_p68": 21.26518035787824
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 87,
+          "median": [
+            0.1097359961299823,
+            -0.9619332694705509
+          ],
+          "nmad": [
+            1.2634659429360284,
+            0.9023741830314587
+          ],
+          "radial_abs_p68": 3.3869951369745537
+        }
+      },
+      "joint_graph_fixed_members": {
+        "unique_common_count": 331,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 331,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "position_difference_mas": {
+          "n": 331,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "by_r": {
+          "lt20": {
+            "n": 103,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.013446467373448168,
+              0.00627948538956259
+            ],
+            "radial_abs_p68": 0.07041091478382493
+          },
+          "20_to_21": {
+            "n": 69,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.012196457155901789
+          },
+          "21_to_22": {
+            "n": 137,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "22_to_23": {
+            "n": 22,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          }
+        },
+        "identical_detection_sets": 244,
+        "shared_detection_p16_p50_p84": [
+          4.0,
+          5.0,
+          5.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 244,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 244,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 87,
+          "median": [
+            0.006768967330137876,
+            0.000345095046477617
+          ],
+          "nmad": [
+            0.053195297722934735,
+            0.05720822288231157
+          ],
+          "radial_abs_p68": 0.14085152611337096
+        }
+      },
+      "replay_counts": [
+        {
+          "original_source_count": 332,
+          "replayed_source_count": 332,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        },
+        {
+          "original_source_count": 336,
+          "replayed_source_count": 336,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        }
+      ]
+    },
+    "dec29_30": {
+      "original_independent_graphs": {
+        "unique_common_count": 113,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 113,
+          "median": [
+            -0.01869668985556494,
+            -0.35024006589830403
+          ],
+          "nmad": [
+            0.6830081109065848,
+            0.39003457735082603
+          ],
+          "radial_abs_p68": 0.8693270279788423
+        },
+        "position_difference_mas": {
+          "n": 113,
+          "median": [
+            0.13088396569146682,
+            -18.270518842692535
+          ],
+          "nmad": [
+            1.4854446183193084,
+            5.779851245611016
+          ],
+          "radial_abs_p68": 21.494888521170008
+        },
+        "by_r": {
+          "20_to_21": {
+            "n": 27,
+            "median": [
+              -0.059424181610623794,
+              -0.20213575400650186
+            ],
+            "nmad": [
+              0.7412739392753421,
+              0.3113087645599317
+            ],
+            "radial_abs_p68": 0.8355257796564836
+          },
+          "21_to_22": {
+            "n": 34,
+            "median": [
+              0.038375692627855784,
+              -0.3105045987722733
+            ],
+            "nmad": [
+              0.6007164780758453,
+              0.3539166307012998
+            ],
+            "radial_abs_p68": 0.9203122310870773
+          },
+          "lt20": {
+            "n": 40,
+            "median": [
+              0.19843190123830046,
+              -0.5533800609449855
+            ],
+            "nmad": [
+              0.4102794952062738,
+              0.5464699180256845
+            ],
+            "radial_abs_p68": 0.8232611560127263
+          },
+          "22_to_23": {
+            "n": 12,
+            "median": [
+              -0.05161473239081252,
+              -0.4111427074392946
+            ],
+            "nmad": [
+              0.7801395068531783,
+              0.5016772616470341
+            ],
+            "radial_abs_p68": 1.362302921907343
+          }
+        },
+        "identical_detection_sets": 113,
+        "shared_detection_p16_p50_p84": [
+          3.0,
+          4.0,
+          5.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 113,
+          "median": [
+            -0.01869668985556494,
+            -0.35024006589830403
+          ],
+          "nmad": [
+            0.6830081109065848,
+            0.39003457735082603
+          ],
+          "radial_abs_p68": 0.8693270279788423
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 113,
+          "median": [
+            0.13088396569146682,
+            -18.270518842692535
+          ],
+          "nmad": [
+            1.4854446183193084,
+            5.779851245611016
+          ],
+          "radial_abs_p68": 21.494888521170008
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "joint_graph_fixed_members": {
+        "unique_common_count": 113,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 113,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "position_difference_mas": {
+          "n": 113,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "by_r": {
+          "20_to_21": {
+            "n": 27,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "21_to_22": {
+            "n": 34,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "lt20": {
+            "n": 40,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "22_to_23": {
+            "n": 12,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          }
+        },
+        "identical_detection_sets": 113,
+        "shared_detection_p16_p50_p84": [
+          3.0,
+          4.0,
+          5.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 113,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 113,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "replay_counts": [
+        {
+          "original_source_count": 113,
+          "replayed_source_count": 113,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        },
+        {
+          "original_source_count": 113,
+          "replayed_source_count": 113,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        }
+      ]
+    },
+    "dec30_31": {
+      "original_independent_graphs": {
+        "unique_common_count": 145,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 145,
+          "median": [
+            -2.174209784110392,
+            -0.03931956852077789
+          ],
+          "nmad": [
+            0.18967825241217082,
+            0.3179021899014597
+          ],
+          "radial_abs_p68": 2.437644818760148
+        },
+        "position_difference_mas": {
+          "n": 145,
+          "median": [
+            7.490423292480599,
+            -0.566999770380653
+          ],
+          "nmad": [
+            0.6956815347078344,
+            2.091731318952517
+          ],
+          "radial_abs_p68": 8.244781462158809
+        },
+        "by_r": {
+          "lt20": {
+            "n": 74,
+            "median": [
+              -2.1685477513842337,
+              -0.1498733858126431
+            ],
+            "nmad": [
+              0.1703393191073024,
+              0.6520796487401862
+            ],
+            "radial_abs_p68": 2.5112783716634115
+          },
+          "20_to_21": {
+            "n": 55,
+            "median": [
+              -2.1782898747658637,
+              -0.010735359780747356
+            ],
+            "nmad": [
+              0.17011886591407074,
+              0.2595700904010221
+            ],
+            "radial_abs_p68": 2.42426038409628
+          },
+          "21_to_22": {
+            "n": 16,
+            "median": [
+              -2.20870280537725,
+              -0.0068673500283531475
+            ],
+            "nmad": [
+              0.2982500315695889,
+              0.18845735187777687
+            ],
+            "radial_abs_p68": 2.413213543875926
+          }
+        },
+        "identical_detection_sets": 145,
+        "shared_detection_p16_p50_p84": [
+          4.0,
+          5.0,
+          6.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 145,
+          "median": [
+            -2.174209784110392,
+            -0.03931956852077789
+          ],
+          "nmad": [
+            0.18967825241217082,
+            0.3179021899014597
+          ],
+          "radial_abs_p68": 2.437644818760148
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 145,
+          "median": [
+            7.490423292480599,
+            -0.566999770380653
+          ],
+          "nmad": [
+            0.6956815347078344,
+            2.091731318952517
+          ],
+          "radial_abs_p68": 8.244781462158809
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "joint_graph_fixed_members": {
+        "unique_common_count": 145,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 145,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "position_difference_mas": {
+          "n": 145,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "by_r": {
+          "lt20": {
+            "n": 74,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "20_to_21": {
+            "n": 55,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "21_to_22": {
+            "n": 16,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          }
+        },
+        "identical_detection_sets": 145,
+        "shared_detection_p16_p50_p84": [
+          4.0,
+          5.0,
+          6.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 145,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 145,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "replay_counts": [
+        {
+          "original_source_count": 145,
+          "replayed_source_count": 145,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        },
+        {
+          "original_source_count": 145,
+          "replayed_source_count": 145,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        }
+      ]
+    },
+    "dec31_32": {
+      "original_independent_graphs": {
+        "unique_common_count": 269,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 269,
+          "median": [
+            -1.1008066576509643,
+            -0.9208172846133076
+          ],
+          "nmad": [
+            1.1769081187487018,
+            1.2429509388121918
+          ],
+          "radial_abs_p68": 2.785888250167824
+        },
+        "position_difference_mas": {
+          "n": 269,
+          "median": [
+            -6.876306113101872,
+            4.1896155960039145
+          ],
+          "nmad": [
+            3.7044192398464117,
+            1.7125089644973697
+          ],
+          "radial_abs_p68": 9.89016180219751
+        },
+        "by_r": {
+          "21_to_22": {
+            "n": 73,
+            "median": [
+              -0.22502710207041154,
+              -0.6425902049784509
+            ],
+            "nmad": [
+              1.1102562466278136,
+              0.45743431125410067
+            ],
+            "radial_abs_p68": 1.5038390769443226
+          },
+          "lt20": {
+            "n": 118,
+            "median": [
+              -1.1379419123727361,
+              -0.9785378885330238
+            ],
+            "nmad": [
+              1.188971098473978,
+              1.5215717380661418
+            ],
+            "radial_abs_p68": 2.869406698493886
+          },
+          "20_to_21": {
+            "n": 76,
+            "median": [
+              -1.1411747963058156,
+              -0.9588000414024824
+            ],
+            "nmad": [
+              0.29863741774909247,
+              1.385255755271742
+            ],
+            "radial_abs_p68": 2.780429892719124
+          },
+          "22_to_23": {
+            "n": 2
+          }
+        },
+        "identical_detection_sets": 269,
+        "shared_detection_p16_p50_p84": [
+          5.0,
+          7.0,
+          7.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 269,
+          "median": [
+            -1.1008066576509643,
+            -0.9208172846133076
+          ],
+          "nmad": [
+            1.1769081187487018,
+            1.2429509388121918
+          ],
+          "radial_abs_p68": 2.785888250167824
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 269,
+          "median": [
+            -6.876306113101872,
+            4.1896155960039145
+          ],
+          "nmad": [
+            3.7044192398464117,
+            1.7125089644973697
+          ],
+          "radial_abs_p68": 9.89016180219751
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "joint_graph_fixed_members": {
+        "unique_common_count": 269,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 269,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "position_difference_mas": {
+          "n": 269,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "by_r": {
+          "21_to_22": {
+            "n": 73,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "lt20": {
+            "n": 118,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "20_to_21": {
+            "n": 76,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "22_to_23": {
+            "n": 2
+          }
+        },
+        "identical_detection_sets": 269,
+        "shared_detection_p16_p50_p84": [
+          5.0,
+          7.0,
+          7.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 269,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 269,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "replay_counts": [
+        {
+          "original_source_count": 269,
+          "replayed_source_count": 269,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        },
+        {
+          "original_source_count": 269,
+          "replayed_source_count": 269,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        }
+      ]
+    },
+    "dec32_33": {
+      "original_independent_graphs": {
+        "unique_common_count": 304,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 304,
+          "median": [
+            0.48175211408282625,
+            -1.3810087127528194
+          ],
+          "nmad": [
+            0.25638943655304836,
+            0.31497081425754486
+          ],
+          "radial_abs_p68": 1.5609655997499776
+        },
+        "position_difference_mas": {
+          "n": 304,
+          "median": [
+            -12.516284653333162,
+            8.955220789285965
+          ],
+          "nmad": [
+            1.7773616298362538,
+            6.405562183035096
+          ],
+          "radial_abs_p68": 17.876120340824194
+        },
+        "by_r": {
+          "lt20": {
+            "n": 115,
+            "median": [
+              0.5669276188602108,
+              -1.3754645457389882
+            ],
+            "nmad": [
+              0.20566601535945525,
+              0.29133091239911146
+            ],
+            "radial_abs_p68": 1.536680719182726
+          },
+          "20_to_21": {
+            "n": 67,
+            "median": [
+              0.48148106225895115,
+              -1.3792817222226676
+            ],
+            "nmad": [
+              0.24395864907886766,
+              0.3959322097956236
+            ],
+            "radial_abs_p68": 1.493373728481581
+          },
+          "21_to_22": {
+            "n": 108,
+            "median": [
+              0.44388369041758224,
+              -1.3926301067546045
+            ],
+            "nmad": [
+              0.3100351963368562,
+              0.28695702653581145
+            ],
+            "radial_abs_p68": 1.5703368377302875
+          },
+          "22_to_23": {
+            "n": 14,
+            "median": [
+              0.4605717942977141,
+              -1.451614634979375
+            ],
+            "nmad": [
+              0.24673451856421277,
+              0.22582969449919105
+            ],
+            "radial_abs_p68": 1.6242027859085655
+          }
+        },
+        "identical_detection_sets": 304,
+        "shared_detection_p16_p50_p84": [
+          5.0,
+          6.0,
+          7.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 304,
+          "median": [
+            0.48175211408282625,
+            -1.3810087127528194
+          ],
+          "nmad": [
+            0.25638943655304836,
+            0.31497081425754486
+          ],
+          "radial_abs_p68": 1.5609655997499776
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 304,
+          "median": [
+            -12.516284653333162,
+            8.955220789285965
+          ],
+          "nmad": [
+            1.7773616298362538,
+            6.405562183035096
+          ],
+          "radial_abs_p68": 17.876120340824194
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "joint_graph_fixed_members": {
+        "unique_common_count": 304,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 304,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "position_difference_mas": {
+          "n": 304,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "by_r": {
+          "lt20": {
+            "n": 115,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "20_to_21": {
+            "n": 67,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "21_to_22": {
+            "n": 108,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "22_to_23": {
+            "n": 14,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          }
+        },
+        "identical_detection_sets": 304,
+        "shared_detection_p16_p50_p84": [
+          5.0,
+          6.0,
+          7.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 304,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 304,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "replay_counts": [
+        {
+          "original_source_count": 305,
+          "replayed_source_count": 305,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        },
+        {
+          "original_source_count": 304,
+          "replayed_source_count": 304,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        }
+      ]
+    },
+    "dec33_34": {
+      "original_independent_graphs": {
+        "unique_common_count": 257,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 257,
+          "median": [
+            0.8991730611357927,
+            -0.21003738776839143
+          ],
+          "nmad": [
+            0.3733460813709632,
+            0.49377961187807695
+          ],
+          "radial_abs_p68": 1.4866672981554108
+        },
+        "position_difference_mas": {
+          "n": 257,
+          "median": [
+            -14.160160918092425,
+            13.28791943024266
+          ],
+          "nmad": [
+            3.2032398281254704,
+            3.685412459281109
+          ],
+          "radial_abs_p68": 19.91390579672206
+        },
+        "by_r": {
+          "lt20": {
+            "n": 117,
+            "median": [
+              0.9467658066590818,
+              0.08975776066238694
+            ],
+            "nmad": [
+              0.44530631784553326,
+              0.8872928012233356
+            ],
+            "radial_abs_p68": 1.4987276274649954
+          },
+          "20_to_21": {
+            "n": 75,
+            "median": [
+              0.9472181970021039,
+              -0.25777816239704165
+            ],
+            "nmad": [
+              0.25090293586512197,
+              0.3979160504569953
+            ],
+            "radial_abs_p68": 1.4499314646564332
+          },
+          "21_to_22": {
+            "n": 65,
+            "median": [
+              0.7777626466399481,
+              -0.24212606621932276
+            ],
+            "nmad": [
+              0.4159148216276691,
+              0.5150496543875197
+            ],
+            "radial_abs_p68": 1.3700368866819599
+          }
+        },
+        "identical_detection_sets": 257,
+        "shared_detection_p16_p50_p84": [
+          6.0,
+          7.0,
+          9.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 257,
+          "median": [
+            0.8991730611357927,
+            -0.21003738776839143
+          ],
+          "nmad": [
+            0.3733460813709632,
+            0.49377961187807695
+          ],
+          "radial_abs_p68": 1.4866672981554108
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 257,
+          "median": [
+            -14.160160918092425,
+            13.28791943024266
+          ],
+          "nmad": [
+            3.2032398281254704,
+            3.685412459281109
+          ],
+          "radial_abs_p68": 19.91390579672206
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "joint_graph_fixed_members": {
+        "unique_common_count": 257,
+        "position_pairs_without_shared_identity_support": 0,
+        "motion_difference_masyr": {
+          "n": 257,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "position_difference_mas": {
+          "n": 257,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "by_r": {
+          "lt20": {
+            "n": 117,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "20_to_21": {
+            "n": 75,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          },
+          "21_to_22": {
+            "n": 65,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "radial_abs_p68": 0.0
+          }
+        },
+        "identical_detection_sets": 257,
+        "shared_detection_p16_p50_p84": [
+          6.0,
+          7.0,
+          9.0
+        ],
+        "identical_detection_subset_motion_difference_masyr": {
+          "n": 257,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "identical_detection_subset_position_difference_mas": {
+          "n": 257,
+          "median": [
+            0.0,
+            0.0
+          ],
+          "nmad": [
+            0.0,
+            0.0
+          ],
+          "radial_abs_p68": 0.0
+        },
+        "changed_detection_subset_motion_difference_masyr": {
+          "n": 0
+        }
+      },
+      "replay_counts": [
+        {
+          "original_source_count": 257,
+          "replayed_source_count": 257,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        },
+        {
+          "original_source_count": 257,
+          "replayed_source_count": 257,
+          "missing_reference_group": 0,
+          "split_reference_gauge": 0
+        }
+      ]
+    }
+  },
+  "graph_sha256": "c66af1128d416361881beb3b38d1b26146e494d66aacfbdb269b9bbb84a1aaa3",
+  "slurm_job": "61555295",
+  "scope": "All original source members replayed without association or quality reselection. Identical detections in the same frame should agree by construction; this is a consistency check, not independent astrometric precision or absolute spatial-zero certification. Changed member sets reported separately; common reference errors are not divided by source count."
+}

@@ -100,7 +100,10 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     base=footprint(spec,halo)
     south,north=spec["dec"]
     lo,hi=south-halo-1e-7,north+halo+1e-7
-    query=base+" AND ndetr>0 AND (rmag<24 OR nphotr=0 OR rmag IS NULL)"
+    all_objects=settings.get("nsc_all_objects",False)
+    if all_objects and not (use_tap or native_join):
+        raise ValueError("All-band acquisition requires a count-checked join")
+    query=base if all_objects else base+" AND ndetr>0 AND (rmag<24 OR nphotr=0 OR rmag IS NULL)"
     columns="id AS objectid,ra,dec,pmra,pmdec,pmraerr,pmdecerr,deltamjd"+(" ,ndet" if use_tap or native_join else "")
     archive=access.checked_spatial(cache,route,columns,
                                    "nsc_dr2.object",query,lo,hi)
@@ -111,7 +114,7 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     archive.rename(columns={"objectid":"id"}).to_csv(work/"official_nsc.csv",index=False)
     if use_tap or native_join:
         nsc=tap_join(cache,archive,spec,halo,service=route,workers=settings.get("download_workers",3),
-                     native_cap=settings.get("native_row_cap",30000),native_window=native_window)
+                     native_cap=settings.get("native_row_cap",30000),native_window=native_window,all_objects=all_objects)
     else:
         nsc=access.fetch_measurements_for_objects(cache,ids,batch_size=250)
     returned=set(nsc.objectid.astype(str))
@@ -145,11 +148,18 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     standardize(work,{},center,radius,"object")
     method = ("tap_archive_join" if use_tap else "datalab_native_archive_join" if native_join
               else "datalab_object_index")
+    delivery={}
+    if all_objects:
+        normalized=pd.read_csv(work/"detections.csv",usecols=["detection_id","survey","band"],low_memory=False)
+        if normalized.detection_id.duplicated().any() or not normalized.loc[normalized.survey.eq("SDSS"),"band"].eq("r").all():
+            raise ValueError("Conflicting detection IDs or non-r SDSS astrometry")
+        delivery=dict(normalized_detections=len(normalized),sdss_r_measurements_preserved=int(normalized.survey.eq("SDSS").sum()),
+                      availability_of_historical_r_input=False,new_nsc_measures=None,all_nsc_object_selection=True)
     save_json(work/"acquisition_summary.json",dict(objects=len(ids),archive_objects_without_measures=len(missing),
         measurement_route=method,native_count_window=native_window,
         downloaded_nsc_measures=len(nsc),chip_metadata_entries=len(chips),
         sdss_measures=len(data),sdss_fields=nfiles,gaia_positions=len(gaia),elapsed_seconds=monotonic()-start,
-        peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024))
+        peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,**delivery))
 
 
 def main():

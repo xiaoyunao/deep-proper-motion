@@ -95,10 +95,10 @@ def run(state,geometry,output):
     blind_cohorts={}
     for kind in ('r_existing','extra_r_anchor','non_r_anchor'):
         for low in (21,22):
-            part=[r for r in blind if r['kind']==kind and low<=r['magnitude']<low+1];common=[r['values'] for r in part if {'blind_all','C0','NSC','Xiao'}<=r['values'].keys()]
+            part=[r for r in blind if r['kind']==kind and r['magnitude'] is not None and low<=r['magnitude']<low+1];common=[r['values'] for r in part if {'blind_all','C0','NSC','Xiao'}<=r['values'].keys()]
             blind_cohorts[kind+'__r'+str(low)]=dict(position_identified_qso=len(part),all_spectral=comparison([{'blind_all':r['values']['blind_all']} for r in part],SETTINGS),strict_published_common=comparison(common,SETTINGS,(('blind_all','Xiao'),('blind_all','NSC'),('blind_all','C0'))))
     result=dict(completed_cores=len(fits),planned_cores=len(plan['sources']),completed_nominal_core_area_sqdeg=sum(area(config['fields'][k]) for k in fits),frozen_nominal_area_sqdeg=plan['nominal_area_sqdeg'],
-        research_r_control_solutions=sum(v['owned_r_control'] for v in spatial.values()),research_all_nsc_solutions=sum(v['owned_all_nsc'] for v in spatial.values()),by_class=catalogue_classes,known_stationary=known_cohorts(known),blind_spectral=blind_cohorts,spatial=spatial,
+        research_r_control_solutions=sum(v['owned_r_control'] for v in spatial.values()),research_all_nsc_solutions=sum(v['owned_all_nsc'] for v in spatial.values()),spectral_matches_without_reference_r=sum(r['magnitude'] is None for r in blind),by_class=catalogue_classes,known_stationary=known_cohorts(known),blind_spectral=blind_cohorts,spatial=spatial,
         acquisition=dict(downloaded_nsc_measures_with_halo_overlap=sum(a['downloaded_nsc_measures'] for a in acquisitions),added_nsc_measures_with_halo_overlap=sum(a['new_nsc_measures'] for a in acquisitions),sdss_r_preserved_with_halo_overlap=sum(a['sdss_r_measurements_preserved'] for a in acquisitions),
             detections_by_measured_position_core_ownership=dict(core_input_counts),physically_qualified_supported_nsc_core_detections_by_band=dict(qualified_core_bands)),
         frozen_r_qso_same_exposures_replay=dict(n=len(replay),without_exact_old_exposure_identity=unmatched_old,maximum_abs_pm_change_masyr=float(np.max([abs(r['pm_delta']).max() for r in replay])) if replay else None,maximum_abs_error_change_masyr=float(np.max([abs(r['error_delta']).max() for r in replay])) if replay else None),

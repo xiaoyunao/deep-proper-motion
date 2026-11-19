@@ -150,7 +150,8 @@ def run(work,source,shared,spec,legacy):
         k=int(nearest[j])
         if claims[k]!=1:continue
         row=rows[j];members=row['index'];qm=lookup['all_nsc'].get(k)
-        blind.append(dict(kind=row['kind'],magnitude=float(qso.reference_r.iloc[k]),values={'blind_all':(row['fit']['pm_icrs_masyr'],row['fit']['pm_error_masyr'])},
+        spectral_r=float(qso.reference_r.iloc[k])
+        blind.append(dict(kind=row['kind'],magnitude=spectral_r if np.isfinite(spectral_r) else None,values={'blind_all':(row['fit']['pm_icrs_masyr'],row['fit']['pm_error_masyr'])},
             qso_local_index=k,source_slot=int(j),exposures=sorted(set(data.exposure_id.iloc[members])),nsc_epoch_days=sorted(set(night[members[nsc[members]]]))))
         if qm:
             blind[-1]['values'].update({m:(qm['motion'][m],qm['error_icrs'][m]) for m in ('C0','NSC','Xiao') if m in qm['motion']})
@@ -162,14 +163,14 @@ def run(work,source,shared,spec,legacy):
             byclass[f'{kind}__r{low}']=dict(research_fits=len(part),information=summarize_information([r['information'] for r in part]),
                 source_level_band_support=dict(Counter(b for r in part for b in set(data.band.iloc[r['index'][nsc[r['index']]]]))),
                 formal_error_p16_p50_p84=np.quantile([r['fit']['pm_error_masyr'] for r in part],[.16,.5,.84],axis=0) if part else None)
-            validation=[r for r in blind if r['kind']==kind and low<=r['magnitude']<low+1];common=[r['values'] for r in validation if {'blind_all','C0','NSC','Xiao'}<=r['values'].keys()]
+            validation=[r for r in blind if r['kind']==kind and r['magnitude'] is not None and low<=r['magnitude']<low+1];common=[r['values'] for r in validation if {'blind_all','C0','NSC','Xiao'}<=r['values'].keys()]
             blinds[f'{kind}__r{low}']=dict(position_identified_qso=len(validation),all_spectral=comparison([{'blind_all':r['values']['blind_all']} for r in validation],settings),
                 strict_published_common=comparison(common,settings,(('blind_all','Xiao'),('blind_all','NSC'),('blind_all','C0'))))
     positions=points;pix=hp.ang2pix(128,*positions.T,lonlat=True) if len(rows) else []
     summary=dict(owned_r_control=len(baseline),owned_all_nsc=len(rows),by_class=byclass,blind_spectral=blinds,known_stationary=known,funnel=funnel,
         source_level_band_support=dict(band_counts),nside128_output_counts=dict(Counter(map(str,pix))),
         input_detections=len(data),qualified_nsc_detected=int((physical_candidates(data)&nsc).sum()),qualified_supported_nsc_detected=int((physical_candidates(data)&nsc&support).sum()),
-        reference_gauge=gauge,elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,slurm_job=os.environ['SLURM_JOB_ID'],
+        spectral_matches_without_reference_r=sum(r['magnitude'] is None for r in blind),reference_gauge=gauge,elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Research catalogue only. SDSS published r positions for all real runs; every physically qualified NSC band eligible. Legacy-quality r control and physically filtered r control separate. Independent non-r route cannot include eligible NSC r or share a reserved detection. Same spectral objects compared; all private discovery frozen before spectral lookup. Full ICRS 4x4 and independent/reference tangent components retained. W0 diagonal+50mas does not certify nightly errors or local zero. Counts are research-usable solutions, not purity-certified stars or image completeness. No QSO or faint Gaia motion trains/chooses models; no DCR adopted.')
     check_aggregate(summary);save_json(work/'nsc_science_catalogue_summary.json',summary)
 

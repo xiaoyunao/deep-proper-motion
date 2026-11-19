@@ -127,8 +127,9 @@ def acquire(work, spec, settings, catalogues, sas, workers):
         if len(cache.checked(route,"objectid","nsc_dr2.meas",check)):
             raise ValueError("Object IDs absent from batches have published measurement rows")
     print(f"{len(missing):,} archive objects have no matching rows in meas",flush=True)
-    nsc.loc[inside(nsc.ra,nsc.dec,spec,halo)].to_csv(work/"nsc_object.csv",index=False)
-    chip_pad=halo+.35
+    in_halo=nsc.loc[inside(nsc.ra,nsc.dec,spec,halo)]
+    in_halo.to_csv(work/"nsc_object.csv",index=False)
+    chip_pad=halo+(.65 if all_objects else .35)
     chips=access.checked_spatial(cache,route,"exposure,ccdnum,instrument,airmass",
                                  "nsc_dr2.chip",footprint(spec,chip_pad),
                                  south-chip_pad-1e-7,north+chip_pad+1e-7)
@@ -157,7 +158,7 @@ def acquire(work, spec, settings, catalogues, sas, workers):
                       availability_of_historical_r_input=False,new_nsc_measures=None,all_nsc_object_selection=True)
     save_json(work/"acquisition_summary.json",dict(objects=len(ids),archive_objects_without_measures=len(missing),
         measurement_route=method,native_count_window=native_window,
-        downloaded_nsc_measures=len(nsc),chip_metadata_entries=len(chips),
+        downloaded_nsc_measures=len(in_halo) if all_objects else len(nsc),chip_metadata_entries=len(chips),
         sdss_measures=len(data),sdss_fields=nfiles,gaia_positions=len(gaia),elapsed_seconds=monotonic()-start,
         peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,**delivery))
 

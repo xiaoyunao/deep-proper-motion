@@ -129,6 +129,9 @@ def run(work,source,shared,spec,legacy):
         late=index[nsc[index]];shape=data.morphology.iloc[late].to_numpy(float);flags=[]
         if not np.isfinite(shape).all() or np.any((shape<0)|(shape>1)):flags.append('unknown_or_invalid_morphology')
         if details['nsc_seasons']<3:flags.append('fewer_than_three_nsc_seasons')
+        if spec.get('production_quality_tags',False):
+            if row['kind']=='non_r_anchor':flags.append('non_r_anchor_requires_identity_validation')
+            if max(details['largest_information_fraction']['physical_group'])>=.8:flags.append('one_group_supplies_at_least_80pct_leverage')
         flags.extend(['night_correlation_unqualified','spatial_zero_uncertified','identity_unconfirmed_outside_spectral_audit'])
         bands=sorted(set(data.band.iloc[late]));band_counts.update(bands)
         source_record=dict(kind=row['kind'],magnitude=mag if np.isfinite(mag) else None,magnitude_source=origin,reference_component=gauge,
@@ -172,6 +175,8 @@ def run(work,source,shared,spec,legacy):
         input_detections=len(data),qualified_nsc_detected=int((physical_candidates(data)&nsc).sum()),qualified_supported_nsc_detected=int((physical_candidates(data)&nsc&support).sum()),
         spectral_matches_without_reference_r=sum(r['magnitude'] is None for r in blind),reference_gauge=gauge,elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Research catalogue only. SDSS published r positions for all real runs; every physically qualified NSC band eligible. Legacy-quality r control and physically filtered r control separate. Independent non-r route cannot include eligible NSC r or share a reserved detection. Same spectral objects compared; all private discovery frozen before spectral lookup. Full ICRS 4x4 and independent/reference tangent components retained. W0 diagonal+50mas does not certify nightly errors or local zero. Counts are research-usable solutions, not purity-certified stars or image completeness. No QSO or faint Gaia motion trains/chooses models; no DCR adopted.')
+    if spec.get('production_quality_tags',False):
+        summary['reference_component_core_detection_counts']={str(key):int(n) for key,n in votes.items()}
     check_aggregate(summary);save_json(work/'nsc_science_catalogue_summary.json',summary)
 
 
@@ -183,7 +188,10 @@ def main():
     a.work.mkdir(parents=True,exist_ok=True);bind(a.work,'source_receipt.json',verify_directory(a.source,('detections.csv','spectra_union.csv','external_labels.csv','official_nsc.csv')))
     bind(a.work,'reference_receipt.json',verify_directory(a.shared,('private_c0.npz',)));bind(a.work,'geometry.toml',a.geometry);bind(a.work,'legacy.csv',a.legacy);bind(a.work,'production.toml',SPATIAL)
     with run_stage(a.work,PRECISION,a.region,'nsc-science-catalogue-v15',inputs=('source_receipt.json','reference_receipt.json','geometry.toml','legacy.csv','production.toml'),outputs=('nsc_science_catalogue_summary.json','private_standard_motion.json.gz','private_r_control.json.gz','private_known_qso_blocks.json','private_blind_qso.json')) as go:
-        if go:run(a.work,a.source,a.shared,tomllib.loads(a.geometry.read_text())['fields'][a.region],a.legacy)
+        if go:
+            geometry=tomllib.loads(a.geometry.read_text())
+            spec=dict(geometry['fields'][a.region],production_quality_tags=geometry.get('production_quality_tags',False))
+            run(a.work,a.source,a.shared,spec,a.legacy)
 
 
 if __name__=='__main__':main()

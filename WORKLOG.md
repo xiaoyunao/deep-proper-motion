@@ -2,6 +2,8 @@
 
 ## 2026-11-19
 
+- 新增全band库存与真实SDSS逐场探针：库存不按滤光片名称删样本，分别报告原生位置/时间、SNR、致命标志、形态去混叠提示及原参考支持，不把候选当合格天测。探针读取实际photoObj/photoField的TAI、offset、逐band质心误差和WCS数组，核对原r坐标/时刻；其他SDSS band在误差传播与留出验证前不采用。源码审阅确认原参考星系可含全部NSC band，而旧追加候选仅g/i/z，不能混淆“已标定”与“已入源拟合”。预先排除按目录object r<24索引产生的潜在发现选择偏差，后续曝光路线须单独审计。py_compile及未知band/高SNR缺误差/饱和保护测试通过；真实计算待Slurm。
+
 - 从干净且与origin同步的5fba219建立experiment-a-v1.4-allband-astrometry，恢复git/WORKLOG/PLAN并阅读v1.2/v1.3报告、方法审计和主运行调用。NERSC BatchMode认证有效，主workspace继续PScratch。新八步PLAN保留原计划快照，更新PROJECT_CONTEXT；目标为真正全band而非旧g/i/z扩展，先共同物理组参考和A筛除前原因，再科学消融。旧north_two已打开的事实不变。尚无本轮真实结果，下一步Slurm库存／联合图／筛除追踪及SDSS实测。
 
 ## 2026-11-18

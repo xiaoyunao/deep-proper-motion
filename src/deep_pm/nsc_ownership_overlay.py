@@ -30,6 +30,11 @@ def record_hash(record):
     return hashlib.sha256(json.dumps(record,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
 
 
+def active_specs(config,fits):
+    # Configuration also contains alternative pilots/child boxes not in the run.
+    return {core:config['fields'][core] for core in fits}
+
+
 def transfer(record,origin,slot,specs,filename=STANDARD):
     if inside(*record['position_deg'],specs[origin]):return None
     owners=[core for core,spec in specs.items() if inside(*record['position_deg'],spec)]
@@ -55,14 +60,14 @@ def owned_records(state,owner,filename=STANDARD):
 
 
 def run(work,state,base_summary,audit,geometry):
-    specs=tomllib.loads(geometry.read_text())['fields'];fits=json.loads((state/'fits.json').read_text());result=json.loads(base_summary.read_text());bad=json.loads((audit/'private_ownership_failures.json').read_text());proof=json.loads((audit/'ownership_failure_summary.json').read_text())
+    fits=json.loads((state/'fits.json').read_text());specs=active_specs(tomllib.loads(geometry.read_text()),fits);result=json.loads(base_summary.read_text());bad=json.loads((audit/'private_ownership_failures.json').read_text());proof=json.loads((audit/'ownership_failure_summary.json').read_text())
     if proof['source_manifest_sha256']!=digest(state/'fits.json'):raise ValueError('Ownership audit binds a different source index')
     if result['ownership']['cross_core_shared_detection_claims'] or result['ownership']['outside_common_epoch_owner']!=proof['outside_by_type'][STANDARD]:raise ValueError('Base ownership audit does not match')
     moves=[]
     for row in bad:
         move=transfer(row['record'],row['core'],row['slot'],specs,row['file'])
         if move is None:raise ValueError('Recorded ownership failure was not outside its anchor core')
-        if row['common_epoch_owners']!=[move['owner_core']]:raise ValueError('Frozen owner geometry changed')
+        if [core for core in row['common_epoch_owners'] if core in fits]!=[move['owner_core']]:raise ValueError('Frozen owner geometry changed')
         moves.append(move)
     affected_set={r[k] for r in moves for k in ('origin_core','owner_core')}
     for row in bad:

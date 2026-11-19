@@ -38,3 +38,11 @@ def test_owned_reader_is_exclusive_and_detects_changed_member(tmp_path,monkeypat
     row['detection_ids']=['different:physical']
     with gzip.open(tmp_path/'a'/STANDARD,'wt') as stream:json.dump([row],stream)
     with pytest.raises(ValueError):list(owned_records(tmp_path,'b'))
+
+
+def test_alternative_pilot_boxes_are_not_output_owners():
+    from deep_pm.nsc_ownership_overlay import active_specs
+    config=dict(fields=dict(SPECS,alternative_b=SPECS['b']))
+    specs=active_specs(config,dict(a='signed:a',b='signed:b'))
+    assert set(specs)=={'a','b'}
+    assert transfer(dict(position_deg=[.1,0.]),'a',0,specs)['owner_core']=='b'

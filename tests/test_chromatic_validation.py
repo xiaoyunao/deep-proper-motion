@@ -16,3 +16,11 @@ def test_reference_color_and_group_covariance_remain_synchronous(tmp_path):
     np.testing.assert_allclose(offset['NSC:g'][0],[25.,-10.])
     np.testing.assert_allclose(offset['NSC:g'][1],0,atol=1e-14)
     np.testing.assert_allclose(offset['SDSS:r'][0],0)
+
+
+def test_serialized_projection_center_matches_reference_tuple(tmp_path):
+    from deep_pm.continuous_reference import reference_frame
+    path=tmp_path/'reference.npz'
+    np.savez(path,projection_center_deg=[188.,33.])
+    assert tuple(reference_frame(path))==tuple([188.,33.])
+    assert tuple(reference_frame(path))!=tuple([188.,34.])

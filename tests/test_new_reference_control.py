@@ -15,3 +15,14 @@ def test_stationary_control_records_without_claiming_a_blind_catalogue():
     assert len(blocks)==1 and blocks[0]['blind_track_ids']=={'C0':None}
     assert result['totals']['strict']==1
     assert result['totals']['blind_both_models']==0
+
+
+def test_paired_control_excludes_new_objects_and_freezes_r_benchmark():
+    from deep_pm.new_reference_control import fixed_pairs
+    settings=dict(min_publish_count=5,tail_masyr=5,seed=1,bootstrap_draws=20)
+    def record(k,pm):return dict(validation_local_index=k,magnitude=21.5,motion={'C0':np.array(pm)},error_icrs={'C0':np.ones(2)})
+    before=[record(k,[1,1]) for k in range(5)]
+    after=[record(k,[1,1]) for k in range(5)]+[record(k,[1000,1000]) for k in range(5,20)]
+    result=fixed_pairs(dict(r_only=before,all_nsc=after),settings)['r21']['fixed_r_source']
+    assert result['n']==5
+    np.testing.assert_allclose(result['methods']['all_nsc']['radial_abs68'],np.sqrt(2))

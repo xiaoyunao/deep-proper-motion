@@ -23,6 +23,23 @@ from .public_summary import check_aggregate
 from .regional_validation import official_table
 
 
+def fixed_pairs(restored,settings):
+    indexed={name:{r['validation_local_index']:r for r in rows} for name,rows in restored.items()}
+    if any(len(indexed[name])!=len(rows) for name,rows in restored.items()):raise ValueError('Repeated stationary validation identity')
+    output={}
+    for low in (21,22):
+        paired=[];published=[]
+        for key in sorted(indexed['r_only'].keys()&indexed['all_nsc'].keys()):
+            a,b=indexed['r_only'][key],indexed['all_nsc'][key]
+            if not low<=a['magnitude']<low+1:continue
+            row=dict(r_only=(a['motion']['C0'],a['error_icrs']['C0']),all_nsc=(b['motion']['C0'],b['error_icrs']['C0']))
+            paired.append(row)
+            if {'NSC','Xiao'}<=a['motion'].keys():published.append(dict(row,**{k:(a['motion'][k],a['error_icrs'][k]) for k in ('NSC','Xiao')}))
+        output['r'+str(low)]=dict(fixed_r_source=comparison(paired,settings,(('all_nsc','r_only'),)),
+            fixed_r_published_common=comparison(published,settings,(('all_nsc','r_only'),('all_nsc','Xiao'),('r_only','Xiao'))))
+    return output
+
+
 def run(work,source,shared,spec,legacy):
     config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text());settings.update(bootstrap_draws=400,bootstrap_absolute_zero=True)
     graph=shared/'private_c0.npz';center=reference_frame(graph);solution,gauges=read_offsets(graph,with_gauge=True)
@@ -32,18 +49,18 @@ def run(work,source,shared,spec,legacy):
     qso=pd.read_csv(source/'spectra_union.csv');qso=qso.loc[inside(qso.ra,qso.dec,spec)].reset_index(drop=True);points=project(qso.ra,qso.dec,center)
     labels=pd.read_csv(source/'external_labels.csv',dtype=str).set_index('detection_id').original_object_id
     official=(labels,official_table(source,{}));archive=pd.read_csv(legacy);archive=archive.loc[inside(archive.RA,archive.DEC,spec,.06)];old,_=matched_legacy(archive,points,center)
-    magnitude=qso.reference_r.to_numpy();zero=np.zeros((len(qso),2));models={};private={}
+    magnitude=qso.reference_r.to_numpy();zero=np.zeros((len(qso),2));models={};private={};converted={}
     for name,mask in [('r_only',keep),('all_nsc',keep|(nsc&physical_candidates(data)))]:
         lab,truth=qso_matches(data,xy,mask,points);blocks=[]
         contrast_samples(truth,lab,data,xy,time,sigma,mask,nsc,settings,config,(keys,),(solution,),center,magnitude,qso.origin.to_numpy(),zero,zero,official,old,[],{"C0":{}},blocks)
         private[name]=blocks
-        restored=[standard_block(r,center) for r in blocks]
+        restored=[standard_block(r,center) for r in blocks];converted[name]=restored
         models[name]={}
         for low in (21,22):
             sample=[r for r in restored if low<=r['magnitude']<low+1];common=[r for r in sample if {'C0','NSC','Xiao'}<=r['motion'].keys()]
             models[name]['r'+str(low)]=dict(known_stationary_sources=len(sample),strict_common=comparison([{k:(r['motion'][k],r['error_icrs'][k]) for k in ('C0','NSC','Xiao')} for r in common],settings,(('C0','Xiao'),('C0','NSC'))))
-    result=dict(models=models,reference_gauge=gauge,slurm_job=os.environ['SLURM_JOB_ID'],
-        scope='Known stationary spectral positions; no target proper motions used in associations or fits. All original pre-SE reference draws retained. Separate r/all samples until paired by physical identity. C0 here denotes an experimental high-SE support sensitivity, not the frozen adopted graph or blind-source accuracy.',
+    result=dict(models=models,fixed_r_paired=fixed_pairs(converted,settings),reference_gauge=gauge,slurm_job=os.environ['SLURM_JOB_ID'],
+        scope='Known stationary spectral positions; no target proper motions used in associations or fits. All original pre-SE reference draws retained. Per-input cohorts are descriptive; fixed_r_paired uses explicit identical validation indices and freezes published NSC/Xiao benchmarks from the r input. C0 here denotes an experimental high-SE support sensitivity, not the frozen adopted graph or blind-source accuracy.',
         adoption='not_adopted_pending_reference_and_held_source_validation')
     check_aggregate(result);save_json(work/'new_reference_control_summary.json',result);save_json(work/'private_known_qso_blocks.json',private)
 

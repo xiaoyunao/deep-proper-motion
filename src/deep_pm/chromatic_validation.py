@@ -91,7 +91,7 @@ def year_trial(work,trial,model_path):
         save_json(work/'chromatic_year_summary.json',dict(status=info['status']));save_json(work/'private_chromatic_held.json',[]);return
     model=read_model(model_path);config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text())
     source=(trial/'source_receipt.json').resolve().parent;graph=(trial/'reference_receipt.json').resolve().parent/'private_c0.npz'
-    if reference_frame(graph)!=model['center']:raise ValueError('Held-year trial requires the same reference coordinate basis')
+    if tuple(reference_frame(graph))!=tuple(model['center']):raise ValueError('Held-year trial requires the same reference coordinate basis')
     data,xy,time,sigma,keep=quality_detections(source,model['center'],config,settings['production']);keys=calibration_groups(data);lookup=pd.Index(data.detection_id)
     year=utc_year(data.observation_time.to_numpy());nsc=data.survey.eq('NSC').to_numpy()
     training=json.loads((trial/'private_training.json').read_text());held=json.loads((trial/'private_held.json').read_text());held_by_source={}

@@ -38,6 +38,14 @@ def test_held_target_positions_cannot_change_allband_or_nonr_training(tmp_path,m
     assert all(2015 not in r['training_years'] for r in training[0])
     assert training[0]==training[1]
 
+    import pytest
+    invalid=tmp_path/'invalid_year';invalid.mkdir()
+    with pytest.raises(ValueError,match='Frozen held year'):
+        module.run(invalid,source,tmp_path/'graph',spec,held_year_override=2010)
+    forced=tmp_path/'frozen_year';forced.mkdir()
+    module.run(forced,source,tmp_path/'graph',spec,held_year_override=2015)
+    assert json.loads((forced/'private_training.json').read_text())==training[1]
+
     # Membership is a position/detection identity test, even for a catastrophically wrong PM.
     from deep_pm import allband_member_audit as membership
     trial=tmp_path/'1';saved=json.loads((trial/'private_training.json').read_text());saved[0]['pm_icrs_masyr']=[1000.,-1000.]

@@ -40,7 +40,7 @@ def r_magnitude(index,data,nsc):
     return (float(np.median(data.magnitude.iloc[early])),'SDSS_r') if len(early) else (np.nan,'unavailable')
 
 
-def run(work,source,shared,spec):
+def run(work,source,shared,spec,held_year_override=None):
     config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text());prod=settings['production']
     graph=shared/'private_c0.npz';center=reference_frame(graph);solution,gauges=read_offsets(graph,with_gauge=True)
     data,xy,time,sigma,keep=quality_detections(source,center,config,prod);nsc=data.survey.eq('NSC').to_numpy();keys=calibration_groups(data)
@@ -49,6 +49,10 @@ def run(work,source,shared,spec):
     gauge=min(votes.index,key=lambda k:(-votes[k],k)) if len(votes) else None
     solution={k:v for k,v in solution.items() if gauges[k]==gauge};support=calibration_support(keys,solution)
     year,held_year=choose_year(time,visit,nsc,nsc&physical&support)
+    if held_year_override is not None:
+        if held_year_override not in set(year[nsc&physical&support]):
+            raise ValueError('Frozen held year has no physically qualified calibrated detections')
+        held_year=int(held_year_override)
     if held_year is None:
         save_json(work/'allband_blind_year_summary.json',dict(status='insufficient_calibrated_years',distinct_years=len(set(year[nsc&physical&support])),reference_gauge=gauge));save_json(work/'private_training.json',[]);save_json(work/'private_held.json',[]);return
     held=nsc&(year==held_year);train_r=keep&~held
@@ -143,7 +147,7 @@ def run(work,source,shared,spec):
     result.update(by_class=cohorts,spectral_zero={k:dict(n=len(v),median_masyr=np.median(v,axis=0),nmad_masyr=1.4826*np.median(abs(np.asarray(v)-np.median(v,axis=0)),axis=0)) for k,v in stationary.items()},
         shared_held_claims_rejected=claims,
         scope='Whole held year excluded from every target band before association. Frozen r-anchor additions and independent no-NSC-r anchor route separated; non-r r magnitudes come from actual SDSS r and are labelled. All bands eligible by physical quality; object IDs never enter training association. One-to-one 1arcsec held matches and four displaced-position controls. Conditional residuals are not absolute dark-star PM truth.',
-        limitations='Candidate counts only, not adopted reliable stars. Unknown identities/blends are not successes; native W0 shared-night errors are uncalibrated. Footprints of qualified exposures do not prove a faint target had sufficient SNR. Original object-index r acquisition selection remains. No adopted full catalogue until independent source/error/zero validation.')
+        limitations='Candidate counts only, not adopted reliable stars. Unknown identities/blends are not successes; native W0 shared-night errors are uncalibrated. Footprints of qualified exposures do not prove a faint target had sufficient SNR. Object-centroid/halo retrieval selection remains; the source acquisition receipt identifies whether the historical r-object cut was removed. No adopted full catalogue until independent source/error/zero validation.')
     check_aggregate(result);save_json(work/'allband_blind_year_summary.json',result)
 
 
@@ -155,14 +159,21 @@ def project_qso(qso,center):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('work','source','shared','geometry'):p.add_argument(name,type=Path)
-    p.add_argument('region');a=p.parse_args()
+    p.add_argument('region');p.add_argument('--held-year',type=int,help='Preserve a previously frozen metadata-selected test year across acquisition routes');a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
     a.work.mkdir(parents=True,exist_ok=True)
     bind(a.work,'source_receipt.json',verify_directory(a.source,('detections.csv','spectra_union.csv')))
     bind(a.work,'reference_receipt.json',verify_directory(a.shared,('private_c0.npz',)))
     bind(a.work,'production_config.toml',SPATIAL);bind(a.work,'geometry_config.toml',a.geometry)
-    with run_stage(a.work,PRECISION,a.region,'allband-blind-year-v14',inputs=('source_receipt.json','reference_receipt.json','production_config.toml','geometry_config.toml'),outputs=('allband_blind_year_summary.json','private_training.json','private_held.json')) as go:
-        if go:run(a.work,a.source,a.shared,tomllib.loads(a.geometry.read_text())['fields'][a.region])
+    inputs=['source_receipt.json','reference_receipt.json','production_config.toml','geometry_config.toml']
+    if a.held_year is not None:
+        option=a.work/'held_year_options.json';expected=dict(held_year=a.held_year)
+        import json
+        if option.exists() and json.loads(option.read_text())!=expected:raise ValueError('Frozen held year changed')
+        if not option.exists():save_json(option,expected)
+        inputs.append('held_year_options.json')
+    with run_stage(a.work,PRECISION,a.region,'allband-blind-year-v14',inputs=tuple(inputs),outputs=('allband_blind_year_summary.json','private_training.json','private_held.json')) as go:
+        if go:run(a.work,a.source,a.shared,tomllib.loads(a.geometry.read_text())['fields'][a.region],a.held_year)
 
 
 if __name__=='__main__':main()

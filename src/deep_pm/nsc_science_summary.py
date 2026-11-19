@@ -11,7 +11,8 @@ import pandas as pd
 
 from .__main__ import tomllib
 from .continuous_ownership import close_pairs
-from .continuous_reference import verify_directory
+from .continuous_reference import verify_directory,read_offsets
+from .allband_qso import physical_candidates
 from .continuous_summary import area,estimate
 from .exposure_catalogues import inside
 from .independent_summary import standard_block
@@ -43,13 +44,19 @@ def known_cohorts(rows):
 def run(state,geometry,output):
     config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']);graph=original/'shared/private_c0.npz';graph_hash=digest(graph)
     if graph_hash!=plan['reference_sha256']:raise ValueError('Frozen common graph changed')
-    known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0
+    supported_groups=frozenset(read_offsets(graph))
+    known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0;core_input_counts=Counter();qualified_core_bands=Counter()
     for core,folder in fits.items():
         folder=Path(folder);receipt=verify_directory(folder,('nsc_science_catalogue_summary.json','private_standard_motion.json.gz','private_known_qso_blocks.json','private_blind_qso.json'))
         ref=(folder/'reference_receipt.json').resolve().parent/'private_c0.npz'
         if digest(ref)!=graph_hash:raise ValueError('Mixed reference frames in the continuous catalogue')
         receipts[core]=digest(receipt);summary=json.loads((folder/'nsc_science_catalogue_summary.json').read_text());spatial[core]=dict(geometry=config['fields'][core],**summary)
         source=(folder/'source_receipt.json').resolve().parent;acq=json.loads((source/'acquisition_summary.json').read_text());acquisitions.append(acq)
+        columns=['survey','band','exposure_id','ra_deg','dec_deg','observation_time','sigma_east_mas','sigma_north_mas','magnitude','magnitude_error','quality_flags']
+        for chunk in pd.read_csv(source/'detections.csv',usecols=columns,chunksize=250000):
+            on_core=inside(chunk.ra_deg,chunk.dec_deg,config['fields'][core]);core_input_counts.update(chunk.loc[on_core,'survey'])
+            qualified=on_core&chunk.survey.eq('NSC')&physical_candidates(chunk)&chunk.exposure_id.isin(supported_groups)
+            qualified_core_bands.update(chunk.loc[qualified,'band'])
         with gzip.open(folder/'private_standard_motion.json.gz','rt') as stream:records=json.load(stream)
         if len(records)!=summary['owned_all_nsc']:raise ValueError('Catalogue count differs from signed summary')
         points=[]
@@ -92,7 +99,8 @@ def run(state,geometry,output):
             blind_cohorts[kind+'__r'+str(low)]=dict(position_identified_qso=len(part),all_spectral=comparison([{'blind_all':r['values']['blind_all']} for r in part],SETTINGS),strict_published_common=comparison(common,SETTINGS,(('blind_all','Xiao'),('blind_all','NSC'),('blind_all','C0'))))
     result=dict(completed_cores=len(fits),planned_cores=len(plan['sources']),completed_nominal_core_area_sqdeg=sum(area(config['fields'][k]) for k in fits),frozen_nominal_area_sqdeg=plan['nominal_area_sqdeg'],
         research_r_control_solutions=sum(v['owned_r_control'] for v in spatial.values()),research_all_nsc_solutions=sum(v['owned_all_nsc'] for v in spatial.values()),by_class=catalogue_classes,known_stationary=known_cohorts(known),blind_spectral=blind_cohorts,spatial=spatial,
-        acquisition=dict(downloaded_nsc_measures_with_halo_overlap=sum(a['downloaded_nsc_measures'] for a in acquisitions),added_nsc_measures_with_halo_overlap=sum(a['new_nsc_measures'] for a in acquisitions),sdss_r_preserved_with_halo_overlap=sum(a['sdss_r_measurements_preserved'] for a in acquisitions)),
+        acquisition=dict(downloaded_nsc_measures_with_halo_overlap=sum(a['downloaded_nsc_measures'] for a in acquisitions),added_nsc_measures_with_halo_overlap=sum(a['new_nsc_measures'] for a in acquisitions),sdss_r_preserved_with_halo_overlap=sum(a['sdss_r_measurements_preserved'] for a in acquisitions),
+            detections_by_measured_position_core_ownership=dict(core_input_counts),physically_qualified_supported_nsc_core_detections_by_band=dict(qualified_core_bands)),
         frozen_r_qso_same_exposures_replay=dict(n=len(replay),without_exact_old_exposure_identity=unmatched_old,maximum_abs_pm_change_masyr=float(np.max([abs(r['pm_delta']).max() for r in replay])) if replay else None,maximum_abs_error_change_masyr=float(np.max([abs(r['error_delta']).max() for r in replay])) if replay else None),
         ownership=ownership,reference_graph_sha256=graph_hash,fit_receipt_sha256=receipts,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Pooled individual vectors on strict common spectral objects, original half-open C cores and one frozen physical reference graph. Source yields are provisional research fits; unknown identity/night correlation/spatial zero remain flagged. Nominal core area is not qualified faint-target exposure area or certified area. Same-exposure frozen r replay is conditional on position identity, not PM similarity. Object-bootstrap intervals and physical-observation sensitivity do not replace calibration of spatial systematics. Counts with halo overlap are explicitly not unique detections.')

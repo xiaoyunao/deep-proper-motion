@@ -51,6 +51,9 @@ def acquire(work,parent,spec,config,workers,exposure_audit=None):
     data=data.sort_values(['observation_time','detection_id']).reset_index(drop=True);data.to_csv(work/'detections.csv',index=False);label_table.to_csv(work/'external_labels.csv',index=False)
     for relative in ('sdss.csv','spectra_union.csv','spectra_veto.csv','validation/gaia.csv'):
         target=work/relative;target.parent.mkdir(parents=True,exist_ok=True);origin=(parent/relative).resolve()
+        if not origin.exists():
+            if relative=='sdss.csv':continue
+            raise ValueError('Missing frozen ancillary input '+relative)
         if target.is_symlink() and target.resolve()!=origin:raise ValueError('Frozen ancillary alias changed')
         if not target.exists():target.symlink_to(origin)
     expected=old.loc[old.survey.eq('NSC')&inside(old.ra_deg,old.dec_deg,spec,halo)].copy();actual=late.set_index('detection_id');missing=set(expected.detection_id)-set(actual.index)
@@ -66,7 +69,7 @@ def acquire(work,parent,spec,config,workers,exposure_audit=None):
         if absent:raise ValueError('All-object retrieval failed the independent complete exposure-cell comparison')
         audit=dict(exposure_measurements=len(truth),recovered=len(truth),missing=0,audit_receipt_sha256=digest(exposure_audit/'run_manifest.json'))
     result=dict(retrieval_objects=len(objects),downloaded_nsc_measures=len(nsc),old_nsc_measures_in_halo=len(expected),new_nsc_measures=len(late)-len(expected),
-        normalized_detections=len(data),sdss_r_measurements_preserved=len(early),by_nsc_band=dict(Counter(late.band)),chip_metadata_entries=len(chips),
+        normalized_detections=len(data),sdss_r_measurements_preserved=len(early),raw_sdss_photometry_available=(parent/'sdss.csv').is_file(),by_nsc_band=dict(Counter(late.band)),chip_metadata_entries=len(chips),
         exposure_cell_comparison=audit,elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='All NSC object-centroid aliases in the declared core+halo, no ndetr/rmag/nphotr/filter cut; count-checked meas join and physical-ID dedup. Original SDSS r detections preserved exactly including every physical run. Object labels go only to separate auxiliary labels, not association input. Source identities still require blind association. Halo/object-centroid selection and published-measurement extraction limits remain; actual exposure-cell comparison is separate from image completeness.')
     check_aggregate(result);save_json(work/'acquisition_summary.json',result)
@@ -81,8 +84,9 @@ def main():
     # raw photometry file. Preserve those signed positions and bind today's raw
     # file separately; do not imply a historical checksum that never existed.
     a.work.mkdir(parents=True,exist_ok=True);bind(a.work,'parent_receipt.json',verify_directory(a.parent,FILES));bind(a.work,'geometry.toml',a.geometry)
-    bind(a.work,'parent_sdss.csv',a.parent/'sdss.csv')
-    inputs=['parent_receipt.json','geometry.toml','parent_sdss.csv']
+    inputs=['parent_receipt.json','geometry.toml']
+    if (a.parent/'sdss.csv').is_file():
+        bind(a.work,'parent_sdss.csv',a.parent/'sdss.csv');inputs.append('parent_sdss.csv')
     if a.exposure_audit:bind(a.work,'exposure_audit_receipt.json',verify_directory(a.exposure_audit,('private_exposure_detections.csv.gz','nsc_exposure_complete_summary.json')));inputs.append('exposure_audit_receipt.json')
     expected=dict(all_nsc_objects=True,sdss_positions='frozen_r_only',workers=a.workers);options=a.work/'options.json'
     if options.exists() and json.loads(options.read_text())!=expected:raise ValueError('Changed all-object acquisition options')

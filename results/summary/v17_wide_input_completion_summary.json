@@ -1,0 +1,10 @@
+{
+  "cores": 748,
+  "region_count": 10,
+  "planned_cores": 748,
+  "failures": {},
+  "verified_cache_cores": 736,
+  "slurm_job": "61596120",
+  "code_commit": "1baee96dbc53e829e8acfc75966aacbf0b6985b6",
+  "scope": "Counted full NSC input and frozen C0 reference shards, including scoped cache retries."
+}

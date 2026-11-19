@@ -16,7 +16,7 @@ import pandas as pd
 
 from .__main__ import tomllib
 from .astrometry import project
-from .continuous_reference import bind,verify_directory
+from .continuous_reference import bind,common_reference_frame,verify_directory
 from .io import digest,save_json
 from .provenance import run_stage
 from .public_summary import check_aggregate
@@ -32,6 +32,16 @@ def reproject(frame,center):
     if identity_split(frame)!=identity_split(out):raise ValueError('Physical reference identities or split changed')
     np.testing.assert_array_equal(frame[['sigma_e','sigma_n']],out[['sigma_e','sigma_n']])
     return out
+
+
+def source_projection(frame,metadata):
+    center=common_reference_frame([metadata])
+    if 'projection_center_deg' not in metadata:
+        # v1.2 used a fixed center and recorded only the projected coordinates.
+        original=project(frame.ra_deg,frame.dec_deg,center)
+        if not np.allclose(original,frame[['east','north']],rtol=0,atol=1e-4):
+            raise ValueError('Stored legacy coordinates disagree with the v1.2 projection')
+    return center
 
 
 def prepare(work,state,boxes,center,workers):
@@ -57,7 +67,7 @@ def prepare(work,state,boxes,center,workers):
                 frame=pd.read_csv(source/'reference.csv.gz',dtype={'reference':str,'is_holdout':bool})
                 converted=reproject(frame,center);converted.to_csv(target/'reference.csv.gz',index=False)
                 meta=json.loads((source/'reference_summary.json').read_text())
-                original_center=meta['projection_center_deg']
+                original_center=list(source_projection(frame,meta))
                 meta.update(projection_center_deg=list(center),original_projection_center_deg=original_center,
                     preserved_identity_split_sha256=identity_split(frame),original_reference_receipt_sha256=digest(receipt),
                     original_native_plane_error_approximation_unchanged=True)

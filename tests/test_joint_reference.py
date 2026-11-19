@@ -3,10 +3,11 @@ from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from deep_pm.astrometry import project
 from deep_pm.continuous_reference import solve,read_offsets
-from deep_pm.joint_reference import reproject,identity_split
+from deep_pm.joint_reference import reproject,identity_split,source_projection
 
 
 def test_reprojection_keeps_raw_measurement_identity_split_and_errors():
@@ -16,6 +17,15 @@ def test_reprojection_keeps_raw_measurement_identity_split_and_errors():
     assert identity_split(converted)==identity_split(rows)
     np.testing.assert_allclose(converted[['east','north']],project(rows.ra_deg,rows.dec_deg,(188.,33.)))
     assert rows.east.tolist()==[1.,2.]
+
+
+def test_legacy_reference_projection_requires_consistent_archived_coordinates():
+    frame=pd.DataFrame(dict(ra_deg=[345.,355.],dec_deg=[-2.,1.]))
+    frame[['east','north']]=project(frame.ra_deg,frame.dec_deg,(350.,0.))
+    assert source_projection(frame,{})==(350.,0.)
+    frame.loc[0,'east']+=.01
+    with pytest.raises(ValueError,match='legacy coordinates'):
+        source_projection(frame,{})
 
 
 def test_group_trace_saves_se_rejection_without_changing_retained_offsets(tmp_path):

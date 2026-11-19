@@ -1,0 +1,82 @@
+{
+  "frozen_science_commit": "5fba219",
+  "branch": "experiment-a-v1.4-allband-astrometry",
+  "frozen_continuous_area_sqdeg": 99.873,
+  "inventory_core_count": 184,
+  "inventory_detection_count": 109297678,
+  "joint_reference_qso_replay_core_count": 104,
+  "joint_reference_retained_groups": 1436,
+  "joint_reference_gauges": 2,
+  "fixed_member_overlap_pair_count": 1332,
+  "adopted_model": "frozen_C0_W0_r_only",
+  "new_allband_model_adopted": false,
+  "complete_100deg_multiband_catalogue_started": false,
+  "decision": "Real multiband information gains; do not freeze or expand production until new-source zero, identity and shared-error qualification pass.",
+  "measured_gains": {
+    "b_fixed_stellar_prediction_r21": {
+      "n": 211,
+      "relative_p68_gain": 0.1567409241532013,
+      "conditional_object95": [
+        0.07913412584705218,
+        0.22252674841197992
+      ]
+    },
+    "b_fixed_stellar_prediction_r22": {
+      "n": 77,
+      "relative_p68_gain": 0.1902611724877189,
+      "conditional_object95": [
+        0.018028820747870995,
+        0.26330928766179645
+      ]
+    },
+    "metadata_selected_b_qso_r21": {
+      "n": 83,
+      "r_p68_masyr": 5.345377137101264,
+      "allband_p68_masyr": 4.396196987830841,
+      "conditional_object95_gain": [
+        0.049066756765388686,
+        0.2816763477436619
+      ]
+    }
+  },
+  "blocked_adoption_evidence": [
+    "No consistent field-wide QSO precision gain",
+    "Error-learning model worsens northern QSO zero and coverage",
+    "Joint color model improves held positions but not added-source absolute PM zero",
+    "Historical r-based object acquisition loses physically qualified non-r measurements",
+    "SDSS non-r shared scan covariance and independent centroid quality not qualified",
+    "A common reference mode and independent graph gauges remain unadopted"
+  ],
+  "run_receipts": [
+    {
+      "job": "61557533",
+      "state": "FAILED",
+      "elapsed_seconds": 401,
+      "scope": "Two-node joint color model; retained two annual interface failures",
+      "maximum_observed_step_rss_kib": 17785376
+    },
+    {
+      "job": "61557949",
+      "state": "COMPLETED",
+      "elapsed_seconds": 44,
+      "scope": "Annual interface recovery and exact A paired control"
+    },
+    {
+      "job": "61558069",
+      "state": "COMPLETED",
+      "elapsed_seconds": 25,
+      "scope": "Frozen blind-source color-model zero test"
+    }
+  ],
+  "uncertainty_scope": "Object bootstrap is conditional; shared reference group errors are not divided by source count. Missing Slurm RSS samples are not zero-memory claims.",
+  "next_research": [
+    "Physical residual-color/DCR and color-uncertainty qualification",
+    "SDSS all-band centroid and shared-calibration error qualification",
+    "Exposure-route non-r retrieval and candidate audit"
+  ],
+  "reports": [
+    "reports/experiment_A_v1.4_allband.md",
+    "docs/method_status_v14.md",
+    "PLAN.md"
+  ]
+}

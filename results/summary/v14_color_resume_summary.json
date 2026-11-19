@@ -1,0 +1,3361 @@
+{
+  "trials": {
+    "year/north_one_00_00": {
+      "status": "completed",
+      "year": 2018,
+      "cohorts": {
+        "r_existing__r20": {
+          "source_count": 439,
+          "held_positions": 1932,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 56.71715166744411,
+              "position_radial_p68_mas": 62.309355307539114,
+              "position_median_mas": [
+                4.301037579774857,
+                3.511747813783586
+              ],
+              "position_nmad_mas": [
+                27.65655953708589,
+                47.34045841918252
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 1865,
+                  "denominator": 1932,
+                  "value": 0.9653209109730849,
+                  "wilson95": [
+                    0.9561949211650347,
+                    0.9726001471539036
+                  ]
+                },
+                {
+                  "n": 1664,
+                  "denominator": 1932,
+                  "value": 0.8612836438923396,
+                  "wilson95": [
+                    0.8451525386356052,
+                    0.8759808959435037
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 46.953536743563944,
+              "position_radial_p68_mas": 52.49240167696355,
+              "position_median_mas": [
+                4.3605859987437725,
+                -0.21406484209001064
+              ],
+              "position_nmad_mas": [
+                27.58530358849391,
+                40.03019823260307
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 1866,
+                  "denominator": 1932,
+                  "value": 0.9658385093167702,
+                  "wilson95": [
+                    0.9567698835360369,
+                    0.9730583272393186
+                  ]
+                },
+                {
+                  "n": 1829,
+                  "denominator": 1932,
+                  "value": 0.9466873706004141,
+                  "wilson95": [
+                    0.9357541543850719,
+                    0.9558477855028521
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.1721457202422335,
+          "object_bootstrap_gain95": [
+            0.13192730927206292,
+            0.21578460602764651
+          ]
+        },
+        "r_existing__r21": {
+          "source_count": 140,
+          "held_positions": 619,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 68.3837262739501,
+              "position_radial_p68_mas": 75.40554739615597,
+              "position_median_mas": [
+                4.679846275597811,
+                0.8155042584985495
+              ],
+              "position_nmad_mas": [
+                34.441035223992166,
+                56.15123702811822
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 603,
+                  "denominator": 619,
+                  "value": 0.9741518578352181,
+                  "wilson95": [
+                    0.9584269451287637,
+                    0.9840279792936448
+                  ]
+                },
+                {
+                  "n": 560,
+                  "denominator": 619,
+                  "value": 0.9046849757673667,
+                  "wilson95": [
+                    0.8789927904398347,
+                    0.9253852626021188
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 57.98991493798817,
+              "position_radial_p68_mas": 64.96735404988887,
+              "position_median_mas": [
+                4.417391408234835,
+                0.25476099736988544
+              ],
+              "position_nmad_mas": [
+                34.487924374924596,
+                46.809046679579836
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 603,
+                  "denominator": 619,
+                  "value": 0.9741518578352181,
+                  "wilson95": [
+                    0.9584269451287637,
+                    0.9840279792936448
+                  ]
+                },
+                {
+                  "n": 583,
+                  "denominator": 619,
+                  "value": 0.9418416801292407,
+                  "wilson95": [
+                    0.9205352752259535,
+                    0.957697848554383
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.15199246812499778,
+          "object_bootstrap_gain95": [
+            0.07353484200688361,
+            0.21123992971054856
+          ]
+        },
+        "r_existing__r22": {
+          "source_count": 7,
+          "held_positions": 32,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 93.73829948822447,
+              "position_radial_p68_mas": 96.92336056173465,
+              "position_median_mas": [
+                15.951295601204038,
+                -27.142003479413688
+              ],
+              "position_nmad_mas": [
+                51.02520354974046,
+                58.35598873637561
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 31,
+                  "denominator": 32,
+                  "value": 0.96875,
+                  "wilson95": [
+                    0.8425573617998744,
+                    0.9944621398359969
+                  ]
+                },
+                {
+                  "n": 28,
+                  "denominator": 32,
+                  "value": 0.875,
+                  "wilson95": [
+                    0.7193169451834978,
+                    0.9502986561251991
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 89.7554836183248,
+              "position_radial_p68_mas": 89.77121025033041,
+              "position_median_mas": [
+                15.944960847496986,
+                -25.34289343189448
+              ],
+              "position_nmad_mas": [
+                50.766867965379724,
+                59.94743535769321
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 31,
+                  "denominator": 32,
+                  "value": 0.96875,
+                  "wilson95": [
+                    0.8425573617998744,
+                    0.9944621398359969
+                  ]
+                },
+                {
+                  "n": 30,
+                  "denominator": 32,
+                  "value": 0.9375,
+                  "wilson95": [
+                    0.7985287685584542,
+                    0.982689432968359
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.04248867209715057,
+          "object_bootstrap_gain95": [
+            -0.01306199495685445,
+            0.18272483393662875
+          ]
+        },
+        "extra_r_anchor__r20": {
+          "source_count": 198,
+          "held_positions": 936,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 59.25063279301297,
+              "position_radial_p68_mas": 66.30984158724142,
+              "position_median_mas": [
+                -1.1805954948067665,
+                -2.714880005456507
+              ],
+              "position_nmad_mas": [
+                28.75251183057837,
+                52.213499130636265
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 913,
+                  "denominator": 936,
+                  "value": 0.9754273504273504,
+                  "wilson95": [
+                    0.963397234445923,
+                    0.9835709926386378
+                  ]
+                },
+                {
+                  "n": 793,
+                  "denominator": 936,
+                  "value": 0.8472222222222222,
+                  "wilson95": [
+                    0.8227581112788485,
+                    0.8688478972660554
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 49.68457999589331,
+              "position_radial_p68_mas": 53.830829171975985,
+              "position_median_mas": [
+                -0.8429895844310522,
+                -4.499015938490629
+              ],
+              "position_nmad_mas": [
+                28.657200157232207,
+                40.52745152217708
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 914,
+                  "denominator": 936,
+                  "value": 0.9764957264957265,
+                  "wilson95": [
+                    0.9646685863828377,
+                    0.9844276591895535
+                  ]
+                },
+                {
+                  "n": 880,
+                  "denominator": 936,
+                  "value": 0.9401709401709402,
+                  "wilson95": [
+                    0.9231026134752396,
+                    0.9536410035109155
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.1614506435827926,
+          "object_bootstrap_gain95": [
+            0.11019876807054084,
+            0.22292992690999924
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "source_count": 504,
+          "held_positions": 2195,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 79.41566807924801,
+              "position_radial_p68_mas": 88.86236328524107,
+              "position_median_mas": [
+                2.8011531606316566,
+                5.6254714373499155
+              ],
+              "position_nmad_mas": [
+                47.63310130981654,
+                62.90251824746467
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 2081,
+                  "denominator": 2195,
+                  "value": 0.9480637813211845,
+                  "wilson95": [
+                    0.9379732114418046,
+                    0.9565887826070806
+                  ]
+                },
+                {
+                  "n": 1944,
+                  "denominator": 2195,
+                  "value": 0.8856492027334852,
+                  "wilson95": [
+                    0.8716568768683916,
+                    0.898294041242825
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 72.03457256980441,
+              "position_radial_p68_mas": 81.60639803688782,
+              "position_median_mas": [
+                2.9023698903620243,
+                4.227912215515971
+              ],
+              "position_nmad_mas": [
+                47.60504164121747,
+                57.31639221498593
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 2078,
+                  "denominator": 2195,
+                  "value": 0.9466970387243736,
+                  "wilson95": [
+                    0.936494985964647,
+                    0.9553382983921725
+                  ]
+                },
+                {
+                  "n": 2033,
+                  "denominator": 2195,
+                  "value": 0.9261958997722096,
+                  "wilson95": [
+                    0.9144979296593265,
+                    0.9364047093165069
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.09294256017689206,
+          "object_bootstrap_gain95": [
+            0.057326562242713694,
+            0.12998673963237903
+          ]
+        },
+        "extra_r_anchor__r22": {
+          "source_count": 327,
+          "held_positions": 1226,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 92.84473518581993,
+              "position_radial_p68_mas": 102.20327269115366,
+              "position_median_mas": [
+                7.592906724661589,
+                3.086185530759394
+              ],
+              "position_nmad_mas": [
+                58.32601040514596,
+                69.4148409623444
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 1153,
+                  "denominator": 1226,
+                  "value": 0.9404567699836868,
+                  "wilson95": [
+                    0.9257842098413698,
+                    0.9523777615688489
+                  ]
+                },
+                {
+                  "n": 1110,
+                  "denominator": 1226,
+                  "value": 0.9053833605220228,
+                  "wilson95": [
+                    0.8877104450104594,
+                    0.9205238138615381
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 89.90693988711341,
+              "position_radial_p68_mas": 98.30483829893564,
+              "position_median_mas": [
+                7.571197217330337,
+                4.850628293119371
+              ],
+              "position_nmad_mas": [
+                58.06813928717449,
+                67.35732061747703
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 1154,
+                  "denominator": 1226,
+                  "value": 0.9412724306688418,
+                  "wilson95": [
+                    0.9266817997964462,
+                    0.9531063974867545
+                  ]
+                },
+                {
+                  "n": 1122,
+                  "denominator": 1226,
+                  "value": 0.9151712887438825,
+                  "wilson95": [
+                    0.8982485175251093,
+                    0.9295004518226709
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.031642023565760624,
+          "object_bootstrap_gain95": [
+            -0.010924177863477784,
+            0.060406783803228545
+          ]
+        },
+        "non_r_anchor__r20": {
+          "source_count": 13,
+          "held_positions": 55,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 63.06754561545584,
+              "position_radial_p68_mas": 70.43744004079328,
+              "position_median_mas": [
+                -0.6604968085885048,
+                -17.795201690867543
+              ],
+              "position_nmad_mas": [
+                27.69036082104966,
+                44.61276600951925
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 53,
+                  "denominator": 55,
+                  "value": 0.9636363636363636,
+                  "wilson95": [
+                    0.8767653602534898,
+                    0.9899704587106665
+                  ]
+                },
+                {
+                  "n": 48,
+                  "denominator": 55,
+                  "value": 0.8727272727272727,
+                  "wilson95": [
+                    0.7598297234409093,
+                    0.9369578957263536
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 50.45640201629589,
+              "position_radial_p68_mas": 55.541029349948694,
+              "position_median_mas": [
+                -0.7138322331011295,
+                -15.41406661644578
+              ],
+              "position_nmad_mas": [
+                27.7400085030131,
+                42.11261098378748
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 53,
+                  "denominator": 55,
+                  "value": 0.9636363636363636,
+                  "wilson95": [
+                    0.8767653602534898,
+                    0.9899704587106665
+                  ]
+                },
+                {
+                  "n": 52,
+                  "denominator": 55,
+                  "value": 0.9454545454545454,
+                  "wilson95": [
+                    0.8514693945594621,
+                    0.9812767844453155
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.19996249221516182,
+          "object_bootstrap_gain95": [
+            -0.002054742473074578,
+            0.3199589720427226
+          ]
+        },
+        "non_r_anchor__r21": {
+          "source_count": 65,
+          "held_positions": 303,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 78.95150821979043,
+              "position_radial_p68_mas": 86.4523629720296,
+              "position_median_mas": [
+                -3.8578035570681095,
+                6.271466340869665
+              ],
+              "position_nmad_mas": [
+                42.323343485511835,
+                60.433233280654996
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 296,
+                  "denominator": 303,
+                  "value": 0.976897689768977,
+                  "wilson95": [
+                    0.9530893356434523,
+                    0.9887651357527357
+                  ]
+                },
+                {
+                  "n": 266,
+                  "denominator": 303,
+                  "value": 0.8778877887788779,
+                  "wilson95": [
+                    0.8362181797065407,
+                    0.9100955709845562
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 72.94673092203807,
+              "position_radial_p68_mas": 81.75525193805817,
+              "position_median_mas": [
+                -3.588041979819536,
+                6.771053358912468
+              ],
+              "position_nmad_mas": [
+                42.42911448683962,
+                53.88655037567205
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 297,
+                  "denominator": 303,
+                  "value": 0.9801980198019802,
+                  "wilson95": [
+                    0.9574787506092445,
+                    0.9908937448104463
+                  ]
+                },
+                {
+                  "n": 275,
+                  "denominator": 303,
+                  "value": 0.9075907590759076,
+                  "wilson95": [
+                    0.8696850226295388,
+                    0.9352909442730853
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.0760565242279585,
+          "object_bootstrap_gain95": [
+            -0.005865196879621021,
+            0.14615474025181144
+          ]
+        },
+        "non_r_anchor__r22": {
+          "source_count": 77,
+          "held_positions": 273,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 96.57751434242776,
+              "position_radial_p68_mas": 99.68994162043286,
+              "position_median_mas": [
+                -0.14313268661499023,
+                15.77747568488121
+              ],
+              "position_nmad_mas": [
+                58.34121611899808,
+                67.7916192409426
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 252,
+                  "denominator": 273,
+                  "value": 0.9230769230769231,
+                  "wilson95": [
+                    0.8852728653740555,
+                    0.9491397294158569
+                  ]
+                },
+                {
+                  "n": 248,
+                  "denominator": 273,
+                  "value": 0.9084249084249084,
+                  "wilson95": [
+                    0.8683126769312953,
+                    0.9372025119784467
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 95.47096549653544,
+              "position_radial_p68_mas": 94.92171299575978,
+              "position_median_mas": [
+                0.3669855110347271,
+                6.484068671241403
+              ],
+              "position_nmad_mas": [
+                58.203681752825524,
+                63.84997242895849
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 253,
+                  "denominator": 273,
+                  "value": 0.9267399267399268,
+                  "wilson95": [
+                    0.8895590902513955,
+                    0.9520778560085594
+                  ]
+                },
+                {
+                  "n": 252,
+                  "denominator": 273,
+                  "value": 0.9230769230769231,
+                  "wilson95": [
+                    0.8852728653740555,
+                    0.9491397294158569
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.011457623996916189,
+          "object_bootstrap_gain95": [
+            -0.03303320928434062,
+            0.11806984859366021
+          ]
+        }
+      },
+      "exits": {},
+      "model_sha256": "7db6f3814a9fa881fb92e4271f2f8254601f5a21a7933834b1557866f8475b9d",
+      "slurm_job": "61557949",
+      "scope": "Exactly frozen training target identities and same C0-gated held physical detections. New reference corrections applied coherently to training and held measurements with synchronous group/color-bootstrap covariance. No held target fitted or used to tune coefficients. Predictive comparison only, not rerun end-to-end blind association. Conditional fixed-color uncertainty; no production adoption."
+    },
+    "year/north_three_00_00": {
+      "status": "completed",
+      "year": 2018,
+      "cohorts": {
+        "r_existing__r20": {
+          "source_count": 40,
+          "held_positions": 200,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 47.76659506575775,
+              "position_radial_p68_mas": 52.13019355854501,
+              "position_median_mas": [
+                3.64335384676815,
+                4.691813051700592
+              ],
+              "position_nmad_mas": [
+                26.42765021121436,
+                43.11492006943691
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 199,
+                  "denominator": 200,
+                  "value": 0.995,
+                  "wilson95": [
+                    0.9722262956021069,
+                    0.9991168312843989
+                  ]
+                },
+                {
+                  "n": 187,
+                  "denominator": 200,
+                  "value": 0.935,
+                  "wilson95": [
+                    0.8919809207009312,
+                    0.961623645350847
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 43.1894694354949,
+              "position_radial_p68_mas": 47.215606718775604,
+              "position_median_mas": [
+                3.4444849587453064,
+                -2.6671773213893175
+              ],
+              "position_nmad_mas": [
+                26.113593250917788,
+                35.434226110063676
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 198,
+                  "denominator": 200,
+                  "value": 0.99,
+                  "wilson95": [
+                    0.9642782382838231,
+                    0.9972533418664555
+                  ]
+                },
+                {
+                  "n": 195,
+                  "denominator": 200,
+                  "value": 0.975,
+                  "wilson95": [
+                    0.942821659593358,
+                    0.9892752803482386
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.09582273184768064,
+          "object_bootstrap_gain95": [
+            0.015518798272137741,
+            0.2099101673464606
+          ]
+        },
+        "r_existing__r21": {
+          "source_count": 2,
+          "held_positions": 9,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 100.19700919260103,
+              "position_radial_p68_mas": 79.68497138493277,
+              "position_median_mas": [
+                24.864857103675604,
+                -16.009308071807027
+              ],
+              "position_nmad_mas": [
+                16.818247991752624,
+                22.594904477645827
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 8,
+                  "denominator": 9,
+                  "value": 0.8888888888888888,
+                  "wilson95": [
+                    0.5650002944233439,
+                    0.9801091123614551
+                  ]
+                },
+                {
+                  "n": 7,
+                  "denominator": 9,
+                  "value": 0.7777777777777778,
+                  "wilson95": [
+                    0.45258896910698887,
+                    0.9367748928821533
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 91.12643941141732,
+              "position_radial_p68_mas": 71.10560383265138,
+              "position_median_mas": [
+                25.176031111273915,
+                -24.418254245072603
+              ],
+              "position_nmad_mas": [
+                16.837253615211043,
+                39.26325750904642
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 8,
+                  "denominator": 9,
+                  "value": 0.8888888888888888,
+                  "wilson95": [
+                    0.5650002944233439,
+                    0.9801091123614551
+                  ]
+                },
+                {
+                  "n": 8,
+                  "denominator": 9,
+                  "value": 0.8888888888888888,
+                  "wilson95": [
+                    0.5650002944233439,
+                    0.9801091123614551
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.0905273506093186,
+          "object_bootstrap_gain95": [
+            0.08912417709476916,
+            0.0990374654062176
+          ]
+        },
+        "r_existing__r22": {
+          "source_count": 0,
+          "held_positions": 0
+        },
+        "extra_r_anchor__r20": {
+          "source_count": 298,
+          "held_positions": 1415,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 52.459644552235055,
+              "position_radial_p68_mas": 59.187947235043616,
+              "position_median_mas": [
+                4.273577657295391,
+                3.0340048260986805
+              ],
+              "position_nmad_mas": [
+                31.767978920268078,
+                43.16646861303001
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 1358,
+                  "denominator": 1415,
+                  "value": 0.9597173144876325,
+                  "wilson95": [
+                    0.9481663563160468,
+                    0.9687789386722735
+                  ]
+                },
+                {
+                  "n": 1282,
+                  "denominator": 1415,
+                  "value": 0.9060070671378092,
+                  "wilson95": [
+                    0.889683789104841,
+                    0.9201318480524072
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 48.272534174392106,
+              "position_radial_p68_mas": 52.81690483393936,
+              "position_median_mas": [
+                4.187830523820594,
+                -2.176036234945059
+              ],
+              "position_nmad_mas": [
+                31.822049844427966,
+                38.644655378869544
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 1356,
+                  "denominator": 1415,
+                  "value": 0.958303886925795,
+                  "wilson95": [
+                    0.9465881619763977,
+                    0.9675379314900522
+                  ]
+                },
+                {
+                  "n": 1345,
+                  "denominator": 1415,
+                  "value": 0.950530035335689,
+                  "wilson95": [
+                    0.9379612330610985,
+                    0.9606592520350647
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.0798158358407054,
+          "object_bootstrap_gain95": [
+            0.02606021966004982,
+            0.11985390798089056
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "source_count": 789,
+          "held_positions": 3753,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 69.19878097658419,
+              "position_radial_p68_mas": 77.40697275590968,
+              "position_median_mas": [
+                1.793129134533956,
+                5.4214563481509686
+              ],
+              "position_nmad_mas": [
+                41.84858363823124,
+                56.59897705454975
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 3617,
+                  "denominator": 3753,
+                  "value": 0.9637623234745537,
+                  "wilson95": [
+                    0.9572934509613175,
+                    0.9692827802040819
+                  ]
+                },
+                {
+                  "n": 3447,
+                  "denominator": 3753,
+                  "value": 0.9184652278177458,
+                  "wilson95": [
+                    0.9092762494222527,
+                    0.9267984251225675
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 65.44361005257583,
+              "position_radial_p68_mas": 72.45409716441236,
+              "position_median_mas": [
+                1.9310477164108306,
+                2.9876869060099125
+              ],
+              "position_nmad_mas": [
+                41.87110807843809,
+                50.852458118876065
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 3617,
+                  "denominator": 3753,
+                  "value": 0.9637623234745537,
+                  "wilson95": [
+                    0.9572934509613175,
+                    0.9692827802040819
+                  ]
+                },
+                {
+                  "n": 3540,
+                  "denominator": 3753,
+                  "value": 0.9432454036770583,
+                  "wilson95": [
+                    0.9353797060922775,
+                    0.9502046435449771
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.054266431734961484,
+          "object_bootstrap_gain95": [
+            0.017797896715497426,
+            0.07997249651740408
+          ]
+        },
+        "extra_r_anchor__r22": {
+          "source_count": 132,
+          "held_positions": 595,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 93.44104016097361,
+              "position_radial_p68_mas": 100.07074207988572,
+              "position_median_mas": [
+                2.618005615193397,
+                1.0700200907886028
+              ],
+              "position_nmad_mas": [
+                54.274404712712716,
+                76.11313437083736
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 570,
+                  "denominator": 595,
+                  "value": 0.957983193277311,
+                  "wilson95": [
+                    0.9387101839358893,
+                    0.9713804451819998
+                  ]
+                },
+                {
+                  "n": 538,
+                  "denominator": 595,
+                  "value": 0.9042016806722689,
+                  "wilson95": [
+                    0.8778942277279075,
+                    0.9253233733834773
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 89.05691326825026,
+              "position_radial_p68_mas": 98.0660032475314,
+              "position_median_mas": [
+                2.537854004651308,
+                -0.5502250455319881
+              ],
+              "position_nmad_mas": [
+                54.27830000190493,
+                66.2177599657327
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 570,
+                  "denominator": 595,
+                  "value": 0.957983193277311,
+                  "wilson95": [
+                    0.9387101839358893,
+                    0.9713804451819998
+                  ]
+                },
+                {
+                  "n": 551,
+                  "denominator": 595,
+                  "value": 0.9260504201680673,
+                  "wilson95": [
+                    0.9021806184774632,
+                    0.944454150261564
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.046918643940293214,
+          "object_bootstrap_gain95": [
+            -0.015544481661406852,
+            0.1032150779953387
+          ]
+        },
+        "non_r_anchor__r20": {
+          "source_count": 65,
+          "held_positions": 358,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 50.525846018483634,
+              "position_radial_p68_mas": 63.21337566516476,
+              "position_median_mas": [
+                -0.36213108233641833,
+                1.6468761786818504
+              ],
+              "position_nmad_mas": [
+                28.589567255319327,
+                47.25956812621336
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 344,
+                  "denominator": 358,
+                  "value": 0.9608938547486033,
+                  "wilson95": [
+                    0.9354369313534666,
+                    0.9765646979665369
+                  ]
+                },
+                {
+                  "n": 320,
+                  "denominator": 358,
+                  "value": 0.8938547486033519,
+                  "wilson95": [
+                    0.8576616713598592,
+                    0.9216851755135983
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 44.753295040759184,
+              "position_radial_p68_mas": 53.16428507787921,
+              "position_median_mas": [
+                -0.424090234329924,
+                -1.5763187073171139
+              ],
+              "position_nmad_mas": [
+                28.46602910493328,
+                39.788339460156486
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 345,
+                  "denominator": 358,
+                  "value": 0.9636871508379888,
+                  "wilson95": [
+                    0.9388710870634107,
+                    0.9786578248585323
+                  ]
+                },
+                {
+                  "n": 341,
+                  "denominator": 358,
+                  "value": 0.952513966480447,
+                  "wilson95": [
+                    0.9252761807224279,
+                    0.9701436007917574
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.11424946700769156,
+          "object_bootstrap_gain95": [
+            0.015915673468891545,
+            0.1740081730059698
+          ]
+        },
+        "non_r_anchor__r21": {
+          "source_count": 79,
+          "held_positions": 425,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 72.55849987523726,
+              "position_radial_p68_mas": 77.06392853120643,
+              "position_median_mas": [
+                4.682314182398841,
+                15.202150221914053
+              ],
+              "position_nmad_mas": [
+                41.090399973847624,
+                56.55242404594347
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 419,
+                  "denominator": 425,
+                  "value": 0.9858823529411764,
+                  "wilson95": [
+                    0.9695457510139035,
+                    0.9935141199597243
+                  ]
+                },
+                {
+                  "n": 386,
+                  "denominator": 425,
+                  "value": 0.908235294117647,
+                  "wilson95": [
+                    0.8770112701707297,
+                    0.932145570574667
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 66.39720661898268,
+              "position_radial_p68_mas": 72.57643065884893,
+              "position_median_mas": [
+                4.498119128635153,
+                10.3557945266366
+              ],
+              "position_nmad_mas": [
+                40.99032606152065,
+                54.72912710477784
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 419,
+                  "denominator": 425,
+                  "value": 0.9858823529411764,
+                  "wilson95": [
+                    0.9695457510139035,
+                    0.9935141199597243
+                  ]
+                },
+                {
+                  "n": 394,
+                  "denominator": 425,
+                  "value": 0.9270588235294117,
+                  "wilson95": [
+                    0.8983262072416549,
+                    0.9481404590136158
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.08491483791490717,
+          "object_bootstrap_gain95": [
+            0.02007430272985107,
+            0.15544822298896624
+          ]
+        },
+        "non_r_anchor__r22": {
+          "source_count": 15,
+          "held_positions": 78,
+          "models": {
+            "C0_all": {
+              "source_median_radial_p68_mas": 92.86324751116365,
+              "position_radial_p68_mas": 118.76371412463118,
+              "position_median_mas": [
+                -11.517397783813067,
+                41.669322080910206
+              ],
+              "position_nmad_mas": [
+                51.75651238880802,
+                72.6553628729185
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 73,
+                  "denominator": 78,
+                  "value": 0.9358974358974359,
+                  "wilson95": [
+                    0.8585640453682883,
+                    0.9723106846262091
+                  ]
+                },
+                {
+                  "n": 68,
+                  "denominator": 78,
+                  "value": 0.8717948717948718,
+                  "wilson95": [
+                    0.7798404960135338,
+                    0.9288467736876552
+                  ]
+                }
+              ]
+            },
+            "color_all": {
+              "source_median_radial_p68_mas": 86.64961041491736,
+              "position_radial_p68_mas": 101.40291730973868,
+              "position_median_mas": [
+                -11.532966549042612,
+                23.596171371638775
+              ],
+              "position_nmad_mas": [
+                51.75438747544361,
+                63.47601556303091
+              ],
+              "position_within_1sigma": [
+                {
+                  "n": 73,
+                  "denominator": 78,
+                  "value": 0.9358974358974359,
+                  "wilson95": [
+                    0.8585640453682883,
+                    0.9723106846262091
+                  ]
+                },
+                {
+                  "n": 69,
+                  "denominator": 78,
+                  "value": 0.8846153846153846,
+                  "wilson95": [
+                    0.7950298680151837,
+                    0.9380948937446667
+                  ]
+                }
+              ]
+            }
+          },
+          "relative_source_p68_gain": 0.06691169286858412,
+          "object_bootstrap_gain95": [
+            -0.008702771763812943,
+            0.27526466070841127
+          ]
+        }
+      },
+      "exits": {},
+      "model_sha256": "7db6f3814a9fa881fb92e4271f2f8254601f5a21a7933834b1557866f8475b9d",
+      "slurm_job": "61557949",
+      "scope": "Exactly frozen training target identities and same C0-gated held physical detections. New reference corrections applied coherently to training and held measurements with synchronous group/color-bootstrap covariance. No held target fitted or used to tune coefficients. Predictive comparison only, not rerun end-to-end blind association. Conditional fixed-color uncertainty; no production adoption."
+    },
+    "a_known": {
+      "models": {
+        "r_only": {
+          "r21": {
+            "known_stationary_sources": 72,
+            "strict_common": {
+              "n": 68,
+              "methods": {
+                "C0": {
+                  "n": 68,
+                  "median": [
+                    0.47838676188631346,
+                    -0.46887323421736365
+                  ],
+                  "nmad": [
+                    3.1974896086825417,
+                    4.352927616010305
+                  ],
+                  "abs68": [
+                    3.3925798971459753,
+                    4.162584650410912
+                  ],
+                  "abs_median": [
+                    2.2244213721022685,
+                    2.729442907627079
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.17647058823529413,
+                    0.27941176470588236
+                  ],
+                  "standardized_nmad": [
+                    0.6797572238350399,
+                    0.8608947661409201
+                  ],
+                  "fraction_within_1sigma": [
+                    0.8676470588235294,
+                    0.7058823529411765
+                  ],
+                  "fraction_within_2sigma": [
+                    0.9705882352941176,
+                    0.9852941176470589
+                  ],
+                  "radial_abs68": 5.845901016513986,
+                  "radial_median": 4.239780869796661,
+                  "radial_tail_count": 27,
+                  "axis_tail_count": [
+                    12,
+                    19
+                  ],
+                  "median_bias95": [
+                    [
+                      -0.7065201378429784,
+                      1.8112587752318143
+                    ],
+                    [
+                      -1.316413868435122,
+                      0.6419500024826164
+                    ]
+                  ]
+                },
+                "NSC": {
+                  "n": 68,
+                  "median": [
+                    1.580030777938472,
+                    -1.7296220525148742
+                  ],
+                  "nmad": [
+                    5.094739899421493,
+                    5.583708397522644
+                  ],
+                  "abs68": [
+                    5.473280365109093,
+                    5.377201566694637
+                  ],
+                  "abs_median": [
+                    3.0678876329285787,
+                    3.88863287983033
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.38235294117647056,
+                    0.35294117647058826
+                  ],
+                  "standardized_nmad": [
+                    0.7601763463373868,
+                    0.8218669196300944
+                  ],
+                  "fraction_within_1sigma": [
+                    0.7352941176470589,
+                    0.7352941176470589
+                  ],
+                  "fraction_within_2sigma": [
+                    0.9264705882352942,
+                    0.9705882352941176
+                  ],
+                  "radial_abs68": 8.595547287785056,
+                  "radial_median": 6.4599435312090305,
+                  "radial_tail_count": 42,
+                  "axis_tail_count": [
+                    26,
+                    24
+                  ],
+                  "median_bias95": [
+                    [
+                      0.1637629812447184,
+                      4.176392357207184
+                    ],
+                    [
+                      -2.821732021517496,
+                      0.1511728251798844
+                    ]
+                  ]
+                },
+                "Xiao": {
+                  "n": 68,
+                  "median": [
+                    -0.09960508876648509,
+                    0.1093392355270377
+                  ],
+                  "nmad": [
+                    3.6594540857568485,
+                    4.238702098037916
+                  ],
+                  "abs68": [
+                    3.823135191383872,
+                    4.5317668338944666
+                  ],
+                  "abs_median": [
+                    2.5030857286989123,
+                    2.7496261617735938
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.3088235294117647,
+                    0.27941176470588236
+                  ],
+                  "standardized_nmad": [
+                    1.4595075387836354,
+                    1.046141952417139
+                  ],
+                  "fraction_within_1sigma": [
+                    0.5,
+                    0.6176470588235294
+                  ],
+                  "fraction_within_2sigma": [
+                    0.7941176470588235,
+                    0.9117647058823529
+                  ],
+                  "radial_abs68": 6.105406804207682,
+                  "radial_median": 5.2239692426411395,
+                  "radial_tail_count": 36,
+                  "axis_tail_count": [
+                    21,
+                    19
+                  ],
+                  "median_bias95": [
+                    [
+                      -1.3796722599565399,
+                      0.909253504178254
+                    ],
+                    [
+                      -1.5728949057264616,
+                      1.386128894543276
+                    ]
+                  ]
+                }
+              },
+              "paired": {
+                "C0_vs_Xiao": {
+                  "absolute68_delta95": [
+                    [
+                      -2.035710367285815,
+                      0.6993520451782139
+                    ],
+                    [
+                      -1.383155980185625,
+                      1.1514478150645882
+                    ],
+                    [
+                      -1.8323954341604178,
+                      1.4510401265686164
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -0.46691880982933853,
+                      1.838668091353173
+                    ],
+                    [
+                      -1.6274679116093667,
+                      1.030796312972722
+                    ]
+                  ],
+                  "fraction_improved": [
+                    0.11261838064430238,
+                    0.08146539683426092,
+                    0.04250425827724559
+                  ],
+                  "fraction95": [
+                    [
+                      -0.23638088216024414,
+                      0.3983036891708749
+                    ],
+                    [
+                      -0.26262205874341893,
+                      0.2667919247818312
+                    ],
+                    [
+                      -0.23757888284777046,
+                      0.2624601288352522
+                    ]
+                  ]
+                },
+                "C0_vs_NSC": {
+                  "absolute68_delta95": [
+                    [
+                      -3.930759250088932,
+                      -0.41948955521127884
+                    ],
+                    [
+                      -3.2905596656360587,
+                      1.3302826114471213
+                    ],
+                    [
+                      -6.429562063328547,
+                      -0.10520995779017943
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -3.686465927953763,
+                      1.311792674776102
+                    ],
+                    [
+                      -0.2681090260301836,
+                      2.8310661541001365
+                    ]
+                  ],
+                  "fraction_improved": [
+                    0.3801560178110199,
+                    0.22588272007633703,
+                    0.3198919369774781
+                  ],
+                  "fraction95": [
+                    [
+                      0.09403291254523762,
+                      0.5643405565728741
+                    ],
+                    [
+                      -0.26167390694871834,
+                      0.4852298333498966
+                    ],
+                    [
+                      0.01324819619180816,
+                      0.5662616186908958
+                    ]
+                  ]
+                }
+              }
+            }
+          },
+          "r22": {
+            "known_stationary_sources": 43,
+            "strict_common": {
+              "n": 40,
+              "methods": {
+                "C0": {
+                  "n": 40,
+                  "median": [
+                    1.8007680779670314,
+                    -2.9138931542633717
+                  ],
+                  "nmad": [
+                    6.791719966383422,
+                    5.075398806033021
+                  ],
+                  "abs68": [
+                    7.346970495207531,
+                    5.596918667565182
+                  ],
+                  "abs_median": [
+                    4.494673944586802,
+                    4.308870968149212
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.475,
+                    0.375
+                  ],
+                  "standardized_nmad": [
+                    0.8678145658292576,
+                    0.6186322634240271
+                  ],
+                  "fraction_within_1sigma": [
+                    0.675,
+                    0.825
+                  ],
+                  "fraction_within_2sigma": [
+                    0.95,
+                    0.975
+                  ],
+                  "radial_abs68": 10.1528801435581,
+                  "radial_median": 7.9413039909111305,
+                  "radial_tail_count": 27,
+                  "axis_tail_count": [
+                    19,
+                    15
+                  ],
+                  "median_bias95": [
+                    [
+                      -1.0983692685369322,
+                      3.3092560193258294
+                    ],
+                    [
+                      -4.018234484780732,
+                      -0.47785651406524393
+                    ]
+                  ]
+                },
+                "NSC": {
+                  "n": 40,
+                  "median": [
+                    2.2698267259339566,
+                    -2.9315972610791863
+                  ],
+                  "nmad": [
+                    7.812837723921583,
+                    7.16301841487985
+                  ],
+                  "abs68": [
+                    8.087277378966155,
+                    8.951224857556422
+                  ],
+                  "abs_median": [
+                    6.4712221893785316,
+                    4.948986649520412
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.6,
+                    0.5
+                  ],
+                  "standardized_nmad": [
+                    0.5889935513955471,
+                    0.5373004785445712
+                  ],
+                  "fraction_within_1sigma": [
+                    0.875,
+                    0.825
+                  ],
+                  "fraction_within_2sigma": [
+                    1.0,
+                    1.0
+                  ],
+                  "radial_abs68": 12.278599801758736,
+                  "radial_median": 10.005337440445354,
+                  "radial_tail_count": 33,
+                  "axis_tail_count": [
+                    24,
+                    20
+                  ],
+                  "median_bias95": [
+                    [
+                      0.5037399332078735,
+                      5.490173117335503
+                    ],
+                    [
+                      -4.948986649520412,
+                      -1.7791858672074086
+                    ]
+                  ]
+                },
+                "Xiao": {
+                  "n": 40,
+                  "median": [
+                    0.3376190435766528,
+                    -1.4314156669906422
+                  ],
+                  "nmad": [
+                    5.527656061473711,
+                    6.0613529497640695
+                  ],
+                  "abs68": [
+                    7.1752950551346375,
+                    5.524269096924081
+                  ],
+                  "abs_median": [
+                    4.065971978605461,
+                    4.008434143893339
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.45,
+                    0.375
+                  ],
+                  "standardized_nmad": [
+                    1.5839610886796895,
+                    1.3090231529078507
+                  ],
+                  "fraction_within_1sigma": [
+                    0.475,
+                    0.625
+                  ],
+                  "fraction_within_2sigma": [
+                    0.675,
+                    0.875
+                  ],
+                  "radial_abs68": 11.057469361845488,
+                  "radial_median": 8.16554498023378,
+                  "radial_tail_count": 26,
+                  "axis_tail_count": [
+                    18,
+                    15
+                  ],
+                  "median_bias95": [
+                    [
+                      -1.6991265527053083,
+                      1.8780454704067524
+                    ],
+                    [
+                      -3.9166328708493343,
+                      0.8244542738096965
+                    ]
+                  ]
+                }
+              },
+              "paired": {
+                "C0_vs_Xiao": {
+                  "absolute68_delta95": [
+                    [
+                      -1.910200411405919,
+                      1.7042778881578466
+                    ],
+                    [
+                      -3.6919212441499347,
+                      2.25833412903659
+                    ],
+                    [
+                      -3.1665799862403574,
+                      2.94936246110351
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -0.8397920069516036,
+                      3.297248714056304
+                    ],
+                    [
+                      -2.9147576584529613,
+                      0.48403409581190937
+                    ]
+                  ],
+                  "fraction_improved": [
+                    -0.02392590670540334,
+                    -0.01315098330049726,
+                    0.08180797872329915
+                  ],
+                  "fraction95": [
+                    [
+                      -0.3041115957670292,
+                      0.22976073895921642
+                    ],
+                    [
+                      -0.4491412841000737,
+                      0.42614174316244474
+                    ],
+                    [
+                      -0.31406398300434485,
+                      0.25294245582809644
+                    ]
+                  ]
+                },
+                "C0_vs_NSC": {
+                  "absolute68_delta95": [
+                    [
+                      -4.385489977809221,
+                      2.114400062853227
+                    ],
+                    [
+                      -5.459476451551356,
+                      0.40071611739700763
+                    ],
+                    [
+                      -7.490027597008569,
+                      1.8741883443689753
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -4.86646964632488,
+                      1.74474362100008
+                    ],
+                    [
+                      -1.6252256932282299,
+                      2.667907319995664
+                    ]
+                  ],
+                  "fraction_improved": [
+                    0.09153969241664144,
+                    0.3747315304183885,
+                    0.17312394674644874
+                  ],
+                  "fraction95": [
+                    [
+                      -0.28898368180984224,
+                      0.4704328441107998
+                    ],
+                    [
+                      -0.08047306859456081,
+                      0.5486901407301789
+                    ],
+                    [
+                      -0.15588800708036638,
+                      0.45636724113373345
+                    ]
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "all_nsc": {
+          "r21": {
+            "known_stationary_sources": 75,
+            "strict_common": {
+              "n": 70,
+              "methods": {
+                "C0": {
+                  "n": 70,
+                  "median": [
+                    0.4470691039795341,
+                    -1.1876472735328047
+                  ],
+                  "nmad": [
+                    2.7150219679122527,
+                    3.6326548768399167
+                  ],
+                  "abs68": [
+                    2.7555487811220445,
+                    4.647684387924198
+                  ],
+                  "abs_median": [
+                    1.7760437946926133,
+                    2.415770074030216
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.15714285714285714,
+                    0.2857142857142857
+                  ],
+                  "standardized_nmad": [
+                    0.6721953186516643,
+                    0.7930197816142219
+                  ],
+                  "fraction_within_1sigma": [
+                    0.8428571428571429,
+                    0.6714285714285714
+                  ],
+                  "fraction_within_2sigma": [
+                    1.0,
+                    0.9857142857142858
+                  ],
+                  "radial_abs68": 6.0109627963217145,
+                  "radial_median": 3.925186005741474,
+                  "radial_tail_count": 27,
+                  "axis_tail_count": [
+                    11,
+                    20
+                  ],
+                  "median_bias95": [
+                    [
+                      -0.3277037944321554,
+                      1.1129149091406496
+                    ],
+                    [
+                      -1.9944189629981395,
+                      -0.33724039915621157
+                    ]
+                  ]
+                },
+                "NSC": {
+                  "n": 70,
+                  "median": [
+                    1.580030786084374,
+                    -1.536195984735479
+                  ],
+                  "nmad": [
+                    5.328139669161744,
+                    5.8181693941269845
+                  ],
+                  "abs68": [
+                    5.6141292784829275,
+                    5.558398439276826
+                  ],
+                  "abs_median": [
+                    3.5456901052263348,
+                    3.935902373362997
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.4,
+                    0.37142857142857144
+                  ],
+                  "standardized_nmad": [
+                    0.7628401857032464,
+                    0.8230454700207103
+                  ],
+                  "fraction_within_1sigma": [
+                    0.7285714285714285,
+                    0.7285714285714285
+                  ],
+                  "fraction_within_2sigma": [
+                    0.9285714285714286,
+                    0.9571428571428572
+                  ],
+                  "radial_abs68": 9.908186988213354,
+                  "radial_median": 6.601507044740432,
+                  "radial_tail_count": 44,
+                  "axis_tail_count": [
+                    28,
+                    26
+                  ],
+                  "median_bias95": [
+                    [
+                      0.08491113989758044,
+                      4.176806736729278
+                    ],
+                    [
+                      -2.6762715382425495,
+                      0.8340997860981233
+                    ]
+                  ]
+                },
+                "Xiao": {
+                  "n": 70,
+                  "median": [
+                    -0.11466660662202013,
+                    0.10933924404201184
+                  ],
+                  "nmad": [
+                    3.545083230816707,
+                    4.309453751688027
+                  ],
+                  "abs68": [
+                    3.661777590374845,
+                    4.702212941982543
+                  ],
+                  "abs_median": [
+                    2.4720367960126257,
+                    2.8098976180157944
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.3,
+                    0.2857142857142857
+                  ],
+                  "standardized_nmad": [
+                    1.4133535482040487,
+                    1.073787073413212
+                  ],
+                  "fraction_within_1sigma": [
+                    0.5142857142857142,
+                    0.6
+                  ],
+                  "fraction_within_2sigma": [
+                    0.8,
+                    0.9142857142857143
+                  ],
+                  "radial_abs68": 6.119614875918949,
+                  "radial_median": 5.223969245996038,
+                  "radial_tail_count": 37,
+                  "axis_tail_count": [
+                    21,
+                    20
+                  ],
+                  "median_bias95": [
+                    [
+                      -1.376410108709875,
+                      0.9491393208719506
+                    ],
+                    [
+                      -1.5775884059117704,
+                      1.373104072330332
+                    ]
+                  ]
+                }
+              },
+              "paired": {
+                "C0_vs_Xiao": {
+                  "absolute68_delta95": [
+                    [
+                      -2.7518633628644973,
+                      0.5349252033854661
+                    ],
+                    [
+                      -1.608534156146762,
+                      1.1721134243664626
+                    ],
+                    [
+                      -1.7813695530106493,
+                      0.6365507234623464
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -0.3250231712534441,
+                      1.5343370748288965
+                    ],
+                    [
+                      -2.178615325738556,
+                      0.13724616624725713
+                    ]
+                  ],
+                  "fraction_improved": [
+                    0.24748330199924362,
+                    0.011596359997119794,
+                    0.017754725060360778
+                  ],
+                  "fraction95": [
+                    [
+                      -0.167911875252706,
+                      0.5371837190805251
+                    ],
+                    [
+                      -0.30528991879378753,
+                      0.3332046478065048
+                    ],
+                    [
+                      -0.10753498326266488,
+                      0.2601472259976233
+                    ]
+                  ]
+                },
+                "C0_vs_NSC": {
+                  "absolute68_delta95": [
+                    [
+                      -5.141372882710391,
+                      -1.1734860141837997
+                    ],
+                    [
+                      -3.758021027433154,
+                      0.8765919830192977
+                    ],
+                    [
+                      -6.609010316613957,
+                      -1.4733398291322763
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -3.634989868690602,
+                      0.5254829116196363
+                    ],
+                    [
+                      -1.6610130362698343,
+                      1.5754158667859415
+                    ]
+                  ],
+                  "fraction_improved": [
+                    0.5091761082732565,
+                    0.16384468679275116,
+                    0.3933337346709065
+                  ],
+                  "fraction95": [
+                    [
+                      0.24143315591239112,
+                      0.6846042518123463
+                    ],
+                    [
+                      -0.20153983137085782,
+                      0.5192566950041958
+                    ],
+                    [
+                      0.17674047429081155,
+                      0.5888735592318787
+                    ]
+                  ]
+                }
+              }
+            }
+          },
+          "r22": {
+            "known_stationary_sources": 43,
+            "strict_common": {
+              "n": 40,
+              "methods": {
+                "C0": {
+                  "n": 40,
+                  "median": [
+                    0.36656608329287754,
+                    -2.4826569553581264
+                  ],
+                  "nmad": [
+                    6.1816779843545735,
+                    4.783124352758628
+                  ],
+                  "abs68": [
+                    5.546222220650691,
+                    5.458324250924995
+                  ],
+                  "abs_median": [
+                    4.462215669570912,
+                    3.803782854758788
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.425,
+                    0.35
+                  ],
+                  "standardized_nmad": [
+                    1.154328217525379,
+                    0.8211327663492629
+                  ],
+                  "fraction_within_1sigma": [
+                    0.675,
+                    0.75
+                  ],
+                  "fraction_within_2sigma": [
+                    0.95,
+                    0.975
+                  ],
+                  "radial_abs68": 9.564157813749404,
+                  "radial_median": 5.632618789198006,
+                  "radial_tail_count": 28,
+                  "axis_tail_count": [
+                    17,
+                    14
+                  ],
+                  "median_bias95": [
+                    [
+                      -1.910630392663807,
+                      3.9413515390559613
+                    ],
+                    [
+                      -4.280908088237196,
+                      -1.0233997877124983
+                    ]
+                  ]
+                },
+                "NSC": {
+                  "n": 40,
+                  "median": [
+                    2.2698267161598578,
+                    -2.931597309140911
+                  ],
+                  "nmad": [
+                    7.812837791161068,
+                    7.16301838307999
+                  ],
+                  "abs68": [
+                    8.087277409003645,
+                    8.951224881051717
+                  ],
+                  "abs_median": [
+                    6.471222232216526,
+                    4.9489867472278615
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.6,
+                    0.5
+                  ],
+                  "standardized_nmad": [
+                    0.5889935576594282,
+                    0.5373004837677201
+                  ],
+                  "fraction_within_1sigma": [
+                    0.875,
+                    0.825
+                  ],
+                  "fraction_within_2sigma": [
+                    1.0,
+                    1.0
+                  ],
+                  "radial_abs68": 12.278599904195097,
+                  "radial_median": 10.005337427880963,
+                  "radial_tail_count": 33,
+                  "axis_tail_count": [
+                    24,
+                    20
+                  ],
+                  "median_bias95": [
+                    [
+                      0.5037399403018958,
+                      5.490173180661937
+                    ],
+                    [
+                      -4.9489867472278615,
+                      -1.7791859498983689
+                    ]
+                  ]
+                },
+                "Xiao": {
+                  "n": 40,
+                  "median": [
+                    0.3376190472237665,
+                    -1.4314156817700607
+                  ],
+                  "nmad": [
+                    5.527656031164897,
+                    6.061352942571393
+                  ],
+                  "abs68": [
+                    7.175295110528565,
+                    5.524269106465754
+                  ],
+                  "abs_median": [
+                    4.065971961809559,
+                    4.0084341482336745
+                  ],
+                  "fraction_abs_gt_tail": [
+                    0.45,
+                    0.375
+                  ],
+                  "standardized_nmad": [
+                    1.5839611048199758,
+                    1.3090231558764887
+                  ],
+                  "fraction_within_1sigma": [
+                    0.475,
+                    0.625
+                  ],
+                  "fraction_within_2sigma": [
+                    0.675,
+                    0.875
+                  ],
+                  "radial_abs68": 11.057469520611706,
+                  "radial_median": 8.165545047976277,
+                  "radial_tail_count": 26,
+                  "axis_tail_count": [
+                    18,
+                    15
+                  ],
+                  "median_bias95": [
+                    [
+                      -1.6991265667984776,
+                      1.8780454622603326
+                    ],
+                    [
+                      -3.916632884342358,
+                      0.8244543394269985
+                    ]
+                  ]
+                }
+              },
+              "paired": {
+                "C0_vs_Xiao": {
+                  "absolute68_delta95": [
+                    [
+                      -3.3772122926613073,
+                      0.500491866141707
+                    ],
+                    [
+                      -3.96052885026619,
+                      1.3508435368678209
+                    ],
+                    [
+                      -3.5453861522222243,
+                      1.1685967771524155
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -1.0405552484450082,
+                      2.7918698662212726
+                    ],
+                    [
+                      -2.8664719867754833,
+                      0.29545107105297236
+                    ]
+                  ],
+                  "fraction_improved": [
+                    0.22703914818604157,
+                    0.01193729962640225,
+                    0.1350500405249764
+                  ],
+                  "fraction95": [
+                    [
+                      -0.08987093991039788,
+                      0.38454600547075507
+                    ],
+                    [
+                      -0.2744532321805012,
+                      0.46682940425407204
+                    ],
+                    [
+                      -0.12238934848542649,
+                      0.3396049313109015
+                    ]
+                  ]
+                },
+                "C0_vs_NSC": {
+                  "absolute68_delta95": [
+                    [
+                      -4.993810051036109,
+                      0.7485729793824014
+                    ],
+                    [
+                      -5.967282331244853,
+                      0.5764826850502672
+                    ],
+                    [
+                      -8.2568020364653,
+                      0.1653747493850967
+                    ]
+                  ],
+                  "median_bias_delta95": [
+                    [
+                      -5.096591699863163,
+                      2.1218350711138405
+                    ],
+                    [
+                      -1.2605473267394374,
+                      2.1740599927423028
+                    ]
+                  ],
+                  "fraction_improved": [
+                    0.3142040342926747,
+                    0.3902148227244992,
+                    0.22107097809403167
+                  ],
+                  "fraction95": [
+                    [
+                      -0.09811401939017309,
+                      0.5073875646995087
+                    ],
+                    [
+                      -0.09832354432629575,
+                      0.5870845023889276
+                    ],
+                    [
+                      -0.016353191770295816,
+                      0.5147932050763677
+                    ]
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "fixed_r_paired": {
+        "r21": {
+          "fixed_r_source": {
+            "n": 72,
+            "methods": {
+              "r_only": {
+                "n": 72,
+                "median": [
+                  0.3462446251989296,
+                  -0.46887323421736365
+                ],
+                "nmad": [
+                  3.121646960231772,
+                  4.352927616010305
+                ],
+                "abs68": [
+                  3.4656660376255233,
+                  4.23639370484289
+                ],
+                "abs_median": [
+                  2.373008189465744,
+                  2.729442907627079
+                ],
+                "fraction_abs_gt_tail": [
+                  0.19444444444444445,
+                  0.2916666666666667
+                ],
+                "standardized_nmad": [
+                  0.6969720645196377,
+                  0.8608947661409201
+                ],
+                "fraction_within_1sigma": [
+                  0.8611111111111112,
+                  0.6944444444444444
+                ],
+                "fraction_within_2sigma": [
+                  0.9722222222222222,
+                  0.9861111111111112
+                ],
+                "radial_abs68": 6.005168981817556,
+                "radial_median": 4.239780869796661,
+                "radial_tail_count": 29,
+                "axis_tail_count": [
+                  14,
+                  21
+                ],
+                "median_bias95": [
+                  [
+                    -0.7009952623598447,
+                    1.6448096105216041
+                  ],
+                  [
+                    -1.3233872663877981,
+                    0.4113121708168718
+                  ]
+                ]
+              },
+              "all_nsc": {
+                "n": 72,
+                "median": [
+                  0.42276262994220715,
+                  -1.1876472735328047
+                ],
+                "nmad": [
+                  2.7302616827734445,
+                  3.392270491299075
+                ],
+                "abs68": [
+                  2.760319533446664,
+                  4.53194145492796
+                ],
+                "abs_median": [
+                  1.7760437946926133,
+                  2.271993259135227
+                ],
+                "fraction_abs_gt_tail": [
+                  0.18055555555555555,
+                  0.2916666666666667
+                ],
+                "standardized_nmad": [
+                  0.6651260072619639,
+                  0.7930197816142219
+                ],
+                "fraction_within_1sigma": [
+                  0.8333333333333334,
+                  0.6666666666666666
+                ],
+                "fraction_within_2sigma": [
+                  1.0,
+                  0.9861111111111112
+                ],
+                "radial_abs68": 6.076612787784229,
+                "radial_median": 3.8001396663800184,
+                "radial_tail_count": 28,
+                "axis_tail_count": [
+                  13,
+                  21
+                ],
+                "median_bias95": [
+                  [
+                    -0.20257701621010882,
+                    1.1137087233165426
+                  ],
+                  [
+                    -2.1031449136938236,
+                    -0.36361628042086386
+                  ]
+                ]
+              }
+            },
+            "paired": {
+              "all_nsc_vs_r_only": {
+                "absolute68_delta95": [
+                  [
+                    -1.4151217515412438,
+                    0.299373358441187
+                  ],
+                  [
+                    -1.2299410553015218,
+                    1.0387617212004494
+                  ],
+                  [
+                    -1.498573305393235,
+                    0.980024452481919
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -0.928449602320386,
+                    0.8805741447468401
+                  ],
+                  [
+                    -1.5019274894442736,
+                    -0.1598003914937966
+                  ]
+                ],
+                "fraction_improved": [
+                  0.20352408354444976,
+                  -0.06976399519884335,
+                  -0.011897051720441159
+                ],
+                "fraction95": [
+                  [
+                    -0.08851021376720024,
+                    0.36112328041367536
+                  ],
+                  [
+                    -0.24559537702815348,
+                    0.2308957610899219
+                  ],
+                  [
+                    -0.19545230156110094,
+                    0.21498532119564284
+                  ]
+                ]
+              }
+            }
+          },
+          "fixed_r_published_common": {
+            "n": 68,
+            "methods": {
+              "r_only": {
+                "n": 68,
+                "median": [
+                  0.47838676188631346,
+                  -0.46887323421736365
+                ],
+                "nmad": [
+                  3.1974896086825417,
+                  4.352927616010305
+                ],
+                "abs68": [
+                  3.3925798971459753,
+                  4.162584650410912
+                ],
+                "abs_median": [
+                  2.2244213721022685,
+                  2.729442907627079
+                ],
+                "fraction_abs_gt_tail": [
+                  0.17647058823529413,
+                  0.27941176470588236
+                ],
+                "standardized_nmad": [
+                  0.6797572238350399,
+                  0.8608947661409201
+                ],
+                "fraction_within_1sigma": [
+                  0.8676470588235294,
+                  0.7058823529411765
+                ],
+                "fraction_within_2sigma": [
+                  0.9705882352941176,
+                  0.9852941176470589
+                ],
+                "radial_abs68": 5.845901016513986,
+                "radial_median": 4.239780869796661,
+                "radial_tail_count": 27,
+                "axis_tail_count": [
+                  12,
+                  19
+                ],
+                "median_bias95": [
+                  [
+                    -0.7009952623598447,
+                    1.7352541566000295
+                  ],
+                  [
+                    -1.6385056099813822,
+                    0.6419500024826164
+                  ]
+                ]
+              },
+              "all_nsc": {
+                "n": 68,
+                "median": [
+                  0.4470691039795341,
+                  -1.1876472735328047
+                ],
+                "nmad": [
+                  2.7150219679122527,
+                  3.392270491299075
+                ],
+                "abs68": [
+                  2.7535892513867033,
+                  4.365057148634795
+                ],
+                "abs_median": [
+                  1.7760437946926133,
+                  2.271993259135227
+                ],
+                "fraction_abs_gt_tail": [
+                  0.16176470588235295,
+                  0.27941176470588236
+                ],
+                "standardized_nmad": [
+                  0.6721953186516643,
+                  0.7930197816142219
+                ],
+                "fraction_within_1sigma": [
+                  0.8382352941176471,
+                  0.6764705882352942
+                ],
+                "fraction_within_2sigma": [
+                  1.0,
+                  0.9852941176470589
+                ],
+                "radial_abs68": 5.933166966350974,
+                "radial_median": 3.8001396663800184,
+                "radial_tail_count": 26,
+                "axis_tail_count": [
+                  11,
+                  19
+                ],
+                "median_bias95": [
+                  [
+                    -0.07745023798806225,
+                    1.5228264248042622
+                  ],
+                  [
+                    -2.0902945327016296,
+                    -0.36361628042086386
+                  ]
+                ]
+              },
+              "NSC": {
+                "n": 68,
+                "median": [
+                  1.580030777938472,
+                  -1.7296220525148742
+                ],
+                "nmad": [
+                  5.094739899421493,
+                  5.583708397522644
+                ],
+                "abs68": [
+                  5.473280365109093,
+                  5.377201566694637
+                ],
+                "abs_median": [
+                  3.0678876329285787,
+                  3.88863287983033
+                ],
+                "fraction_abs_gt_tail": [
+                  0.38235294117647056,
+                  0.35294117647058826
+                ],
+                "standardized_nmad": [
+                  0.7601763463373868,
+                  0.8218669196300944
+                ],
+                "fraction_within_1sigma": [
+                  0.7352941176470589,
+                  0.7352941176470589
+                ],
+                "fraction_within_2sigma": [
+                  0.9264705882352942,
+                  0.9705882352941176
+                ],
+                "radial_abs68": 8.595547287785056,
+                "radial_median": 6.4599435312090305,
+                "radial_tail_count": 42,
+                "axis_tail_count": [
+                  26,
+                  24
+                ],
+                "median_bias95": [
+                  [
+                    0.08491114072719005,
+                    4.176392357207184
+                  ],
+                  [
+                    -2.771956942958824,
+                    -0.06556910936999075
+                  ]
+                ]
+              },
+              "Xiao": {
+                "n": 68,
+                "median": [
+                  -0.09960508876648509,
+                  0.1093392355270377
+                ],
+                "nmad": [
+                  3.6594540857568485,
+                  4.238702098037916
+                ],
+                "abs68": [
+                  3.823135191383872,
+                  4.5317668338944666
+                ],
+                "abs_median": [
+                  2.5030857286989123,
+                  2.7496261617735938
+                ],
+                "fraction_abs_gt_tail": [
+                  0.3088235294117647,
+                  0.27941176470588236
+                ],
+                "standardized_nmad": [
+                  1.4595075387836354,
+                  1.046141952417139
+                ],
+                "fraction_within_1sigma": [
+                  0.5,
+                  0.6176470588235294
+                ],
+                "fraction_within_2sigma": [
+                  0.7941176470588235,
+                  0.9117647058823529
+                ],
+                "radial_abs68": 6.105406804207682,
+                "radial_median": 5.2239692426411395,
+                "radial_tail_count": 36,
+                "axis_tail_count": [
+                  21,
+                  19
+                ],
+                "median_bias95": [
+                  [
+                    -1.375155728477745,
+                    1.1420851031072725
+                  ],
+                  [
+                    -1.669485709253273,
+                    1.2721526725030399
+                  ]
+                ]
+              }
+            },
+            "paired": {
+              "all_nsc_vs_r_only": {
+                "absolute68_delta95": [
+                  [
+                    -1.3793221206522552,
+                    0.30427057366461197
+                  ],
+                  [
+                    -1.1743687379405363,
+                    0.9513002772345771
+                  ],
+                  [
+                    -1.3405161495911149,
+                    1.0604089404322814
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -1.0268061257425851,
+                    0.8120708983598184
+                  ],
+                  [
+                    -1.5018759969887359,
+                    -0.12448983734668807
+                  ]
+                ],
+                "fraction_improved": [
+                  0.188349475953927,
+                  -0.048641052429743745,
+                  -0.014927715948400769
+                ],
+                "fraction95": [
+                  [
+                    -0.09444806855892754,
+                    0.3502176949094096
+                  ],
+                  [
+                    -0.2446784505182556,
+                    0.22781333441545754
+                  ],
+                  [
+                    -0.21775560741938482,
+                    0.19510302597299747
+                  ]
+                ]
+              },
+              "all_nsc_vs_Xiao": {
+                "absolute68_delta95": [
+                  [
+                    -2.7778380979433677,
+                    0.41045288389185863
+                  ],
+                  [
+                    -1.6253484617506346,
+                    1.1553385831073868
+                  ],
+                  [
+                    -1.8735737309233034,
+                    0.7156937332569407
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -0.4013657366958842,
+                    1.6932214650966668
+                  ],
+                  [
+                    -2.3470094761759626,
+                    0.29211489380356287
+                  ]
+                ],
+                "fraction_improved": [
+                  0.27975624362109514,
+                  0.036786907043142344,
+                  0.028211033823005004
+                ],
+                "fraction95": [
+                  [
+                    -0.15117728687161958,
+                    0.5476065156123382
+                  ],
+                  [
+                    -0.3433134992589418,
+                    0.34606551860971846
+                  ],
+                  [
+                    -0.11724881776384045,
+                    0.28414791199590766
+                  ]
+                ]
+              },
+              "r_only_vs_Xiao": {
+                "absolute68_delta95": [
+                  [
+                    -1.9848145509383643,
+                    0.7019940359907272
+                  ],
+                  [
+                    -1.349553010029509,
+                    1.1690196816663891
+                  ],
+                  [
+                    -1.8191350238853403,
+                    1.3480175181813394
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -0.3961393706725657,
+                    2.0750115477615543
+                  ],
+                  [
+                    -1.5757237306839424,
+                    0.9621682158168569
+                  ]
+                ],
+                "fraction_improved": [
+                  0.11261838064430238,
+                  0.08146539683426092,
+                  0.04250425827724559
+                ],
+                "fraction95": [
+                  [
+                    -0.23084894802309086,
+                    0.3910292782599924
+                  ],
+                  [
+                    -0.31676215094523,
+                    0.27061773218357676
+                  ],
+                  [
+                    -0.22032753880731626,
+                    0.2617637060522865
+                  ]
+                ]
+              }
+            }
+          }
+        },
+        "r22": {
+          "fixed_r_source": {
+            "n": 43,
+            "methods": {
+              "r_only": {
+                "n": 43,
+                "median": [
+                  1.760588503441914,
+                  -2.9975797797270167
+                ],
+                "nmad": [
+                  8.007096624602129,
+                  5.175994076915911
+                ],
+                "abs68": [
+                  8.289152327459464,
+                  5.615922148252351
+                ],
+                "abs_median": [
+                  5.007544921474052,
+                  4.157726734482944
+                ],
+                "fraction_abs_gt_tail": [
+                  0.5116279069767442,
+                  0.37209302325581395
+                ],
+                "standardized_nmad": [
+                  1.0597665830317775,
+                  0.6503896629871869
+                ],
+                "fraction_within_1sigma": [
+                  0.627906976744186,
+                  0.813953488372093
+                ],
+                "fraction_within_2sigma": [
+                  0.9534883720930233,
+                  0.9767441860465116
+                ],
+                "radial_abs68": 11.993839971113768,
+                "radial_median": 8.660888001044055,
+                "radial_tail_count": 30,
+                "axis_tail_count": [
+                  22,
+                  16
+                ],
+                "median_bias95": [
+                  [
+                    -1.4229410731450516,
+                    3.3057685228027736
+                  ],
+                  [
+                    -4.019104805771163,
+                    -0.05760366949891918
+                  ]
+                ]
+              },
+              "all_nsc": {
+                "n": 43,
+                "median": [
+                  0.14975922024774832,
+                  -2.519155991607828
+                ],
+                "nmad": [
+                  6.783717862296504,
+                  4.644446657509652
+                ],
+                "abs68": [
+                  6.633682477579247,
+                  5.474446592096249
+                ],
+                "abs_median": [
+                  4.53248284003645,
+                  3.8375966467820963
+                ],
+                "fraction_abs_gt_tail": [
+                  0.46511627906976744,
+                  0.3488372093023256
+                ],
+                "standardized_nmad": [
+                  1.1399016344270658,
+                  0.8176084300593316
+                ],
+                "fraction_within_1sigma": [
+                  0.6511627906976745,
+                  0.7441860465116279
+                ],
+                "fraction_within_2sigma": [
+                  0.9534883720930233,
+                  0.9534883720930233
+                ],
+                "radial_abs68": 10.402301201496346,
+                "radial_median": 7.447027421541181,
+                "radial_tail_count": 31,
+                "axis_tail_count": [
+                  20,
+                  15
+                ],
+                "median_bias95": [
+                  [
+                    -2.782099411605968,
+                    4.092075077726217
+                  ],
+                  [
+                    -4.190048112038881,
+                    -1.375941074650118
+                  ]
+                ]
+              }
+            },
+            "paired": {
+              "all_nsc_vs_r_only": {
+                "absolute68_delta95": [
+                  [
+                    -3.7344140263542007,
+                    0.4405284924810453
+                  ],
+                  [
+                    -2.166724171083027,
+                    1.1072553727475951
+                  ],
+                  [
+                    -3.2256618480992763,
+                    1.2889545044305066
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -2.231520681590056,
+                    1.3143012356395756
+                  ],
+                  [
+                    -1.3190294239604516,
+                    1.1391704586892226
+                  ]
+                ],
+                "fraction_improved": [
+                  0.1997152162828694,
+                  0.02519186563156486,
+                  0.13269634857981427
+                ],
+                "fraction95": [
+                  [
+                    -0.07901656780083219,
+                    0.38563267281779745
+                  ],
+                  [
+                    -0.18876792411149507,
+                    0.3122837455721449
+                  ],
+                  [
+                    -0.13666015232417694,
+                    0.2796246072010283
+                  ]
+                ]
+              }
+            }
+          },
+          "fixed_r_published_common": {
+            "n": 40,
+            "methods": {
+              "r_only": {
+                "n": 40,
+                "median": [
+                  1.8007680779670314,
+                  -2.9138931542633717
+                ],
+                "nmad": [
+                  6.791719966383422,
+                  5.075398806033021
+                ],
+                "abs68": [
+                  7.346970495207531,
+                  5.596918667565182
+                ],
+                "abs_median": [
+                  4.494673944586802,
+                  4.308870968149212
+                ],
+                "fraction_abs_gt_tail": [
+                  0.475,
+                  0.375
+                ],
+                "standardized_nmad": [
+                  0.8678145658292576,
+                  0.6186322634240271
+                ],
+                "fraction_within_1sigma": [
+                  0.675,
+                  0.825
+                ],
+                "fraction_within_2sigma": [
+                  0.95,
+                  0.975
+                ],
+                "radial_abs68": 10.1528801435581,
+                "radial_median": 7.9413039909111305,
+                "radial_tail_count": 27,
+                "axis_tail_count": [
+                  19,
+                  15
+                ],
+                "median_bias95": [
+                  [
+                    -1.2826270896160172,
+                    3.3092560193258294
+                  ],
+                  [
+                    -4.018234484780732,
+                    -0.47785651406524393
+                  ]
+                ]
+              },
+              "all_nsc": {
+                "n": 40,
+                "median": [
+                  0.36656608329287754,
+                  -2.4826569553581264
+                ],
+                "nmad": [
+                  6.1816779843545735,
+                  4.783124352758628
+                ],
+                "abs68": [
+                  5.546222220650691,
+                  5.458324250924995
+                ],
+                "abs_median": [
+                  4.462215669570912,
+                  3.803782854758788
+                ],
+                "fraction_abs_gt_tail": [
+                  0.425,
+                  0.35
+                ],
+                "standardized_nmad": [
+                  1.154328217525379,
+                  0.8211327663492629
+                ],
+                "fraction_within_1sigma": [
+                  0.675,
+                  0.75
+                ],
+                "fraction_within_2sigma": [
+                  0.95,
+                  0.975
+                ],
+                "radial_abs68": 9.564157813749404,
+                "radial_median": 5.632618789198006,
+                "radial_tail_count": 28,
+                "axis_tail_count": [
+                  17,
+                  14
+                ],
+                "median_bias95": [
+                  [
+                    -1.0391613737216459,
+                    3.9413515390559613
+                  ],
+                  [
+                    -4.280908088237196,
+                    -1.3710683368462286
+                  ]
+                ]
+              },
+              "NSC": {
+                "n": 40,
+                "median": [
+                  2.2698267259339566,
+                  -2.9315972610791863
+                ],
+                "nmad": [
+                  7.812837723921583,
+                  7.16301841487985
+                ],
+                "abs68": [
+                  8.087277378966155,
+                  8.951224857556422
+                ],
+                "abs_median": [
+                  6.4712221893785316,
+                  4.948986649520412
+                ],
+                "fraction_abs_gt_tail": [
+                  0.6,
+                  0.5
+                ],
+                "standardized_nmad": [
+                  0.5889935513955471,
+                  0.5373004785445712
+                ],
+                "fraction_within_1sigma": [
+                  0.875,
+                  0.825
+                ],
+                "fraction_within_2sigma": [
+                  1.0,
+                  1.0
+                ],
+                "radial_abs68": 12.278599801758736,
+                "radial_median": 10.005337440445354,
+                "radial_tail_count": 33,
+                "axis_tail_count": [
+                  24,
+                  20
+                ],
+                "median_bias95": [
+                  [
+                    0.5037399332078735,
+                    5.587443171031512
+                  ],
+                  [
+                    -4.872774339886641,
+                    -1.6250862732851394
+                  ]
+                ]
+              },
+              "Xiao": {
+                "n": 40,
+                "median": [
+                  0.3376190435766528,
+                  -1.4314156669906422
+                ],
+                "nmad": [
+                  5.527656061473711,
+                  6.0613529497640695
+                ],
+                "abs68": [
+                  7.1752950551346375,
+                  5.524269096924081
+                ],
+                "abs_median": [
+                  4.065971978605461,
+                  4.008434143893339
+                ],
+                "fraction_abs_gt_tail": [
+                  0.45,
+                  0.375
+                ],
+                "standardized_nmad": [
+                  1.5839610886796895,
+                  1.3090231529078507
+                ],
+                "fraction_within_1sigma": [
+                  0.475,
+                  0.625
+                ],
+                "fraction_within_2sigma": [
+                  0.675,
+                  0.875
+                ],
+                "radial_abs68": 11.057469361845488,
+                "radial_median": 8.16554498023378,
+                "radial_tail_count": 26,
+                "axis_tail_count": [
+                  18,
+                  15
+                ],
+                "median_bias95": [
+                  [
+                    -1.6991265527053083,
+                    1.8764313192300652
+                  ],
+                  [
+                    -3.6134480989279023,
+                    0.82088841061789
+                  ]
+                ]
+              }
+            },
+            "paired": {
+              "all_nsc_vs_r_only": {
+                "absolute68_delta95": [
+                  [
+                    -3.377940337383245,
+                    0.5276488650521796
+                  ],
+                  [
+                    -2.137702531233803,
+                    1.0094940126255534
+                  ],
+                  [
+                    -3.723078898161482,
+                    1.1820856397176558
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -2.0729676995431774,
+                    1.0695332707746024
+                  ],
+                  [
+                    -1.2151737406850565,
+                    1.0944284849775632
+                  ]
+                ],
+                "fraction_improved": [
+                  0.24510079028239978,
+                  0.024762628308922712,
+                  0.057985746062631786
+                ],
+                "fraction95": [
+                  [
+                    -0.09926084404214959,
+                    0.3822254026133209
+                  ],
+                  [
+                    -0.18008839765439583,
+                    0.31184742823159756
+                  ],
+                  [
+                    -0.1283661426352644,
+                    0.31966795393817193
+                  ]
+                ]
+              },
+              "all_nsc_vs_Xiao": {
+                "absolute68_delta95": [
+                  [
+                    -3.563663953923736,
+                    0.6880607167348302
+                  ],
+                  [
+                    -3.8760673245470154,
+                    1.3270207980733166
+                  ],
+                  [
+                    -4.013126363323769,
+                    0.8901863551547464
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -0.9696704353211508,
+                    2.8890717948729097
+                  ],
+                  [
+                    -2.9906067244312706,
+                    0.7525759311929947
+                  ]
+                ],
+                "fraction_improved": [
+                  0.22703914221871377,
+                  0.011937297919792514,
+                  0.1350500281057845
+                ],
+                "fraction95": [
+                  [
+                    -0.1431526802854527,
+                    0.3882633972626538
+                  ],
+                  [
+                    -0.26370052388410214,
+                    0.4609144138017181
+                  ],
+                  [
+                    -0.10186158344654248,
+                    0.3106970711456148
+                  ]
+                ]
+              },
+              "r_only_vs_Xiao": {
+                "absolute68_delta95": [
+                  [
+                    -2.249491061418471,
+                    1.9778793265402344
+                  ],
+                  [
+                    -3.8902902183910366,
+                    2.3467217806354794
+                  ],
+                  [
+                    -3.0022510264571145,
+                    2.504240355171699
+                  ]
+                ],
+                "median_bias_delta95": [
+                  [
+                    -1.1383074482791802,
+                    2.872008943491165
+                  ],
+                  [
+                    -2.6943908934515406,
+                    0.6361836323080894
+                  ]
+                ],
+                "fraction_improved": [
+                  -0.02392590670540334,
+                  -0.01315098330049726,
+                  0.08180797872329915
+                ],
+                "fraction95": [
+                  [
+                    -0.30558723150967465,
+                    0.2633346656573797
+                  ],
+                  [
+                    -0.4555911734607014,
+                    0.4574937933922215
+                  ],
+                  [
+                    -0.2807524599166781,
+                    0.2482858281995727
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      },
+      "reference_gauge": "0",
+      "slurm_job": "61557949",
+      "scope": "Known stationary spectral positions; no target proper motions used in associations or fits. All original pre-SE reference draws retained. Per-input cohorts are descriptive; fixed_r_paired uses explicit identical validation indices and freezes published NSC/Xiao benchmarks from the r input. C0 here denotes an experimental high-SE support sensitivity, not the frozen adopted graph or blind-source accuracy.",
+      "adoption": "not_adopted_pending_reference_and_held_source_validation"
+    }
+  },
+  "failures": [],
+  "source_code_commit": "460a125b04c14bf79c4f80629cce9d30beb6ce7d",
+  "slurm_job": "61557949",
+  "original_model_job": "61557533"
+}

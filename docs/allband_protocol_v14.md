@@ -45,3 +45,25 @@ python -m deep_pm.legacy_band_attribution "$WORK" "$FROZEN_LEGACY_EXTRA_TRIAL"
 ```
 
 共同图、组筛除、SDSS位置探针和支持敏感性的CLI见相应模块的`--help`。`reference_support_trial`仅复制全部pre-SE偏移／同步抽样，不重新定锚、不删除公共位置协方差，不是默认C0。原额外源须按旧W2 scale/floor及逐检测顺序重现；线性归因固定稳健影响系数，均值可加而中位数不可加，不当作因果或纠正系数。
+
+后续真实运行入口（相应模型均是研究对照）：
+
+```bash
+python -m deep_pm.sdss_position_check "$WORK" "$SDSS_PROBE" "$SDSS_SAS"
+python -m deep_pm.fixed_year_multiband "$WORK" "$FROZEN_BLIND_YEAR"
+python -m deep_pm.allband_member_audit "$WORK" "$FROZEN_BLIND_YEAR"
+python -m deep_pm.galaxy_chromatic_probe "$WORK" "$FIXED_QSO_TRIAL" "$REFERENCE_SHARD"
+python -m deep_pm.chromatic_reference prepare "$MODEL_WORK" "$FROZEN_BATCH" "$JOINT_REFERENCE" --workers 4
+python -m deep_pm.chromatic_reference solve "$MODEL_WORK" "$FROZEN_BATCH" "$JOINT_REFERENCE"
+python -m deep_pm.chromatic_validation qso "$WORK" "$FIXED_QSO_TRIAL" "$MODEL_WORK"
+python -m deep_pm.chromatic_validation year "$WORK" "$FROZEN_BLIND_YEAR" "$MODEL_WORK"
+python -m deep_pm.chromatic_validation blind-zero "$WORK" "$FROZEN_BLIND_YEAR" "$MODEL_WORK"
+```
+
+颜色模型另存`private_chromatic_reference.npz`，其科学资格化和固定对照见[单色项协议](chromatic_joint_trial_v14.md)。年度和盲零点的投影中心必须数值一致，JSON列表／NPZ元组表示不同不构成科学差异；真实不同投影仍拒绝。所有参数、缓存、回执只在独立版本工作目录；不得用新源码覆盖旧失败阶段。
+
+公开图只读汇总即可重现（不需要逐源数据）：
+
+```bash
+PYTHONPATH=src python -m deep_pm.allband_evidence_figures results/summary figures/v14_independent_evidence_summary.png
+```

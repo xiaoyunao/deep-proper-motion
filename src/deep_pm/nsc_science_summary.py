@@ -61,16 +61,24 @@ def known_cohorts(rows):
     return out
 
 
+def public_core_summary(summary,spec):
+    # These are declared rectangular footprint bounds, never per-source sky rows.
+    result=dict(core_bounds_deg=dict(ra_bounds_deg=spec['ra'],dec_bounds_deg=spec['dec']),**summary)
+    check_aggregate(result)
+    return result
+
+
 def run(state,geometry,output):
     config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']);graph=original/'shared/private_c0.npz';graph_hash=digest(graph)
     if graph_hash!=plan['reference_sha256']:raise ValueError('Frozen common graph changed')
     supported_groups=frozenset(read_offsets(graph))
     known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0;core_input_counts=Counter();qualified_core_bands=Counter();quality_flags=Counter();all_classes=Counter();historical={};legacy_missing_position=0
     for core,folder in fits.items():
+        print('Summarizing',core,flush=True)
         folder=Path(folder);receipt=verify_directory(folder,('nsc_science_catalogue_summary.json','private_standard_motion.json.gz','private_known_qso_blocks.json','private_blind_qso.json'))
         ref=(folder/'reference_receipt.json').resolve().parent/'private_c0.npz'
         if digest(ref)!=graph_hash:raise ValueError('Mixed reference frames in the continuous catalogue')
-        receipts[core]=digest(receipt);summary=json.loads((folder/'nsc_science_catalogue_summary.json').read_text());spatial[core]=dict(geometry=config['fields'][core],**summary)
+        receipts[core]=digest(receipt);summary=json.loads((folder/'nsc_science_catalogue_summary.json').read_text());spatial[core]=public_core_summary(summary,config['fields'][core])
         source=(folder/'source_receipt.json').resolve().parent;acq=json.loads((source/'acquisition_summary.json').read_text());acquisitions.append(acq)
         columns=['survey','band','exposure_id','ra_deg','dec_deg','observation_time','sigma_east_mas','sigma_north_mas','magnitude','magnitude_error','quality_flags']
         for chunk in pd.read_csv(source/'detections.csv',usecols=columns,chunksize=250000):

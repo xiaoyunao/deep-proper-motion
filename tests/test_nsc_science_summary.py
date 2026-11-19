@@ -27,3 +27,14 @@ def test_legacy_scalar_replay_keeps_ambiguities_and_never_matches_by_motion():
     assert result['ambiguous_archived_controls']==2
     assert result['unique_timing_photometry_pairs']==1
     assert result['maximum_tangent_motion_change_masyr']==1000.
+
+
+def test_public_core_bounds_are_aggregate_and_source_coordinates_still_rejected():
+    import pytest
+    from deep_pm.nsc_science_summary import public_core_summary
+    from deep_pm.public_summary import check_aggregate
+    result=public_core_summary(dict(owned_all_nsc=10),dict(ra=[345.,346.],dec=[-1.,0.]))
+    assert result['core_bounds_deg']['ra_bounds_deg']==[345.,346.]
+    check_aggregate(result)
+    with pytest.raises(ValueError):
+        public_core_summary(dict(ra=[345.1,345.2]),dict(ra=[345.,346.],dec=[-1.,0.]))

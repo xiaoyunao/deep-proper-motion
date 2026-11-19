@@ -52,3 +52,13 @@ def test_source_color_error_is_shared_and_joint_beta_group_draws_cancel():
     noisy,_=offsets(model,['g1','g2'],[0,0],2.2,.2,'same source')
     np.testing.assert_array_equal(noisy['g1'][1],noisy['g2'][1])
     assert np.std(noisy['g1'][1][:,1])>1
+
+
+def test_no_dcr_local_solver_matches_original_c0_on_same_large_coordinate_graph():
+    from deep_pm.dcr_reference_fit import fit
+    from deep_pm.zero_point import fit_offsets
+    rng=np.random.default_rng(42);nr=30;groups=np.tile(np.arange(3),nr);refs=np.repeat(np.arange(nr),3)
+    xy=np.repeat(rng.normal(1e8,1e6,(nr,2)),3,axis=0)+np.array([[12.,-5.],[-8.,15.],[0.,0.]])[groups]+rng.normal(0,2,(len(groups),2));sigma=np.full_like(xy,50.)
+    old=fit_offsets(refs,xy,sigma,groups,5,8,42)
+    local,_,_,_=fit(refs,xy,sigma,groups,np.zeros_like(xy),np.repeat(1.2,len(xy)),np.repeat(.1,len(xy)),8,42,with_dcr=False)
+    for group in old:np.testing.assert_allclose(old[group][0]-old[2][0],local[group][0]-local[2][0],atol=1e-3)

@@ -27,7 +27,7 @@ def run(summary,output):
         axes[2].annotate('n='+str(part['n']),(j,max(model['median'])),xytext=(4,8),textcoords='offset points',fontsize=8)
     axes[2].axhspan(-.5,.5,color='.88',label='±0.5 target');axes[2].axhline(0,color='.4',lw=.7);axes[2].set(xticks=range(3),xticklabels=['B: 22–23','N1: 21–22','C: 21–22'],ylabel='Spectral QSO median PM [mas/yr]',title='High recurrence does not certify PM zero',xlim=(-.4,2.55));axes[2].grid(axis='y',alpha=.2)
     axes[0].legend(fontsize=8,loc='lower left');axes[2].legend(fontsize=8,loc='lower left')
-    fig.suptitle('v1.5 complete object-index inputs: new-source evidence\nWilson 95% recovery intervals; object 95% zero intervals; unknown stellar identities remain unverified',fontsize=11)
+    fig.suptitle('v1.5 complete object-index inputs: new-source evidence\nTraining-year classes; Wilson 95% recovery and object 95% zero intervals; unknown stellar identities unverified',fontsize=11)
     output.parent.mkdir(parents=True,exist_ok=True);fig.savefig(output,dpi=180);plt.close(fig)
 
 

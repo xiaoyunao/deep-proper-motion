@@ -1,0 +1,195 @@
+{
+  "b_16_00": {
+    "frozen_sources": 5489,
+    "new_sources": 5507,
+    "by_frozen_class": {
+      "r_existing__r20": {
+        "frozen_sources": 140,
+        "identity_status": {
+          "identical_physical_members": 138,
+          "same_sdss_changed_nsc_members": 2
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 1.948745342872371e-08,
+        "maximum_absolute_error_change_masyr": 1.3775647289548942e-12
+      },
+      "r_existing__r21": {
+        "frozen_sources": 222,
+        "identity_status": {
+          "identical_physical_members": 222
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 1.63225912785947e-08,
+        "maximum_absolute_error_change_masyr": 6.66311450459034e-11
+      },
+      "r_existing__r22": {
+        "frozen_sources": 79,
+        "identity_status": {
+          "identical_physical_members": 79
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 7.295096082771124e-09,
+        "maximum_absolute_error_change_masyr": 3.481659405224491e-12
+      },
+      "extra_r_anchor__r20": {
+        "frozen_sources": 1167,
+        "identity_status": {
+          "identical_physical_members": 1164,
+          "same_sdss_changed_nsc_members": 3
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 1.2523180714651971e-08,
+        "maximum_absolute_error_change_masyr": 3.4708680374251344e-10
+      },
+      "extra_r_anchor__r21": {
+        "frozen_sources": 1782,
+        "identity_status": {
+          "identical_physical_members": 1775,
+          "same_sdss_changed_nsc_members": 7
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 2.0924511665021406e-08,
+        "maximum_absolute_error_change_masyr": 3.019655636649077e-10
+      },
+      "extra_r_anchor__r22": {
+        "frozen_sources": 1164,
+        "identity_status": {
+          "identical_physical_members": 1162,
+          "same_sdss_changed_nsc_members": 2
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 1.371524738225105e-08,
+        "maximum_absolute_error_change_masyr": 1.4710543894125294e-10
+      },
+      "non_r_anchor__r20": {
+        "frozen_sources": 300,
+        "identity_status": {
+          "identical_physical_members": 300
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 1.8444580973664415e-08,
+        "maximum_absolute_error_change_masyr": 4.5352166466727795e-11
+      },
+      "non_r_anchor__r21": {
+        "frozen_sources": 414,
+        "identity_status": {
+          "identical_physical_members": 412,
+          "same_sdss_changed_nsc_members": 2
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 1.1792602450100276e-08,
+        "maximum_absolute_error_change_masyr": 7.936939994124259e-11
+      },
+      "non_r_anchor__r22": {
+        "frozen_sources": 221,
+        "identity_status": {
+          "identical_physical_members": 220,
+          "same_sdss_changed_nsc_members": 1
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 1.66387672528856e-08,
+        "maximum_absolute_error_change_masyr": 5.362199573255566e-11
+      }
+    },
+    "scope": "All frozen old training objects retained in denominators. Unique exact SDSS physical-member identities and full detection-member sets, never PM proximity, define replay. Changed NSC sets are separate; same-member PM/error differences diagnose implementation/reference changes, not scientific gains or truth.",
+    "year": 2017,
+    "slurm_job": "61565637",
+    "old_reference_sha256": "103244b70d7a737f0d9eca4fbd5b33fd3605951dbd9553dbe2bd4610a8df05e8",
+    "new_reference_sha256": "103244b70d7a737f0d9eca4fbd5b33fd3605951dbd9553dbe2bd4610a8df05e8",
+    "same_reference_graph": true
+  },
+  "north_one_00_00": {
+    "frozen_sources": 1777,
+    "new_sources": 1778,
+    "by_frozen_class": {
+      "r_existing__r20": {
+        "frozen_sources": 440,
+        "identity_status": {
+          "identical_physical_members": 440
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 7.013785108256343e-10,
+        "maximum_absolute_error_change_masyr": 0.0
+      },
+      "r_existing__r21": {
+        "frozen_sources": 140,
+        "identity_status": {
+          "identical_physical_members": 140
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 5.326898921964585e-10,
+        "maximum_absolute_error_change_masyr": 8.881784197001252e-16
+      },
+      "r_existing__r22": {
+        "frozen_sources": 7,
+        "identity_status": {
+          "identical_physical_members": 7
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 0.0,
+        "maximum_absolute_error_change_masyr": 0.0
+      },
+      "extra_r_anchor__r20": {
+        "frozen_sources": 198,
+        "identity_status": {
+          "identical_physical_members": 198
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 6.5992544762139e-10,
+        "maximum_absolute_error_change_masyr": 6.795453089125658e-12
+      },
+      "extra_r_anchor__r21": {
+        "frozen_sources": 507,
+        "identity_status": {
+          "identical_physical_members": 506,
+          "same_sdss_changed_nsc_members": 1
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 0.0,
+        "maximum_absolute_error_change_masyr": 0.0
+      },
+      "extra_r_anchor__r22": {
+        "frozen_sources": 330,
+        "identity_status": {
+          "identical_physical_members": 330
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 0.0,
+        "maximum_absolute_error_change_masyr": 0.0
+      },
+      "non_r_anchor__r20": {
+        "frozen_sources": 13,
+        "identity_status": {
+          "identical_physical_members": 13
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 0.0,
+        "maximum_absolute_error_change_masyr": 0.0
+      },
+      "non_r_anchor__r21": {
+        "frozen_sources": 65,
+        "identity_status": {
+          "identical_physical_members": 65
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 0.0,
+        "maximum_absolute_error_change_masyr": 0.0
+      },
+      "non_r_anchor__r22": {
+        "frozen_sources": 77,
+        "identity_status": {
+          "identical_physical_members": 77
+        },
+        "class_changed_at_same_sdss_identity": 0,
+        "maximum_absolute_pm_change_masyr": 0.0,
+        "maximum_absolute_error_change_masyr": 0.0
+      }
+    },
+    "scope": "All frozen old training objects retained in denominators. Unique exact SDSS physical-member identities and full detection-member sets, never PM proximity, define replay. Changed NSC sets are separate; same-member PM/error differences diagnose implementation/reference changes, not scientific gains or truth.",
+    "year": 2018,
+    "slurm_job": "61565637",
+    "old_reference_sha256": "c66af1128d416361881beb3b38d1b26146e494d66aacfbdb269b9bbb84a1aaa3",
+    "new_reference_sha256": "c66af1128d416361881beb3b38d1b26146e494d66aacfbdb269b9bbb84a1aaa3",
+    "same_reference_graph": true
+  }
+}

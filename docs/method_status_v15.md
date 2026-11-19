@@ -16,3 +16,5 @@
 | 标准输出 | 逆gnomonic速度到每源mu_alpha*／mu_delta，位置—运动4×4Jacobian传播，物理组／band／仪器／夜／参考SHA可追溯 | 形式误差不是空间零点上限。科研合格解不是已认证星数，名义core面积不是实际目标SNR或认证面积 |
 
 实际入口：`nsc_allband_inputs`、`nsc_exposure_complete`、`nsc_information`、`nsc_band_information`、`dcr_trial`／`dcr_validation`、`night_error_year`、`nsc_science_catalogue`、`allband_blind_year`、`allband_member_audit`、`nsc_science_summary`、`nsc_opportunity_area`。均通过Slurm执行；公开只同步经过审阅的汇总和科研图。
+
+年度三类源仅由训练年份中的r支持定义，不与完整全历元目录的三类数量互换。取数补齐和使用已取回的其他band分别计数；同一物理成员重放显示原问题源的PM未因取数变多而改变。全部源协方差条件于已选参考规范和发布参考系，不声称已包含未知绝对frame tie、空间残余或全部跨夜系统项。

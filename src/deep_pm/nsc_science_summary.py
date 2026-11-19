@@ -27,6 +27,24 @@ SETTINGS=dict(min_publish_count=5,tail_masyr=5,bootstrap_draws=800,bootstrap_abs
 METHODS=('r_legacy_quality','r_physical_quality','all_nsc')
 
 
+def legacy_tangent_replay(old,new):
+    """Historical scalar-output QA, never a detection identity or precision label."""
+    tables=[]
+    for rows in (old,new):
+        grouped=defaultdict(list)
+        for row in rows:
+            if np.isfinite(row['magnitude']):grouped[(float(row['magnitude']).hex(),tuple(sorted(row['exposures'])))].append(row)
+        tables.append(grouped)
+    before,after=tables;delta=[];ambiguous=0;unmatched=0
+    for key,rows in before.items():
+        candidates=after.get(key,[])
+        if len(rows)!=1 or len(candidates)>1:ambiguous+=len(rows);continue
+        if not candidates:unmatched+=1;continue
+        delta.append(np.asarray(candidates[0]['motion']['C0'])-rows[0]['motion']['C0'])
+    return dict(old_archived_controls=len(old),unique_timing_photometry_pairs=len(delta),ambiguous_archived_controls=ambiguous,unmatched_archived_controls=unmatched,
+        maximum_tangent_motion_change_masyr=float(np.max(abs(np.asarray(delta)))) if delta else None)
+
+
 def known_cohorts(rows):
     out={};pairs=(('all_nsc','r_physical_quality'),('r_physical_quality','r_legacy_quality'),('all_nsc','Xiao'),('all_nsc','NSC'))
     for low in (21,22):
@@ -47,7 +65,7 @@ def run(state,geometry,output):
     config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']);graph=original/'shared/private_c0.npz';graph_hash=digest(graph)
     if graph_hash!=plan['reference_sha256']:raise ValueError('Frozen common graph changed')
     supported_groups=frozenset(read_offsets(graph))
-    known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0;core_input_counts=Counter();qualified_core_bands=Counter();quality_flags=Counter();all_classes=Counter()
+    known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0;core_input_counts=Counter();qualified_core_bands=Counter();quality_flags=Counter();all_classes=Counter();historical={};legacy_missing_position=0
     for core,folder in fits.items():
         folder=Path(folder);receipt=verify_directory(folder,('nsc_science_catalogue_summary.json','private_standard_motion.json.gz','private_known_qso_blocks.json','private_blind_qso.json'))
         ref=(folder/'reference_receipt.json').resolve().parent/'private_c0.npz'
@@ -77,6 +95,9 @@ def run(state,geometry,output):
         # Actual individual QSO vectors are pooled, never medians of per-core P68.
         raw=json.loads((folder/'private_known_qso_blocks.json').read_text());lookup={m:{r['validation_local_index']:standard_block(r,plan_center(folder)) for r in raw[m]} for m in METHODS}
         oldfolder=Path(json.loads((original/'fits.json').read_text())[core]);oldrows=json.loads((oldfolder/'private_qso_blocks.json').read_text());oldpoints={}
+        historical[core]=legacy_tangent_replay(oldrows,raw['r_legacy_quality'])
+        legacy_missing_position+=sum('position_deg' not in row or 'motion_icrs' not in row for row in oldrows)
+        oldrows=[row for row in oldrows if 'position_deg' in row and 'motion_icrs' in row]
         # Fixed spectral identity comes from source spectra index, not PM closeness.
         from .dark_precision import query_unique
         from .astrometry import project
@@ -106,6 +127,8 @@ def run(state,geometry,output):
         acquisition=dict(downloaded_nsc_measures_with_halo_overlap=sum(a['downloaded_nsc_measures'] for a in acquisitions),added_nsc_measures_with_halo_overlap=sum(a['new_nsc_measures'] for a in acquisitions),sdss_r_preserved_with_halo_overlap=sum(a['sdss_r_measurements_preserved'] for a in acquisitions),
             detections_by_measured_position_core_ownership=dict(core_input_counts),physically_qualified_supported_nsc_core_detections_by_band=dict(qualified_core_bands)),
         frozen_r_qso_same_exposures_replay=dict(n=len(replay),without_exact_old_exposure_identity=unmatched_old,maximum_abs_pm_change_masyr=float(np.max([abs(r['pm_delta']).max() for r in replay])) if replay else None,maximum_abs_error_change_masyr=float(np.max([abs(r['error_delta']).max() for r in replay])) if replay else None),
+        historical_r_output_replay=dict(by_core=historical,archived_controls_without_position_or_icrs_metadata=legacy_missing_position,
+            scope='v1.2 archived QSO rows lack coordinates, detection identities and full uncertainties. Only unique exact frozen reference-r plus physical-exposure-list keys compare archived/native-tangent C0 scalar outputs; motion never selects a pair, ambiguous keys remain unresolved. This is software-output QA, not detection-level truth, a new independent source identity, ICRS error replay or a sample used for precision scoring. New scientific comparisons use explicit current spectral indices and full ICRS states.'),
         ownership=ownership,reference_graph_sha256=graph_hash,fit_receipt_sha256=receipts,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Pooled individual vectors on strict common spectral objects, original half-open C cores and one frozen physical reference graph. Source yields are provisional research fits; unknown identity/night correlation/spatial zero remain flagged. Nominal core area is not qualified faint-target exposure area or certified area. Same-exposure frozen r replay is conditional on position identity, not PM similarity. Object-bootstrap intervals and physical-observation sensitivity do not replace calibration of spatial systematics. Counts with halo overlap are explicitly not unique detections.')
     check_aggregate(result);save_json(output,result)

@@ -1,0 +1,54 @@
+{
+  "b_16_00": {
+    "local_reference_sources": 3825,
+    "local_measurements": 49940,
+    "original_solver_supported_groups": 57,
+    "D0_supported_groups": 57,
+    "common_groups": 57,
+    "same_supported_groups": true,
+    "maximum_absolute_group_offset_change_mas": 7.033276929746535e-07,
+    "group_offset_change_p16_p50_p84_mas": [
+      [
+        -1.424493964918838e-07,
+        -1.4040046899310708e-07
+      ],
+      [
+        -4.348199666992514e-08,
+        -2.9594814598965513e-08
+      ],
+      [
+        9.654881836240744e-08,
+        7.076527918314923e-08
+      ]
+    ],
+    "maximum_absolute_bootstrap_se_change_mas": 7.447256855641626e-08,
+    "slurm_job": "61565637",
+    "scope": "Original zero_point.fit_offsets and frozen local no-DCR D0 use exactly the same physical training references, coordinates, native+floor errors, group keys, bootstrap seed and median-NSC gauge. Original tolerance1e-9 versus local1e-10 is retained. Both already center each reference before solving. This is a solver-equivalence diagnostic, not a new calibration/DCR model or permission to adopt local frames independently."
+  },
+  "north_one_00_00": {
+    "local_reference_sources": 3621,
+    "local_measurements": 39034,
+    "original_solver_supported_groups": 43,
+    "D0_supported_groups": 43,
+    "common_groups": 43,
+    "same_supported_groups": true,
+    "maximum_absolute_group_offset_change_mas": 5.923576278377141e-07,
+    "group_offset_change_p16_p50_p84_mas": [
+      [
+        -6.522083808135903e-08,
+        -1.9972882796537307e-07
+      ],
+      [
+        5.49478951228366e-08,
+        -5.306178962882768e-08
+      ],
+      [
+        1.337663147182866e-07,
+        1.032063475747691e-07
+      ]
+    ],
+    "maximum_absolute_bootstrap_se_change_mas": 6.895758453140388e-08,
+    "slurm_job": "61565637",
+    "scope": "Original zero_point.fit_offsets and frozen local no-DCR D0 use exactly the same physical training references, coordinates, native+floor errors, group keys, bootstrap seed and median-NSC gauge. Original tolerance1e-9 versus local1e-10 is retained. Both already center each reference before solving. This is a solver-equivalence diagnostic, not a new calibration/DCR model or permission to adopt local frames independently."
+  }
+}

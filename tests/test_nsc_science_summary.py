@@ -17,3 +17,13 @@ def test_pool_uses_identical_sources_and_individual_vectors_for_p68():
     assert common['methods']['all_nsc']['radial_abs68']==np.quantile(np.arange(2,7),.68)
     assert common['methods']['r_legacy_quality']['radial_abs68']==np.quantile(np.arange(3,8),.68)
     assert output['observational_blocks']['physical']['independent_blocks']==5
+
+
+def test_legacy_scalar_replay_keeps_ambiguities_and_never_matches_by_motion():
+    from deep_pm.nsc_science_summary import legacy_tangent_replay
+    old=[dict(magnitude=21.5,exposures=['NSC:a','SDSS:a'],motion={'C0':[0.,0.]}),dict(magnitude=21.5,exposures=['NSC:a','SDSS:a'],motion={'C0':[100.,0.]}),dict(magnitude=22.5,exposures=['NSC:b','SDSS:b'],motion={'C0':[0.,0.]})]
+    new=[old[0],dict(old[2],motion={'C0':[1000.,0.]})]
+    result=legacy_tangent_replay(old,new)
+    assert result['ambiguous_archived_controls']==2
+    assert result['unique_timing_photometry_pairs']==1
+    assert result['maximum_tangent_motion_change_masyr']==1000.

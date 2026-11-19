@@ -1,6 +1,6 @@
 # deep-proper-motion
 
-当前科研阶段：**v1.5连续99.873平方度／91核心已完成，481945个全NSC科研解**，较物理r对照增25.43%；单SDSS run QSO两暗档P68较r改善17.5%／22.1%。原地理普通区21–22相对Xiao仅约5%且组权区间跨零，不能用单run替换旧结论。科学主线有价值，新增源零点／误差／身份及条件迁移仍不足以正式投产。SDSS每真实run仅发布r位置，NSC无band白名单；DCR／学习误差未采用。见[本轮中文报告](reports/experiment_A_v1.5_nsc_information.md)、[精简审阅统计](results/summary/v15_science_overview_summary.json) · [当前计划](PLAN.md)、[私有目录读取](docs/catalogue_layout_v15.md)。
+当前科研阶段为 **v1.6 多波段误差与独立天区迁移**。北二区 58.720 平方度完成 72 核心和 183,204 个科研解，较物理质量 r-only 对照增加 35,998 个。共同光谱 QSO 显示多 run 精度收益稳定，普通单 run 仍有局限。SDSS 每物理 run 使用发布 r 位置，NSC 采用满足质量与参考支持的实际单曝光。C0/W0 为冻结科研基准。 [中文科学报告](reports/experiment_A_v1.6_error_transfer.md) · [复现协议](docs/verification_v16.md) · [当前计划](PLAN.md)
 
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**

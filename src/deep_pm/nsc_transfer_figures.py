@@ -88,15 +88,40 @@ def transfer_figure(data, output):
     plt.close(fig)
 
 
+def night_figure(data, output):
+    cells = data['same_galaxy_contrasts']
+    bands = ('g/g','i/i','r/r','z/z','Y/Y','g/i','g/r','i/z','Y/z')
+    fig, axes = plt.subplots(2,1,figsize=(10.8,7.7),constrained_layout=True,sharex=True)
+    for axis, ax in enumerate(axes):
+        for j, band in enumerate(bands):
+            for role, color, step in zip(('development','held'),COLORS,(-.11,.11)):
+                item=cells[f'c4d/{band}/{role}']
+                intervals(ax,j+step,item['common_variance_proxy_mas2'][axis],
+                          item['same_arm_block_sensitivity95_mas2'][axis],color,role if j==0 else None)
+            held=cells[f'c4d/{band}/held']
+            ax.text(j,.94,f'{held["comparisons"]}/{held["same_arm_nights"]}',ha='center',va='top',
+                    transform=ax.get_xaxis_transform(),fontsize=8)
+        ax.axhline(0,color='.3',lw=.7)
+        ax.grid(axis='y',alpha=.25)
+        ax.set_ylabel(('East' if axis==0 else 'North')+' proxy [mas²]')
+        ax.set_ylim(-7000,16500)
+        ax.legend(loc='lower right',fontsize=8)
+    axes[1].set(xticks=np.arange(len(bands)),xticklabels=bands,xlabel='DECam filter pair')
+    fig.suptitle('Same galaxy, two exposure-pair routes. Variance difference after native/reference terms.\n'
+                 'Labels show held galaxies / same-arm nights. Intervals reweight same-arm nights.')
+    fig.savefig(output/'v16_night_paired_summary.png',dpi=165)
+    plt.close(fig)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('summary',type=Path)
     p.add_argument('figures',type=Path)
-    p.add_argument('figure',choices=('season','zero','transfer'))
+    p.add_argument('figure',choices=('season','zero','transfer','night'))
     a=p.parse_args()
     a.figures.mkdir(parents=True,exist_ok=True)
     stem,func={'season':('season',season_figure),'zero':('source_zero',zero_figure),
-               'transfer':('transfer_science',transfer_figure)}[a.figure]
+               'transfer':('transfer_science',transfer_figure),'night':('night_paired',night_figure)}[a.figure]
     func(read(a.summary,stem),a.figures)
 
 

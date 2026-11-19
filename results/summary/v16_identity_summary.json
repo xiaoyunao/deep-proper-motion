@@ -1,0 +1,2151 @@
+{
+  "cohorts": {
+    "north_two_00_00": {
+      "status": "completed",
+      "year": 2017,
+      "slurm_job": "61575102",
+      "classes": {
+        "r_existing__r21": {
+          "full_period_sources": 956,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 826,
+            "trained_as_r_existing": 516,
+            "unique_held_source_recovered": 826,
+            "recovered_with_full_period_member": 826,
+            "trained_as_extra_r_anchor": 310,
+            "no_exact_sdss_members_in_training": 130
+          },
+          "training_association": {
+            "n": 826,
+            "denominator": 956,
+            "value": 0.8640167364016736,
+            "wilson95": [
+              0.84082635544151,
+              0.8842933959548694
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 826,
+            "denominator": 826,
+            "value": 1.0,
+            "wilson95": [
+              0.9953708521310162,
+              0.9999999999999999
+            ]
+          },
+          "position_p68_mas": 78.97046878579927,
+          "within_1sigma": [
+            {
+              "n": 3953,
+              "denominator": 4056,
+              "value": 0.9746055226824457,
+              "wilson95": [
+                0.9692964092533713,
+                0.979016484008808
+              ]
+            },
+            {
+              "n": 3805,
+              "denominator": 4056,
+              "value": 0.9381163708086785,
+              "wilson95": [
+                0.9302786738059743,
+                0.9451249684417624
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 4052,
+              "denominator": 4056,
+              "value": 0.9990138067061144,
+              "wilson95": [
+                0.9974668466831926,
+                0.9996164239467562
+              ]
+            },
+            {
+              "n": 4050,
+              "denominator": 4056,
+              "value": 0.9985207100591716,
+              "wilson95": [
+                0.9967761531633392,
+                0.9993218573177658
+              ]
+            }
+          ]
+        },
+        "r_existing__r22": {
+          "full_period_sources": 43,
+          "counts": {
+            "no_exact_sdss_members_in_training": 9,
+            "exact_sdss_plus_shared_nsc": 34,
+            "trained_as_r_existing": 5,
+            "unique_held_source_recovered": 34,
+            "recovered_with_full_period_member": 34,
+            "trained_as_extra_r_anchor": 29
+          },
+          "training_association": {
+            "n": 34,
+            "denominator": 43,
+            "value": 0.7906976744186046,
+            "wilson95": [
+              0.6479435728926356,
+              0.885771657790044
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 34,
+            "denominator": 34,
+            "value": 1.0,
+            "wilson95": [
+              0.8984854458466761,
+              0.9999999999999999
+            ]
+          },
+          "position_p68_mas": 99.59396569686136,
+          "within_1sigma": [
+            {
+              "n": 139,
+              "denominator": 145,
+              "value": 0.9586206896551724,
+              "wilson95": [
+                0.9126685180778853,
+                0.9808997192518902
+              ]
+            },
+            {
+              "n": 136,
+              "denominator": 145,
+              "value": 0.9379310344827586,
+              "wilson95": [
+                0.886251970690889,
+                0.9670049175864154
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 145,
+              "denominator": 145,
+              "value": 1.0,
+              "wilson95": [
+                0.9741909354347176,
+                1.0
+              ]
+            },
+            {
+              "n": 145,
+              "denominator": 145,
+              "value": 1.0,
+              "wilson95": [
+                0.9741909354347176,
+                1.0
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "full_period_sources": 76,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 40,
+            "trained_as_extra_r_anchor": 27,
+            "unique_held_source_recovered": 37,
+            "recovered_with_full_period_member": 37,
+            "no_exact_sdss_members_in_training": 36,
+            "trained_as_non_r_anchor": 13
+          },
+          "training_association": {
+            "n": 40,
+            "denominator": 76,
+            "value": 0.5263157894736842,
+            "wilson95": [
+              0.41552028690262677,
+              0.6345789980939448
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 37,
+            "denominator": 40,
+            "value": 0.925,
+            "wilson95": [
+              0.8013576647568946,
+              0.9741639742254119
+            ]
+          },
+          "position_p68_mas": 71.19128233738525,
+          "within_1sigma": [
+            {
+              "n": 100,
+              "denominator": 104,
+              "value": 0.9615384615384616,
+              "wilson95": [
+                0.9052524862309445,
+                0.9849431866560231
+              ]
+            },
+            {
+              "n": 101,
+              "denominator": 104,
+              "value": 0.9711538461538461,
+              "wilson95": [
+                0.9185995989748896,
+                0.9901418170972229
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 104,
+              "denominator": 104,
+              "value": 1.0,
+              "wilson95": [
+                0.9643786456275479,
+                0.9999999999999999
+              ]
+            },
+            {
+              "n": 104,
+              "denominator": 104,
+              "value": 1.0,
+              "wilson95": [
+                0.9643786456275479,
+                0.9999999999999999
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r22": {
+          "full_period_sources": 45,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 22,
+            "trained_as_extra_r_anchor": 14,
+            "unique_held_source_recovered": 22,
+            "recovered_with_full_period_member": 22,
+            "trained_as_non_r_anchor": 8,
+            "no_exact_sdss_members_in_training": 23
+          },
+          "training_association": {
+            "n": 22,
+            "denominator": 45,
+            "value": 0.4888888888888889,
+            "wilson95": [
+              0.349570237528785,
+              0.6299553535541681
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 22,
+            "denominator": 22,
+            "value": 1.0,
+            "wilson95": [
+              0.8513451253913791,
+              1.0
+            ]
+          },
+          "position_p68_mas": 116.76413500638921,
+          "within_1sigma": [
+            {
+              "n": 51,
+              "denominator": 56,
+              "value": 0.9107142857142857,
+              "wilson95": [
+                0.8074399861448884,
+                0.9612578515504131
+              ]
+            },
+            {
+              "n": 53,
+              "denominator": 56,
+              "value": 0.9464285714285714,
+              "wilson95": [
+                0.8539269093117847,
+                0.9816142186178909
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 55,
+              "denominator": 56,
+              "value": 0.9821428571428571,
+              "wilson95": [
+                0.9055436285060242,
+                0.9968407896580255
+              ]
+            },
+            {
+              "n": 55,
+              "denominator": 56,
+              "value": 0.9821428571428571,
+              "wilson95": [
+                0.9055436285060242,
+                0.9968407896580255
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r21": {
+          "full_period_sources": 3,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 3,
+            "trained_as_non_r_anchor": 3,
+            "unique_held_source_recovered": 3,
+            "recovered_with_full_period_member": 3
+          },
+          "training_association": {
+            "n": 3,
+            "denominator": 3,
+            "value": 1.0,
+            "wilson95": [
+              0.4385029682449546,
+              1.0
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 3,
+            "denominator": 3,
+            "value": 1.0,
+            "wilson95": [
+              0.4385029682449546,
+              1.0
+            ]
+          },
+          "position_p68_mas": 385.207861641167,
+          "within_1sigma": [
+            {
+              "n": 4,
+              "denominator": 6,
+              "value": 0.6666666666666666,
+              "wilson95": [
+                0.299993315138392,
+                0.9032285888942195
+              ]
+            },
+            {
+              "n": 4,
+              "denominator": 6,
+              "value": 0.6666666666666666,
+              "wilson95": [
+                0.299993315138392,
+                0.9032285888942195
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 4,
+              "denominator": 6,
+              "value": 0.6666666666666666,
+              "wilson95": [
+                0.299993315138392,
+                0.9032285888942195
+              ]
+            },
+            {
+              "n": 4,
+              "denominator": 6,
+              "value": 0.6666666666666666,
+              "wilson95": [
+                0.299993315138392,
+                0.9032285888942195
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r22": {
+          "full_period_sources": 7,
+          "counts": {
+            "no_exact_sdss_members_in_training": 3,
+            "exact_sdss_plus_shared_nsc": 4,
+            "trained_as_non_r_anchor": 4,
+            "unique_held_source_recovered": 4,
+            "recovered_with_full_period_member": 4
+          },
+          "training_association": {
+            "n": 4,
+            "denominator": 7,
+            "value": 0.5714285714285714,
+            "wilson95": [
+              0.2504583645276572,
+              0.8417801447485302
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 4,
+            "denominator": 4,
+            "value": 1.0,
+            "wilson95": [
+              0.5101091635454027,
+              1.0
+            ]
+          },
+          "position_p68_mas": 57.73894535003938,
+          "within_1sigma": [
+            {
+              "n": 8,
+              "denominator": 9,
+              "value": 0.8888888888888888,
+              "wilson95": [
+                0.5650002944233439,
+                0.9801091123614551
+              ]
+            },
+            {
+              "n": 9,
+              "denominator": 9,
+              "value": 1.0,
+              "wilson95": [
+                0.7008549515804559,
+                1.0
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 9,
+              "denominator": 9,
+              "value": 1.0,
+              "wilson95": [
+                0.7008549515804559,
+                1.0
+              ]
+            },
+            {
+              "n": 9,
+              "denominator": 9,
+              "value": 1.0,
+              "wilson95": [
+                0.7008549515804559,
+                1.0
+              ]
+            }
+          ]
+        }
+      },
+      "scope": "Post hoc cross-identification by exact unique SDSS physical members plus shared NSC training members. The original year was excluded before training reconstruction. Full-period class uses all data and is a retrospective condition. The independent candidate, footprint and displaced-position denominators remain in the blind-year archive. This comparison is not an unconditional star-purity estimate."
+    },
+    "north_two_00_01": {
+      "status": "completed",
+      "year": 2018,
+      "slurm_job": "61575102",
+      "classes": {
+        "r_existing__r21": {
+          "full_period_sources": 901,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 649,
+            "trained_as_r_existing": 447,
+            "unique_held_source_recovered": 649,
+            "recovered_with_full_period_member": 649,
+            "trained_as_extra_r_anchor": 202,
+            "no_exact_sdss_members_in_training": 252
+          },
+          "training_association": {
+            "n": 649,
+            "denominator": 901,
+            "value": 0.7203107658157603,
+            "wilson95": [
+              0.6901149529945783,
+              0.7486359421262327
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 649,
+            "denominator": 649,
+            "value": 1.0,
+            "wilson95": [
+              0.9941157860476059,
+              1.0
+            ]
+          },
+          "position_p68_mas": 80.00252266755386,
+          "within_1sigma": [
+            {
+              "n": 2880,
+              "denominator": 2974,
+              "value": 0.968392737054472,
+              "wilson95": [
+                0.9614758038576474,
+                0.9741012033559371
+              ]
+            },
+            {
+              "n": 2742,
+              "denominator": 2974,
+              "value": 0.9219905850706119,
+              "wilson95": [
+                0.9117984506970859,
+                0.9310939714515493
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 2972,
+              "denominator": 2974,
+              "value": 0.9993275050437121,
+              "wilson95": [
+                0.9975511723396968,
+                0.9998155582505208
+              ]
+            },
+            {
+              "n": 2973,
+              "denominator": 2974,
+              "value": 0.9996637525218561,
+              "wilson95": [
+                0.9980977164207746,
+                0.9999406415974502
+              ]
+            }
+          ]
+        },
+        "r_existing__r22": {
+          "full_period_sources": 106,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 18,
+            "trained_as_r_existing": 2,
+            "unique_held_source_recovered": 18,
+            "recovered_with_full_period_member": 18,
+            "no_exact_sdss_members_in_training": 88,
+            "trained_as_extra_r_anchor": 16
+          },
+          "training_association": {
+            "n": 18,
+            "denominator": 106,
+            "value": 0.16981132075471697,
+            "wilson95": [
+              0.11019962137211899,
+              0.25251823806319285
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 18,
+            "denominator": 18,
+            "value": 1.0,
+            "wilson95": [
+              0.8241207763533425,
+              1.0
+            ]
+          },
+          "position_p68_mas": 93.88515707403072,
+          "within_1sigma": [
+            {
+              "n": 71,
+              "denominator": 73,
+              "value": 0.9726027397260274,
+              "wilson95": [
+                0.9054985182830946,
+                0.9924542413203923
+              ]
+            },
+            {
+              "n": 69,
+              "denominator": 73,
+              "value": 0.9452054794520548,
+              "wilson95": [
+                0.8674100245784024,
+                0.9784875025843027
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 72,
+              "denominator": 73,
+              "value": 0.9863013698630136,
+              "wilson95": [
+                0.9264026272903616,
+                0.997577748533516
+              ]
+            },
+            {
+              "n": 73,
+              "denominator": 73,
+              "value": 1.0,
+              "wilson95": [
+                0.9500079920442688,
+                0.9999999999999998
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "full_period_sources": 96,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 29,
+            "trained_as_extra_r_anchor": 28,
+            "unique_held_source_recovered": 29,
+            "recovered_with_full_period_member": 29,
+            "no_exact_sdss_members_in_training": 67,
+            "trained_as_non_r_anchor": 1
+          },
+          "training_association": {
+            "n": 29,
+            "denominator": 96,
+            "value": 0.3020833333333333,
+            "wilson95": [
+              0.21931158499064568,
+              0.40008500186968426
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 29,
+            "denominator": 29,
+            "value": 1.0,
+            "wilson95": [
+              0.8830302015002593,
+              1.0
+            ]
+          },
+          "position_p68_mas": 118.01870551896067,
+          "within_1sigma": [
+            {
+              "n": 57,
+              "denominator": 59,
+              "value": 0.9661016949152542,
+              "wilson95": [
+                0.8845642924988925,
+                0.9906540909083387
+              ]
+            },
+            {
+              "n": 46,
+              "denominator": 59,
+              "value": 0.7796610169491526,
+              "wilson95": [
+                0.6586730063236291,
+                0.8664580237207097
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 59,
+              "denominator": 59,
+              "value": 1.0,
+              "wilson95": [
+                0.9388706294732116,
+                1.0
+              ]
+            },
+            {
+              "n": 58,
+              "denominator": 59,
+              "value": 0.9830508474576272,
+              "wilson95": [
+                0.9100427403585771,
+                0.9970017660816444
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r22": {
+          "full_period_sources": 88,
+          "counts": {
+            "no_exact_sdss_members_in_training": 87,
+            "exact_sdss_plus_shared_nsc": 1,
+            "trained_as_extra_r_anchor": 1,
+            "unique_held_source_recovered": 1,
+            "recovered_with_full_period_member": 1
+          },
+          "training_association": {
+            "n": 1,
+            "denominator": 88,
+            "value": 0.011363636363636364,
+            "wilson95": [
+              0.0020087853177044694,
+              0.061594938922985634
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          }
+        },
+        "non_r_anchor__r21": {
+          "full_period_sources": 2,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 1,
+            "trained_as_non_r_anchor": 1,
+            "unique_held_source_recovered": 1,
+            "recovered_with_full_period_member": 1,
+            "no_exact_sdss_members_in_training": 1
+          },
+          "training_association": {
+            "n": 1,
+            "denominator": 2,
+            "value": 0.5,
+            "wilson95": [
+              0.09453120573423074,
+              0.9054687942657693
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          }
+        },
+        "non_r_anchor__r22": {
+          "full_period_sources": 6,
+          "counts": {
+            "no_exact_sdss_members_in_training": 6
+          },
+          "training_association": {
+            "n": 0,
+            "denominator": 6,
+            "value": 0.0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        }
+      },
+      "scope": "Post hoc cross-identification by exact unique SDSS physical members plus shared NSC training members. The original year was excluded before training reconstruction. Full-period class uses all data and is a retrospective condition. The independent candidate, footprint and displaced-position denominators remain in the blind-year archive. This comparison is not an unconditional star-purity estimate."
+    },
+    "north_two_00_10": {
+      "status": "completed",
+      "year": 2017,
+      "slurm_job": "61575102",
+      "classes": {
+        "r_existing__r21": {
+          "full_period_sources": 987,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 893,
+            "trained_as_r_existing": 768,
+            "unique_held_source_recovered": 892,
+            "recovered_with_full_period_member": 892,
+            "no_exact_sdss_members_in_training": 94,
+            "trained_as_extra_r_anchor": 125
+          },
+          "training_association": {
+            "n": 893,
+            "denominator": 987,
+            "value": 0.9047619047619048,
+            "wilson95": [
+              0.8848478429025363,
+              0.9215374701938442
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 892,
+            "denominator": 893,
+            "value": 0.9988801791713325,
+            "wilson95": [
+              0.9936843348277119,
+              0.9998022967689412
+            ]
+          },
+          "position_p68_mas": 77.28191091322341,
+          "within_1sigma": [
+            {
+              "n": 3692,
+              "denominator": 3784,
+              "value": 0.9756871035940803,
+              "wilson95": [
+                0.9702761646694905,
+                0.9801332014925302
+              ]
+            },
+            {
+              "n": 3543,
+              "denominator": 3784,
+              "value": 0.9363107822410148,
+              "wilson95": [
+                0.9280790203033201,
+                0.9436575705486224
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 3782,
+              "denominator": 3784,
+              "value": 0.9994714587737844,
+              "wilson95": [
+                0.9980747915065213,
+                0.9998550429636006
+              ]
+            },
+            {
+              "n": 3775,
+              "denominator": 3784,
+              "value": 0.9976215644820295,
+              "wilson95": [
+                0.9954856256675703,
+                0.9987481723785879
+              ]
+            }
+          ]
+        },
+        "r_existing__r22": {
+          "full_period_sources": 106,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 106,
+            "trained_as_r_existing": 102,
+            "unique_held_source_recovered": 105,
+            "recovered_with_full_period_member": 105,
+            "trained_as_extra_r_anchor": 4
+          },
+          "training_association": {
+            "n": 106,
+            "denominator": 106,
+            "value": 1.0,
+            "wilson95": [
+              0.9650272414265277,
+              1.0
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 105,
+            "denominator": 106,
+            "value": 0.9905660377358491,
+            "wilson95": [
+              0.9484864519702955,
+              0.9983327282972411
+            ]
+          },
+          "position_p68_mas": 89.96568669458881,
+          "within_1sigma": [
+            {
+              "n": 288,
+              "denominator": 300,
+              "value": 0.96,
+              "wilson95": [
+                0.9313957879613599,
+                0.9769726785120576
+              ]
+            },
+            {
+              "n": 279,
+              "denominator": 300,
+              "value": 0.93,
+              "wilson95": [
+                0.8953639895740667,
+                0.9537630551728237
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 300,
+              "denominator": 300,
+              "value": 1.0,
+              "wilson95": [
+                0.9873570287754538,
+                0.9999999999999998
+              ]
+            },
+            {
+              "n": 300,
+              "denominator": 300,
+              "value": 1.0,
+              "wilson95": [
+                0.9873570287754538,
+                0.9999999999999998
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "full_period_sources": 68,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 55,
+            "trained_as_extra_r_anchor": 53,
+            "unique_held_source_recovered": 54,
+            "recovered_with_full_period_member": 54,
+            "no_exact_sdss_members_in_training": 13,
+            "trained_as_non_r_anchor": 2
+          },
+          "training_association": {
+            "n": 55,
+            "denominator": 68,
+            "value": 0.8088235294117647,
+            "wilson95": [
+              0.699893585399794,
+              0.8847270596907507
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 54,
+            "denominator": 55,
+            "value": 0.9818181818181818,
+            "wilson95": [
+              0.903942239378376,
+              0.9967832195451589
+            ]
+          },
+          "position_p68_mas": 96.15466187356176,
+          "within_1sigma": [
+            {
+              "n": 125,
+              "denominator": 130,
+              "value": 0.9615384615384616,
+              "wilson95": [
+                0.9131216006422269,
+                0.9834615736398364
+              ]
+            },
+            {
+              "n": 120,
+              "denominator": 130,
+              "value": 0.9230769230769231,
+              "wilson95": [
+                0.8641853468446363,
+                0.9576825629139218
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 130,
+              "denominator": 130,
+              "value": 1.0,
+              "wilson95": [
+                0.9712984388055687,
+                1.0
+              ]
+            },
+            {
+              "n": 130,
+              "denominator": 130,
+              "value": 1.0,
+              "wilson95": [
+                0.9712984388055687,
+                1.0
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r22": {
+          "full_period_sources": 138,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 96,
+            "trained_as_extra_r_anchor": 96,
+            "unique_held_source_recovered": 95,
+            "recovered_with_full_period_member": 95,
+            "no_exact_sdss_members_in_training": 42
+          },
+          "training_association": {
+            "n": 96,
+            "denominator": 138,
+            "value": 0.6956521739130435,
+            "wilson95": [
+              0.614445228100096,
+              0.7662615162394624
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 95,
+            "denominator": 96,
+            "value": 0.9895833333333334,
+            "wilson95": [
+              0.9433338237728424,
+              0.9981588297831838
+            ]
+          },
+          "position_p68_mas": 105.88915427554082,
+          "within_1sigma": [
+            {
+              "n": 199,
+              "denominator": 211,
+              "value": 0.943127962085308,
+              "wilson95": [
+                0.9032383649140234,
+                0.9671709174771814
+              ]
+            },
+            {
+              "n": 188,
+              "denominator": 211,
+              "value": 0.8909952606635071,
+              "wilson95": [
+                0.8417492414200229,
+                0.926258948925158
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 211,
+              "denominator": 211,
+              "value": 1.0,
+              "wilson95": [
+                0.9821195646232311,
+                0.9999999999999999
+              ]
+            },
+            {
+              "n": 210,
+              "denominator": 211,
+              "value": 0.995260663507109,
+              "wilson95": [
+                0.9736474741721068,
+                0.9991629002651221
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r21": {
+          "full_period_sources": 5,
+          "counts": {
+            "no_exact_sdss_members_in_training": 3,
+            "exact_sdss_plus_shared_nsc": 2,
+            "trained_as_non_r_anchor": 2,
+            "unique_held_source_recovered": 2,
+            "recovered_with_full_period_member": 2
+          },
+          "training_association": {
+            "n": 2,
+            "denominator": 5,
+            "value": 0.4,
+            "wilson95": [
+              0.11762077423264783,
+              0.769275718723987
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 2,
+            "denominator": 2,
+            "value": 1.0,
+            "wilson95": [
+              0.34238022750665303,
+              1.0
+            ]
+          },
+          "position_p68_mas": 132.0726146430841,
+          "within_1sigma": [
+            {
+              "n": 5,
+              "denominator": 7,
+              "value": 0.7142857142857143,
+              "wilson95": [
+                0.35893445183261935,
+                0.9177810759959433
+              ]
+            },
+            {
+              "n": 5,
+              "denominator": 7,
+              "value": 0.7142857142857143,
+              "wilson95": [
+                0.35893445183261935,
+                0.9177810759959433
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 6,
+              "denominator": 7,
+              "value": 0.8571428571428571,
+              "wilson95": [
+                0.4868721707256811,
+                0.9743203756552565
+              ]
+            },
+            {
+              "n": 6,
+              "denominator": 7,
+              "value": 0.8571428571428571,
+              "wilson95": [
+                0.4868721707256811,
+                0.9743203756552565
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r22": {
+          "full_period_sources": 1,
+          "counts": {
+            "no_exact_sdss_members_in_training": 1
+          },
+          "training_association": {
+            "n": 0,
+            "denominator": 1,
+            "value": 0.0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        }
+      },
+      "scope": "Post hoc cross-identification by exact unique SDSS physical members plus shared NSC training members. The original year was excluded before training reconstruction. Full-period class uses all data and is a retrospective condition. The independent candidate, footprint and displaced-position denominators remain in the blind-year archive. This comparison is not an unconditional star-purity estimate."
+    },
+    "north_two_00_11": {
+      "status": "completed",
+      "year": 2018,
+      "slurm_job": "61575102",
+      "classes": {
+        "r_existing__r21": {
+          "full_period_sources": 997,
+          "counts": {
+            "no_exact_sdss_members_in_training": 249,
+            "exact_sdss_plus_shared_nsc": 748,
+            "trained_as_r_existing": 536,
+            "unique_held_source_recovered": 745,
+            "recovered_with_full_period_member": 745,
+            "trained_as_extra_r_anchor": 210,
+            "trained_as_non_r_anchor": 2
+          },
+          "training_association": {
+            "n": 748,
+            "denominator": 997,
+            "value": 0.7502507522567703,
+            "wilson95": [
+              0.7224553840646134,
+              0.7761250810052277
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 745,
+            "denominator": 748,
+            "value": 0.9959893048128342,
+            "wilson95": [
+              0.9882751098120015,
+              0.9986350842119738
+            ]
+          },
+          "position_p68_mas": 79.56254579659898,
+          "within_1sigma": [
+            {
+              "n": 3104,
+              "denominator": 3186,
+              "value": 0.9742623979912115,
+              "wilson95": [
+                0.9681664267494685,
+                0.9792160808179304
+              ]
+            },
+            {
+              "n": 2903,
+              "denominator": 3186,
+              "value": 0.9111738857501569,
+              "wilson95": [
+                0.9007936404262463,
+                0.9205637949895663
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 3182,
+              "denominator": 3186,
+              "value": 0.9987445072190835,
+              "wilson95": [
+                0.9967761010072012,
+                0.9995116584399182
+              ]
+            },
+            {
+              "n": 3174,
+              "denominator": 3186,
+              "value": 0.9962335216572504,
+              "wilson95": [
+                0.993427765884865,
+                0.9978440702925392
+              ]
+            }
+          ]
+        },
+        "r_existing__r22": {
+          "full_period_sources": 181,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 18,
+            "trained_as_extra_r_anchor": 11,
+            "unique_held_source_recovered": 18,
+            "recovered_with_full_period_member": 18,
+            "trained_as_r_existing": 6,
+            "no_exact_sdss_members_in_training": 163,
+            "trained_as_non_r_anchor": 1
+          },
+          "training_association": {
+            "n": 18,
+            "denominator": 181,
+            "value": 0.09944751381215469,
+            "wilson95": [
+              0.06383423171486922,
+              0.15170972187047022
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 18,
+            "denominator": 18,
+            "value": 1.0,
+            "wilson95": [
+              0.8241207763533425,
+              1.0
+            ]
+          },
+          "position_p68_mas": 95.66025994267859,
+          "within_1sigma": [
+            {
+              "n": 59,
+              "denominator": 62,
+              "value": 0.9516129032258065,
+              "wilson95": [
+                0.8671196207267605,
+                0.9834083141494193
+              ]
+            },
+            {
+              "n": 58,
+              "denominator": 62,
+              "value": 0.9354838709677419,
+              "wilson95": [
+                0.8455248427224711,
+                0.9746270944795592
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 62,
+              "denominator": 62,
+              "value": 1.0,
+              "wilson95": [
+                0.9416559278986275,
+                0.9999999999999999
+              ]
+            },
+            {
+              "n": 62,
+              "denominator": 62,
+              "value": 1.0,
+              "wilson95": [
+                0.9416559278986275,
+                0.9999999999999999
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "full_period_sources": 95,
+          "counts": {
+            "no_exact_sdss_members_in_training": 92,
+            "exact_sdss_plus_shared_nsc": 3,
+            "trained_as_extra_r_anchor": 3,
+            "unique_held_source_recovered": 3,
+            "recovered_with_full_period_member": 3
+          },
+          "training_association": {
+            "n": 3,
+            "denominator": 95,
+            "value": 0.031578947368421054,
+            "wilson95": [
+              0.010797139474424379,
+              0.08877098647308188
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 3,
+            "denominator": 3,
+            "value": 1.0,
+            "wilson95": [
+              0.4385029682449546,
+              1.0
+            ]
+          }
+        },
+        "extra_r_anchor__r22": {
+          "full_period_sources": 214,
+          "counts": {
+            "no_exact_sdss_members_in_training": 213,
+            "exact_sdss_plus_shared_nsc": 1,
+            "trained_as_non_r_anchor": 1,
+            "unique_held_source_recovered": 1,
+            "recovered_with_full_period_member": 1
+          },
+          "training_association": {
+            "n": 1,
+            "denominator": 214,
+            "value": 0.004672897196261682,
+            "wilson95": [
+              0.0008253579045416418,
+              0.025989826185380586
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          },
+          "position_p68_mas": 57.814803330855284,
+          "within_1sigma": [
+            {
+              "n": 4,
+              "denominator": 5,
+              "value": 0.8,
+              "wilson95": [
+                0.37553462976252533,
+                0.9637758913675698
+              ]
+            },
+            {
+              "n": 5,
+              "denominator": 5,
+              "value": 1.0,
+              "wilson95": [
+                0.5655175352168251,
+                1.0
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 4,
+              "denominator": 5,
+              "value": 0.8,
+              "wilson95": [
+                0.37553462976252533,
+                0.9637758913675698
+              ]
+            },
+            {
+              "n": 5,
+              "denominator": 5,
+              "value": 1.0,
+              "wilson95": [
+                0.5655175352168251,
+                1.0
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r21": {
+          "full_period_sources": 2,
+          "counts": {
+            "no_exact_sdss_members_in_training": 1,
+            "exact_sdss_plus_shared_nsc": 1,
+            "trained_as_non_r_anchor": 1,
+            "unique_held_source_recovered": 1,
+            "recovered_with_full_period_member": 0
+          },
+          "training_association": {
+            "n": 1,
+            "denominator": 2,
+            "value": 0.5,
+            "wilson95": [
+              0.09453120573423074,
+              0.9054687942657693
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          }
+        },
+        "non_r_anchor__r22": {
+          "full_period_sources": 3,
+          "counts": {
+            "no_exact_sdss_members_in_training": 3
+          },
+          "training_association": {
+            "n": 0,
+            "denominator": 3,
+            "value": 0.0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        }
+      },
+      "scope": "Post hoc cross-identification by exact unique SDSS physical members plus shared NSC training members. The original year was excluded before training reconstruction. Full-period class uses all data and is a retrospective condition. The independent candidate, footprint and displaced-position denominators remain in the blind-year archive. This comparison is not an unconditional star-purity estimate."
+    },
+    "repeat_sparse": {
+      "status": "completed",
+      "year": 2017,
+      "slurm_job": "61575102",
+      "classes": {
+        "r_existing__r21": {
+          "full_period_sources": 2686,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 2352,
+            "trained_as_extra_r_anchor": 2352,
+            "unique_held_source_recovered": 2352,
+            "recovered_with_full_period_member": 2352,
+            "no_exact_sdss_members_in_training": 334
+          },
+          "training_association": {
+            "n": 2352,
+            "denominator": 2686,
+            "value": 0.8756515264333582,
+            "wilson95": [
+              0.8626333902924881,
+              0.8875966998053688
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 2352,
+            "denominator": 2352,
+            "value": 1.0,
+            "wilson95": [
+              0.9983693899237951,
+              1.0
+            ]
+          },
+          "position_p68_mas": 67.01947073614758,
+          "within_1sigma": [
+            {
+              "n": 14650,
+              "denominator": 15439,
+              "value": 0.9488956538635922,
+              "wilson95": [
+                0.9453090522419866,
+                0.9522589268738534
+              ]
+            },
+            {
+              "n": 14703,
+              "denominator": 15439,
+              "value": 0.9523285186864434,
+              "wilson95": [
+                0.9488535917234898,
+                0.9555784091646812
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 15402,
+              "denominator": 15439,
+              "value": 0.9976034717274435,
+              "wilson95": [
+                0.9966986422628312,
+                0.9982607401132515
+              ]
+            },
+            {
+              "n": 15402,
+              "denominator": 15439,
+              "value": 0.9976034717274435,
+              "wilson95": [
+                0.9966986422628312,
+                0.9982607401132515
+              ]
+            }
+          ]
+        },
+        "r_existing__r22": {
+          "full_period_sources": 124,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 95,
+            "trained_as_extra_r_anchor": 95,
+            "unique_held_source_recovered": 95,
+            "recovered_with_full_period_member": 95,
+            "no_exact_sdss_members_in_training": 29
+          },
+          "training_association": {
+            "n": 95,
+            "denominator": 124,
+            "value": 0.7661290322580645,
+            "wilson95": [
+              0.6843221984843502,
+              0.8319422481891601
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 95,
+            "denominator": 95,
+            "value": 1.0,
+            "wilson95": [
+              0.9611351464605271,
+              1.0
+            ]
+          },
+          "position_p68_mas": 91.85580350636249,
+          "within_1sigma": [
+            {
+              "n": 563,
+              "denominator": 596,
+              "value": 0.9446308724832215,
+              "wilson95": [
+                0.9232613754667142,
+                0.960305427404824
+              ]
+            },
+            {
+              "n": 549,
+              "denominator": 596,
+              "value": 0.9211409395973155,
+              "wilson95": [
+                0.8967074907045869,
+                0.9401803112605303
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 593,
+              "denominator": 596,
+              "value": 0.9949664429530202,
+              "wilson95": [
+                0.9853065426963451,
+                0.9982866906889521
+              ]
+            },
+            {
+              "n": 594,
+              "denominator": 596,
+              "value": 0.9966442953020134,
+              "wilson95": [
+                0.9878481858780301,
+                0.9990792618577256
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "full_period_sources": 1271,
+          "counts": {
+            "no_exact_sdss_members_in_training": 403,
+            "exact_sdss_plus_shared_nsc": 868,
+            "trained_as_extra_r_anchor": 580,
+            "unique_held_source_recovered": 865,
+            "recovered_with_full_period_member": 865,
+            "trained_as_non_r_anchor": 288
+          },
+          "training_association": {
+            "n": 868,
+            "denominator": 1271,
+            "value": 0.6829268292682927,
+            "wilson95": [
+              0.6568257939528998,
+              0.7079254437658308
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 865,
+            "denominator": 868,
+            "value": 0.9965437788018433,
+            "wilson95": [
+              0.9898879793508031,
+              0.99882389168822
+            ]
+          },
+          "position_p68_mas": 70.22874959457884,
+          "within_1sigma": [
+            {
+              "n": 5442,
+              "denominator": 5741,
+              "value": 0.9479184811008535,
+              "wilson95": [
+                0.9418655525308768,
+                0.9533723816863295
+              ]
+            },
+            {
+              "n": 5453,
+              "denominator": 5741,
+              "value": 0.9498345236021599,
+              "wilson95": [
+                0.9438810891418482,
+                0.9551863676405493
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 5727,
+              "denominator": 5741,
+              "value": 0.9975614004528828,
+              "wilson95": [
+                0.9959106013702621,
+                0.9985467811268989
+              ]
+            },
+            {
+              "n": 5726,
+              "denominator": 5741,
+              "value": 0.9973872147709458,
+              "wilson95": [
+                0.9956933103545865,
+                0.9984159337275572
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r22": {
+          "full_period_sources": 285,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 125,
+            "trained_as_extra_r_anchor": 117,
+            "unique_held_source_recovered": 125,
+            "recovered_with_full_period_member": 125,
+            "no_exact_sdss_members_in_training": 160,
+            "trained_as_non_r_anchor": 8
+          },
+          "training_association": {
+            "n": 125,
+            "denominator": 285,
+            "value": 0.43859649122807015,
+            "wilson95": [
+              0.38218195221626,
+              0.4966443072033507
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 125,
+            "denominator": 125,
+            "value": 1.0,
+            "wilson95": [
+              0.9701846062916737,
+              1.0
+            ]
+          },
+          "position_p68_mas": 89.31697205749865,
+          "within_1sigma": [
+            {
+              "n": 638,
+              "denominator": 683,
+              "value": 0.9341142020497804,
+              "wilson95": [
+                0.9129749667484429,
+                0.9503974933505442
+              ]
+            },
+            {
+              "n": 639,
+              "denominator": 683,
+              "value": 0.9355783308931186,
+              "wilson95": [
+                0.9146211148416171,
+                0.9516632253926113
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 682,
+              "denominator": 683,
+              "value": 0.9985358711566618,
+              "wilson95": [
+                0.9917536875131998,
+                0.9997414985363957
+              ]
+            },
+            {
+              "n": 680,
+              "denominator": 683,
+              "value": 0.9956076134699854,
+              "wilson95": [
+                0.9871663341602527,
+                0.998505091618861
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r21": {
+          "full_period_sources": 3,
+          "counts": {
+            "no_exact_sdss_members_in_training": 2,
+            "exact_sdss_plus_shared_nsc": 1,
+            "trained_as_non_r_anchor": 1,
+            "unique_held_source_recovered": 1,
+            "recovered_with_full_period_member": 1
+          },
+          "training_association": {
+            "n": 1,
+            "denominator": 3,
+            "value": 0.3333333333333333,
+            "wilson95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 1,
+            "denominator": 1,
+            "value": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          }
+        },
+        "non_r_anchor__r22": {
+          "full_period_sources": 0,
+          "counts": {},
+          "training_association": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          },
+          "held_position_recovery_given_link": {
+            "n": 0,
+            "denominator": 0,
+            "value": null,
+            "wilson95": null
+          }
+        }
+      },
+      "scope": "Post hoc cross-identification by exact unique SDSS physical members plus shared NSC training members. The original year was excluded before training reconstruction. Full-period class uses all data and is a retrospective condition. The independent candidate, footprint and displaced-position denominators remain in the blind-year archive. This comparison is not an unconditional star-purity estimate."
+    },
+    "repeat_rich": {
+      "status": "completed",
+      "year": 2016,
+      "slurm_job": "61575102",
+      "classes": {
+        "r_existing__r21": {
+          "full_period_sources": 6166,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 6085,
+            "trained_as_r_existing": 6083,
+            "unique_held_source_recovered": 6078,
+            "recovered_with_full_period_member": 6078,
+            "no_exact_sdss_members_in_training": 81,
+            "trained_as_extra_r_anchor": 2
+          },
+          "training_association": {
+            "n": 6085,
+            "denominator": 6166,
+            "value": 0.9868634446967239,
+            "wilson95": [
+              0.9837031289763882,
+              0.9894174998229792
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 6078,
+            "denominator": 6085,
+            "value": 0.9988496302382909,
+            "wilson95": [
+              0.997627168090353,
+              0.9994426424899754
+            ]
+          },
+          "position_p68_mas": 64.58647852258873,
+          "within_1sigma": [
+            {
+              "n": 72250,
+              "denominator": 75125,
+              "value": 0.961730449251248,
+              "wilson95": [
+                0.9603348139926335,
+                0.9630788664648982
+              ]
+            },
+            {
+              "n": 71832,
+              "denominator": 75125,
+              "value": 0.9561663893510816,
+              "wilson95": [
+                0.9546789665733404,
+                0.9576071630825698
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 74911,
+              "denominator": 75125,
+              "value": 0.9971514143094842,
+              "wilson95": [
+                0.9967440464371019,
+                0.9975079418747718
+              ]
+            },
+            {
+              "n": 74941,
+              "denominator": 75125,
+              "value": 0.9975507487520798,
+              "wilson95": [
+                0.9971709430308451,
+                0.9978796733289919
+              ]
+            }
+          ]
+        },
+        "r_existing__r22": {
+          "full_period_sources": 5468,
+          "counts": {
+            "no_exact_sdss_members_in_training": 503,
+            "exact_sdss_plus_shared_nsc": 4965,
+            "trained_as_r_existing": 4960,
+            "unique_held_source_recovered": 4945,
+            "recovered_with_full_period_member": 4945,
+            "trained_as_extra_r_anchor": 5
+          },
+          "training_association": {
+            "n": 4965,
+            "denominator": 5468,
+            "value": 0.9080102414045355,
+            "wilson95": [
+              0.9000607794380336,
+              0.9153868232711394
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 4945,
+            "denominator": 4965,
+            "value": 0.9959718026183283,
+            "wilson95": [
+              0.9937859415445015,
+              0.9973907826106098
+            ]
+          },
+          "position_p68_mas": 81.12724792046421,
+          "within_1sigma": [
+            {
+              "n": 38146,
+              "denominator": 40522,
+              "value": 0.9413651843443068,
+              "wilson95": [
+                0.9390355814496699,
+                0.9436111129156225
+              ]
+            },
+            {
+              "n": 38075,
+              "denominator": 40522,
+              "value": 0.9396130497013968,
+              "wilson95": [
+                0.9372518580161063,
+                0.9418908992342888
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 40292,
+              "denominator": 40522,
+              "value": 0.9943240708750802,
+              "wilson95": [
+                0.9935442982176348,
+                0.9950101292260984
+              ]
+            },
+            {
+              "n": 40287,
+              "denominator": 40522,
+              "value": 0.994200681111495,
+              "wilson95": [
+                0.9934130752455964,
+                0.9948945960632848
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r21": {
+          "full_period_sources": 12,
+          "counts": {
+            "exact_sdss_plus_shared_nsc": 12,
+            "trained_as_extra_r_anchor": 12,
+            "unique_held_source_recovered": 9,
+            "recovered_with_full_period_member": 9
+          },
+          "training_association": {
+            "n": 12,
+            "denominator": 12,
+            "value": 1.0,
+            "wilson95": [
+              0.7575059933447592,
+              1.0
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 9,
+            "denominator": 12,
+            "value": 0.75,
+            "wilson95": [
+              0.46769466506643426,
+              0.9110583316059453
+            ]
+          },
+          "position_p68_mas": 108.346514339583,
+          "within_1sigma": [
+            {
+              "n": 24,
+              "denominator": 32,
+              "value": 0.75,
+              "wilson95": [
+                0.5789344100575552,
+                0.8674759908149096
+              ]
+            },
+            {
+              "n": 27,
+              "denominator": 32,
+              "value": 0.84375,
+              "wilson95": [
+                0.682458504024696,
+                0.9313557971749429
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 27,
+              "denominator": 32,
+              "value": 0.84375,
+              "wilson95": [
+                0.682458504024696,
+                0.9313557971749429
+              ]
+            },
+            {
+              "n": 32,
+              "denominator": 32,
+              "value": 1.0,
+              "wilson95": [
+                0.8928208017449293,
+                1.0
+              ]
+            }
+          ]
+        },
+        "extra_r_anchor__r22": {
+          "full_period_sources": 38,
+          "counts": {
+            "no_exact_sdss_members_in_training": 6,
+            "exact_sdss_plus_shared_nsc": 32,
+            "trained_as_extra_r_anchor": 32,
+            "unique_held_source_recovered": 28,
+            "recovered_with_full_period_member": 26
+          },
+          "training_association": {
+            "n": 32,
+            "denominator": 38,
+            "value": 0.8421052631578947,
+            "wilson95": [
+              0.6958318822077686,
+              0.9255613658484106
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 28,
+            "denominator": 32,
+            "value": 0.875,
+            "wilson95": [
+              0.7193169451834978,
+              0.9502986561251991
+            ]
+          },
+          "position_p68_mas": 91.19190093329173,
+          "within_1sigma": [
+            {
+              "n": 121,
+              "denominator": 128,
+              "value": 0.9453125,
+              "wilson95": [
+                0.8914150997002529,
+                0.9732597986186536
+              ]
+            },
+            {
+              "n": 119,
+              "denominator": 128,
+              "value": 0.9296875,
+              "wilson95": [
+                0.8717651965063937,
+                0.96257023169606
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 126,
+              "denominator": 128,
+              "value": 0.984375,
+              "wilson95": [
+                0.9448190233201829,
+                0.9957045502898559
+              ]
+            },
+            {
+              "n": 124,
+              "denominator": 128,
+              "value": 0.96875,
+              "wilson95": [
+                0.9224023687386392,
+                0.9877817347549466
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r21": {
+          "full_period_sources": 19,
+          "counts": {
+            "no_exact_sdss_members_in_training": 4,
+            "exact_sdss_plus_shared_nsc": 15,
+            "trained_as_non_r_anchor": 15,
+            "unique_held_source_recovered": 11,
+            "recovered_with_full_period_member": 10
+          },
+          "training_association": {
+            "n": 15,
+            "denominator": 19,
+            "value": 0.7894736842105263,
+            "wilson95": [
+              0.5666572155618583,
+              0.9149232336708375
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 11,
+            "denominator": 15,
+            "value": 0.7333333333333333,
+            "wilson95": [
+              0.4804956594401943,
+              0.8910254667430761
+            ]
+          },
+          "position_p68_mas": 618.5526938916596,
+          "within_1sigma": [
+            {
+              "n": 17,
+              "denominator": 41,
+              "value": 0.4146341463414634,
+              "wilson95": [
+                0.27756549454252133,
+                0.5663289686596986
+              ]
+            },
+            {
+              "n": 20,
+              "denominator": 41,
+              "value": 0.4878048780487805,
+              "wilson95": [
+                0.34254429554432664,
+                0.6351549134845619
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 24,
+              "denominator": 41,
+              "value": 0.5853658536585366,
+              "wilson95": [
+                0.4336710313403013,
+                0.7224345054574786
+              ]
+            },
+            {
+              "n": 23,
+              "denominator": 41,
+              "value": 0.5609756097560976,
+              "wilson95": [
+                0.4104052722210609,
+                0.7010986826344963
+              ]
+            }
+          ]
+        },
+        "non_r_anchor__r22": {
+          "full_period_sources": 17,
+          "counts": {
+            "no_exact_sdss_members_in_training": 2,
+            "exact_sdss_plus_shared_nsc": 15,
+            "trained_as_non_r_anchor": 15,
+            "unique_held_source_recovered": 11,
+            "recovered_with_full_period_member": 10
+          },
+          "training_association": {
+            "n": 15,
+            "denominator": 17,
+            "value": 0.8823529411764706,
+            "wilson95": [
+              0.6566364940511412,
+              0.9671202262362074
+            ]
+          },
+          "held_position_recovery_given_link": {
+            "n": 11,
+            "denominator": 15,
+            "value": 0.7333333333333333,
+            "wilson95": [
+              0.4804956594401943,
+              0.8910254667430761
+            ]
+          },
+          "position_p68_mas": 88.27011340445566,
+          "within_1sigma": [
+            {
+              "n": 26,
+              "denominator": 35,
+              "value": 0.7428571428571429,
+              "wilson95": [
+                0.5793069315616084,
+                0.8583697293093955
+              ]
+            },
+            {
+              "n": 28,
+              "denominator": 35,
+              "value": 0.8,
+              "wilson95": [
+                0.6410838693433439,
+                0.8995755352620137
+              ]
+            }
+          ],
+          "within_2sigma": [
+            {
+              "n": 32,
+              "denominator": 35,
+              "value": 0.9142857142857143,
+              "wilson95": [
+                0.7762072603410349,
+                0.9704176317330301
+              ]
+            },
+            {
+              "n": 34,
+              "denominator": 35,
+              "value": 0.9714285714285714,
+              "wilson95": [
+                0.8546691276638632,
+                0.9949385081445556
+              ]
+            }
+          ]
+        }
+      },
+      "scope": "Post hoc cross-identification by exact unique SDSS physical members plus shared NSC training members. The original year was excluded before training reconstruction. Full-period class uses all data and is a retrospective condition. The independent candidate, footprint and displaced-position denominators remain in the blind-year archive. This comparison is not an unconditional star-purity estimate."
+    }
+  },
+  "failures": [],
+  "slurm_job": "61575102"
+}

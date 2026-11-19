@@ -1,0 +1,4625 @@
+{
+  "cores": [
+    "repeat_rich",
+    "repeat_sparse",
+    "c_01_04",
+    "c_03_07",
+    "c_06_04",
+    "c_08_09"
+  ],
+  "reference_shard_receipts": {
+    "repeat_rich": "ba43b7efb42c81bebd92edc18885f0c1446d9b8de30760b521e37dd37b0e8b6d",
+    "repeat_sparse": "3abd054e109fe5949f8ab502da8c853e8b383fdde6d13590ef55110abca336ab",
+    "c_01_04": "ab125cef60d9f890fceb3faafd81530be398d3b6440f7b2654133d949911c952",
+    "c_03_07": "4b27fb5cede8ca5d558942e8063418822354318f7dff298df00de13be9cea85b",
+    "c_06_04": "8c847f4e0b2b6ba772f99ec31f5c2e6ae948d64bf5734664727b9f80475626c7",
+    "c_08_09": "d8bd14066d7aa02b653ea71005df187c6ca20bd2511e0f96cfef2c39c76fceeb"
+  },
+  "comparison_cells": {
+    "c4d/g/g/development/different_night": {
+      "comparisons": 8444,
+      "physical_exposure_pairs": 305,
+      "utc_nights": 49,
+      "median_mas": [
+        -0.49490386294201016,
+        -0.4380732658319175
+      ],
+      "nmad_mas": [
+        83.53066069784033,
+        86.21152127511758
+      ],
+      "median_native_difference_variance_mas2": [
+        31186.851788500004,
+        31847.625708500003
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.395768903271194,
+        1.4003159952187942
+      ],
+      "w0_standardized_nmad": [
+        0.48516417440329873,
+        0.49264749868998337
+      ]
+    },
+    "c4d/Y/g/development/different_night": {
+      "comparisons": 4509,
+      "physical_exposure_pairs": 201,
+      "utc_nights": 52,
+      "median_mas": [
+        6.031582257710397,
+        -7.573170845862478
+      ],
+      "nmad_mas": [
+        125.21656445186231,
+        127.36542190506253
+      ],
+      "median_native_difference_variance_mas2": [
+        35160.912964,
+        35600.840365
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.4234239146804986,
+        2.3016504787415943
+      ],
+      "w0_standardized_nmad": [
+        0.6698455411546171,
+        0.6634980610139101
+      ]
+    },
+    "c4d/Y/Y/development/different_night": {
+      "comparisons": 2321,
+      "physical_exposure_pairs": 74,
+      "utc_nights": 42,
+      "median_mas": [
+        -0.2603766666725278,
+        5.838424008805305
+      ],
+      "nmad_mas": [
+        110.36365177416074,
+        105.15085973084906
+      ],
+      "median_native_difference_variance_mas2": [
+        38520.246397,
+        38665.080866000004
+      ],
+      "median_reference_difference_variance_mas2": [
+        3.3355153265900843,
+        3.642258485939543
+      ],
+      "w0_standardized_nmad": [
+        0.5760146609526079,
+        0.5488089079728357
+      ]
+    },
+    "c4d/Y/z/development/different_night": {
+      "comparisons": 5531,
+      "physical_exposure_pairs": 200,
+      "utc_nights": 61,
+      "median_mas": [
+        -0.2973507009446621,
+        1.2565366667695343
+      ],
+      "nmad_mas": [
+        108.84931193640679,
+        109.33697501267642
+      ],
+      "median_native_difference_variance_mas2": [
+        28266.289426000003,
+        28388.733172999993
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.0225639288981556,
+        2.049022166892
+      ],
+      "w0_standardized_nmad": [
+        0.6136918563143559,
+        0.6263063045851648
+      ]
+    },
+    "c4d/Y/i/development/different_night": {
+      "comparisons": 5202,
+      "physical_exposure_pairs": 173,
+      "utc_nights": 53,
+      "median_mas": [
+        0.19901360478252172,
+        1.7123478112043813
+      ],
+      "nmad_mas": [
+        100.76097084383284,
+        101.5996031629272
+      ],
+      "median_native_difference_variance_mas2": [
+        23819.7199805,
+        23967.041607000003
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.89988073043738,
+        1.7534570382293857
+      ],
+      "w0_standardized_nmad": [
+        0.6218258496288317,
+        0.6296956141767015
+      ]
+    },
+    "c4d/z/z/development/different_night": {
+      "comparisons": 9777,
+      "physical_exposure_pairs": 132,
+      "utc_nights": 53,
+      "median_mas": [
+        0.6656405255198479,
+        0.958059947937727
+      ],
+      "nmad_mas": [
+        55.835594127241706,
+        55.620540595475205
+      ],
+      "median_native_difference_variance_mas2": [
+        8970.811561999999,
+        8996.675964999999
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.457006566278962,
+        0.4588835206628426
+      ],
+      "w0_standardized_nmad": [
+        0.45739827287397394,
+        0.46727666878093227
+      ]
+    },
+    "c4d/i/z/development/different_night": {
+      "comparisons": 8625,
+      "physical_exposure_pairs": 175,
+      "utc_nights": 46,
+      "median_mas": [
+        -1.245874172076583,
+        0.22997499466873705
+      ],
+      "nmad_mas": [
+        52.84049598750528,
+        52.87515720362174
+      ],
+      "median_native_difference_variance_mas2": [
+        7029.470653,
+        7065.587698000002
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.3297274454742946,
+        0.3632461841963147
+      ],
+      "w0_standardized_nmad": [
+        0.4658910572367989,
+        0.46716708731065765
+      ]
+    },
+    "c4d/r/z/development/different_night": {
+      "comparisons": 12479,
+      "physical_exposure_pairs": 257,
+      "utc_nights": 92,
+      "median_mas": [
+        0.4600261263549328,
+        -0.8867041536141187
+      ],
+      "nmad_mas": [
+        66.61399837710186,
+        67.92555887606791
+      ],
+      "median_native_difference_variance_mas2": [
+        13836.188029,
+        13924.72709
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7138088978569177,
+        0.6752286297637227
+      ],
+      "w0_standardized_nmad": [
+        0.49782549669412013,
+        0.5056745471694359
+      ]
+    },
+    "c4d/i/z/development/same_night": {
+      "comparisons": 8162,
+      "physical_exposure_pairs": 88,
+      "utc_nights": 30,
+      "median_mas": [
+        -0.2656212830916047,
+        -1.2047622364480048
+      ],
+      "nmad_mas": [
+        58.41682239637859,
+        58.11235197487499
+      ],
+      "median_native_difference_variance_mas2": [
+        10447.201793,
+        10495.7334555
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.29190855546098643,
+        0.28086986682317483
+      ],
+      "w0_standardized_nmad": [
+        0.463479597162656,
+        0.46679131965103
+      ]
+    },
+    "c4d/i/r/development/different_night": {
+      "comparisons": 8651,
+      "physical_exposure_pairs": 212,
+      "utc_nights": 48,
+      "median_mas": [
+        -1.0454426389187574,
+        -1.3659009004477412
+      ],
+      "nmad_mas": [
+        60.07775598008483,
+        59.28467212036312
+      ],
+      "median_native_difference_variance_mas2": [
+        10789.193705,
+        10922.489653000002
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.3199699262334124,
+        0.35129726693264246
+      ],
+      "w0_standardized_nmad": [
+        0.48184145598712536,
+        0.4764645973128295
+      ]
+    },
+    "c4d/r/r/development/different_night": {
+      "comparisons": 12268,
+      "physical_exposure_pairs": 189,
+      "utc_nights": 75,
+      "median_mas": [
+        0.6554129207506776,
+        1.1156381843611598
+      ],
+      "nmad_mas": [
+        59.49756003823746,
+        60.17934069890311
+      ],
+      "median_native_difference_variance_mas2": [
+        12281.888346,
+        12414.759133
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.3988894834028922,
+        0.39545962405257523
+      ],
+      "w0_standardized_nmad": [
+        0.4660643182846727,
+        0.46448495014599755
+      ]
+    },
+    "c4d/g/z/development/different_night": {
+      "comparisons": 11049,
+      "physical_exposure_pairs": 264,
+      "utc_nights": 83,
+      "median_mas": [
+        0.17971336655318737,
+        0.9582182657904923
+      ],
+      "nmad_mas": [
+        88.70340126179381,
+        92.73793875921936
+      ],
+      "median_native_difference_variance_mas2": [
+        25055.258,
+        25442.167427999997
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.1110004485759395,
+        1.041979279202041
+      ],
+      "w0_standardized_nmad": [
+        0.5575430071641104,
+        0.5755703046373112
+      ]
+    },
+    "c4d/i/r/development/same_night": {
+      "comparisons": 8797,
+      "physical_exposure_pairs": 84,
+      "utc_nights": 40,
+      "median_mas": [
+        -1.4920164048671722,
+        1.6181080162059516
+      ],
+      "nmad_mas": [
+        58.3864802754879,
+        58.24338678217087
+      ],
+      "median_native_difference_variance_mas2": [
+        10516.841141,
+        10657.700369999999
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.3257149570050074,
+        0.37497747013104754
+      ],
+      "w0_standardized_nmad": [
+        0.46695382168778127,
+        0.4672355143587632
+      ]
+    },
+    "c4d/g/r/development/same_night": {
+      "comparisons": 11293,
+      "physical_exposure_pairs": 130,
+      "utc_nights": 49,
+      "median_mas": [
+        -1.103685725480318,
+        -0.7725823689252138
+      ],
+      "nmad_mas": [
+        74.4760460287191,
+        74.82787098420896
+      ],
+      "median_native_difference_variance_mas2": [
+        19015.437845,
+        19465.226434000004
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7810275981516811,
+        0.7410480260840019
+      ],
+      "w0_standardized_nmad": [
+        0.5101080151601816,
+        0.5069845541731457
+      ]
+    },
+    "c4d/g/i/development/same_night": {
+      "comparisons": 7217,
+      "physical_exposure_pairs": 71,
+      "utc_nights": 28,
+      "median_mas": [
+        1.551036661490798,
+        0.5500568437855691
+      ],
+      "nmad_mas": [
+        76.51467131392322,
+        78.97473120058737
+      ],
+      "median_native_difference_variance_mas2": [
+        20748.156447999998,
+        21199.403523999998
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7338513559387002,
+        0.8288448208041045
+      ],
+      "w0_standardized_nmad": [
+        0.5151665135330642,
+        0.5308973755208368
+      ]
+    },
+    "c4d/Y/z/development/same_night": {
+      "comparisons": 4150,
+      "physical_exposure_pairs": 64,
+      "utc_nights": 22,
+      "median_mas": [
+        2.7532706819474697,
+        -0.962197819724679
+      ],
+      "nmad_mas": [
+        82.3577407970787,
+        84.69124582377879
+      ],
+      "median_native_difference_variance_mas2": [
+        23610.236476500002,
+        23706.244531000004
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.079057509567393,
+        0.9111805590513606
+      ],
+      "w0_standardized_nmad": [
+        0.523149286806857,
+        0.5371748694561517
+      ]
+    },
+    "c4d/g/i/development/different_night": {
+      "comparisons": 7908,
+      "physical_exposure_pairs": 243,
+      "utc_nights": 48,
+      "median_mas": [
+        -2.124130050186068,
+        -1.3192180637270212
+      ],
+      "nmad_mas": [
+        84.68976449989322,
+        87.241587496319
+      ],
+      "median_native_difference_variance_mas2": [
+        23659.0756735,
+        24099.791731
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7287496585633554,
+        0.7329344168118829
+      ],
+      "w0_standardized_nmad": [
+        0.5331057443976585,
+        0.5548985971233642
+      ]
+    },
+    "c4d/g/r/development/different_night": {
+      "comparisons": 11837,
+      "physical_exposure_pairs": 294,
+      "utc_nights": 70,
+      "median_mas": [
+        -2.198383189737797,
+        0.8499671779572964
+      ],
+      "nmad_mas": [
+        80.37573252526447,
+        81.51586569003341
+      ],
+      "median_native_difference_variance_mas2": [
+        21606.022073,
+        22017.026464000002
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.8954449655707756,
+        0.9008359972585346
+      ],
+      "w0_standardized_nmad": [
+        0.5209407262481709,
+        0.5235650684637626
+      ]
+    },
+    "c4d/i/i/development/different_night": {
+      "comparisons": 8345,
+      "physical_exposure_pairs": 175,
+      "utc_nights": 44,
+      "median_mas": [
+        0.10696851462125778,
+        1.0107475654222071
+      ],
+      "nmad_mas": [
+        47.904413776903596,
+        49.89368564137676
+      ],
+      "median_native_difference_variance_mas2": [
+        5969.402066,
+        6053.072429
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.29832398923647385,
+        0.33738200056317263
+      ],
+      "w0_standardized_nmad": [
+        0.4362646630687608,
+        0.45362270435534013
+      ]
+    },
+    "c4d/Y/r/development/different_night": {
+      "comparisons": 5145,
+      "physical_exposure_pairs": 164,
+      "utc_nights": 64,
+      "median_mas": [
+        2.281427051872015,
+        1.7726013353094459
+      ],
+      "nmad_mas": [
+        106.65570630996487,
+        108.30299880246798
+      ],
+      "median_native_difference_variance_mas2": [
+        24214.363277000008,
+        24371.442805
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.026569696910564,
+        1.8997008405156746
+      ],
+      "w0_standardized_nmad": [
+        0.6543791949051366,
+        0.6613516647431508
+      ]
+    },
+    "c4d/g/z/development/same_night": {
+      "comparisons": 4347,
+      "physical_exposure_pairs": 57,
+      "utc_nights": 21,
+      "median_mas": [
+        0.7879943558946252,
+        -2.7585574332624674
+      ],
+      "nmad_mas": [
+        92.55201702595296,
+        91.6897615445628
+      ],
+      "median_native_difference_variance_mas2": [
+        25082.21416,
+        25151.500921
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.6628939512026166,
+        1.645369099343353
+      ],
+      "w0_standardized_nmad": [
+        0.5694939791930017,
+        0.5708777425155251
+      ]
+    },
+    "c4d/r/z/development/same_night": {
+      "comparisons": 6674,
+      "physical_exposure_pairs": 76,
+      "utc_nights": 33,
+      "median_mas": [
+        -2.4938071835786104,
+        1.4954233036842197
+      ],
+      "nmad_mas": [
+        69.5203255694272,
+        72.14610233621137
+      ],
+      "median_native_difference_variance_mas2": [
+        16098.895809,
+        16165.8211685
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.4738233340485968,
+        0.5487469644287208
+      ],
+      "w0_standardized_nmad": [
+        0.5063470111273063,
+        0.5092100533224042
+      ]
+    },
+    "c4d/g/g/development/same_night": {
+      "comparisons": 1706,
+      "physical_exposure_pairs": 110,
+      "utc_nights": 23,
+      "median_mas": [
+        -5.807108915410936,
+        0.6473739687453417
+      ],
+      "nmad_mas": [
+        94.43212262778002,
+        91.63328825782409
+      ],
+      "median_native_difference_variance_mas2": [
+        34853.9608405,
+        35299.007589999994
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.8041695514424465,
+        1.9200441731790565
+      ],
+      "w0_standardized_nmad": [
+        0.5227503426837627,
+        0.501157288490861
+      ]
+    },
+    "c4d/z/z/development/same_night": {
+      "comparisons": 5714,
+      "physical_exposure_pairs": 118,
+      "utc_nights": 28,
+      "median_mas": [
+        -0.007824440486729145,
+        -2.3947398378513753
+      ],
+      "nmad_mas": [
+        79.45595114851332,
+        78.57022628527453
+      ],
+      "median_native_difference_variance_mas2": [
+        23597.1770225,
+        23612.910961499998
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.8779311079017651,
+        0.7165129957563272
+      ],
+      "w0_standardized_nmad": [
+        0.5174534802713577,
+        0.5049225139522607
+      ]
+    },
+    "c4d/r/r/development/same_night": {
+      "comparisons": 5001,
+      "physical_exposure_pairs": 92,
+      "utc_nights": 30,
+      "median_mas": [
+        -2.609615059569478,
+        -0.31656951076729456
+      ],
+      "nmad_mas": [
+        66.61866780940555,
+        66.66966901525095
+      ],
+      "median_native_difference_variance_mas2": [
+        17937.294233,
+        18063.623068999997
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.46988936789091923,
+        0.407313856082457
+      ],
+      "w0_standardized_nmad": [
+        0.45827456518153287,
+        0.4650604627676272
+      ]
+    },
+    "c4d/i/i/development/same_night": {
+      "comparisons": 7232,
+      "physical_exposure_pairs": 126,
+      "utc_nights": 25,
+      "median_mas": [
+        0.6129122227430344,
+        1.3557786942837993
+      ],
+      "nmad_mas": [
+        75.26734347991514,
+        75.08798840108636
+      ],
+      "median_native_difference_variance_mas2": [
+        22843.8404745,
+        22936.5385695
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.8511979965743596,
+        0.8955787690611843
+      ],
+      "w0_standardized_nmad": [
+        0.4854559327137543,
+        0.4845141534584699
+      ]
+    },
+    "c4d/g/g/held/different_night": {
+      "comparisons": 4112,
+      "physical_exposure_pairs": 262,
+      "utc_nights": 45,
+      "median_mas": [
+        -4.780792665667832,
+        -2.542428960558027
+      ],
+      "nmad_mas": [
+        85.68889154064226,
+        84.25138749358683
+      ],
+      "median_native_difference_variance_mas2": [
+        31515.460993,
+        32179.8841625
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.395768903271194,
+        1.3474718767731486
+      ],
+      "w0_standardized_nmad": [
+        0.4999473361322974,
+        0.4856198738459618
+      ]
+    },
+    "c4d/Y/g/held/different_night": {
+      "comparisons": 2147,
+      "physical_exposure_pairs": 167,
+      "utc_nights": 48,
+      "median_mas": [
+        4.506251078099012,
+        -3.5030827820301056
+      ],
+      "nmad_mas": [
+        124.01909008005111,
+        125.64623912104675
+      ],
+      "median_native_difference_variance_mas2": [
+        35504.73792400001,
+        36032.73769800001
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.464834651594458,
+        2.3016504787415943
+      ],
+      "w0_standardized_nmad": [
+        0.6412352498716147,
+        0.6385007257733997
+      ]
+    },
+    "c4d/g/r/held/different_night": {
+      "comparisons": 5801,
+      "physical_exposure_pairs": 250,
+      "utc_nights": 67,
+      "median_mas": [
+        -2.633098892867565,
+        2.247460301965475
+      ],
+      "nmad_mas": [
+        78.5404440748673,
+        81.07390951906275
+      ],
+      "median_native_difference_variance_mas2": [
+        21364.337116999995,
+        21809.878738
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.8929109442628274,
+        0.9008359972585346
+      ],
+      "w0_standardized_nmad": [
+        0.5253956792568918,
+        0.5196517890445643
+      ]
+    },
+    "c4d/g/i/held/different_night": {
+      "comparisons": 3840,
+      "physical_exposure_pairs": 205,
+      "utc_nights": 43,
+      "median_mas": [
+        -2.8829664606601,
+        0.7661800085406867
+      ],
+      "nmad_mas": [
+        82.44066062438729,
+        89.36547949456425
+      ],
+      "median_native_difference_variance_mas2": [
+        24332.878546,
+        24763.110573500002
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7287496585633554,
+        0.7329344168118829
+      ],
+      "w0_standardized_nmad": [
+        0.5271181575329994,
+        0.557089237525517
+      ]
+    },
+    "c4d/g/z/held/different_night": {
+      "comparisons": 5363,
+      "physical_exposure_pairs": 230,
+      "utc_nights": 82,
+      "median_mas": [
+        -0.05064651742577553,
+        -0.46520413644611835
+      ],
+      "nmad_mas": [
+        93.94483397316857,
+        93.87205685641877
+      ],
+      "median_native_difference_variance_mas2": [
+        24684.350225,
+        25090.941501
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.1110004485759395,
+        1.0362056719573214
+      ],
+      "w0_standardized_nmad": [
+        0.5745143570005242,
+        0.576840792453201
+      ]
+    },
+    "c4d/Y/Y/held/different_night": {
+      "comparisons": 1106,
+      "physical_exposure_pairs": 61,
+      "utc_nights": 38,
+      "median_mas": [
+        -3.0600516702979803,
+        -5.784188475576229
+      ],
+      "nmad_mas": [
+        101.21492629920076,
+        108.47500552945132
+      ],
+      "median_native_difference_variance_mas2": [
+        37078.4325025,
+        37250.122804499995
+      ],
+      "median_reference_difference_variance_mas2": [
+        3.439409581340186,
+        3.642258485939543
+      ],
+      "w0_standardized_nmad": [
+        0.516244294447794,
+        0.5474603106540273
+      ]
+    },
+    "c4d/Y/r/held/different_night": {
+      "comparisons": 2460,
+      "physical_exposure_pairs": 138,
+      "utc_nights": 53,
+      "median_mas": [
+        1.2126323161646724,
+        6.545580747246277
+      ],
+      "nmad_mas": [
+        106.2240207642152,
+        104.88449527484349
+      ],
+      "median_native_difference_variance_mas2": [
+        24199.170129,
+        24254.904677000006
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.026569696910564,
+        1.8997008405156746
+      ],
+      "w0_standardized_nmad": [
+        0.6453158632516419,
+        0.6344097045032705
+      ]
+    },
+    "c4d/Y/i/held/different_night": {
+      "comparisons": 2465,
+      "physical_exposure_pairs": 146,
+      "utc_nights": 44,
+      "median_mas": [
+        -1.829164708033204,
+        2.9955353178083897
+      ],
+      "nmad_mas": [
+        98.40102895116247,
+        99.41862803961848
+      ],
+      "median_native_difference_variance_mas2": [
+        24564.63065600001,
+        24730.327353999997
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.89988073043738,
+        1.7534570382293857
+      ],
+      "w0_standardized_nmad": [
+        0.6144420107391896,
+        0.6197661890309719
+      ]
+    },
+    "c4d/Y/z/held/different_night": {
+      "comparisons": 2614,
+      "physical_exposure_pairs": 161,
+      "utc_nights": 47,
+      "median_mas": [
+        -1.5416675992310047,
+        -0.39017322449944913
+      ],
+      "nmad_mas": [
+        112.77690232995617,
+        110.20448907191168
+      ],
+      "median_native_difference_variance_mas2": [
+        28956.292389,
+        28936.849037499996
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.0349917781068148,
+        2.049022166892
+      ],
+      "w0_standardized_nmad": [
+        0.6389880957539712,
+        0.6362537218764808
+      ]
+    },
+    "c4d/i/r/held/same_night": {
+      "comparisons": 4231,
+      "physical_exposure_pairs": 67,
+      "utc_nights": 27,
+      "median_mas": [
+        -0.004975169897079468,
+        0.12374991178512573
+      ],
+      "nmad_mas": [
+        57.316572221601376,
+        57.62381854864885
+      ],
+      "median_native_difference_variance_mas2": [
+        10745.681788999998,
+        10932.563968999999
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.3257149570050074,
+        0.37497747013104754
+      ],
+      "w0_standardized_nmad": [
+        0.45987372917495956,
+        0.4610005415431327
+      ]
+    },
+    "c4d/r/z/held/different_night": {
+      "comparisons": 6049,
+      "physical_exposure_pairs": 214,
+      "utc_nights": 87,
+      "median_mas": [
+        -0.2121548429131508,
+        -0.8192077185376547
+      ],
+      "nmad_mas": [
+        66.68932192068212,
+        68.27914776022708
+      ],
+      "median_native_difference_variance_mas2": [
+        13827.015555999998,
+        13888.548301
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7138088978569177,
+        0.6752286297637227
+      ],
+      "w0_standardized_nmad": [
+        0.50333001740282,
+        0.5133599026188275
+      ]
+    },
+    "c4d/i/r/held/different_night": {
+      "comparisons": 4157,
+      "physical_exposure_pairs": 179,
+      "utc_nights": 39,
+      "median_mas": [
+        0.6051514893770218,
+        -0.3971322012366727
+      ],
+      "nmad_mas": [
+        60.5387258120276,
+        59.68094803213246
+      ],
+      "median_native_difference_variance_mas2": [
+        10484.514004,
+        10628.228416000002
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.3199699262334124,
+        0.35129726693264246
+      ],
+      "w0_standardized_nmad": [
+        0.4875674297985304,
+        0.48041995723110287
+      ]
+    },
+    "c4d/i/z/held/different_night": {
+      "comparisons": 4136,
+      "physical_exposure_pairs": 158,
+      "utc_nights": 43,
+      "median_mas": [
+        -0.5445470060221851,
+        2.0812575751915574
+      ],
+      "nmad_mas": [
+        50.979425183612946,
+        54.384464507470334
+      ],
+      "median_native_difference_variance_mas2": [
+        7154.7592585,
+        7208.842833
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.3297274454742946,
+        0.36712237427000194
+      ],
+      "w0_standardized_nmad": [
+        0.44881060451611565,
+        0.4839062107198101
+      ]
+    },
+    "c4d/i/i/held/different_night": {
+      "comparisons": 4011,
+      "physical_exposure_pairs": 145,
+      "utc_nights": 37,
+      "median_mas": [
+        -1.09512959420681,
+        1.7656095280544832
+      ],
+      "nmad_mas": [
+        48.618047644084314,
+        49.400570562518205
+      ],
+      "median_native_difference_variance_mas2": [
+        5946.738504999999,
+        6085.4298739999995
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.29832398923647385,
+        0.33738200056317263
+      ],
+      "w0_standardized_nmad": [
+        0.4538494023781536,
+        0.453263830266635
+      ]
+    },
+    "c4d/z/z/held/different_night": {
+      "comparisons": 4674,
+      "physical_exposure_pairs": 114,
+      "utc_nights": 52,
+      "median_mas": [
+        -0.8564942078664899,
+        0.5698110673110932
+      ],
+      "nmad_mas": [
+        56.122126443213965,
+        54.951698596131834
+      ],
+      "median_native_difference_variance_mas2": [
+        9221.219036499999,
+        9261.070899999999
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.457006566278962,
+        0.4588835206628426
+      ],
+      "w0_standardized_nmad": [
+        0.4720632654813591,
+        0.45768321478936647
+      ]
+    },
+    "c4d/i/z/held/same_night": {
+      "comparisons": 3928,
+      "physical_exposure_pairs": 72,
+      "utc_nights": 22,
+      "median_mas": [
+        1.0500597064383328,
+        0.2801264371955767
+      ],
+      "nmad_mas": [
+        59.11378120701229,
+        57.310847469602464
+      ],
+      "median_native_difference_variance_mas2": [
+        10501.165184999998,
+        10552.770179
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.29190855546098643,
+        0.28086986682317483
+      ],
+      "w0_standardized_nmad": [
+        0.4670155589766278,
+        0.4616701773098923
+      ]
+    },
+    "c4d/r/r/held/different_night": {
+      "comparisons": 5960,
+      "physical_exposure_pairs": 159,
+      "utc_nights": 60,
+      "median_mas": [
+        -0.45834453497081995,
+        -0.19386712157574948
+      ],
+      "nmad_mas": [
+        59.20490779006518,
+        59.5888468713984
+      ],
+      "median_native_difference_variance_mas2": [
+        12119.517464999999,
+        12189.823086
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.40036347693730584,
+        0.39545962405257523
+      ],
+      "w0_standardized_nmad": [
+        0.454868509941551,
+        0.45758956393130984
+      ]
+    },
+    "c4d/g/r/held/same_night": {
+      "comparisons": 5505,
+      "physical_exposure_pairs": 114,
+      "utc_nights": 45,
+      "median_mas": [
+        -0.8191386945545673,
+        3.907949870917946
+      ],
+      "nmad_mas": [
+        72.49654112345651,
+        75.4576389503139
+      ],
+      "median_native_difference_variance_mas2": [
+        19582.66853,
+        20005.780616
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7810275981516811,
+        0.7410480260840019
+      ],
+      "w0_standardized_nmad": [
+        0.5058981719491428,
+        0.5210462506735838
+      ]
+    },
+    "c4d/g/i/held/same_night": {
+      "comparisons": 3460,
+      "physical_exposure_pairs": 63,
+      "utc_nights": 25,
+      "median_mas": [
+        2.8180287210270762,
+        2.7050346108153462
+      ],
+      "nmad_mas": [
+        81.87552825625576,
+        80.94984971353425
+      ],
+      "median_native_difference_variance_mas2": [
+        20918.286569500004,
+        21287.885705499997
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.7244360551087593,
+        0.7916528718749911
+      ],
+      "w0_standardized_nmad": [
+        0.5531445330745003,
+        0.531017244643387
+      ]
+    },
+    "c4d/z/z/held/same_night": {
+      "comparisons": 2727,
+      "physical_exposure_pairs": 107,
+      "utc_nights": 28,
+      "median_mas": [
+        -0.566510658711195,
+        -2.5998558565042913
+      ],
+      "nmad_mas": [
+        80.89633914291522,
+        74.17279581201291
+      ],
+      "median_native_difference_variance_mas2": [
+        23014.380425,
+        23186.128244
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.8779311079017651,
+        0.7165129957563272
+      ],
+      "w0_standardized_nmad": [
+        0.5274106263545948,
+        0.5095283768260399
+      ]
+    },
+    "c4d/g/z/held/same_night": {
+      "comparisons": 2096,
+      "physical_exposure_pairs": 53,
+      "utc_nights": 18,
+      "median_mas": [
+        0.7165927905589342,
+        -6.62560392729938
+      ],
+      "nmad_mas": [
+        92.24571551927068,
+        93.91398058352654
+      ],
+      "median_native_difference_variance_mas2": [
+        24828.317253,
+        25149.435705499996
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.561707873836586,
+        1.4878480468523232
+      ],
+      "w0_standardized_nmad": [
+        0.5760416299574357,
+        0.5725378149852857
+      ]
+    },
+    "c4d/r/z/held/same_night": {
+      "comparisons": 3206,
+      "physical_exposure_pairs": 59,
+      "utc_nights": 23,
+      "median_mas": [
+        -0.7205442283302546,
+        -0.9267059509293176
+      ],
+      "nmad_mas": [
+        67.76835736599136,
+        71.0675446416784
+      ],
+      "median_native_difference_variance_mas2": [
+        16293.871545499998,
+        16289.247082500002
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.4738233340485968,
+        0.5487469644287208
+      ],
+      "w0_standardized_nmad": [
+        0.4843628809444048,
+        0.5111916191464994
+      ]
+    },
+    "c4d/i/i/held/same_night": {
+      "comparisons": 3532,
+      "physical_exposure_pairs": 122,
+      "utc_nights": 26,
+      "median_mas": [
+        2.0529034938663244,
+        1.179990309785353
+      ],
+      "nmad_mas": [
+        75.50632854159186,
+        75.5354387323269
+      ],
+      "median_native_difference_variance_mas2": [
+        23345.80919,
+        23346.778599
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.8511979965743596,
+        0.8955787690611843
+      ],
+      "w0_standardized_nmad": [
+        0.4736884313612049,
+        0.48594906451841813
+      ]
+    },
+    "c4d/r/r/held/same_night": {
+      "comparisons": 2375,
+      "physical_exposure_pairs": 80,
+      "utc_nights": 30,
+      "median_mas": [
+        -2.440720848739147,
+        -1.211039955029264
+      ],
+      "nmad_mas": [
+        71.5219009225186,
+        67.61196031838399
+      ],
+      "median_native_difference_variance_mas2": [
+        18288.043604,
+        18496.579165
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.46988936789091923,
+        0.407313856082457
+      ],
+      "w0_standardized_nmad": [
+        0.4964786562212747,
+        0.4786223133363409
+      ]
+    },
+    "c4d/Y/z/held/same_night": {
+      "comparisons": 2005,
+      "physical_exposure_pairs": 51,
+      "utc_nights": 17,
+      "median_mas": [
+        -0.18709778878837824,
+        2.066607182379812
+      ],
+      "nmad_mas": [
+        85.97131867268364,
+        83.29666412641676
+      ],
+      "median_native_difference_variance_mas2": [
+        23227.600514,
+        23383.53005
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.0632260015125878,
+        0.9111805590513606
+      ],
+      "w0_standardized_nmad": [
+        0.5505946139400721,
+        0.5410726319124346
+      ]
+    },
+    "ksb/g/g/held/same_night": {
+      "comparisons": 411,
+      "physical_exposure_pairs": 69,
+      "utc_nights": 2,
+      "median_mas": [
+        -0.7371799554675817,
+        3.6879259185516275
+      ],
+      "nmad_mas": [
+        50.6863583842068,
+        64.96950372027639
+      ],
+      "median_native_difference_variance_mas2": [
+        41312.69616199999,
+        42942.44417299999
+      ],
+      "median_reference_difference_variance_mas2": [
+        9.001190729811828,
+        10.762154297812458
+      ],
+      "w0_standardized_nmad": [
+        0.24782509644083753,
+        0.3013916405520006
+      ]
+    },
+    "k4m/z/z/development/same_night": {
+      "comparisons": 68,
+      "physical_exposure_pairs": 17,
+      "utc_nights": 3,
+      "median_mas": [
+        7.10633331653662,
+        -10.001307280967012
+      ],
+      "nmad_mas": [
+        63.8839993780971,
+        68.7539215251382
+      ],
+      "median_native_difference_variance_mas2": [
+        22825.5772065,
+        22834.12152
+      ],
+      "median_reference_difference_variance_mas2": [
+        11.200218722221212,
+        6.001382877239707
+      ],
+      "w0_standardized_nmad": [
+        0.42675143367430707,
+        0.3887912569737574
+      ]
+    },
+    "ksb/g/g/development/same_night": {
+      "comparisons": 912,
+      "physical_exposure_pairs": 72,
+      "utc_nights": 2,
+      "median_mas": [
+        -3.3028893247246742,
+        3.97840693697799
+      ],
+      "nmad_mas": [
+        57.956688711637256,
+        60.3079530735681
+      ],
+      "median_native_difference_variance_mas2": [
+        40644.096955,
+        41967.926902
+      ],
+      "median_reference_difference_variance_mas2": [
+        9.031632955339044,
+        11.128320781706895
+      ],
+      "w0_standardized_nmad": [
+        0.28283091381846315,
+        0.2865614709087909
+      ]
+    },
+    "c4d/g/g/held/same_night": {
+      "comparisons": 847,
+      "physical_exposure_pairs": 90,
+      "utc_nights": 24,
+      "median_mas": [
+        -3.2084238287061453,
+        5.561270504025742
+      ],
+      "nmad_mas": [
+        88.70161232471689,
+        93.8473892648894
+      ],
+      "median_native_difference_variance_mas2": [
+        34202.935032999994,
+        34418.828597
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.8205333104338217,
+        2.0533056016618394
+      ],
+      "w0_standardized_nmad": [
+        0.5077029027565949,
+        0.5509826942764023
+      ]
+    },
+    "c4d/Y/Y/development/same_night": {
+      "comparisons": 1114,
+      "physical_exposure_pairs": 57,
+      "utc_nights": 17,
+      "median_mas": [
+        -4.853752917610109,
+        2.382716065447312
+      ],
+      "nmad_mas": [
+        105.86922180370297,
+        111.44758137197799
+      ],
+      "median_native_difference_variance_mas2": [
+        37670.361860000005,
+        37734.9451485
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.911870998394804,
+        2.5988272758617557
+      ],
+      "w0_standardized_nmad": [
+        0.5546588271293886,
+        0.5566777761090386
+      ]
+    },
+    "k4m/z/z/held/same_night": {
+      "comparisons": 40,
+      "physical_exposure_pairs": 13,
+      "utc_nights": 3,
+      "median_mas": [
+        -22.12897339835763,
+        -12.202587568201125
+      ],
+      "nmad_mas": [
+        98.43060906439125,
+        45.8571472479144
+      ],
+      "median_native_difference_variance_mas2": [
+        23426.680475499998,
+        23283.561685
+      ],
+      "median_reference_difference_variance_mas2": [
+        11.200218722221212,
+        5.279596103412148
+      ],
+      "w0_standardized_nmad": [
+        0.5212037956185704,
+        0.2536683634704647
+      ]
+    },
+    "ksb/g/r/held/different_night": {
+      "comparisons": 428,
+      "physical_exposure_pairs": 53,
+      "utc_nights": 4,
+      "median_mas": [
+        2.2090506348758936,
+        -3.9103276392561384
+      ],
+      "nmad_mas": [
+        66.243857635957,
+        69.99526660771326
+      ],
+      "median_native_difference_variance_mas2": [
+        38652.26551,
+        38991.3378645
+      ],
+      "median_reference_difference_variance_mas2": [
+        6.351934395796096,
+        6.6754061378862986
+      ],
+      "w0_standardized_nmad": [
+        0.32156220370921507,
+        0.3478330032936339
+      ]
+    },
+    "ksb/g/r/development/different_night": {
+      "comparisons": 945,
+      "physical_exposure_pairs": 68,
+      "utc_nights": 4,
+      "median_mas": [
+        3.142118401825428,
+        1.5025833160616457
+      ],
+      "nmad_mas": [
+        71.94591180877089,
+        72.00542966782402
+      ],
+      "median_native_difference_variance_mas2": [
+        38739.294738,
+        39120.650465
+      ],
+      "median_reference_difference_variance_mas2": [
+        6.351934395796096,
+        6.6754061378862986
+      ],
+      "w0_standardized_nmad": [
+        0.36428400204474426,
+        0.3569235588282686
+      ]
+    },
+    "ksb/r/r/held/same_night": {
+      "comparisons": 498,
+      "physical_exposure_pairs": 44,
+      "utc_nights": 2,
+      "median_mas": [
+        1.5211415430530906,
+        -1.4988191109150648
+      ],
+      "nmad_mas": [
+        66.87859989031422,
+        63.853391126236225
+      ],
+      "median_native_difference_variance_mas2": [
+        39077.7979105,
+        39436.1763975
+      ],
+      "median_reference_difference_variance_mas2": [
+        5.526739804266589,
+        4.085279157319505
+      ],
+      "w0_standardized_nmad": [
+        0.33897500827348037,
+        0.31610618758528625
+      ]
+    },
+    "ksb/r/r/development/same_night": {
+      "comparisons": 1074,
+      "physical_exposure_pairs": 47,
+      "utc_nights": 2,
+      "median_mas": [
+        3.7490825122222304,
+        0.5007852768758312
+      ],
+      "nmad_mas": [
+        61.82127421186678,
+        63.27712515041793
+      ],
+      "median_native_difference_variance_mas2": [
+        37291.982438499996,
+        37712.0410115
+      ],
+      "median_reference_difference_variance_mas2": [
+        5.526739804266589,
+        4.085279157319505
+      ],
+      "w0_standardized_nmad": [
+        0.3154782034254416,
+        0.3214326198208983
+      ]
+    },
+    "c4d/Y/Y/held/same_night": {
+      "comparisons": 568,
+      "physical_exposure_pairs": 50,
+      "utc_nights": 18,
+      "median_mas": [
+        -0.20493743102997541,
+        -2.895807102089748
+      ],
+      "nmad_mas": [
+        104.76947980248872,
+        106.45207813116596
+      ],
+      "median_native_difference_variance_mas2": [
+        38101.2951665,
+        38331.778355999995
+      ],
+      "median_reference_difference_variance_mas2": [
+        3.057230842333947,
+        2.915086338304524
+      ],
+      "w0_standardized_nmad": [
+        0.5539855081362813,
+        0.5438832599330913
+      ]
+    },
+    "c4d/VR/z/development/different_night": {
+      "comparisons": 814,
+      "physical_exposure_pairs": 24,
+      "utc_nights": 7,
+      "median_mas": [
+        -3.5575566394254565,
+        2.2332877308072057
+      ],
+      "nmad_mas": [
+        100.42843968379916,
+        106.82385245278151
+      ],
+      "median_native_difference_variance_mas2": [
+        29191.858632500007,
+        29639.158679000004
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.1242770192287275,
+        1.0229315037210756
+      ],
+      "w0_standardized_nmad": [
+        0.5680750530842674,
+        0.6271250100310489
+      ]
+    },
+    "c4d/Y/i/development/same_night": {
+      "comparisons": 1096,
+      "physical_exposure_pairs": 42,
+      "utc_nights": 19,
+      "median_mas": [
+        2.1872072694823146,
+        -4.342301780881826
+      ],
+      "nmad_mas": [
+        100.33865991519727,
+        95.2622484979136
+      ],
+      "median_native_difference_variance_mas2": [
+        29883.582553,
+        30036.410181000003
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.1570058133686036,
+        1.144658034458445
+      ],
+      "w0_standardized_nmad": [
+        0.581977774917917,
+        0.5463632510466649
+      ]
+    },
+    "c4d/VR/i/development/same_night": {
+      "comparisons": 1100,
+      "physical_exposure_pairs": 23,
+      "utc_nights": 2,
+      "median_mas": [
+        1.5314053110778332,
+        0.0209867648081854
+      ],
+      "nmad_mas": [
+        103.18994687177789,
+        111.25772469618295
+      ],
+      "median_native_difference_variance_mas2": [
+        34891.95694450001,
+        35364.8035615
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.9330202774300729,
+        0.9774084179419802
+      ],
+      "w0_standardized_nmad": [
+        0.5624325180942898,
+        0.6057911229577884
+      ]
+    },
+    "c4d/VR/z/development/same_night": {
+      "comparisons": 1086,
+      "physical_exposure_pairs": 23,
+      "utc_nights": 2,
+      "median_mas": [
+        5.31687332643196,
+        0.8030905714695109
+      ],
+      "nmad_mas": [
+        106.37980585581455,
+        105.63686770075881
+      ],
+      "median_native_difference_variance_mas2": [
+        33826.69677750001,
+        34413.440373499994
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.0111877340828013,
+        1.1071200702709525
+      ],
+      "w0_standardized_nmad": [
+        0.5559448089058521,
+        0.5642739374168245
+      ]
+    },
+    "c4d/VR/Y/development/same_night": {
+      "comparisons": 826,
+      "physical_exposure_pairs": 22,
+      "utc_nights": 2,
+      "median_mas": [
+        -4.50760162808001,
+        5.684571934631094
+      ],
+      "nmad_mas": [
+        125.14024293932262,
+        119.4980076396659
+      ],
+      "median_native_difference_variance_mas2": [
+        39920.05740350002,
+        40209.54929750001
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.6621441364403986,
+        1.6204075317405922
+      ],
+      "w0_standardized_nmad": [
+        0.6189666951785716,
+        0.60676406630667
+      ]
+    },
+    "c4d/VR/VR/development/same_night": {
+      "comparisons": 938,
+      "physical_exposure_pairs": 15,
+      "utc_nights": 1,
+      "median_mas": [
+        -4.021960120648146,
+        -4.558299767973949
+      ],
+      "nmad_mas": [
+        100.58514571277713,
+        108.46189476829692
+      ],
+      "median_native_difference_variance_mas2": [
+        39632.143358999994,
+        40504.5106775
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.9365602811614099,
+        0.9429632856816823
+      ],
+      "w0_standardized_nmad": [
+        0.5271546025407109,
+        0.5428863914750425
+      ]
+    },
+    "c4d/Y/r/development/same_night": {
+      "comparisons": 1595,
+      "physical_exposure_pairs": 69,
+      "utc_nights": 25,
+      "median_mas": [
+        -4.241798700764775,
+        -2.559954979456961
+      ],
+      "nmad_mas": [
+        111.79853676697164,
+        105.707310643032
+      ],
+      "median_native_difference_variance_mas2": [
+        31580.282860999996,
+        31733.943187999997
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.5422086777597417,
+        1.3212980763204356
+      ],
+      "w0_standardized_nmad": [
+        0.6188942646002754,
+        0.5815619552390345
+      ]
+    },
+    "c4d/VR/r/development/same_night": {
+      "comparisons": 997,
+      "physical_exposure_pairs": 28,
+      "utc_nights": 2,
+      "median_mas": [
+        -0.7786261159926653,
+        -6.642178681358928
+      ],
+      "nmad_mas": [
+        116.28067275478318,
+        130.89248435013405
+      ],
+      "median_native_difference_variance_mas2": [
+        41240.037416,
+        41762.168234
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.5507037816098814,
+        1.6674431010969442
+      ],
+      "w0_standardized_nmad": [
+        0.5730032725069069,
+        0.6627507001094002
+      ]
+    },
+    "c4d/VR/i/development/different_night": {
+      "comparisons": 481,
+      "physical_exposure_pairs": 9,
+      "utc_nights": 6,
+      "median_mas": [
+        -1.6575295347720385,
+        -6.074991047731601
+      ],
+      "nmad_mas": [
+        92.31657294747122,
+        95.50617041907033
+      ],
+      "median_native_difference_variance_mas2": [
+        26828.702821,
+        27468.325609000003
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.0748634993612383,
+        0.777291684646209
+      ],
+      "w0_standardized_nmad": [
+        0.5268364387385974,
+        0.5979041070924912
+      ]
+    },
+    "c4d/Y/g/held/same_night": {
+      "comparisons": 411,
+      "physical_exposure_pairs": 43,
+      "utc_nights": 13,
+      "median_mas": [
+        5.089289424940944,
+        2.5063152303919196
+      ],
+      "nmad_mas": [
+        128.6539744215142,
+        142.3789074918841
+      ],
+      "median_native_difference_variance_mas2": [
+        37580.261210000004,
+        37553.051738
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.418828627949279,
+        2.7367785030064913
+      ],
+      "w0_standardized_nmad": [
+        0.6469659765692161,
+        0.7549748743281782
+      ]
+    },
+    "c4d/VR/g/held/same_night": {
+      "comparisons": 105,
+      "physical_exposure_pairs": 12,
+      "utc_nights": 2,
+      "median_mas": [
+        9.588602377101779,
+        19.14436654164456
+      ],
+      "nmad_mas": [
+        139.38029642637892,
+        175.6434116850748
+      ],
+      "median_native_difference_variance_mas2": [
+        27842.482285,
+        28310.151361000004
+      ],
+      "median_reference_difference_variance_mas2": [
+        21.47156253901424,
+        19.116156231664842
+      ],
+      "w0_standardized_nmad": [
+        0.7904417085817868,
+        0.9623236985922643
+      ]
+    },
+    "c4d/Y/i/held/same_night": {
+      "comparisons": 528,
+      "physical_exposure_pairs": 34,
+      "utc_nights": 11,
+      "median_mas": [
+        11.896376837976277,
+        2.337366788473446
+      ],
+      "nmad_mas": [
+        97.13116041056904,
+        98.46645077048088
+      ],
+      "median_native_difference_variance_mas2": [
+        28758.452644499997,
+        29002.130454500002
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.169088327392502,
+        1.1824608420158074
+      ],
+      "w0_standardized_nmad": [
+        0.5374509065066736,
+        0.5630402595036067
+      ]
+    },
+    "c4d/VR/i/held/same_night": {
+      "comparisons": 546,
+      "physical_exposure_pairs": 20,
+      "utc_nights": 2,
+      "median_mas": [
+        -0.11838364927098155,
+        3.304491543531185
+      ],
+      "nmad_mas": [
+        91.508242610199,
+        108.34463019422772
+      ],
+      "median_native_difference_variance_mas2": [
+        34626.9103005,
+        35286.91682700001
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.9330202774300729,
+        0.9774084179419802
+      ],
+      "w0_standardized_nmad": [
+        0.5094766461692701,
+        0.5453010723267268
+      ]
+    },
+    "c4d/VR/z/held/same_night": {
+      "comparisons": 534,
+      "physical_exposure_pairs": 22,
+      "utc_nights": 2,
+      "median_mas": [
+        -8.61371549917385,
+        -5.603706590947695
+      ],
+      "nmad_mas": [
+        97.5313324054353,
+        102.33491733524836
+      ],
+      "median_native_difference_variance_mas2": [
+        33586.262617500004,
+        33872.582334000006
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.0111877340828013,
+        1.1071200702709525
+      ],
+      "w0_standardized_nmad": [
+        0.5335350785461591,
+        0.5555314595081049
+      ]
+    },
+    "c4d/VR/Y/held/same_night": {
+      "comparisons": 405,
+      "physical_exposure_pairs": 18,
+      "utc_nights": 2,
+      "median_mas": [
+        5.681697376072407,
+        0.15722674131393433
+      ],
+      "nmad_mas": [
+        114.19929652942679,
+        128.11668679615957
+      ],
+      "median_native_difference_variance_mas2": [
+        38436.945296000005,
+        38706.80225000001
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.6621441364403986,
+        1.6204075317405922
+      ],
+      "w0_standardized_nmad": [
+        0.600632957097668,
+        0.6672158730819878
+      ]
+    },
+    "c4d/VR/VR/held/same_night": {
+      "comparisons": 457,
+      "physical_exposure_pairs": 10,
+      "utc_nights": 1,
+      "median_mas": [
+        3.3372041024267673,
+        -5.913201353512704
+      ],
+      "nmad_mas": [
+        108.70551329417489,
+        102.73273896179893
+      ],
+      "median_native_difference_variance_mas2": [
+        38042.064738,
+        39036.18230800001
+      ],
+      "median_reference_difference_variance_mas2": [
+        0.9365602811614099,
+        0.9429632856816823
+      ],
+      "w0_standardized_nmad": [
+        0.5789056791347825,
+        0.5425574473043441
+      ]
+    },
+    "c4d/Y/r/held/same_night": {
+      "comparisons": 775,
+      "physical_exposure_pairs": 49,
+      "utc_nights": 13,
+      "median_mas": [
+        -4.724540743976831,
+        4.795230132061988
+      ],
+      "nmad_mas": [
+        108.11660914603247,
+        103.54500719543094
+      ],
+      "median_native_difference_variance_mas2": [
+        33254.769365,
+        33153.336805
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.5422086777597417,
+        1.3212980763204356
+      ],
+      "w0_standardized_nmad": [
+        0.6074629525758714,
+        0.5638663937816806
+      ]
+    },
+    "c4d/VR/r/held/same_night": {
+      "comparisons": 494,
+      "physical_exposure_pairs": 26,
+      "utc_nights": 2,
+      "median_mas": [
+        -4.762689969502389,
+        -2.44880608539097
+      ],
+      "nmad_mas": [
+        113.98168940872996,
+        117.71162327366724
+      ],
+      "median_native_difference_variance_mas2": [
+        41050.4069575,
+        41680.648941
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.5507037816098814,
+        1.6674431010969442
+      ],
+      "w0_standardized_nmad": [
+        0.5626537496143281,
+        0.5894112428330103
+      ]
+    },
+    "c4d/VR/i/held/different_night": {
+      "comparisons": 243,
+      "physical_exposure_pairs": 5,
+      "utc_nights": 5,
+      "median_mas": [
+        7.829671166837215,
+        -4.332927366252989
+      ],
+      "nmad_mas": [
+        87.01647555736005,
+        95.21391133593872
+      ],
+      "median_native_difference_variance_mas2": [
+        26810.618413000004,
+        27159.342912
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.0748634993612383,
+        0.777291684646209
+      ],
+      "w0_standardized_nmad": [
+        0.4807884448971863,
+        0.5525440048877454
+      ]
+    },
+    "c4d/VR/z/held/different_night": {
+      "comparisons": 403,
+      "physical_exposure_pairs": 22,
+      "utc_nights": 7,
+      "median_mas": [
+        -2.803036956116557,
+        5.054019665316446
+      ],
+      "nmad_mas": [
+        92.02224144715144,
+        113.46150886012299
+      ],
+      "median_native_difference_variance_mas2": [
+        28356.152004999996,
+        28711.356633
+      ],
+      "median_reference_difference_variance_mas2": [
+        1.1242770192287275,
+        1.0583718769774926
+      ],
+      "w0_standardized_nmad": [
+        0.5423952304887691,
+        0.6386468504780035
+      ]
+    },
+    "c4d/Y/g/development/same_night": {
+      "comparisons": 820,
+      "physical_exposure_pairs": 51,
+      "utc_nights": 11,
+      "median_mas": [
+        -5.244475190527737,
+        -4.7446043693926185
+      ],
+      "nmad_mas": [
+        137.6247179391481,
+        132.86036729751422
+      ],
+      "median_native_difference_variance_mas2": [
+        36087.766705,
+        36186.134651
+      ],
+      "median_reference_difference_variance_mas2": [
+        2.418828627949279,
+        2.7367785030064913
+      ],
+      "w0_standardized_nmad": [
+        0.7220791559450389,
+        0.6975088891598377
+      ]
+    },
+    "c4d/VR/g/development/same_night": {
+      "comparisons": 207,
+      "physical_exposure_pairs": 18,
+      "utc_nights": 2,
+      "median_mas": [
+        -16.59096676297486,
+        -12.638768748613074
+      ],
+      "nmad_mas": [
+        170.68540014345086,
+        151.03352721478106
+      ],
+      "median_native_difference_variance_mas2": [
+        29937.526609999997,
+        30703.757778
+      ],
+      "median_reference_difference_variance_mas2": [
+        21.47156253901424,
+        19.116156231664842
+      ],
+      "w0_standardized_nmad": [
+        0.962667798478267,
+        0.7436958148346873
+      ]
+    },
+    "c4d/r/u/held/different_night": {
+      "comparisons": 54,
+      "physical_exposure_pairs": 3,
+      "utc_nights": 2,
+      "median_mas": [
+        10.201323384419084,
+        38.463058412482496
+      ],
+      "nmad_mas": [
+        182.28111666661965,
+        190.2446774775872
+      ],
+      "median_native_difference_variance_mas2": [
+        30957.675795000003,
+        31485.072409
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.507098447732336,
+        26.38491823854929
+      ],
+      "w0_standardized_nmad": [
+        1.0202690435612034,
+        1.0888805506985575
+      ]
+    },
+    "c4d/i/u/held/different_night": {
+      "comparisons": 51,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        -3.1288499124348164,
+        79.88195497449487
+      ],
+      "nmad_mas": [
+        188.71753073150106,
+        172.3957594466552
+      ],
+      "median_native_difference_variance_mas2": [
+        30064.744405000005,
+        30876.285808999997
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.375019259076062,
+        24.303124796017862
+      ],
+      "w0_standardized_nmad": [
+        1.00502805546009,
+        0.9578494938054348
+      ]
+    },
+    "c4d/u/z/held/different_night": {
+      "comparisons": 51,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        -19.88374293409288,
+        55.15167860535439
+      ],
+      "nmad_mas": [
+        176.3239111166451,
+        208.16181986737573
+      ],
+      "median_native_difference_variance_mas2": [
+        33470.941565,
+        33792.743866000004
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.025506665189944,
+        25.95326066968328
+      ],
+      "w0_standardized_nmad": [
+        0.95883362225246,
+        0.956272390216494
+      ]
+    },
+    "c4d/g/u/held/different_night": {
+      "comparisons": 55,
+      "physical_exposure_pairs": 4,
+      "utc_nights": 3,
+      "median_mas": [
+        6.8953439351171255,
+        43.43807205557823
+      ],
+      "nmad_mas": [
+        166.8602808430463,
+        206.32923827115297
+      ],
+      "median_native_difference_variance_mas2": [
+        32205.428093000006,
+        33074.711050000005
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.941137837176065,
+        26.06852639219816
+      ],
+      "w0_standardized_nmad": [
+        0.8600776117565716,
+        1.0070153712333751
+      ]
+    },
+    "c4d/r/u/held/same_night": {
+      "comparisons": 55,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        24.546098263934255,
+        -0.7687320203986019
+      ],
+      "nmad_mas": [
+        177.84725417376066,
+        189.74185461303298
+      ],
+      "median_native_difference_variance_mas2": [
+        30299.860810000006,
+        30894.498080000005
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.11311656801032,
+        25.282320348715004
+      ],
+      "w0_standardized_nmad": [
+        1.14765316433301,
+        1.1651559812262264
+      ]
+    },
+    "c4d/u/z/held/same_night": {
+      "comparisons": 52,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        4.719139815308154,
+        -43.539310517924605
+      ],
+      "nmad_mas": [
+        204.36223714821728,
+        210.3461658640395
+      ],
+      "median_native_difference_variance_mas2": [
+        34277.370459,
+        34479.762252500004
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.367406521769855,
+        23.041110612358455
+      ],
+      "w0_standardized_nmad": [
+        0.994343793504996,
+        1.1811505442444121
+      ]
+    },
+    "c4d/g/u/held/same_night": {
+      "comparisons": 54,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        5.265741107054055,
+        -8.638961534772534
+      ],
+      "nmad_mas": [
+        190.71070712305158,
+        173.23386002967018
+      ],
+      "median_native_difference_variance_mas2": [
+        31799.761142000003,
+        32122.122495000003
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.877252668582944,
+        23.747033446142858
+      ],
+      "w0_standardized_nmad": [
+        1.0637357131103968,
+        0.8730214965740216
+      ]
+    },
+    "c4d/r/u/development/same_night": {
+      "comparisons": 109,
+      "physical_exposure_pairs": 4,
+      "utc_nights": 2,
+      "median_mas": [
+        17.926420690491796,
+        -27.117559020902263
+      ],
+      "nmad_mas": [
+        165.39303645977338,
+        163.10689964785956
+      ],
+      "median_native_difference_variance_mas2": [
+        24029.030232999998,
+        24974.731624999997
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.11311656801032,
+        25.282320348715004
+      ],
+      "w0_standardized_nmad": [
+        0.9061306083267535,
+        0.9032586350176708
+      ]
+    },
+    "c4d/r/u/development/different_night": {
+      "comparisons": 108,
+      "physical_exposure_pairs": 4,
+      "utc_nights": 2,
+      "median_mas": [
+        35.60902162734419,
+        -3.856747582613025
+      ],
+      "nmad_mas": [
+        191.3668589527225,
+        185.06672008130707
+      ],
+      "median_native_difference_variance_mas2": [
+        27405.4308805,
+        27540.20493
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.507098447732336,
+        26.38491823854929
+      ],
+      "w0_standardized_nmad": [
+        0.9729290545505657,
+        1.0001227987108534
+      ]
+    },
+    "c4d/i/u/development/same_night": {
+      "comparisons": 105,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        26.19612585939467,
+        -22.757346078637056
+      ],
+      "nmad_mas": [
+        187.48843801390527,
+        158.3750667809536
+      ],
+      "median_native_difference_variance_mas2": [
+        25040.610073000007,
+        25990.869493000002
+      ],
+      "median_reference_difference_variance_mas2": [
+        17.270350059350452,
+        23.898067778310537
+      ],
+      "w0_standardized_nmad": [
+        0.9944145013779019,
+        0.9006656823229207
+      ]
+    },
+    "c4d/i/u/development/different_night": {
+      "comparisons": 104,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        10.69614031771198,
+        -17.77376264729537
+      ],
+      "nmad_mas": [
+        185.84519357491777,
+        185.0178540202895
+      ],
+      "median_native_difference_variance_mas2": [
+        26412.509526,
+        26850.949843000002
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.375019259076062,
+        24.303124796017862
+      ],
+      "w0_standardized_nmad": [
+        1.0317421062810155,
+        1.1445538071717014
+      ]
+    },
+    "c4d/u/z/development/same_night": {
+      "comparisons": 104,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        29.576325725764036,
+        -11.054631917271763
+      ],
+      "nmad_mas": [
+        181.20794635424707,
+        146.53400157124142
+      ],
+      "median_native_difference_variance_mas2": [
+        29096.772671,
+        29911.847385
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.367406521769855,
+        23.041110612358455
+      ],
+      "w0_standardized_nmad": [
+        1.0121753075268969,
+        0.8146728140576867
+      ]
+    },
+    "c4d/u/z/development/different_night": {
+      "comparisons": 107,
+      "physical_exposure_pairs": 5,
+      "utc_nights": 3,
+      "median_mas": [
+        16.04604714550078,
+        -6.245285036042333
+      ],
+      "nmad_mas": [
+        183.61793285102078,
+        176.36900456019671
+      ],
+      "median_native_difference_variance_mas2": [
+        29183.833242,
+        29896.279840999996
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.025506665189944,
+        25.95326066968328
+      ],
+      "w0_standardized_nmad": [
+        1.0044860027818174,
+        0.9522579114404828
+      ]
+    },
+    "c4d/g/u/development/same_night": {
+      "comparisons": 108,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        25.133749815169722,
+        -16.43745475662581
+      ],
+      "nmad_mas": [
+        169.16069578958533,
+        152.2361131708634
+      ],
+      "median_native_difference_variance_mas2": [
+        27608.1173805,
+        28192.5722715
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.877252668582944,
+        23.747033446142858
+      ],
+      "w0_standardized_nmad": [
+        0.9016184629814918,
+        0.8925767464444438
+      ]
+    },
+    "c4d/g/u/development/different_night": {
+      "comparisons": 113,
+      "physical_exposure_pairs": 9,
+      "utc_nights": 4,
+      "median_mas": [
+        17.280809151008725,
+        -9.67384542466607
+      ],
+      "nmad_mas": [
+        189.18623905289544,
+        180.1868599961015
+      ],
+      "median_native_difference_variance_mas2": [
+        28599.835816,
+        28998.255402000003
+      ],
+      "median_reference_difference_variance_mas2": [
+        16.941137837176065,
+        26.06852639219816
+      ],
+      "w0_standardized_nmad": [
+        1.0656791793064573,
+        1.0202237200590505
+      ]
+    },
+    "c4d/u/u/development/different_night": {
+      "comparisons": 26,
+      "physical_exposure_pairs": 1,
+      "utc_nights": 2,
+      "median_mas": [
+        -20.5146598033607,
+        -33.475956489215605
+      ],
+      "nmad_mas": [
+        151.97854679561667,
+        134.99818509568652
+      ],
+      "median_native_difference_variance_mas2": [
+        49931.7026665,
+        51118.2896205
+      ],
+      "median_reference_difference_variance_mas2": [
+        52.30298841516388,
+        46.0416680454454
+      ],
+      "w0_standardized_nmad": [
+        0.7780651122845292,
+        0.5658647891774985
+      ]
+    },
+    "c4d/i/u/held/same_night": {
+      "comparisons": 53,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        27.931000400334597,
+        -2.305593520315597
+      ],
+      "nmad_mas": [
+        187.07654081648178,
+        195.59979402995313
+      ],
+      "median_native_difference_variance_mas2": [
+        30296.28905,
+        31098.604169
+      ],
+      "median_reference_difference_variance_mas2": [
+        17.270350059350452,
+        23.898067778310537
+      ],
+      "w0_standardized_nmad": [
+        0.9482298169244773,
+        1.0790180087025285
+      ]
+    },
+    "c4d/u/u/held/different_night": {
+      "comparisons": 9,
+      "physical_exposure_pairs": 1,
+      "utc_nights": 2
+    },
+    "c4d/VR/r/held/different_night": {
+      "comparisons": 11,
+      "physical_exposure_pairs": 4,
+      "utc_nights": 5
+    },
+    "c4d/VR/g/held/different_night": {
+      "comparisons": 4,
+      "physical_exposure_pairs": 3,
+      "utc_nights": 4
+    },
+    "c4d/VR/Y/held/different_night": {
+      "comparisons": 10,
+      "physical_exposure_pairs": 6,
+      "utc_nights": 7
+    },
+    "c4d/VR/g/development/different_night": {
+      "comparisons": 3,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 3
+    },
+    "c4d/VR/r/development/different_night": {
+      "comparisons": 8,
+      "physical_exposure_pairs": 3,
+      "utc_nights": 4
+    },
+    "c4d/VR/Y/development/different_night": {
+      "comparisons": 8,
+      "physical_exposure_pairs": 4,
+      "utc_nights": 5
+    },
+    "k4m/z/z/held/different_night": {
+      "comparisons": 37,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        35.25235237646848,
+        11.854031732247677
+      ],
+      "nmad_mas": [
+        79.06978200614712,
+        61.115858495048904
+      ],
+      "median_native_difference_variance_mas2": [
+        21758.290132,
+        21812.936381
+      ],
+      "median_reference_difference_variance_mas2": [
+        5.366638141022042,
+        2.96499026412699
+      ],
+      "w0_standardized_nmad": [
+        0.45282659959341387,
+        0.416548911053943
+      ]
+    },
+    "k4m/z/z/development/different_night": {
+      "comparisons": 65,
+      "physical_exposure_pairs": 2,
+      "utc_nights": 2,
+      "median_mas": [
+        0.1722492049448192,
+        12.076145416824147
+      ],
+      "nmad_mas": [
+        71.06424076569797,
+        54.565089686769994
+      ],
+      "median_native_difference_variance_mas2": [
+        14700.521384,
+        14812.079801
+      ],
+      "median_reference_difference_variance_mas2": [
+        5.366638141022042,
+        2.96499026412699
+      ],
+      "w0_standardized_nmad": [
+        0.5676557423747796,
+        0.3851345754025903
+      ]
+    }
+  },
+  "same_galaxy_contrasts": {
+    "c4d/Y/z/development": {
+      "comparisons": 3577,
+      "same_arm_nights": 22,
+      "different_arm_nights": 59,
+      "common_variance_proxy_mas2": [
+        -940.0630437802083,
+        -1026.117331012516
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -2522.919029082194,
+          2150.210194712066
+        ],
+        [
+          -2596.681169766795,
+          1665.5212502356435
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          2.940856911242008,
+          -0.34308222960680723
+        ],
+        "nmad_mas": [
+          78.80513638947755,
+          82.39246184657134
+        ],
+        "median_native_difference_variance_mas2": [
+          21990.106119999997,
+          22096.367752000002
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.079057509567393,
+          0.9191720669780219
+        ],
+        "w0_standardized_nmad": [
+          0.5137761395315679,
+          0.5350377461418918
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          1.3040125034749508,
+          0.5888793007470667
+        ],
+        "nmad_mas": [
+          101.0186858129762,
+          102.36847287785801
+        ],
+        "median_native_difference_variance_mas2": [
+          27866.084058,
+          27838.733095999996
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.0875827766273956,
+          2.035082743485253
+        ],
+        "w0_standardized_nmad": [
+          0.5805210076795305,
+          0.5840923431386048
+        ]
+      }
+    },
+    "c4d/i/z/development": {
+      "comparisons": 8144,
+      "same_arm_nights": 30,
+      "different_arm_nights": 44,
+      "common_variance_proxy_mas2": [
+        1436.7346530258142,
+        1493.4841820348483
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          203.93533274757797,
+          4514.650005647669
+        ],
+        [
+          230.93567406771695,
+          4582.272554530745
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -0.209882203489542,
+          -1.2047622364480048
+        ],
+        "nmad_mas": [
+          58.41758834754489,
+          58.067965861005845
+        ],
+        "median_native_difference_variance_mas2": [
+          10445.6728515,
+          10493.0678895
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.29190855546098643,
+          0.28086986682317483
+        ],
+        "w0_standardized_nmad": [
+          0.4631493572652067,
+          0.46663341007281206
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -1.2708694669418037,
+          0.22134958417154849
+        ],
+        "nmad_mas": [
+          52.57288833026206,
+          52.86092557453431
+        ],
+        "median_native_difference_variance_mas2": [
+          6923.1975425,
+          6929.003727000001
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3253368939814831,
+          0.36029679708339424
+        ],
+        "w0_standardized_nmad": [
+          0.4674332616605196,
+          0.46749500183253667
+        ]
+      }
+    },
+    "c4d/i/r/development": {
+      "comparisons": 8584,
+      "same_arm_nights": 40,
+      "different_arm_nights": 47,
+      "common_variance_proxy_mas2": [
+        32.8943428851112,
+        -6.431974339654062
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -884.6447055638032,
+          1801.1821627072534
+        ],
+        [
+          -1168.0874886861072,
+          1779.0100303738186
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -1.368877224624157,
+          1.6228244822705165
+        ],
+        "nmad_mas": [
+          58.45162208562791,
+          58.35373273401393
+        ],
+        "median_native_difference_variance_mas2": [
+          10742.576714499999,
+          10878.376586999999
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.32421039358668924,
+          0.37497747013104754
+        ],
+        "w0_standardized_nmad": [
+          0.46651090275794665,
+          0.46751836552490855
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -1.0993810342624784,
+          -1.3481346596963704
+        ],
+        "nmad_mas": [
+          60.409328759124264,
+          59.33311300940089
+        ],
+        "median_native_difference_variance_mas2": [
+          10908.435850500002,
+          11006.4958935
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3199699262334124,
+          0.35129726693264246
+        ],
+        "w0_standardized_nmad": [
+          0.4835139517097211,
+          0.4765914155225515
+        ]
+      }
+    },
+    "c4d/g/r/development": {
+      "comparisons": 10781,
+      "same_arm_nights": 49,
+      "different_arm_nights": 70,
+      "common_variance_proxy_mas2": [
+        -933.2088640330185,
+        -874.9560867436176
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1504.8771769018888,
+          14.694598653894305
+        ],
+        [
+          -1339.5312644268815,
+          -187.61267766852274
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -1.4073594771325588,
+          -0.8454085551202297
+        ],
+        "nmad_mas": [
+          73.71578578939028,
+          74.16124700878635
+        ],
+        "median_native_difference_variance_mas2": [
+          18505.607425,
+          18910.83701
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.7810275981516811,
+          0.7410480260840019
+        ],
+        "w0_standardized_nmad": [
+          0.5097814333303121,
+          0.506903730596189
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -2.037640143185854,
+          0.8654237729497254
+        ],
+        "nmad_mas": [
+          79.30024643136039,
+          80.32475086249904
+        ],
+        "median_native_difference_variance_mas2": [
+          21226.497241000005,
+          21612.205799999996
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.9000243567851297,
+          0.8991856468368695
+        ],
+        "w0_standardized_nmad": [
+          0.5191924844737078,
+          0.5192293025687786
+        ]
+      }
+    },
+    "c4d/g/i/development": {
+      "comparisons": 6926,
+      "same_arm_nights": 28,
+      "different_arm_nights": 48,
+      "common_variance_proxy_mas2": [
+        -970.4344694987522,
+        -836.6158510718105
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1695.0962283373667,
+          518.4180840915146
+        ],
+        [
+          -1479.4428802335326,
+          536.0342899143294
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          1.2700184406712651,
+          0.7801594125339761
+        ],
+        "nmad_mas": [
+          75.69883558683274,
+          78.10451656989406
+        ],
+        "median_native_difference_variance_mas2": [
+          20069.643348999998,
+          20526.780792999998
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.7338513559387002,
+          0.8288448208041045
+        ],
+        "w0_standardized_nmad": [
+          0.5142921741664296,
+          0.5300269234419865
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -2.451057180762291,
+          -1.4809685586951673
+        ],
+        "nmad_mas": [
+          82.234729648556,
+          85.61645111853014
+        ],
+        "median_native_difference_variance_mas2": [
+          23042.8174845,
+          23429.865922499997
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.7287496585633554,
+          0.7329344168118829
+        ],
+        "w0_standardized_nmad": [
+          0.5263670831124323,
+          0.5475371583676412
+        ]
+      }
+    },
+    "c4d/g/g/development": {
+      "comparisons": 1425,
+      "same_arm_nights": 23,
+      "different_arm_nights": 38,
+      "common_variance_proxy_mas2": [
+        3413.532155538185,
+        3660.5450384634823
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -2063.5289410964538,
+          7046.480341882183
+        ],
+        [
+          -1958.6711012117473,
+          6909.37012000786
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -4.632348387502134,
+          -2.245634363265708
+        ],
+        "nmad_mas": [
+          94.12657803644724,
+          89.9107405004134
+        ],
+        "median_native_difference_variance_mas2": [
+          35060.87745000001,
+          35527.04297
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.7878057924510713,
+          1.838484853555129
+        ],
+        "w0_standardized_nmad": [
+          0.5269426758279057,
+          0.498690774716267
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          2.6138387341052294,
+          3.1746879015117884
+        ],
+        "nmad_mas": [
+          80.9176302722577,
+          81.10832802998519
+        ],
+        "median_native_difference_variance_mas2": [
+          25991.632328,
+          26702.062713
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.2133804906899828,
+          1.1697252837349694
+        ],
+        "w0_standardized_nmad": [
+          0.4876588902298625,
+          0.4859116590156144
+        ]
+      }
+    },
+    "c4d/g/z/development": {
+      "comparisons": 4106,
+      "same_arm_nights": 21,
+      "different_arm_nights": 63,
+      "common_variance_proxy_mas2": [
+        481.9651778530324,
+        463.1372830270029
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1084.785777674985,
+          2061.0606869424328
+        ],
+        [
+          -1346.2143412171874,
+          2092.651672139239
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          2.5345451161265373,
+          -2.7996836891397834
+        ],
+        "nmad_mas": [
+          92.58337663587369,
+          91.54527588485459
+        ],
+        "median_native_difference_variance_mas2": [
+          24740.425318499998,
+          24885.904393999997
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.561707873836586,
+          1.4878480468523232
+        ],
+        "w0_standardized_nmad": [
+          0.5702622082508313,
+          0.5716007105083516
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.9840370612218976,
+          -0.27480305926292203
+        ],
+        "nmad_mas": [
+          88.57530471512563,
+          88.43286527396658
+        ],
+        "median_native_difference_variance_mas2": [
+          23037.0803065,
+          23399.753754
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.0055106337082311,
+          1.0332351557474653
+        ],
+        "w0_standardized_nmad": [
+          0.5682596363179542,
+          0.5626681028613513
+        ]
+      }
+    },
+    "c4d/r/z/development": {
+      "comparisons": 6652,
+      "same_arm_nights": 33,
+      "different_arm_nights": 75,
+      "common_variance_proxy_mas2": [
+        855.7933878102103,
+        692.5523138000754
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1657.7228127335143,
+          2249.786109559829
+        ],
+        [
+          -1712.4187361243296,
+          2083.3329529508987
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -2.4071961333975196,
+          1.5127275934210047
+        ],
+        "nmad_mas": [
+          69.5199314399125,
+          72.16694769849157
+        ],
+        "median_native_difference_variance_mas2": [
+          16064.687773999998,
+          16140.8793945
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.4738233340485968,
+          0.5487469644287208
+        ],
+        "w0_standardized_nmad": [
+          0.5063278146263748,
+          0.5092342009186467
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          0.8012625267729163,
+          -1.02846990164835
+        ],
+        "nmad_mas": [
+          66.76140356950275,
+          67.22205801570979
+        ],
+        "median_native_difference_variance_mas2": [
+          13977.194514499999,
+          14065.834604999998
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.5879287665097109,
+          0.6720546239997592
+        ],
+        "w0_standardized_nmad": [
+          0.49750441684393376,
+          0.5016215181459226
+        ]
+      }
+    },
+    "c4d/r/r/development": {
+      "comparisons": 4891,
+      "same_arm_nights": 30,
+      "different_arm_nights": 61,
+      "common_variance_proxy_mas2": [
+        1981.580570851871,
+        1911.4359934186105
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          3.9244044326216225,
+          7088.949023991879
+        ],
+        [
+          -261.2007923213727,
+          6269.49861839263
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -2.8283883556723595,
+          -0.1543539953418076
+        ],
+        "nmad_mas": [
+          66.6754144040577,
+          66.80805983896488
+        ],
+        "median_native_difference_variance_mas2": [
+          17946.103565,
+          18065.675811999998
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.46988936789091923,
+          0.407313856082457
+        ],
+        "w0_standardized_nmad": [
+          0.45713418486428087,
+          0.46609321758911104
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.8833721373230219,
+          1.1610623236047104
+        ],
+        "nmad_mas": [
+          60.583368209324775,
+          60.13066002098412
+        ],
+        "median_native_difference_variance_mas2": [
+          13207.765384999999,
+          13406.534439999998
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3805452979496572,
+          0.39545962405257523
+        ],
+        "w0_standardized_nmad": [
+          0.4642491184928163,
+          0.45811796319648257
+        ]
+      }
+    },
+    "c4d/i/i/development": {
+      "comparisons": 4711,
+      "same_arm_nights": 24,
+      "different_arm_nights": 42,
+      "common_variance_proxy_mas2": [
+        7763.314915345257,
+        7754.472150052517
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          1701.2387843928109,
+          10126.46369969347
+        ],
+        [
+          1971.7686388450368,
+          10042.599709411723
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -0.545518547296524,
+          0.455550713930279
+        ],
+        "nmad_mas": [
+          75.58570770259425,
+          76.30736880649134
+        ],
+        "median_native_difference_variance_mas2": [
+          23976.815626,
+          24023.548874
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.0116555363623603,
+          0.7685798031004086
+        ],
+        "w0_standardized_nmad": [
+          0.4852485838942087,
+          0.4903027091366257
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          0.898368819616735,
+          0.29846724960952997
+        ],
+        "nmad_mas": [
+          47.57567890262212,
+          48.815971058866346
+        ],
+        "median_native_difference_variance_mas2": [
+          5001.145141000001,
+          5075.156369
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3123149024183815,
+          0.341211132467096
+        ],
+        "w0_standardized_nmad": [
+          0.45094456996083504,
+          0.461593267923685
+        ]
+      }
+    },
+    "c4d/z/z/development": {
+      "comparisons": 4453,
+      "same_arm_nights": 27,
+      "different_arm_nights": 49,
+      "common_variance_proxy_mas2": [
+        8508.344876944106,
+        8786.705183984044
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          1671.8280729836474,
+          12246.340571180803
+        ],
+        [
+          1998.0961674347277,
+          12630.463822007277
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          1.7404715660959482,
+          -2.2160582174547017
+        ],
+        "nmad_mas": [
+          86.93403637295532,
+          83.27935282078384
+        ],
+        "median_native_difference_variance_mas2": [
+          28540.153525,
+          28564.003141
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.9300544919497004,
+          0.8583252961280229
+        ],
+        "w0_standardized_nmad": [
+          0.5295881602157135,
+          0.5089151774986104
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          1.19748118147254,
+          0.06768339686095715
+        ],
+        "nmad_mas": [
+          52.77749647922292,
+          52.268887124681775
+        ],
+        "median_native_difference_variance_mas2": [
+          6756.903071999999,
+          6789.983569000001
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.35785967228844795,
+          0.4265975596048593
+        ],
+        "w0_standardized_nmad": [
+          0.46252844368052387,
+          0.467917772536421
+        ]
+      }
+    },
+    "c4d/g/r/held": {
+      "comparisons": 5280,
+      "same_arm_nights": 45,
+      "different_arm_nights": 67,
+      "common_variance_proxy_mas2": [
+        -485.1352135931811,
+        -579.8017445522037
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1099.652248670001,
+          394.85205041285866
+        ],
+        [
+          -1210.339864967116,
+          294.8261735609487
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -0.9094659807160497,
+          4.111946503748186
+        ],
+        "nmad_mas": [
+          71.4703712583147,
+          74.84878759886327
+        ],
+        "median_native_difference_variance_mas2": [
+          18951.0364785,
+          19285.396516499997
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.7810275981516811,
+          0.7410480260840019
+        ],
+        "w0_standardized_nmad": [
+          0.5007204508702988,
+          0.5199486176625879
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -2.5047126719728112,
+          1.9325966681353748
+        ],
+        "nmad_mas": [
+          77.91959580688253,
+          80.36899860696634
+        ],
+        "median_native_difference_variance_mas2": [
+          20881.950817000004,
+          21301.6437515
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.8929109442628274,
+          0.8998471145999805
+        ],
+        "w0_standardized_nmad": [
+          0.5244675702083053,
+          0.5187685790130813
+        ]
+      }
+    },
+    "c4d/g/i/held": {
+      "comparisons": 3346,
+      "same_arm_nights": 25,
+      "different_arm_nights": 43,
+      "common_variance_proxy_mas2": [
+        -1621.2205660050186,
+        -1043.7252672377635
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -2394.903109572236,
+          -288.33523761533826
+        ],
+        [
+          -1828.0261441343976,
+          657.4781085804976
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          3.2703654691576958,
+          2.6739750478882343
+        ],
+        "nmad_mas": [
+          81.3953608815696,
+          80.07096909662077
+        ],
+        "median_native_difference_variance_mas2": [
+          20445.769116999996,
+          20788.2164595
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.7244360551087593,
+          0.7916528718749911
+        ],
+        "w0_standardized_nmad": [
+          0.5508840002017676,
+          0.5296976945180559
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -2.8142486573196948,
+          1.3245116940233856
+        ],
+        "nmad_mas": [
+          82.03148187605599,
+          87.48189584354363
+        ],
+        "median_native_difference_variance_mas2": [
+          23792.548550500003,
+          24117.763574999997
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.7287496585633554,
+          0.7329344168118829
+        ],
+        "w0_standardized_nmad": [
+          0.5293545414457149,
+          0.5506133759374618
+        ]
+      }
+    },
+    "c4d/g/z/held": {
+      "comparisons": 1967,
+      "same_arm_nights": 18,
+      "different_arm_nights": 55,
+      "common_variance_proxy_mas2": [
+        978.2016552590767,
+        1240.5266611853567
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -848.7751427060963,
+          3090.851652034264
+        ],
+        [
+          -1216.04976929871,
+          3562.4399152899437
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          0.9887513946741819,
+          -7.751781755592674
+        ],
+        "nmad_mas": [
+          91.19946417542808,
+          92.62403502604658
+        ],
+        "median_native_difference_variance_mas2": [
+          24862.685261,
+          25248.115585999993
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.0952258545288616,
+          1.4878480468523232
+        ],
+        "w0_standardized_nmad": [
+          0.5701736449797059,
+          0.5698801938984263
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          1.1871142983436584,
+          2.45493494940456
+        ],
+        "nmad_mas": [
+          88.52940805974528,
+          93.0189276262732
+        ],
+        "median_native_difference_variance_mas2": [
+          22427.370722,
+          22840.137701
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.0055106337082311,
+          1.0332351557474653
+        ],
+        "w0_standardized_nmad": [
+          0.5667343312995081,
+          0.5902622821413589
+        ]
+      }
+    },
+    "c4d/i/r/held": {
+      "comparisons": 4124,
+      "same_arm_nights": 27,
+      "different_arm_nights": 39,
+      "common_variance_proxy_mas2": [
+        415.10472456006346,
+        354.36463153333534
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -797.6103423448161,
+          2422.5110326426125
+        ],
+        [
+          -906.9276995885956,
+          2489.7304119578785
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          0.0034471999388188124,
+          0.13462864892790094
+        ],
+        "nmad_mas": [
+          57.499034633695516,
+          57.626397789170845
+        ],
+        "median_native_difference_variance_mas2": [
+          10968.009231,
+          11111.9458895
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.32421039358668924,
+          0.37497747013104754
+        ],
+        "w0_standardized_nmad": [
+          0.4604492087592058,
+          0.4588793859114051
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          0.6878553391434252,
+          -0.4102659493801184
+        ],
+        "nmad_mas": [
+          60.53829025155315,
+          59.78603924884874
+        ],
+        "median_native_difference_variance_mas2": [
+          10496.388583000002,
+          10656.719117499999
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3199699262334124,
+          0.35129726693264246
+        ],
+        "w0_standardized_nmad": [
+          0.4862880829328709,
+          0.4810364043748003
+        ]
+      }
+    },
+    "c4d/r/z/held": {
+      "comparisons": 3195,
+      "same_arm_nights": 23,
+      "different_arm_nights": 69,
+      "common_variance_proxy_mas2": [
+        1077.547038621141,
+        923.2588676893838
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1393.9604437382595,
+          2601.962472402336
+        ],
+        [
+          -1721.8590258701774,
+          2282.995376025975
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -0.6337286829948425,
+          -0.8437698911875486
+        ],
+        "nmad_mas": [
+          67.62924933582991,
+          70.90266112933828
+        ],
+        "median_native_difference_variance_mas2": [
+          16148.811114,
+          16148.233896999998
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.4738233340485968,
+          0.5487469644287208
+        ],
+        "w0_standardized_nmad": [
+          0.48370789980650564,
+          0.508907503846949
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.5108863264322281,
+          -0.8192077185376547
+        ],
+        "nmad_mas": [
+          66.92989767618366,
+          68.22280891112244
+        ],
+        "median_native_difference_variance_mas2": [
+          13899.941828,
+          13928.996185
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.5879287665097109,
+          0.6410126522645757
+        ],
+        "w0_standardized_nmad": [
+          0.49879834493617636,
+          0.5114416567879625
+        ]
+      }
+    },
+    "c4d/i/z/held": {
+      "comparisons": 3916,
+      "same_arm_nights": 22,
+      "different_arm_nights": 42,
+      "common_variance_proxy_mas2": [
+        1276.4663104834858,
+        1534.0706462043254
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          67.05668372137986,
+          5140.465610207644
+        ],
+        [
+          197.83992359994713,
+          5774.422840106202
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          1.0360907069407403,
+          0.26567227332270704
+        ],
+        "nmad_mas": [
+          59.15822813228052,
+          57.28488066541199
+        ],
+        "median_native_difference_variance_mas2": [
+          10494.2102155,
+          10544.456492999998
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.29190855546098643,
+          0.28086986682317483
+        ],
+        "w0_standardized_nmad": [
+          0.46775956449029577,
+          0.46006111604176303
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.905278411693871,
+          2.3425783994607627
+        ],
+        "nmad_mas": [
+          50.62894319779537,
+          53.85408923889601
+        ],
+        "median_native_difference_variance_mas2": [
+          7005.070288999999,
+          7095.2435305
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3297274454742946,
+          0.3632461841963147
+        ],
+        "w0_standardized_nmad": [
+          0.44580006720350424,
+          0.4815842983186776
+        ]
+      }
+    },
+    "c4d/i/i/held": {
+      "comparisons": 2311,
+      "same_arm_nights": 25,
+      "different_arm_nights": 35,
+      "common_variance_proxy_mas2": [
+        7891.282385928203,
+        7903.4551395176095
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          2020.775770698917,
+          9992.546453454703
+        ],
+        [
+          2323.960859338512,
+          9832.133439414312
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          1.3490342739969492,
+          -0.1792736422503367
+        ],
+        "nmad_mas": [
+          75.41863333481848,
+          76.34361115919924
+        ],
+        "median_native_difference_variance_mas2": [
+          24236.903176,
+          24439.516362
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.9725873526555261,
+          0.7685798031004086
+        ],
+        "w0_standardized_nmad": [
+          0.46863887060184056,
+          0.49220823418429704
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.4558175392448902,
+          0.6568834171630442
+        ],
+        "nmad_mas": [
+          46.89717038000151,
+          47.68854195757654
+        ],
+        "median_native_difference_variance_mas2": [
+          4965.9153049999995,
+          5078.731437
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3123149024183815,
+          0.3378847313258735
+        ],
+        "w0_standardized_nmad": [
+          0.44813035075409746,
+          0.4588599769443445
+        ]
+      }
+    },
+    "c4d/z/z/held": {
+      "comparisons": 2122,
+      "same_arm_nights": 27,
+      "different_arm_nights": 47,
+      "common_variance_proxy_mas2": [
+        7946.651539490211,
+        8443.47345090813
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          1606.0136711412842,
+          12146.783162608961
+        ],
+        [
+          1989.022184573626,
+          12716.257812381426
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          0.9146611373871565,
+          -1.0444356069201604
+        ],
+        "nmad_mas": [
+          87.75905965683572,
+          81.62349106678398
+        ],
+        "median_native_difference_variance_mas2": [
+          27377.225581500003,
+          27423.870795
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.9300544919497004,
+          0.8583252961280229
+        ],
+        "w0_standardized_nmad": [
+          0.5379341139193757,
+          0.5223275609381726
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -2.2245581317692995,
+          -0.7107041951094288
+        ],
+        "nmad_mas": [
+          51.608820162688936,
+          50.91429573040804
+        ],
+        "median_native_difference_variance_mas2": [
+          6461.4636789999995,
+          6466.942807
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.35785967228844795,
+          0.4265975596048593
+        ],
+        "w0_standardized_nmad": [
+          0.47827963040060556,
+          0.46156151893625486
+        ]
+      }
+    },
+    "c4d/r/r/held": {
+      "comparisons": 2339,
+      "same_arm_nights": 30,
+      "different_arm_nights": 48,
+      "common_variance_proxy_mas2": [
+        1867.3370147322494,
+        2346.823451682528
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -124.18668779900527,
+          6637.298546941211
+        ],
+        [
+          147.084664155976,
+          7317.30884329834
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -2.5366887971758842,
+          -1.179740042425692
+        ],
+        "nmad_mas": [
+          71.344657955271,
+          67.73260558761181
+        ],
+        "median_native_difference_variance_mas2": [
+          18306.064179999998,
+          18496.579165
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.46988936789091923,
+          0.407313856082457
+        ],
+        "w0_standardized_nmad": [
+          0.49596107133400513,
+          0.47936164703001466
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.3243914879858494,
+          1.854238776722923
+        ],
+        "nmad_mas": [
+          58.49764005623795,
+          61.706291452493005
+        ],
+        "median_native_difference_variance_mas2": [
+          12903.393168,
+          13022.904661
+        ],
+        "median_reference_difference_variance_mas2": [
+          0.3805452979496572,
+          0.39545962405257523
+        ],
+        "w0_standardized_nmad": [
+          0.4497272072419092,
+          0.47721104373711154
+        ]
+      }
+    },
+    "c4d/Y/z/held": {
+      "comparisons": 1711,
+      "same_arm_nights": 17,
+      "different_arm_nights": 46,
+      "common_variance_proxy_mas2": [
+        -2177.162009965532,
+        -1952.5241629029515
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -4097.235680849156,
+          4085.340539428708
+        ],
+        [
+          -3764.8619811374624,
+          1873.7558246471265
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          0.9860961772501469,
+          2.4964028076501563
+        ],
+        "nmad_mas": [
+          81.02768638542742,
+          79.24395867400732
+        ],
+        "median_native_difference_variance_mas2": [
+          21005.827343999998,
+          21109.570780999995
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.079057509567393,
+          0.9191720669780219
+        ],
+        "w0_standardized_nmad": [
+          0.5368592429573753,
+          0.5323660173649072
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          0.10069047845900059,
+          -1.753521860431647
+        ],
+        "nmad_mas": [
+          100.59393093960676,
+          100.32869996638236
+        ],
+        "median_native_difference_variance_mas2": [
+          28909.416353,
+          28800.391144999998
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.0875827766273956,
+          2.049022166892
+        ],
+        "w0_standardized_nmad": [
+          0.5875337935196829,
+          0.599951557992187
+        ]
+      }
+    },
+    "c4d/g/g/held": {
+      "comparisons": 720,
+      "same_arm_nights": 24,
+      "different_arm_nights": 29,
+      "common_variance_proxy_mas2": [
+        3472.0804446081256,
+        2998.3553662306185
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -2165.5025802119317,
+          6602.230359762254
+        ],
+        [
+          -2228.904363684122,
+          6482.567290925869
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -0.7427903618663549,
+          3.849405828746967
+        ],
+        "nmad_mas": [
+          92.57937795970011,
+          93.52717753853551
+        ],
+        "median_native_difference_variance_mas2": [
+          36032.3989725,
+          35744.123007
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.8205333104338217,
+          1.9130902882797673
+        ],
+        "w0_standardized_nmad": [
+          0.5174040227611326,
+          0.5417374558079597
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -4.454557829536498,
+          -0.47292085192748345
+        ],
+        "nmad_mas": [
+          77.58113514131186,
+          79.07632895784143
+        ],
+        "median_native_difference_variance_mas2": [
+          26536.2988685,
+          27253.753737
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.1288319061676844,
+          1.14439338693759
+        ],
+        "w0_standardized_nmad": [
+          0.4759552054333397,
+          0.4674849918083095
+        ]
+      }
+    },
+    "c4d/Y/Y/development": {
+      "comparisons": 667,
+      "same_arm_nights": 17,
+      "different_arm_nights": 32,
+      "common_variance_proxy_mas2": [
+        -1626.366376875656,
+        -2866.932540326561
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -3049.99624342304,
+          2429.889020178029
+        ],
+        [
+          -3981.257023174901,
+          -143.06914065998222
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -6.884221887215972,
+          7.969500059611164
+        ],
+        "nmad_mas": [
+          93.09259586817808,
+          96.32323738873174
+        ],
+        "median_native_difference_variance_mas2": [
+          32994.655714,
+          33104.570563999994
+        ],
+        "median_reference_difference_variance_mas2": [
+          3.6254652085907826,
+          2.874615623315858
+        ],
+        "w0_standardized_nmad": [
+          0.5161927517917554,
+          0.5234826448579774
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          2.6140374299138784,
+          5.155944299389375
+        ],
+        "nmad_mas": [
+          103.08313270652778,
+          93.33143230415709
+        ],
+        "median_native_difference_variance_mas2": [
+          38207.382482,
+          38307.67774100001
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.9894509141965004,
+          3.2547295344284466
+        ],
+        "w0_standardized_nmad": [
+          0.5422163579653679,
+          0.5122001367965824
+        ]
+      }
+    },
+    "c4d/Y/Y/held": {
+      "comparisons": 328,
+      "same_arm_nights": 17,
+      "different_arm_nights": 31,
+      "common_variance_proxy_mas2": [
+        -1675.3943061811733,
+        -1221.8488769021387
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -3725.4217716382796,
+          2358.148911999149
+        ],
+        [
+          -4766.751504330005,
+          -36.2189761383768
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -2.8430660469457507,
+          -8.665005984716117
+        ],
+        "nmad_mas": [
+          94.46168712301925,
+          88.45199790819484
+        ],
+        "median_native_difference_variance_mas2": [
+          32797.280155,
+          32911.8668045
+        ],
+        "median_reference_difference_variance_mas2": [
+          3.6254652085907826,
+          2.915086338304524
+        ],
+        "w0_standardized_nmad": [
+          0.5094556377366379,
+          0.5068965163002863
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -9.708112990483642,
+          -0.5605415878817439
+        ],
+        "nmad_mas": [
+          96.94126278674165,
+          96.35554786773513
+        ],
+        "median_native_difference_variance_mas2": [
+          36621.075807,
+          36814.6102145
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.9894509141965004,
+          3.2547295344284466
+        ],
+        "w0_standardized_nmad": [
+          0.5045009128486526,
+          0.4826551837721551
+        ]
+      }
+    },
+    "c4d/Y/i/development": {
+      "comparisons": 1007,
+      "same_arm_nights": 19,
+      "different_arm_nights": 38,
+      "common_variance_proxy_mas2": [
+        -462.35649232667674,
+        14.976640335611592
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -2980.247202762656,
+          3450.871473537633
+        ],
+        [
+          -2271.1479932296093,
+          2674.5473372335173
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          0.4426351338624954,
+          -4.731544657610357
+        ],
+        "nmad_mas": [
+          94.84424656427912,
+          92.6971116769644
+        ],
+        "median_native_difference_variance_mas2": [
+          28620.82225,
+          28644.472448
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.1570058133686036,
+          1.0882886604779176
+        ],
+        "w0_standardized_nmad": [
+          0.571321774150385,
+          0.5402912501443929
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.8144570961594582,
+          -1.7202269793488085
+        ],
+        "nmad_mas": [
+          98.80997597649693,
+          102.63028149694134
+        ],
+        "median_native_difference_variance_mas2": [
+          30313.166863999995,
+          30553.154818000006
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.9629665472307554,
+          2.366138882195421
+        ],
+        "w0_standardized_nmad": [
+          0.5605756942481726,
+          0.5787874874009442
+        ]
+      }
+    },
+    "c4d/VR/z/development": {
+      "comparisons": 786,
+      "same_arm_nights": 2,
+      "different_arm_nights": 7
+    },
+    "c4d/Y/r/development": {
+      "comparisons": 1420,
+      "same_arm_nights": 25,
+      "different_arm_nights": 57,
+      "common_variance_proxy_mas2": [
+        1603.9261428668988,
+        2904.8969747689644
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -845.8930085508771,
+          6899.436670507972
+        ],
+        [
+          718.8484432956302,
+          6343.997417623855
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -4.683797541074455,
+          -2.5072493427433074
+        ],
+        "nmad_mas": [
+          106.46562184259555,
+          100.18861153184717
+        ],
+        "median_native_difference_variance_mas2": [
+          30115.280608499997,
+          30423.238630500004
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.5422086777597417,
+          1.3212980763204356
+        ],
+        "w0_standardized_nmad": [
+          0.603717015034839,
+          0.5715093058692499
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          4.047758909873664,
+          -2.3180726862046868
+        ],
+        "nmad_mas": [
+          97.73305621715225,
+          103.92931173593786
+        ],
+        "median_native_difference_variance_mas2": [
+          25125.7446985,
+          25377.750109999997
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.8084040707134754,
+          1.2954353773402794
+        ],
+        "w0_standardized_nmad": [
+          0.5909848844560124,
+          0.6080833303976892
+        ]
+      }
+    },
+    "c4d/VR/i/development": {
+      "comparisons": 474,
+      "same_arm_nights": 2,
+      "different_arm_nights": 4
+    },
+    "c4d/Y/i/held": {
+      "comparisons": 473,
+      "same_arm_nights": 11,
+      "different_arm_nights": 29,
+      "common_variance_proxy_mas2": [
+        -330.5348199141554,
+        -662.0550765290154
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -3785.709298316785,
+          3409.9681964510764
+        ],
+        [
+          -2832.5888714065786,
+          1388.862740842041
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          12.360758488997817,
+          0.9460684019140899
+        ],
+        "nmad_mas": [
+          92.20242622172981,
+          94.81961651146653
+        ],
+        "median_native_difference_variance_mas2": [
+          27348.231073000003,
+          27528.127911999996
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.1570058133686036,
+          1.144658034458445
+        ],
+        "w0_standardized_nmad": [
+          0.5209146146119862,
+          0.5496715605869218
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -0.026059655472636223,
+          1.1851805290207267
+        ],
+        "nmad_mas": [
+          103.305798675064,
+          101.87011443766089
+        ],
+        "median_native_difference_variance_mas2": [
+          30179.493706,
+          30237.414088999994
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.9629665472307554,
+          2.366138882195421
+        ],
+        "w0_standardized_nmad": [
+          0.610002932900633,
+          0.599772029824486
+        ]
+      }
+    },
+    "c4d/VR/i/held": {
+      "comparisons": 239,
+      "same_arm_nights": 2,
+      "different_arm_nights": 5
+    },
+    "c4d/Y/r/held": {
+      "comparisons": 684,
+      "same_arm_nights": 13,
+      "different_arm_nights": 41,
+      "common_variance_proxy_mas2": [
+        2284.7116371146467,
+        2010.9359224499203
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1623.742921775399,
+          8395.694018071088
+        ],
+        [
+          -159.38973977013018,
+          7204.73219057889
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -4.7323895348235965,
+          5.26343416410964
+        ],
+        "nmad_mas": [
+          106.7457310887985,
+          102.42229926744292
+        ],
+        "median_native_difference_variance_mas2": [
+          32129.431945999997,
+          32117.5716245
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.5422086777597417,
+          1.4091243321419642
+        ],
+        "w0_standardized_nmad": [
+          0.6070217411453039,
+          0.5476326214117527
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          0.08472570683807135,
+          -0.5229371048044413
+        ],
+        "nmad_mas": [
+          97.17148919536807,
+          91.6045530519324
+        ],
+        "median_native_difference_variance_mas2": [
+          25606.606885499998,
+          25997.898611
+        ],
+        "median_reference_difference_variance_mas2": [
+          1.7880548286184825,
+          1.2143470785046435
+        ],
+        "w0_standardized_nmad": [
+          0.6149640863880795,
+          0.5484344521232905
+        ]
+      }
+    },
+    "c4d/VR/z/held": {
+      "comparisons": 387,
+      "same_arm_nights": 2,
+      "different_arm_nights": 6
+    },
+    "c4d/Y/g/development": {
+      "comparisons": 683,
+      "same_arm_nights": 11,
+      "different_arm_nights": 42,
+      "common_variance_proxy_mas2": [
+        -890.3340653174128,
+        883.8197382439448
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -1900.1951869308898,
+          1368.0780435707409
+        ],
+        [
+          -3969.180889270903,
+          1814.7197377968157
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          -4.400246426463127,
+          -7.244239653460681
+        ],
+        "nmad_mas": [
+          132.0353105188731,
+          123.04515484749125
+        ],
+        "median_native_difference_variance_mas2": [
+          35004.855434,
+          35186.74928199999
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.418828627949279,
+          2.7367785030064913
+        ],
+        "w0_standardized_nmad": [
+          0.6998448360759257,
+          0.6440645931085686
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          7.989141970872879,
+          -7.250166168567375
+        ],
+        "nmad_mas": [
+          111.04567708527892,
+          115.99735147335743
+        ],
+        "median_native_difference_variance_mas2": [
+          31683.582856,
+          31737.813145
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.1478412841584995,
+          2.201001214066105
+        ],
+        "w0_standardized_nmad": [
+          0.6440625985446068,
+          0.6698982784096179
+        ]
+      }
+    },
+    "c4d/Y/g/held": {
+      "comparisons": 334,
+      "same_arm_nights": 13,
+      "different_arm_nights": 38,
+      "common_variance_proxy_mas2": [
+        1301.6782122777586,
+        -606.7046624698378
+      ],
+      "same_arm_block_sensitivity95_mas2": [
+        [
+          -589.9395719139161,
+          4984.912520614609
+        ],
+        [
+          -8722.600938293734,
+          2050.508845341327
+        ]
+      ],
+      "same_night": {
+        "median_mas": [
+          2.9326365031301975,
+          -1.9399801387044135
+        ],
+        "nmad_mas": [
+          122.68660492978007,
+          132.4844361781092
+        ],
+        "median_native_difference_variance_mas2": [
+          36216.955976,
+          36406.514679500004
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.418828627949279,
+          3.408289972327951
+        ],
+        "w0_standardized_nmad": [
+          0.6259513083572852,
+          0.7352596598808583
+        ]
+      },
+      "different_night": {
+        "median_mas": [
+          -3.0128653906285763,
+          3.510608244672767
+        ],
+        "nmad_mas": [
+          109.38571003986317,
+          103.41664593236814
+        ],
+        "median_native_difference_variance_mas2": [
+          30520.835594999997,
+          30761.1861365
+        ],
+        "median_reference_difference_variance_mas2": [
+          2.2892293883717945,
+          2.201001214066105
+        ],
+        "w0_standardized_nmad": [
+          0.6220106604987732,
+          0.5554169258917707
+        ]
+      }
+    },
+    "c4d/r/u/held": {
+      "comparisons": 54,
+      "same_arm_nights": 2,
+      "different_arm_nights": 2
+    },
+    "c4d/u/z/held": {
+      "comparisons": 48,
+      "same_arm_nights": 2,
+      "different_arm_nights": 2
+    },
+    "c4d/g/u/held": {
+      "comparisons": 54,
+      "same_arm_nights": 2,
+      "different_arm_nights": 3
+    },
+    "c4d/r/u/development": {
+      "comparisons": 103,
+      "same_arm_nights": 2,
+      "different_arm_nights": 2
+    },
+    "c4d/i/u/development": {
+      "comparisons": 99,
+      "same_arm_nights": 2,
+      "different_arm_nights": 2
+    },
+    "c4d/u/z/development": {
+      "comparisons": 101,
+      "same_arm_nights": 2,
+      "different_arm_nights": 3
+    },
+    "c4d/g/u/development": {
+      "comparisons": 107,
+      "same_arm_nights": 2,
+      "different_arm_nights": 4
+    },
+    "c4d/i/u/held": {
+      "comparisons": 49,
+      "same_arm_nights": 2,
+      "different_arm_nights": 2
+    },
+    "c4d/VR/r/held": {
+      "comparisons": 8,
+      "same_arm_nights": 1,
+      "different_arm_nights": 4
+    },
+    "c4d/VR/g/held": {
+      "comparisons": 1,
+      "same_arm_nights": 1,
+      "different_arm_nights": 2
+    },
+    "c4d/VR/Y/held": {
+      "comparisons": 9,
+      "same_arm_nights": 1,
+      "different_arm_nights": 7
+    },
+    "c4d/VR/r/development": {
+      "comparisons": 5,
+      "same_arm_nights": 1,
+      "different_arm_nights": 3
+    },
+    "c4d/VR/Y/development": {
+      "comparisons": 5,
+      "same_arm_nights": 1,
+      "different_arm_nights": 3
+    },
+    "c4d/VR/g/development": {
+      "comparisons": 1,
+      "same_arm_nights": 1,
+      "different_arm_nights": 2
+    },
+    "k4m/z/z/development": {
+      "comparisons": 6,
+      "same_arm_nights": 1,
+      "different_arm_nights": 2
+    },
+    "k4m/z/z/held": {
+      "comparisons": 1,
+      "same_arm_nights": 1,
+      "different_arm_nights": 2
+    }
+  },
+  "graph_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+  "slurm_job": "61574986",
+  "scope": "C0 holdout galaxies only. Same instrument and unordered filter pair, distinct exposures, adjacent pairs within 30 days. Closest eligible pair per galaxy/route/family, first registered core in overlaps. Development and held galaxy identities disjoint. Same and different night comparison populations can differ. Pair bootstrap uses the variance of the synchronized reference difference; observed variance also includes galaxy centroid/seeing variation and unmodeled exposure effects. Paired contrasts use identical galaxies in both arms. The same-arm night bootstrap describes sensitivity to that side of the sampling and cannot rule out dependence through shared between-night exposures. Instrument-wide night covariance requires positive, consistent proxy across supported filter combinations in both splits, with shared-marginal assumptions and target verification."
+}

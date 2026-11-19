@@ -33,3 +33,17 @@
 - `nsc_allband_inputs` 与 `nsc_science_catalogue` 在北二区 72 核心执行真实测量取数、拟合和同源比较。以 `nsc_transfer_footprint` 计算共同参考支持下的几何时间机会。
 - `allband_blind_year`、`allband_member_audit` 与 `nsc_full_year_identity` 核验已登记先导。完整转移汇总由 `nsc_science_summary` 完成。
 - 全部聚合输出经过 `check_aggregate`，图可由 `nsc_transfer_figures` 重现。精确 PScratch 和作业路径保存在私人配置。暗 Gaia 自行继续退出模型选择与验收。
+
+
+### 北二区逐核心取数、拟合和最终读取
+
+使用登记的北二区几何和共同参考回执。环境变量对应已核验的私有路径，在计算节点启动：
+
+```bash
+python -m deep_pm.nsc_allband_inputs "$INPUTS/$CORE" "$PRIOR_INPUTS/$CORE" "$GEOMETRY" "$CORE" --workers 1
+python -m deep_pm.nsc_science_catalogue "$FITS/$CORE" "$INPUTS/$CORE" "$SHARED_C0" "$GEOMETRY" "$XIAO_DESI" "$CORE"
+```
+
+实际驱动先运行排序后的四个冻结先导并逐一核对共同 C0 哈希，再处理余下核心。最多四路外部取数，阶段内验证或复用已有回执。 `nsc_coverage_conditions` 从严格共同光谱源比较两轴 1σ 和 2σ，分实际 SDSS run、NSC UTC 夜及联合跨度。条件协方差含切平面拟合项与同步参考样本，未建模的同夜项和绝对空间零点不在其中。源级单位、状态顺序和变换见 [星表布局](catalogue_layout_v15.md)。
+
+完成后用 `nsc_ownership_overlay.owned_records` 读取归属修正后的核心。私有索引及其引用的签名源文件均需保留。结果行的物理检测身份和状态不依赖拟合目录名。合并后检查跨块重复、共享检测和每源 J2015.5 的区域归属。跨核修正记录只转移逻辑归属，不更改原始阶段回执。 [完成回执](../results/summary/v16_transfer_completion_summary.json) · [归属回执](../results/summary/v16_transfer_ownership_summary.json)

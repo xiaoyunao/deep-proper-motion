@@ -1,0 +1,19 @@
+{
+  "cores": {
+    "north_two_15_11": {
+      "owned_all_nsc": 3192,
+      "owned_r_control": 2961
+    },
+    "north_two_20_00": {
+      "owned_all_nsc": 3118,
+      "owned_r_control": 2945
+    },
+    "north_two_20_01": {
+      "owned_all_nsc": 3161,
+      "owned_r_control": 2998
+    }
+  },
+  "public_science_statistics_exact": true,
+  "source_code_commit": "9c9996030ed5e5f658ff72a6705f32f41be86f59",
+  "slurm_job": "61575545"
+}

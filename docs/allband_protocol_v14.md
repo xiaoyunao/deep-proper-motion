@@ -29,3 +29,19 @@ A只重放原全部参考图及相同参数，保存：原训练支持、剥离�
 只有普通区精度或经过审核的有效源数收益可复现，新增源零点／身份／误差及有效机会有支持，才冻结采用方案并启动共同图约10×10度科学目录和独立迁移。没有收益则保存负结果和具体停止原因，不以处理更多面积代替验证，也不预设全波段必然更准。
 
 新增源分r已有、追加band才可用、非r新锚点；测试年所有目标检测先移除再生成训练关联，真实合格曝光机会与所有档案芯片分开，一对一匹配和位移负对照不取消。未知身份不能算正确，匹配门限内残差不能代表无条件误差。
+
+## 本轮复现入口
+
+所有真实表操作在Slurm分配内，从对应源码commit根目录运行；每个输出使用独立版本目录。参数路径来自个人不提交配置，不在此填机器绝对路径。
+
+```bash
+python -m deep_pm.allband_inventory "$WORK" "$SOURCE" "$SHARED" "$GEOMETRY" "$REGION"
+python -m deep_pm.allband_qso "$WORK" "$SOURCE" "$FROZEN_FIT" "$FROZEN_C0" "$COMMON_C0" "$GEOMETRY" "$REGION" --multiband
+python -m deep_pm.allband_diagnostics "$WORK" "$FIXED_QSO_TRIAL"
+python -m deep_pm.multiband_error_trial "$WORK" "$FIXED_QSO_TRIAL" "$REFERENCE_SHARD"
+python -m deep_pm.allband_blind_year "$WORK" "$SOURCE" "$SHARED" "$GEOMETRY" "$REGION"
+python -m deep_pm.exposure_index_audit "$WORK" "$SOURCE" "$SHARED" "$GEOMETRY" "$REGION"
+python -m deep_pm.legacy_band_attribution "$WORK" "$FROZEN_LEGACY_EXTRA_TRIAL"
+```
+
+共同图、组筛除、SDSS位置探针和支持敏感性的CLI见相应模块的`--help`。`reference_support_trial`仅复制全部pre-SE偏移／同步抽样，不重新定锚、不删除公共位置协方差，不是默认C0。原额外源须按旧W2 scale/floor及逐检测顺序重现；线性归因固定稳健影响系数，均值可加而中位数不可加，不当作因果或纠正系数。

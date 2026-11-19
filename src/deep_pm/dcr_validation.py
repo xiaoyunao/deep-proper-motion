@@ -61,6 +61,7 @@ def context(trial,model_root,kind):
     models={name:read_model(model_root/('private_'+name+'.npz')) for name in MODELS};center=models[MODELS[0]]['center']
     if models[MODELS[1]]['center']!=center:raise ValueError('D0/D1 projection mismatch')
     graph=(trial/('new_reference_receipt.json' if kind=='qso' else 'reference_receipt.json')).resolve().parent/'private_c0.npz'
+    verify_directory(source,('detections.csv',));verify_directory(graph.parent,('private_c0.npz',))
     if tuple(reference_frame(graph))!=center:raise ValueError('Frozen target coordinate basis changed')
     config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text());settings.update(bootstrap_draws=800,bootstrap_absolute_zero=True,min_publish_count=5)
     data,xy,time,sigma,keep=quality_detections(source,center,config,settings['production']);keys=calibration_groups(data);lookup=pd.Index(data.detection_id)

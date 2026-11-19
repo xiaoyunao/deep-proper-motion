@@ -24,3 +24,5 @@
 新天区输入与参考提取入口为 `scripts/wide-v17-inputs.sh`。传入登记选区、同一几何配置、已核验光谱缓存、SDSS SAS 与 Xiao FITS，并使用 Slurm 计算节点。取数与参考提取单独留回执。第二批选区先冻结原生几何，详见 [登记统计](../results/summary/v17_wide_selection_summary.json)。
 
 对旧原始 NSC 分片，`nsc_allband_inputs --reuse-r-archive` 可核验旧签名后只取原 r 对象谓词的补集。三个真实核心与完整重新取数逐列重放，通过同一检测身份、数据值、对象标签和官方外部字段核验。只有具有相同已签名几何、halo 和旧原生 COUNT join 的缓存使用补集，其余仍走完整取数。 [实测重放](../results/summary/v17_complement_replay_summary.json)
+
+缓存窗口的共同参考回执确认北、赤道和冻结 C 图保留的物理组彼此不重叠。每个状态的参考身份应读 `reference_model_sha256` 与图内 `reference_component` 两个字段。数字分量标签在不同图中可重复。新区域的重叠先按 CCD 和扫描几何预查，再按实际星系测量联合组拟合。 [已求解缓存图](../results/summary/v17_cached_shared_reference_summary.json) · [广域几何组预查](../results/summary/v17_wide_projection_preview_summary.json)

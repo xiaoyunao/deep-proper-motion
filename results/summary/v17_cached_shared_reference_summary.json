@@ -1,0 +1,27 @@
+{
+  "graphs": {
+    "equatorial": {
+      "physical_group_count": 2870,
+      "components": {
+        "0": 2870
+      },
+      "graph_sha256": "4332e0801ad23a04176f4acfd5e4d4d5f2b9ddab06f53c15ff4412e7027db4d1",
+      "graph_summary_sha256": "e47e0bf06cca6aeb8b532cfe6ec880a353b0299349ea97b5686e334979cd6713"
+    },
+    "northern": {
+      "physical_group_count": 2766,
+      "components": {
+        "0": 2766
+      },
+      "graph_sha256": "4788cfbcc65b7f0c33054645b233832c9d4c8df96e72c97298b570786fe223c5",
+      "graph_summary_sha256": "a84f79c76a2be847c2da0b3cb9f912096b6ed928fc68f356c9b587e691e38490"
+    }
+  },
+  "physical_group_intersections": {
+    "equatorial__northern": 0,
+    "equatorial__frozen_C": 0,
+    "northern__frozen_C": 0
+  },
+  "source_code_commit": "992c9f1dc810a31cfcbee10b6eb443dbe08c638a",
+  "slurm_job": "61576379"
+}

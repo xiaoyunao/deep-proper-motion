@@ -1,0 +1,91 @@
+{
+  "windows": {
+    "w010_080": 4716,
+    "w010_090": 4578,
+    "w010_110": 708,
+    "w120_110": 1137,
+    "w130_090": 3078,
+    "w170_080": 1089,
+    "w180_110": 386,
+    "w190_090": 1523,
+    "w320_090": 3958,
+    "w330_110": 216,
+    "frozen_C": 3580,
+    "equatorial": 2870,
+    "northern": 2766
+  },
+  "metadata_shared_groups": {
+    "w010_080__w010_090": {
+      "total": 2816,
+      "sdss": 94
+    },
+    "w010_080__w320_090": {
+      "total": 35,
+      "sdss": 35
+    },
+    "w010_080__frozen_C": {
+      "total": 135,
+      "sdss": 135
+    },
+    "w010_090__w320_090": {
+      "total": 83,
+      "sdss": 83
+    },
+    "w010_090__frozen_C": {
+      "total": 135,
+      "sdss": 135
+    },
+    "w010_110__w330_110": {
+      "total": 18,
+      "sdss": 18
+    },
+    "w120_110__northern": {
+      "total": 67,
+      "sdss": 67
+    },
+    "w130_090__w170_080": {
+      "total": 2,
+      "sdss": 2
+    },
+    "w130_090__w190_090": {
+      "total": 19,
+      "sdss": 19
+    },
+    "w130_090__equatorial": {
+      "total": 198,
+      "sdss": 24
+    },
+    "w170_080__w190_090": {
+      "total": 6,
+      "sdss": 6
+    },
+    "w170_080__equatorial": {
+      "total": 18,
+      "sdss": 18
+    },
+    "w190_090__equatorial": {
+      "total": 35,
+      "sdss": 35
+    },
+    "w320_090__frozen_C": {
+      "total": 110,
+      "sdss": 110
+    }
+  },
+  "projection_centers": {
+    "frozen_C": [
+      350.0,
+      0.0
+    ],
+    "equatorial": [
+      177.0,
+      0.0
+    ],
+    "northern": [
+      171.5,
+      34.0
+    ]
+  },
+  "slurm_job": "61576317",
+  "scope": "Bounding CCD evidence and buffered native SDSS fields. Planned group intersections may exceed the actual supported stationary-galaxy graph. Existing graph groups are exact."
+}

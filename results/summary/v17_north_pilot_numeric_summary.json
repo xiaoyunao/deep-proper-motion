@@ -1,0 +1,46 @@
+{
+  "cores": {
+    "north_one_00_00": {
+      "receipt_sha256": "4ec1ba77f37a5ea39a2f58d45388c62cf513d5397a9c00c8b437e1052192b82d",
+      "graph": "northern",
+      "counts": {
+        "owned_all_nsc": 3890,
+        "owned_r_control": 3464
+      },
+      "boundary_positions": {
+        "private_standard_motion.json.gz": 0,
+        "private_r_control.json.gz": 0
+      },
+      "reference_component": "0"
+    },
+    "north_two_04_00": {
+      "receipt_sha256": "6a1db3eaefee76665f03804d0159be933d2802c50ead52162f3cd319185dded9",
+      "graph": "northern",
+      "counts": {
+        "owned_all_nsc": 1950,
+        "owned_r_control": 1712
+      },
+      "boundary_positions": {
+        "private_standard_motion.json.gz": 0,
+        "private_r_control.json.gz": 0
+      },
+      "reference_component": "0"
+    },
+    "north_three_00_00": {
+      "receipt_sha256": "f56d3b1def3f15766bc9fe7a9841a6237d9c69639dd0ad41905110eec12228f3",
+      "graph": "northern",
+      "counts": {
+        "owned_all_nsc": 3267,
+        "owned_r_control": 2720
+      },
+      "boundary_positions": {
+        "private_standard_motion.json.gz": 0,
+        "private_r_control.json.gz": 0
+      },
+      "reference_component": "0"
+    }
+  },
+  "slurm_job": "61576379",
+  "reference_graph_verified": true,
+  "scope": "Numeric pilot on signed joint northern C0. Full batch still needs cross-graph audit."
+}

@@ -154,6 +154,7 @@ def run(work,state,base_summary,audit,geometry,archive_exterior=False):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('work','state','base_summary','audit','geometry'):p.add_argument(name,type=Path)
+    p.add_argument('--archive-exterior',action='store_true')
     a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
     a.work.mkdir(parents=True,exist_ok=True)

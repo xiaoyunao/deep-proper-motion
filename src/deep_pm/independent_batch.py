@@ -34,6 +34,8 @@ def prepare(work,selection,protocol,previous=None):
         lines=[f'projection_center_deg = {center}', 'halo_deg = 0.06', 'seed = 9137',
                'reference_epoch = 2015.5','nside = 128','native_join = true','native_count_window = true',
                'native_row_cap = 80000','download_workers = 1']
+        if config.get('nsc_all_objects',False):
+            lines.extend(('nsc_all_objects = true','production_quality_tags = true'))
         fields={core:bounds for row in rows for core,bounds in split_cell(row).items()}
         for core,bounds in fields.items():
             lines.extend([f'[fields.{core}]',f"ra = {bounds['ra']}",f"dec = {bounds['dec']}"])

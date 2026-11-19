@@ -1,5 +1,6 @@
 """Measure coverage from real calibrated CCD and SDSS scan footprints."""
 import argparse
+from collections import Counter
 import json
 import os
 from pathlib import Path
@@ -22,6 +23,24 @@ from .provenance import run_stage
 from .public_summary import check_aggregate
 
 
+def combine_grids(parts):
+    result = parts[0]
+    for item in parts[1:]:
+        if item['equal_area_cell_sqdeg']!=result['equal_area_cell_sqdeg']:
+            raise ValueError('Incompatible area quadrature across graph components')
+        result['grid_points']+=item['grid_points']
+        result['added_opportunity_area_sqdeg']+=item['added_opportunity_area_sqdeg']
+        for layer, values in item['layers'].items():
+            for key,value in values.items():
+                result['layers'][layer][key]+=value
+        for pixel,values in item['nside128'].items():
+            if pixel in result['nside128']:
+                result['nside128'][pixel]=dict(Counter(result['nside128'][pixel])+Counter(values))
+            else:
+                result['nside128'][pixel]=values
+    return result
+
+
 def run(work,plan,geometry,shared,window):
     data = json.loads(plan.read_text())
     graph = shared/'private_c0.npz'
@@ -32,8 +51,22 @@ def run(work,plan,geometry,shared,window):
     box = {key:[min(p[key][0] for p in domain),max(p[key][1] for p in domain)] for key in ('ra','dec')}
     center = [float(np.mean(box[k])) for k in ('ra','dec')]
     solution,gauges = read_offsets(graph,with_gauge=True)
-    if len(set(gauges.values()))!=1:
-        raise ValueError('Opportunity area needs a single compatible graph gauge')
+    core_gauges = data.get('core_gauges')
+    if core_gauges is None:
+        if len(set(gauges.values()))!=1:
+            raise ValueError('Opportunity area needs a compatible graph gauge per core')
+        domains = [(domain, solution)]
+    else:
+        if set(core_gauges)!=set(data['cores']):
+            raise ValueError('Gauge selection must account for every core')
+        domains = [
+            ([specs[k] for k,v in core_gauges.items() if v==gauge],
+             {k:v for k,v in solution.items() if gauges[k]==gauge})
+            for gauge in {*gauges.values(),None}
+            if gauge in core_gauges.values()
+        ]
+        if set(core_gauges.values())-({None}|set(gauges.values())):
+            raise ValueError('Core declares an unknown reference gauge')
     pad=.7
     chips=access.checked_spatial(access.Cache(work/'chip_cache'),'nsc',
         ','.join(['exposure','ccdnum','instrument','filter','mjd']+CHIP_VERTICES),'nsc_dr2.chip',
@@ -51,11 +84,12 @@ def run(work,plan,geometry,shared,window):
             tai=tai[:,2]
         frame['epoch']=years(sdss_tai_to_tt(np.where((tai>=4e9)&(tai<6e9),tai,np.nan)))
         frame=frame.loc[np.isfinite(frame.epoch)]
-    grids={str(step):estimate(chips,frame,box,solution,step,domain) for step in (.05,.025)}
+    grids={str(step):combine_grids([estimate(chips,frame,box,offsets,step,cores)
+                                   for cores,offsets in domains]) for step in (.05,.025)}
     result=dict(area_sqdeg=sum(area(x) for x in domain),cores=len(domain),grids=grids,
                 plan_sha256=digest(plan),reference_sha256=digest(graph),chip_sha256=digest(work/'private_transfer_chips.csv.gz'),
                 slurm_job=os.environ['SLURM_JOB_ID'],
-                scope='Footprint-only opportunity inside the 72 registered half-open cores. SDSS and NSC physical C0 support, at least two NSC exposures, NSC span >= 0.60 yr and joint span >= 5 yr. This does not count per-target r/other-band depth, completeness, reliable source identities or certified area.')
+                scope='Footprint-only opportunity inside the registered half-open cores. SDSS and NSC physical C0 support, at least two NSC exposures, NSC span >= 0.60 yr and joint span >= 5 yr. This does not count per-target r/other-band depth, completeness, reliable source identities or certified area.')
     check_aggregate(result)
     save_json(work/'transfer_footprint_summary.json',result)
 

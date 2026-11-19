@@ -1,0 +1,175 @@
+{
+  "status": "metadata_frozen_before_new_motion_results",
+  "nominal_area_sqdeg": 99.87312439537492,
+  "frozen_science_cores": 91,
+  "object_route_estimate": {
+    "all_objects": {
+      "objects": 6133038,
+      "reported_measurements": 108815173
+    },
+    "legacy_r_index": {
+      "objects": 3599174,
+      "reported_measurements": 91860446
+    }
+  },
+  "all_to_legacy_reported_measurement_ratio": 1.1845704842321363,
+  "planning_raw_gib_at_300_bytes_per_reported_measurement": 30.40260812267661,
+  "conservative_chip_opportunities": 160318,
+  "by_instrument_band": {
+    "c4d:VR": {
+      "exposures": 712,
+      "ccds": 26181,
+      "nights": 9,
+      "years": [
+        2014,
+        2015,
+        2016,
+        2019
+      ],
+      "original_c0_supported_exposures": 651
+    },
+    "c4d:Y": {
+      "exposures": 439,
+      "ccds": 18744,
+      "nights": 219,
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "original_c0_supported_exposures": 329
+    },
+    "c4d:g": {
+      "exposures": 719,
+      "ccds": 30253,
+      "nights": 307,
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "original_c0_supported_exposures": 487
+    },
+    "c4d:i": {
+      "exposures": 567,
+      "ccds": 24266,
+      "nights": 265,
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "original_c0_supported_exposures": 494
+    },
+    "c4d:r": {
+      "exposures": 680,
+      "ccds": 28470,
+      "nights": 298,
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "original_c0_supported_exposures": 579
+    },
+    "c4d:u": {
+      "exposures": 121,
+      "ccds": 4999,
+      "nights": 61,
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2019
+      ],
+      "original_c0_supported_exposures": 27
+    },
+    "c4d:z": {
+      "exposures": 624,
+      "ccds": 25579,
+      "nights": 279,
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "original_c0_supported_exposures": 558
+    },
+    "k4m:VR": {
+      "exposures": 258,
+      "ccds": 1030,
+      "nights": 5,
+      "years": [
+        2016,
+        2017
+      ],
+      "original_c0_supported_exposures": 0
+    },
+    "k4m:z": {
+      "exposures": 52,
+      "ccds": 204,
+      "nights": 4,
+      "years": [
+        2016
+      ],
+      "original_c0_supported_exposures": 38
+    },
+    "ksb:g": {
+      "exposures": 75,
+      "ccds": 290,
+      "nights": 4,
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "original_c0_supported_exposures": 64
+    },
+    "ksb:r": {
+      "exposures": 78,
+      "ccds": 302,
+      "nights": 4,
+      "years": [
+        2015,
+        2016,
+        2017,
+        2019
+      ],
+      "original_c0_supported_exposures": 38
+    }
+  },
+  "original_reference_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+  "source_plan_sha256": "01bbfbb9a5dc581c4b2dae18bb5c79e0e1f1d50c4ea30aa84dbad9f3af9d29db",
+  "fit_plan_sha256": "26b32f0011557e4b39867ecd537a819f0da42adc527e8d2ca2b62b97c3beb946",
+  "geometry_sha256": "0b2671c86e11ba1f9ce6bc776056d84ab508c480cb8b61ccc22e1dbc22a80e86",
+  "slurm_job": "61562636",
+  "scope": "Whole predeclared C rectangle and original half-open core plan; metadata and reported object ndet before reading any new motion result. No r-object cut in all_objects estimate. SUM(ndet) includes object measurements outside the core and may differ from actual published meas; this is a resource estimate, not scientific detection count. Chip bounding-box opportunities are conservative, not certified available area or target SNR. Original C0 support is frozen for planning; additional groups need independent galaxy calibration."
+}

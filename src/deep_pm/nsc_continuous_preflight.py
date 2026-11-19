@@ -14,6 +14,7 @@ from . import access
 from .__main__ import tomllib
 from .continuous_reference import bind,verify_directory,read_offsets
 from .exposure_inputs import tap_rectangle
+from .exposure_preflight import where_box
 from .io import digest,save_json
 from .provenance import run_stage
 from .public_summary import check_aggregate
@@ -25,11 +26,11 @@ def run(work,state,geometry):
     plans={k:json.loads((state/(k+'.json')).read_text()) for k in ('fits','sources','references')}
     if not set(plans['fits'])<=set(plans['sources']):raise ValueError('Frozen source plan incomplete')
     for name in ('fits','sources','references'):save_json(work/('private_frozen_'+name+'.json'),plans[name])
-    where=tap_rectangle(box,halo);counts={}
+    where=where_box(box,halo);counts={}
     for name,selection in [('all_objects',''),('legacy_r_index',' AND ndetr>0 AND (rmag<24 OR nphotr=0 OR rmag IS NULL)')]:
         query='SELECT COUNT(*) AS n,SUM(ndet) AS reported_measurements FROM nsc_dr2.object WHERE '+where+selection
         value=cache.query('nsc',query,expected=1).iloc[0];counts[name]=dict(objects=int(value['n']),reported_measurements=int(value['reported_measurements']))
-    pad=.65;metadata_where=tap_rectangle(box,halo+pad);lo,hi=box['dec']
+    pad=.65;metadata_where=where_box(box,halo+pad);lo,hi=box['dec']
     cols=['exposure','ccdnum','ra','dec','instrument','filter','mjd','airmass']+CHIP_VERTICES
     chips=access.checked_spatial(cache,'nsc',','.join(cols),'nsc_dr2.chip',metadata_where,lo-halo-pad,hi+halo+pad)
     if chips.duplicated(['exposure','ccdnum']).any():raise ValueError('Duplicate physical chip metadata')

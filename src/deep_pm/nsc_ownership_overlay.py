@@ -104,9 +104,10 @@ def run(work,state,base_summary,audit,geometry):
         sample['scope']+=' Source counts and blind spectra now use common-epoch ownership overlay; discovery funnels and input/known-position-QSO diagnostics retain their original anchor/validation footprint.'
     for core,spec in specs.items():
         if result['spatial'][core]['core_bounds_deg']!=dict(ra_bounds_deg=spec['ra'],dec_bounds_deg=spec['dec']):raise ValueError('Base summary has different geometry')
-    if any(v['cross_core_pairs'] for v in result['ownership']['cross_core_close_pairs_by_arcsec'].values()):raise ValueError('Pre-existing close pairs require a full new audit')
-    nearby=pd.DataFrame([dict(ra=r['position_deg'][0],dec=r['position_deg'][1],pm_east=r['pm_icrs_masyr'][0],pm_north=r['pm_icrs_masyr'][1],core=core) for core,rows in grouped.items() for r in rows])
-    result['ownership']['cross_core_close_pairs_by_arcsec']=close_pairs(nearby)['cross_core_close_pairs_by_arcsec']
+    if moves:
+        if any(v['cross_core_pairs'] for v in result['ownership']['cross_core_close_pairs_by_arcsec'].values()):raise ValueError('Pre-existing close pairs require a full new audit')
+        nearby=pd.DataFrame([dict(ra=r['position_deg'][0],dec=r['position_deg'][1],pm_east=r['pm_icrs_masyr'][0],pm_north=r['pm_icrs_masyr'][1],core=core) for core,rows in grouped.items() for r in rows])
+        result['ownership']['cross_core_close_pairs_by_arcsec']=close_pairs(nearby)['cross_core_close_pairs_by_arcsec']
     overlay=dict(fits_manifest_sha256=digest(state/'fits.json'),geometry_sha256=digest(geometry),transfers=moves,scope='Only row ownership changes. Entire state, covariance, physical members, source class and quality flags stay byte-equivalent as canonical JSON. No internal source dropped, duplicated or refit. Discovery funnel counts remain anchor-based.')
     save_json(work/'private_owner_overlay.json',overlay)
     for filename in ('fits.json','sources.json','private_frozen_plan.json'):bind(work,filename,state/filename)

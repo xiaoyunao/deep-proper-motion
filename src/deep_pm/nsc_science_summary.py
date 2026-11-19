@@ -76,7 +76,7 @@ def public_core_summary(summary,spec):
     return result
 
 
-def run(state,geometry,output):
+def run(state,geometry,output,private_pool=None):
     config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']) if 'original_state' in plan else None;graph=Path(plan['reference_graph']) if 'reference_graph' in plan else original/'shared/private_c0.npz';graph_hash=digest(graph)
     old_fits=json.loads((original/'fits.json').read_text()) if original else {}
     if graph_hash!=plan['reference_sha256']:raise ValueError('Frozen common graph changed')
@@ -138,11 +138,11 @@ def run(state,geometry,output):
             shape=r.get('median_nsc_r_class_star');shape_class='unknown' if shape is None or not np.isfinite(shape) or not 0<=shape<=1 else 'pointlike' if shape>=.8 else 'extended_or_mixed'
             instruments='+'.join(sorted({v for e in allrow['exposures'] for v in instrument_by_exposure.get(e,set())})) or 'unknown'
             bands='+'.join(sorted({v for e in allrow['exposures'] for v in band_by_exposure.get(e,set())})) or 'unknown'
-            known.append(dict(instruments=instruments,bands=bands,magnitude=r['magnitude'],shape_class=shape_class,sdss_runs=len([e for e in r['exposures'] if e.startswith('SDSS:')]),nsc_span=allrow['nsc_span_years'],values=values,exposures=allrow['exposures'],nsc_epoch_days=allrow['nsc_nights_utc18']))
+            known.append(dict(core=core,joint_span=allrow['joint_span_years'],instruments=instruments,bands=bands,magnitude=r['magnitude'],shape_class=shape_class,sdss_runs=len([e for e in r['exposures'] if e.startswith('SDSS:')]),nsc_span=allrow['nsc_span_years'],values=values,exposures=allrow['exposures'],nsc_epoch_days=allrow['nsc_nights_utc18']))
             if k in oldpoints and oldpoints[k]['exposures']==r['exposures']:
                 old=oldpoints[k];replay.append(dict(pm_delta=np.asarray(r['motion']['C0'])-old['motion']['C0'],error_delta=np.asarray(r['error_icrs']['C0'])-old['error_icrs']['C0']))
             elif core in old_fits:unmatched_old+=1
-        blind.extend(json.loads((folder/'private_blind_qso.json').read_text()))
+        blind.extend(dict(r,core=core) for r in json.loads((folder/'private_blind_qso.json').read_text()))
     ownership=close_pairs(pd.concat(frames,ignore_index=True));ownership.update(outside_common_epoch_owner=outside,cross_core_shared_detection_claims=crossclaims)
     catalogue_classes={k:dict(research_fits=len(v),information=summarize_information(v)) for k,v in by_class.items()}
     blind_cohorts={}
@@ -160,6 +160,9 @@ def run(state,geometry,output):
         ownership=ownership,reference_graph_sha256=graph_hash,fit_receipt_sha256=receipts,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Pooled individual vectors on strict common spectral objects, original half-open C cores and one frozen physical reference graph. Source yields are provisional research fits; unknown identity/night correlation/spatial zero remain flagged. Nominal core area is not qualified faint-target exposure area or certified area. Same-exposure frozen r replay is conditional on position identity, not PM similarity. Object-bootstrap intervals and physical-observation sensitivity do not replace calibration of spatial systematics. Counts with halo overlap are explicitly not unique detections.')
     check_aggregate(result);save_json(output,result)
+    if private_pool is not None:
+        save_json(private_pool,dict(known=known,blind=blind,science_summary_sha256=digest(output),
+                                    fit_receipt_sha256=receipts))
     if outside or crossclaims:raise ValueError('Continuous ownership or shared-detection conflict needs audit before adoption')
 
 
@@ -171,6 +174,7 @@ def plan_center(folder):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for n in ('state','geometry','output'):p.add_argument(n,type=Path)
+    p.add_argument('--private-pool',type=Path)
     a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
     run(**vars(a))

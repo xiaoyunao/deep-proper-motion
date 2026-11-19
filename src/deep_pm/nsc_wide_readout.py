@@ -14,7 +14,7 @@ from .continuous_summary import area
 from .io import digest, json_default, save_json
 from .nsc_comparison import comparison
 from .nsc_coverage_conditions import coverage
-from .nsc_ownership_overlay import owned_records
+from .nsc_ownership_overlay import STANDARD, owned_records
 from .nsc_science_summary import SETTINGS, known_cohorts
 from .public_summary import check_aggregate
 
@@ -60,8 +60,11 @@ def run(manifest, output, index):
             raise ValueError('Incomplete region assignment')
         for row in spectral['known']:
             known[regions[row['core']]].append(row)
+        overlay=json.loads((owned/'private_owner_overlay.json').read_text())
+        moves={(r['origin_core'],r['source_slot']):r['owner_core'] for r in overlay['transfers'] if r['filename']==STANDARD}
         for row in spectral['blind']:
-            blind[regions[row['core']]].append(row)
+            owner=moves.get((row['core'],row['source_slot']),row['core'])
+            if owner is not None:blind[regions[owner]].append(row)
         for core, summary in graph['spatial'].items():
             if core in output_by_core:
                 raise ValueError('Core occurs in more than one partition')

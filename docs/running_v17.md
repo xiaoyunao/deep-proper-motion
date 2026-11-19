@@ -26,3 +26,5 @@
 对旧原始 NSC 分片，`nsc_allband_inputs --reuse-r-archive` 可核验旧签名后只取原 r 对象谓词的补集。三个真实核心与完整重新取数逐列重放，通过同一检测身份、数据值、对象标签和官方外部字段核验。只有具有相同已签名几何、halo 和旧原生 COUNT join 的缓存使用补集，其余仍走完整取数。 [实测重放](../results/summary/v17_complement_replay_summary.json)
 
 缓存窗口的共同参考回执确认北、赤道和冻结 C 图保留的物理组彼此不重叠。每个状态的参考身份应读 `reference_model_sha256` 与图内 `reference_component` 两个字段。数字分量标签在不同图中可重复。新区域的重叠先按 CCD 和扫描几何预查，再按实际星系测量联合组拟合。 [已求解缓存图](../results/summary/v17_cached_shared_reference_summary.json) · [广域几何组预查](../results/summary/v17_wide_projection_preview_summary.json)
+
+边界以实际登记的半开核心并集及拟合 J2015.5 位置为准。外移至另一登记核心的行只转移逻辑归属。真正位于并集外的行仍作为签名原拟合保存，归属索引记空值，公开区域统计及区域读取不计入这些行。坐标、自行、协方差和物理成员保持不变。区域内的共享检测冲突与重复坐标仍需修复。

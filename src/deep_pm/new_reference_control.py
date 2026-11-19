@@ -35,7 +35,7 @@ def run(work,source,shared,spec,legacy):
     magnitude=qso.reference_r.to_numpy();zero=np.zeros((len(qso),2));models={};private={}
     for name,mask in [('r_only',keep),('all_nsc',keep|(nsc&physical_candidates(data)))]:
         lab,truth=qso_matches(data,xy,mask,points);blocks=[]
-        contrast_samples(truth,lab,data,xy,time,sigma,mask,nsc,settings,config,(keys,),(solution,),center,magnitude,qso.origin.to_numpy(),zero,zero,official,old,[],{},blocks)
+        contrast_samples(truth,lab,data,xy,time,sigma,mask,nsc,settings,config,(keys,),(solution,),center,magnitude,qso.origin.to_numpy(),zero,zero,official,old,[],{"C0":{}},blocks)
         private[name]=blocks
         restored=[standard_block(r,center) for r in blocks]
         models[name]={}

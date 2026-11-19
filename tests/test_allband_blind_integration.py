@@ -37,3 +37,20 @@ def test_held_target_positions_cannot_change_allband_or_nonr_training(tmp_path,m
     assert {r['kind'] for r in training[0]}=={'r_existing','non_r_anchor'}
     assert all(2015 not in r['training_years'] for r in training[0])
     assert training[0]==training[1]
+
+    # Membership is a position/detection identity test, even for a catastrophically wrong PM.
+    from deep_pm import allband_member_audit as membership
+    trial=tmp_path/'1';saved=json.loads((trial/'private_training.json').read_text());saved[0]['pm_icrs_masyr']=[1000.,-1000.]
+    (trial/'private_training.json').write_text(json.dumps(saved))
+    (source/'run_manifest.json').write_text('{}')
+    graph=tmp_path/'graph';graph.mkdir();(graph/'run_manifest.json').write_text('{}')
+    (trial/'source_receipt.json').symlink_to(source/'run_manifest.json')
+    (trial/'reference_receipt.json').symlink_to(graph/'run_manifest.json')
+    monkeypatch.setattr(membership,'reference_frame',lambda path:[0.,0.])
+    monkeypatch.setattr(membership,'quality_detections',lambda *a,**kw:(data,positions,t,sigma,keep))
+    output=tmp_path/'audit';output.mkdir();membership.audit(output,trial)
+    audit=json.loads((output/'allband_member_audit_summary.json').read_text())
+    assert audit['unique_spectral_sources']==2
+    for cohort in audit['by_class'].values():
+        assert cohort['consistent_sources']['value']==1
+        assert cohort['known_competing_member_fraction']['wilson95'][1]>0

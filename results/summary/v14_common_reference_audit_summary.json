@@ -1,0 +1,251 @@
+{
+  "by_region": {
+    "north_one": {
+      "deduplication": {
+        "candidate_rows": 3652993,
+        "conflicting_match_rows": 0,
+        "multiple_exposure_rows": 0,
+        "unique_rows": 2992716
+      },
+      "original_applied_gauges": {
+        "0": 730,
+        "1": 212
+      },
+      "joint_gauges_for_original_groups": {
+        "0": 730,
+        "1": 212
+      },
+      "old_to_joint_gauge_group_counts": {
+        "0_to_0": 730,
+        "1_to_1": 212
+      },
+      "lost_original_group_count": 0,
+      "newly_supported_group_count": 7,
+      "fixed_held_measurement_count": 898905,
+      "fixed_held_reference_count": 75788,
+      "held_corrected_position_change_mas": {
+        "n": 898905,
+        "median": [
+          -0.2682722955942154,
+          5.2088995557278395
+        ],
+        "nmad": [
+          4.668028493441641,
+          1.4538555603655055
+        ],
+        "radial_abs_p68": 6.925390383644225
+      },
+      "held_change_by_survey": {
+        "SDSS": {
+          "n": 87994,
+          "median": [
+            2.0061551053076982,
+            4.2825656067579985
+          ],
+          "nmad": [
+            7.66630971504338,
+            5.114418281004333
+          ],
+          "radial_abs_p68": 10.495863358354983
+        },
+        "NSC": {
+          "n": 810911,
+          "median": [
+            -0.30984541960060596,
+            5.252593099139631
+          ],
+          "nmad": [
+            4.635784123238548,
+            1.3415772659009322
+          ],
+          "radial_abs_p68": 6.808049617623838
+        }
+      },
+      "identical_held_source_cross_survey_mas": {
+        "old_0_joint_0": {
+          "n": 70633,
+          "before": {
+            "n": 70633,
+            "median": [
+              -0.6570260226726532,
+              -1.5764801930636168
+            ],
+            "nmad": [
+              91.373349312848,
+              93.2057904751025
+            ],
+            "radial_abs_p68": 147.94393815753133
+          },
+          "after": {
+            "n": 70633,
+            "median": [
+              -0.11121400818228722,
+              -0.6553123947232962
+            ],
+            "nmad": [
+              91.6371519799523,
+              93.70363782130312
+            ],
+            "radial_abs_p68": 148.1209260935606
+          },
+          "change": {
+            "n": 70633,
+            "median": [
+              -0.063340880908072,
+              0.0858719777315855
+            ],
+            "nmad": [
+              4.404903531280159,
+              4.835207560154423
+            ],
+            "radial_abs_p68": 7.962653090372174
+          }
+        },
+        "old_1_joint_1": {
+          "n": 5154,
+          "before": {
+            "n": 5154,
+            "median": [
+              0.7446320224553347,
+              1.3025944838300347
+            ],
+            "nmad": [
+              73.24811153879911,
+              74.59057601724565
+            ],
+            "radial_abs_p68": 117.4694480702596
+          },
+          "after": {
+            "n": 5154,
+            "median": [
+              0.7370424726977944,
+              1.3264127625152469
+            ],
+            "nmad": [
+              73.21210892399148,
+              74.57073274913112
+            ],
+            "radial_abs_p68": 117.4727756106198
+          },
+          "change": {
+            "n": 5154,
+            "median": [
+              -0.008009130135178566,
+              -0.004267270676791668
+            ],
+            "nmad": [
+              0.037769370362721384,
+              0.022687784386798738
+            ],
+            "radial_abs_p68": 0.04632456508610765
+          }
+        }
+      },
+      "original_graph_sha256": "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55"
+    },
+    "north_three": {
+      "deduplication": {
+        "candidate_rows": 1998914,
+        "conflicting_match_rows": 0,
+        "multiple_exposure_rows": 0,
+        "unique_rows": 1673279
+      },
+      "original_applied_gauges": {
+        "0": 622
+      },
+      "joint_gauges_for_original_groups": {
+        "0": 622
+      },
+      "old_to_joint_gauge_group_counts": {
+        "0_to_0": 622
+      },
+      "lost_original_group_count": 0,
+      "newly_supported_group_count": 8,
+      "fixed_held_measurement_count": 498785,
+      "fixed_held_reference_count": 40534,
+      "held_corrected_position_change_mas": {
+        "n": 498785,
+        "median": [
+          7.589564701542258,
+          -7.9754441263503395
+        ],
+        "nmad": [
+          6.7082169307652855,
+          1.3191029044448048
+        ],
+        "radial_abs_p68": 13.271954246104265
+      },
+      "held_change_by_survey": {
+        "SDSS": {
+          "n": 43192,
+          "median": [
+            8.389049188233912,
+            -8.914400985464454
+          ],
+          "nmad": [
+            9.248361160830594,
+            11.578910260528
+          ],
+          "radial_abs_p68": 20.94528048700584
+        },
+        "NSC": {
+          "n": 455593,
+          "median": [
+            7.1163832056336105,
+            -7.94441550783813
+          ],
+          "nmad": [
+            6.295016218044329,
+            1.2142806030392645
+          ],
+          "radial_abs_p68": 12.484363109297554
+        }
+      },
+      "identical_held_source_cross_survey_mas": {
+        "old_0_joint_0": {
+          "n": 40534,
+          "before": {
+            "n": 40534,
+            "median": [
+              -0.6510129887610674,
+              -0.7894839379005134
+            ],
+            "nmad": [
+              95.4634134122936,
+              94.4069316580688
+            ],
+            "radial_abs_p68": 151.1938480098317
+          },
+          "after": {
+            "n": 40534,
+            "median": [
+              -1.4228977048769593,
+              -1.9798080958425999
+            ],
+            "nmad": [
+              96.32466061798691,
+              95.383582719693
+            ],
+            "radial_abs_p68": 152.173821221561
+          },
+          "change": {
+            "n": 40534,
+            "median": [
+              1.772375050932169,
+              -1.3455505568781518
+            ],
+            "nmad": [
+              6.491435241045243,
+              9.035176267802948
+            ],
+            "radial_abs_p68": 13.23758681183124
+          }
+        }
+      },
+      "original_graph_sha256": "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886"
+    }
+  },
+  "joint_graph_sha256": "c66af1128d416361881beb3b38d1b26146e494d66aacfbdb269b9bbb84a1aaa3",
+  "slurm_job": "61555065",
+  "scope": "Same original held physical detections and identities in both graphs; exact inverse/forward coordinate conversion. Original and joint bootstrap draws are not paired; changes are descriptive and common zero errors are not divided by source count."
+}

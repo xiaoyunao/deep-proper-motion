@@ -47,6 +47,8 @@ N1/N3共同图保留1436物理校准组，仍有两个规范1224／212组。精�
 
 [相同留出对象实测](../results/summary/v14_common_reference_audit_summary.json)、[共同参考图](../results/summary/v14_joint_reference_summary.json)。
 
+![实测参考误差模式与跨窗一致性](../figures/v14_reference_modes_summary.png)
+
 ## 全窗库存与固定 QSO 已完成
 
 184核心库存全部完成，共109,297,678条核心内检测；实际 NSC band 为 u/g/r/i/z/Y/VR，含 DECam、Mosaic3、90Prime。Y实际164,827条，不能用六核心未见Y来删除该band。库存仍只覆盖原object索引获取的检测，非图像或非r源完备性。

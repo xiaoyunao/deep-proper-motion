@@ -54,3 +54,16 @@ def test_held_target_positions_cannot_change_allband_or_nonr_training(tmp_path,m
     for cohort in audit['by_class'].values():
         assert cohort['consistent_sources']['value']==1
         assert cohort['known_competing_member_fraction']['wilson95'][1]>0
+    # The original r subset and all-band fit predict the exact same held detection.
+    from deep_pm import fixed_year_multiband as paired
+    frozen=tmp_path/'0'
+    (frozen/'source_receipt.json').symlink_to(source/'run_manifest.json')
+    (frozen/'reference_receipt.json').symlink_to(graph/'run_manifest.json')
+    monkeypatch.setattr(paired,'reference_frame',lambda path:[0.,0.])
+    monkeypatch.setattr(paired,'read_offsets',lambda path,with_gauge=False:(solution,{k:'0' for k in solution}))
+    monkeypatch.setattr(paired,'quality_detections',lambda *a,**kw:(data,xy,t,sigma,keep))
+    out=tmp_path/'paired';out.mkdir();paired.run(out,frozen)
+    comparison=json.loads((out/'fixed_year_multiband_summary.json').read_text())
+    assert comparison['common_held_position_count']==1
+    assert comparison['cohorts']['r21__held_z']['source_count']==1
+    assert comparison['maximum_replayed_allband_pm_difference_masyr']==0

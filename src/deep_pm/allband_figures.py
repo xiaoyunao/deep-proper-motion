@@ -34,9 +34,33 @@ def run(summary,output):
     output.parent.mkdir(parents=True,exist_ok=True);fig.savefig(output,dpi=180);plt.close(fig)
 
 
+def reference_figure(summary,overlap,output):
+    data=json.loads(summary.read_text())['bootstrap_modes'];strips=json.loads(overlap.read_text())['strips']
+    fig,axes=plt.subplots(1,2,figsize=(10.7,4.3),constrained_layout=True)
+    for axis,color,label,shift in [(0,'#3674a6','East',-.06),(1,'#cf6545','North',.06)]:
+        quantiles=np.stack([data['marginal_se_p16_p50_p84_mas'],data['relative_to_cluster_translation_se_p16_p50_p84_mas']])[:,:,axis]
+        axes[0].errorbar(np.arange(2)+shift,quantiles[:,1],yerr=np.stack([quantiles[:,1]-quantiles[:,0],quantiles[:,2]-quantiles[:,1]]),fmt='o',capsize=4,label=label,color=color)
+        old=[];new=[]
+        for name in sorted(strips):
+            old.append(strips[name]['original_independent_graphs']['identical_detection_subset_motion_difference_masyr']['median'][axis])
+            new.append(strips[name]['joint_graph_fixed_members']['identical_detection_subset_motion_difference_masyr']['median'][axis])
+        axes[1].plot(np.arange(28.5,34),old,'o-',color=color,label='Original graphs: '+label)
+    axes[0].set_yscale('log');axes[0].set(xticks=[0,1],xticklabels=['Marginal group SE','Relative to cluster translation'],ylabel='Reference position bootstrap SE [mas]')
+    axes[0].set_title('A: 212 rejected groups; median and group 16–84%',fontsize=10);axes[0].legend(fontsize=8)
+    axes[1].plot(np.arange(28.5,34),new,'ks--',ms=4,label='Common graph, same detections')
+    axes[1].set(xlabel='Overlap strip declination [deg]',ylabel='Median ICRS motion difference [mas/yr]')
+    axes[1].set_title('1332 identical-member pairs: consistency only',fontsize=10);axes[1].legend(fontsize=8)
+    for ax in axes:ax.grid(alpha=.2)
+    fig.suptitle('Measured reference-frame diagnostics — no absolute-zero certification',fontsize=11)
+    output.parent.mkdir(parents=True,exist_ok=True);fig.savefig(output,dpi=180);plt.close(fig)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('summary',type=Path);p.add_argument('output',type=Path)
-    a=p.parse_args();run(**vars(a))
+    p.add_argument('--reference-overlap',type=Path)
+    a=p.parse_args()
+    if a.reference_overlap:reference_figure(a.summary,a.reference_overlap,a.output)
+    else:run(a.summary,a.output)
 
 
 if __name__=='__main__':main()

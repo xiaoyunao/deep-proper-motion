@@ -37,3 +37,18 @@ def test_photometric_error_read_uses_exact_physical_sdss_identity(tmp_path):
     assert phot.detection_id.tolist()==['SDSS:123:2:10:9','SDSS:123:2:10:7']
     mean,error=combine_color(phot)
     assert error==pytest.approx(1/np.sqrt(500),rel=1e-6)
+
+
+def test_source_color_error_is_shared_and_joint_beta_group_draws_cancel():
+    from deep_pm.dcr_validation import offsets
+    draw=np.arange(8.)-3.5
+    samples=np.column_stack([np.zeros(8),-draw])
+    z=np.array([np.sqrt(.5),0,np.sqrt(.5)])
+    model=dict(base={k:(np.zeros(2),samples.copy(),30) for k in ('g1','g2')},geometry={k:(True,z) for k in ('g1','g2')},beta=10.,beta_draw=draw,center=(0.,0.))
+    exact,known=offsets(model,['g1','g2'],[0,0],2.2,1e-12,'same source')
+    assert known
+    np.testing.assert_allclose(exact['g1'][0],[0,10],atol=1e-10)
+    np.testing.assert_allclose(exact['g1'][1],0,atol=1e-8)
+    noisy,_=offsets(model,['g1','g2'],[0,0],2.2,.2,'same source')
+    np.testing.assert_array_equal(noisy['g1'][1],noisy['g2'][1])
+    assert np.std(noisy['g1'][1][:,1])>1

@@ -1,0 +1,161 @@
+{
+  "trials": {
+    "b_16_00": {
+      "preparation": {
+        "original_reference_identity_split_sha256": "3163bd9cf60c001d047b94f24dea43fa686f770d1d2392b18de1ce2f65b0de78",
+        "selected_reference_identity_split_sha256": "3163bd9cf60c001d047b94f24dea43fa686f770d1d2392b18de1ce2f65b0de78",
+        "reference_measurements": 72866,
+        "training_references": 3825,
+        "held_references": 1748,
+        "known_color_training_references": 3818,
+        "physical_groups": 60,
+        "reference_gauge": "0",
+        "projection_center_deg": [
+          217.0,
+          0.0
+        ],
+        "chip_receipts_complete": true,
+        "physical_sdss_fields": 67,
+        "slurm_job": "61561857",
+        "scope": "Exact original physical reference identities and split; retain original supported gauge and detections. Local D0/D1 solve is a controlled small-region experiment, not a replacement for N1/N3 global C0. Only existing SDSS PSF photometry/errors read; no additional SDSS positions. One scalar coefficient for DECam g with real zenith geometry; other instrument/bands unchanged except the jointly refit physical zeros."
+      },
+      "models": {
+        "D0_local_C0": {
+          "mas_per_color_tanz": 0.0,
+          "bootstrap_se": 0.0,
+          "includes_measured_reference_color_perturbations": false
+        },
+        "D1_geometric_DCR": {
+          "mas_per_color_tanz": -28.315536216205704,
+          "bootstrap_se": 1.6064503458065043,
+          "includes_measured_reference_color_perturbations": true
+        }
+      },
+      "support": {
+        "D0_local_C0": {
+          "entered_groups": 57,
+          "retained_groups": 57,
+          "se_rejected_groups": 0
+        },
+        "D1_geometric_DCR": {
+          "entered_groups": 57,
+          "retained_groups": 57,
+          "se_rejected_groups": 0
+        }
+      },
+      "color_errors": {
+        "D0_local_C0": {
+          "known_color_reference_count": 3818,
+          "reference_count": 3825,
+          "median_color_error": 0.12075855575714681,
+          "color_spread": 0.61422782805322
+        },
+        "D1_geometric_DCR": {
+          "known_color_reference_count": 3818,
+          "reference_count": 3825,
+          "median_color_error": 0.12075855575714681,
+          "color_spread": 0.61422782805322
+        }
+      },
+      "common_held_measurements": 22904,
+      "common_held_references": 1748,
+      "held_demeaned_median_mas": [
+        [
+          -0.04489951301366091,
+          -0.41337280673906207
+        ],
+        [
+          -0.18747990811243653,
+          -0.1395821301266551
+        ]
+      ],
+      "held_demeaned_radial_p68_mas": [
+        74.58642713538254,
+        74.31546860620385
+      ],
+      "slurm_job": "61561857",
+      "adoption": "not_adopted_pending_independent_QSO_blind_source_year_and_transfer_checks",
+      "scope": "Same local reference graph, static nuisance positions, physical group zeros and scalar geometric coefficient. D0 no-DCR control uses identical centered sparse solver. Reference-object bootstrap and per-reference color perturbations are synchronous with group/coefficient draws. This propagates measured photometric errors, not unknown color-system or SED bias. Local model is not the original global C0; independent validation must retain that third baseline."
+    },
+    "north_one_00_00": {
+      "preparation": {
+        "original_reference_identity_split_sha256": "375e451e4c985e2a4fbaed19bcdc3e52c82ec789f55292de6f6ea8628a475e8d",
+        "selected_reference_identity_split_sha256": "375e451e4c985e2a4fbaed19bcdc3e52c82ec789f55292de6f6ea8628a475e8d",
+        "reference_measurements": 56519,
+        "training_references": 3621,
+        "held_references": 1620,
+        "known_color_training_references": 3620,
+        "physical_groups": 45,
+        "reference_gauge": "0",
+        "projection_center_deg": [
+          188.0,
+          33.0
+        ],
+        "chip_receipts_complete": true,
+        "physical_sdss_fields": 69,
+        "slurm_job": "61561857",
+        "scope": "Exact original physical reference identities and split; retain original supported gauge and detections. Local D0/D1 solve is a controlled small-region experiment, not a replacement for N1/N3 global C0. Only existing SDSS PSF photometry/errors read; no additional SDSS positions. One scalar coefficient for DECam g with real zenith geometry; other instrument/bands unchanged except the jointly refit physical zeros."
+      },
+      "models": {
+        "D0_local_C0": {
+          "mas_per_color_tanz": 0.0,
+          "bootstrap_se": 0.0,
+          "includes_measured_reference_color_perturbations": false
+        },
+        "D1_geometric_DCR": {
+          "mas_per_color_tanz": -23.38571418373889,
+          "bootstrap_se": 1.0211128047491473,
+          "includes_measured_reference_color_perturbations": true
+        }
+      },
+      "support": {
+        "D0_local_C0": {
+          "entered_groups": 43,
+          "retained_groups": 43,
+          "se_rejected_groups": 0
+        },
+        "D1_geometric_DCR": {
+          "entered_groups": 43,
+          "retained_groups": 43,
+          "se_rejected_groups": 0
+        }
+      },
+      "color_errors": {
+        "D0_local_C0": {
+          "known_color_reference_count": 3620,
+          "reference_count": 3621,
+          "median_color_error": 0.10629634313455849,
+          "color_spread": 0.6290754594508994
+        },
+        "D1_geometric_DCR": {
+          "known_color_reference_count": 3620,
+          "reference_count": 3621,
+          "median_color_error": 0.10629634313455849,
+          "color_spread": 0.6290754594508994
+        }
+      },
+      "common_held_measurements": 17482,
+      "common_held_references": 1620,
+      "held_demeaned_median_mas": [
+        [
+          -0.3059596661478281,
+          -0.6944064814597368
+        ],
+        [
+          -0.27508644573390484,
+          0.03955518547445536
+        ]
+      ],
+      "held_demeaned_radial_p68_mas": [
+        84.64880304410758,
+        84.03472240769037
+      ],
+      "slurm_job": "61561857",
+      "adoption": "not_adopted_pending_independent_QSO_blind_source_year_and_transfer_checks",
+      "scope": "Same local reference graph, static nuisance positions, physical group zeros and scalar geometric coefficient. D0 no-DCR control uses identical centered sparse solver. Reference-object bootstrap and per-reference color perturbations are synchronous with group/coefficient draws. This propagates measured photometric errors, not unknown color-system or SED bias. Local model is not the original global C0; independent validation must retain that third baseline."
+    }
+  },
+  "failures": [],
+  "source_code_commit": "a8f4c212e913ddeab78c77c46897ac6dc8ec2494",
+  "slurm_job": "61561857"
+}

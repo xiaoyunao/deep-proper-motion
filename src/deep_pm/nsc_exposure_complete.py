@@ -16,7 +16,7 @@ from matplotlib.path import Path as Polygon
 from . import access,normalize
 from .__main__ import tomllib
 from .allband_qso import physical_candidates
-from .astrometry import project
+from .astrometry import project,unproject
 from .continuous_reference import PRECISION,bind,read_offsets,verify_directory
 from .io import save_json
 from .precision_v03 import calibration_groups,calibration_support
@@ -37,8 +37,16 @@ def intersecting(chips,center,half):
     return chips.loc[selected].drop_duplicates(['exposure','ccdnum']).reset_index(drop=True)
 
 
-def run(work,source,shared,spec,half,workers):
+def run(work,source,shared,spec,half,workers,center_band=None):
     center=tuple(float(np.mean(spec[k])) for k in ('ra','dec'));cache=access.Cache(work/'cache')
+    if center_band is not None:
+        from .exposure_catalogues import inside
+        parent=pd.read_csv(source/'detections.csv',usecols=['survey','band','ra_deg','dec_deg'],low_memory=False)
+        selected=parent.loc[parent.survey.eq('NSC')&parent.band.eq(center_band)&inside(parent.ra_deg,parent.dec_deg,spec)]
+        if not len(selected):raise ValueError('Requested band has no retrieved positions in the declared parent core')
+        # Geometry only: neither motion, residual, brightness nor error chooses
+        # the targeted band footprint. All bands are fetched at the new center.
+        center=tuple(unproject(np.median(project(selected.ra_deg,selected.dec_deg,center),axis=0),center)[0])
     columns=['exposure','ccdnum','ra','dec','instrument','airmass','filter','mjd']+CHIP_VERTICES
     surveys=[];metadata=[]
     for margin in (.60,1.20):
@@ -87,7 +95,7 @@ def run(work,source,shared,spec,half,workers):
             object_index_labels_without_qualified_r=int(labels.iloc[i[good]].loc[~labels.iloc[i[good]].isin(qualified_r_objects)].nunique()))
     result=dict(status='completed',selected_physical_exposures=chips.exposure.nunique(),covering_chips=len(chips),measurement_count=len(data),by_filter=byband,
         old_input_intersection_count=int(present.sum()),previously_returned_measurements_checked=len(expected),previously_returned_missing_count=len(missing_return),
-        metadata_margin_stability=True,metadata_search_margins_deg=[.60,1.20],cell_side_tangent_deg=2*half,slurm_job=os.environ['SLURM_JOB_ID'],
+        metadata_margin_stability=True,metadata_search_margins_deg=[.60,1.20],cell_side_tangent_deg=2*half,center_selection='parent_core_center' if center_band is None else 'retrieved_'+center_band+'_position_footprint_no_motion_or_quality_selection',slurm_job=os.environ['SLURM_JOB_ID'],
         scope='All returned official CCD footprints intersecting one predeclared tangent square, every physical exposure queried with independent COUNT and row checks. Two metadata search margins give identical intersecting chips. Conditional catalogue-measurement coverage, not proof of unknown chips outside the search or image extraction completeness. Object IDs describe retrieval labels only, never new-association truth. Every actual band is retained; no TOP/sample exposure cap.')
     check_aggregate(result);save_json(work/'nsc_exposure_complete_summary.json',result)
 
@@ -95,15 +103,15 @@ def run(work,source,shared,spec,half,workers):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for n in ('work','source','shared','geometry'):p.add_argument(n,type=Path)
-    p.add_argument('region');p.add_argument('--half-width',type=float,default=.025);p.add_argument('--workers',type=int,default=2);a=p.parse_args()
+    p.add_argument('region');p.add_argument('--center-band');p.add_argument('--half-width',type=float,default=.025);p.add_argument('--workers',type=int,default=2);a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
     if not 0<a.half_width<=.05:p.error('This is a tiny-cell validation, not broad production')
     a.work.mkdir(parents=True,exist_ok=True);bind(a.work,'source_receipt.json',verify_directory(a.source,('detections.csv',)));bind(a.work,'reference_receipt.json',verify_directory(a.shared,('private_c0.npz',)));bind(a.work,'geometry.toml',a.geometry)
-    settings=dict(half_width=a.half_width,workers=a.workers);options=a.work/'options.json'
+    settings=dict(half_width=a.half_width,workers=a.workers,center_band=a.center_band);options=a.work/'options.json'
     if options.exists() and __import__('json').loads(options.read_text())!=settings:raise ValueError('Changed exposure audit options')
     if not options.exists():save_json(options,settings)
     with run_stage(a.work,PRECISION,a.region,'nsc-exposure-complete-v15',inputs=('source_receipt.json','reference_receipt.json','geometry.toml','options.json'),outputs=('nsc_exposure_complete_summary.json','private_all_covering_chips.csv','private_exposure_measurements.csv.gz','private_exposure_detections.csv.gz')) as go:
-        if go:run(a.work,a.source,a.shared,tomllib.loads(a.geometry.read_text())['fields'][a.region],a.half_width,a.workers)
+        if go:run(a.work,a.source,a.shared,tomllib.loads(a.geometry.read_text())['fields'][a.region],a.half_width,a.workers,a.center_band)
 
 
 if __name__=='__main__':main()

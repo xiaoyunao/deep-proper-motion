@@ -63,7 +63,7 @@ def information(index,union,data,time,sigma,night,keys,fit):
     info=w*(time[index,None]-mean)**2;total=info.sum(axis=0)
     groups={};effective={}
     for label,tags in [('physical_group',keys[index]),('observing_night',np.char.add(data.survey.iloc[index].to_numpy(str),night[index].astype(str)))]:
-        part=np.array([info[np.asarray(tags)==g].sum(axis=0) for g in set(tags)])
+        part=np.array([info[np.asarray(tags)==g].sum(axis=0) for g in sorted(set(tags))])
         fraction=part/total
         groups[label]=fraction.max(axis=0);effective[label]=1/np.sum(fraction**2,axis=0)
     return dict(detections=len(index),nsc_exposures=data.exposure_id.iloc[late].nunique(),nsc_nights=len(set(night[late])),

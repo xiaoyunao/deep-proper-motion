@@ -30,7 +30,9 @@ METHODS=('r_legacy_quality','r_physical_quality','all_nsc')
 def known_cohorts(rows):
     out={};pairs=(('all_nsc','r_physical_quality'),('r_physical_quality','r_legacy_quality'),('all_nsc','Xiao'),('all_nsc','NSC'))
     for low in (21,22):
-        for tag,select in [('all',lambda r:True),('one_sdss_run',lambda r:r['sdss_runs']==1),('multiple_sdss_runs',lambda r:r['sdss_runs']>1),('nsc_span_lt2',lambda r:r['nsc_span']<2),('nsc_span_ge2',lambda r:r['nsc_span']>=2)]:
+        for tag,select in [('all',lambda r:True),('one_sdss_run',lambda r:r['sdss_runs']==1),('multiple_sdss_runs',lambda r:r['sdss_runs']>1),('nsc_span_lt2',lambda r:r['nsc_span']<2),('nsc_span_ge2',lambda r:r['nsc_span']>=2),
+            ('pointlike_qso',lambda r:r.get('shape_class')=='pointlike'),('extended_or_mixed_qso',lambda r:r.get('shape_class')=='extended_or_mixed'),('unknown_morphology',lambda r:r.get('shape_class','unknown')=='unknown'),
+            ('one_run_pointlike',lambda r:r['sdss_runs']==1 and r.get('shape_class')=='pointlike'),('one_run_extended_or_mixed',lambda r:r['sdss_runs']==1 and r.get('shape_class')=='extended_or_mixed')]:
             part=[r for r in rows if low<=r['magnitude']<low+1 and select(r)];common=[r for r in part if {'NSC','Xiao'}<=r['values'].keys()]
             blocks=[dict(exposures=r['exposures'],nsc_epoch_days=r['nsc_epoch_days'],motion={'C0':r['values']['Xiao'][0],'C1':r['values']['all_nsc'][0]}) for r in common]
             sensitivity=[dict(exposures=r['exposures'],nsc_epoch_days=r['nsc_epoch_days'],motion={m:r['values'][m][0] for m in ('NSC','Xiao','all_nsc')}) for r in common]
@@ -45,7 +47,7 @@ def run(state,geometry,output):
     config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']);graph=original/'shared/private_c0.npz';graph_hash=digest(graph)
     if graph_hash!=plan['reference_sha256']:raise ValueError('Frozen common graph changed')
     supported_groups=frozenset(read_offsets(graph))
-    known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0;core_input_counts=Counter();qualified_core_bands=Counter()
+    known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0;core_input_counts=Counter();qualified_core_bands=Counter();quality_flags=Counter();all_classes=Counter()
     for core,folder in fits.items():
         folder=Path(folder);receipt=verify_directory(folder,('nsc_science_catalogue_summary.json','private_standard_motion.json.gz','private_known_qso_blocks.json','private_blind_qso.json'))
         ref=(folder/'reference_receipt.json').resolve().parent/'private_c0.npz'
@@ -61,6 +63,7 @@ def run(state,geometry,output):
         if len(records)!=summary['owned_all_nsc']:raise ValueError('Catalogue count differs from signed summary')
         points=[]
         for record in records:
+            quality_flags.update(record['quality_flags']);all_classes.update([record['kind']])
             point=record['position_deg'];pm=record['pm_icrs_masyr'];cov=np.asarray(record['covariance'])
             if not np.isfinite(point+pm).all() or cov.shape!=(4,4) or not np.isfinite(cov).all():raise ValueError('Invalid standard state')
             np.testing.assert_allclose(np.sqrt(np.diag(cov)[[1,3]]),record['pm_error_masyr'],rtol=1e-9,atol=1e-9)
@@ -85,7 +88,8 @@ def run(state,geometry,output):
         for k in sorted(set.intersection(*(set(v) for v in lookup.values()))):
             r=lookup['r_legacy_quality'][k];allrow=lookup['all_nsc'][k];values={m:(lookup[m][k]['motion']['C0'],lookup[m][k]['error_icrs']['C0']) for m in METHODS}
             values.update({m:(r['motion'][m],r['error_icrs'][m]) for m in ('NSC','Xiao') if m in r['motion']})
-            known.append(dict(magnitude=r['magnitude'],sdss_runs=len([e for e in r['exposures'] if e.startswith('SDSS:')]),nsc_span=allrow['nsc_span_years'],values=values,exposures=allrow['exposures'],nsc_epoch_days=allrow['nsc_nights_utc18']))
+            shape=r.get('median_nsc_r_class_star');shape_class='unknown' if shape is None or not np.isfinite(shape) or not 0<=shape<=1 else 'pointlike' if shape>=.8 else 'extended_or_mixed'
+            known.append(dict(magnitude=r['magnitude'],shape_class=shape_class,sdss_runs=len([e for e in r['exposures'] if e.startswith('SDSS:')]),nsc_span=allrow['nsc_span_years'],values=values,exposures=allrow['exposures'],nsc_epoch_days=allrow['nsc_nights_utc18']))
             if k in oldpoints and oldpoints[k]['exposures']==r['exposures']:
                 old=oldpoints[k];replay.append(dict(pm_delta=np.asarray(r['motion']['C0'])-old['motion']['C0'],error_delta=np.asarray(r['error_icrs']['C0'])-old['error_icrs']['C0']))
             else:unmatched_old+=1
@@ -98,7 +102,7 @@ def run(state,geometry,output):
             part=[r for r in blind if r['kind']==kind and r['magnitude'] is not None and low<=r['magnitude']<low+1];common=[r['values'] for r in part if {'blind_all','C0','NSC','Xiao'}<=r['values'].keys()]
             blind_cohorts[kind+'__r'+str(low)]=dict(position_identified_qso=len(part),all_spectral=comparison([{'blind_all':r['values']['blind_all']} for r in part],SETTINGS),strict_published_common=comparison(common,SETTINGS,(('blind_all','Xiao'),('blind_all','NSC'),('blind_all','C0'))))
     result=dict(completed_cores=len(fits),planned_cores=len(plan['sources']),completed_nominal_core_area_sqdeg=sum(area(config['fields'][k]) for k in fits),frozen_nominal_area_sqdeg=plan['nominal_area_sqdeg'],
-        research_r_control_solutions=sum(v['owned_r_control'] for v in spatial.values()),research_all_nsc_solutions=sum(v['owned_all_nsc'] for v in spatial.values()),spectral_matches_without_reference_r=sum(r['magnitude'] is None for r in blind),by_class=catalogue_classes,known_stationary=known_cohorts(known),blind_spectral=blind_cohorts,spatial=spatial,
+        research_r_control_solutions=sum(v['owned_r_control'] for v in spatial.values()),research_physical_r_solutions=sum(v['funnel']['strict_r_solutions'] for v in spatial.values()),research_all_nsc_solutions=sum(v['owned_all_nsc'] for v in spatial.values()),all_magnitude_source_classes=dict(all_classes),source_quality_flag_counts=dict(quality_flags),spectral_matches_without_reference_r=sum(r['magnitude'] is None for r in blind),by_class=catalogue_classes,known_stationary=known_cohorts(known),blind_spectral=blind_cohorts,spatial=spatial,
         acquisition=dict(downloaded_nsc_measures_with_halo_overlap=sum(a['downloaded_nsc_measures'] for a in acquisitions),added_nsc_measures_with_halo_overlap=sum(a['new_nsc_measures'] for a in acquisitions),sdss_r_preserved_with_halo_overlap=sum(a['sdss_r_measurements_preserved'] for a in acquisitions),
             detections_by_measured_position_core_ownership=dict(core_input_counts),physically_qualified_supported_nsc_core_detections_by_band=dict(qualified_core_bands)),
         frozen_r_qso_same_exposures_replay=dict(n=len(replay),without_exact_old_exposure_identity=unmatched_old,maximum_abs_pm_change_masyr=float(np.max([abs(r['pm_delta']).max() for r in replay])) if replay else None,maximum_abs_error_change_masyr=float(np.max([abs(r['error_delta']).max() for r in replay])) if replay else None),

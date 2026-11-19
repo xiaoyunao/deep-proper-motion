@@ -1,0 +1,4899 @@
+{
+  "regions": {
+    "b_16_00": {
+      "physical_fields_tested": 2,
+      "fields": [
+        {
+          "photoobj_sha256": "34691eb56398899d7b9571f87aac90b1381dda11daa113c64324555ce8318139",
+          "photoobj_schema": {
+            "OBJID": {
+              "format": "19A",
+              "unit": null
+            },
+            "PARENTID": {
+              "format": "19A",
+              "unit": null
+            },
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "MODE": {
+              "format": "B",
+              "unit": null
+            },
+            "CLEAN": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "I",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "B",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "I",
+              "unit": null
+            },
+            "PARENT": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "OBJC_TYPE": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_PROB_PSF": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_FLAGS": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_FLAGS2": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_ROWC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_ROWCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWC": {
+              "format": "5E",
+              "unit": null
+            },
+            "ROWCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLC": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETAERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "QERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "UERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E1ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FRACDEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "FLAGS": {
+              "format": "5J",
+              "unit": null
+            },
+            "FLAGS2": {
+              "format": "5J",
+              "unit": null
+            },
+            "TYPE": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROB_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROFMEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROFERR_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "STAR_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAERR": {
+              "format": "D",
+              "unit": null
+            },
+            "DECERR": {
+              "format": "D",
+              "unit": null
+            },
+            "L": {
+              "format": "D",
+              "unit": null
+            },
+            "B": {
+              "format": "D",
+              "unit": null
+            },
+            "OFFSETRA": {
+              "format": "5E",
+              "unit": null
+            },
+            "OFFSETDEC": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_FWHM": {
+              "format": "5E",
+              "unit": null
+            },
+            "MJD": {
+              "format": "J",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_DEV_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_EXP_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXTINCTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "APERFLUX": {
+              "format": "40E",
+              "unit": null
+            },
+            "APERFLUX_IVAR": {
+              "format": "40E",
+              "unit": null
+            },
+            "CLOUDCAM": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "RESOLVE_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "THING_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "BALKAN_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "NOBSERVE": {
+              "format": "J",
+              "unit": null
+            },
+            "NDETECT": {
+              "format": "J",
+              "unit": null
+            },
+            "NEDGE": {
+              "format": "J",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            }
+          },
+          "band_order": [
+            "u",
+            "g",
+            "r",
+            "i",
+            "z"
+          ],
+          "band_diagnostics": {
+            "u": {
+              "valid_time_offset_count": 1305,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                143.45983982086182,
+                143.46956825256348,
+                143.47622394561768
+              ],
+              "angular_offset_from_reference_p68_mas": 53.969299468994144,
+              "rowcerr_p16_p50_p84": [
+                0.15893834292888642,
+                0.25910526514053345,
+                0.44347179293632494
+              ],
+              "colcerr_p16_p50_p84": [
+                0.15934860825538635,
+                0.266539603471756,
+                0.42419900059699983
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.14024917781352997,
+                0.6834845542907715,
+                1.010741114616394
+              ]
+            },
+            "g": {
+              "valid_time_offset_count": 1305,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                286.8787202835083,
+                286.88332748413086,
+                286.8874235153198
+              ],
+              "angular_offset_from_reference_p68_mas": 107.30003814697267,
+              "rowcerr_p16_p50_p84": [
+                0.03760494664311409,
+                0.25699639320373535,
+                0.42846914291381816
+              ],
+              "colcerr_p16_p50_p84": [
+                0.03888541340827943,
+                0.2675460875034332,
+                0.43534653067588797
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.024004998058080672,
+                0.1865968555212021,
+                0.5353619837760925
+              ]
+            },
+            "r": {
+              "valid_time_offset_count": 1305,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_offset_from_reference_p68_mas": 0.0,
+              "rowcerr_p16_p50_p84": [
+                0.016644134297966958,
+                0.19764995574951172,
+                0.3740164518356319
+              ],
+              "colcerr_p16_p50_p84": [
+                0.017349912598729134,
+                0.20454907417297363,
+                0.3654041790962219
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.017023745030164718,
+                0.11115814000368118,
+                0.27801461458206184
+              ]
+            },
+            "i": {
+              "valid_time_offset_count": 1305,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                71.71584033966064,
+                71.72147178649902,
+                71.72761535644531
+              ],
+              "angular_offset_from_reference_p68_mas": 118.42231903076171,
+              "rowcerr_p16_p50_p84": [
+                0.01610382303595543,
+                0.17823302745819092,
+                0.3800725102424621
+              ],
+              "colcerr_p16_p50_p84": [
+                0.015691688284277916,
+                0.1810891330242157,
+                0.36149645209312437
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.017593039199709892,
+                0.0993872657418251,
+                0.2481655329465866
+              ]
+            },
+            "z": {
+              "valid_time_offset_count": 1305,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                215.11116790771484,
+                215.11987209320068,
+                215.1280641555786
+              ],
+              "angular_offset_from_reference_p68_mas": 91.25824676513675,
+              "rowcerr_p16_p50_p84": [
+                0.06149361923336983,
+                0.26210489869117737,
+                0.44724141240119925
+              ],
+              "colcerr_p16_p50_p84": [
+                0.05463465675711632,
+                0.26105591654777527,
+                0.4407512283325195
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.030876579135656355,
+                0.24111618101596832,
+                0.6069866561889649
+              ]
+            }
+          },
+          "frozen_r_replay": {
+            "compared_count": 145,
+            "maximum_time_difference_days": 7.275957614183426e-12,
+            "maximum_ra_difference_deg": 8.526512829121202e-14,
+            "maximum_dec_difference_deg": 8.881784197001252e-16
+          },
+          "photofield_sha256": "8dae5aa2939df72a8e7c72c73b8c3bade8859138433aee14cdc5e41c2f8995e3",
+          "photofield_schema": {
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "J",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "J",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "NTOTAL": {
+              "format": "I",
+              "unit": null
+            },
+            "NOBJECTS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "NGALS": {
+              "format": "I",
+              "unit": null
+            },
+            "NSTARS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCR": {
+              "format": "5I",
+              "unit": null
+            },
+            "NBRIGHTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "NFAINTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "QUALITY": {
+              "format": "J",
+              "unit": null
+            },
+            "MJD": {
+              "format": "5D",
+              "unit": null
+            },
+            "A": {
+              "format": "5E",
+              "unit": null
+            },
+            "B": {
+              "format": "5E",
+              "unit": null
+            },
+            "C": {
+              "format": "5E",
+              "unit": null
+            },
+            "D": {
+              "format": "5E",
+              "unit": null
+            },
+            "E": {
+              "format": "5E",
+              "unit": null
+            },
+            "FF": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW3": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL3": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "RICUT": {
+              "format": "5E",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "MUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "NUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "PRIMARYAREA": {
+              "format": "D",
+              "unit": null
+            },
+            "ROWOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "SATURATION_LEVEL": {
+              "format": "5J",
+              "unit": null
+            },
+            "NEFF_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_PSP": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES_SUB": {
+              "format": "5E",
+              "unit": null
+            },
+            "SIGPIX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_FIBERCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_PSFCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSIG": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSLOPE": {
+              "format": "5E",
+              "unit": null
+            },
+            "LBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "RBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_NSTAR": {
+              "format": "5J",
+              "unit": null
+            },
+            "PSF_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_P0": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_BETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMAP": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_WIDTH": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PROF_NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROF_MEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_MED_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_SIG_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "GAIN": {
+              "format": "5E",
+              "unit": null
+            },
+            "DARK_VARIANCE": {
+              "format": "5E",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            },
+            "ATERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KTERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KDOT": {
+              "format": "5E",
+              "unit": null
+            },
+            "REF_TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "PHOTO_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "IMAGE_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NSTARS_OFFSET": {
+              "format": "5J",
+              "unit": null
+            },
+            "FIELD_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "MU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "MU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "IFINDX": {
+              "format": "J",
+              "unit": null
+            },
+            "NBALKAN": {
+              "format": "J",
+              "unit": null
+            }
+          },
+          "actual_calibration_arrays": {
+            "A": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "B": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "C": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "D": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "E": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "MUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "NUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "REF_TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            }
+          }
+        },
+        {
+          "photoobj_sha256": "4d75765c5533e8ed820d897bb098f7f98a8ac4e70f2b16b153aa2f4de5f9fbce",
+          "photoobj_schema": {
+            "OBJID": {
+              "format": "19A",
+              "unit": null
+            },
+            "PARENTID": {
+              "format": "19A",
+              "unit": null
+            },
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "MODE": {
+              "format": "B",
+              "unit": null
+            },
+            "CLEAN": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "I",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "B",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "I",
+              "unit": null
+            },
+            "PARENT": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "OBJC_TYPE": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_PROB_PSF": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_FLAGS": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_FLAGS2": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_ROWC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_ROWCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWC": {
+              "format": "5E",
+              "unit": null
+            },
+            "ROWCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLC": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETAERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "QERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "UERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E1ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FRACDEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "FLAGS": {
+              "format": "5J",
+              "unit": null
+            },
+            "FLAGS2": {
+              "format": "5J",
+              "unit": null
+            },
+            "TYPE": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROB_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROFMEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROFERR_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "STAR_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAERR": {
+              "format": "D",
+              "unit": null
+            },
+            "DECERR": {
+              "format": "D",
+              "unit": null
+            },
+            "L": {
+              "format": "D",
+              "unit": null
+            },
+            "B": {
+              "format": "D",
+              "unit": null
+            },
+            "OFFSETRA": {
+              "format": "5E",
+              "unit": null
+            },
+            "OFFSETDEC": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_FWHM": {
+              "format": "5E",
+              "unit": null
+            },
+            "MJD": {
+              "format": "J",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_DEV_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_EXP_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXTINCTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "APERFLUX": {
+              "format": "40E",
+              "unit": null
+            },
+            "APERFLUX_IVAR": {
+              "format": "40E",
+              "unit": null
+            },
+            "CLOUDCAM": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "RESOLVE_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "THING_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "BALKAN_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "NOBSERVE": {
+              "format": "J",
+              "unit": null
+            },
+            "NDETECT": {
+              "format": "J",
+              "unit": null
+            },
+            "NEDGE": {
+              "format": "J",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            }
+          },
+          "band_order": [
+            "u",
+            "g",
+            "r",
+            "i",
+            "z"
+          ],
+          "band_diagnostics": {
+            "u": {
+              "valid_time_offset_count": 1282,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                143.43526458740234,
+                143.43731212615967,
+                143.4393606185913
+              ],
+              "angular_offset_from_reference_p68_mas": 46.36529785156251,
+              "rowcerr_p16_p50_p84": [
+                0.14541545808315276,
+                0.25779157876968384,
+                0.43186735987663266
+              ],
+              "colcerr_p16_p50_p84": [
+                0.1397700822353363,
+                0.2509862333536148,
+                0.4272510015964508
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.1358569657802582,
+                0.6945321559906006,
+                1.087431139945984
+              ]
+            },
+            "g": {
+              "valid_time_offset_count": 1282,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                286.8454399108887,
+                286.8536319732666,
+                286.8618444824219
+              ],
+              "angular_offset_from_reference_p68_mas": 104.33986968994144,
+              "rowcerr_p16_p50_p84": [
+                0.03081306464970112,
+                0.2790708690881729,
+                0.4412250900268554
+              ],
+              "colcerr_p16_p50_p84": [
+                0.0324846214056015,
+                0.26049576699733734,
+                0.4601203417778013
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.023899138718843464,
+                0.1823650225996971,
+                0.49076504945754995
+              ]
+            },
+            "r": {
+              "valid_time_offset_count": 1282,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_offset_from_reference_p68_mas": 0.0,
+              "rowcerr_p16_p50_p84": [
+                0.016061849147081374,
+                0.19925369322299957,
+                0.3708141350746154
+              ],
+              "colcerr_p16_p50_p84": [
+                0.01681931793689728,
+                0.20136097073554993,
+                0.378624528646469
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.01917460560798645,
+                0.11233123764395714,
+                0.2992698442935944
+              ]
+            },
+            "i": {
+              "valid_time_offset_count": 1282,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                71.70764827728271,
+                71.71481609344482,
+                71.72147178649902
+              ],
+              "angular_offset_from_reference_p68_mas": 102.96451751708986,
+              "rowcerr_p16_p50_p84": [
+                0.01559136174619198,
+                0.1835329234600067,
+                0.3660083484649658
+              ],
+              "colcerr_p16_p50_p84": [
+                0.015080920532345773,
+                0.17500706017017365,
+                0.35901690959930416
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.01657106414437294,
+                0.1011633574962616,
+                0.2740289497375488
+              ]
+            },
+            "z": {
+              "valid_time_offset_count": 1282,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                215.09632015228271,
+                215.1014404296875,
+                215.10604858398438
+              ],
+              "angular_offset_from_reference_p68_mas": 82.85528259277348,
+              "rowcerr_p16_p50_p84": [
+                0.06429979205131531,
+                0.2573273777961731,
+                0.42583293437957764
+              ],
+              "colcerr_p16_p50_p84": [
+                0.060319774299860004,
+                0.2480890080332756,
+                0.4057421171665191
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.02855293974280358,
+                0.23980453610420227,
+                0.5752992486953735
+              ]
+            }
+          },
+          "frozen_r_replay": {
+            "compared_count": 196,
+            "maximum_time_difference_days": 7.275957614183426e-12,
+            "maximum_ra_difference_deg": 8.526512829121202e-14,
+            "maximum_dec_difference_deg": 8.881784197001252e-16
+          },
+          "photofield_sha256": "b5162089eb020a90b21deebf7cfe7d572cbff3ec719d6af166408aa93993ec29",
+          "photofield_schema": {
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "J",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "J",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "NTOTAL": {
+              "format": "I",
+              "unit": null
+            },
+            "NOBJECTS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "NGALS": {
+              "format": "I",
+              "unit": null
+            },
+            "NSTARS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCR": {
+              "format": "5I",
+              "unit": null
+            },
+            "NBRIGHTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "NFAINTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "QUALITY": {
+              "format": "J",
+              "unit": null
+            },
+            "MJD": {
+              "format": "5D",
+              "unit": null
+            },
+            "A": {
+              "format": "5E",
+              "unit": null
+            },
+            "B": {
+              "format": "5E",
+              "unit": null
+            },
+            "C": {
+              "format": "5E",
+              "unit": null
+            },
+            "D": {
+              "format": "5E",
+              "unit": null
+            },
+            "E": {
+              "format": "5E",
+              "unit": null
+            },
+            "FF": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW3": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL3": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "RICUT": {
+              "format": "5E",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "MUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "NUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "PRIMARYAREA": {
+              "format": "D",
+              "unit": null
+            },
+            "ROWOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "SATURATION_LEVEL": {
+              "format": "5J",
+              "unit": null
+            },
+            "NEFF_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_PSP": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES_SUB": {
+              "format": "5E",
+              "unit": null
+            },
+            "SIGPIX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_FIBERCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_PSFCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSIG": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSLOPE": {
+              "format": "5E",
+              "unit": null
+            },
+            "LBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "RBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_NSTAR": {
+              "format": "5J",
+              "unit": null
+            },
+            "PSF_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_P0": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_BETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMAP": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_WIDTH": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PROF_NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROF_MEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_MED_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_SIG_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "GAIN": {
+              "format": "5E",
+              "unit": null
+            },
+            "DARK_VARIANCE": {
+              "format": "5E",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            },
+            "ATERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KTERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KDOT": {
+              "format": "5E",
+              "unit": null
+            },
+            "REF_TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "PHOTO_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "IMAGE_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NSTARS_OFFSET": {
+              "format": "5J",
+              "unit": null
+            },
+            "FIELD_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "MU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "MU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "IFINDX": {
+              "format": "J",
+              "unit": null
+            },
+            "NBALKAN": {
+              "format": "J",
+              "unit": null
+            }
+          },
+          "actual_calibration_arrays": {
+            "A": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "B": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "C": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "D": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "E": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "MUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "NUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "REF_TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            }
+          }
+        }
+      ],
+      "slurm_job": "61554827",
+      "status": "schema_time_and_frozen_r_replay_probe_only",
+      "independence": "Five passbands within one drift scan share astrometric calibration; do not count as independent years.",
+      "adoption": "Other SDSS bands not yet approved: per-band centroid plus field WCS error propagation and held-source validation still required. Offsets describe local angular distances; no reuse of scalar RAERR as five independent errors."
+    },
+    "north_one_00_00": {
+      "physical_fields_tested": 2,
+      "fields": [
+        {
+          "photoobj_sha256": "c55900a9177507c5d9a1d049c4121547c6c3f63d4ca4a263d528c0fe1a90e833",
+          "photoobj_schema": {
+            "OBJID": {
+              "format": "19A",
+              "unit": null
+            },
+            "PARENTID": {
+              "format": "19A",
+              "unit": null
+            },
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "MODE": {
+              "format": "B",
+              "unit": null
+            },
+            "CLEAN": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "I",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "B",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "I",
+              "unit": null
+            },
+            "PARENT": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "OBJC_TYPE": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_PROB_PSF": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_FLAGS": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_FLAGS2": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_ROWC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_ROWCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWC": {
+              "format": "5E",
+              "unit": null
+            },
+            "ROWCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLC": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETAERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "QERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "UERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E1ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FRACDEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "FLAGS": {
+              "format": "5J",
+              "unit": null
+            },
+            "FLAGS2": {
+              "format": "5J",
+              "unit": null
+            },
+            "TYPE": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROB_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROFMEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROFERR_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "STAR_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAERR": {
+              "format": "D",
+              "unit": null
+            },
+            "DECERR": {
+              "format": "D",
+              "unit": null
+            },
+            "L": {
+              "format": "D",
+              "unit": null
+            },
+            "B": {
+              "format": "D",
+              "unit": null
+            },
+            "OFFSETRA": {
+              "format": "5E",
+              "unit": null
+            },
+            "OFFSETDEC": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_FWHM": {
+              "format": "5E",
+              "unit": null
+            },
+            "MJD": {
+              "format": "J",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_DEV_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_EXP_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXTINCTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "APERFLUX": {
+              "format": "40E",
+              "unit": null
+            },
+            "APERFLUX_IVAR": {
+              "format": "40E",
+              "unit": null
+            },
+            "CLOUDCAM": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "RESOLVE_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "THING_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "BALKAN_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "NOBSERVE": {
+              "format": "J",
+              "unit": null
+            },
+            "NDETECT": {
+              "format": "J",
+              "unit": null
+            },
+            "NEDGE": {
+              "format": "J",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            }
+          },
+          "band_order": [
+            "u",
+            "g",
+            "r",
+            "i",
+            "z"
+          ],
+          "band_diagnostics": {
+            "u": {
+              "valid_time_offset_count": 1213,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                143.4327039718628,
+                143.4449920654297,
+                143.45523166656494
+              ],
+              "angular_offset_from_reference_p68_mas": 54.13267501831055,
+              "rowcerr_p16_p50_p84": [
+                0.1640869188308716,
+                0.26097428798675537,
+                0.40225760817527767
+              ],
+              "colcerr_p16_p50_p84": [
+                0.1681787168979645,
+                0.25552794337272644,
+                0.39817146778106666
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.20729305744171142,
+                0.4360857456922531,
+                0.6008502101898193
+              ]
+            },
+            "g": {
+              "valid_time_offset_count": 1213,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                286.91456031799316,
+                286.91967964172363,
+                286.9237766265869
+              ],
+              "angular_offset_from_reference_p68_mas": 140.33809143066406,
+              "rowcerr_p16_p50_p84": [
+                0.10939829438924792,
+                0.2499072402715683,
+                0.39308102965354913
+              ],
+              "colcerr_p16_p50_p84": [
+                0.11168374121189117,
+                0.2573794722557068,
+                0.395696759223938
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.048722974956035614,
+                0.15828560292720795,
+                0.3941913843154907
+              ]
+            },
+            "r": {
+              "valid_time_offset_count": 1213,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_offset_from_reference_p68_mas": 0.0,
+              "rowcerr_p16_p50_p84": [
+                0.05895514756441116,
+                0.2082098424434662,
+                0.35184894323349
+              ],
+              "colcerr_p16_p50_p84": [
+                0.06072138965129852,
+                0.20072612166404724,
+                0.34562478184700013
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.03639078229665756,
+                0.12439803034067154,
+                0.2972423470020294
+              ]
+            },
+            "i": {
+              "valid_time_offset_count": 1213,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                71.75065517425537,
+                71.75372791290283,
+                71.7578239440918
+              ],
+              "angular_offset_from_reference_p68_mas": 123.63002685546886,
+              "rowcerr_p16_p50_p84": [
+                0.06232028588652611,
+                0.20993053913116455,
+                0.36177852272987365
+              ],
+              "colcerr_p16_p50_p84": [
+                0.05543075844645501,
+                0.2036922425031662,
+                0.3462354481220245
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.03876468449831009,
+                0.1418234258890152,
+                0.40847665429115293
+              ]
+            },
+            "z": {
+              "valid_time_offset_count": 1213,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                215.1731195449829,
+                215.1782398223877,
+                215.18233585357666
+              ],
+              "angular_offset_from_reference_p68_mas": 70.14888946533205,
+              "rowcerr_p16_p50_p84": [
+                0.1669912427663803,
+                0.2761150300502777,
+                0.42074341416358946
+              ],
+              "colcerr_p16_p50_p84": [
+                0.16149248123168947,
+                0.2714443802833557,
+                0.41913930416107176
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.10091353595256805,
+                0.39218874275684357,
+                0.7181872725486755
+              ]
+            }
+          },
+          "frozen_r_replay": {
+            "compared_count": 459,
+            "maximum_time_difference_days": 2.1827872842550278e-11,
+            "maximum_ra_difference_deg": 2.842170943040401e-14,
+            "maximum_dec_difference_deg": 7.105427357601002e-15
+          },
+          "photofield_sha256": "14f0f330fbb351f2bbc23efd98c52f19f5ee3d62e2f5bd4fedc7c974e251eccf",
+          "photofield_schema": {
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "J",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "J",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "NTOTAL": {
+              "format": "I",
+              "unit": null
+            },
+            "NOBJECTS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "NGALS": {
+              "format": "I",
+              "unit": null
+            },
+            "NSTARS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCR": {
+              "format": "5I",
+              "unit": null
+            },
+            "NBRIGHTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "NFAINTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "QUALITY": {
+              "format": "J",
+              "unit": null
+            },
+            "MJD": {
+              "format": "5D",
+              "unit": null
+            },
+            "A": {
+              "format": "5E",
+              "unit": null
+            },
+            "B": {
+              "format": "5E",
+              "unit": null
+            },
+            "C": {
+              "format": "5E",
+              "unit": null
+            },
+            "D": {
+              "format": "5E",
+              "unit": null
+            },
+            "E": {
+              "format": "5E",
+              "unit": null
+            },
+            "FF": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW3": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL3": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "RICUT": {
+              "format": "5E",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "MUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "NUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "PRIMARYAREA": {
+              "format": "D",
+              "unit": null
+            },
+            "ROWOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "SATURATION_LEVEL": {
+              "format": "5J",
+              "unit": null
+            },
+            "NEFF_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_PSP": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES_SUB": {
+              "format": "5E",
+              "unit": null
+            },
+            "SIGPIX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_FIBERCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_PSFCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSIG": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSLOPE": {
+              "format": "5E",
+              "unit": null
+            },
+            "LBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "RBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_NSTAR": {
+              "format": "5J",
+              "unit": null
+            },
+            "PSF_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_P0": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_BETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMAP": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_WIDTH": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PROF_NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROF_MEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_MED_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_SIG_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "GAIN": {
+              "format": "5E",
+              "unit": null
+            },
+            "DARK_VARIANCE": {
+              "format": "5E",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            },
+            "ATERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KTERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KDOT": {
+              "format": "5E",
+              "unit": null
+            },
+            "REF_TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "PHOTO_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "IMAGE_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NSTARS_OFFSET": {
+              "format": "5J",
+              "unit": null
+            },
+            "FIELD_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "MU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "MU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "IFINDX": {
+              "format": "J",
+              "unit": null
+            },
+            "NBALKAN": {
+              "format": "J",
+              "unit": null
+            }
+          },
+          "actual_calibration_arrays": {
+            "A": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "B": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "C": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "D": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "E": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "MUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "NUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "REF_TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            }
+          }
+        },
+        {
+          "photoobj_sha256": "2fca6a14b2a6466c6af091c3f6cc0f5049e46b4e327b9fc7723d510453e296db",
+          "photoobj_schema": {
+            "OBJID": {
+              "format": "19A",
+              "unit": null
+            },
+            "PARENTID": {
+              "format": "19A",
+              "unit": null
+            },
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "MODE": {
+              "format": "B",
+              "unit": null
+            },
+            "CLEAN": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "I",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "B",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "I",
+              "unit": null
+            },
+            "PARENT": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "OBJC_TYPE": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_PROB_PSF": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_FLAGS": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_FLAGS2": {
+              "format": "J",
+              "unit": null
+            },
+            "OBJC_ROWC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_ROWCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLC": {
+              "format": "E",
+              "unit": null
+            },
+            "OBJC_COLCERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEG": {
+              "format": "E",
+              "unit": null
+            },
+            "COLVDEGERR": {
+              "format": "E",
+              "unit": null
+            },
+            "ROWC": {
+              "format": "5E",
+              "unit": null
+            },
+            "ROWCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLC": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTHETAERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH50ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROTH90ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "QERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "UERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E1ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2E2ERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CCERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E1_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_E2_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_RR_CC_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "M_CR4_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_DEVERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "THETA_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXP": {
+              "format": "5E",
+              "unit": null
+            },
+            "AB_EXPERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FRACDEV": {
+              "format": "5E",
+              "unit": null
+            },
+            "FLAGS": {
+              "format": "5J",
+              "unit": null
+            },
+            "FLAGS2": {
+              "format": "5J",
+              "unit": null
+            },
+            "TYPE": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROB_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROFMEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROFERR_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "STAR_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_LNL": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAERR": {
+              "format": "D",
+              "unit": null
+            },
+            "DECERR": {
+              "format": "D",
+              "unit": null
+            },
+            "L": {
+              "format": "D",
+              "unit": null
+            },
+            "B": {
+              "format": "D",
+              "unit": null
+            },
+            "OFFSETRA": {
+              "format": "5E",
+              "unit": null
+            },
+            "OFFSETDEC": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_FWHM": {
+              "format": "5E",
+              "unit": null
+            },
+            "MJD": {
+              "format": "J",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_DEV_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PHI_EXP_DEG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXTINCTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBERMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2FLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "FIBER2MAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "CMODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "MODELMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "PETROMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEVMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPFLUX_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAG": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXPMAGERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "APERFLUX": {
+              "format": "40E",
+              "unit": null
+            },
+            "APERFLUX_IVAR": {
+              "format": "40E",
+              "unit": null
+            },
+            "CLOUDCAM": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "RESOLVE_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "THING_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "BALKAN_ID": {
+              "format": "J",
+              "unit": null
+            },
+            "NOBSERVE": {
+              "format": "J",
+              "unit": null
+            },
+            "NDETECT": {
+              "format": "J",
+              "unit": null
+            },
+            "NEDGE": {
+              "format": "J",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            }
+          },
+          "band_order": [
+            "u",
+            "g",
+            "r",
+            "i",
+            "z"
+          ],
+          "band_diagnostics": {
+            "u": {
+              "valid_time_offset_count": 1304,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                143.39584064483643,
+                143.39891242980957,
+                143.40198421478271
+              ],
+              "angular_offset_from_reference_p68_mas": 67.70718627929689,
+              "rowcerr_p16_p50_p84": [
+                0.14660104215145112,
+                0.24788157641887665,
+                0.41823858857154844
+              ],
+              "colcerr_p16_p50_p84": [
+                0.16555999994277956,
+                0.26299329102039337,
+                0.4566273534297943
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.24782516598701476,
+                0.48461809754371643,
+                0.638585250377655
+              ]
+            },
+            "g": {
+              "valid_time_offset_count": 1304,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                286.8715515136719,
+                286.8787202835083,
+                286.88691234588623
+              ],
+              "angular_offset_from_reference_p68_mas": 169.2377362060547,
+              "rowcerr_p16_p50_p84": [
+                0.10267243087291718,
+                0.25006338953971863,
+                0.4303611135482788
+              ],
+              "colcerr_p16_p50_p84": [
+                0.12606699705123903,
+                0.27783361077308655,
+                0.4916223549842834
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.05381690874695778,
+                0.16980767250061035,
+                0.37328655481338496
+              ]
+            },
+            "r": {
+              "valid_time_offset_count": 1304,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "angular_offset_from_reference_p68_mas": 0.0,
+              "rowcerr_p16_p50_p84": [
+                0.0681921249628067,
+                0.21619117259979248,
+                0.4073132002353667
+              ],
+              "colcerr_p16_p50_p84": [
+                0.06456697046756744,
+                0.21991515159606934,
+                0.4277541720867157
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.03830484047532082,
+                0.14118735492229462,
+                0.38639431953430176
+              ]
+            },
+            "i": {
+              "valid_time_offset_count": 1304,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                71.73529624938965,
+                71.74246406555176,
+                71.74758434295654
+              ],
+              "angular_offset_from_reference_p68_mas": 118.09979339599612,
+              "rowcerr_p16_p50_p84": [
+                0.06290614753961564,
+                0.22276773303747177,
+                0.4028137242794037
+              ],
+              "colcerr_p16_p50_p84": [
+                0.06705458372831347,
+                0.23080439120531082,
+                0.44774239897727963
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.04311962425708771,
+                0.15004218369722366,
+                0.42680940508842474
+              ]
+            },
+            "z": {
+              "valid_time_offset_count": 1304,
+              "delta_tai_from_r_p16_p50_p84_seconds": [
+                215.14698749542237,
+                215.14854431152344,
+                215.15059185028076
+              ],
+              "angular_offset_from_reference_p68_mas": 88.67665924072267,
+              "rowcerr_p16_p50_p84": [
+                0.1444084495306015,
+                0.2553786188364029,
+                0.4315981018543243
+              ],
+              "colcerr_p16_p50_p84": [
+                0.15580077528953554,
+                0.27025870978832245,
+                0.45537853598594663
+              ],
+              "psfmagerr_p16_p50_p84": [
+                0.10670070081949234,
+                0.4026743918657303,
+                0.675120952129364
+              ]
+            }
+          },
+          "frozen_r_replay": {
+            "compared_count": 139,
+            "maximum_time_difference_days": 1.4551915228366852e-11,
+            "maximum_ra_difference_deg": 2.842170943040401e-14,
+            "maximum_dec_difference_deg": 7.105427357601002e-15
+          },
+          "photofield_sha256": "a9149bfef75c789ac9af231c1ce91ce054e089db40d01a273200be023ff466c0",
+          "photofield_schema": {
+            "FIELDID": {
+              "format": "19A",
+              "unit": null
+            },
+            "SKYVERSION": {
+              "format": "B",
+              "unit": null
+            },
+            "RUN": {
+              "format": "J",
+              "unit": null
+            },
+            "RERUN": {
+              "format": "3A",
+              "unit": null
+            },
+            "CAMCOL": {
+              "format": "J",
+              "unit": null
+            },
+            "FIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "NTOTAL": {
+              "format": "I",
+              "unit": null
+            },
+            "NOBJECTS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCHILD": {
+              "format": "I",
+              "unit": null
+            },
+            "NGALS": {
+              "format": "I",
+              "unit": null
+            },
+            "NSTARS": {
+              "format": "I",
+              "unit": null
+            },
+            "NCR": {
+              "format": "5I",
+              "unit": null
+            },
+            "NBRIGHTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "NFAINTOBJ": {
+              "format": "5I",
+              "unit": null
+            },
+            "QUALITY": {
+              "format": "J",
+              "unit": null
+            },
+            "MJD": {
+              "format": "5D",
+              "unit": null
+            },
+            "A": {
+              "format": "5E",
+              "unit": null
+            },
+            "B": {
+              "format": "5E",
+              "unit": null
+            },
+            "C": {
+              "format": "5E",
+              "unit": null
+            },
+            "D": {
+              "format": "5E",
+              "unit": null
+            },
+            "E": {
+              "format": "5E",
+              "unit": null
+            },
+            "FF": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DROW3": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL0": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL1": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL2": {
+              "format": "5E",
+              "unit": null
+            },
+            "DCOL3": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CSCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCROW": {
+              "format": "5E",
+              "unit": null
+            },
+            "CCCOL": {
+              "format": "5E",
+              "unit": null
+            },
+            "RICUT": {
+              "format": "5E",
+              "unit": null
+            },
+            "AIRMASS": {
+              "format": "5E",
+              "unit": null
+            },
+            "MUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "NUERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PIXSCALE": {
+              "format": "5E",
+              "unit": null
+            },
+            "RA": {
+              "format": "D",
+              "unit": null
+            },
+            "DEC": {
+              "format": "D",
+              "unit": null
+            },
+            "CX": {
+              "format": "D",
+              "unit": null
+            },
+            "CY": {
+              "format": "D",
+              "unit": null
+            },
+            "CZ": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "RAMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMIN": {
+              "format": "D",
+              "unit": null
+            },
+            "DECMAX": {
+              "format": "D",
+              "unit": null
+            },
+            "PRIMARYAREA": {
+              "format": "D",
+              "unit": null
+            },
+            "ROWOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "COLOFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "SATURATION_LEVEL": {
+              "format": "5J",
+              "unit": null
+            },
+            "NEFF_PSF": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_PSP": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY_FRAMES_SUB": {
+              "format": "5E",
+              "unit": null
+            },
+            "SIGPIX": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "DEV_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTION": {
+              "format": "5E",
+              "unit": null
+            },
+            "EXP_MODEL_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_FIBERCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "MEDIAN_PSFCOLOR": {
+              "format": "5E",
+              "unit": null
+            },
+            "Q": {
+              "format": "5E",
+              "unit": null
+            },
+            "U": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKY": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSIG": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "SKYSLOPE": {
+              "format": "5E",
+              "unit": null
+            },
+            "LBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "RBIAS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_NSTAR": {
+              "format": "5J",
+              "unit": null
+            },
+            "PSF_AP_CORRECTIONERR": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_P0": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_BETA": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMAP": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_WIDTH": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA1_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_SIGMA2_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSF_B_2G": {
+              "format": "5E",
+              "unit": null
+            },
+            "PSFCOUNTS": {
+              "format": "5E",
+              "unit": null
+            },
+            "PROF_NPROF": {
+              "format": "5J",
+              "unit": null
+            },
+            "PROF_MEAN_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_MED_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "PROF_SIG_NMGY": {
+              "format": "75E",
+              "unit": null
+            },
+            "GAIN": {
+              "format": "5E",
+              "unit": null
+            },
+            "DARK_VARIANCE": {
+              "format": "5E",
+              "unit": null
+            },
+            "SCORE": {
+              "format": "E",
+              "unit": null
+            },
+            "ATERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KTERM": {
+              "format": "5E",
+              "unit": null
+            },
+            "KDOT": {
+              "format": "5E",
+              "unit": null
+            },
+            "REF_TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "TAI": {
+              "format": "5D",
+              "unit": null
+            },
+            "PSP_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "PHOTO_STATUS": {
+              "format": "J",
+              "unit": null
+            },
+            "IMAGE_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "CALIB_STATUS": {
+              "format": "5J",
+              "unit": null
+            },
+            "NSTARS_OFFSET": {
+              "format": "5J",
+              "unit": null
+            },
+            "FIELD_OFFSET": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT": {
+              "format": "5E",
+              "unit": null
+            },
+            "NMGYPERCOUNT_IVAR": {
+              "format": "5E",
+              "unit": null
+            },
+            "IFIELD": {
+              "format": "J",
+              "unit": null
+            },
+            "MU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "MU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_START": {
+              "format": "D",
+              "unit": null
+            },
+            "NU_END": {
+              "format": "D",
+              "unit": null
+            },
+            "IFINDX": {
+              "format": "J",
+              "unit": null
+            },
+            "NBALKAN": {
+              "format": "J",
+              "unit": null
+            }
+          },
+          "actual_calibration_arrays": {
+            "A": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "B": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "C": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "D": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "E": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "MUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "NUERR": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "REF_TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            },
+            "TAI": {
+              "shape": [
+                5
+              ],
+              "finite_count": 5
+            }
+          }
+        }
+      ],
+      "slurm_job": "61554827",
+      "status": "schema_time_and_frozen_r_replay_probe_only",
+      "independence": "Five passbands within one drift scan share astrometric calibration; do not count as independent years.",
+      "adoption": "Other SDSS bands not yet approved: per-band centroid plus field WCS error propagation and held-source validation still required. Offsets describe local angular distances; no reuse of scalar RAERR as five independent errors."
+    }
+  },
+  "slurm_job": "61554827"
+}

@@ -1,0 +1,1425 @@
+{
+  "regions": {
+    "a_09_00": {
+      "core_detection_count": 1026913,
+      "duplicate_detection_count": 0,
+      "instrument_band": {
+        "NSC:c4d:g": {
+          "measurement_count": 234492,
+          "distinct_exposures": 27,
+          "distinct_exposure_ccds": 386,
+          "independent_utc18_nights": 9,
+          "utc_year_counts": {
+            "2014": 194738,
+            "2018": 39754
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              32.36912,
+              114.872,
+              197.07644
+            ],
+            [
+              37.169,
+              116.40350000000001,
+              197.94644
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.570485547156242,
+            11.892223320972303,
+            54.143006545578
+          ],
+          "valid_native_time_position_count": 198538,
+          "reference_supported_count": 0,
+          "snr_flags_position_candidate_count": 198477,
+          "candidate_reference_supported_count": 0,
+          "candidate_nights": 9,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 15817,
+          "sextractor_fatal_count": 1,
+          "observed_span_years": 4.7233428299917035,
+          "finite_x_count": 234492,
+          "finite_y_count": 234492,
+          "finite_fwhm_count": 234492,
+          "finite_airmass_count": 234492,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:i": {
+          "measurement_count": 287025,
+          "distinct_exposures": 20,
+          "distinct_exposure_ccds": 288,
+          "independent_utc18_nights": 3,
+          "utc_year_counts": {
+            "2014": 282605,
+            "2018": 4420
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              22.916,
+              78.303,
+              158.73732
+            ],
+            [
+              22.918,
+              78.47,
+              158.78300000000002
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            7.342099771628226,
+            15.005268388105218,
+            64.76207603687023
+          ],
+          "valid_native_time_position_count": 269487,
+          "reference_supported_count": 0,
+          "snr_flags_position_candidate_count": 269426,
+          "candidate_reference_supported_count": 0,
+          "candidate_nights": 3,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 27743,
+          "sextractor_fatal_count": 5,
+          "observed_span_years": 3.8797164449802044,
+          "finite_x_count": 287025,
+          "finite_y_count": 287025,
+          "finite_fwhm_count": 287025,
+          "finite_airmass_count": 287025,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:r": {
+          "measurement_count": 344186,
+          "distinct_exposures": 29,
+          "distinct_exposure_ccds": 398,
+          "independent_utc18_nights": 9,
+          "utc_year_counts": {
+            "2014": 293853,
+            "2016": 82,
+            "2018": 50251
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              27.034599999999998,
+              98.876,
+              180.402
+            ],
+            [
+              27.413,
+              98.996,
+              180.46539999999996
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.55129841818069,
+            12.570756104644314,
+            54.485682980786336
+          ],
+          "valid_native_time_position_count": 308895,
+          "reference_supported_count": 0,
+          "snr_flags_position_candidate_count": 308785,
+          "candidate_reference_supported_count": 0,
+          "candidate_nights": 9,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 29145,
+          "sextractor_fatal_count": 3,
+          "observed_span_years": 4.720371220639866,
+          "finite_x_count": 344186,
+          "finite_y_count": 344186,
+          "finite_fwhm_count": 344186,
+          "finite_airmass_count": 344186,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:u": {
+          "measurement_count": 29861,
+          "distinct_exposures": 6,
+          "distinct_exposure_ccds": 110,
+          "independent_utc18_nights": 1,
+          "utc_year_counts": {
+            "2014": 29861
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              28.759,
+              108.103,
+              187.9856
+            ],
+            [
+              41.616,
+              111.6,
+              189.80859999999998
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.02982436373301,
+            9.698836078057344,
+            36.74532635667853
+          ],
+          "valid_native_time_position_count": 26052,
+          "reference_supported_count": 0,
+          "snr_flags_position_candidate_count": 26023,
+          "candidate_reference_supported_count": 0,
+          "candidate_nights": 1,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 931,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 5.211557716151609e-05,
+          "finite_x_count": 29861,
+          "finite_y_count": 29861,
+          "finite_fwhm_count": 29861,
+          "finite_airmass_count": 29861,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:z": {
+          "measurement_count": 72994,
+          "distinct_exposures": 10,
+          "distinct_exposure_ccds": 105,
+          "independent_utc18_nights": 4,
+          "utc_year_counts": {
+            "2015": 24286,
+            "2016": 23606,
+            "2018": 25102
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              18.593760000000003,
+              82.07549999999999,
+              165.43923999999998
+            ],
+            [
+              19.774,
+              82.3395,
+              165.57412
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.983580898974048,
+            14.194114479398229,
+            64.47165593625976
+          ],
+          "valid_native_time_position_count": 67944,
+          "reference_supported_count": 0,
+          "snr_flags_position_candidate_count": 67931,
+          "candidate_reference_supported_count": 0,
+          "candidate_nights": 4,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 5427,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 2.8832136085865905,
+          "finite_x_count": 72994,
+          "finite_y_count": 72994,
+          "finite_fwhm_count": 72994,
+          "finite_airmass_count": 72994,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "SDSS:SDSS_imager:r": {
+          "measurement_count": 58355,
+          "distinct_exposures": 6,
+          "distinct_exposure_ccds": 16,
+          "independent_utc18_nights": 5,
+          "utc_year_counts": {
+            "2001": 34747,
+            "2002": 11072
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              21.20971532720889,
+              99.49752975375205,
+              182.5447989015721
+            ],
+            [
+              20.4817338515381,
+              97.0019829523964,
+              177.9749130757993
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            3.3017608489677146,
+            9.129336111729302,
+            40.25099947452539
+          ],
+          "valid_native_time_position_count": 39179,
+          "reference_supported_count": 0,
+          "snr_flags_position_candidate_count": 37114,
+          "candidate_reference_supported_count": 0,
+          "candidate_nights": 5,
+          "flags_unknown_count": null,
+          "sextractor_deblended_count": null,
+          "sextractor_fatal_count": null,
+          "observed_span_years": 1.1056129284113052,
+          "finite_x_count": 0,
+          "finite_y_count": 0,
+          "finite_fwhm_count": 58355,
+          "finite_airmass_count": 0,
+          "finite_color_count": 58355,
+          "finite_field_id_count": 58355
+        }
+      },
+      "expected_nsc_bands_absent": [
+        "VR",
+        "Y"
+      ],
+      "actual_nsc_bands": [
+        "g",
+        "i",
+        "r",
+        "u",
+        "z"
+      ],
+      "unexpected_nsc_band_labels": [],
+      "scope": "Counts on the declared core; all retrieved filter labels retained. Candidate counts use finite native errors <=200mas, valid TT time, SNR>=5 and NSC fatal flags clear; this is NOT validated high-quality astrometry. WCS, blending, cross-band bias and shared-error validation remain separate. SDSS legacy scalar flags are not promoted to per-band quality.",
+      "chip_metadata_receipts_complete": true,
+      "slurm_job": "61554827",
+      "shared_solution_sha256": "f8d86d0aa35730d65f23a116f5a7567207d9dee68dc3b62b692130025dc13480",
+      "source_receipt_sha256": "c94eea0ab1b8b7473a1edef299f00ea2552aaa89ca5e9f7c7c88bd9a9dd54733"
+    },
+    "b_16_00": {
+      "core_detection_count": 360005,
+      "duplicate_detection_count": 0,
+      "instrument_band": {
+        "NSC:c4d:VR": {
+          "measurement_count": 2744,
+          "distinct_exposures": 2,
+          "distinct_exposure_ccds": 6,
+          "independent_utc18_nights": 1,
+          "utc_year_counts": {
+            "2017": 2744
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              23.9464,
+              51.7235,
+              101.48396
+            ],
+            [
+              25.42584,
+              52.593,
+              102.04643999999999
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            14.079486403836093,
+            26.277242656602134,
+            86.5054155707442
+          ],
+          "valid_native_time_position_count": 2702,
+          "reference_supported_count": 2744,
+          "snr_flags_position_candidate_count": 2702,
+          "candidate_reference_supported_count": 2702,
+          "candidate_nights": 1,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 453,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 0.0003581771424357651,
+          "finite_x_count": 2744,
+          "finite_y_count": 2744,
+          "finite_fwhm_count": 2744,
+          "finite_airmass_count": 2744,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:g": {
+          "measurement_count": 62079,
+          "distinct_exposures": 11,
+          "distinct_exposure_ccds": 109,
+          "independent_utc18_nights": 10,
+          "utc_year_counts": {
+            "2015": 3071,
+            "2016": 17659,
+            "2017": 40918,
+            "2019": 431
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              35.443639999999995,
+              115.016,
+              197.52811999999997
+            ],
+            [
+              34.71644,
+              115.293,
+              197.55135999999993
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.569626795667262,
+            11.212113312798229,
+            44.93026305005151
+          ],
+          "valid_native_time_position_count": 52574,
+          "reference_supported_count": 62079,
+          "snr_flags_position_candidate_count": 52558,
+          "candidate_reference_supported_count": 52558,
+          "candidate_nights": 10,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 3359,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 3.9397846622387,
+          "finite_x_count": 62079,
+          "finite_y_count": 62079,
+          "finite_fwhm_count": 62079,
+          "finite_airmass_count": 62079,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:i": {
+          "measurement_count": 26469,
+          "distinct_exposures": 3,
+          "distinct_exposure_ccds": 33,
+          "independent_utc18_nights": 1,
+          "utc_year_counts": {
+            "2019": 26469
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              31.78964,
+              96.491,
+              177.7866
+            ],
+            [
+              28.69788,
+              95.763,
+              177.35296
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.807103055929589,
+            13.076275183463158,
+            52.8805060730004
+          ],
+          "valid_native_time_position_count": 23928,
+          "reference_supported_count": 26469,
+          "snr_flags_position_candidate_count": 23923,
+          "candidate_reference_supported_count": 23923,
+          "candidate_nights": 1,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 1895,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 1.1339790043073676e-05,
+          "finite_x_count": 26469,
+          "finite_y_count": 26469,
+          "finite_fwhm_count": 26469,
+          "finite_airmass_count": 26469,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:r": {
+          "measurement_count": 85477,
+          "distinct_exposures": 10,
+          "distinct_exposure_ccds": 104,
+          "independent_utc18_nights": 7,
+          "utc_year_counts": {
+            "2015": 4582,
+            "2016": 28080,
+            "2017": 52815
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              26.324640000000002,
+              97.014,
+              179.27184
+            ],
+            [
+              26.051,
+              97.183,
+              179.27884
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.411012218882842,
+            11.518647606680842,
+            44.30100852128696
+          ],
+          "valid_native_time_position_count": 76882,
+          "reference_supported_count": 85477,
+          "snr_flags_position_candidate_count": 76849,
+          "candidate_reference_supported_count": 76849,
+          "candidate_nights": 7,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 5854,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 2.0999951691208842,
+          "finite_x_count": 85477,
+          "finite_y_count": 85477,
+          "finite_fwhm_count": 85477,
+          "finite_airmass_count": 85477,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:z": {
+          "measurement_count": 144757,
+          "distinct_exposures": 23,
+          "distinct_exposure_ccds": 224,
+          "independent_utc18_nights": 10,
+          "utc_year_counts": {
+            "2013": 51365,
+            "2014": 21595,
+            "2015": 26381,
+            "2016": 3794,
+            "2017": 21400,
+            "2018": 3370,
+            "2019": 16852
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              21.994,
+              83.516,
+              165.80831999999998
+            ],
+            [
+              21.18992,
+              83.363,
+              165.70603999999997
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.886039714607922,
+            13.627233536136373,
+            53.84527895051227
+          ],
+          "valid_native_time_position_count": 134031,
+          "reference_supported_count": 144757,
+          "snr_flags_position_candidate_count": 133996,
+          "candidate_reference_supported_count": 133996,
+          "candidate_nights": 10,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 8546,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 6.102641175449754,
+          "finite_x_count": 144757,
+          "finite_y_count": 144757,
+          "finite_fwhm_count": 144757,
+          "finite_airmass_count": 144757,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "SDSS:SDSS_imager:r": {
+          "measurement_count": 38479,
+          "distinct_exposures": 4,
+          "distinct_exposure_ccds": 8,
+          "independent_utc18_nights": 4,
+          "utc_year_counts": {
+            "2001": 25854,
+            "2007": 3494
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              22.17459255382045,
+              88.5386227031128,
+              150.4971032124406
+            ],
+            [
+              21.68853042880966,
+              87.73779330518265,
+              148.18829873827454
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            3.141533966021924,
+            7.943197671172326,
+            31.664018822143838
+          ],
+          "valid_native_time_position_count": 26772,
+          "reference_supported_count": 38479,
+          "snr_flags_position_candidate_count": 25086,
+          "candidate_reference_supported_count": 25086,
+          "candidate_nights": 4,
+          "flags_unknown_count": null,
+          "sextractor_deblended_count": null,
+          "sextractor_fatal_count": null,
+          "observed_span_years": 5.905608353629949,
+          "finite_x_count": 0,
+          "finite_y_count": 0,
+          "finite_fwhm_count": 38479,
+          "finite_airmass_count": 0,
+          "finite_color_count": 38479,
+          "finite_field_id_count": 38479
+        }
+      },
+      "expected_nsc_bands_absent": [
+        "Y",
+        "u"
+      ],
+      "actual_nsc_bands": [
+        "VR",
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "unexpected_nsc_band_labels": [],
+      "scope": "Counts on the declared core; all retrieved filter labels retained. Candidate counts use finite native errors <=200mas, valid TT time, SNR>=5 and NSC fatal flags clear; this is NOT validated high-quality astrometry. WCS, blending, cross-band bias and shared-error validation remain separate. SDSS legacy scalar flags are not promoted to per-band quality.",
+      "chip_metadata_receipts_complete": true,
+      "slurm_job": "61554827",
+      "shared_solution_sha256": "103244b70d7a737f0d9eca4fbd5b33fd3605951dbd9553dbe2bd4610a8df05e8",
+      "source_receipt_sha256": "d2462cacee39e4a0b16007a9e284f68dca6ce189f49356f71ed93f05f09ce869"
+    },
+    "north_one_00_00": {
+      "core_detection_count": 219455,
+      "duplicate_detection_count": 0,
+      "instrument_band": {
+        "NSC:c4d:g": {
+          "measurement_count": 45549,
+          "distinct_exposures": 10,
+          "distinct_exposure_ccds": 92,
+          "independent_utc18_nights": 7,
+          "utc_year_counts": {
+            "2017": 7939,
+            "2018": 37610
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              49.80108,
+              135.988,
+              207.79659999999998
+            ],
+            [
+              73.26868,
+              145.244,
+              213.95848
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.29259081706558,
+            9.864679363256766,
+            29.590478683027513
+          ],
+          "valid_native_time_position_count": 35559,
+          "reference_supported_count": 45549,
+          "snr_flags_position_candidate_count": 35546,
+          "candidate_reference_supported_count": 35546,
+          "candidate_nights": 7,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 2149,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 0.9120061259594358,
+          "finite_x_count": 45549,
+          "finite_y_count": 45549,
+          "finite_fwhm_count": 45549,
+          "finite_airmass_count": 45549,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:r": {
+          "measurement_count": 70564,
+          "distinct_exposures": 11,
+          "distinct_exposure_ccds": 120,
+          "independent_utc18_nights": 7,
+          "utc_year_counts": {
+            "2014": 6545,
+            "2017": 19781,
+            "2018": 44238
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              36.632,
+              112.378,
+              185.71344
+            ],
+            [
+              42.516,
+              114.322,
+              186.88236
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.183219271490651,
+            10.20126755384954,
+            31.6641976053628
+          ],
+          "valid_native_time_position_count": 62367,
+          "reference_supported_count": 70564,
+          "snr_flags_position_candidate_count": 62330,
+          "candidate_reference_supported_count": 62330,
+          "candidate_nights": 7,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 3969,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 3.773328333554145,
+          "finite_x_count": 70564,
+          "finite_y_count": 70564,
+          "finite_fwhm_count": 70564,
+          "finite_airmass_count": 70564,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:z": {
+          "measurement_count": 69024,
+          "distinct_exposures": 13,
+          "distinct_exposure_ccds": 120,
+          "independent_utc18_nights": 6,
+          "utc_year_counts": {
+            "2015": 13766,
+            "2016": 18848,
+            "2017": 14467,
+            "2018": 4797,
+            "2019": 17146
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              30.70972,
+              99.3425,
+              175.79095999999998
+            ],
+            [
+              32.88736,
+              99.93549999999999,
+              176.28488
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.643014836364924,
+            11.802121911748388,
+            35.51514090634839
+          ],
+          "valid_native_time_position_count": 62861,
+          "reference_supported_count": 69024,
+          "snr_flags_position_candidate_count": 62844,
+          "candidate_reference_supported_count": 62844,
+          "candidate_nights": 6,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 4103,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 3.929002704749364,
+          "finite_x_count": 69024,
+          "finite_y_count": 69024,
+          "finite_fwhm_count": 69024,
+          "finite_airmass_count": 69024,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "SDSS:SDSS_imager:r": {
+          "measurement_count": 34318,
+          "distinct_exposures": 5,
+          "distinct_exposure_ccds": 9,
+          "independent_utc18_nights": 5,
+          "utc_year_counts": {
+            "2004": 11599,
+            "2005": 14233
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              38.835955670913286,
+              103.3374143414626,
+              167.8991403218897
+            ],
+            [
+              37.545294073684666,
+              101.82447091289595,
+              163.81644102694696
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            3.104361793218322,
+            7.495293055705347,
+            22.325152219784083
+          ],
+          "valid_native_time_position_count": 22706,
+          "reference_supported_count": 34318,
+          "snr_flags_position_candidate_count": 21439,
+          "candidate_reference_supported_count": 21439,
+          "candidate_nights": 5,
+          "flags_unknown_count": null,
+          "sextractor_deblended_count": null,
+          "sextractor_fatal_count": null,
+          "observed_span_years": 0.09818737395087826,
+          "finite_x_count": 0,
+          "finite_y_count": 0,
+          "finite_fwhm_count": 34318,
+          "finite_airmass_count": 0,
+          "finite_color_count": 34318,
+          "finite_field_id_count": 34318
+        }
+      },
+      "expected_nsc_bands_absent": [
+        "VR",
+        "Y",
+        "i",
+        "u"
+      ],
+      "actual_nsc_bands": [
+        "g",
+        "r",
+        "z"
+      ],
+      "unexpected_nsc_band_labels": [],
+      "scope": "Counts on the declared core; all retrieved filter labels retained. Candidate counts use finite native errors <=200mas, valid TT time, SNR>=5 and NSC fatal flags clear; this is NOT validated high-quality astrometry. WCS, blending, cross-band bias and shared-error validation remain separate. SDSS legacy scalar flags are not promoted to per-band quality.",
+      "chip_metadata_receipts_complete": true,
+      "slurm_job": "61554827",
+      "shared_solution_sha256": "fe88375434453f23d24fb4616b1c09a45466e6b98d7dc2fe91019820e601ae55",
+      "source_receipt_sha256": "5c15b128b04fad9827882822581ee34c72a43a9b78363470438b08ac82c68448"
+    },
+    "north_three_00_00": {
+      "core_detection_count": 173285,
+      "duplicate_detection_count": 0,
+      "instrument_band": {
+        "NSC:c4d:g": {
+          "measurement_count": 43495,
+          "distinct_exposures": 9,
+          "distinct_exposure_ccds": 100,
+          "independent_utc18_nights": 7,
+          "utc_year_counts": {
+            "2017": 10938,
+            "2018": 32557
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              43.083040000000004,
+              132.406,
+              204.75271999999998
+            ],
+            [
+              70.31208,
+              142.58599999999998,
+              211.38588
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.264289656345018,
+            9.786609141418676,
+            32.68907380119737
+          ],
+          "valid_native_time_position_count": 34289,
+          "reference_supported_count": 43495,
+          "snr_flags_position_candidate_count": 34275,
+          "candidate_reference_supported_count": 34275,
+          "candidate_nights": 7,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 1935,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 0.843773496428411,
+          "finite_x_count": 43495,
+          "finite_y_count": 43495,
+          "finite_fwhm_count": 43495,
+          "finite_airmass_count": 43495,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:r": {
+          "measurement_count": 63942,
+          "distinct_exposures": 10,
+          "distinct_exposure_ccds": 126,
+          "independent_utc18_nights": 7,
+          "utc_year_counts": {
+            "2014": 3780,
+            "2017": 17614,
+            "2018": 42548
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              35.443000000000005,
+              111.3925,
+              183.04463999999996
+            ],
+            [
+              40.85256,
+              113.1585,
+              184.20175999999998
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.123904648362437,
+            10.001484988358955,
+            31.815923459947722
+          ],
+          "valid_native_time_position_count": 57070,
+          "reference_supported_count": 63942,
+          "snr_flags_position_candidate_count": 57036,
+          "candidate_reference_supported_count": 57036,
+          "candidate_nights": 7,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 3603,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 3.945277414944752,
+          "finite_x_count": 63942,
+          "finite_y_count": 63942,
+          "finite_fwhm_count": 63942,
+          "finite_airmass_count": 63942,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:z": {
+          "measurement_count": 44808,
+          "distinct_exposures": 10,
+          "distinct_exposure_ccds": 101,
+          "independent_utc18_nights": 7,
+          "utc_year_counts": {
+            "2016": 28362,
+            "2017": 7299,
+            "2018": 8856,
+            "2019": 291
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              32.60012,
+              102.9465,
+              176.66475999999997
+            ],
+            [
+              33.44616,
+              103.2445,
+              176.86787999999999
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.52797033967301,
+            11.16185752074728,
+            33.935705078388814
+          ],
+          "valid_native_time_position_count": 40748,
+          "reference_supported_count": 44808,
+          "snr_flags_position_candidate_count": 40733,
+          "candidate_reference_supported_count": 40733,
+          "candidate_nights": 7,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 2072,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 3.1290574369011317,
+          "finite_x_count": 44808,
+          "finite_y_count": 44808,
+          "finite_fwhm_count": 44808,
+          "finite_airmass_count": 44808,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "SDSS:SDSS_imager:r": {
+          "measurement_count": 21040,
+          "distinct_exposures": 4,
+          "distinct_exposure_ccds": 6,
+          "independent_utc18_nights": 4,
+          "utc_year_counts": {
+            "2004": 9250,
+            "2005": 6636
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              40.777278439118945,
+              111.3967747934946,
+              180.3163525743913
+            ],
+            [
+              38.19742795422532,
+              107.1550790180872,
+              172.13843207339815
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            3.0672286921962915,
+            7.4038382388553154,
+            23.02141470775359
+          ],
+          "valid_native_time_position_count": 13576,
+          "reference_supported_count": 21040,
+          "snr_flags_position_candidate_count": 12791,
+          "candidate_reference_supported_count": 12791,
+          "candidate_nights": 4,
+          "flags_unknown_count": null,
+          "sextractor_deblended_count": null,
+          "sextractor_fatal_count": null,
+          "observed_span_years": 0.657462370273994,
+          "finite_x_count": 0,
+          "finite_y_count": 0,
+          "finite_fwhm_count": 21040,
+          "finite_airmass_count": 0,
+          "finite_color_count": 21040,
+          "finite_field_id_count": 21040
+        }
+      },
+      "expected_nsc_bands_absent": [
+        "VR",
+        "Y",
+        "i",
+        "u"
+      ],
+      "actual_nsc_bands": [
+        "g",
+        "r",
+        "z"
+      ],
+      "unexpected_nsc_band_labels": [],
+      "scope": "Counts on the declared core; all retrieved filter labels retained. Candidate counts use finite native errors <=200mas, valid TT time, SNR>=5 and NSC fatal flags clear; this is NOT validated high-quality astrometry. WCS, blending, cross-band bias and shared-error validation remain separate. SDSS legacy scalar flags are not promoted to per-band quality.",
+      "chip_metadata_receipts_complete": true,
+      "slurm_job": "61554827",
+      "shared_solution_sha256": "87a01d666c22835915eb6ba93fa2eac0ff6c948d2a3d1719191b6f1fc00e9886",
+      "source_receipt_sha256": "1cf3e893a64946257a8cd9e0268b1448cca459876ee31dad7ff47936cc26493a"
+    },
+    "repeat_sparse": {
+      "core_detection_count": 1074204,
+      "duplicate_detection_count": 0,
+      "instrument_band": {
+        "NSC:c4d:g": {
+          "measurement_count": 186808,
+          "distinct_exposures": 18,
+          "distinct_exposure_ccds": 333,
+          "independent_utc18_nights": 10,
+          "utc_year_counts": {
+            "2017": 127056,
+            "2018": 59752
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              32.45812,
+              119.2415,
+              197.83576000000002
+            ],
+            [
+              37.01224,
+              120.423,
+              198.573
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.33440607666219,
+            10.343546381334836,
+            39.32829372108992
+          ],
+          "valid_native_time_position_count": 157780,
+          "reference_supported_count": 186808,
+          "snr_flags_position_candidate_count": 157728,
+          "candidate_reference_supported_count": 157728,
+          "candidate_nights": 10,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 8444,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 1.119570672879229,
+          "finite_x_count": 186808,
+          "finite_y_count": 186808,
+          "finite_fwhm_count": 186808,
+          "finite_airmass_count": 186808,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:i": {
+          "measurement_count": 237291,
+          "distinct_exposures": 15,
+          "distinct_exposure_ccds": 404,
+          "independent_utc18_nights": 2,
+          "utc_year_counts": {
+            "2016": 181620,
+            "2019": 55671
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              24.824,
+              106.474,
+              187.6412
+            ],
+            [
+              25.081,
+              106.543,
+              187.684
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.47243957449996,
+            11.529901183621963,
+            47.61624989092226
+          ],
+          "valid_native_time_position_count": 208740,
+          "reference_supported_count": 237291,
+          "snr_flags_position_candidate_count": 208671,
+          "candidate_reference_supported_count": 208671,
+          "candidate_nights": 2,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 10155,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 3.2848414901395504,
+          "finite_x_count": 237291,
+          "finite_y_count": 237291,
+          "finite_fwhm_count": 237291,
+          "finite_airmass_count": 237291,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:r": {
+          "measurement_count": 302735,
+          "distinct_exposures": 21,
+          "distinct_exposure_ccds": 409,
+          "independent_utc18_nights": 13,
+          "utc_year_counts": {
+            "2017": 212195,
+            "2018": 90540
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              28.77244,
+              111.719,
+              195.151
+            ],
+            [
+              29.48544,
+              111.952,
+              195.27
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.397990688764421,
+            11.186122178404606,
+            42.35201298011115
+          ],
+          "valid_native_time_position_count": 258915,
+          "reference_supported_count": 302735,
+          "snr_flags_position_candidate_count": 258821,
+          "candidate_reference_supported_count": 258821,
+          "candidate_nights": 13,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 19054,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 1.1304707976719803,
+          "finite_x_count": 302735,
+          "finite_y_count": 302735,
+          "finite_fwhm_count": 302735,
+          "finite_airmass_count": 302735,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:z": {
+          "measurement_count": 217077,
+          "distinct_exposures": 21,
+          "distinct_exposure_ccds": 347,
+          "independent_utc18_nights": 13,
+          "utc_year_counts": {
+            "2013": 1695,
+            "2017": 158101,
+            "2018": 57281
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              25.470160000000003,
+              100.827,
+              186.02484
+            ],
+            [
+              25.989,
+              101.031,
+              186.111
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            7.002519745036356,
+            13.377725539158815,
+            51.94412997598935
+          ],
+          "valid_native_time_position_count": 191589,
+          "reference_supported_count": 217077,
+          "snr_flags_position_candidate_count": 191561,
+          "candidate_reference_supported_count": 191561,
+          "candidate_nights": 13,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 14207,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 5.1742094381831345,
+          "finite_x_count": 217077,
+          "finite_y_count": 217077,
+          "finite_fwhm_count": 217077,
+          "finite_airmass_count": 217077,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "SDSS:SDSS_imager:r": {
+          "measurement_count": 130293,
+          "distinct_exposures": 5,
+          "distinct_exposure_ccds": 16,
+          "independent_utc18_nights": 5,
+          "utc_year_counts": {
+            "2008": 33074,
+            "2009": 60401
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              30.7899930286221,
+              111.0861999301938,
+              189.6831274069725
+            ],
+            [
+              30.2260726402877,
+              112.3420645420671,
+              185.49109027339819
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            2.4254566535113526,
+            7.2029818981314735,
+            27.552738545732144
+          ],
+          "valid_native_time_position_count": 79002,
+          "reference_supported_count": 130293,
+          "snr_flags_position_candidate_count": 74371,
+          "candidate_reference_supported_count": 74371,
+          "candidate_nights": 5,
+          "flags_unknown_count": null,
+          "sextractor_deblended_count": null,
+          "sextractor_fatal_count": null,
+          "observed_span_years": 0.9120956470352479,
+          "finite_x_count": 0,
+          "finite_y_count": 0,
+          "finite_fwhm_count": 130293,
+          "finite_airmass_count": 0,
+          "finite_color_count": 130293,
+          "finite_field_id_count": 130293
+        }
+      },
+      "expected_nsc_bands_absent": [
+        "VR",
+        "Y",
+        "u"
+      ],
+      "actual_nsc_bands": [
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "unexpected_nsc_band_labels": [],
+      "scope": "Counts on the declared core; all retrieved filter labels retained. Candidate counts use finite native errors <=200mas, valid TT time, SNR>=5 and NSC fatal flags clear; this is NOT validated high-quality astrometry. WCS, blending, cross-band bias and shared-error validation remain separate. SDSS legacy scalar flags are not promoted to per-band quality.",
+      "chip_metadata_receipts_complete": true,
+      "slurm_job": "61554827",
+      "shared_solution_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "source_receipt_sha256": "7ed918a937bd42f1b0e95ae2b22f92fcd55b6abf5016934c616aabcced7f0e73"
+    },
+    "sparse_north_outer": {
+      "core_detection_count": 783099,
+      "duplicate_detection_count": 0,
+      "instrument_band": {
+        "NSC:c4d:g": {
+          "measurement_count": 204446,
+          "distinct_exposures": 21,
+          "distinct_exposure_ccds": 343,
+          "independent_utc18_nights": 14,
+          "utc_year_counts": {
+            "2014": 953,
+            "2016": 4348,
+            "2017": 120686,
+            "2018": 78459
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              34.205600000000004,
+              121.161,
+              199.1038
+            ],
+            [
+              41.83,
+              123.3985,
+              200.5298
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.438784688414697,
+            10.566518622747262,
+            39.12252740264475
+          ],
+          "valid_native_time_position_count": 171334,
+          "reference_supported_count": 204446,
+          "snr_flags_position_candidate_count": 171279,
+          "candidate_reference_supported_count": 171279,
+          "candidate_nights": 14,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 10643,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 4.188419839983391,
+          "finite_x_count": 204446,
+          "finite_y_count": 204446,
+          "finite_fwhm_count": 204446,
+          "finite_airmass_count": 204446,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:i": {
+          "measurement_count": 12524,
+          "distinct_exposures": 5,
+          "distinct_exposure_ccds": 34,
+          "independent_utc18_nights": 2,
+          "utc_year_counts": {
+            "2014": 1852,
+            "2016": 10672
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              21.611240000000002,
+              99.818,
+              178.84367999999998
+            ],
+            [
+              23.19924,
+              100.2005,
+              179.10744
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.359684100726664,
+            11.192925987137865,
+            46.51605005763775
+          ],
+          "valid_native_time_position_count": 11300,
+          "reference_supported_count": 12524,
+          "snr_flags_position_candidate_count": 11293,
+          "candidate_reference_supported_count": 11293,
+          "candidate_nights": 2,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 444,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 1.8920924447409613,
+          "finite_x_count": 12524,
+          "finite_y_count": 12524,
+          "finite_fwhm_count": 12524,
+          "finite_airmass_count": 12524,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:r": {
+          "measurement_count": 235707,
+          "distinct_exposures": 21,
+          "distinct_exposure_ccds": 306,
+          "independent_utc18_nights": 13,
+          "utc_year_counts": {
+            "2014": 1639,
+            "2016": 17502,
+            "2017": 119467,
+            "2018": 97099
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              28.900879999999997,
+              115.288,
+              194.083
+            ],
+            [
+              31.348959999999998,
+              115.911,
+              194.45107999999996
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.329420914072272,
+            10.82370033952537,
+            41.03317634711768
+          ],
+          "valid_native_time_position_count": 202466,
+          "reference_supported_count": 235707,
+          "snr_flags_position_candidate_count": 202385,
+          "candidate_reference_supported_count": 202385,
+          "candidate_nights": 13,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 15103,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 4.188432206474659,
+          "finite_x_count": 235707,
+          "finite_y_count": 235707,
+          "finite_fwhm_count": 235707,
+          "finite_airmass_count": 235707,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "NSC:c4d:z": {
+          "measurement_count": 207188,
+          "distinct_exposures": 24,
+          "distinct_exposure_ccds": 355,
+          "independent_utc18_nights": 12,
+          "utc_year_counts": {
+            "2014": 1604,
+            "2015": 17512,
+            "2016": 64020,
+            "2017": 47364,
+            "2018": 76688
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              26.28,
+              106.633,
+              190.33608
+            ],
+            [
+              28.62992,
+              107.077,
+              190.604
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            6.875490486962077,
+            12.768785374608772,
+            51.09164125663628
+          ],
+          "valid_native_time_position_count": 180334,
+          "reference_supported_count": 207188,
+          "snr_flags_position_candidate_count": 180293,
+          "candidate_reference_supported_count": 180293,
+          "candidate_nights": 12,
+          "flags_unknown_count": 0,
+          "sextractor_deblended_count": 12227,
+          "sextractor_fatal_count": 0,
+          "observed_span_years": 4.2758584961994615,
+          "finite_x_count": 207188,
+          "finite_y_count": 207188,
+          "finite_fwhm_count": 207188,
+          "finite_airmass_count": 207188,
+          "finite_color_count": 0,
+          "finite_field_id_count": 0
+        },
+        "SDSS:SDSS_imager:r": {
+          "measurement_count": 123234,
+          "distinct_exposures": 5,
+          "distinct_exposure_ccds": 15,
+          "independent_utc18_nights": 5,
+          "utc_year_counts": {
+            "2008": 88941
+          },
+          "native_position_error_p16_p50_p84_mas": [
+            [
+              31.355853528278235,
+              105.52725613842401,
+              177.15010810926944
+            ],
+            [
+              30.6221861530103,
+              106.6196176855239,
+              174.55373418731313
+            ]
+          ],
+          "photometric_snr_p16_p50_p84": [
+            2.7425590508293185,
+            7.213816952110517,
+            26.734222962744138
+          ],
+          "valid_native_time_position_count": 76750,
+          "reference_supported_count": 123234,
+          "snr_flags_position_candidate_count": 72021,
+          "candidate_reference_supported_count": 72021,
+          "candidate_nights": 5,
+          "flags_unknown_count": null,
+          "sextractor_deblended_count": null,
+          "sextractor_fatal_count": null,
+          "observed_span_years": 0.12568254486067157,
+          "finite_x_count": 0,
+          "finite_y_count": 0,
+          "finite_fwhm_count": 123234,
+          "finite_airmass_count": 0,
+          "finite_color_count": 123234,
+          "finite_field_id_count": 123234
+        }
+      },
+      "expected_nsc_bands_absent": [
+        "VR",
+        "Y",
+        "u"
+      ],
+      "actual_nsc_bands": [
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "unexpected_nsc_band_labels": [],
+      "scope": "Counts on the declared core; all retrieved filter labels retained. Candidate counts use finite native errors <=200mas, valid TT time, SNR>=5 and NSC fatal flags clear; this is NOT validated high-quality astrometry. WCS, blending, cross-band bias and shared-error validation remain separate. SDSS legacy scalar flags are not promoted to per-band quality.",
+      "chip_metadata_receipts_complete": true,
+      "slurm_job": "61554827",
+      "shared_solution_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+      "source_receipt_sha256": "e178b07c9ab1feb0263a3b194ddc8ec717981624df0a67a11aae30808ce6ad52"
+    }
+  },
+  "slurm_job": "61554827",
+  "scope": "Existing preregistered representative cores; no new proper-motion selection, no all-sky extrapolation."
+}

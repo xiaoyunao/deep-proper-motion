@@ -25,6 +25,7 @@ from .public_summary import check_aggregate
 
 
 def fit_r_subset(data, row, keys, solution, center, prod):
+    keys = np.asarray(keys)
     selection = data.band.eq('r').to_numpy()
     nsc = data.survey.eq('NSC').to_numpy()
     time = years(data.observation_time)

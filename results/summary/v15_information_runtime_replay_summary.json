@@ -1,0 +1,13 @@
+{
+  "all_scientific_fields_exact": true,
+  "old_slurm_job": "61570774",
+  "new_slurm_job": "61571217",
+  "old_pool_sha256": "40d466e8333c608c28880aa798a517f3d4c6ae010d2d296793edeace623806b1",
+  "new_summary_sha256": "4900b83fe5fdc57e283ac534f58f06dd5f2f27d51f1fa8ffb5484320f248a274",
+  "scope": "Actual repeated C control: every PM/error, ablation value, night/season/span and information statistic exactly equal; only Slurm job differs. Optimized routines slice real members, rather than rescanning the full detection table. No model/member/weight/acceptance change.",
+  "elapsed_source": "NERSC sacct: 61570774.5 and 61571217.0",
+  "old_elapsed_seconds": 681,
+  "new_elapsed_seconds": 59,
+  "old_peak_rss_kib": 7748312,
+  "new_peak_rss_kib": 7144720
+}

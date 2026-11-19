@@ -1,0 +1,113 @@
+{
+  "checked_cores": 10,
+  "counts": {
+    "c_01_04": {
+      "owned_all_nsc": {
+        "read": 6765,
+        "expected": 6765
+      },
+      "owned_r_control": {
+        "read": 6592,
+        "expected": 6592
+      }
+    },
+    "c_01_05": {
+      "owned_all_nsc": {
+        "read": 6770,
+        "expected": 6770
+      },
+      "owned_r_control": {
+        "read": 6650,
+        "expected": 6650
+      }
+    },
+    "c_03_07": {
+      "owned_all_nsc": {
+        "read": 5031,
+        "expected": 5031
+      },
+      "owned_r_control": {
+        "read": 3294,
+        "expected": 3294
+      }
+    },
+    "c_04_03": {
+      "owned_all_nsc": {
+        "read": 5549,
+        "expected": 5549
+      },
+      "owned_r_control": {
+        "read": 4691,
+        "expected": 4691
+      }
+    },
+    "c_04_04": {
+      "owned_all_nsc": {
+        "read": 5465,
+        "expected": 5465
+      },
+      "owned_r_control": {
+        "read": 5340,
+        "expected": 5340
+      }
+    },
+    "c_04_07": {
+      "owned_all_nsc": {
+        "read": 4746,
+        "expected": 4746
+      },
+      "owned_r_control": {
+        "read": 2246,
+        "expected": 2246
+      }
+    },
+    "c_06_04": {
+      "owned_all_nsc": {
+        "read": 5641,
+        "expected": 5641
+      },
+      "owned_r_control": {
+        "read": 5508,
+        "expected": 5508
+      }
+    },
+    "c_07_04": {
+      "owned_all_nsc": {
+        "read": 5292,
+        "expected": 5292
+      },
+      "owned_r_control": {
+        "read": 5194,
+        "expected": 5194
+      }
+    },
+    "repeat_rich": {
+      "owned_all_nsc": {
+        "read": 22672,
+        "expected": 22672
+      },
+      "owned_r_control": {
+        "read": 22165,
+        "expected": 22165
+      }
+    },
+    "repeat_sparse": {
+      "owned_all_nsc": {
+        "read": 16443,
+        "expected": 16443
+      },
+      "owned_r_control": {
+        "read": 12891,
+        "expected": 12891
+      }
+    }
+  },
+  "all_counts_exact": true,
+  "all_read_positions_have_correct_common_epoch_owner": true,
+  "private_overlay_sha256": "81d4e33c3af0c58c0965215566c166b0f05233a07ff83ca54204e78a007b8efb",
+  "input_science_summary_sha256": "487eda536e57d4c94af9bee8938d548defca32aa5a04e568bf759c02899e662c",
+  "source_code_commit": "c626c2bcefeb493e5074787a0a10c68b273eb926",
+  "slurm_job": "61571491",
+  "worker_sha256": "9645695b0c212c67643668c83cfe8b92a6e27ceb92f35c714472aca84c4cd20b",
+  "scope": "Actual read-only owned_records API on every affected core and an unaffected ordinary control, both full NSC and r control. No re-fit, source selection, or private source export."
+}

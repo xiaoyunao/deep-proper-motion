@@ -1,0 +1,25 @@
+{
+  "reassigned_all_nsc_rows": 5,
+  "reassigned_r_control_rows": 2,
+  "affected_cores": [
+    "c_01_04",
+    "c_01_05",
+    "c_03_07",
+    "c_04_03",
+    "c_04_04",
+    "c_04_07",
+    "c_06_04",
+    "c_07_04",
+    "repeat_rich"
+  ],
+  "all_source_states_covariances_and_members_unchanged": true,
+  "retained_all_nsc_solutions": 481945,
+  "outside_full_region": 0,
+  "unresolved_owners": 0,
+  "base_summary_sha256": "81e9a8ce3a87d54b646990d078551d7e29ba42b1b107298ebc1c1a107fda819f",
+  "audit_summary_sha256": "18a07a04845672b2f5b5d7c1bab774c795844d716a39dbc005392d77ba59099a",
+  "private_overlay_sha256": "81d4e33c3af0c58c0965215566c166b0f05233a07ff83ca54204e78a007b8efb",
+  "source_code_commit": "4694de47af5df234892cb7d7e889c8ff7ebc20c8",
+  "slurm_job": "61571012",
+  "scope": "A source folder was selected by NSC anchor median, whereas output owner is its fitted J2015.5 ICRS position. All seven cases lie inside one other original core. Rehome via a signed private overlay, keep original receipts, recompute affected source/quality spatial summaries. Global source counts and every pooled QSO metric remain exactly unchanged. Physical-r funnel counts by core retain discovery anchor ownership; global physical-r count is unchanged."
+}

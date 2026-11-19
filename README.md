@@ -1,11 +1,11 @@
 # deep-proper-motion
 
-当前科研阶段：v1.5 NSC全波段时间信息与暗源零点。SDSS每物理run仅发布r天测；NSC所有物理质量与参考支持合格band进入研究。连续99.873平方度科研试运行已提交4节点，以冻结统一C0/W0对照，尚非正式星表发布。唯一几何DCR与星系学习误差未通过独立验收，未采用。见[本轮中文报告](reports/experiment_A_v1.5_nsc_information.md)、[当前计划](PLAN.md)、[实际连续方案](docs/continuous_nsc_science_v15.md)。
+当前科研阶段：**v1.5连续99.873平方度／91核心已完成，481945个全NSC科研解**，较物理r对照增25.43%；单SDSS run QSO两暗档P68较r改善17.5%／22.1%。原地理普通区21–22相对Xiao仅约5%且组权区间跨零，不能用单run替换旧结论。科学主线有价值，新增源零点／误差／身份及条件迁移仍不足以正式投产。SDSS每真实run仅发布r位置，NSC无band白名单；DCR／学习误差未采用。见[本轮中文报告](reports/experiment_A_v1.5_nsc_information.md)、[精简审阅统计](results/summary/v15_science_overview_summary.json) · [当前计划](PLAN.md)、[私有目录读取](docs/catalogue_layout_v15.md)。
 
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
-当前分支v1.4研究真正全波段的天测信息、共同参考系与相关误差，保留v1.3 C0/W0 r-only科学基准。已完成184核心七band库存、104核心参考替换、固定暗星年度验证、独立误差与联合g色项试验。B暗星位置与一处辅助区QSO有实测收益，但新增源绝对零点未解决；保留C0/W0，不冻结新multi方法或启动完整连续区／全覆盖生产。[本轮实测与统计图](reports/experiment_A_v1.4_allband.md) · [八阶段计划](PLAN.md)
+历史v1.4阶段研究真正全波段的天测信息、共同参考系与相关误差，保留v1.3 C0/W0 r-only科学基准。已完成184核心七band库存、104核心参考替换、固定暗星年度验证、独立误差与联合g色项试验。B暗星位置与一处辅助区QSO有实测收益，但新增源绝对零点未解决；保留C0/W0，不冻结新multi方法或启动完整连续区／全覆盖生产。[本轮实测与统计图](reports/experiment_A_v1.4_allband.md) · [八阶段计划](PLAN.md)
 
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
 - [实验 A v1.3 观测条件研究](reports/experiment_A_v1.3_conditions.md) · [实际方法审计](docs/method_audit_v13.md) · [预登记与复现](docs/conditions_protocol_v13.md)

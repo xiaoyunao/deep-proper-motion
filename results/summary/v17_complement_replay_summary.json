@@ -1,0 +1,28 @@
+{
+  "verified": {
+    "a_09_00": {
+      "detections": 1332776,
+      "original_seconds": 96.55083870100498,
+      "complement_seconds": 99.37024975300301,
+      "original_sha256": "e11a9abe7678921bc5902e214472deabbae35880f3a6e413e0b73f9f573b7d89",
+      "replay_sha256": "b139ae81b99fbae9facba4f64a9b14cf11401582d951a804f64392226b2744df"
+    },
+    "b_16_00": {
+      "detections": 511783,
+      "original_seconds": 57.48264938799548,
+      "complement_seconds": 34.13202899599855,
+      "original_sha256": "cdbfcf5404b65e0c9dbf831ce5807d35867179450479b96bdb80fcfff3b07ef0",
+      "replay_sha256": "16dfdee19e1edec5c659953f3748a50b00b58dcb3a3661410f2b2622161cc7ba"
+    },
+    "north_three_00_00": {
+      "detections": 233989,
+      "original_seconds": 21.544205083002453,
+      "complement_seconds": 20.437188038005843,
+      "original_sha256": "ae3b465bfadc1d340b9333a4db3992757c40087984442a442c93a964fc9b3490",
+      "replay_sha256": "3fd716e2300d8a601386a37ef689a382cdb12c3b24bd71644c013cff5e5f4ba4"
+    }
+  },
+  "slurm_job": "61576317",
+  "source_code_commit": "eb9da7fbc1a9462e311d592cb42390134f406d7e",
+  "identical_IDs_positions_errors_flags_labels_and_external_motion": true
+}

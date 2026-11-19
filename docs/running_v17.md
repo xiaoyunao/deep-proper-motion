@@ -20,3 +20,7 @@
 名义面积、带参考支持的几何时基及实际科研解覆盖分列。`nsc_transfer_footprint` 按实际每核心参考分量读 CCD 多边形、原生 SDSS 扫描和真实时刻。几何条件沿用至少一次 SDSS、两次 NSC、NSC 跨度 0.60 年以上、联合跨度 5 年以上。几何机会面积独立于逐源深度、源提取、配对和正式空间零点认证。
 
 全部作业在 Slurm CPU 节点运行。原始、逐源、私人星系和光谱证据保持在 PScratch。每批从明确允许列表同步聚合统计、图和研究记录。
+
+新天区输入与参考提取入口为 `scripts/wide-v17-inputs.sh`。传入登记选区、同一几何配置、已核验光谱缓存、SDSS SAS 与 Xiao FITS，并使用 Slurm 计算节点。取数与参考提取单独留回执。第二批选区先冻结原生几何，详见 [登记统计](../results/summary/v17_wide_selection_summary.json)。
+
+对旧原始 NSC 分片，`nsc_allband_inputs --reuse-r-archive` 可核验旧签名后只取原 r 对象谓词的补集。三个真实核心与完整重新取数逐列重放，通过同一检测身份、数据值、对象标签和官方外部字段核验。只有具有相同已签名几何、halo 和旧原生 COUNT join 的缓存使用补集，其余仍走完整取数。 [实测重放](../results/summary/v17_complement_replay_summary.json)

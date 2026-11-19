@@ -1,0 +1,3606 @@
+{
+  "first_batch": [
+    {
+      "name": "w010_080_00",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 181,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_02",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 200,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_04",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 286,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_06",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 274,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_08",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 306,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_20",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 80,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_22",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 193,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_24",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 301,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_26",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 301,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_28",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 2203,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_40",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 89,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_42",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 194,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_44",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 274,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_46",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 278,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_48",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 2336,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_60",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 88,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_62",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 181,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_64",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 272,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_66",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 268,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_68",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 2370,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_80",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 86,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_82",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 179,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_84",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 291,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_86",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 284,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_080_88",
+      "box": "w010_080",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 414,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_00",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        170,
+        172
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.649818665163087,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 193,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_06",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        170,
+        172
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.247972683054172,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 227,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_08",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        170,
+        172
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 176,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_22",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        172,
+        174
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.585348009561591,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 256,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_24",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        172,
+        174
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.488227861437602,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 280,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_26",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        172,
+        174
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.6902498143636766,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 262,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_28",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        172,
+        174
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 207,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w170_080_46",
+      "box": "w170_080",
+      "ra_bounds_deg": [
+        174,
+        176
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9252095403718505,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 205,
+      "latitude_stratum": "south"
+    },
+    {
+      "name": "w010_090_00",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 344,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_02",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 339,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_04",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 214,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_06",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 139,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_08",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 128,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_20",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 2223,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_22",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 343,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_24",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 220,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_26",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 134,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_28",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 135,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_40",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 2373,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_42",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 321,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_44",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 206,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_46",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 134,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_48",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 133,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_60",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 2383,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_62",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 291,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_64",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 179,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_66",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 125,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_68",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 106,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_80",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 428,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_82",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 293,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_84",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 192,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_86",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 108,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_090_88",
+      "box": "w010_090",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 123,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_00",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        130,
+        132
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 1980,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_06",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        130,
+        132
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 78,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_08",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        130,
+        132
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 114,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_20",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        132,
+        134
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 124,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_26",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        132,
+        134
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 83,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_28",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        132,
+        134
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 154,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_40",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        134,
+        136
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 205,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_46",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        134,
+        136
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 78,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_48",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        134,
+        136
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 122,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_60",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        136,
+        138
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 272,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_66",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        136,
+        138
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 73,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_68",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        136,
+        138
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 80,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_80",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        138,
+        140
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 290,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_86",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        138,
+        140
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 89,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w130_090_88",
+      "box": "w130_090",
+      "ra_bounds_deg": [
+        138,
+        140
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 76,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_00",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 267,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_02",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 130,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_04",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 73,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_06",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 89,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_08",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 90,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_20",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        192,
+        194
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 344,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_22",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        192,
+        194
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 116,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_24",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        192,
+        194
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 80,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_26",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        192,
+        194
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 88,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_28",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        192,
+        194
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 92,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_40",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        194,
+        196
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 447,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_42",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        194,
+        196
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 99,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_44",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        194,
+        196
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 83,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_46",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        194,
+        196
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 89,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_48",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        194,
+        196
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 91,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_60",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        196,
+        198
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 247,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_62",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        196,
+        198
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 99,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_64",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        196,
+        198
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 85,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_66",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        196,
+        198
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 85,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_68",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        196,
+        198
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9368830545579367,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 87,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_80",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        198,
+        200
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 107,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_82",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        198,
+        200
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 98,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_84",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        198,
+        200
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 80,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_86",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        198,
+        200
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 83,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w190_090_88",
+      "box": "w190_090",
+      "ra_bounds_deg": [
+        198,
+        200
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 79,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_00",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        320,
+        322
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 489,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_02",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        320,
+        322
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.980494181785539,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 131,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_04",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        320,
+        322
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 74,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_06",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        320,
+        322
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.956246079516238,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 56,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_08",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        320,
+        322
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 48,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_20",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        322,
+        324
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 2471,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_22",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        322,
+        324
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 137,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_24",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        322,
+        324
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 74,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_26",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        322,
+        324
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 67,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_28",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        322,
+        324
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 54,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_40",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        324,
+        326
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 2270,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_42",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        324,
+        326
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9666730214321166,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 255,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_44",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        324,
+        326
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 86,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_46",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        324,
+        326
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 65,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_48",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        324,
+        326
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 59,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_60",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        326,
+        328
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 2097,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_62",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        326,
+        328
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 272,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_64",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        326,
+        328
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 77,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_66",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        326,
+        328
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 51,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_68",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        326,
+        328
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 55,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w320_090_80",
+      "box": "w320_090",
+      "ra_bounds_deg": [
+        328,
+        330
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 278,
+      "latitude_stratum": "equatorial"
+    },
+    {
+      "name": "w010_110_00",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 50,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_02",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.669092577332276,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 77,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_04",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6125036839541433,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 60,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_06",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.5268502230277363,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 54,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_08",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        10,
+        12
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.486196366502349,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 70,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_20",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 66,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_22",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 68,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_24",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 69,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_26",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 65,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_28",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        12,
+        14
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.4983012149971486,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 55,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_40",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 75,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_42",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 53,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_44",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 67,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_46",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 68,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_48",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        14,
+        16
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.474091518007549,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 55,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_60",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 66,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_62",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 54,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_64",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.599960268384858,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 55,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_66",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 76,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_68",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        16,
+        18
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.449881821017949,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 68,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_80",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 65,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_82",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 65,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_84",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 58,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_86",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 84,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w010_110_88",
+      "box": "w010_110",
+      "ra_bounds_deg": [
+        18,
+        20
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.4983012149971486,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 72,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_00",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        120,
+        122
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 90,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_02",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        120,
+        122
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 83,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_04",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        120,
+        122
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 82,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_06",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        120,
+        122
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 100,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_08",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        120,
+        122
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.4983012149971486,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 99,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_20",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        122,
+        124
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 83,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_22",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        122,
+        124
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 80,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_24",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        122,
+        124
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 76,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_26",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        122,
+        124
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 84,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_28",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        122,
+        124
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.4983012149971486,
+      "instruments": [
+        "c4d",
+        "k4m",
+        "ksb"
+      ],
+      "exposures": 121,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_40",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        124,
+        126
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 100,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_42",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        124,
+        126
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 92,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_44",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        124,
+        126
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 92,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_46",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        124,
+        126
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 59,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_48",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        124,
+        126
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.4983012149971486,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 103,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_60",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        126,
+        128
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 151,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_62",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        126,
+        128
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 102,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_64",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        126,
+        128
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 92,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_66",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        126,
+        128
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 72,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_68",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        126,
+        128
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.4983012149971486,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 84,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_80",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        128,
+        130
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 187,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_82",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        128,
+        130
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 139,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_84",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        128,
+        130
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 115,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_86",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        128,
+        130
+      ],
+      "dec_bounds_deg": [
+        26,
+        28
+      ],
+      "area_sqdeg": 3.563845155437118,
+      "pre_reference_opportunity_sqdeg": 3.563845155437118,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 74,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w120_110_88",
+      "box": "w120_110",
+      "ra_bounds_deg": [
+        128,
+        130
+      ],
+      "dec_bounds_deg": [
+        28,
+        30
+      ],
+      "area_sqdeg": 3.4983012149971486,
+      "pre_reference_opportunity_sqdeg": 3.4983012149971486,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 72,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_00",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        180,
+        182
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 47,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_02",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        180,
+        182
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 57,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_04",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        180,
+        182
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6125036839541433,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 63,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_20",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        182,
+        184
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 56,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_22",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        182,
+        184
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 52,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_24",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        182,
+        184
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6125036839541433,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 66,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_40",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        184,
+        186
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.721211246585307,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 57,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_42",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        184,
+        186
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 52,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_44",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        184,
+        186
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.599960268384858,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 62,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_60",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        186,
+        188
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.721211246585307,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 56,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_62",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        186,
+        188
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.669092577332276,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 57,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_64",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        186,
+        188
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.587416852815573,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 54,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_80",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        188,
+        190
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 57,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_82",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        188,
+        190
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 67,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w180_110_84",
+      "box": "w180_110",
+      "ra_bounds_deg": [
+        188,
+        190
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 50,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w330_110_00",
+      "box": "w330_110",
+      "ra_bounds_deg": [
+        330,
+        332
+      ],
+      "dec_bounds_deg": [
+        20,
+        22
+      ],
+      "area_sqdeg": 3.7341321189692835,
+      "pre_reference_opportunity_sqdeg": 3.7341321189692835,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 68,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w330_110_02",
+      "box": "w330_110",
+      "ra_bounds_deg": [
+        330,
+        332
+      ],
+      "dec_bounds_deg": [
+        22,
+        24
+      ],
+      "area_sqdeg": 3.6818324821146793,
+      "pre_reference_opportunity_sqdeg": 3.6818324821146797,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 74,
+      "latitude_stratum": "north"
+    },
+    {
+      "name": "w330_110_04",
+      "box": "w330_110",
+      "ra_bounds_deg": [
+        330,
+        332
+      ],
+      "dec_bounds_deg": [
+        24,
+        26
+      ],
+      "area_sqdeg": 3.6250470995234285,
+      "pre_reference_opportunity_sqdeg": 3.6250470995234285,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 84,
+      "latitude_stratum": "north"
+    }
+  ],
+  "windows": [
+    "w010_080",
+    "w010_090",
+    "w010_110",
+    "w120_110",
+    "w130_090",
+    "w170_080",
+    "w180_110",
+    "w190_090",
+    "w320_090",
+    "w330_110"
+  ],
+  "latitude_strata_nominal_sqdeg": {
+    "south": 131.37951082608177,
+    "equatorial": 342.17842119317396,
+    "north": 247.27765091406118
+  },
+  "new_nominal_area_sqdeg": 720.8355829333169,
+  "previous_unique_nominal_sqdeg": 326.83600243138756,
+  "planned_cumulative_nominal_sqdeg": 1047.6715853647045,
+  "new_pre_reference_opportunity_sqdeg": 718.166996397111,
+  "input_geometry_sha256": "bf309f1b02a2fcd071681351baabd6d51541a6061b354bd2efb78120e420ad28",
+  "config_sha256": "6c7ad01c7ac025a6843486366696022585ed0724640b7a61ea83f784caf2f7cf",
+  "slurm_job": "61576379",
+  "scope": "Geometry and real sampling before any wide proper-motion fits. Nominal membership and pre-reference opportunity do not certify available reference or per-source coverage."
+}

@@ -70,7 +70,7 @@ def run(state,geometry,output):
                 crossclaims+=int(owner!=core)
             mag=record['magnitude']
             if mag is not None and 20<=mag<23:by_class[record['kind']+'__r'+str(int(mag))].append(record['information'])
-        frames.append(pd.DataFrame(points,columns=['ra','dec','pm_east','pm_north']).assign(core=core))
+        frames.append(pd.DataFrame(points,columns=['ra','dec','pm_east','pm_north'],dtype=float).assign(core=core))
         # Actual individual QSO vectors are pooled, never medians of per-core P68.
         raw=json.loads((folder/'private_known_qso_blocks.json').read_text());lookup={m:{r['validation_local_index']:standard_block(r,plan_center(folder)) for r in raw[m]} for m in METHODS}
         oldfolder=Path(json.loads((original/'fits.json').read_text())[core]);oldrows=json.loads((oldfolder/'private_qso_blocks.json').read_text());oldpoints={}

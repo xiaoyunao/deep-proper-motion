@@ -1,0 +1,12 @@
+{
+  "retained_group_count": 1726,
+  "maximum_array_differences_mas": {
+    "position": 0.0,
+    "draws": 0.0
+  },
+  "original_retained_solution_replayed": true,
+  "original_solution_sha256": "f8d86d0aa35730d65f23a116f5a7567207d9dee68dc3b62b692130025dc13480",
+  "diagnostic_solution_sha256": "f8d86d0aa35730d65f23a116f5a7567207d9dee68dc3b62b692130025dc13480",
+  "source_code_commit": "a295e2c610366ecbe93a5ec95e9d1df6dad77de2",
+  "slurm_job": "61555065"
+}

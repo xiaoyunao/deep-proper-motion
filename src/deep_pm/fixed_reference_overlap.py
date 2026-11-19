@@ -10,12 +10,13 @@ import pandas as pd
 
 from .__main__ import tomllib
 from .allband_qso import evaluated_fit
-from .continuous_reference import PRECISION,SPATIAL,read_offsets,reference_frame,verify_directory
+from .continuous_reference import PRECISION,SPATIAL,bind,read_offsets,reference_frame,verify_directory
 from .cross_region_audit import source_check
 from .io import save_json,digest
 from .pilot_production import quality_detections
 from .precision_v03 import calibration_groups,calibration_support
 from .public_summary import check_aggregate
+from .provenance import run_stage
 
 
 def replay(fit,graph):
@@ -58,7 +59,16 @@ def main():
     for n in ('work','original','graph'):p.add_argument(n,type=Path)
     a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
-    a.work.mkdir(parents=True,exist_ok=True);run(**vars(a))
+    a.work.mkdir(parents=True,exist_ok=True)
+    bind(a.work,'joint_reference_receipt.json',verify_directory(a.graph.parent,(a.graph.name,)))
+    names=['joint_reference_receipt.json']
+    for band in range(28,34):
+        for side in ('left','right'):
+            alias=f'{side}_{band}_receipt.json'
+            bind(a.work,alias,verify_directory(a.original/f'{side}_{band}',('private_standard_motion.json.gz','continuous_core_summary.json')))
+            names.append(alias)
+    with run_stage(a.work,PRECISION,'six_north_overlap_strips','fixed-overlap-reference-v14',inputs=names,outputs=('fixed_overlap_reference_summary.json',)) as go:
+        if go:run(**vars(a))
 
 
 if __name__=='__main__':main()

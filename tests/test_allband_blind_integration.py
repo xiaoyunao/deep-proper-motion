@@ -67,3 +67,30 @@ def test_held_target_positions_cannot_change_allband_or_nonr_training(tmp_path,m
     assert comparison['common_held_position_count']==1
     assert comparison['cohorts']['r21__held_z']['source_count']==1
     assert comparison['maximum_replayed_allband_pm_difference_masyr']==0
+
+    # A zero color model must reproduce the same frozen annual residuals; real
+    # graph readers return tuples while the feature-model reader stores a list.
+    from deep_pm import chromatic_validation as chromatic
+    colors=dict(base=solution,gauges={k:'0' for k in solution},roles={k:False for k in solution},
+                coefficient={},feature_draws={},color_reference=1.2,center=[0.,0.])
+    monkeypatch.setattr(chromatic,'read_model',lambda path:colors)
+    monkeypatch.setattr(chromatic,'reference_frame',lambda path:(0.,0.))
+    monkeypatch.setattr(chromatic,'quality_detections',lambda *a,**kw:(data,xy,t,sigma,keep))
+    model_file=tmp_path/'color-model';model_file.write_text('synthetic fixed model')
+    output=tmp_path/'chromatic';output.mkdir();chromatic.year_trial(output,frozen,model_file)
+    held=json.loads((output/'private_chromatic_held.json').read_text())
+    assert len(held)==2
+    for row in held:
+        np.testing.assert_allclose(row['residual'][0],row['residual'][1],atol=1e-8)
+        np.testing.assert_allclose(row['error'][0],row['error'][1],atol=1e-8)
+    import pytest
+    monkeypatch.setattr(chromatic,'reference_frame',lambda path:(0.,1.))
+    with pytest.raises(ValueError,match='same reference coordinate basis'):
+        chromatic.year_trial(output,frozen,model_file)
+
+    monkeypatch.setattr(chromatic,'reference_frame',lambda path:(0.,0.))
+    zero=tmp_path/'chromatic-zero';zero.mkdir();chromatic.blind_zero_trial(zero,frozen,model_file)
+    result=json.loads((zero/'chromatic_blind_zero_summary.json').read_text())
+    assert result['frozen_blind_source_count']==2
+    for cohort in result['cohorts'].values():
+        assert cohort['known_competing_member_fraction']['n']==0

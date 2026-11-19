@@ -44,8 +44,11 @@ def run(work,trial):
         original=set(night[base[nsc[base]]]);opportunity={}
         for band in bands:
             selected=late[data.band.iloc[late].eq(band).to_numpy()];new=~np.isin(night[selected],list(original))
+            other=late[~data.band.iloc[late].eq(band).to_numpy()];other_nights=set(night[other]);shared=set(night[selected])&other_nights
+            separation=[np.min(abs(time[i]-time[other[night[other]==night[i]]]))*365.25*86400 for i in selected if night[i] in shared]
             opportunity[band]=dict(measurements=len(selected),new_nights=len(set(night[selected[new]])),original_r_nights=len(set(night[selected[~new]])),
-                years=sorted(set(map(int,year[selected]))),span_years=float(np.ptp(time[selected])))
+                years=sorted(set(map(int,year[selected]))),span_years=float(np.ptp(time[selected])),unique_nights_relative_other_bands=len(set(night[selected])-other_nights),
+                shared_nights_with_other_bands=len(shared),same_night_nearest_other_band_seconds=float(np.median(separation)) if separation else None)
         rows.append(dict(magnitude=row['magnitude'],sdss_runs=row['sdss_runs'],values=values,opportunity=opportunity))
     cohorts={}
     for low in (20,21,22):
@@ -60,6 +63,10 @@ def run(work,trial):
             cohorts['r'+str(low)]['band_'+band]=dict(same_band_covered_objects=comparison(values,settings,((names[0],names[1]),)),
                 contributed_time_p16_p50_p84=np.quantile([[r['measurements'],r['new_nights'],r['original_r_nights'],r['span_years']] for r in condition],[.16,.5,.84],axis=0) if condition else None,
                 time_columns=['measurements','new_nights','original_r_nights','span_years'],source_support_by_year=dict(Counter(str(y) for r in condition for y in r['years'])))
+            cohorts['r'+str(low)]['band_'+band]['relative_to_all_other_bands']=dict(
+                unique_nights_p16_p50_p84=np.quantile([r['unique_nights_relative_other_bands'] for r in condition],[.16,.5,.84]) if condition else None,
+                shared_nights_p16_p50_p84=np.quantile([r['shared_nights_with_other_bands'] for r in condition],[.16,.5,.84]) if condition else None,
+                nearest_same_night_other_band_seconds_p16_p50_p84=np.quantile([r['same_night_nearest_other_band_seconds'] for r in condition if r['same_night_nearest_other_band_seconds'] is not None],[.16,.5,.84]) if any(r['same_night_nearest_other_band_seconds'] is not None for r in condition) else None)
     result=dict(cohorts=cohorts,fixed_sources=len(rows),slurm_job=os.environ['SLURM_JOB_ID'],scope='Identical frozen QSO/r/SDSS members and reference graph. Band deletions evaluated only on the same covered source subset, never comparing different successes. Every available NSC band diagnosed without a name whitelist. NSC-only/first-SDSS/all-SDSS use exactly the same NSC measurements. No formal-error postselection; these are conditional known-position controls, not blind purity or causal atmospheric estimates.')
     check_aggregate(result);save_json(work/'nsc_band_information_summary.json',result)
 

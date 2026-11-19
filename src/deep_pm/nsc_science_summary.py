@@ -1,0 +1,116 @@
+"""Pool individual private research fits into deidentified continuous statistics."""
+import argparse
+from collections import Counter,defaultdict
+import gzip
+import json
+import os
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from .__main__ import tomllib
+from .continuous_ownership import close_pairs
+from .continuous_reference import verify_directory
+from .continuous_summary import area,estimate
+from .exposure_catalogues import inside
+from .independent_summary import standard_block
+from .io import digest,save_json
+from .nsc_comparison import comparison
+from .nsc_information import summarize_information
+from .public_summary import check_aggregate
+from .validation_blocks import metrics
+
+
+SETTINGS=dict(min_publish_count=5,tail_masyr=5,bootstrap_draws=800,bootstrap_absolute_zero=True,seed=9137)
+METHODS=('r_legacy_quality','r_physical_quality','all_nsc')
+
+
+def known_cohorts(rows):
+    out={};pairs=(('all_nsc','r_physical_quality'),('r_physical_quality','r_legacy_quality'),('all_nsc','Xiao'),('all_nsc','NSC'))
+    for low in (21,22):
+        for tag,select in [('all',lambda r:True),('one_sdss_run',lambda r:r['sdss_runs']==1),('multiple_sdss_runs',lambda r:r['sdss_runs']>1),('nsc_span_lt2',lambda r:r['nsc_span']<2),('nsc_span_ge2',lambda r:r['nsc_span']>=2)]:
+            part=[r for r in rows if low<=r['magnitude']<low+1 and select(r)];common=[r for r in part if {'NSC','Xiao'}<=r['values'].keys()]
+            blocks=[dict(exposures=r['exposures'],nsc_epoch_days=r['nsc_epoch_days'],motion={'C0':r['values']['Xiao'][0],'C1':r['values']['all_nsc'][0]}) for r in common]
+            sensitivity=[dict(exposures=r['exposures'],nsc_epoch_days=r['nsc_epoch_days'],motion={m:r['values'][m][0] for m in ('NSC','Xiao','all_nsc')}) for r in common]
+            out[f'r{low}__{tag}']=dict(same_objects=comparison([{m:r['values'][m] for m in METHODS} for r in part],SETTINGS,pairs),
+                strict_published_common=comparison([r['values'] for r in common],SETTINGS,pairs),
+                observational_blocks=dict(method_order=['Xiao','all_nsc'],physical=metrics(blocks),conservative_night=metrics(blocks,True)),
+                shared_group_sensitivity=estimate(sensitivity,('NSC','Xiao','all_nsc'),9137,candidate='all_nsc'))
+    return out
+
+
+def run(state,geometry,output):
+    config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']);graph=original/'shared/private_c0.npz';graph_hash=digest(graph)
+    if graph_hash!=plan['reference_sha256']:raise ValueError('Frozen common graph changed')
+    known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0
+    for core,folder in fits.items():
+        folder=Path(folder);receipt=verify_directory(folder,('nsc_science_catalogue_summary.json','private_standard_motion.json.gz','private_known_qso_blocks.json','private_blind_qso.json'))
+        ref=(folder/'reference_receipt.json').resolve().parent/'private_c0.npz'
+        if digest(ref)!=graph_hash:raise ValueError('Mixed reference frames in the continuous catalogue')
+        receipts[core]=digest(receipt);summary=json.loads((folder/'nsc_science_catalogue_summary.json').read_text());spatial[core]=dict(geometry=config['fields'][core],**summary)
+        source=(folder/'source_receipt.json').resolve().parent;acq=json.loads((source/'acquisition_summary.json').read_text());acquisitions.append(acq)
+        with gzip.open(folder/'private_standard_motion.json.gz','rt') as stream:records=json.load(stream)
+        if len(records)!=summary['owned_all_nsc']:raise ValueError('Catalogue count differs from signed summary')
+        points=[]
+        for record in records:
+            point=record['position_deg'];pm=record['pm_icrs_masyr'];cov=np.asarray(record['covariance'])
+            if not np.isfinite(point+pm).all() or cov.shape!=(4,4) or not np.isfinite(cov).all():raise ValueError('Invalid standard state')
+            np.testing.assert_allclose(np.sqrt(np.diag(cov)[[1,3]]),record['pm_error_masyr'],rtol=1e-9,atol=1e-9)
+            outside+=int(not inside(*point,config['fields'][core]));points.append([*point,*pm])
+            for detection in record['detection_ids']:
+                owner=members.setdefault(detection,core)
+                crossclaims+=int(owner!=core)
+            mag=record['magnitude']
+            if mag is not None and 20<=mag<23:by_class[record['kind']+'__r'+str(int(mag))].append(record['information'])
+        frames.append(pd.DataFrame(points,columns=['ra','dec','pm_east','pm_north']).assign(core=core))
+        # Actual individual QSO vectors are pooled, never medians of per-core P68.
+        raw=json.loads((folder/'private_known_qso_blocks.json').read_text());lookup={m:{r['validation_local_index']:standard_block(r,plan_center(folder)) for r in raw[m]} for m in METHODS}
+        oldfolder=Path(json.loads((original/'fits.json').read_text())[core]);oldrows=json.loads((oldfolder/'private_qso_blocks.json').read_text());oldpoints={}
+        # Fixed spectral identity comes from source spectra index, not PM closeness.
+        from .dark_precision import query_unique
+        from .astrometry import project
+        from scipy.spatial import cKDTree
+        qso=pd.read_csv(source/'spectra_union.csv');qso=qso.loc[inside(qso.ra,qso.dec,config['fields'][core])].reset_index(drop=True)
+        if oldrows and len(qso):
+            found,nearest=query_unique(cKDTree(project(qso.ra,qso.dec,plan_center(folder))),project(*np.asarray([r['position_deg'] for r in oldrows]).T,plan_center(folder)),500,300);counts=Counter(nearest[found])
+            oldpoints={int(nearest[j]):standard_block(oldrows[j],plan_center(folder)) for j in np.flatnonzero(found) if counts[nearest[j]]==1}
+        for k in sorted(set.intersection(*(set(v) for v in lookup.values()))):
+            r=lookup['r_legacy_quality'][k];allrow=lookup['all_nsc'][k];values={m:(lookup[m][k]['motion']['C0'],lookup[m][k]['error_icrs']['C0']) for m in METHODS}
+            values.update({m:(r['motion'][m],r['error_icrs'][m]) for m in ('NSC','Xiao') if m in r['motion']})
+            known.append(dict(magnitude=r['magnitude'],sdss_runs=len([e for e in r['exposures'] if e.startswith('SDSS:')]),nsc_span=allrow['nsc_span_years'],values=values,exposures=allrow['exposures'],nsc_epoch_days=allrow['nsc_nights_utc18']))
+            if k in oldpoints and oldpoints[k]['exposures']==r['exposures']:
+                old=oldpoints[k];replay.append(dict(pm_delta=np.asarray(r['motion']['C0'])-old['motion']['C0'],error_delta=np.asarray(r['error_icrs']['C0'])-old['error_icrs']['C0']))
+            else:unmatched_old+=1
+        blind.extend(json.loads((folder/'private_blind_qso.json').read_text()))
+    ownership=close_pairs(pd.concat(frames,ignore_index=True));ownership.update(outside_common_epoch_owner=outside,cross_core_shared_detection_claims=crossclaims)
+    catalogue_classes={k:dict(research_fits=len(v),information=summarize_information(v)) for k,v in by_class.items()}
+    blind_cohorts={}
+    for kind in ('r_existing','extra_r_anchor','non_r_anchor'):
+        for low in (21,22):
+            part=[r for r in blind if r['kind']==kind and low<=r['magnitude']<low+1];common=[r['values'] for r in part if {'blind_all','C0','NSC','Xiao'}<=r['values'].keys()]
+            blind_cohorts[kind+'__r'+str(low)]=dict(position_identified_qso=len(part),all_spectral=comparison([{'blind_all':r['values']['blind_all']} for r in part],SETTINGS),strict_published_common=comparison(common,SETTINGS,(('blind_all','Xiao'),('blind_all','NSC'),('blind_all','C0'))))
+    result=dict(completed_cores=len(fits),planned_cores=len(plan['sources']),completed_nominal_core_area_sqdeg=sum(area(config['fields'][k]) for k in fits),frozen_nominal_area_sqdeg=plan['nominal_area_sqdeg'],
+        research_r_control_solutions=sum(v['owned_r_control'] for v in spatial.values()),research_all_nsc_solutions=sum(v['owned_all_nsc'] for v in spatial.values()),by_class=catalogue_classes,known_stationary=known_cohorts(known),blind_spectral=blind_cohorts,spatial=spatial,
+        acquisition=dict(downloaded_nsc_measures_with_halo_overlap=sum(a['downloaded_nsc_measures'] for a in acquisitions),added_nsc_measures_with_halo_overlap=sum(a['new_nsc_measures'] for a in acquisitions),sdss_r_preserved_with_halo_overlap=sum(a['sdss_r_measurements_preserved'] for a in acquisitions)),
+        frozen_r_qso_same_exposures_replay=dict(n=len(replay),without_exact_old_exposure_identity=unmatched_old,maximum_abs_pm_change_masyr=float(np.max([abs(r['pm_delta']).max() for r in replay])) if replay else None,maximum_abs_error_change_masyr=float(np.max([abs(r['error_delta']).max() for r in replay])) if replay else None),
+        ownership=ownership,reference_graph_sha256=graph_hash,fit_receipt_sha256=receipts,slurm_job=os.environ['SLURM_JOB_ID'],
+        scope='Pooled individual vectors on strict common spectral objects, original half-open C cores and one frozen physical reference graph. Source yields are provisional research fits; unknown identity/night correlation/spatial zero remain flagged. Nominal core area is not qualified faint-target exposure area or certified area. Same-exposure frozen r replay is conditional on position identity, not PM similarity. Object-bootstrap intervals and physical-observation sensitivity do not replace calibration of spatial systematics. Counts with halo overlap are explicitly not unique detections.')
+    check_aggregate(result);save_json(output,result)
+    if outside or crossclaims:raise ValueError('Continuous ownership or shared-detection conflict needs audit before adoption')
+
+
+def plan_center(folder):
+    from .continuous_reference import reference_frame
+    return reference_frame((folder/'reference_receipt.json').resolve().parent/'private_c0.npz')
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    for n in ('state','geometry','output'):p.add_argument(n,type=Path)
+    a=p.parse_args()
+    if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
+    run(**vars(a))
+
+
+if __name__=='__main__':main()

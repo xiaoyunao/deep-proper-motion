@@ -1,5 +1,8 @@
 # deep-proper-motion
 
+当前科研阶段：v1.5 NSC全波段时间信息与暗源零点。SDSS每物理run仅发布r天测；NSC所有物理质量与参考支持合格band进入研究。连续99.873平方度科研试运行已提交4节点，以冻结统一C0/W0对照，尚非正式星表发布。唯一几何DCR与星系学习误差未通过独立验收，未采用。见[本轮中文报告](reports/experiment_A_v1.5_nsc_information.md)、[当前计划](PLAN.md)、[实际连续方案](docs/continuous_nsc_science_v15.md)。
+
+
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
 当前分支v1.4研究真正全波段的天测信息、共同参考系与相关误差，保留v1.3 C0/W0 r-only科学基准。已完成184核心七band库存、104核心参考替换、固定暗星年度验证、独立误差与联合g色项试验。B暗星位置与一处辅助区QSO有实测收益，但新增源绝对零点未解决；保留C0/W0，不冻结新multi方法或启动完整连续区／全覆盖生产。[本轮实测与统计图](reports/experiment_A_v1.4_allband.md) · [八阶段计划](PLAN.md)

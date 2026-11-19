@@ -1,0 +1,81 @@
+{
+  "conditions": {
+    "south": {
+      "core": "w010_080_00_00",
+      "window": "w010_080",
+      "acquisition": {
+        "objects": 109882,
+        "archive_objects_without_measures": 0,
+        "measurement_route": "datalab_native_archive_join",
+        "native_count_window": true,
+        "downloaded_nsc_measures": 1851408,
+        "chip_metadata_entries": 8059,
+        "sdss_measures": 43949,
+        "sdss_fields": 151,
+        "gaia_positions": 4221,
+        "elapsed_seconds": 101.89422915899922,
+        "peak_rss_mib": 3862.21875,
+        "normalized_detections": 1895357,
+        "sdss_r_measurements_preserved": 43949,
+        "availability_of_historical_r_input": false,
+        "new_nsc_measures": null,
+        "all_nsc_object_selection": true
+      },
+      "source_sha256": "c9609bfcc311b36eaea39022149d78e79d3d475e08b74b5db07cd09c142ee70c",
+      "reference_sha256": "29a19e2cfdfacc2d47dc53b39de90b61f9a23c01fb42cae00ae88551de292b5e",
+      "reference_rows": 190169
+    },
+    "equatorial": {
+      "core": "w010_090_00_00",
+      "window": "w010_090",
+      "acquisition": {
+        "objects": 127147,
+        "archive_objects_without_measures": 0,
+        "measurement_route": "datalab_native_archive_join",
+        "native_count_window": true,
+        "downloaded_nsc_measures": 1969155,
+        "chip_metadata_entries": 8350,
+        "sdss_measures": 587024,
+        "sdss_fields": 1734,
+        "gaia_positions": 4339,
+        "elapsed_seconds": 333.03665561199887,
+        "peak_rss_mib": 5179.31640625,
+        "normalized_detections": 2556179,
+        "sdss_r_measurements_preserved": 587024,
+        "availability_of_historical_r_input": false,
+        "new_nsc_measures": null,
+        "all_nsc_object_selection": true
+      },
+      "source_sha256": "beb97c9bae472d0157e1290e223898755821872fd9939e52fd9bec545dfdb915",
+      "reference_sha256": "2be19b41b40e913f8956bcb4ab2eb8ffa3e0c74d548935e50759b3df365955ee",
+      "reference_rows": 423490
+    },
+    "north": {
+      "core": "w010_110_00_00",
+      "window": "w010_110",
+      "acquisition": {
+        "objects": 53508,
+        "archive_objects_without_measures": 0,
+        "measurement_route": "datalab_native_archive_join",
+        "native_count_window": true,
+        "downloaded_nsc_measures": 251007,
+        "chip_metadata_entries": 1522,
+        "sdss_measures": 38628,
+        "sdss_fields": 148,
+        "gaia_positions": 5504,
+        "elapsed_seconds": 74.27069116900384,
+        "peak_rss_mib": 844.2890625,
+        "normalized_detections": 289635,
+        "sdss_r_measurements_preserved": 38628,
+        "availability_of_historical_r_input": false,
+        "new_nsc_measures": null,
+        "all_nsc_object_selection": true
+      },
+      "source_sha256": "08574c7e9351e60227dcc3ee1e4510dcd764c2e1549b68867f9f47d843c5a249",
+      "reference_sha256": "3a66da2326f33bb1045cd3a256d2402c909a37af5b7d74dda2fd92c9fdf03f61",
+      "reference_rows": 48667
+    }
+  },
+  "slurm_job": "61578654",
+  "source_commit": "1baee96dbc53e829e8acfc75966aacbf0b6985b6"
+}

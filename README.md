@@ -2,7 +2,7 @@
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**
 
-当前v1.3完成新增226.963平方度与冻结保留区验证。重复扫描有条件性收益，普通单扫描未显示普遍优势；真实跨参考图差异和支持缺口尚未解决。当前保留C0研究版本，不启动全覆盖正式生产。[最终结论与统计图](reports/experiment_A_v1.3_conditions.md)
+当前分支v1.4研究真正全波段的天测信息、共同参考系与相关误差，保留v1.3 C0/W0 r-only科学基准。已完成184核心七band库存及104核心固定QSO参考替换，初步全band精度有正有负；新模型和新增源尚未通过采用验证，不启动全覆盖正式生产。[本轮实测与统计图](reports/experiment_A_v1.4_allband.md) · [八阶段计划](PLAN.md)
 
 - [项目主线与当前证据](PROJECT_CONTEXT.md)
 - [实验 A v1.3 观测条件研究](reports/experiment_A_v1.3_conditions.md) · [实际方法审计](docs/method_audit_v13.md) · [预登记与复现](docs/conditions_protocol_v13.md)

@@ -1,0 +1,13 @@
+{
+  "selected": {
+    "Y_single_night": "a_01_01",
+    "Y_multiple_nights": "b_21_01",
+    "VR_multiple_years": "b_01_10",
+    "90Prime_instrument": "north_one_00_01",
+    "u_support_sensitivity": "a_09_00"
+  },
+  "selection_basis": "First lexical core satisfying physical inventory criteria, except the already registered a_09_00 u core. No proper-motion, QSO residual or model gain read.",
+  "purpose": "Separate one-night centroid information from additional years, test VR and 90Prime, and test u only if a research support trial retains complete reference covariance.",
+  "interpretation": "Auxiliary coverage challenges, not a representative prevalence or never-opened independent sky test; all cores were in v1.3. No new-band result used to choose them.",
+  "inventory_sha256": "845a02f64236f74ce7a5575bec67be3c5b3185dca8adea1d59d826068a63de8c"
+}

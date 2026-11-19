@@ -57,7 +57,7 @@ def run(work,probe_work,sas):
             offsets=np.stack([table[names['OFFSETRA']],table[names['OFFSETDEC']]],axis=-1)
             stats={}
             for j,band in enumerate(BANDS):
-                stats[band]={}
+                stats[band]={'coefficient_roundoff_half_ulp_mas':{k:float(abs(np.spacing(np.float32(field[k][j]))))*3600000/2 for k in ('A','D')}}
                 for colour_key in ('PSFMAG','MODELMAG'):
                     if colour_key not in names:continue
                     mag=np.asarray(table[names[colour_key]],float)
@@ -75,10 +75,14 @@ def run(work,probe_work,sas):
                         x=row[valid]+sign*float(field.get('ROWOFFSET',np.zeros(5))[j]);y=col[valid]+sign*float(field.get('COLOFFSET',np.zeros(5))[j])
                         sky=wcs_position(x,y,color[valid],field,j,node,incl)
                         residual=project(*sky,centers)-target
-                        variants[label]=dict(n=int(valid.sum()),median_mas=np.median(residual,axis=0),radial_p68_mas=float(np.quantile(np.linalg.norm(residual,axis=1),.68)))
+                        median=np.median(residual,axis=0)
+                        variants[label]=dict(n=int(valid.sum()),median_mas=median,radial_p68_mas=float(np.quantile(np.linalg.norm(residual,axis=1),.68)),
+                            recentered_radial_p68_mas=float(np.quantile(np.linalg.norm(residual-median,axis=1),.68)),
+                            nmad_mas=1.4826*np.median(abs(residual-median),axis=0))
                     stats[band][colour_key]=variants
             output.append(dict(photoobj_sha256=digest(a),photofield_sha256=digest(b),band_wcs_offset_reconstruction=stats))
     result=dict(physical_fields=len(output),fields=output,slurm_job=os.environ['SLURM_JOB_ID'],
+        coefficient_precision_note='A/D are actual float32 FITS 5E coefficients. Their half-ULP gives a possible constant great-circle-coordinate roundoff, not a target centroid error. Recentered residual is a diagnostic, not a new astrometric correction.',
         scope='Position-only reconstruction from published row/column, optical-distortion/DCR and affine coefficients; compares exact published per-band angular offsets. No proper-motion truth, no extra astrometric correction. Scalar r errors are not cloned.',
         adoption='Not approved for joint fitting yet: centroid/WCS covariance, shared-scan errors, per-band detection flags and independent held-object validation still required.')
     check_aggregate(result);save_json(work/'sdss_position_check_summary.json',result)

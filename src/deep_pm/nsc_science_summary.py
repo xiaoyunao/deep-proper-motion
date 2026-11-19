@@ -69,7 +69,8 @@ def public_core_summary(summary,spec):
 
 
 def run(state,geometry,output):
-    config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']);graph=original/'shared/private_c0.npz';graph_hash=digest(graph)
+    config=tomllib.loads(geometry.read_text());plan=json.loads((state/'private_frozen_plan.json').read_text());fits=json.loads((state/'fits.json').read_text());original=Path(plan['original_state']) if 'original_state' in plan else None;graph=Path(plan['reference_graph']) if 'reference_graph' in plan else original/'shared/private_c0.npz';graph_hash=digest(graph)
+    old_fits=json.loads((original/'fits.json').read_text()) if original else {}
     if graph_hash!=plan['reference_sha256']:raise ValueError('Frozen common graph changed')
     supported_groups=frozenset(read_offsets(graph))
     known=[];blind=[];by_class=defaultdict(list);spatial={};frames=[];receipts={};members={};crossclaims=0;outside=0;replay=[];acquisitions=[];unmatched_old=0;core_input_counts=Counter();qualified_core_bands=Counter();quality_flags=Counter();all_classes=Counter();historical={};legacy_missing_position=0
@@ -102,8 +103,10 @@ def run(state,geometry,output):
         frames.append(pd.DataFrame(points,columns=['ra','dec','pm_east','pm_north'],dtype=float).assign(core=core))
         # Actual individual QSO vectors are pooled, never medians of per-core P68.
         raw=json.loads((folder/'private_known_qso_blocks.json').read_text());lookup={m:{r['validation_local_index']:standard_block(r,plan_center(folder)) for r in raw[m]} for m in METHODS}
-        oldfolder=Path(json.loads((original/'fits.json').read_text())[core]);oldrows=json.loads((oldfolder/'private_qso_blocks.json').read_text());oldpoints={}
-        historical[core]=legacy_tangent_replay(oldrows,raw['r_legacy_quality'])
+        oldpoints={};oldrows=[]
+        if core in old_fits:
+            oldfolder=Path(old_fits[core]);oldrows=json.loads((oldfolder/'private_qso_blocks.json').read_text())
+        if core in old_fits:historical[core]=legacy_tangent_replay(oldrows,raw['r_legacy_quality'])
         legacy_missing_position+=sum('position_deg' not in row or 'motion_icrs' not in row for row in oldrows)
         oldrows=[row for row in oldrows if 'position_deg' in row and 'motion_icrs' in row]
         # Fixed spectral identity comes from source spectra index, not PM closeness.
@@ -121,7 +124,7 @@ def run(state,geometry,output):
             known.append(dict(magnitude=r['magnitude'],shape_class=shape_class,sdss_runs=len([e for e in r['exposures'] if e.startswith('SDSS:')]),nsc_span=allrow['nsc_span_years'],values=values,exposures=allrow['exposures'],nsc_epoch_days=allrow['nsc_nights_utc18']))
             if k in oldpoints and oldpoints[k]['exposures']==r['exposures']:
                 old=oldpoints[k];replay.append(dict(pm_delta=np.asarray(r['motion']['C0'])-old['motion']['C0'],error_delta=np.asarray(r['error_icrs']['C0'])-old['error_icrs']['C0']))
-            else:unmatched_old+=1
+            elif core in old_fits:unmatched_old+=1
         blind.extend(json.loads((folder/'private_blind_qso.json').read_text()))
     ownership=close_pairs(pd.concat(frames,ignore_index=True));ownership.update(outside_common_epoch_owner=outside,cross_core_shared_detection_claims=crossclaims)
     catalogue_classes={k:dict(research_fits=len(v),information=summarize_information(v)) for k,v in by_class.items()}

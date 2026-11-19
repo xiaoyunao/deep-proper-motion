@@ -2,7 +2,9 @@
 
 项目研究较早的 SDSS 单历元位置、独立的 NSC DR2 单曝光位置与联合天测校准，能否改善普通恒星和缺少 Gaia 自行的暗星测量。Xiao et al. (2025) 用 SDSS 与 Legacy Surveys 的两端位置估计自行；本项目检验多历元采样和公共位置误差的独立贡献。 [Xiao et al. (2025)](https://doi.org/10.3847/1538-3881/adb72c) · [官方 NSC](https://datalab.noirlab.edu/data/nsc)
 
-**当前阶段 v1.5 已完成（2026-11-19）**：基于b23f8ef，SDSS每物理run仅发布r位置，NSC全部实际合格band；连续C原统一C0/W0图下完成99.873124平方度／91核心，481945科研解，物理r控制384219，增加97726（25.43%）。普通单SDSS run的2279／1071个严格共同QSO，21–22／22–23 P68从r-only 11.462／16.401降至9.458／12.771mas/yr，改善17.5%／22.1%；相对Xiao2025地基改善18.7%／29.6%。**科学主线有价值，C0/W0全NSC冻结为科研版本，最终暗星生产方法尚未采用。** 原v1.2固定地理普通区的21–22相对Xiao仅约5%改善且run重权95%跨零，22–23改善约13.6%且组权区间5.4–23.3%；地理普通区与单run不是同样本。单SDSS run不等于NSC普遍稀疏，B／北一条件负结果不被C平均抹去。[中文报告](reports/experiment_A_v1.5_nsc_information.md) · [统计](results/summary/v15_continuous_science_summary.json) · [精度图](figures/v15_continuous_precision_summary.png) · [精简审阅统计](results/summary/v15_science_overview_summary.json) · [当前计划](PLAN.md)。
+**当前研究 v1.6** 从 `71e41f8` 继续，查明新增源零点和单／多 SDSS run 形式误差覆盖差异。北二区采用既有几何登记的 72 核心，测试全 NSC 波段的独立区域迁移。历史 r-only 结果已解封。数据及模型继续按独立回执管理。[当前计划](PLAN.md)。
+
+**冻结基准 v1.5 已完成（2026-11-19）**：基于b23f8ef，SDSS每物理run仅发布r位置，NSC全部实际合格band；连续C原统一C0/W0图下完成99.873124平方度／91核心，481945科研解，物理r控制384219，增加97726（25.43%）。普通单SDSS run的2279／1071个严格共同QSO，21–22／22–23 P68从r-only 11.462／16.401降至9.458／12.771mas/yr，改善17.5%／22.1%；相对Xiao2025地基改善18.7%／29.6%。**科学主线有价值，C0/W0全NSC冻结为科研版本，最终暗星生产方法尚未采用。** 原v1.2固定地理普通区的21–22相对Xiao仅约5%改善且run重权95%跨零，22–23改善约13.6%且组权区间5.4–23.3%；地理普通区与单run不是同样本。单SDSS run不等于NSC普遍稀疏，B／北一条件负结果不被C平均抹去。[中文报告](reports/experiment_A_v1.5_nsc_information.md) · [统计](results/summary/v15_continuous_science_summary.json) · [精度图](figures/v15_continuous_precision_summary.png) · [精简审阅统计](results/summary/v15_science_overview_summary.json) · [当前计划](PLAN.md)。
 
 完整曝光／Y实足迹确认r索引漏测，全C已取消该条件；但B和北一多几万检测只增加18／1个冻结测试年训练候选。21–23全历元追加r锚点53291、非r锚点290都是科研解，后者QSO仅0／2不足认证。C追加QSO北向约−0.82／−0.76mas/yr，形式误差单run与多run覆盖不同；DCR和学习误差均未获得统一独立收益，不采用。整年重现高不等于身份／绝对零点已认证，272条旧r未归入r_existing亦保留为失败审计问题。原C普通／重复控制18／528个QSO的冻结成员重放全为零差；重复控制主要改善发生在加入原r观测夜的其他band质心，而不只是新增夜。u／Y／VR在相应QSO子样本无统一精度增益，保留全部实际band机会和负结果，不据此设白名单。当前不启动全覆盖正式生产。
 

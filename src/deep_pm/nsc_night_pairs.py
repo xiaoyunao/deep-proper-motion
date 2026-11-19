@@ -46,6 +46,36 @@ def choose_pairs(block):
     return by_class
 
 
+def paired_night_contrast(rows):
+    same, different = (np.asarray([r[j][:3] for r in rows]) for j in (0,1))
+    nights = np.asarray([list(r[0][3])+list(r[1][3]) for r in rows])
+    same_nights = len(np.unique(nights[:,0]))
+    result = dict(comparisons=len(rows),same_arm_nights=same_nights,
+                  different_arm_nights=len(np.unique(nights[:,2:])))
+    if len(rows)<50 or same_nights<5:
+        return result
+
+    def variance(data):
+        y = data[:,0]
+        scatter = (1.4826*np.median(abs(y-np.median(y,axis=0)),axis=0))**2
+        return scatter - np.median(data[:,1]+data[:,2],axis=0)
+
+    # Native and the synchronized-reference difference enter each arm explicitly.
+    # Variance difference over two estimates a common variance only if the
+    # remaining marginals are equal in the two arms.
+    delta = (variance(different)-variance(same))/2
+    groups = [np.flatnonzero(nights[:,0]==day) for day in np.unique(nights[:,0])]
+    rng = np.random.default_rng(9319)
+    draws = []
+    for draw in rng.integers(len(groups),size=(320,len(groups))):
+        index = np.concatenate([groups[i] for i in draw])
+        draws.append((variance(different[index])-variance(same[index]))/2)
+    return dict(result,common_variance_proxy_mas2=delta,
+                same_arm_block_sensitivity95_mas2=np.quantile(draws,[.025,.975],axis=0).T,
+                same_night=robust_statistics(*same.transpose(1,0,2)),
+                different_night=robust_statistics(*different.transpose(1,0,2)))
+
+
 def run(work, state, plan_path):
     plan = json.loads(plan_path.read_text())
     graph = (Path(plan['original_state'])/'shared/private_c0.npz')
@@ -59,6 +89,8 @@ def run(work, state, plan_path):
     reference_files = {}
     taken = set()
     samples = defaultdict(list)
+    paired = defaultdict(list)
+    paired_seen = set()
     exposure_pairs = defaultdict(set)
     night_sets = defaultdict(set)
     for core in cores:
@@ -89,20 +121,27 @@ def run(work, state, plan_path):
             split = int.from_bytes(hashlib.sha256(identity.encode()).digest()[:2],'big') % 3
             role = 'held' if split==0 else 'development'
             pairs = choose_pairs(list(frame.itertuples(index=False)))
+            current = defaultdict(dict)
             for (family,route),(_,a,b) in pairs.items():
-                guard = identity,family,route
-                if guard in taken:
-                    continue
-                taken.add(guard)
                 va,vb = solution[a.group],solution[b.group]
                 y = (np.array([b.east,b.north])-vb[0]) - (np.array([a.east,a.north])-va[0])
                 native = np.square([a.sigma_east_mas,a.sigma_north_mas])+np.square([b.sigma_east_mas,b.sigma_north_mas])
                 refvar = np.var(vb[1]-va[1],axis=0,ddof=1)
+                current[family][route] = y,native,refvar,(a.night,b.night)
+                guard = identity,family,route
+                if guard in taken:
+                    continue
+                taken.add(guard)
                 key = '/'.join((*family,role,route))
                 samples[key].append((y,native,refvar))
                 exposure_pairs[key].add((a.group,b.group))
                 night_sets[key].update([a.night,b.night])
                 added += 1
+            for family,arms in current.items():
+                guard = identity,family
+                if len(arms)==2 and guard not in paired_seen:
+                    paired_seen.add(guard)
+                    paired['/'.join((*family,role))].append((arms['same_night'],arms['different_night']))
         print(core, len(ref), added, flush=True)
     report = {}
     for key, rows in samples.items():
@@ -111,8 +150,9 @@ def run(work, state, plan_path):
             stats.update(robust_statistics(*(np.asarray(v) for v in zip(*rows))))
         report[key] = stats
     result = dict(cores=cores, reference_shard_receipts=reference_files, comparison_cells=report,
+                  same_galaxy_contrasts={k:paired_night_contrast(v) for k,v in paired.items()},
                   graph_sha256=digest(graph), slurm_job=os.environ['SLURM_JOB_ID'],
-                  scope='C0 holdout galaxies only. Same instrument and unordered filter pair, distinct exposures, adjacent pairs within 30 days. Closest eligible pair per galaxy/route/family, first registered core in overlaps. Development and held galaxy identities disjoint. Same and different night comparison populations can differ. Pair bootstrap uses the variance of the synchronized reference difference; observed variance also includes galaxy centroid/seeing variation and unmodeled exposure effects. This is an identifiability diagnostic, not a fitted night covariance.')
+                  scope='C0 holdout galaxies only. Same instrument and unordered filter pair, distinct exposures, adjacent pairs within 30 days. Closest eligible pair per galaxy/route/family, first registered core in overlaps. Development and held galaxy identities disjoint. Same and different night comparison populations can differ. Pair bootstrap uses the variance of the synchronized reference difference; observed variance also includes galaxy centroid/seeing variation and unmodeled exposure effects. Paired contrasts use identical galaxies in both arms. The same-arm night bootstrap describes sensitivity to that side of the sampling and cannot rule out dependence through shared between-night exposures. Instrument-wide night covariance requires positive, consistent proxy across supported filter combinations in both splits, with shared-marginal assumptions and target verification.')
     check_aggregate(result)
     save_json(work/'night_pair_summary.json',result)
 

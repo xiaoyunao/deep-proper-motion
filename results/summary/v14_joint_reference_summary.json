@@ -1,0 +1,1892 @@
+{
+  "projection_center_deg": [
+    188.0,
+    33.0
+  ],
+  "counts": {
+    "candidate_rows": 5651907,
+    "conflicting_match_rows": 0,
+    "multiple_exposure_rows": 0,
+    "unique_rows": 4637152
+  },
+  "by_survey": {
+    "SDSS": 60,
+    "NSC": 1376
+  },
+  "cores": {
+    "north_one_00_00": {
+      "reference_rows": 56519,
+      "safe_groups": 45,
+      "unsupported_groups": 0
+    },
+    "north_one_00_01": {
+      "reference_rows": 47349,
+      "safe_groups": 43,
+      "unsupported_groups": 0
+    },
+    "north_one_00_10": {
+      "reference_rows": 66377,
+      "safe_groups": 43,
+      "unsupported_groups": 0
+    },
+    "north_one_00_11": {
+      "reference_rows": 51081,
+      "safe_groups": 42,
+      "unsupported_groups": 0
+    },
+    "north_one_01_00": {
+      "reference_rows": 46171,
+      "safe_groups": 49,
+      "unsupported_groups": 0
+    },
+    "north_one_01_01": {
+      "reference_rows": 54984,
+      "safe_groups": 65,
+      "unsupported_groups": 0
+    },
+    "north_one_01_10": {
+      "reference_rows": 59310,
+      "safe_groups": 56,
+      "unsupported_groups": 0
+    },
+    "north_one_01_11": {
+      "reference_rows": 88550,
+      "safe_groups": 65,
+      "unsupported_groups": 0
+    },
+    "north_one_02_00": {
+      "reference_rows": 62540,
+      "safe_groups": 78,
+      "unsupported_groups": 0
+    },
+    "north_one_02_01": {
+      "reference_rows": 61414,
+      "safe_groups": 84,
+      "unsupported_groups": 1
+    },
+    "north_one_02_10": {
+      "reference_rows": 70675,
+      "safe_groups": 80,
+      "unsupported_groups": 0
+    },
+    "north_one_02_11": {
+      "reference_rows": 71318,
+      "safe_groups": 83,
+      "unsupported_groups": 0
+    },
+    "north_one_05_00": {
+      "reference_rows": 61384,
+      "safe_groups": 42,
+      "unsupported_groups": 0
+    },
+    "north_one_05_01": {
+      "reference_rows": 53928,
+      "safe_groups": 41,
+      "unsupported_groups": 0
+    },
+    "north_one_05_10": {
+      "reference_rows": 64449,
+      "safe_groups": 42,
+      "unsupported_groups": 0
+    },
+    "north_one_05_11": {
+      "reference_rows": 52774,
+      "safe_groups": 42,
+      "unsupported_groups": 0
+    },
+    "north_one_06_00": {
+      "reference_rows": 65157,
+      "safe_groups": 49,
+      "unsupported_groups": 0
+    },
+    "north_one_06_01": {
+      "reference_rows": 83881,
+      "safe_groups": 79,
+      "unsupported_groups": 0
+    },
+    "north_one_06_10": {
+      "reference_rows": 55430,
+      "safe_groups": 53,
+      "unsupported_groups": 0
+    },
+    "north_one_06_11": {
+      "reference_rows": 86943,
+      "safe_groups": 63,
+      "unsupported_groups": 0
+    },
+    "north_one_07_00": {
+      "reference_rows": 85790,
+      "safe_groups": 80,
+      "unsupported_groups": 0
+    },
+    "north_one_07_01": {
+      "reference_rows": 63703,
+      "safe_groups": 72,
+      "unsupported_groups": 0
+    },
+    "north_one_07_10": {
+      "reference_rows": 84788,
+      "safe_groups": 86,
+      "unsupported_groups": 0
+    },
+    "north_one_07_11": {
+      "reference_rows": 61754,
+      "safe_groups": 85,
+      "unsupported_groups": 0
+    },
+    "north_one_10_00": {
+      "reference_rows": 73189,
+      "safe_groups": 44,
+      "unsupported_groups": 0
+    },
+    "north_one_10_01": {
+      "reference_rows": 63729,
+      "safe_groups": 49,
+      "unsupported_groups": 0
+    },
+    "north_one_10_10": {
+      "reference_rows": 56181,
+      "safe_groups": 44,
+      "unsupported_groups": 0
+    },
+    "north_one_10_11": {
+      "reference_rows": 56714,
+      "safe_groups": 47,
+      "unsupported_groups": 0
+    },
+    "north_one_11_00": {
+      "reference_rows": 71085,
+      "safe_groups": 59,
+      "unsupported_groups": 0
+    },
+    "north_one_11_01": {
+      "reference_rows": 63141,
+      "safe_groups": 71,
+      "unsupported_groups": 0
+    },
+    "north_one_11_10": {
+      "reference_rows": 61937,
+      "safe_groups": 53,
+      "unsupported_groups": 0
+    },
+    "north_one_11_11": {
+      "reference_rows": 64367,
+      "safe_groups": 65,
+      "unsupported_groups": 0
+    },
+    "north_one_12_00": {
+      "reference_rows": 78664,
+      "safe_groups": 79,
+      "unsupported_groups": 0
+    },
+    "north_one_12_01": {
+      "reference_rows": 61441,
+      "safe_groups": 82,
+      "unsupported_groups": 0
+    },
+    "north_one_12_10": {
+      "reference_rows": 68740,
+      "safe_groups": 76,
+      "unsupported_groups": 0
+    },
+    "north_one_12_11": {
+      "reference_rows": 51275,
+      "safe_groups": 77,
+      "unsupported_groups": 0
+    },
+    "north_one_14_00": {
+      "reference_rows": 17252,
+      "safe_groups": 44,
+      "unsupported_groups": 2
+    },
+    "north_one_14_01": {
+      "reference_rows": 15979,
+      "safe_groups": 47,
+      "unsupported_groups": 0
+    },
+    "north_one_14_10": {
+      "reference_rows": 19091,
+      "safe_groups": 56,
+      "unsupported_groups": 0
+    },
+    "north_one_14_11": {
+      "reference_rows": 17452,
+      "safe_groups": 58,
+      "unsupported_groups": 0
+    },
+    "north_one_15_00": {
+      "reference_rows": 48816,
+      "safe_groups": 38,
+      "unsupported_groups": 0
+    },
+    "north_one_15_01": {
+      "reference_rows": 48711,
+      "safe_groups": 48,
+      "unsupported_groups": 0
+    },
+    "north_one_15_10": {
+      "reference_rows": 42778,
+      "safe_groups": 41,
+      "unsupported_groups": 0
+    },
+    "north_one_15_11": {
+      "reference_rows": 41370,
+      "safe_groups": 48,
+      "unsupported_groups": 0
+    },
+    "north_one_16_00": {
+      "reference_rows": 59571,
+      "safe_groups": 58,
+      "unsupported_groups": 0
+    },
+    "north_one_16_01": {
+      "reference_rows": 52398,
+      "safe_groups": 65,
+      "unsupported_groups": 0
+    },
+    "north_one_16_10": {
+      "reference_rows": 43468,
+      "safe_groups": 55,
+      "unsupported_groups": 0
+    },
+    "north_one_16_11": {
+      "reference_rows": 50972,
+      "safe_groups": 58,
+      "unsupported_groups": 0
+    },
+    "north_one_17_00": {
+      "reference_rows": 67018,
+      "safe_groups": 82,
+      "unsupported_groups": 0
+    },
+    "north_one_17_01": {
+      "reference_rows": 44179,
+      "safe_groups": 73,
+      "unsupported_groups": 0
+    },
+    "north_one_17_10": {
+      "reference_rows": 48601,
+      "safe_groups": 86,
+      "unsupported_groups": 0
+    },
+    "north_one_17_11": {
+      "reference_rows": 48030,
+      "safe_groups": 72,
+      "unsupported_groups": 0
+    },
+    "north_one_19_00": {
+      "reference_rows": 22444,
+      "safe_groups": 55,
+      "unsupported_groups": 0
+    },
+    "north_one_19_01": {
+      "reference_rows": 16819,
+      "safe_groups": 57,
+      "unsupported_groups": 0
+    },
+    "north_one_19_10": {
+      "reference_rows": 26144,
+      "safe_groups": 81,
+      "unsupported_groups": 5
+    },
+    "north_one_19_11": {
+      "reference_rows": 20089,
+      "safe_groups": 60,
+      "unsupported_groups": 2
+    },
+    "north_one_20_00": {
+      "reference_rows": 37586,
+      "safe_groups": 37,
+      "unsupported_groups": 0
+    },
+    "north_one_20_01": {
+      "reference_rows": 44088,
+      "safe_groups": 42,
+      "unsupported_groups": 0
+    },
+    "north_one_20_10": {
+      "reference_rows": 35069,
+      "safe_groups": 35,
+      "unsupported_groups": 0
+    },
+    "north_one_20_11": {
+      "reference_rows": 40677,
+      "safe_groups": 44,
+      "unsupported_groups": 0
+    },
+    "north_one_21_00": {
+      "reference_rows": 41439,
+      "safe_groups": 50,
+      "unsupported_groups": 0
+    },
+    "north_one_21_01": {
+      "reference_rows": 46254,
+      "safe_groups": 54,
+      "unsupported_groups": 1
+    },
+    "north_one_21_10": {
+      "reference_rows": 40044,
+      "safe_groups": 50,
+      "unsupported_groups": 0
+    },
+    "north_one_21_11": {
+      "reference_rows": 49446,
+      "safe_groups": 54,
+      "unsupported_groups": 2
+    },
+    "north_one_22_00": {
+      "reference_rows": 57782,
+      "safe_groups": 83,
+      "unsupported_groups": 1
+    },
+    "north_one_22_01": {
+      "reference_rows": 61535,
+      "safe_groups": 74,
+      "unsupported_groups": 0
+    },
+    "north_one_22_10": {
+      "reference_rows": 57340,
+      "safe_groups": 80,
+      "unsupported_groups": 3
+    },
+    "north_one_22_11": {
+      "reference_rows": 63819,
+      "safe_groups": 81,
+      "unsupported_groups": 1
+    },
+    "north_three_00_00": {
+      "reference_rows": 39964,
+      "safe_groups": 39,
+      "unsupported_groups": 0
+    },
+    "north_three_00_01": {
+      "reference_rows": 36651,
+      "safe_groups": 46,
+      "unsupported_groups": 0
+    },
+    "north_three_00_10": {
+      "reference_rows": 43876,
+      "safe_groups": 37,
+      "unsupported_groups": 0
+    },
+    "north_three_00_11": {
+      "reference_rows": 39702,
+      "safe_groups": 43,
+      "unsupported_groups": 0
+    },
+    "north_three_01_00": {
+      "reference_rows": 38942,
+      "safe_groups": 48,
+      "unsupported_groups": 0
+    },
+    "north_three_01_01": {
+      "reference_rows": 45013,
+      "safe_groups": 57,
+      "unsupported_groups": 2
+    },
+    "north_three_01_10": {
+      "reference_rows": 39465,
+      "safe_groups": 38,
+      "unsupported_groups": 0
+    },
+    "north_three_01_11": {
+      "reference_rows": 51827,
+      "safe_groups": 57,
+      "unsupported_groups": 0
+    },
+    "north_three_02_00": {
+      "reference_rows": 57589,
+      "safe_groups": 88,
+      "unsupported_groups": 3
+    },
+    "north_three_02_01": {
+      "reference_rows": 78573,
+      "safe_groups": 89,
+      "unsupported_groups": 1
+    },
+    "north_three_02_10": {
+      "reference_rows": 79198,
+      "safe_groups": 81,
+      "unsupported_groups": 0
+    },
+    "north_three_02_11": {
+      "reference_rows": 64755,
+      "safe_groups": 82,
+      "unsupported_groups": 0
+    },
+    "north_three_06_00": {
+      "reference_rows": 47844,
+      "safe_groups": 43,
+      "unsupported_groups": 0
+    },
+    "north_three_06_01": {
+      "reference_rows": 59876,
+      "safe_groups": 62,
+      "unsupported_groups": 0
+    },
+    "north_three_06_10": {
+      "reference_rows": 50104,
+      "safe_groups": 48,
+      "unsupported_groups": 0
+    },
+    "north_three_06_11": {
+      "reference_rows": 54429,
+      "safe_groups": 64,
+      "unsupported_groups": 0
+    },
+    "north_three_07_00": {
+      "reference_rows": 72122,
+      "safe_groups": 73,
+      "unsupported_groups": 0
+    },
+    "north_three_07_01": {
+      "reference_rows": 49519,
+      "safe_groups": 83,
+      "unsupported_groups": 0
+    },
+    "north_three_07_10": {
+      "reference_rows": 75195,
+      "safe_groups": 65,
+      "unsupported_groups": 0
+    },
+    "north_three_07_11": {
+      "reference_rows": 36797,
+      "safe_groups": 75,
+      "unsupported_groups": 0
+    },
+    "north_three_11_00": {
+      "reference_rows": 51146,
+      "safe_groups": 45,
+      "unsupported_groups": 0
+    },
+    "north_three_11_01": {
+      "reference_rows": 61800,
+      "safe_groups": 55,
+      "unsupported_groups": 0
+    },
+    "north_three_11_10": {
+      "reference_rows": 53036,
+      "safe_groups": 53,
+      "unsupported_groups": 0
+    },
+    "north_three_11_11": {
+      "reference_rows": 52719,
+      "safe_groups": 64,
+      "unsupported_groups": 0
+    },
+    "north_three_12_00": {
+      "reference_rows": 71752,
+      "safe_groups": 74,
+      "unsupported_groups": 0
+    },
+    "north_three_12_01": {
+      "reference_rows": 45283,
+      "safe_groups": 67,
+      "unsupported_groups": 1
+    },
+    "north_three_12_10": {
+      "reference_rows": 70946,
+      "safe_groups": 81,
+      "unsupported_groups": 0
+    },
+    "north_three_12_11": {
+      "reference_rows": 51960,
+      "safe_groups": 69,
+      "unsupported_groups": 2
+    },
+    "north_three_17_00": {
+      "reference_rows": 51862,
+      "safe_groups": 88,
+      "unsupported_groups": 0
+    },
+    "north_three_17_01": {
+      "reference_rows": 55906,
+      "safe_groups": 72,
+      "unsupported_groups": 0
+    },
+    "north_three_17_10": {
+      "reference_rows": 61815,
+      "safe_groups": 82,
+      "unsupported_groups": 0
+    },
+    "north_three_17_11": {
+      "reference_rows": 57745,
+      "safe_groups": 73,
+      "unsupported_groups": 0
+    },
+    "north_three_22_00": {
+      "reference_rows": 61983,
+      "safe_groups": 85,
+      "unsupported_groups": 0
+    },
+    "north_three_22_01": {
+      "reference_rows": 59830,
+      "safe_groups": 71,
+      "unsupported_groups": 0
+    },
+    "north_three_22_10": {
+      "reference_rows": 66577,
+      "safe_groups": 80,
+      "unsupported_groups": 1
+    },
+    "north_three_22_11": {
+      "reference_rows": 63113,
+      "safe_groups": 68,
+      "unsupported_groups": 2
+    }
+  },
+  "component_count": 2,
+  "unsupported_groups": 16,
+  "shared_calibrated_groups": 1264,
+  "shared_groups_in_adjacent": {
+    "north_one_00_00__north_one_00_01": {
+      "shared_groups": 17,
+      "common_reference_detections": 4764,
+      "common_holdout_references": 152
+    },
+    "north_one_00_00__north_one_00_10": {
+      "shared_groups": 35,
+      "common_reference_detections": 7096,
+      "common_holdout_references": 167
+    },
+    "north_one_00_01__north_one_00_11": {
+      "shared_groups": 34,
+      "common_reference_detections": 5623,
+      "common_holdout_references": 167
+    },
+    "north_one_00_01__north_one_01_00": {
+      "shared_groups": 33,
+      "common_reference_detections": 6256,
+      "common_holdout_references": 124
+    },
+    "north_one_00_10__north_one_00_11": {
+      "shared_groups": 23,
+      "common_reference_detections": 6034,
+      "common_holdout_references": 174
+    },
+    "north_one_00_10__north_one_05_00": {
+      "shared_groups": 31,
+      "common_reference_detections": 7944,
+      "common_holdout_references": 216
+    },
+    "north_one_00_11__north_one_01_10": {
+      "shared_groups": 26,
+      "common_reference_detections": 5369,
+      "common_holdout_references": 174
+    },
+    "north_one_00_11__north_one_05_01": {
+      "shared_groups": 24,
+      "common_reference_detections": 6017,
+      "common_holdout_references": 217
+    },
+    "north_one_01_00__north_one_01_01": {
+      "shared_groups": 31,
+      "common_reference_detections": 5351,
+      "common_holdout_references": 134
+    },
+    "north_one_01_00__north_one_01_10": {
+      "shared_groups": 32,
+      "common_reference_detections": 4780,
+      "common_holdout_references": 151
+    },
+    "north_one_01_01__north_one_01_11": {
+      "shared_groups": 42,
+      "common_reference_detections": 7073,
+      "common_holdout_references": 163
+    },
+    "north_one_01_01__north_one_02_00": {
+      "shared_groups": 31,
+      "common_reference_detections": 5961,
+      "common_holdout_references": 158
+    },
+    "north_one_01_10__north_one_01_11": {
+      "shared_groups": 33,
+      "common_reference_detections": 9289,
+      "common_holdout_references": 183
+    },
+    "north_one_01_10__north_one_06_00": {
+      "shared_groups": 41,
+      "common_reference_detections": 7240,
+      "common_holdout_references": 166
+    },
+    "north_one_01_11__north_one_02_10": {
+      "shared_groups": 42,
+      "common_reference_detections": 7803,
+      "common_holdout_references": 177
+    },
+    "north_one_01_11__north_one_06_01": {
+      "shared_groups": 53,
+      "common_reference_detections": 7791,
+      "common_holdout_references": 167
+    },
+    "north_one_02_00__north_one_02_01": {
+      "shared_groups": 54,
+      "common_reference_detections": 7901,
+      "common_holdout_references": 155
+    },
+    "north_one_02_00__north_one_02_10": {
+      "shared_groups": 49,
+      "common_reference_detections": 5658,
+      "common_holdout_references": 141
+    },
+    "north_one_02_01__north_one_02_11": {
+      "shared_groups": 58,
+      "common_reference_detections": 7778,
+      "common_holdout_references": 165
+    },
+    "north_one_02_10__north_one_02_11": {
+      "shared_groups": 48,
+      "common_reference_detections": 7287,
+      "common_holdout_references": 151
+    },
+    "north_one_02_10__north_one_07_00": {
+      "shared_groups": 53,
+      "common_reference_detections": 8297,
+      "common_holdout_references": 159
+    },
+    "north_one_02_11__north_one_07_01": {
+      "shared_groups": 45,
+      "common_reference_detections": 5618,
+      "common_holdout_references": 125
+    },
+    "north_one_05_00__north_one_05_01": {
+      "shared_groups": 15,
+      "common_reference_detections": 5339,
+      "common_holdout_references": 171
+    },
+    "north_one_05_00__north_one_05_10": {
+      "shared_groups": 32,
+      "common_reference_detections": 8000,
+      "common_holdout_references": 202
+    },
+    "north_one_05_01__north_one_05_11": {
+      "shared_groups": 34,
+      "common_reference_detections": 6073,
+      "common_holdout_references": 162
+    },
+    "north_one_05_01__north_one_06_00": {
+      "shared_groups": 25,
+      "common_reference_detections": 5927,
+      "common_holdout_references": 197
+    },
+    "north_one_05_10__north_one_05_11": {
+      "shared_groups": 22,
+      "common_reference_detections": 6293,
+      "common_holdout_references": 167
+    },
+    "north_one_05_10__north_one_10_00": {
+      "shared_groups": 32,
+      "common_reference_detections": 8287,
+      "common_holdout_references": 232
+    },
+    "north_one_05_11__north_one_06_10": {
+      "shared_groups": 24,
+      "common_reference_detections": 5645,
+      "common_holdout_references": 133
+    },
+    "north_one_05_11__north_one_10_01": {
+      "shared_groups": 27,
+      "common_reference_detections": 7226,
+      "common_holdout_references": 192
+    },
+    "north_one_06_00__north_one_06_01": {
+      "shared_groups": 38,
+      "common_reference_detections": 10549,
+      "common_holdout_references": 184
+    },
+    "north_one_06_00__north_one_06_10": {
+      "shared_groups": 30,
+      "common_reference_detections": 6008,
+      "common_holdout_references": 162
+    },
+    "north_one_06_01__north_one_06_11": {
+      "shared_groups": 52,
+      "common_reference_detections": 9689,
+      "common_holdout_references": 191
+    },
+    "north_one_06_01__north_one_07_00": {
+      "shared_groups": 48,
+      "common_reference_detections": 11093,
+      "common_holdout_references": 213
+    },
+    "north_one_06_10__north_one_06_11": {
+      "shared_groups": 32,
+      "common_reference_detections": 6498,
+      "common_holdout_references": 166
+    },
+    "north_one_06_10__north_one_11_00": {
+      "shared_groups": 41,
+      "common_reference_detections": 7674,
+      "common_holdout_references": 187
+    },
+    "north_one_06_11__north_one_07_10": {
+      "shared_groups": 39,
+      "common_reference_detections": 9292,
+      "common_holdout_references": 190
+    },
+    "north_one_06_11__north_one_11_01": {
+      "shared_groups": 41,
+      "common_reference_detections": 6485,
+      "common_holdout_references": 165
+    },
+    "north_one_07_00__north_one_07_01": {
+      "shared_groups": 35,
+      "common_reference_detections": 6786,
+      "common_holdout_references": 168
+    },
+    "north_one_07_00__north_one_07_10": {
+      "shared_groups": 57,
+      "common_reference_detections": 10573,
+      "common_holdout_references": 164
+    },
+    "north_one_07_01__north_one_07_11": {
+      "shared_groups": 48,
+      "common_reference_detections": 6297,
+      "common_holdout_references": 140
+    },
+    "north_one_07_10__north_one_07_11": {
+      "shared_groups": 54,
+      "common_reference_detections": 8040,
+      "common_holdout_references": 159
+    },
+    "north_one_07_10__north_one_12_00": {
+      "shared_groups": 49,
+      "common_reference_detections": 7969,
+      "common_holdout_references": 171
+    },
+    "north_one_07_11__north_one_12_01": {
+      "shared_groups": 50,
+      "common_reference_detections": 6466,
+      "common_holdout_references": 163
+    },
+    "north_one_10_00__north_one_10_01": {
+      "shared_groups": 18,
+      "common_reference_detections": 6965,
+      "common_holdout_references": 234
+    },
+    "north_one_10_00__north_one_10_10": {
+      "shared_groups": 34,
+      "common_reference_detections": 7342,
+      "common_holdout_references": 162
+    },
+    "north_one_10_01__north_one_10_11": {
+      "shared_groups": 40,
+      "common_reference_detections": 7199,
+      "common_holdout_references": 195
+    },
+    "north_one_10_01__north_one_11_00": {
+      "shared_groups": 40,
+      "common_reference_detections": 8752,
+      "common_holdout_references": 210
+    },
+    "north_one_10_10__north_one_10_11": {
+      "shared_groups": 24,
+      "common_reference_detections": 5431,
+      "common_holdout_references": 171
+    },
+    "north_one_10_10__north_one_15_00": {
+      "shared_groups": 31,
+      "common_reference_detections": 5052,
+      "common_holdout_references": 154
+    },
+    "north_one_10_11__north_one_11_10": {
+      "shared_groups": 34,
+      "common_reference_detections": 7270,
+      "common_holdout_references": 152
+    },
+    "north_one_10_11__north_one_15_01": {
+      "shared_groups": 31,
+      "common_reference_detections": 5071,
+      "common_holdout_references": 148
+    },
+    "north_one_11_00__north_one_11_01": {
+      "shared_groups": 34,
+      "common_reference_detections": 7682,
+      "common_holdout_references": 212
+    },
+    "north_one_11_00__north_one_11_10": {
+      "shared_groups": 38,
+      "common_reference_detections": 7207,
+      "common_holdout_references": 221
+    },
+    "north_one_11_01__north_one_11_11": {
+      "shared_groups": 51,
+      "common_reference_detections": 6663,
+      "common_holdout_references": 151
+    },
+    "north_one_11_01__north_one_12_00": {
+      "shared_groups": 38,
+      "common_reference_detections": 7519,
+      "common_holdout_references": 172
+    },
+    "north_one_11_10__north_one_11_11": {
+      "shared_groups": 26,
+      "common_reference_detections": 7339,
+      "common_holdout_references": 173
+    },
+    "north_one_11_10__north_one_16_00": {
+      "shared_groups": 43,
+      "common_reference_detections": 7111,
+      "common_holdout_references": 152
+    },
+    "north_one_11_11__north_one_12_10": {
+      "shared_groups": 36,
+      "common_reference_detections": 7631,
+      "common_holdout_references": 179
+    },
+    "north_one_11_11__north_one_16_01": {
+      "shared_groups": 49,
+      "common_reference_detections": 6830,
+      "common_holdout_references": 155
+    },
+    "north_one_12_00__north_one_12_01": {
+      "shared_groups": 57,
+      "common_reference_detections": 8612,
+      "common_holdout_references": 165
+    },
+    "north_one_12_00__north_one_12_10": {
+      "shared_groups": 55,
+      "common_reference_detections": 8212,
+      "common_holdout_references": 149
+    },
+    "north_one_12_01__north_one_12_11": {
+      "shared_groups": 49,
+      "common_reference_detections": 6389,
+      "common_holdout_references": 160
+    },
+    "north_one_12_10__north_one_12_11": {
+      "shared_groups": 45,
+      "common_reference_detections": 7428,
+      "common_holdout_references": 158
+    },
+    "north_one_12_10__north_one_17_00": {
+      "shared_groups": 43,
+      "common_reference_detections": 5836,
+      "common_holdout_references": 120
+    },
+    "north_one_12_11__north_one_17_01": {
+      "shared_groups": 45,
+      "common_reference_detections": 3655,
+      "common_holdout_references": 87
+    },
+    "north_one_14_00__north_one_14_01": {
+      "shared_groups": 20,
+      "common_reference_detections": 1668,
+      "common_holdout_references": 83
+    },
+    "north_one_14_00__north_one_14_10": {
+      "shared_groups": 28,
+      "common_reference_detections": 1614,
+      "common_holdout_references": 59
+    },
+    "north_one_14_01__north_one_14_11": {
+      "shared_groups": 30,
+      "common_reference_detections": 1629,
+      "common_holdout_references": 73
+    },
+    "north_one_14_10__north_one_14_11": {
+      "shared_groups": 25,
+      "common_reference_detections": 2156,
+      "common_holdout_references": 76
+    },
+    "north_one_14_10__north_one_19_00": {
+      "shared_groups": 35,
+      "common_reference_detections": 2742,
+      "common_holdout_references": 96
+    },
+    "north_one_14_11__north_one_19_01": {
+      "shared_groups": 34,
+      "common_reference_detections": 2254,
+      "common_holdout_references": 90
+    },
+    "north_one_15_00__north_one_15_01": {
+      "shared_groups": 21,
+      "common_reference_detections": 5197,
+      "common_holdout_references": 157
+    },
+    "north_one_15_00__north_one_15_10": {
+      "shared_groups": 28,
+      "common_reference_detections": 5255,
+      "common_holdout_references": 138
+    },
+    "north_one_15_01__north_one_15_11": {
+      "shared_groups": 38,
+      "common_reference_detections": 5612,
+      "common_holdout_references": 121
+    },
+    "north_one_15_01__north_one_16_00": {
+      "shared_groups": 32,
+      "common_reference_detections": 6214,
+      "common_holdout_references": 173
+    },
+    "north_one_15_10__north_one_15_11": {
+      "shared_groups": 37,
+      "common_reference_detections": 6107,
+      "common_holdout_references": 153
+    },
+    "north_one_15_10__north_one_20_00": {
+      "shared_groups": 31,
+      "common_reference_detections": 4977,
+      "common_holdout_references": 154
+    },
+    "north_one_15_11__north_one_16_10": {
+      "shared_groups": 26,
+      "common_reference_detections": 4323,
+      "common_holdout_references": 132
+    },
+    "north_one_15_11__north_one_20_01": {
+      "shared_groups": 28,
+      "common_reference_detections": 4443,
+      "common_holdout_references": 177
+    },
+    "north_one_16_00__north_one_16_01": {
+      "shared_groups": 30,
+      "common_reference_detections": 6445,
+      "common_holdout_references": 137
+    },
+    "north_one_16_00__north_one_16_10": {
+      "shared_groups": 42,
+      "common_reference_detections": 4975,
+      "common_holdout_references": 147
+    },
+    "north_one_16_01__north_one_16_11": {
+      "shared_groups": 34,
+      "common_reference_detections": 4392,
+      "common_holdout_references": 114
+    },
+    "north_one_16_01__north_one_17_00": {
+      "shared_groups": 43,
+      "common_reference_detections": 5196,
+      "common_holdout_references": 109
+    },
+    "north_one_16_10__north_one_16_11": {
+      "shared_groups": 25,
+      "common_reference_detections": 5220,
+      "common_holdout_references": 164
+    },
+    "north_one_16_10__north_one_21_00": {
+      "shared_groups": 38,
+      "common_reference_detections": 4898,
+      "common_holdout_references": 136
+    },
+    "north_one_16_11__north_one_17_10": {
+      "shared_groups": 45,
+      "common_reference_detections": 6900,
+      "common_holdout_references": 135
+    },
+    "north_one_16_11__north_one_21_01": {
+      "shared_groups": 47,
+      "common_reference_detections": 5902,
+      "common_holdout_references": 139
+    },
+    "north_one_17_00__north_one_17_01": {
+      "shared_groups": 46,
+      "common_reference_detections": 7752,
+      "common_holdout_references": 134
+    },
+    "north_one_17_00__north_one_17_10": {
+      "shared_groups": 54,
+      "common_reference_detections": 6267,
+      "common_holdout_references": 125
+    },
+    "north_one_17_01__north_one_17_11": {
+      "shared_groups": 42,
+      "common_reference_detections": 5136,
+      "common_holdout_references": 154
+    },
+    "north_one_17_10__north_one_17_11": {
+      "shared_groups": 40,
+      "common_reference_detections": 4748,
+      "common_holdout_references": 106
+    },
+    "north_one_17_10__north_one_22_00": {
+      "shared_groups": 54,
+      "common_reference_detections": 5241,
+      "common_holdout_references": 108
+    },
+    "north_one_17_11__north_one_22_01": {
+      "shared_groups": 47,
+      "common_reference_detections": 5834,
+      "common_holdout_references": 127
+    },
+    "north_one_19_00__north_one_19_01": {
+      "shared_groups": 26,
+      "common_reference_detections": 2635,
+      "common_holdout_references": 94
+    },
+    "north_one_19_00__north_one_19_10": {
+      "shared_groups": 30,
+      "common_reference_detections": 2296,
+      "common_holdout_references": 101
+    },
+    "north_one_19_01__north_one_19_11": {
+      "shared_groups": 32,
+      "common_reference_detections": 2002,
+      "common_holdout_references": 82
+    },
+    "north_one_19_10__north_one_19_11": {
+      "shared_groups": 25,
+      "common_reference_detections": 1971,
+      "common_holdout_references": 72
+    },
+    "north_one_20_00__north_one_20_01": {
+      "shared_groups": 25,
+      "common_reference_detections": 5412,
+      "common_holdout_references": 170
+    },
+    "north_one_20_00__north_one_20_10": {
+      "shared_groups": 22,
+      "common_reference_detections": 4138,
+      "common_holdout_references": 154
+    },
+    "north_one_20_01__north_one_20_11": {
+      "shared_groups": 33,
+      "common_reference_detections": 5826,
+      "common_holdout_references": 157
+    },
+    "north_one_20_01__north_one_21_00": {
+      "shared_groups": 22,
+      "common_reference_detections": 4177,
+      "common_holdout_references": 143
+    },
+    "north_one_20_10__north_one_20_11": {
+      "shared_groups": 22,
+      "common_reference_detections": 3986,
+      "common_holdout_references": 136
+    },
+    "north_one_20_10__north_three_00_00": {
+      "shared_groups": 28,
+      "common_reference_detections": 4277,
+      "common_holdout_references": 123
+    },
+    "north_one_20_11__north_one_21_10": {
+      "shared_groups": 26,
+      "common_reference_detections": 4492,
+      "common_holdout_references": 106
+    },
+    "north_one_20_11__north_three_00_01": {
+      "shared_groups": 33,
+      "common_reference_detections": 3407,
+      "common_holdout_references": 112
+    },
+    "north_one_21_00__north_one_21_01": {
+      "shared_groups": 24,
+      "common_reference_detections": 5227,
+      "common_holdout_references": 141
+    },
+    "north_one_21_00__north_one_21_10": {
+      "shared_groups": 37,
+      "common_reference_detections": 5544,
+      "common_holdout_references": 146
+    },
+    "north_one_21_01__north_one_21_11": {
+      "shared_groups": 25,
+      "common_reference_detections": 4178,
+      "common_holdout_references": 133
+    },
+    "north_one_21_01__north_one_22_00": {
+      "shared_groups": 37,
+      "common_reference_detections": 6002,
+      "common_holdout_references": 138
+    },
+    "north_one_21_10__north_one_21_11": {
+      "shared_groups": 30,
+      "common_reference_detections": 4287,
+      "common_holdout_references": 122
+    },
+    "north_one_21_10__north_three_01_00": {
+      "shared_groups": 30,
+      "common_reference_detections": 3619,
+      "common_holdout_references": 130
+    },
+    "north_one_21_11__north_one_22_10": {
+      "shared_groups": 34,
+      "common_reference_detections": 6757,
+      "common_holdout_references": 149
+    },
+    "north_one_21_11__north_three_01_01": {
+      "shared_groups": 44,
+      "common_reference_detections": 6269,
+      "common_holdout_references": 148
+    },
+    "north_one_22_00__north_one_22_01": {
+      "shared_groups": 43,
+      "common_reference_detections": 6560,
+      "common_holdout_references": 123
+    },
+    "north_one_22_00__north_one_22_10": {
+      "shared_groups": 51,
+      "common_reference_detections": 5513,
+      "common_holdout_references": 121
+    },
+    "north_one_22_01__north_one_22_11": {
+      "shared_groups": 43,
+      "common_reference_detections": 6748,
+      "common_holdout_references": 153
+    },
+    "north_one_22_10__north_one_22_11": {
+      "shared_groups": 42,
+      "common_reference_detections": 5905,
+      "common_holdout_references": 132
+    },
+    "north_one_22_10__north_three_02_00": {
+      "shared_groups": 55,
+      "common_reference_detections": 5822,
+      "common_holdout_references": 117
+    },
+    "north_one_22_11__north_three_02_01": {
+      "shared_groups": 57,
+      "common_reference_detections": 8179,
+      "common_holdout_references": 170
+    },
+    "north_three_00_00__north_three_00_01": {
+      "shared_groups": 20,
+      "common_reference_detections": 3746,
+      "common_holdout_references": 132
+    },
+    "north_three_00_00__north_three_00_10": {
+      "shared_groups": 24,
+      "common_reference_detections": 3468,
+      "common_holdout_references": 137
+    },
+    "north_three_00_01__north_three_00_11": {
+      "shared_groups": 31,
+      "common_reference_detections": 4956,
+      "common_holdout_references": 169
+    },
+    "north_three_00_01__north_three_01_00": {
+      "shared_groups": 23,
+      "common_reference_detections": 3604,
+      "common_holdout_references": 143
+    },
+    "north_three_00_10__north_three_00_11": {
+      "shared_groups": 18,
+      "common_reference_detections": 5017,
+      "common_holdout_references": 146
+    },
+    "north_three_00_11__north_three_01_10": {
+      "shared_groups": 22,
+      "common_reference_detections": 3274,
+      "common_holdout_references": 97
+    },
+    "north_three_01_00__north_three_01_01": {
+      "shared_groups": 35,
+      "common_reference_detections": 4201,
+      "common_holdout_references": 127
+    },
+    "north_three_01_00__north_three_01_10": {
+      "shared_groups": 35,
+      "common_reference_detections": 5007,
+      "common_holdout_references": 136
+    },
+    "north_three_01_01__north_three_01_11": {
+      "shared_groups": 35,
+      "common_reference_detections": 4168,
+      "common_holdout_references": 130
+    },
+    "north_three_01_01__north_three_02_00": {
+      "shared_groups": 31,
+      "common_reference_detections": 4559,
+      "common_holdout_references": 108
+    },
+    "north_three_01_10__north_three_01_11": {
+      "shared_groups": 22,
+      "common_reference_detections": 4493,
+      "common_holdout_references": 164
+    },
+    "north_three_01_10__north_three_06_00": {
+      "shared_groups": 21,
+      "common_reference_detections": 3943,
+      "common_holdout_references": 129
+    },
+    "north_three_01_11__north_three_02_10": {
+      "shared_groups": 38,
+      "common_reference_detections": 7972,
+      "common_holdout_references": 169
+    },
+    "north_three_01_11__north_three_06_01": {
+      "shared_groups": 45,
+      "common_reference_detections": 6737,
+      "common_holdout_references": 152
+    },
+    "north_three_02_00__north_three_02_01": {
+      "shared_groups": 49,
+      "common_reference_detections": 8789,
+      "common_holdout_references": 195
+    },
+    "north_three_02_00__north_three_02_10": {
+      "shared_groups": 53,
+      "common_reference_detections": 6681,
+      "common_holdout_references": 163
+    },
+    "north_three_02_01__north_three_02_11": {
+      "shared_groups": 53,
+      "common_reference_detections": 8002,
+      "common_holdout_references": 191
+    },
+    "north_three_02_10__north_three_02_11": {
+      "shared_groups": 48,
+      "common_reference_detections": 8742,
+      "common_holdout_references": 185
+    },
+    "north_three_02_10__north_three_07_00": {
+      "shared_groups": 49,
+      "common_reference_detections": 8650,
+      "common_holdout_references": 152
+    },
+    "north_three_02_11__north_three_07_01": {
+      "shared_groups": 48,
+      "common_reference_detections": 6805,
+      "common_holdout_references": 166
+    },
+    "north_three_06_00__north_three_06_01": {
+      "shared_groups": 25,
+      "common_reference_detections": 5638,
+      "common_holdout_references": 150
+    },
+    "north_three_06_00__north_three_06_10": {
+      "shared_groups": 37,
+      "common_reference_detections": 6583,
+      "common_holdout_references": 141
+    },
+    "north_three_06_01__north_three_06_11": {
+      "shared_groups": 43,
+      "common_reference_detections": 6124,
+      "common_holdout_references": 140
+    },
+    "north_three_06_01__north_three_07_00": {
+      "shared_groups": 34,
+      "common_reference_detections": 7219,
+      "common_holdout_references": 140
+    },
+    "north_three_06_10__north_three_06_11": {
+      "shared_groups": 22,
+      "common_reference_detections": 3922,
+      "common_holdout_references": 113
+    },
+    "north_three_06_10__north_three_11_00": {
+      "shared_groups": 28,
+      "common_reference_detections": 3988,
+      "common_holdout_references": 123
+    },
+    "north_three_06_11__north_three_07_10": {
+      "shared_groups": 36,
+      "common_reference_detections": 6645,
+      "common_holdout_references": 136
+    },
+    "north_three_06_11__north_three_11_01": {
+      "shared_groups": 39,
+      "common_reference_detections": 4943,
+      "common_holdout_references": 146
+    },
+    "north_three_07_00__north_three_07_01": {
+      "shared_groups": 45,
+      "common_reference_detections": 7996,
+      "common_holdout_references": 180
+    },
+    "north_three_07_00__north_three_07_10": {
+      "shared_groups": 41,
+      "common_reference_detections": 8347,
+      "common_holdout_references": 166
+    },
+    "north_three_07_01__north_three_07_11": {
+      "shared_groups": 50,
+      "common_reference_detections": 3890,
+      "common_holdout_references": 125
+    },
+    "north_three_07_10__north_three_07_11": {
+      "shared_groups": 48,
+      "common_reference_detections": 8005,
+      "common_holdout_references": 162
+    },
+    "north_three_07_10__north_three_12_00": {
+      "shared_groups": 40,
+      "common_reference_detections": 7010,
+      "common_holdout_references": 153
+    },
+    "north_three_07_11__north_three_12_01": {
+      "shared_groups": 41,
+      "common_reference_detections": 4461,
+      "common_holdout_references": 104
+    },
+    "north_three_11_00__north_three_11_01": {
+      "shared_groups": 27,
+      "common_reference_detections": 6357,
+      "common_holdout_references": 149
+    },
+    "north_three_11_00__north_three_11_10": {
+      "shared_groups": 38,
+      "common_reference_detections": 6466,
+      "common_holdout_references": 182
+    },
+    "north_three_11_01__north_three_11_11": {
+      "shared_groups": 40,
+      "common_reference_detections": 6403,
+      "common_holdout_references": 152
+    },
+    "north_three_11_01__north_three_12_00": {
+      "shared_groups": 32,
+      "common_reference_detections": 6605,
+      "common_holdout_references": 131
+    },
+    "north_three_11_10__north_three_11_11": {
+      "shared_groups": 24,
+      "common_reference_detections": 6015,
+      "common_holdout_references": 175
+    },
+    "north_three_11_11__north_three_12_10": {
+      "shared_groups": 48,
+      "common_reference_detections": 5150,
+      "common_holdout_references": 122
+    },
+    "north_three_12_00__north_three_12_01": {
+      "shared_groups": 42,
+      "common_reference_detections": 7356,
+      "common_holdout_references": 148
+    },
+    "north_three_12_00__north_three_12_10": {
+      "shared_groups": 52,
+      "common_reference_detections": 9236,
+      "common_holdout_references": 171
+    },
+    "north_three_12_01__north_three_12_11": {
+      "shared_groups": 46,
+      "common_reference_detections": 5318,
+      "common_holdout_references": 128
+    },
+    "north_three_12_10__north_three_12_11": {
+      "shared_groups": 44,
+      "common_reference_detections": 8282,
+      "common_holdout_references": 146
+    },
+    "north_three_12_10__north_three_17_00": {
+      "shared_groups": 53,
+      "common_reference_detections": 4568,
+      "common_holdout_references": 99
+    },
+    "north_three_12_11__north_three_17_01": {
+      "shared_groups": 39,
+      "common_reference_detections": 5605,
+      "common_holdout_references": 128
+    },
+    "north_three_17_00__north_three_17_01": {
+      "shared_groups": 42,
+      "common_reference_detections": 6513,
+      "common_holdout_references": 148
+    },
+    "north_three_17_00__north_three_17_10": {
+      "shared_groups": 60,
+      "common_reference_detections": 6262,
+      "common_holdout_references": 132
+    },
+    "north_three_17_01__north_three_17_11": {
+      "shared_groups": 52,
+      "common_reference_detections": 5951,
+      "common_holdout_references": 136
+    },
+    "north_three_17_10__north_three_17_11": {
+      "shared_groups": 44,
+      "common_reference_detections": 5900,
+      "common_holdout_references": 142
+    },
+    "north_three_17_10__north_three_22_00": {
+      "shared_groups": 49,
+      "common_reference_detections": 6321,
+      "common_holdout_references": 143
+    },
+    "north_three_17_11__north_three_22_01": {
+      "shared_groups": 37,
+      "common_reference_detections": 5791,
+      "common_holdout_references": 125
+    },
+    "north_three_22_00__north_three_22_01": {
+      "shared_groups": 38,
+      "common_reference_detections": 6023,
+      "common_holdout_references": 178
+    },
+    "north_three_22_00__north_three_22_10": {
+      "shared_groups": 48,
+      "common_reference_detections": 7526,
+      "common_holdout_references": 175
+    },
+    "north_three_22_01__north_three_22_11": {
+      "shared_groups": 49,
+      "common_reference_detections": 7657,
+      "common_holdout_references": 169
+    },
+    "north_three_22_10__north_three_22_11": {
+      "shared_groups": 39,
+      "common_reference_detections": 6695,
+      "common_holdout_references": 144
+    }
+  },
+  "held": {
+    "cross_survey": {
+      "n": 115585,
+      "median_mas": [
+        [
+          7.402836114168167,
+          -13.38948973082006
+        ],
+        [
+          -0.5330848637968302,
+          -1.155224065296352
+        ]
+      ],
+      "radial_p68_mas": [
+        152.86981212596228,
+        148.0869136138093
+      ]
+    },
+    "cross_healpix": {
+      "n": 36,
+      "median_mas": [
+        [
+          39.89875797252171,
+          -25.59414775436744
+        ],
+        [
+          30.067395880818367,
+          -34.47683881246485
+        ]
+      ],
+      "radial_p68_mas": [
+        225.7972510037104,
+        228.21267452589294
+      ]
+    },
+    "cross_core": {
+      "n": 12,
+      "median_mas": [
+        [
+          -80.17708137587911,
+          -72.71076947652728
+        ],
+        [
+          -79.29667094946774,
+          -65.97211311024512
+        ]
+      ],
+      "radial_p68_mas": [
+        124.73548402099938,
+        130.72355757486528
+      ]
+    }
+  },
+  "applied_gauges": {
+    "0": 1224,
+    "1": 212
+  },
+  "offset_se_mas": [
+    [
+      0.8185292390975463,
+      0.9170520437440883
+    ],
+    [
+      1.8170982224652827,
+      1.8374257178772124
+    ],
+    [
+      3.4200283698475,
+      3.559930722754563
+    ]
+  ],
+  "max_rss_mib": 19183.91796875,
+  "diagnostic_group_selection": {
+    "groups_before_selection": 1452,
+    "training_groups": 1452,
+    "groups_after_peeling": 1450,
+    "groups_before_offset_se_cut": 1450,
+    "selection_counts": {
+      "retained": 1436,
+      "offset_se_rejected": 14,
+      "below_initial_training_reference_minimum": 2
+    },
+    "peeled_components": {
+      "0": {
+        "groups": 1230,
+        "references": 258063,
+        "surveys": [
+          "NSC",
+          "SDSS"
+        ]
+      },
+      "1": {
+        "groups": 220,
+        "references": 12180,
+        "surveys": [
+          "NSC",
+          "SDSS"
+        ]
+      }
+    },
+    "se_by_status": {
+      "offset_se_rejected": {
+        "group_count": 14,
+        "p16_p50_p84_mas": [
+          [
+            9.628274037293048,
+            12.726972385425285
+          ],
+          [
+            13.33453515741208,
+            15.825666938896358
+          ],
+          [
+            17.89552899266045,
+            17.57629416110467
+          ]
+        ]
+      },
+      "retained": {
+        "group_count": 1436,
+        "p16_p50_p84_mas": [
+          [
+            0.8185292390975463,
+            0.9170520437440883
+          ],
+          [
+            1.8170982224652827,
+            1.8374257178772124
+          ],
+          [
+            3.4200283698475,
+            3.559930722754563
+          ]
+        ]
+      }
+    },
+    "core_selection": {
+      "north_one_00_00": {
+        "retained": 45
+      },
+      "north_one_00_01": {
+        "retained": 43
+      },
+      "north_one_00_10": {
+        "retained": 43
+      },
+      "north_one_00_11": {
+        "retained": 42
+      },
+      "north_one_01_00": {
+        "retained": 49
+      },
+      "north_one_01_01": {
+        "retained": 65
+      },
+      "north_one_01_10": {
+        "retained": 56
+      },
+      "north_one_01_11": {
+        "retained": 65
+      },
+      "north_one_02_00": {
+        "retained": 78
+      },
+      "north_one_02_01": {
+        "retained": 84,
+        "below_initial_training_reference_minimum": 1
+      },
+      "north_one_02_10": {
+        "retained": 80
+      },
+      "north_one_02_11": {
+        "retained": 83
+      },
+      "north_one_05_00": {
+        "retained": 42
+      },
+      "north_one_05_01": {
+        "retained": 41
+      },
+      "north_one_05_10": {
+        "retained": 42
+      },
+      "north_one_05_11": {
+        "retained": 42
+      },
+      "north_one_06_00": {
+        "retained": 49
+      },
+      "north_one_06_01": {
+        "retained": 79
+      },
+      "north_one_06_10": {
+        "retained": 53
+      },
+      "north_one_06_11": {
+        "retained": 63
+      },
+      "north_one_07_00": {
+        "retained": 80
+      },
+      "north_one_07_01": {
+        "retained": 72
+      },
+      "north_one_07_10": {
+        "retained": 86
+      },
+      "north_one_07_11": {
+        "retained": 85
+      },
+      "north_one_10_00": {
+        "retained": 44
+      },
+      "north_one_10_01": {
+        "retained": 49
+      },
+      "north_one_10_10": {
+        "retained": 44
+      },
+      "north_one_10_11": {
+        "retained": 47
+      },
+      "north_one_11_00": {
+        "retained": 59
+      },
+      "north_one_11_01": {
+        "retained": 71
+      },
+      "north_one_11_10": {
+        "retained": 53
+      },
+      "north_one_11_11": {
+        "retained": 65
+      },
+      "north_one_12_00": {
+        "retained": 79
+      },
+      "north_one_12_01": {
+        "retained": 82
+      },
+      "north_one_12_10": {
+        "retained": 76
+      },
+      "north_one_12_11": {
+        "retained": 77
+      },
+      "north_one_14_00": {
+        "retained": 44,
+        "offset_se_rejected": 2
+      },
+      "north_one_14_01": {
+        "retained": 47
+      },
+      "north_one_14_10": {
+        "retained": 56
+      },
+      "north_one_14_11": {
+        "retained": 58
+      },
+      "north_one_15_00": {
+        "retained": 38
+      },
+      "north_one_15_01": {
+        "retained": 48
+      },
+      "north_one_15_10": {
+        "retained": 41
+      },
+      "north_one_15_11": {
+        "retained": 48
+      },
+      "north_one_16_00": {
+        "retained": 58
+      },
+      "north_one_16_01": {
+        "retained": 65
+      },
+      "north_one_16_10": {
+        "retained": 55
+      },
+      "north_one_16_11": {
+        "retained": 58
+      },
+      "north_one_17_00": {
+        "retained": 82
+      },
+      "north_one_17_01": {
+        "retained": 73
+      },
+      "north_one_17_10": {
+        "retained": 86
+      },
+      "north_one_17_11": {
+        "retained": 72
+      },
+      "north_one_19_00": {
+        "retained": 55
+      },
+      "north_one_19_01": {
+        "retained": 57
+      },
+      "north_one_19_10": {
+        "retained": 81,
+        "offset_se_rejected": 5
+      },
+      "north_one_19_11": {
+        "retained": 60,
+        "offset_se_rejected": 2
+      },
+      "north_one_20_00": {
+        "retained": 37
+      },
+      "north_one_20_01": {
+        "retained": 42
+      },
+      "north_one_20_10": {
+        "retained": 35
+      },
+      "north_one_20_11": {
+        "retained": 44
+      },
+      "north_one_21_00": {
+        "retained": 50
+      },
+      "north_one_21_01": {
+        "retained": 54,
+        "offset_se_rejected": 1
+      },
+      "north_one_21_10": {
+        "retained": 50
+      },
+      "north_one_21_11": {
+        "retained": 54,
+        "offset_se_rejected": 2
+      },
+      "north_one_22_00": {
+        "retained": 83,
+        "offset_se_rejected": 1
+      },
+      "north_one_22_01": {
+        "retained": 74
+      },
+      "north_one_22_10": {
+        "retained": 80,
+        "offset_se_rejected": 3
+      },
+      "north_one_22_11": {
+        "retained": 81,
+        "offset_se_rejected": 1
+      },
+      "north_three_00_00": {
+        "retained": 39
+      },
+      "north_three_00_01": {
+        "retained": 46
+      },
+      "north_three_00_10": {
+        "retained": 37
+      },
+      "north_three_00_11": {
+        "retained": 43
+      },
+      "north_three_01_00": {
+        "retained": 48
+      },
+      "north_three_01_01": {
+        "retained": 57,
+        "offset_se_rejected": 2
+      },
+      "north_three_01_10": {
+        "retained": 38
+      },
+      "north_three_01_11": {
+        "retained": 57
+      },
+      "north_three_02_00": {
+        "retained": 88,
+        "offset_se_rejected": 3
+      },
+      "north_three_02_01": {
+        "retained": 89,
+        "offset_se_rejected": 1
+      },
+      "north_three_02_10": {
+        "retained": 81
+      },
+      "north_three_02_11": {
+        "retained": 82
+      },
+      "north_three_06_00": {
+        "retained": 43
+      },
+      "north_three_06_01": {
+        "retained": 62
+      },
+      "north_three_06_10": {
+        "retained": 48
+      },
+      "north_three_06_11": {
+        "retained": 64
+      },
+      "north_three_07_00": {
+        "retained": 73
+      },
+      "north_three_07_01": {
+        "retained": 83
+      },
+      "north_three_07_10": {
+        "retained": 65
+      },
+      "north_three_07_11": {
+        "retained": 75
+      },
+      "north_three_11_00": {
+        "retained": 45
+      },
+      "north_three_11_01": {
+        "retained": 55
+      },
+      "north_three_11_10": {
+        "retained": 53
+      },
+      "north_three_11_11": {
+        "retained": 64
+      },
+      "north_three_12_00": {
+        "retained": 74
+      },
+      "north_three_12_01": {
+        "retained": 67,
+        "offset_se_rejected": 1
+      },
+      "north_three_12_10": {
+        "retained": 81
+      },
+      "north_three_12_11": {
+        "retained": 69,
+        "offset_se_rejected": 2
+      },
+      "north_three_17_00": {
+        "retained": 88
+      },
+      "north_three_17_01": {
+        "retained": 72
+      },
+      "north_three_17_10": {
+        "retained": 82
+      },
+      "north_three_17_11": {
+        "retained": 73
+      },
+      "north_three_22_00": {
+        "retained": 85
+      },
+      "north_three_22_01": {
+        "retained": 71
+      },
+      "north_three_22_10": {
+        "retained": 80,
+        "offset_se_rejected": 1
+      },
+      "north_three_22_11": {
+        "retained": 68,
+        "below_initial_training_reference_minimum": 1,
+        "offset_se_rejected": 1
+      }
+    },
+    "scope": "Trace only. Original support, gauge, weights, bootstrap and 12mas SE selection unchanged."
+  }
+}

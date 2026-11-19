@@ -115,7 +115,7 @@ def read_offsets(path, with_gauge=False):
     return values
 
 
-def calibration_components(train, minimum):
+def calibration_components(train, minimum, trace=None):
     active=train
     while len(active):
         keep=active.loc[active.groupby("group").reference.transform("nunique")>=minimum]
@@ -123,12 +123,17 @@ def calibration_components(train, minimum):
         if len(keep)==len(active):
             break
         active=keep
+    if trace is not None:
+        trace['peeled_group_references']=active.groupby('group').reference.nunique().to_dict()
     ir,ref=pd.factorize(active.reference)
     ig,group=pd.factorize(active.group)
     graph=coo_matrix((np.ones(len(ig),dtype=np.int8),(ir,len(ref)+ig)),
                      shape=(len(ref)+len(group),)*2)
     _,labels=connected_components(graph,directed=False)
     rows=active.assign(component=labels[ir])
+    if trace is not None:
+        trace['peeled_components']={str(k):dict(groups=part.group.nunique(),references=part.reference.nunique(),
+            surveys=sorted({v.split(':')[0] for v in part.group.unique()})) for k,part in rows.groupby('component',sort=True)}
     for _,subset in rows.groupby("component",sort=True):
         surveys={k.split(":")[0] for k in subset.group.unique()}
         if surveys=={"NSC","SDSS"}:
@@ -174,7 +179,9 @@ def held_reports(rows, offsets, specs, gauges):
     return result
 
 
-def solve(work, parts, specs, separate=False):
+def solve(work, parts, specs, separate=False, diagnostic_groups=False):
+    if diagnostic_groups and not separate:
+        raise ValueError('Group-selection tracing requires explicit separate components')
     datasets = {}
     metadata = []
     for name, path in parts.items():
@@ -187,7 +194,9 @@ def solve(work, parts, specs, separate=False):
     opts = tomllib.loads(PRECISION.read_text())
     cal = opts["calibration"]
     offsets, gauges = {}, {}
-    pieces = calibration_components(train,cal["min_references"]) if separate else (train,)
+    trace={} if diagnostic_groups else None
+    pieces = calibration_components(train,cal["min_references"],trace) if separate else (train,)
+    unfiltered,unfiltered_gauges,diagnostics={},{},{}
     for component, part in enumerate(pieces):
         fit = fit_offsets(part.reference,part[["east","north"]].to_numpy(),
                           part[["sigma_e","sigma_n"]].to_numpy(),part.group.to_numpy(),
@@ -200,11 +209,40 @@ def solve(work, parts, specs, separate=False):
         datum = np.median(np.stack([v[1]-v[1].mean(axis=0) for v in late]),axis=0)
         for k,(point,samples,n) in fit.items():
             centered = samples-samples.mean(axis=0)-datum
-            if np.std(centered,axis=0,ddof=1).max() <= cal["max_offset_se_mas"]:
+            error=np.std(centered,axis=0,ddof=1)
+            accepted=error.max() <= cal["max_offset_se_mas"]
+            if diagnostic_groups:
+                unfiltered[k]=point-anchor,centered,n
+                unfiltered_gauges[k]=str(component)
+                diagnostics[k]=dict(fit_component=str(component),fit_reference_count=n,se_e_mas=error[0],se_n_mas=error[1],
+                    status='retained' if accepted else 'offset_se_rejected')
+            if accepted:
                 offsets[k] = point-anchor,centered,n
                 gauges[k] = str(component)
     if not offsets:
         raise ValueError("No jointly solvable SDSS–NSC component")
+    diagnostic_summary=None
+    if diagnostic_groups:
+        group_names=sorted(set(rows.group))
+        raw_counts=rows.groupby('group').reference.nunique()
+        training_counts=train.groupby('group').reference.nunique()
+        records=[]
+        peeled=trace.get('peeled_group_references',{}) if trace is not None else {}
+        for key in group_names:
+            base=dict(group=key,raw_reference_count=int(raw_counts.get(key,0)),
+                training_reference_count=int(training_counts.get(key,0)),peeled_reference_count=int(peeled.get(key,0)))
+            reason='peeled_or_no_joint_component'
+            if training_counts.get(key,0)<cal['min_references']:reason='below_initial_training_reference_minimum'
+            records.append(dict(base,**diagnostics.get(key,dict(status=reason))))
+        table=pd.DataFrame(records);table.to_csv(work/'private_reference_group_selection.csv.gz',index=False)
+        serialize_offsets(work/'private_c0_unfiltered.npz',unfiltered,unfiltered_gauges,center)
+        diagnostic_summary=dict(groups_before_selection=len(group_names),training_groups=int(len(training_counts)),
+            groups_after_peeling=len(peeled),groups_before_offset_se_cut=len(unfiltered),
+            selection_counts=table.status.value_counts().to_dict(),peeled_components=trace.get('peeled_components',{}),
+            se_by_status={status:dict(group_count=len(part),p16_p50_p84_mas=quantiles(part[['se_e_mas','se_n_mas']].to_numpy()) if len(part)>=5 else None)
+                for status,part in table.loc[table.se_e_mas.notna()].groupby('status')},
+            core_selection={name:dict(Counter(table.set_index('group').status.reindex(sorted(set(d.group))).dropna())) for name,d in datasets.items()},
+            scope='Trace only. Original support, gauge, weights, bootstrap and 12mas SE selection unchanged.')
     serialize_offsets(work/"private_c0.npz",offsets,gauges,center)
     membership = Counter(k for d in datasets.values() for k in set(d.group) if k in offsets)
     by_survey = Counter(k.split(":")[0] for k in offsets)
@@ -218,6 +256,7 @@ def solve(work, parts, specs, separate=False):
                    shared_groups_in_adjacent={}, held=held_reports(rows,offsets,specs,gauges), applied_gauges=dict(Counter(gauges.values())),
                    offset_se_mas=quantiles([np.std(v[1],axis=0,ddof=1) for v in offsets.values()]),
                    max_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024)
+    if diagnostic_summary is not None:summary['diagnostic_group_selection']=diagnostic_summary
     for a, first in specs.items():
         for b, second in specs.items():
             if b<=a:
@@ -253,6 +292,7 @@ def main():
     parser.add_argument("region")
     parser.add_argument("source",type=Path)
     parser.add_argument("--separate-components",action="store_true")
+    parser.add_argument('--diagnostic-groups',action='store_true',help='Save private pre-SE offsets and group-selection reasons without changing C0')
     args = parser.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         parser.error("Run on a Slurm compute node")
@@ -272,10 +312,18 @@ def main():
             alias = name+"_reference_receipt.json"
             bind(args.work,alias,part/"run_manifest.json")
             names.append(alias)
+        outputs=("private_c0.npz","continuous_reference_summary.json")
+        if args.diagnostic_groups:
+            option=args.work/'diagnostic_options.json'
+            if option.exists() and json.loads(option.read_text())!={'diagnostic_groups':True}:
+                parser.error('Diagnostic options changed; use a new versioned directory')
+            if not option.exists():save_json(option,dict(diagnostic_groups=True))
+            names.append('diagnostic_options.json')
+            outputs+=('private_c0_unfiltered.npz','private_reference_group_selection.csv.gz')
         with run_stage(args.work,args.config,args.region,"continuous-grid-v12",inputs=names,
-                       outputs=("private_c0.npz","continuous_reference_summary.json")) as go:
+                       outputs=outputs) as go:
             if go:
-                solve(args.work,parts,{k:specs[k] for k in parts},args.separate_components)
+                solve(args.work,parts,{k:specs[k] for k in parts},args.separate_components,args.diagnostic_groups)
 
 
 if __name__ == "__main__":

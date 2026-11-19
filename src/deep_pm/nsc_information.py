@@ -55,6 +55,22 @@ def split_members(r_index,all_index,data,night):
     return dict(A_r=r_index,B_new_nights=np.r_[r_index,new],C_all=all_index,B1_one_per_new_night=np.r_[r_index,np.asarray(first,int)])
 
 
+def with_new_seasons(indices, data, time):
+    base = indices['A_r']
+    full = indices['C_all']
+    late = full[data.survey.iloc[full].eq('NSC').to_numpy()]
+    by_season = dict(zip(late,seasons(time[late],90)))
+    original = {by_season[i] for i in base if i in by_season}
+    added = [i for i in indices['B_new_nights'][len(base):] if by_season[i] not in original]
+    return dict(indices,S_new_seasons=np.r_[base,np.asarray(added,dtype=int)])
+
+
+def design(season):
+    if not season:
+        return NAMES, PAIRS
+    return NAMES+('S_new_seasons',), PAIRS+(('S_new_seasons','A_r'),('B_new_nights','S_new_seasons'))
+
+
 def information(index,union,data,time,sigma,night,keys,fit):
     selected_nsc=data.survey.iloc[index].eq('NSC').to_numpy();late=index[selected_nsc];late_union=union[data.survey.iloc[union].eq('NSC').to_numpy()]
     seasonal=dict(zip(late_union,seasons(time[late_union],90)))
@@ -84,7 +100,8 @@ def summarize_information(rows):
         max_night_information_fraction_p16_p50_p84=np.quantile([r['largest_information_fraction']['observing_night'] for r in rows],[.16,.5,.84],axis=0))
 
 
-def qso(work,trial):
+def qso(work,trial,season=False):
+    names,pairs=design(season)
     config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text());settings.update(bootstrap_draws=800,bootstrap_absolute_zero=True,min_publish_count=5)
     source=(trial/'source_receipt.json').resolve().parent;graph=(trial/'new_reference_receipt.json').resolve().parent/'private_c0.npz';center=reference_frame(graph)
     data,xy,time,sigma,keep=quality_detections(source,center,config,settings['production']);keys=calibration_groups(data);solution=read_offsets(graph);lookup=pd.Index(data.detection_id);night=night_labels(data)
@@ -94,7 +111,9 @@ def qso(work,trial):
         if not {'quality_r','all_nsc_w0'}<=row['members'].keys():exits['no_fixed_pair']+=1;continue
         ix=lookup.get_indexer(row['members']['quality_r']);full=lookup.get_indexer(row['members']['all_nsc_w0'])
         if (np.r_[ix,full]<0).any():raise ValueError('Frozen detection missing')
-        indices=split_members(ix,full,data,night);values={};details={};fits={};quality={}
+        indices=split_members(ix,full,data,night)
+        if season:indices=with_new_seasons(indices,data,time)
+        values={};details={};fits={};quality={}
         for name,index in indices.items():
             fit=evaluated_fit(index,data,xy,time,sigma,keys,solution,center,config['reference_epoch']);fits[name]=fit
             values[name]=(fit['pm_icrs_masyr'],fit['pm_error_masyr']);details[name]=information(index,full,data,time,sigma,night,keys,fit)
@@ -110,16 +129,18 @@ def qso(work,trial):
     for low in (20,21,22):
         for tag,select in [('all',lambda r:True),('one_sdss_run',lambda r:r['sdss_runs']==1),('multiple_sdss_runs',lambda r:r['sdss_runs']>1)]:
             part=[r for r in output if low<=r['magnitude']<low+1 and select(r)];common=[r for r in part if {'NSC','Xiao'}<=r['values'].keys()]
-            cohorts[f'r{low}__{tag}']=dict(fixed_qso=comparison([{k:r['values'][k] for k in NAMES} for r in part],settings,PAIRS),
-                strict_published_common=comparison([r['values'] for r in common],settings,PAIRS+(('C_all','Xiao'),('C_all','NSC'))),
-                information={name:summarize_information([r['information'][name] for r in part]) for name in NAMES},
-                formal_error_pass_counts={name:sum(r['formal_error_pass'][name] for r in part) for name in NAMES})
+            cohorts[f'r{low}__{tag}']=dict(fixed_qso=comparison([{k:r['values'][k] for k in names} for r in part],settings,pairs),
+                strict_published_common=comparison([r['values'] for r in common],settings,pairs+(('C_all','Xiao'),('C_all','NSC'))),
+                information={name:summarize_information([r['information'][name] for r in part]) for name in names},
+                formal_error_pass_counts={name:sum(r['formal_error_pass'][name] for r in part) for name in names})
     result=dict(cohorts=cohorts,exits=dict(exits),maximum_frozen_pm_or_error_replay_difference=maximum,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Identical frozen source/r/SDSS detections and unchanged C0/W0. A r; B adds all other-band measurements on nights without NSC r; C adds other bands on original r nights. B1 uses the first physical exposure on each new night, not a result-selected exposure. Seasons use the C union and 90day gaps. Time information/leverage is conditional diagonal W0 information, not proof of independent nightly errors. Full reference 4x4 covariance retained. Formal-error pass counts describe this fixed QSO sample, not catalogue yield.')
+    if season:result['season_split']='S adds only NSC visits in actual NSC observing seasons without any r detection; seasons are common to all arms (90-day gap, C union). B minus S adds new nights inside r-covered seasons; C minus B adds visits on r nights.'
     check_aggregate(result);save_json(work/'nsc_information_summary.json',result);save_json(work/'private_information_qso.json',output)
 
 
-def year(work,trial):
+def year(work,trial,season=False):
+    names,pairs=design(season)
     summary=json.loads((trial/'allband_blind_year_summary.json').read_text());config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text())
     if summary['status']!='completed':save_json(work/'nsc_information_summary.json',dict(status=summary['status']));save_json(work/'private_information_held.json',[]);return
     source=(trial/'source_receipt.json').resolve().parent;graph=(trial/'reference_receipt.json').resolve().parent/'private_c0.npz';center=reference_frame(graph)
@@ -130,7 +151,9 @@ def year(work,trial):
         full=lookup.get_indexer(row['detection_ids']);ix=full[keep[full]]
         if (full<0).any() or np.any(nsc[full]&(years[full]==summary['year'])):raise ValueError('Missing training members or held-year leakage')
         models[slot]={}
-        for name,index in split_members(ix,full,data,night).items():
+        indices=split_members(ix,full,data,night)
+        if season:indices=with_new_seasons(indices,data,time)
+        for name,index in indices.items():
             fit,_=fit_with_calibration(xy[index],time[index],sigma[index],config['reference_epoch'],[solution[k] for k in keys[index]]);models[slot][name]=(fit,index)
         np.testing.assert_allclose(models[slot]['C_all'][0].coeff[1],row['motion'],rtol=1e-9,atol=1e-8)
     records=[]
@@ -140,28 +163,34 @@ def year(work,trial):
         index=lookup.get_indexer([row['held_detection_id']])[0]
         if index<0:raise ValueError('Held detection missing')
         residual=[];errors=[]
-        for name in NAMES:
+        for name in names:
             fit,use=models[slot][name];residual.append(xy[index]-solution[keys[index]][0]-fit.predict(time[index]));errors.append(np.sqrt(held_prediction_variance(fit,time[use],sigma[use],[solution[k] for k in keys[use]],solution[keys[index]],sigma[index],time[index])))
         np.testing.assert_allclose(residual[2],row['residual_mas'],rtol=1e-9,atol=1e-7)
         records.append(dict(slot=slot,magnitude=training[slot]['magnitude'],residual=np.asarray(residual),error=np.asarray(errors)))
     cohorts={}
     for low in (20,21,22):
         selected=[r for r in records if low<=r['magnitude']<low+1];cohorts['r'+str(low)]={}
-        for a,b in PAIRS:
-            rows=[dict(r,residual=r['residual'][[NAMES.index(b),NAMES.index(a)]],error=r['error'][[NAMES.index(b),NAMES.index(a)]]) for r in selected]
+        for a,b in pairs:
+            rows=[dict(r,residual=r['residual'][[names.index(b),names.index(a)]],error=r['error'][[names.index(b),names.index(a)]]) for r in selected]
             cohorts['r'+str(low)][a+'_vs_'+b]=summarize(rows,names=(b,a))
     result=dict(status='completed',year=summary['year'],fixed_r_training_sources=len(models),cohorts=cohorts,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Whole held year removed before original blind association. Same frozen r-existing objects and same C0-gated physical held measurements for every model; no held target tunes coefficients. Conditional fixed-match prediction, not rerun matching or absolute PM truth. B1 separates new-night first positions from additional new-night centroids. Shared train-held reference covariance retained.')
+    if season:result['season_split']='S adds only NSC visits in actual NSC observing seasons without any r detection; seasons are common to all arms (90-day gap, C union). B minus S adds new nights inside r-covered seasons; C minus B adds visits on r nights.'
     check_aggregate(result);save_json(work/'nsc_information_summary.json',result);save_json(work/'private_information_held.json',records)
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=('qso','year'));p.add_argument('work',type=Path);p.add_argument('trial',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=('qso','year'));p.add_argument('work',type=Path);p.add_argument('trial',type=Path);p.add_argument('--season',action='store_true');a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
     a.work.mkdir(parents=True,exist_ok=True);files=('private_fixed_qso.json.gz',) if a.mode=='qso' else ('private_training.json','private_held.json','allband_blind_year_summary.json')
     bind(a.work,'trial_receipt.json',verify_directory(a.trial,files));output='private_information_qso.json' if a.mode=='qso' else 'private_information_held.json'
-    with run_stage(a.work,PRECISION,a.mode,'nsc-time-information-v15',inputs=('trial_receipt.json',),outputs=('nsc_information_summary.json',output)) as go:
-        if go:{'qso':qso,'year':year}[a.mode](a.work,a.trial)
+    inputs=['trial_receipt.json']
+    if a.season:
+        option=a.work/'season_design.json'
+        if not option.exists():save_json(option,{'season_gap_days':90,'add_season_arm':True})
+        inputs.append(option.name)
+    with run_stage(a.work,PRECISION,a.mode,'nsc-time-information-v16-season' if a.season else 'nsc-time-information-v15',inputs=tuple(inputs),outputs=('nsc_information_summary.json',output)) as go:
+        if go:{'qso':qso,'year':year}[a.mode](a.work,a.trial,a.season)
 
 
 if __name__=='__main__':main()

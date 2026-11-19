@@ -3,13 +3,17 @@ from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
 import pandas as pd
-from scipy.sparse import coo_matrix, vstack
+from scipy.sparse import coo_matrix, hstack, vstack
 from scipy.sparse.csgraph import connected_components
 from scipy.sparse.linalg import lsmr
 
 
 def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
-                parents=None, shrinkage_mas=50., overlaps=None):
+                parents=None, shrinkage_mas=50., overlaps=None, features=None):
+    # Optional C0-only residual design: returns (offsets, coefficients, draws).
+    # Default calls retain the original numerical solve and dict result.
+    if features is not None and (parents or overlaps is not None):
+        raise ValueError('Residual features are a separate C0 trial, not a C1 hierarchy')
     # Peel groups without independent references and objects without a link.
     pairs = pd.DataFrame(dict(ref=np.asarray(refs), group=group))
     active = pairs.copy()
@@ -22,6 +26,8 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
             break
         active = reduced
     if active.empty:
+        if features is not None:
+            raise ValueError('No reference support for a residual-feature model')
         return {}
     def index(rows):
         r, sources = pd.factorize(rows.ref)
@@ -46,6 +52,8 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
                   if len({str(groups[j]).split(":")[0]
                           for j in np.flatnonzero(component[nr:] == k)}) == 2]
     if not candidates:
+        if features is not None:
+            raise ValueError('No cross-survey reference component for residual features')
         return {}
     selected = max(candidates)[1]
     active = active.loc[component[r] == selected]
@@ -54,6 +62,30 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
     i = np.arange(len(g))
     design = coo_matrix((np.ones(len(g)*2), (np.r_[i, i], np.r_[r, nr + g])),
                         shape=(len(g), nr + ng)).tocsr()[:, :-1]
+    nfeatures = 0
+    if features is not None:
+        full_features = np.asarray(features, float)
+        if full_features.ndim != 2 or len(full_features) != len(refs) or not np.isfinite(full_features).all():
+            raise ValueError('Features must be finite, aligned to the original reference rows')
+        extra = full_features[active.index]
+        nfeatures = extra.shape[1]
+        # A band constant is already an exposure zero; a per-source constant is
+        # already a galaxy position. Reject these degeneracies before fitting.
+        norms = np.sqrt(np.asarray(design.power(2).sum(axis=0)).ravel())
+        scale = np.divide(1., norms, out=np.ones_like(norms), where=norms>0)
+        projection = design.multiply(scale).tocsr()
+        orthogonal = []
+        for column in extra.T:
+            fitted = lsmr(projection, column, atol=1e-10, btol=1e-10, maxiter=4000)
+            if fitted[1] not in (0,1,2,4,5):
+                raise RuntimeError('Residual-feature rank check did not converge')
+            residual = column-projection@fitted[0]
+            if np.linalg.norm(residual) <= 1e-5*max(np.linalg.norm(column), 1.):
+                raise ValueError('Residual feature is degenerate with source positions or group zeros')
+            orthogonal.append(residual/np.linalg.norm(residual))
+        if nfeatures and np.linalg.matrix_rank(np.column_stack(orthogonal), tol=1e-5) < nfeatures:
+            raise ValueError('Residual features are mutually degenerate')
+        design = hstack((design, coo_matrix(extra)), format='csr')
     if len(child):
         h = np.arange(len(child))
         penalty = coo_matrix((np.r_[np.ones(len(h)),-np.ones(len(h))]/shrinkage_mas,
@@ -129,7 +161,10 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
     else:
         samples = np.asarray(list(map(draw, reference_weights)))
     support = active.groupby("group").ref.nunique()
-    positions = np.r_[optimum[nr:], np.zeros((1, 2))]
-    samples = np.concatenate((samples, np.zeros((draws, 1, 2))), axis=1)
-    return {name: (positions[j], samples[:, j], int(support.get(name, 0)))
-            for j, name in enumerate(groups)}
+    positions = np.r_[optimum[nr:nr+ng-1], np.zeros((1, 2))]
+    feature_point = optimum[nr+ng-1:]
+    feature_samples = samples[:,ng-1:]
+    samples = np.concatenate((samples[:,:ng-1], np.zeros((draws, 1, 2))), axis=1)
+    offsets = {name: (positions[j], samples[:, j], int(support.get(name, 0)))
+               for j, name in enumerate(groups)}
+    return (offsets, feature_point, feature_samples) if features is not None else offsets

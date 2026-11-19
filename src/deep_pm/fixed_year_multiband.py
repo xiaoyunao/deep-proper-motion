@@ -23,7 +23,7 @@ from .validation import ratio
 from .year_opportunities import utc_year
 
 
-def summarize(rows):
+def summarize(rows,names=('r_only','all_nsc')):
     if not rows:return dict(source_count=0,held_positions=0)
     vectors=np.array([r['residual'] for r in rows]);errors=np.array([r['error'] for r in rows]);groups=defaultdict(list)
     for j,row in enumerate(rows):groups[row['slot']].append(j)
@@ -33,7 +33,7 @@ def summarize(rows):
     draws=np.quantile(source_medians[sample],.68,axis=1)
     valid=draws[:,0]>0
     models={}
-    for j,name in enumerate(('r_only','all_nsc')):
+    for j,name in enumerate(names):
         residual=vectors[:,j];error=errors[:,j]
         models[name]=dict(source_median_radial_p68_mas=p68[j],position_radial_p68_mas=np.quantile(np.linalg.norm(residual,axis=1),.68),
             position_median_mas=np.median(residual,axis=0),position_nmad_mas=1.4826*np.median(abs(residual-np.median(residual,axis=0)),axis=0),

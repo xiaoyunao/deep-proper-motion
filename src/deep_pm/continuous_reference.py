@@ -108,6 +108,8 @@ def common_reference_frame(metadata):
 
 def read_offsets(path, with_gauge=False):
     with np.load(path, allow_pickle=False) as t:
+        if 'feature_coefficients' in t:
+            raise ValueError('Chromatic reference requires per-source color and synchronous feature draws')
         values = {k:(a,b,int(n)) for k,a,b,n in zip(t["names"],t["position"],t["draws"],t["counts"])}
         if with_gauge:
             identifiers = t["gauge"] if "gauge" in t else ["main"]*len(values)

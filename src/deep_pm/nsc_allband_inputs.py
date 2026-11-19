@@ -77,8 +77,12 @@ def main():
     for n in ('work','parent','geometry'):p.add_argument(n,type=Path)
     p.add_argument('region');p.add_argument('--workers',type=int,default=1);p.add_argument('--exposure-audit',type=Path);a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use a Slurm compute node')
-    a.work.mkdir(parents=True,exist_ok=True);bind(a.work,'parent_receipt.json',verify_directory(a.parent,FILES+('sdss.csv',)));bind(a.work,'geometry.toml',a.geometry)
-    inputs=['parent_receipt.json','geometry.toml']
+    # Early v0.9 receipts signed normalized SDSS positions, not the ancillary
+    # raw photometry file. Preserve those signed positions and bind today's raw
+    # file separately; do not imply a historical checksum that never existed.
+    a.work.mkdir(parents=True,exist_ok=True);bind(a.work,'parent_receipt.json',verify_directory(a.parent,FILES));bind(a.work,'geometry.toml',a.geometry)
+    bind(a.work,'parent_sdss.csv',a.parent/'sdss.csv')
+    inputs=['parent_receipt.json','geometry.toml','parent_sdss.csv']
     if a.exposure_audit:bind(a.work,'exposure_audit_receipt.json',verify_directory(a.exposure_audit,('private_exposure_detections.csv.gz','nsc_exposure_complete_summary.json')));inputs.append('exposure_audit_receipt.json')
     expected=dict(all_nsc_objects=True,sdss_positions='frozen_r_only',workers=a.workers);options=a.work/'options.json'
     if options.exists() and json.loads(options.read_text())!=expected:raise ValueError('Changed all-object acquisition options')

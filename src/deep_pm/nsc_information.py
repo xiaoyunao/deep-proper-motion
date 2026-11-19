@@ -41,12 +41,12 @@ def night_labels(data):
 def split_members(r_index,all_index,data,night):
     r_index=np.asarray(r_index,int);all_index=np.asarray(all_index,int)
     if len(set(r_index))!=len(r_index) or len(set(all_index))!=len(all_index) or not set(r_index)<=set(all_index):raise ValueError('r members must be a unique identity-preserving subset')
-    nsc=data.survey.eq('NSC').to_numpy();band=data.band.to_numpy();visit=data.exposure_id.to_numpy()
-    if np.any(band[r_index]!='r') or np.any(~nsc[all_index]&(band[all_index]!='r')):raise ValueError('SDSS positions and the frozen baseline must be r only')
-    if set(all_index[~nsc[all_index]])!=set(r_index[~nsc[r_index]]):raise ValueError('SDSS physical detections changed')
+    r_nsc=data.survey.iloc[r_index].eq('NSC').to_numpy();all_nsc=data.survey.iloc[all_index].eq('NSC').to_numpy();band=data.band.to_numpy();visit=data.exposure_id.to_numpy()
+    if np.any(band[r_index]!='r') or np.any(~all_nsc&(band[all_index]!='r')):raise ValueError('SDSS positions and the frozen baseline must be r only')
+    if set(all_index[~all_nsc])!=set(r_index[~r_nsc]):raise ValueError('SDSS physical detections changed')
     extra=np.array([i for i in all_index if i not in set(r_index)],int)
-    if np.any(~nsc[extra]) or np.any(band[extra]=='r'):raise ValueError('Only non-r NSC detections may be appended')
-    original_nights=set(night[r_index[nsc[r_index]]]);new=extra[~np.isin(night[extra],list(original_nights))]
+    if np.any(~data.survey.iloc[extra].eq('NSC').to_numpy()) or np.any(band[extra]=='r'):raise ValueError('Only non-r NSC detections may be appended')
+    original_nights=set(night[r_index[r_nsc]]);new=extra[~np.isin(night[extra],list(original_nights))]
     first=[]
     for value in sorted(set(night[new])):
         choices=new[night[new]==value]
@@ -56,7 +56,7 @@ def split_members(r_index,all_index,data,night):
 
 
 def information(index,union,data,time,sigma,night,keys,fit):
-    nsc=data.survey.eq('NSC').to_numpy();late=index[nsc[index]];late_union=union[nsc[union]]
+    selected_nsc=data.survey.iloc[index].eq('NSC').to_numpy();late=index[selected_nsc];late_union=union[data.survey.iloc[union].eq('NSC').to_numpy()]
     seasonal=dict(zip(late_union,seasons(time[late_union],90)))
     w=np.asarray(fit['robust_weight'])[:,None]/sigma[index]**2
     mean=(w*time[index,None]).sum(axis=0)/w.sum(axis=0)
@@ -68,7 +68,7 @@ def information(index,union,data,time,sigma,night,keys,fit):
         groups[label]=fraction.max(axis=0);effective[label]=1/np.sum(fraction**2,axis=0)
     return dict(detections=len(index),nsc_exposures=data.exposure_id.iloc[late].nunique(),nsc_nights=len(set(night[late])),
         nsc_seasons=len({seasonal[i] for i in late}),nsc_span_years=float(np.ptp(time[late])) if len(late) else 0.,joint_span_years=float(np.ptp(time[index])),
-        sdss_physical_runs=data.exposure_id.iloc[index[~nsc[index]]].nunique(),diagonal_weight_time_information=total,
+        sdss_physical_runs=data.exposure_id.iloc[index[~selected_nsc]].nunique(),diagonal_weight_time_information=total,
         largest_information_fraction=groups,effective_information_groups=effective,
         independent_pm_variance=np.diag(fit['independent_tangent_covariance'])[[1,3]],reference_pm_variance=np.diag(fit['reference_tangent_covariance'])[[1,3]])
 

@@ -1,0 +1,358 @@
+{
+  "cores": 91,
+  "source_counts": {
+    "private_standard_motion.json.gz": 481945,
+    "private_r_control.json.gz": 384234
+  },
+  "classes": {
+    "extra_r_anchor": 94739,
+    "r_existing": 383962,
+    "non_r_anchor": 3244
+  },
+  "owner_transfers_verified": 7,
+  "reference_sha256": "0904c22185df903670e30ee72b962b67bbd8ed3a20a3cd864cd2b0c42709e030",
+  "fit_receipt_sha256": {
+    "repeat_sparse": "a6275e2a873c0040852de420a655c165a23c55cc7f7e72d0ea1f92d09193287f",
+    "c_07_00": "2d6c0f6378fc2d8ca47c058771bd43869ebb1e773e7d767c65fbe98dafbe047d",
+    "c_00_04": "1e805c534d357cd021ec9ad5e543b6caa0d48dd4950a3240ee923f9417ed3382",
+    "c_00_05": "98764e5f8d164bc44f39d1eaae25eba9fe94d23d5af2d38e18bd4b3f3e06d756",
+    "c_04_04": "e4bad2f520c45f1593e8bbaddb2193d34084bd40274130e662d50977b529397d",
+    "repeat_rich": "0a30bb2030cf51ce5ca6ecc11e08aa5c18b6740c1641ada671781bf6329c4855",
+    "c_05_04": "d0abc4e59b306041754abadffa0f268cd5f3a7c9379584dbd0bc89dd352c7be3",
+    "c_08_00": "3dcb6501dd76b1b201bc66888420ee368e9705904a9b6aa1bc9d485832fa804b",
+    "c_06_00": "6cc0777b3b7871b1ed7701d73b7fb41ecf455d73695e3b9be9d1ff6282b1d3f5",
+    "c_07_01": "b43d62c82f3fcd0f849dbf30da1663f46383ca2289d9e1fcac1d02426530c56d",
+    "c_04_03": "bc3a7e1d8f19b32afa4707b661643f150162ef01532af940d6eb28020ea25ab3",
+    "c_08_01": "dc593d69fcfed1e43e9fc03278929351ada3d410febb1dce110373640cdb5572",
+    "c_01_04": "3b9246d6c12daebc9c1c267d1e08e45e179f07ac92b1f4ce4df7d3ab23fec229",
+    "c_05_05": "a2f96f83e43c45ce6da0b0509d90e9c75be9da2cd35f3bc2e8f974861568bac1",
+    "c_03_05": "1c9461ba44a51c441ea7744498f7e071c183857109ce87b407b468b01b503873",
+    "c_07_04": "70ed95ded87a61c331c4198d4314ab0aa429ca5f95c2a017cf593a458e05f14d",
+    "c_02_05": "cfa6673752c55bb13461bc9076bbbe9a902513b1d8e5fa2257180079836af865",
+    "c_07_06": "58761257fdfb1098eed9c09663f948334d31faaa878f82c4580afa0ce1587efa",
+    "c_05_03": "7504a3243b49ae2c1ede3144fe05d0f5a7ed34c870e25d0a0af31b8da71c476d",
+    "c_01_05": "66b59e2341b01ce4a5ecb3c8692c4ec0b4ce8a73b65a72e835e243036fd106eb",
+    "c_02_04": "9e1d6ed3f190af5ce1dfc9de76beac4c04ab967223846bcfb2c10c25fddf937a",
+    "c_03_03": "1b6d83c2d71afae2081be6f00d17c199eda62ffc0ec2202d43ca2c4e598b9f4e",
+    "c_07_02": "40d1d2104e414acab3a9ef957fcf61515dc41f4cbf967152b1854899eebc98bc",
+    "c_06_04": "1c5b9ab93021a375be2beae441b016c5c6532023c91842b64096eae4124c537d",
+    "c_00_03": "d2210c61cbc038e31c6f5e916da0c7b9b489277b2f9f5a5cf03c6dee096d372e",
+    "c_00_06": "1a6e5266df78b622777ad4040e09a9360d4a398b406604c5c00731bf6afc7720",
+    "c_05_00": "21904a1be214ac0bd31dd42a11c6da4696ed2cbe606785f8d5213fc7cdfbcf6a",
+    "c_08_06": "19392b428e3d9fd9ea7a9ddf2214b13eb5604ef3e29fc106587130bf1886c615",
+    "c_06_01": "4b7fa42fee95aa4c5b07ae50245bd73217c6f17ed3e8cc274cbc3c76e88d8a11",
+    "c_01_03": "d4b4995253af571478e76371ec82aa04c5bfb62a37453b998db9a3246642380b",
+    "c_09_03": "f6561010582292a2aeec3cc91a744ac03dfa4b2c55653f6d88dc7d7171fb6dfe",
+    "c_06_06": "af460dc842f1bfd448c294ff61d974a52fb57717017ad33af5e8324c1cfc721a",
+    "c_03_06": "c708aa56f36813e1fc69616d2ad832ebc7c5c13eb84c1c7633b79a5ae4abcb52",
+    "c_08_03": "6663ab258c2b1f06bc29ab17ad9784dca5f6f8b9ad6bbe6a4d1aed6e7826561d",
+    "c_01_06": "5d6ee36c22c67c59be40258733abf6826f36f7daac29e69171bb747f879bc8c7",
+    "c_04_00": "685399cc7d7e534229579b89c1042e215f7b0b88d494a044db53d137687bf9e9",
+    "c_02_06": "bbc619f693bd73080c1c84fc1f1bae75128748f7828699f14d66434a2f11406f",
+    "c_08_02": "fdf93f5e87635d6104fe8f59eb083f9353aa47558b0f73a48e4d1a7b1f8d1b42",
+    "c_06_03": "0683bfc1e5fb8c67bf0fe2007399a526b510fb6194239d798e9c816c35d0acc0",
+    "sparse_north_outer": "234c20866003d728c50b22c51510514782e3a9fb6c15cd5461ecd62bd401debb",
+    "c_04_06": "16685450b167cf6b34599f98d493c976d8ee1ff7e49c67439738fadfa2272b4d",
+    "c_08_07": "7c553c51ac2e4bd495a077b10b48ca1271b5b9b9073e0b133c8956b097a830a8",
+    "c_02_03": "1905636ffeacea828b960ddb83b18034960a5be2c06d3ea27a00331d37cc46d0",
+    "c_05_02": "b07f9bc2b9b12154193c851328cd24b593826e567db96ea16b5b1a869bebeec8",
+    "c_03_02": "f95db873130a804f466fe358f95e900a4e6989453078d219c0eb4955bf74b85e",
+    "south_se": "1582f887b3148928ae39e71927c7f36f0ed809fa6ceebb7854c9c7d0b2cfa4c2",
+    "c_02_07": "0858adb38f5581bf3c8aaec7eaa4cc1deb44c5178052a0a870d008335db2cb12",
+    "c_00_02": "87e59cb09ac357009182ef1f0b673240fbb86eb267ad789a1c9ae9c4922cf70c",
+    "c_05_06": "b602d5a06a0235ddbace63b70bc01ed8f1647221d682c3335a5adbb96536ad7e",
+    "c_03_01": "71d39ebdaf40fdaa115324cb410222e14fd186fb0ca391c0aba58ca2da12393b",
+    "c_09_06": "a95753561733f17e2b99053c4f88c4c0910a6a5d955c13b138c4bf084704c033",
+    "c_05_07": "b464c9ea13935c8fcec68ecc4acd4a9c23e057a9f401ae9aa9e41d66c4e6693d",
+    "c_01_02": "ee831f5e13d4379c15f32f8dd9c7f12994e3aa43000f6eb55d2cf0b9665e0d32",
+    "c_04_07": "3026a48d58defad776bf0d266d5381bc32e084653e1c61ddf566cf2b18705476",
+    "c_02_02": "64380691352e44b837eb33f1ce558cddd874bf71b93cf3d25f9b56a07d877534",
+    "c_09_02": "a23f8c23a3a4dfcb55fcb894c522e20f2ed9367b174eaa61001035d17de2c8f6",
+    "c_04_02": "320fccf034f97cc1bcd542e5d46ce8bf6f04e90d680204b9cfb56e8d2df66bff",
+    "c_01_08": "f47bdf68e1ceaf829a40b19d41eabf8c02127c886b8959c86838612bb98ace54",
+    "c_02_01": "305b49a991f038d91ddbc7055fba54995163e530abadd553ebbd2ad89eb4725a",
+    "c_00_07": "e66bca167a3c5a771047639329778b054cedede175f37d5317df2c5119f4fc6a",
+    "c_08_09": "a18f5617190b04cf29140664db6dc5aa4907c5ff7815fbff07aea843bc7f3778",
+    "c_09_07": "280a70b2aaad228b740585bd16b5acd5664528c3bfd096138ceafe240b91d5f5",
+    "south_ne": "5bbba901d39b4d5319578893004b26a4c6743d9886d922e8bc9f86515e0e013b",
+    "c_03_09": "6aab018a81684ed271709b36e98ac145d28ade15c03e1648d32323c130696dec",
+    "c_06_02": "d24115f5ca6f54c92c7f96f24eb71f8aa301fc2aff2d178a23754ef611efb36c",
+    "c_06_07": "c87c3808275a3c0b31dd20964986e83acc668607b80aab1f3d59f8c1537e9797",
+    "c_02_00": "a40ae55aba79d47b12c249fd999e3596f627d78d804b8a64f8c48e6504301523",
+    "c_07_07": "73254340a21c3137d5e8674d8d206e217583d515b874fd4cc658265e17461b21",
+    "c_01_07": "781158cc511a30724b4ec48e75ee842a8e86fe88c7fc9eae512cc09fddd3925e",
+    "c_00_08": "5a3d59e3d96db5cdb01faf4619146cf22e45de5ccda0a8b91361943647155afd",
+    "c_04_09": "56de7d6b42a134463fe81c17155cbd53f2be97c1616321084458d5a137d839c8",
+    "c_04_01": "d22d1c107693d4ab3835165154a97af9b5d880a4edbbc66117c80ea86160f5a7",
+    "c_03_07": "8243654536c9687a2cd668146dfa13627a60899f005eaac4839898786e0d88ed",
+    "c_05_01": "f3edc8009cf45c19c35be803f66e5fcb29d602a19ef39505fd853a9cca150d50",
+    "c_04_08": "b5326edc02a3c5185b7c472cdf33f670cea4902c1857b08e1f8ef0171f8cfcc8",
+    "c_03_08": "aee4bd49c2c7c91d1ddea8c081ef2ee1de43c25f8f999e8f0854c6e669032651",
+    "c_03_00": "9d4e0ebb83384bf3f0850f514f5c903d99d9fa5c425e4b70272ae01246c6847e",
+    "c_08_08": "91e9e763227aba0da0608986e7d02fcef21155a958ec58781ef8a54665639814",
+    "c_05_09": "b58fda4af4d267b3a8f44a752c930bc41c54c58b428c00f4d9dff811f7e4ef7f",
+    "c_01_09": "decd1e7f05826d732b948cbd2b77830441b90c638b363716b2dfe53373b46459",
+    "c_09_08": "daff6b234796ddec0862b671f4e32c576a8d4b6477874dbd704e4be37a2eaed0",
+    "c_02_08": "ae8f9308dc37186bc0af81bf3fc45fc8dcf67403e192e892713ff9a6857f1f1c",
+    "c_02_09": "d18cb0a6aac5dcf3d28dc4c89a798d0f1cc5fc4209a667df4664d60016001968",
+    "c_09_09": "938afeb0d816e70d38f5b717ebcb0347562efb31150de27bf7d8c9fd5d8d93d4",
+    "c_05_08": "88482f18316c1ece8ac959fb90d0e2d160572307f2233714d215b5b1e5f3fa51",
+    "c_00_09": "f4e36e1a3875d11f7df788d49c7a8252d1a6a78ed93fa8aea94ae0143dca8b48",
+    "c_07_05": "12a52828b25acaeb686c4b7a9227acc3242379186ff34c5e31078896ff666919",
+    "c_03_04": "c9cffecfb7e30dd864d1e81409349600b380fa4eab3d3354ca521d7beed22abe",
+    "c_04_05": "d34ed6eb0a6fc1848e77be0496389cfb0b821837859d69329c24f6c6cf219b1c",
+    "c_06_05": "71494d9ae187717b1fae2de4daa16beaceb3be76b4e853001dd3924c5fe0bbc0",
+    "c_07_03": "6899d839b0e89558c20e80532b759e433fb72f06c80a359794b8269f3541a47b"
+  },
+  "distinct_old_controls_without_r_existing": 272,
+  "old_control_overlap_categories": {
+    "no_shared_member": 271,
+    "shared_in_one_same_core_full_fit": 1
+  },
+  "identity_audit": {
+    "unique_r_existing": 383962,
+    "multiple_full_claimants_of_old_identity": 0
+  },
+  "frozen_blind_qso": {
+    "extra_r_anchor__r21": {
+      "n": 820,
+      "methods": {
+        "blind_all": {
+          "n": 820,
+          "median": [
+            -0.23083266293224006,
+            -0.8207158506634207
+          ],
+          "nmad": [
+            6.746277090056125,
+            6.510766387348681
+          ],
+          "abs68": [
+            6.735034135106027,
+            7.1162039440492
+          ],
+          "abs_median": [
+            4.519410191022162,
+            4.372359659646932
+          ],
+          "fraction_abs_gt_tail": [
+            0.44878048780487806,
+            0.45
+          ],
+          "standardized_nmad": [
+            0.856313118614506,
+            0.8589743726430537
+          ],
+          "fraction_within_1sigma": [
+            0.7390243902439024,
+            0.7060975609756097
+          ],
+          "fraction_within_2sigma": [
+            0.974390243902439,
+            0.9634146341463414
+          ],
+          "radial_abs68": 10.41597996088181,
+          "radial_median": 8.26329677814638,
+          "radial_tail_count": 613,
+          "axis_tail_count": [
+            368,
+            369
+          ],
+          "median_bias95": [
+            [
+              -0.7796231577703567,
+              0.18403446987159575
+            ],
+            [
+              -1.514085226974528,
+              -0.19842854265233043
+            ]
+          ]
+        }
+      },
+      "paired": {}
+    },
+    "extra_r_anchor__r22": {
+      "n": 309,
+      "methods": {
+        "blind_all": {
+          "n": 309,
+          "median": [
+            -0.21257094188421266,
+            -0.7554698852490642
+          ],
+          "nmad": [
+            5.820557217236423,
+            7.081399172374277
+          ],
+          "abs68": [
+            5.89024854287585,
+            7.024665260997123
+          ],
+          "abs_median": [
+            3.9339711281980505,
+            4.688267826545527
+          ],
+          "fraction_abs_gt_tail": [
+            0.4174757281553398,
+            0.459546925566343
+          ],
+          "standardized_nmad": [
+            0.7030788380133811,
+            0.8206958064913797
+          ],
+          "fraction_within_1sigma": [
+            0.8317152103559871,
+            0.7831715210355987
+          ],
+          "fraction_within_2sigma": [
+            0.9773462783171522,
+            0.9838187702265372
+          ],
+          "radial_abs68": 9.893108890220837,
+          "radial_median": 7.401211192890663,
+          "radial_tail_count": 227,
+          "axis_tail_count": [
+            129,
+            142
+          ],
+          "median_bias95": [
+            [
+              -0.9775651308802392,
+              1.0297379156637774
+            ],
+            [
+              -1.857204442702451,
+              -6.1873563438211e-05
+            ]
+          ]
+        }
+      },
+      "paired": {}
+    },
+    "r_existing__r21": {
+      "n": 3589,
+      "methods": {
+        "blind_all": {
+          "n": 3589,
+          "median": [
+            -0.02477616716846323,
+            -0.4199053727721998
+          ],
+          "nmad": [
+            3.4653326024402826,
+            3.2400198003265737
+          ],
+          "abs68": [
+            3.6418091375809833,
+            3.49708196518931
+          ],
+          "abs_median": [
+            2.33094103353215,
+            2.192070959663923
+          ],
+          "fraction_abs_gt_tail": [
+            0.19810532181666202,
+            0.1978266926720535
+          ],
+          "standardized_nmad": [
+            1.0050408661450194,
+            1.0183423378860443
+          ],
+          "fraction_within_1sigma": [
+            0.6489272777932572,
+            0.668988576205071
+          ],
+          "fraction_within_2sigma": [
+            0.9016439119531903,
+            0.9178044023404848
+          ],
+          "radial_abs68": 5.656661461657876,
+          "radial_median": 3.956520840359441,
+          "radial_tail_count": 1370,
+          "axis_tail_count": [
+            711,
+            710
+          ],
+          "median_bias95": [
+            [
+              -0.13872872942992678,
+              0.12486574976526003
+            ],
+            [
+              -0.5264209477436624,
+              -0.28044266248484817
+            ]
+          ]
+        }
+      },
+      "paired": {}
+    },
+    "r_existing__r22": {
+      "n": 733,
+      "methods": {
+        "blind_all": {
+          "n": 733,
+          "median": [
+            -0.27015095889893226,
+            0.009653965287971826
+          ],
+          "nmad": [
+            3.448490385741469,
+            3.1632763694939645
+          ],
+          "abs68": [
+            3.5310235316376604,
+            3.217607320934796
+          ],
+          "abs_median": [
+            2.27303080662652,
+            2.1372017860289794
+          ],
+          "fraction_abs_gt_tail": [
+            0.1800818553888131,
+            0.1377899045020464
+          ],
+          "standardized_nmad": [
+            1.1120319724625536,
+            1.0841761274444386
+          ],
+          "fraction_within_1sigma": [
+            0.6398362892223738,
+            0.6412005457025921
+          ],
+          "fraction_within_2sigma": [
+            0.922237380627558,
+            0.9399727148703957
+          ],
+          "radial_abs68": 5.058393376064381,
+          "radial_median": 3.855507238533775,
+          "radial_tail_count": 238,
+          "axis_tail_count": [
+            132,
+            101
+          ],
+          "median_bias95": [
+            [
+              -0.5679000365743707,
+              0.0378378958744904
+            ],
+            [
+              -0.24167426480884613,
+              0.30651869420548905
+            ]
+          ]
+        }
+      },
+      "paired": {}
+    },
+    "non_r_anchor__r21": {
+      "n": 0
+    },
+    "non_r_anchor__r22": {
+      "n": 2
+    }
+  },
+  "slurm_job": "61574709",
+  "scope": "All immutable source files and both QSO block hashes verified. Old controls are counted by unique physical-member claims. Overlap categories alone do not prove the reason for quality exits."
+}

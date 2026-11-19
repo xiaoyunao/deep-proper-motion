@@ -28,3 +28,20 @@ def test_exposure_chip_edge_intersection_does_not_require_center_coverage():
         rows.append(row)
     selected=intersecting(pd.DataFrame(rows),(359.99,20),.025)
     assert selected.exposure.tolist()==['0.04']
+
+
+def test_season_arm_keeps_fixed_r_and_excludes_new_nights_inside_an_r_season():
+    from deep_pm.nsc_information import with_new_seasons
+
+    data = pd.DataFrame(dict(
+        survey=['SDSS','NSC','NSC','NSC','NSC','NSC'],
+        band=['r','r','g','i','z','Y'],
+        observation_time=np.arange(6),
+        exposure_id=list('abcdef'), detection_id=list('abcdef')))
+    time = np.array([2000,2015,2015.1,2015.02,2017.,2017.08])
+    night = np.array([0,1,2,1,3,4])
+    arms = split_members([0,1],np.arange(6),data,night)
+    result = with_new_seasons(arms,data,time)
+    assert list(result['S_new_seasons']) == [0,1,4,5]
+    assert list(result['B_new_nights']) == [0,1,2,4,5]
+    assert list(result['C_all']) == list(range(6))

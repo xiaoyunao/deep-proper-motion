@@ -21,6 +21,8 @@
 
 位置协方差是局部切向角扰动，不是`RA*cos(Dec)`这个坐标函数的协方差。`state_jacobian`把切平面状态及完整协方差传播至每源ICRS；对角线第1／3个零起始索引的平方根等于`pm_error_masyr`。独立／参考切平面分量分别保存在`independent_tangent_covariance`和`reference_tangent_covariance`，同一个Jacobian可转换各分量。
 
+原`detection_arrays`仍将发布east/north误差加底噪后作为切平面两轴对角权重的近似，没有重建逐检测完整WCS／投影相关项。输出状态及其条件4×4使用完整ICRS Jacobian传播；这不等于补齐了原生测量协方差。本轮为保持C0/W0公平对照不改变该近似。
+
 参考分量来自原共同C0的同步bootstrap，公共组不能按源数开平方缩小。原生误差和50mas底噪是当前对角W0；未知同夜跨band误差、实际空间残余和绝对frame tie未全部进入该4×4，不能视其为已校准总误差。跨源公共参考协方差需要保留原组、参考NPZ和同步draw，不可从各源对角误差单独重建。
 
 ## 科研质量与源类

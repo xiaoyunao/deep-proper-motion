@@ -1,0 +1,69 @@
+{
+  "completed_cores": 80,
+  "completed_nominal_core_area_sqdeg": 79.89118981165284,
+  "research_physical_r_solutions": 420978,
+  "research_all_nsc_solutions": 502465,
+  "all_magnitude_source_classes": {
+    "r_existing": 419790,
+    "extra_r_anchor": 77341,
+    "non_r_anchor": 5334
+  },
+  "acquisition": {
+    "downloaded_nsc_measures_with_halo_overlap": 114800305,
+    "added_nsc_measures_with_halo_overlap": 8872872,
+    "sdss_r_preserved_with_halo_overlap": 4989881,
+    "detections_by_measured_position_core_ownership": {
+      "SDSS": 3949427,
+      "NSC": 90859314
+    },
+    "physically_qualified_supported_nsc_core_detections_by_band": {
+      "z": 10330863,
+      "g": 54493504,
+      "r": 5944682,
+      "VR": 2893012,
+      "i": 1458994,
+      "Y": 128662
+    }
+  },
+  "ownership": {
+    "catalogue_count": 502465,
+    "exact_position_duplicate_rows": 0,
+    "cross_core_close_pairs_by_arcsec": {
+      "0.05": {
+        "cross_core_pairs": 0,
+        "motion_difference_below_1_masyr": 0
+      },
+      "0.2": {
+        "cross_core_pairs": 0,
+        "motion_difference_below_1_masyr": 0
+      }
+    },
+    "outside_common_epoch_owner": 0,
+    "cross_core_shared_detection_claims": 0,
+    "original_anchor_folder_mismatches": 2,
+    "common_epoch_reassigned_source_rows": 2
+  },
+  "ownership_resolution": {
+    "reassigned_all_nsc_rows": 2,
+    "reassigned_r_control_rows": 2,
+    "affected_cores": [
+      "a_16_10",
+      "a_21_00",
+      "b_21_00",
+      "b_21_10"
+    ],
+    "all_source_states_covariances_and_members_unchanged": true,
+    "retained_all_nsc_solutions": 502465,
+    "outside_full_region": 0,
+    "unresolved_owners": 0,
+    "base_summary_sha256": "4d61a6ce1c72dc4675e919532ad5e1cd5f6fad8a16c0732024f996c1b43d7b87",
+    "audit_summary_sha256": "f44ebde1334e02fe72fa0315c083d9de17e90072984adac920b0a58d9a11331b",
+    "private_overlay_sha256": "fb282f84b2c6da1829e27b442f54a33ee39ce365ab4e108a086a3a09956a7d90",
+    "source_code_commit": "3e14adfcb2babdebbefc66047cd4c24c38630806",
+    "slurm_job": "61580886",
+    "scope": "A source folder was selected by NSC anchor median, whereas output owner is its fitted J2015.5 ICRS position. Each transferred row has one other owner among the original cores. Rehome via a signed private overlay, keep original receipts, recompute affected source/quality spatial summaries. Global source counts and every pooled QSO metric remain exactly unchanged. Physical-r funnel counts by core retain discovery anchor ownership; global physical-r count is unchanged."
+  },
+  "reference_graph_sha256": "4332e0801ad23a04176f4acfd5e4d4d5f2b9ddab06f53c15ff4412e7027db4d1",
+  "source_summary_sha256": "7a1a7645197487701b1b86e1c588d19143d86abcf584c469e4e3c2ad0454b821",
+  "source_slurm_job": "61577999"
+}

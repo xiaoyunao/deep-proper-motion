@@ -1,0 +1,13 @@
+{
+  "graphs": {
+    "equatorial": {
+      "cores": 80,
+      "science_receipt_sha256": "7a1a7645197487701b1b86e1c588d19143d86abcf584c469e4e3c2ad0454b821"
+    },
+    "northern": {
+      "cores": 176,
+      "science_receipt_sha256": "d68f3ad42ce4b62766ae4d857037a59539fd0da3831d0d0126367836f0111b52"
+    }
+  },
+  "slurm_job": "61580886"
+}

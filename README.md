@@ -1,6 +1,6 @@
 # deep-proper-motion
 
-当前科研阶段为 **v1.6 多波段误差与独立天区迁移**。北二区 58.720 平方度完成 72 核心和 183,204 个科研解，较物理质量 r-only 对照增加 35,998 个。共同光谱 QSO 显示多 run 精度收益稳定，普通单 run 仍有局限。SDSS 每物理 run 使用发布 r 位置，NSC 采用满足质量与参考支持的实际单曝光。C0/W0 为冻结科研基准。 [中文科学报告](reports/experiment_A_v1.6_error_transfer.md) · [复现协议](docs/verification_v16.md) · [当前计划](PLAN.md)
+当前科研阶段为 **v1.7 广域多波段生产**。新完成 168.243 名义平方度和 812,481 个科研解，比物理质量 r 对照增加 174,318 个。SDSS 每个独立 run 采用发布 r 位置，NSC 使用各个合格实际单曝光波段。C0/W0 为冻结科学基准。 [中文科学报告](reports/experiment_A_v1.7_wide_production.md) · [生产流程](docs/running_v17.md) · [当前计划](PLAN.md)
 
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**

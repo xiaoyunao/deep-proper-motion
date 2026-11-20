@@ -1,0 +1,84 @@
+{
+  "north": {
+    "graph_sha256": "8c2922db76668a9ec874b8d69e20a3797f65202f088442f1ca1fb63236de30b7",
+    "fit_receipt_sha256": "7bdd295a1812399f34c874c260229f6b71c7dc92c3be8ffe4fe4ca62f02175d5",
+    "reference_plan_sha256": "9606cece68aa9894545f2f9f36b5a5b9551048c2b786c96b56100b87bf035e9f",
+    "supported_groups": 5552,
+    "components": {
+      "0": 5552
+    },
+    "new_cores": 288,
+    "replayed_cores": 336,
+    "reference_workers": 5,
+    "source_code_commit": "329c4f81863a6aaa069c0bc77ef815ca27ac6b6f",
+    "slurm_job": "61666919"
+  },
+  "east": {
+    "graph_sha256": "296df57866eca05847c90ac39a75dca04078d9eee38d9afa3ce13ad0126d6922",
+    "fit_receipt_sha256": "4aa7364b913e4df856cdc4246c0883f67853b41856bbc59c288ac918eea68b1e",
+    "reference_plan_sha256": "9606cece68aa9894545f2f9f36b5a5b9551048c2b786c96b56100b87bf035e9f",
+    "supported_groups": 15049,
+    "components": {
+      "0": 15049
+    },
+    "new_cores": 96,
+    "replayed_cores": 432,
+    "reference_workers": 5,
+    "source_code_commit": "329c4f81863a6aaa069c0bc77ef815ca27ac6b6f",
+    "slurm_job": "61673629"
+  },
+  "west_prepared": {
+    "geometry_sha256": "902344d3f9193b391dd32b19f3bc4357f475df7b50128e87bb74a92a92dc6f4d",
+    "reference_inputs_sha256": "65f0f7becc3572a4a378427f55622bd8ab33a39193e6a2ac974d99c9c1e2b2bc",
+    "domain_plan_sha256": "9606cece68aa9894545f2f9f36b5a5b9551048c2b786c96b56100b87bf035e9f",
+    "cores": 1099,
+    "slurm_job": "61673629"
+  },
+  "north_pilot": {
+    "cores": {
+      "w150_110_00_00": {
+        "products": {
+          "owned_all_nsc": {
+            "n": 4810,
+            "out_of_anchor_core": 0
+          },
+          "owned_r_control": {
+            "n": 3989,
+            "out_of_anchor_core": 0
+          }
+        },
+        "input_receipt_sha256": "58732c4846635ef2fd49056531e161239cdec10c5a01192c5f16a8ddb6f7679f",
+        "fit_receipt_sha256": "1efa0f6a6e40227c5debc44b5343438262bb2b07743bc25a5343729e53868f00"
+      },
+      "w200_110_00_00": {
+        "products": {
+          "owned_all_nsc": {
+            "n": 3714,
+            "out_of_anchor_core": 0
+          },
+          "owned_r_control": {
+            "n": 3124,
+            "out_of_anchor_core": 0
+          }
+        },
+        "input_receipt_sha256": "4c8352b6d6d8a7745b60ff2d1a367d58da813c4b9e4406e1f7eb03f13dd45158",
+        "fit_receipt_sha256": "5fc03596a3ad8b28bc21be9153ac8f3072b97adf5bf0bcd5c69faace12a4eeda"
+      }
+    },
+    "reference_graph_sha256": "8c2922db76668a9ec874b8d69e20a3797f65202f088442f1ca1fb63236de30b7",
+    "slurm_job": "61673629",
+    "scope": "Checks on two real northern cores against the completed northern graph. The global reference, cross-core ownership and science checks still apply."
+  },
+  "north_prefit": {
+    "cores": 133,
+    "planned_cores": 288,
+    "eligible_cores": 288,
+    "failures": {},
+    "fit_ledger_sha256": "e77951a972012acd8a9767e9015f69eff214d1ac80479022fa1c29e6d2fd811d",
+    "provisional_all_nsc_rows": 476784,
+    "reference_graph_sha256": "8c2922db76668a9ec874b8d69e20a3797f65202f088442f1ca1fb63236de30b7",
+    "slurm_job": "61673629",
+    "scope": "Signed early fits on the verified northern reference domain. Unified reference checks, boundary ownership and independent science assessment still apply."
+  },
+  "scope": "Two solved reference domains and one prepared domain. Early fits remain subject to the full three-domain reference, ownership and science checks."
+}

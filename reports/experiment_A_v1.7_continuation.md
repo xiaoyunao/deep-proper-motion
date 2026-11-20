@@ -76,4 +76,4 @@
 
 科学归属通过后，61627753 按原生扫描和 CCD 登记了 **804.097 名义平方度、852 核心**，参考前几何机会 799.563 平方度。下一批四节点取数 61627813 已完成全部 852 个核心的取数和星系参考提取，含各块 halo 共 419,424,538 条标准化检测。累计面积达到 2154.184 平方度有待这一批完成拟合、归属和科学核验。原始检测、签名逐源目录、星系和真值缓存留在 NERSC PScratch，公开仓库包含去标识统计、图和复现记录。 [下一批登记范围](../results/summary/v17_future_registration_summary.json) · [下一批取数闭合](../results/summary/v17_future_intake_verified_summary.json) · [发布校验和](../results/summary/v17_continuation_publication_summary.json)
 
-实际共享物理组将新增和既有目录连为三套拟更新参考图，旧 1399 核心均纳入相应版本的重放。参考输入较少的北图含 288 个新核心和 336 个旧核心，单节点已开始求解。完整拟合的资源校验因 CPU 配额被拒，输入、参考提取及科学登记保持可续跑。 [下一批参考图范围](../results/summary/v17_future_reference_plan_summary.json)
+实际共享物理组将新增和既有目录连为三套拟更新参考图，旧 1399 核心均纳入相应版本的重放。北图和东图已完成参考核验。西图的 1099 个核心已经重投影。CPU 额度恢复后，按共享物理观测拆分的两段拟合已排入生产，北东段已运行。整批科研质量将在三图闭合后读取。 [下一批参考图范围](../results/summary/v17_future_reference_plan_summary.json)

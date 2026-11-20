@@ -1,0 +1,24 @@
+{
+  "cores": 1095,
+  "failed": {},
+  "planned": 1095,
+  "all_nsc": 6071129,
+  "source_code_commit": "1baee96dbc53e829e8acfc75966aacbf0b6985b6",
+  "slurm_job": "61622614",
+  "partition_receipts": [
+    {
+      "slurm_job": "61604618",
+      "fit_count": 720,
+      "summary_sha256": "7018d0b2179f46555df39de82195c7ee1ed026dba53f864a4621e7eed68a3973",
+      "index_sha256": "66bcb1ac9444cc9f4d712cd62a382a9682f8cca04a71c65c5cdcf6f7ed5471e6"
+    },
+    {
+      "slurm_job": "61614733",
+      "fit_count": 375,
+      "summary_sha256": "ffbff04c4643b2fb4b946f66db62252ee6bb8073b70b946bf2d448eb0908c19d",
+      "index_sha256": "b544e3be8ff49d300a69a994d733d80e86fd09ead151664cd572c20e7d4a9efa"
+    }
+  ],
+  "fit_index_sha256": "6bb670a8d1831a4c2d6cc5db454693acd54f0343e16bb2ca4c05a32f91d38ed1",
+  "reference_summary_sha256": "a499ea2bac49099ed322752a3b635ed503e0efb647b7f5dc8195cd452cebf845"
+}

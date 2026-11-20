@@ -1,0 +1,21 @@
+{
+  "wide_quality_receipt_sha256": "c9b778f1ef897c334013d16d4d23c937ef2439ba538cf536caf905eae3759f66",
+  "slurm_job": "61622614",
+  "publication_slurm_job": "61625135",
+  "minimum_objects_for_observational_block_statistics": 5,
+  "exports": {
+    "v17_wide_production_science_summary.json": {
+      "source_sha256": "dec57fb3a15764f39df1740d75cb373bbe9224a203fc6a281f705783f027af1b",
+      "export_sha256": "42c65bf9f790331fe09cec302900bcf9038b805ef2ad62f4feed0e127af1de7c",
+      "suppressed_sparse_blocks": 522
+    },
+    "v17_wide_new_spectral_summary.json": {
+      "source_sha256": "a638a84659f6205eb876c4f8242057a6b44f6ecaafd012bcf0d2f9a0fb2697f5",
+      "export_sha256": "f108a413808c91e2cd725e4ab4ba32c8a66c95fa4e0ea51717e1eae03a92d0b2",
+      "suppressed_sparse_blocks": 54
+    },
+    "v17_wide_class_conditions_summary.json": {
+      "export_sha256": "51e48bf7330ac079682eff4e8471ae3cafc501fb2be14ed74e1b0a7eef1b2b7b"
+    }
+  }
+}

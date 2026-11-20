@@ -61,12 +61,72 @@ def map_figure(data, output):
     plt.close(figure)
 
 
+def condition_figure(data, output):
+    """Compare precision and calibration on identical spectral objects in each row."""
+    cohorts = data['aggregate']['known_stationary']
+    instruments = sorted({
+        key.split('__instrument_', 1)[1]
+        for key, value in cohorts.items()
+        if '__instrument_' in key and value['strict_published_common']['n'] >= 100
+    })
+    observing_conditions = (
+        ('all', 'All common QSOs'),
+        ('one_sdss_run', 'One SDSS run'),
+        ('multiple_sdss_runs', 'Multiple SDSS runs'),
+        ('nsc_span_lt2', 'NSC span <2 yr'),
+        ('nsc_span_ge2', 'NSC span ≥2 yr'),
+        ('nsc_nights_le5', '≤5 NSC nights'),
+        ('nsc_nights_gt5', '>5 NSC nights'),
+        *((f'instrument_{name}', name) for name in instruments),
+    )
+    figure, axes = plt.subplots(2, 3, figsize=(14, 9), constrained_layout=True)
+    for magnitude, (precision, zero, coverage) in zip((21, 22), axes):
+        rows = []
+        for condition, label in observing_conditions:
+            cohort = cohorts.get(f'r{magnitude}__{condition}', {}).get('strict_published_common', {})
+            if cohort.get('n', 0) >= 100:
+                rows.append((label, cohort['n'], cohort['methods']))
+        if not rows:
+            raise ValueError(f'No supported observing conditions in r={magnitude}–{magnitude+1}')
+        labels, counts, methods = zip(*rows)
+        y = np.arange(len(rows))
+        for key, label, marker in (('NSC','NSC DR2','x'), ('Xiao','Xiao2025','s'),
+                                   ('r_physical_quality','Physical r','^'), ('all_nsc','Full NSC','o')):
+            precision.plot([row[key]['radial_abs68'] for row in methods], y, marker,
+                           label=label, markersize=5)
+        for axis, name, marker in ((0,'East','o'), (1,'North','s')):
+            zero.plot([r['all_nsc']['median'][axis] for r in methods], y, marker, label=name, markersize=5)
+            coverage.plot([100*r['all_nsc']['fraction_within_1sigma'][axis] for r in methods],
+                          y, marker, label=name, markersize=5)
+        zero.axvline(0, color='0.5', lw=.8, ls='--')
+        coverage.axvline(68.27, color='0.5', lw=.8, ls='--')
+        coverage.set_xlim(0, 100)
+        precision.set_yticks(y, [f'{label} ({n:,})' for label, n in zip(labels, counts)])
+        for ax, xlabel in zip((precision, zero, coverage),
+                             ('Absolute PM P68 [mas/yr]', 'Full NSC zero point [mas/yr]', 'Full NSC formal 1σ [%]')):
+            ax.set(xlabel=xlabel, ylim=(len(rows)-.5, -.5))
+            ax.grid(axis='x', alpha=.20)
+            ax.legend(loc='lower center', bbox_to_anchor=(.5, 1), ncol=4 if ax is precision else 2,
+                      frameon=False, fontsize=8)
+        precision.set_ylabel(f'r = {magnitude}–{magnitude+1} mag')
+        for ax in (zero, coverage):
+            ax.set_yticks(y, [])
+    figure.suptitle('Wide C0/W0 · strict common spectral QSOs\n'
+                    'Parentheses give sample size. Conditions overlap. Instrument codes identify actual NSC combinations.')
+    figure.savefig(output, dpi=180)
+    plt.close(figure)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('science',type=Path)
     parser.add_argument('output',type=Path)
+    parser.add_argument('--conditions-output', type=Path)
     args=parser.parse_args()
-    map_figure(json.loads(args.science.read_text()),args.output)
+    data = json.loads(args.science.read_text())
+    map_figure(data,args.output)
+    if args.conditions_output is not None:
+        condition_figure(data,args.conditions_output)
 
 
 if __name__=='__main__':

@@ -1,0 +1,1393 @@
+{
+  "first_batch": [
+    {
+      "name": "w190_080_00",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.786515993446349,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 233
+    },
+    {
+      "name": "w190_080_02",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 205
+    },
+    {
+      "name": "w190_080_04",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.9432141042338107,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 559
+    },
+    {
+      "name": "w190_080_06",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        190,
+        192
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9666730214321166,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 552
+    },
+    {
+      "name": "w190_080_26",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        192,
+        194
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.6626074936568327,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 416
+    },
+    {
+      "name": "w190_080_46",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        194,
+        196
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.5243958901226122,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 470
+    },
+    {
+      "name": "w190_080_66",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        196,
+        198
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.3723631262349705,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 301
+    },
+    {
+      "name": "w190_080_86",
+      "box": "w190_080",
+      "ra_bounds_deg": [
+        198,
+        200
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.2894361641144383,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 283
+    },
+    {
+      "name": "w340_080_00",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        340,
+        342
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9232133217296106,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 106
+    },
+    {
+      "name": "w340_080_02",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        340,
+        342
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 87
+    },
+    {
+      "name": "w340_080_04",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        340,
+        342
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.957001566136726,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 89
+    },
+    {
+      "name": "w340_080_06",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        340,
+        342
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 130
+    },
+    {
+      "name": "w340_080_08",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        340,
+        342
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 270
+    },
+    {
+      "name": "w340_080_20",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        342,
+        344
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9368830545579367,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 83
+    },
+    {
+      "name": "w340_080_22",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        342,
+        344
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.956246079516238,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 102
+    },
+    {
+      "name": "w340_080_24",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        342,
+        344
+      ],
+      "dec_bounds_deg": [
+        -6,
+        -4
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 91
+    },
+    {
+      "name": "w340_080_26",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        342,
+        344
+      ],
+      "dec_bounds_deg": [
+        -4,
+        -2
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 132
+    },
+    {
+      "name": "w340_080_28",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        342,
+        344
+      ],
+      "dec_bounds_deg": [
+        -2,
+        0
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 1468
+    },
+    {
+      "name": "w340_080_40",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        344,
+        346
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.786515993446349,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 81
+    },
+    {
+      "name": "w340_080_42",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        344,
+        346
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 86
+    },
+    {
+      "name": "w340_080_60",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        346,
+        348
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9232133217296106,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 88
+    },
+    {
+      "name": "w340_080_62",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        346,
+        348
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 90
+    },
+    {
+      "name": "w340_080_80",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        348,
+        350
+      ],
+      "dec_bounds_deg": [
+        -10,
+        -8
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9368830545579367,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 77
+    },
+    {
+      "name": "w340_080_82",
+      "box": "w340_080",
+      "ra_bounds_deg": [
+        348,
+        350
+      ],
+      "dec_bounds_deg": [
+        -8,
+        -6
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 158
+    },
+    {
+      "name": "w020_090_20",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        22,
+        24
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 344
+    },
+    {
+      "name": "w020_090_22",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        22,
+        24
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 278
+    },
+    {
+      "name": "w020_090_24",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        22,
+        24
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 186
+    },
+    {
+      "name": "w020_090_26",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        22,
+        24
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 76
+    },
+    {
+      "name": "w020_090_28",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        22,
+        24
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9368830545579367,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 81
+    },
+    {
+      "name": "w020_090_40",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        24,
+        26
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 322
+    },
+    {
+      "name": "w020_090_42",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        24,
+        26
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 252
+    },
+    {
+      "name": "w020_090_44",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        24,
+        26
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.9707890280396416,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 171
+    },
+    {
+      "name": "w020_090_46",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        24,
+        26
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 65
+    },
+    {
+      "name": "w020_090_48",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        24,
+        26
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.4311029399098683,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 77
+    },
+    {
+      "name": "w020_090_60",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        26,
+        28
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 299
+    },
+    {
+      "name": "w020_090_62",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        26,
+        28
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 285
+    },
+    {
+      "name": "w020_090_64",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        26,
+        28
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 167
+    },
+    {
+      "name": "w020_090_66",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        26,
+        28
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.956246079516238,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 54
+    },
+    {
+      "name": "w020_090_68",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        26,
+        28
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9368830545579367,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 70
+    },
+    {
+      "name": "w020_090_80",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        28,
+        30
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 2309
+    },
+    {
+      "name": "w020_090_82",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        28,
+        30
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 323
+    },
+    {
+      "name": "w020_090_84",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        28,
+        30
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 183
+    },
+    {
+      "name": "w020_090_86",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        28,
+        30
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 68
+    },
+    {
+      "name": "w020_090_88",
+      "box": "w020_090",
+      "ra_bounds_deg": [
+        28,
+        30
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9368830545579367,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 74
+    },
+    {
+      "name": "w140_090_20",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        142,
+        144
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 1022
+    },
+    {
+      "name": "w140_090_22",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        142,
+        144
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 174
+    },
+    {
+      "name": "w140_090_24",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        142,
+        144
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 129
+    },
+    {
+      "name": "w140_090_26",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        142,
+        144
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 95
+    },
+    {
+      "name": "w140_090_28",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        142,
+        144
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 84
+    },
+    {
+      "name": "w140_090_40",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        144,
+        146
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 1019
+    },
+    {
+      "name": "w140_090_42",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        144,
+        146
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 184
+    },
+    {
+      "name": "w140_090_44",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        144,
+        146
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.9707890280396416,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 128
+    },
+    {
+      "name": "w140_090_46",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        144,
+        146
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 122
+    },
+    {
+      "name": "w140_090_48",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        144,
+        146
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 73
+    },
+    {
+      "name": "w140_090_60",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        146,
+        148
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "ksb"
+      ],
+      "exposures": 278
+    },
+    {
+      "name": "w140_090_62",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        146,
+        148
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.980494181785539,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 193
+    },
+    {
+      "name": "w140_090_64",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        146,
+        148
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 155
+    },
+    {
+      "name": "w140_090_66",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        146,
+        148
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 135
+    },
+    {
+      "name": "w140_090_68",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        146,
+        148
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 115
+    },
+    {
+      "name": "w140_090_80",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        148,
+        150
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d",
+        "k4m",
+        "ksb"
+      ],
+      "exposures": 2302
+    },
+    {
+      "name": "w140_090_82",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        148,
+        150
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d",
+        "k4m",
+        "ksb"
+      ],
+      "exposures": 1498
+    },
+    {
+      "name": "w140_090_84",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        148,
+        150
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 386
+    },
+    {
+      "name": "w140_090_86",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        148,
+        150
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.956246079516238,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 240
+    },
+    {
+      "name": "w140_090_88",
+      "box": "w140_090",
+      "ra_bounds_deg": [
+        148,
+        150
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9368830545579367,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 88
+    },
+    {
+      "name": "w200_090_20",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        202,
+        204
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 84
+    },
+    {
+      "name": "w200_090_22",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        202,
+        204
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 232
+    },
+    {
+      "name": "w200_090_24",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        202,
+        204
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 211
+    },
+    {
+      "name": "w200_090_26",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        202,
+        204
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d",
+        "k4m"
+      ],
+      "exposures": 68
+    },
+    {
+      "name": "w200_090_28",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        202,
+        204
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 81
+    },
+    {
+      "name": "w200_090_40",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        204,
+        206
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 90
+    },
+    {
+      "name": "w200_090_42",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        204,
+        206
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 103
+    },
+    {
+      "name": "w200_090_44",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        204,
+        206
+      ],
+      "dec_bounds_deg": [
+        4,
+        6
+      ],
+      "area_sqdeg": 3.984576489942557,
+      "pre_reference_opportunity_sqdeg": 3.984576489942557,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 87
+    },
+    {
+      "name": "w200_090_46",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        204,
+        206
+      ],
+      "dec_bounds_deg": [
+        6,
+        8
+      ],
+      "area_sqdeg": 3.9699830450701143,
+      "pre_reference_opportunity_sqdeg": 3.9699830450701143,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 63
+    },
+    {
+      "name": "w200_090_48",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        204,
+        206
+      ],
+      "dec_bounds_deg": [
+        8,
+        10
+      ],
+      "area_sqdeg": 3.9505527873862625,
+      "pre_reference_opportunity_sqdeg": 3.9505527873862625,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 86
+    },
+    {
+      "name": "w200_090_60",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        206,
+        208
+      ],
+      "dec_bounds_deg": [
+        0,
+        2
+      ],
+      "area_sqdeg": 3.999187736368078,
+      "pre_reference_opportunity_sqdeg": 3.999187736368078,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 86
+    },
+    {
+      "name": "w200_090_62",
+      "box": "w200_090",
+      "ra_bounds_deg": [
+        206,
+        208
+      ],
+      "dec_bounds_deg": [
+        2,
+        4
+      ],
+      "area_sqdeg": 3.9943153421389606,
+      "pre_reference_opportunity_sqdeg": 3.9943153421389606,
+      "instruments": [
+        "c4d"
+      ],
+      "exposures": 105
+    }
+  ],
+  "windows": [
+    "w020_090",
+    "w140_090",
+    "w190_080",
+    "w200_090",
+    "w340_080"
+  ],
+  "new_nominal_area_sqdeg": 302.4151844198415,
+  "pre_reference_opportunity_sqdeg": 299.1233183507327,
+  "geometry_sha256": "f6f977fdb9f1953755f4489fd84134b0adadd4f15adbecd2d646a9f02f2936c4",
+  "previous_scope_sha256": "f87888e3199604066e0cf7797dfe847c9c517b66415ae85e72b6c55fb3862f31",
+  "config_sha256": "d6379a93e3b79ca4589bf213dcaf893fa535136d9b55a7f76132219349d935bf",
+  "slurm_job": "61620149",
+  "scope": "Registered prospectively from native CCD and scan time coverage. Future science area requires traceable common physical groups, fits and ownership audits."
+}

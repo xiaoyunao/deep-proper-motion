@@ -2,9 +2,9 @@
 
 项目研究较早的 SDSS 单历元位置、独立的 NSC DR2 单曝光位置与联合天测校准，能否改善普通恒星和缺少 Gaia 自行的暗星测量。Xiao et al. (2025) 用 SDSS 与 Legacy Surveys 的两端位置估计自行；本项目检验多历元采样和公共位置误差的独立贡献。 [Xiao et al. (2025)](https://doi.org/10.3847/1538-3881/adb72c) · [官方 NSC](https://datalab.noirlab.edu/data/nsc)
 
-**v1.7 已完成第一批广域科研生产。** 补齐 v1.3 余下 184 核心、168.243 名义平方度，共同参考支持的合格几何时基覆盖 155.207 平方度。冻结 C0/W0 全 NSC 波段产出 812,481 个科研解，较物理 r 对照多 174,318 个（27.3%）。连同原 C 和共同图重放的北二区，已完成 326.836 名义平方度、1,477,556 个科研解。下一批按原生覆盖登记新增 720.836 名义平方度。在发布级系统误差认证之前，局部零点和独立暗星身份仍按质量标志读取。 [中文科学报告](reports/experiment_A_v1.7_wide_production.md) · [空间质量图](figures/v17_cached_quality_summary.png) · [广域计划](PLAN.md)
+**v1.7 已完成广域 C0/W0 科研基准。** 1095 个核心共 1047.672 名义平方度，1041.187 平方度有共同参考和合格观测时基。全波段 6,071,123 个科研解，较物理 r 净增 1,419,861 个（30.5%）。相对 Xiao2025，21–22 和 22–23 等严格共同光谱 QSO 的二维 P68 分别降低 19.8% 和 26.4%。物理组参考、实际观测和 ICRS 归属通过核验。科研精度、绝对区内零点及暗星独立身份仍用各自质量标志。 [中文科学报告](reports/experiment_A_v1.7_wide_production.md) · [空间分布](figures/v17_wide_quality_summary.png) · [观测条件](figures/v17_wide_conditions_summary.png)
 
-**广域批次的东部与北部已完成质量核验。** 新增 438.256 名义平方度，434.526 平方度有共同参考和合格观测时基。新范围有 2,616,774 个全 NSC 波段科研解，较物理 r 增加 373,382 个。21–22 等单 run 的严格共同光谱源与 Xiao2025 持平。22–23 等单 run 的二维 P68 从 11.861 降至 10.853 mas/yr。西赤道进入最终质量汇总。 [新范围同源统计](results/summary/v17_wide_ready_summary.json) · [参考组回执](results/summary/v17_wide_reference_production_summary.json)
+**后续分批科研生产已启动。** 独立于本批自行预登记 302.415 名义平方度、304 核心。Slurm 61625135 已验证五个真实先导的全波段输入及参考提取回执，继续取数。当前累计面积只含已完成的目录。下一批先核验与既有参考图的共享物理组，随后进入相应联合参考和拟合。 [前瞻覆盖登记](results/summary/v17_next_wide_selection_summary.json) · [输入先导](results/summary/v17_next_intake_canary_summary.json)
 
 **v1.6 完成独立区域迁移。** 冻结 v1.5 的 99.873 平方度、91 核心、481,945 个全波段解和同源光谱结果。在历史 r-only 已解封的北二区登记整窗，NERSC 完成 58.720 平方度、72 核心、183,204 个全波段解，较物理质量 r 对照多 35,998 个。严格共同比较的 1,453／209 个 21–22／22–23 等 QSO，二维 P68 相对 Xiao2025 降低 7.7%／12.8%，多 run 最稳定。单 run 在 21–22 等相对 r 改善 5.6%，相对 Xiao2025 仍差 5.5%。全波段保持 C0/W0 科研基准，正式全覆盖暂缓。 [中文报告](reports/experiment_A_v1.6_error_transfer.md) · [迁移精度图](figures/v16_transfer_precision_summary.png) · [当前计划](PLAN.md)
 

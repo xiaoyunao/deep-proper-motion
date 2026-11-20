@@ -1,0 +1,418 @@
+{
+  "graphs": {
+    "east_equatorial": {
+      "cores": 272,
+      "science_receipt_sha256": "b638120df2d4dd8c2482b72fd0bd71c1defe7e66fd6f1e923fded08115d29733",
+      "acquisition": {
+        "downloaded_nsc_measures_with_halo_overlap": 256031318,
+        "added_nsc_measures_with_halo_overlap": null,
+        "sdss_r_preserved_with_halo_overlap": 16281128,
+        "detections_by_measured_position_core_ownership": {
+          "SDSS": 12918715,
+          "NSC": 203991970
+        },
+        "physically_qualified_supported_nsc_core_detections_by_band": {
+          "r": 30075649,
+          "i": 16207918,
+          "z": 42739504,
+          "g": 73956989,
+          "Y": 5111340,
+          "VR": 10910028,
+          "u": 246221
+        }
+      },
+      "ownership": {
+        "catalogue_count": 1736694,
+        "exact_position_duplicate_rows": 0,
+        "cross_core_close_pairs_by_arcsec": {
+          "0.05": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          },
+          "0.2": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          }
+        },
+        "outside_common_epoch_owner": 0,
+        "cross_core_shared_detection_claims": 0,
+        "original_anchor_folder_mismatches": 12,
+        "common_epoch_reassigned_source_rows": 11
+      },
+      "ownership_resolution": {
+        "reassigned_all_nsc_rows": 11,
+        "reassigned_r_control_rows": 9,
+        "affected_cores": [
+          "a_14_00",
+          "a_14_01",
+          "b_21_00",
+          "b_21_10",
+          "w130_090_06_01",
+          "w130_090_60_01",
+          "w130_090_60_11",
+          "w130_090_86_10",
+          "w130_090_86_11",
+          "w170_080_08_00",
+          "w170_080_08_01",
+          "w170_080_24_01",
+          "w170_080_24_11",
+          "w190_090_04_10",
+          "w190_090_04_11",
+          "w190_090_22_11",
+          "w190_090_24_10",
+          "w190_090_26_01",
+          "w190_090_28_00",
+          "w190_090_44_00",
+          "w190_090_44_10",
+          "w190_090_48_00",
+          "w190_090_48_01",
+          "w190_090_64_00",
+          "w190_090_64_01"
+        ],
+        "all_source_states_covariances_and_members_unchanged": true,
+        "retained_all_nsc_solutions": 1736694,
+        "outside_full_region": 1,
+        "unresolved_owners": 0,
+        "base_summary_sha256": "0f84a602958e556d8e909841a36d5780077fbff690c95adbf95547ed09c230e1",
+        "audit_summary_sha256": "c141127a4da0849aba27d85f6726e5e9e65161ecd7675ca0f589109188a6a287",
+        "private_overlay_sha256": "9bb864c02f864190e0b49083ea8a5650d9316f9720b05eecd2565fd70f00ebc2",
+        "source_code_commit": "3e14adfcb2babdebbefc66047cd4c24c38630806",
+        "slurm_job": "61616143",
+        "scope": "Every final in-footprint row has a unique J2015.5 owner. Exterior rows remain immutable in the original fit and are explicitly archived by a null owner. Source and blind-spectral statistics use retained rows; known-position QSO comparisons and discovery funnels retain their original footprint.",
+        "exterior_rows_by_product": {
+          "private_standard_motion.json.gz": 1
+        }
+      },
+      "reference_graph_sha256": "e54f7015f3fbcbaae4b5a1bf922a3b9a61aab7aa6258c0d27180486262cd701b"
+    },
+    "east_midlatitude": {
+      "cores": 60,
+      "science_receipt_sha256": "e9308401fd76f26c4da3fba76b2bc6e1ffef1fd116f1dbb650baf4da00631a52",
+      "acquisition": {
+        "downloaded_nsc_measures_with_halo_overlap": 13668181,
+        "added_nsc_measures_with_halo_overlap": null,
+        "sdss_r_preserved_with_halo_overlap": 1945234,
+        "detections_by_measured_position_core_ownership": {
+          "SDSS": 1551426,
+          "NSC": 10909657
+        },
+        "physically_qualified_supported_nsc_core_detections_by_band": {
+          "z": 3333032,
+          "r": 3440280,
+          "g": 2690600
+        }
+      },
+      "ownership": {
+        "catalogue_count": 212435,
+        "exact_position_duplicate_rows": 0,
+        "cross_core_close_pairs_by_arcsec": {
+          "0.05": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          },
+          "0.2": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          }
+        },
+        "outside_common_epoch_owner": 0,
+        "cross_core_shared_detection_claims": 0,
+        "original_anchor_folder_mismatches": 2,
+        "common_epoch_reassigned_source_rows": 1
+      },
+      "ownership_resolution": {
+        "reassigned_all_nsc_rows": 1,
+        "reassigned_r_control_rows": 1,
+        "affected_cores": [
+          "w180_110_24_11",
+          "w180_110_44_00",
+          "w180_110_44_01"
+        ],
+        "all_source_states_covariances_and_members_unchanged": true,
+        "retained_all_nsc_solutions": 212435,
+        "outside_full_region": 1,
+        "unresolved_owners": 0,
+        "base_summary_sha256": "daca005dd089923e76d8757e10d723a2d0bd13c1bd768fca4e242b86cd3c1bd9",
+        "audit_summary_sha256": "da85794ecdf0d2a0bd369b23c5c6b0dda36ec2551489f1954799e9ece3bd2a6e",
+        "private_overlay_sha256": "a20ef7bbb598741497319422140aa4ea6ee9afc78f6707db211748f2a5001fe3",
+        "source_code_commit": "3e14adfcb2babdebbefc66047cd4c24c38630806",
+        "slurm_job": "61616143",
+        "scope": "Every final in-footprint row has a unique J2015.5 owner. Exterior rows remain immutable in the original fit and are explicitly archived by a null owner. Source and blind-spectral statistics use retained rows; known-position QSO comparisons and discovery funnels retain their original footprint.",
+        "exterior_rows_by_product": {
+          "private_standard_motion.json.gz": 1
+        }
+      },
+      "reference_graph_sha256": "c0c49a29189cb6d9518ae148419f11630ebc2e5e061fcdf1d43ec67ed7011bda"
+    },
+    "east_northern": {
+      "cores": 276,
+      "science_receipt_sha256": "023f2aa0aaa575d7fa2fa8c8ec4579fc7584eb3e87be211e558cdc1827cdb970",
+      "acquisition": {
+        "downloaded_nsc_measures_with_halo_overlap": 76327217,
+        "added_nsc_measures_with_halo_overlap": null,
+        "sdss_r_preserved_with_halo_overlap": 14019049,
+        "detections_by_measured_position_core_ownership": {
+          "SDSS": 11186140,
+          "NSC": 60941752
+        },
+        "physically_qualified_supported_nsc_core_detections_by_band": {
+          "r": 16036710,
+          "g": 11594448,
+          "z": 19889672,
+          "i": 3208173
+        }
+      },
+      "ownership": {
+        "catalogue_count": 1165250,
+        "exact_position_duplicate_rows": 0,
+        "cross_core_close_pairs_by_arcsec": {
+          "0.05": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          },
+          "0.2": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          }
+        },
+        "outside_common_epoch_owner": 0,
+        "cross_core_shared_detection_claims": 0,
+        "original_anchor_folder_mismatches": 16,
+        "common_epoch_reassigned_source_rows": 13
+      },
+      "ownership_resolution": {
+        "reassigned_all_nsc_rows": 13,
+        "reassigned_r_control_rows": 16,
+        "affected_cores": [
+          "north_one_01_10",
+          "north_one_01_11",
+          "north_one_14_01",
+          "north_one_21_11",
+          "north_one_22_10",
+          "north_three_02_00",
+          "north_three_02_10",
+          "north_three_06_01",
+          "north_three_06_11",
+          "north_three_07_10",
+          "north_three_12_00",
+          "north_three_12_10",
+          "north_three_17_00",
+          "north_three_17_10",
+          "north_two_01_01",
+          "north_two_15_11",
+          "north_two_20_01",
+          "w120_110_00_00",
+          "w120_110_00_01",
+          "w120_110_02_00",
+          "w120_110_04_10",
+          "w120_110_04_11",
+          "w120_110_40_01",
+          "w120_110_40_11",
+          "w120_110_64_00",
+          "w120_110_64_01",
+          "w120_110_82_01",
+          "w120_110_82_11",
+          "w120_110_84_00",
+          "w120_110_84_01",
+          "w120_110_86_10",
+          "w120_110_86_11"
+        ],
+        "all_source_states_covariances_and_members_unchanged": true,
+        "retained_all_nsc_solutions": 1165250,
+        "outside_full_region": 5,
+        "unresolved_owners": 0,
+        "base_summary_sha256": "fc290e5df8248cfca3350a65025d94b4ee7627d694f09e3892b8487187e7abcd",
+        "audit_summary_sha256": "a27970d00ce0cf56e627fdb81b95d1a6a0c4a6d85fd860ef5651666dc94812f4",
+        "private_overlay_sha256": "7bea90684a1825208d64357e73354b7a18576bc3c2b8cf5311780ffaad81135a",
+        "source_code_commit": "3e14adfcb2babdebbefc66047cd4c24c38630806",
+        "slurm_job": "61616143",
+        "scope": "Every final in-footprint row has a unique J2015.5 owner. Exterior rows remain immutable in the original fit and are explicitly archived by a null owner. Source and blind-spectral statistics use retained rows; known-position QSO comparisons and discovery funnels retain their original footprint.",
+        "exterior_rows_by_product": {
+          "private_standard_motion.json.gz": 3,
+          "private_r_control.json.gz": 2
+        }
+      },
+      "reference_graph_sha256": "a59f0716fe81688ceab25a3097b501c80f75a5fd9f4dcfa37e541043c24c9889"
+    },
+    "west_equatorial": {
+      "cores": 375,
+      "science_receipt_sha256": "7c7e35aa8d23cfa3602e42291be4ff74df51c7edb5779ee5dd8138bc888e8e8b",
+      "acquisition": {
+        "downloaded_nsc_measures_with_halo_overlap": 448494565,
+        "added_nsc_measures_with_halo_overlap": null,
+        "sdss_r_preserved_with_halo_overlap": 53302377,
+        "detections_by_measured_position_core_ownership": {
+          "SDSS": 42170442,
+          "NSC": 361666243
+        },
+        "physically_qualified_supported_nsc_core_detections_by_band": {
+          "z": 69077844,
+          "g": 44490014,
+          "VR": 30189698,
+          "r": 79592660,
+          "u": 1929975,
+          "i": 74123975,
+          "Y": 19191492
+        }
+      },
+      "ownership": {
+        "catalogue_count": 2367539,
+        "exact_position_duplicate_rows": 0,
+        "cross_core_close_pairs_by_arcsec": {
+          "0.05": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          },
+          "0.2": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          }
+        },
+        "outside_common_epoch_owner": 0,
+        "cross_core_shared_detection_claims": 0,
+        "original_anchor_folder_mismatches": 25,
+        "common_epoch_reassigned_source_rows": 25
+      },
+      "ownership_resolution": {
+        "reassigned_all_nsc_rows": 25,
+        "reassigned_r_control_rows": 13,
+        "affected_cores": [
+          "c_01_04",
+          "c_01_05",
+          "c_03_07",
+          "c_04_03",
+          "c_04_04",
+          "c_04_07",
+          "c_06_04",
+          "c_07_04",
+          "repeat_rich",
+          "w010_080_20_01",
+          "w010_080_22_00",
+          "w010_080_24_11",
+          "w010_080_44_01",
+          "w010_080_60_10",
+          "w010_080_60_11",
+          "w010_080_68_01",
+          "w010_080_84_00",
+          "w010_080_84_01",
+          "w010_080_86_01",
+          "w010_080_86_11",
+          "w010_090_00_11",
+          "w010_090_02_11",
+          "w010_090_04_10",
+          "w010_090_20_01",
+          "w010_090_26_01",
+          "w010_090_26_11",
+          "w010_090_60_00",
+          "w010_090_66_00",
+          "w010_090_66_01",
+          "w010_090_80_01",
+          "w010_090_80_11",
+          "w320_090_08_10",
+          "w320_090_20_11",
+          "w320_090_22_01",
+          "w320_090_22_10",
+          "w320_090_24_00",
+          "w320_090_24_10",
+          "w320_090_28_00",
+          "w320_090_42_00",
+          "w320_090_42_10",
+          "w320_090_44_00",
+          "w320_090_60_00",
+          "w320_090_60_01",
+          "w320_090_60_10",
+          "w320_090_62_10",
+          "w320_090_62_11",
+          "w320_090_64_11",
+          "w320_090_66_10",
+          "w320_090_80_00",
+          "w320_090_80_10"
+        ],
+        "all_source_states_covariances_and_members_unchanged": true,
+        "retained_all_nsc_solutions": 2367539,
+        "outside_full_region": 0,
+        "unresolved_owners": 0,
+        "base_summary_sha256": "f293382bad88bc26c4debe92f8b78b4ae37f3bbfeeaa43f1cb669f8c9754d329",
+        "audit_summary_sha256": "6fe95ef1adce55050647072f7b8ba16eef43ad77a6324bfd526f807c1d4aaae8",
+        "private_overlay_sha256": "f827d89188ebbf851be7f04e3215a548d7374d230c210172f10305e02994ed1b",
+        "source_code_commit": "3e14adfcb2babdebbefc66047cd4c24c38630806",
+        "slurm_job": "61619719",
+        "scope": "A source folder was selected by NSC anchor median, whereas output owner is its fitted J2015.5 ICRS position. Each transferred row has one other owner among the original cores. Rehome via a signed private overlay, keep original receipts, recompute affected source/quality spatial summaries. Global source counts and every pooled QSO metric remain exactly unchanged. Physical-r funnel counts by core retain discovery anchor ownership; global physical-r count is unchanged."
+      },
+      "reference_graph_sha256": "2f74d4a1b51be30de9dd3cb881c7011409ccf55c4ab361b395806f74c70b5931"
+    },
+    "west_northern": {
+      "cores": 112,
+      "science_receipt_sha256": "53b53b37702534a4fc9458d19a746ec208fbcb2d3e22a810b48f058205c6f32f",
+      "acquisition": {
+        "downloaded_nsc_measures_with_halo_overlap": 28374335,
+        "added_nsc_measures_with_halo_overlap": null,
+        "sdss_r_preserved_with_halo_overlap": 5523761,
+        "detections_by_measured_position_core_ownership": {
+          "SDSS": 4411016,
+          "NSC": 22640229
+        },
+        "physically_qualified_supported_nsc_core_detections_by_band": {
+          "z": 8079359,
+          "g": 4928424,
+          "r": 6450088
+        }
+      },
+      "ownership": {
+        "catalogue_count": 589205,
+        "exact_position_duplicate_rows": 0,
+        "cross_core_close_pairs_by_arcsec": {
+          "0.05": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          },
+          "0.2": {
+            "cross_core_pairs": 0,
+            "motion_difference_below_1_masyr": 0
+          }
+        },
+        "outside_common_epoch_owner": 0,
+        "cross_core_shared_detection_claims": 0,
+        "original_anchor_folder_mismatches": 7,
+        "common_epoch_reassigned_source_rows": 6
+      },
+      "ownership_resolution": {
+        "reassigned_all_nsc_rows": 6,
+        "reassigned_r_control_rows": 4,
+        "affected_cores": [
+          "w010_110_26_01",
+          "w010_110_26_11",
+          "w010_110_42_01",
+          "w010_110_44_00",
+          "w010_110_66_10",
+          "w010_110_66_11",
+          "w010_110_68_10",
+          "w010_110_82_11",
+          "w010_110_86_00",
+          "w330_110_02_01",
+          "w330_110_02_11",
+          "w330_110_04_00",
+          "w330_110_04_10"
+        ],
+        "all_source_states_covariances_and_members_unchanged": true,
+        "retained_all_nsc_solutions": 589205,
+        "outside_full_region": 1,
+        "unresolved_owners": 0,
+        "base_summary_sha256": "7e8fc4eae25b4106498a6ce6a24ea0d9e5ba71e00397f6635ce0948d131e0f2b",
+        "audit_summary_sha256": "f884b76290c5dd47c9cbf8d4fda215738300543e3050a1b318e9178d1689e264",
+        "private_overlay_sha256": "762496feb05c242050ff5834a5e527f89404c498c5331ae37bb9fc92d2ec7cfa",
+        "source_code_commit": "3e14adfcb2babdebbefc66047cd4c24c38630806",
+        "slurm_job": "61616143",
+        "scope": "Every final in-footprint row has a unique J2015.5 owner. Exterior rows remain immutable in the original fit and are explicitly archived by a null owner. Source and blind-spectral statistics use retained rows; known-position QSO comparisons and discovery funnels retain their original footprint.",
+        "exterior_rows_by_product": {
+          "private_standard_motion.json.gz": 1
+        }
+      },
+      "reference_graph_sha256": "736ca321817f2b40c292645b9acdd88d0a01a393290a6a9293b85cd706e4ac46"
+    }
+  },
+  "slurm_job": "61622614",
+  "source_code_commit": "3e14adfcb2babdebbefc66047cd4c24c38630806",
+  "combined_science_sha256": "dec57fb3a15764f39df1740d75cb373bbe9224a203fc6a281f705783f027af1b",
+  "new_spectral_sha256": "a638a84659f6205eb876c4f8242057a6b44f6ecaafd012bcf0d2f9a0fb2697f5"
+}

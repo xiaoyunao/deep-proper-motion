@@ -1,0 +1,35 @@
+{
+  "cores": {
+    "w140_090_20_00": {
+      "products": {
+        "owned_all_nsc": {
+          "n": 5227,
+          "out_of_anchor_core": 0
+        },
+        "owned_r_control": {
+          "n": 5088,
+          "out_of_anchor_core": 0
+        }
+      },
+      "input_receipt_sha256": "3f4b7559bbc1415157d716aafa1d8e9d62ef866632e163cae3139baed067fcbe",
+      "fit_receipt_sha256": "443129bb16ff16c8499abea9e8d0cd9a8ef4ff4548fd2a3cb0890d4e288ab7c8"
+    },
+    "w190_080_00_00": {
+      "products": {
+        "owned_all_nsc": {
+          "n": 6558,
+          "out_of_anchor_core": 0
+        },
+        "owned_r_control": {
+          "n": 2481,
+          "out_of_anchor_core": 0
+        }
+      },
+      "input_receipt_sha256": "1fa392ef7502a10e3b2b9e86d161424d84cf387382d3e9a741b8aa1d597cbfd6",
+      "fit_receipt_sha256": "7a2f7dcece028cb33ba6e377835a236e71da3608590932fe06e2d308533ad06d"
+    }
+  },
+  "reference_graph_sha256": "9de5d8a9a13839f4eb72e2e82e764ed85be75c6a039f136987b345320dac41a9",
+  "slurm_job": "61630485",
+  "scope": "Checks on two real East cores against the completed East graph. The global reference, cross-core ownership and science checks still apply."
+}

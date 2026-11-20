@@ -4,7 +4,7 @@
 
 **v1.7 已完成广域 C0/W0 科研基准。** 1095 个核心共 1047.672 名义平方度，1041.187 平方度有共同参考和合格观测时基。全波段 6,071,123 个科研解，较物理 r 净增 1,419,861 个（30.5%）。相对 Xiao2025，21–22 和 22–23 等严格共同光谱 QSO 的二维 P68 分别降低 19.8% 和 26.4%。物理组参考、实际观测和 ICRS 归属通过核验。科研精度、绝对区内零点及暗星独立身份仍用各自质量标志。 [中文科学报告](reports/experiment_A_v1.7_wide_production.md) · [空间分布](figures/v17_wide_quality_summary.png) · [观测条件](figures/v17_wide_conditions_summary.png)
 
-**302.415 平方度续跑已收齐输入。** 61630264 验证 304 核心的取数与参考回执，复用 299 个核心并补齐最后五个。实际训练物理组只涉及既有东西赤道两图。五套共同图已闭合并保留 32,443 个物理组，图间无重复组。两个真实核心先导中有 11,785 个全波段解通过拟合核验。拟合范围含 304 新核心及两图的 647 个既有核心，其余三图的 448 核心复用签名结果。另有 804.097 名义平方度通过候选几何预查，正式登记等待本批拟合和归属核验。 [续跑输入](results/summary/v17_next_intake_verified_summary.json) · [共同参考闭合](results/summary/v17_continuation_reference_summary.json) · [真实拟合先导](results/summary/v17_continuation_east_pilot_summary.json) · [候选几何](results/summary/v17_future_candidate_footprint_summary.json)
+**302.415 平方度续跑已收齐输入。** 61630264 验证 304 核心的取数与参考回执，复用 299 个核心并补齐最后五个。实际训练物理组只涉及既有东西赤道两图。五套共同图已闭合并保留 32,443 个物理组，图间无重复组。两个真实核心先导中有 11,785 个全波段解通过拟合核验。304 新核心及两图的 647 个既有核心已通过拟合核验，其余三图的 448 核心复用签名结果。新核心在归属前合计 1,514,096 个全波段解。另有 804.097 名义平方度通过候选几何预查，正式登记等待本批拟合和归属核验。 [续跑输入](results/summary/v17_next_intake_verified_summary.json) · [共同参考闭合](results/summary/v17_continuation_reference_summary.json) · [拟合闭合](results/summary/v17_continuation_fit_summary.json) · [候选几何](results/summary/v17_future_candidate_footprint_summary.json)
 
 **三项专项审核已由 NERSC 成员及留出数据补齐。** 排除 w320_090 后，余下新核心仍净增 539,266 解，严格同源 QSO 的逐对象合并 P68 相对 Xiao2025 降低 20.43% 和 25.34%。A 区 12 核心以 16,309 个独立星系验证跨巡天位置对齐，校准后两轴中位差约 −1.4 和 −1.8 mas，仍保留绝对自行零点和覆盖质量标志。追加 r 锚点的西北图北向偏差约 −2.47 mas/yr，后续发布时按实测区域读取。现行 C0/W0 生产方法继续冻结。 [专项审核](docs/wide_followup_v17.md)
 

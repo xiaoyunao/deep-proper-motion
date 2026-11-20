@@ -1,0 +1,12 @@
+{
+  "cores": 1399,
+  "affected_cores": 951,
+  "reused_cores": 448,
+  "new_cores": 304,
+  "affected_old_cores": 647,
+  "pre_ownership_new_research": 1514096,
+  "fit_ledger_sha256": "6801c2016c15980f702f770be4e3984a7d6702ca54bc6a9ab1d16689cd9ebcce",
+  "reference_ledger_sha256": "6c079d6a476ac660f6da41c141acd7de4435092f30384246e05117773937996c",
+  "source_code_commit": "1baee96dbc53e829e8acfc75966aacbf0b6985b6",
+  "slurm_job": "61627443"
+}

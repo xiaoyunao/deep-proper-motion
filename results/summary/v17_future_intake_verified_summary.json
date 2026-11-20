@@ -1,0 +1,24 @@
+{
+  "cores": 852,
+  "planned_cores": 852,
+  "failures": {},
+  "windows": {
+    "w020_110": 80,
+    "w150_110": 88,
+    "w210_110": 100,
+    "w010_100": 60,
+    "w200_110": 100,
+    "w160_090": 96,
+    "w330_080": 76,
+    "w020_080": 64,
+    "w340_110": 100,
+    "w330_090": 88
+  },
+  "reference_previous_sha256": "0de558a612aeecd50fd0fc3c1fe536ec0b76fbdeff238e5fbcab1ec3d75fcf2b",
+  "code_commit": "1baee96dbc53e829e8acfc75966aacbf0b6985b6",
+  "slurm_job": "61627813",
+  "input_reused": 0,
+  "reference_reused": 0,
+  "normalized_detections_with_halos": 419424538,
+  "verified_index_sha256": "2639e52f4853473ea32fcbffe5e2dc2453ba7b5ca3c8a393573d97986713a0c7"
+}

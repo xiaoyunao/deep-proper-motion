@@ -1,0 +1,108 @@
+{
+  "windows": {
+    "w330_090": {
+      "training_group_candidates": 1360,
+      "shared_previous_profiles": {
+        "next_w020_090": 206,
+        "next_w140_090": 0,
+        "east_midlatitude": 0,
+        "east_northern": 0,
+        "west_northern": 0
+      }
+    },
+    "w020_110": {
+      "training_group_candidates": 507,
+      "shared_previous_profiles": {
+        "next_w020_090": 0,
+        "next_w140_090": 0,
+        "east_midlatitude": 0,
+        "east_northern": 0,
+        "west_northern": 66
+      }
+    },
+    "w150_110": {
+      "training_group_candidates": 609,
+      "shared_previous_profiles": {
+        "next_w020_090": 0,
+        "next_w140_090": 0,
+        "east_midlatitude": 16,
+        "east_northern": 28,
+        "west_northern": 0
+      }
+    },
+    "w200_110": {
+      "training_group_candidates": 621,
+      "shared_previous_profiles": {
+        "next_w020_090": 0,
+        "next_w140_090": 0,
+        "east_midlatitude": 26,
+        "east_northern": 20,
+        "west_northern": 0
+      }
+    },
+    "w340_110": {
+      "training_group_candidates": 647,
+      "shared_previous_profiles": {
+        "next_w020_090": 6,
+        "next_w140_090": 0,
+        "east_midlatitude": 0,
+        "east_northern": 0,
+        "west_northern": 58
+      }
+    },
+    "w020_080": {
+      "training_group_candidates": 1721,
+      "shared_previous_profiles": {
+        "next_w020_090": 107,
+        "next_w140_090": 0,
+        "east_midlatitude": 0,
+        "east_northern": 0,
+        "west_northern": 0
+      }
+    },
+    "w330_080": {
+      "training_group_candidates": 1497,
+      "shared_previous_profiles": {
+        "next_w020_090": 195,
+        "next_w140_090": 0,
+        "east_midlatitude": 0,
+        "east_northern": 0,
+        "west_northern": 0
+      }
+    },
+    "w010_100": {
+      "training_group_candidates": 432,
+      "shared_previous_profiles": {
+        "next_w020_090": 5,
+        "next_w140_090": 0,
+        "east_midlatitude": 0,
+        "east_northern": 0,
+        "west_northern": 14
+      }
+    },
+    "w160_090": {
+      "training_group_candidates": 2797,
+      "shared_previous_profiles": {
+        "next_w020_090": 0,
+        "next_w140_090": 81,
+        "east_midlatitude": 0,
+        "east_northern": 0,
+        "west_northern": 0
+      }
+    },
+    "w210_110": {
+      "training_group_candidates": 574,
+      "shared_previous_profiles": {
+        "next_w020_090": 0,
+        "next_w140_090": 0,
+        "east_midlatitude": 16,
+        "east_northern": 25,
+        "west_northern": 0
+      }
+    }
+  },
+  "previous_reference_index_sha256": "6c079d6a476ac660f6da41c141acd7de4435092f30384246e05117773937996c",
+  "training_candidate_sha256": "3461cda138fd5256da64051800c2a42dce1d75259286381ced0c021a711eacc2",
+  "slurm_job": "61627813",
+  "scope": "Actual training-group identities present before global support and bootstrap selection."
+}

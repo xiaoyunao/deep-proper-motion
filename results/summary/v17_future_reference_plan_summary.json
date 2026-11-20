@@ -1,0 +1,102 @@
+{
+  "solve": {
+    "next_w010_100": {
+      "windows": [
+        "frozen_c",
+        "w010_080",
+        "w010_090",
+        "w010_100",
+        "w010_110",
+        "w020_080",
+        "w020_090",
+        "w020_110",
+        "w320_090",
+        "w330_080",
+        "w330_090",
+        "w330_110",
+        "w340_080",
+        "w340_110"
+      ],
+      "old_domains": [
+        "next_w020_090",
+        "west_northern"
+      ],
+      "new_windows": [
+        "w010_100",
+        "w020_080",
+        "w020_110",
+        "w330_080",
+        "w330_090",
+        "w340_110"
+      ],
+      "center": [
+        0.20657383434754126,
+        8.058668188463164
+      ],
+      "new_cores": 468,
+      "replayed_cores": 631,
+      "signed_reference_rows_before_halo_dedup": 144698200
+    },
+    "next_w150_110": {
+      "windows": [
+        "north_one",
+        "north_three",
+        "north_two",
+        "w120_110",
+        "w150_110",
+        "w180_110",
+        "w200_110",
+        "w210_110"
+      ],
+      "old_domains": [
+        "east_midlatitude",
+        "east_northern"
+      ],
+      "new_windows": [
+        "w150_110",
+        "w200_110",
+        "w210_110"
+      ],
+      "center": [
+        176.05683979156782,
+        30.767495215576464
+      ],
+      "new_cores": 288,
+      "replayed_cores": 336,
+      "signed_reference_rows_before_halo_dedup": 32360230
+    },
+    "next_w160_090": {
+      "windows": [
+        "a",
+        "b",
+        "w130_090",
+        "w140_090",
+        "w160_090",
+        "w170_080",
+        "w190_080",
+        "w190_090",
+        "w200_090"
+      ],
+      "old_domains": [
+        "next_w140_090"
+      ],
+      "new_windows": [
+        "w160_090"
+      ],
+      "center": [
+        177.0,
+        0.0
+      ],
+      "new_cores": 96,
+      "replayed_cores": 432,
+      "signed_reference_rows_before_halo_dedup": 83438741
+    }
+  },
+  "reused_domains": [],
+  "new_cores": 852,
+  "replayed_cores": 1399,
+  "input_completion_sha256": "95afee80a3692e09b8a6c775797d2244d30ae3c2be539f52831653ff07afe72c",
+  "shared_group_summary_sha256": "c83fca9fb673301c49061c8c5c3076f93d01741424afee7ac1d16d48b7c859b0",
+  "plan_sha256": "9606cece68aa9894545f2f9f36b5a5b9551048c2b786c96b56100b87bf035e9f",
+  "slurm_job": "61666716"
+}

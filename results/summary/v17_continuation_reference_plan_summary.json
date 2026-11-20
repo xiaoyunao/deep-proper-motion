@@ -1,0 +1,64 @@
+{
+  "solve": {
+    "next_w020_090": {
+      "windows": [
+        "frozen_c",
+        "w010_080",
+        "w010_090",
+        "w020_090",
+        "w320_090",
+        "w340_080"
+      ],
+      "old_domains": [
+        "west_equatorial"
+      ],
+      "new_windows": [
+        "w020_090",
+        "w340_080"
+      ],
+      "center": [
+        350.0,
+        0.0
+      ],
+      "new_cores": 144,
+      "replayed_cores": 375
+    },
+    "next_w140_090": {
+      "windows": [
+        "a",
+        "b",
+        "w130_090",
+        "w140_090",
+        "w170_080",
+        "w190_080",
+        "w190_090",
+        "w200_090"
+      ],
+      "old_domains": [
+        "east_equatorial"
+      ],
+      "new_windows": [
+        "w140_090",
+        "w190_080",
+        "w200_090"
+      ],
+      "center": [
+        177.0,
+        0.0
+      ],
+      "new_cores": 160,
+      "replayed_cores": 272
+    }
+  },
+  "reused_domains": [
+    "east_midlatitude",
+    "east_northern",
+    "west_northern"
+  ],
+  "new_cores": 304,
+  "replayed_cores": 647,
+  "input_completion_sha256": "75d9311dbc2723d9f335bb555d5177482f8d9e60ebf5eff67aa46bebbb22260d",
+  "shared_group_summary_sha256": "2844b9e2313074d54cfb32935fe71c6fa630a36a5c53cb1b904c49535225faf5",
+  "plan_sha256": "63906de8be17bf4579f8ccdb358a34be3e6c73983a24e878915a4f8141226d63",
+  "slurm_job": "61630485"
+}

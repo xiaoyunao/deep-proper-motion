@@ -1,0 +1,126 @@
+{
+  "projections": {
+    "next_w020_090": {
+      "windows": [
+        "frozen_c",
+        "w010_080",
+        "w010_090",
+        "w020_090",
+        "w320_090",
+        "w340_080"
+      ],
+      "projection_center_deg": [
+        350.0,
+        0.0
+      ],
+      "supported_groups": 15058,
+      "components": {
+        "0": 15058
+      },
+      "graph_sha256": "21e3042c2113a3fa3c930ca90c3fcefd6441c9139244a87411179919c1379f6d",
+      "receipt_sha256": "062edd45bd89e2bab3ece12f177a4c54d2c79815d061e9ab2446905546b0aebe",
+      "new_cores": 144,
+      "replayed_cores": 375
+    },
+    "next_w140_090": {
+      "windows": [
+        "a",
+        "b",
+        "w130_090",
+        "w140_090",
+        "w170_080",
+        "w190_080",
+        "w190_090",
+        "w200_090"
+      ],
+      "projection_center_deg": [
+        177.0,
+        0.0
+      ],
+      "supported_groups": 12580,
+      "components": {
+        "0": 12580
+      },
+      "graph_sha256": "9de5d8a9a13839f4eb72e2e82e764ed85be75c6a039f136987b345320dac41a9",
+      "receipt_sha256": "b426800ceab5890bd90dafa72fca72697ff57f4206500fba23456aa7b3319526",
+      "new_cores": 160,
+      "replayed_cores": 272
+    },
+    "east_midlatitude": {
+      "windows": [
+        "w180_110"
+      ],
+      "projection_center_deg": [
+        185.0,
+        25.0
+      ],
+      "components": {
+        "0": 374
+      },
+      "supported_groups": 374,
+      "graph_sha256": "c0c49a29189cb6d9518ae148419f11630ebc2e5e061fcdf1d43ec67ed7011bda",
+      "receipt_sha256": "3a4856db2683f0d6e45f51ee22729c1a1e8544321f54ed6e0cd49b87153e2a77",
+      "new_cores": 0,
+      "replayed_cores": 0
+    },
+    "east_northern": {
+      "windows": [
+        "north_one",
+        "north_two",
+        "north_three",
+        "w120_110"
+      ],
+      "projection_center_deg": [
+        171.5,
+        34.0
+      ],
+      "components": {
+        "0": 3661
+      },
+      "supported_groups": 3661,
+      "graph_sha256": "a59f0716fe81688ceab25a3097b501c80f75a5fd9f4dcfa37e541043c24c9889",
+      "receipt_sha256": "4a17fada1fe6438bde90af7db8ae441a76e41eac4db7db8774549605af2a0d74",
+      "new_cores": 0,
+      "replayed_cores": 0
+    },
+    "west_northern": {
+      "windows": [
+        "w010_110",
+        "w330_110"
+      ],
+      "projection_center_deg": [
+        350.0,
+        25.0
+      ],
+      "components": {
+        "0": 770
+      },
+      "supported_groups": 770,
+      "graph_sha256": "736ca321817f2b40c292645b9acdd88d0a01a393290a6a9293b85cd706e4ac46",
+      "receipt_sha256": "45434c81ab2f1e57b5a6f073c445d9f0e177cf91ede1d13776a6a01f38d82510",
+      "new_cores": 0,
+      "replayed_cores": 0
+    }
+  },
+  "retained_prior_projections": [
+    "east_midlatitude",
+    "east_northern",
+    "west_northern"
+  ],
+  "failures": {},
+  "physical_group_intersections": {
+    "next_w020_090__next_w140_090": 0,
+    "next_w020_090__east_midlatitude": 0,
+    "next_w020_090__east_northern": 0,
+    "next_w020_090__west_northern": 0,
+    "next_w140_090__east_midlatitude": 0,
+    "next_w140_090__east_northern": 0,
+    "next_w140_090__west_northern": 0,
+    "east_midlatitude__east_northern": 0,
+    "east_midlatitude__west_northern": 0,
+    "east_northern__west_northern": 0
+  },
+  "input_plan_sha256": "63906de8be17bf4579f8ccdb358a34be3e6c73983a24e878915a4f8141226d63",
+  "source_code_commit": "329c4f81863a6aaa069c0bc77ef815ca27ac6b6f",
+  "slurm_job": "61630485"
+}

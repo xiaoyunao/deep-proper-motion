@@ -4,10 +4,23 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 
-from deep_pm.public_summary import export
+from deep_pm.public_summary import export, suppress_sparse_observational_blocks
 
 
 class PublicSummaryTest(unittest.TestCase):
+    def test_frozen_sparse_observational_summary_exports_counts_only(self):
+        sparse = {"n": 1, "axes_zero_masyr": [[0.1, 0.2], [0.3, 0.4]]}
+        sufficient = {"n": 5, "axes_zero_masyr": [[0.1, 0.2], [0.3, 0.4]]}
+        payload = {"cohorts": [
+            {"observational_blocks": {"physical": sparse, "conservative_night": sparse}},
+            {"observational_blocks": {"physical": sufficient, "conservative_night": sufficient}},
+        ]}
+        self.assertEqual(suppress_sparse_observational_blocks(payload), 2)
+        self.assertEqual(payload["cohorts"][0]["observational_blocks"],
+                         {"physical": {"n": 1}, "conservative_night": {"n": 1}})
+        self.assertEqual(payload["cohorts"][1]["observational_blocks"]["physical"], sufficient)
+        self.assertEqual(suppress_sparse_observational_blocks(payload), 0)
+
     def fixture(self, root, **options):
         region = root / "pal5"
         region.mkdir()

@@ -7183,14 +7183,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -16414,48 +16410,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            6.630523321216642,
-            12.762372000040115
-          ],
-          "fractional_gain": -0.9247910582265071,
-          "axes_zero_masyr": [
-            [
-              -2.6272921176159416,
-              -6.087789060234504
-            ],
-            [
-              -7.892807985829937,
-              -10.029043880960293
-            ]
-          ]
+          "n": 1
         },
         "conservative_night": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            6.630523321216642,
-            12.762372000040115
-          ],
-          "fractional_gain": -0.9247910582265071,
-          "axes_zero_masyr": [
-            [
-              -2.6272921176159416,
-              -6.087789060234504
-            ],
-            [
-              -7.892807985829937,
-              -10.029043880960293
-            ]
-          ]
+          "n": 1
         }
       },
       "shared_group_sensitivity": {
@@ -16475,14 +16433,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -16502,48 +16456,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            5.504327147423855,
-            8.733558289360076
-          ],
-          "fractional_gain": -0.5866713688061893,
-          "axes_zero_masyr": [
-            [
-              1.2223039394954345,
-              5.3668976537065785
-            ],
-            [
-              6.328589582953458,
-              6.018637244774192
-            ]
-          ]
+          "n": 1
         },
         "conservative_night": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            5.504327147423855,
-            8.733558289360076
-          ],
-          "fractional_gain": -0.5866713688061893,
-          "axes_zero_masyr": [
-            [
-              1.2223039394954345,
-              5.3668976537065785
-            ],
-            [
-              6.328589582953458,
-              6.018637244774192
-            ]
-          ]
+          "n": 1
         }
       },
       "shared_group_sensitivity": {
@@ -17579,49 +17495,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 3,
-          "block_sizes": [
-            2,
-            1
-          ],
-          "independent_blocks": 2,
-          "radial_p68_masyr": [
-            4.614324513362369,
-            7.50662738928134
-          ],
-          "fractional_gain": -0.6268095942414345,
-          "axes_zero_masyr": [
-            [
-              -2.2682009058843167,
-              1.640836969412257
-            ],
-            [
-              -3.662055341249791,
-              3.1069537784305736
-            ]
-          ]
+          "n": 3
         },
         "conservative_night": {
-          "n": 3,
-          "block_sizes": [
-            3
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            4.614324513362369,
-            7.50662738928134
-          ],
-          "fractional_gain": -0.6268095942414345,
-          "axes_zero_masyr": [
-            [
-              -2.2682009058843167,
-              1.640836969412257
-            ],
-            [
-              -3.662055341249791,
-              3.1069537784305736
-            ]
-          ]
+          "n": 3
         }
       },
       "shared_group_sensitivity": {
@@ -18655,48 +18532,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            5.146928730315096,
-            5.69902616423437
-          ],
-          "fractional_gain": -0.10726735551387256,
-          "axes_zero_masyr": [
-            [
-              -1.3293340215832978,
-              -4.972297900770241
-            ],
-            [
-              -5.632551807692516,
-              0.8679051528178009
-            ]
-          ]
+          "n": 1
         },
         "conservative_night": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            5.146928730315096,
-            5.69902616423437
-          ],
-          "fractional_gain": -0.10726735551387256,
-          "axes_zero_masyr": [
-            [
-              -1.3293340215832978,
-              -4.972297900770241
-            ],
-            [
-              -5.632551807692516,
-              0.8679051528178009
-            ]
-          ]
+          "n": 1
         }
       },
       "shared_group_sensitivity": {
@@ -18716,49 +18555,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 2,
-          "block_sizes": [
-            1,
-            1
-          ],
-          "independent_blocks": 2,
-          "radial_p68_masyr": [
-            4.565411873521354,
-            2.8965652029895352
-          ],
-          "fractional_gain": 0.36554131735865014,
-          "axes_zero_masyr": [
-            [
-              2.665691934548791,
-              0.4385411249774913
-            ],
-            [
-              -1.1760809434475519,
-              -1.4011951503726898
-            ]
-          ]
+          "n": 2
         },
         "conservative_night": {
-          "n": 2,
-          "block_sizes": [
-            2
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            4.565411873521354,
-            2.8965652029895352
-          ],
-          "fractional_gain": 0.36554131735865014,
-          "axes_zero_masyr": [
-            [
-              2.665691934548791,
-              0.4385411249774913
-            ],
-            [
-              -1.1760809434475519,
-              -1.4011951503726898
-            ]
-          ]
+          "n": 2
         }
       },
       "shared_group_sensitivity": {
@@ -20806,48 +20606,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            2.941181050339343,
-            7.101087642558975
-          ],
-          "fractional_gain": -1.4143660390235673,
-          "axes_zero_masyr": [
-            [
-              -2.9399305262938937,
-              0.08575821500329445
-            ],
-            [
-              -6.394969478111981,
-              3.0870392095533816
-            ]
-          ]
+          "n": 1
         },
         "conservative_night": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            2.941181050339343,
-            7.101087642558975
-          ],
-          "fractional_gain": -1.4143660390235673,
-          "axes_zero_masyr": [
-            [
-              -2.9399305262938937,
-              0.08575821500329445
-            ],
-            [
-              -6.394969478111981,
-              3.0870392095533816
-            ]
-          ]
+          "n": 1
         }
       },
       "shared_group_sensitivity": {
@@ -23977,14 +23739,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -24004,48 +23762,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            8.291673688460392,
-            5.38059146126189
-          ],
-          "fractional_gain": 0.35108499641633095,
-          "axes_zero_masyr": [
-            [
-              3.010530754603075,
-              -7.725836985822015
-            ],
-            [
-              2.9345842501409694,
-              -4.509875802262067
-            ]
-          ]
+          "n": 1
         },
         "conservative_night": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            8.291673688460392,
-            5.38059146126189
-          ],
-          "fractional_gain": 0.35108499641633095,
-          "axes_zero_masyr": [
-            [
-              3.010530754603075,
-              -7.725836985822015
-            ],
-            [
-              2.9345842501409694,
-              -4.509875802262067
-            ]
-          ]
+          "n": 1
         }
       },
       "shared_group_sensitivity": {
@@ -24065,50 +23785,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 2,
-          "block_sizes": [
-            1,
-            1
-          ],
-          "independent_blocks": 2,
-          "radial_p68_masyr": [
-            4.628350626638232,
-            10.026371241987656
-          ],
-          "fractional_gain": -1.166294658896713,
-          "axes_zero_masyr": [
-            [
-              -1.461839175043089,
-              -3.1577277884790838
-            ],
-            [
-              -5.821287518157517,
-              -4.054925022976449
-            ]
-          ]
+          "n": 2
         },
         "conservative_night": {
-          "n": 2,
-          "block_sizes": [
-            1,
-            1
-          ],
-          "independent_blocks": 2,
-          "radial_p68_masyr": [
-            4.628350626638232,
-            10.026371241987656
-          ],
-          "fractional_gain": -1.166294658896713,
-          "axes_zero_masyr": [
-            [
-              -1.461839175043089,
-              -3.1577277884790838
-            ],
-            [
-              -5.821287518157517,
-              -4.054925022976449
-            ]
-          ]
+          "n": 2
         }
       },
       "shared_group_sensitivity": {
@@ -32376,14 +32056,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -40587,14 +40263,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -40614,14 +40286,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -40641,14 +40309,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -44728,14 +44392,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -44755,14 +44415,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -44782,48 +44438,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 2,
-          "block_sizes": [
-            2
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            8.864086556168907,
-            2.542592263789399
-          ],
-          "fractional_gain": 0.7131580058838778,
-          "axes_zero_masyr": [
-            [
-              -8.228117252815688,
-              1.3395972494625612
-            ],
-            [
-              -2.071717895531865,
-              -0.796518497705434
-            ]
-          ]
+          "n": 2
         },
         "conservative_night": {
-          "n": 2,
-          "block_sizes": [
-            2
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            8.864086556168907,
-            2.542592263789399
-          ],
-          "fractional_gain": 0.7131580058838778,
-          "axes_zero_masyr": [
-            [
-              -8.228117252815688,
-              1.3395972494625612
-            ],
-            [
-              -2.071717895531865,
-              -0.796518497705434
-            ]
-          ]
+          "n": 2
         }
       },
       "shared_group_sensitivity": {
@@ -50013,14 +49631,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         },
         "conservative_night": {
-          "n": 0,
-          "block_sizes": [],
-          "independent_blocks": 0
+          "n": 0
         }
       },
       "shared_group_sensitivity": {
@@ -50040,50 +49654,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 2,
-          "block_sizes": [
-            1,
-            1
-          ],
-          "independent_blocks": 2,
-          "radial_p68_masyr": [
-            8.248186650930085,
-            5.832436669676752
-          ],
-          "fractional_gain": 0.2928825550984504,
-          "axes_zero_masyr": [
-            [
-              -5.090012691129924,
-              -5.9544941801261135
-            ],
-            [
-              -2.72057699287981,
-              -4.130883731132886
-            ]
-          ]
+          "n": 2
         },
         "conservative_night": {
-          "n": 2,
-          "block_sizes": [
-            1,
-            1
-          ],
-          "independent_blocks": 2,
-          "radial_p68_masyr": [
-            8.248186650930085,
-            5.832436669676752
-          ],
-          "fractional_gain": 0.2928825550984504,
-          "axes_zero_masyr": [
-            [
-              -5.090012691129924,
-              -5.9544941801261135
-            ],
-            [
-              -2.72057699287981,
-              -4.130883731132886
-            ]
-          ]
+          "n": 2
         }
       },
       "shared_group_sensitivity": {
@@ -50103,48 +49677,10 @@
           "all_nsc"
         ],
         "physical": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            6.455037446975436,
-            8.067715271213189
-          ],
-          "fractional_gain": -0.24983245062248027,
-          "axes_zero_masyr": [
-            [
-              -5.238448704824941,
-              3.77175868909625
-            ],
-            [
-              -6.269379562602389,
-              5.077687426121261
-            ]
-          ]
+          "n": 1
         },
         "conservative_night": {
-          "n": 1,
-          "block_sizes": [
-            1
-          ],
-          "independent_blocks": 1,
-          "radial_p68_masyr": [
-            6.455037446975436,
-            8.067715271213189
-          ],
-          "fractional_gain": -0.24983245062248027,
-          "axes_zero_masyr": [
-            [
-              -5.238448704824941,
-              3.77175868909625
-            ],
-            [
-              -6.269379562602389,
-              5.077687426121261
-            ]
-          ]
+          "n": 1
         }
       },
       "shared_group_sensitivity": {

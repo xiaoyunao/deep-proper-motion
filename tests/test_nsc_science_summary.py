@@ -11,6 +11,8 @@ def test_pool_uses_identical_sources_and_individual_vectors_for_p68():
     cohorts=known_cohorts(rows)
     assert cohorts['r21__one_run_pointlike']['same_objects']['n']==3
     assert cohorts['r21__one_run_extended_or_mixed']['same_objects']['n']==3
+    sparse = cohorts['r21__one_run_pointlike']['observational_blocks']
+    assert sparse['physical'] == sparse['conservative_night'] == {'n': 2}
     output=cohorts['r21__all']
     assert output['same_objects']['n']==6
     common=output['strict_published_common'];assert common['n']==5

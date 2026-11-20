@@ -134,6 +134,24 @@ def check_aggregate(value):
             check_aggregate(item)
 
 
+def suppress_sparse_observational_blocks(value, min_sources=5):
+    """Keep counts only for older, signed observational-block statistics."""
+    suppressed = 0
+    if isinstance(value, dict):
+        blocks = value.get("observational_blocks", {})
+        for key in ("physical", "conservative_night"):
+            entry = blocks.get(key)
+            if entry is not None and entry["n"] < min_sources and len(entry) > 1:
+                blocks[key] = {"n": entry["n"]}
+                suppressed += 1
+        for item in value.values():
+            suppressed += suppress_sparse_observational_blocks(item, min_sources)
+    elif isinstance(value, list):
+        for item in value:
+            suppressed += suppress_sparse_observational_blocks(item, min_sources)
+    return suppressed
+
+
 def check_payload(kind, region, payload):
     if not REGION.fullmatch(region) or payload.get("region") != region:
         raise ValueError("Unexpected region")

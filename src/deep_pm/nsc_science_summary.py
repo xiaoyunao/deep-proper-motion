@@ -62,9 +62,12 @@ def known_cohorts(rows, instrument_diagnostics=False):
             part=[r for r in rows if low<=r['magnitude']<low+1 and select(r)];common=[r for r in part if {'NSC','Xiao'}<=r['values'].keys()]
             blocks=[dict(exposures=r['exposures'],nsc_epoch_days=r['nsc_epoch_days'],motion={'C0':r['values']['Xiao'][0],'C1':r['values']['all_nsc'][0]}) for r in common]
             sensitivity=[dict(exposures=r['exposures'],nsc_epoch_days=r['nsc_epoch_days'],motion={m:r['values'][m][0] for m in ('NSC','Xiao','all_nsc')}) for r in common]
+            observational = dict(physical=dict(n=len(blocks)), conservative_night=dict(n=len(blocks)))
+            if len(blocks) >= SETTINGS['min_publish_count']:
+                observational = dict(physical=metrics(blocks), conservative_night=metrics(blocks, True))
             out[f'r{low}__{tag}']=dict(same_objects=comparison([{m:r['values'][m] for m in METHODS} for r in part],SETTINGS,pairs),
                 strict_published_common=comparison([r['values'] for r in common],SETTINGS,pairs),
-                observational_blocks=dict(method_order=['Xiao','all_nsc'],physical=metrics(blocks),conservative_night=metrics(blocks,True)),
+                observational_blocks=dict(method_order=['Xiao','all_nsc'],**observational),
                 shared_group_sensitivity=estimate(sensitivity,('NSC','Xiao','all_nsc'),9137,candidate='all_nsc'))
     return out
 

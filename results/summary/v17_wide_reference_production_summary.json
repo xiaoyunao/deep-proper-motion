@@ -1,0 +1,117 @@
+{
+  "projections": {
+    "west_northern": {
+      "windows": [
+        "w010_110",
+        "w330_110"
+      ],
+      "projection_center_deg": [
+        350.0,
+        25.0
+      ],
+      "components": {
+        "0": 770
+      },
+      "supported_groups": 770,
+      "graph_sha256": "736ca321817f2b40c292645b9acdd88d0a01a393290a6a9293b85cd706e4ac46",
+      "receipt_sha256": "45434c81ab2f1e57b5a6f073c445d9f0e177cf91ede1d13776a6a01f38d82510"
+    },
+    "east_equatorial": {
+      "windows": [
+        "a",
+        "b",
+        "w130_090",
+        "w170_080",
+        "w190_090"
+      ],
+      "projection_center_deg": [
+        177.0,
+        0.0
+      ],
+      "components": {
+        "0": 7238
+      },
+      "supported_groups": 7238,
+      "graph_sha256": "e54f7015f3fbcbaae4b5a1bf922a3b9a61aab7aa6258c0d27180486262cd701b",
+      "receipt_sha256": "096b739c6f9c9454cf2762f9e5a30cefbe6546c265befa45b7439effee6b57de"
+    },
+    "east_northern": {
+      "windows": [
+        "north_one",
+        "north_two",
+        "north_three",
+        "w120_110"
+      ],
+      "projection_center_deg": [
+        171.5,
+        34.0
+      ],
+      "components": {
+        "0": 3661
+      },
+      "supported_groups": 3661,
+      "graph_sha256": "a59f0716fe81688ceab25a3097b501c80f75a5fd9f4dcfa37e541043c24c9889",
+      "receipt_sha256": "4a17fada1fe6438bde90af7db8ae441a76e41eac4db7db8774549605af2a0d74"
+    },
+    "east_midlatitude": {
+      "windows": [
+        "w180_110"
+      ],
+      "projection_center_deg": [
+        185.0,
+        25.0
+      ],
+      "components": {
+        "0": 374
+      },
+      "supported_groups": 374,
+      "graph_sha256": "c0c49a29189cb6d9518ae148419f11630ebc2e5e061fcdf1d43ec67ed7011bda",
+      "receipt_sha256": "3a4856db2683f0d6e45f51ee22729c1a1e8544321f54ed6e0cd49b87153e2a77"
+    },
+    "west_equatorial": {
+      "windows": [
+        "frozen_c",
+        "w010_080",
+        "w010_090",
+        "w320_090"
+      ],
+      "projection_center_deg": [
+        350.0,
+        0.0
+      ],
+      "components": {
+        "0": 11579
+      },
+      "supported_groups": 11579,
+      "graph_sha256": "2f74d4a1b51be30de9dd3cb881c7011409ccf55c4ab361b395806f74c70b5931",
+      "receipt_sha256": "1bbca1dcd8b148d0f234ba70756d3ccb9cbcfce98211bec5c16a05ac0f29bd01"
+    }
+  },
+  "physical_group_intersections": {
+    "east_equatorial__east_midlatitude": 0,
+    "east_equatorial__east_northern": 0,
+    "east_equatorial__west_equatorial": 0,
+    "east_equatorial__west_northern": 0,
+    "east_midlatitude__east_northern": 0,
+    "east_midlatitude__west_equatorial": 0,
+    "east_midlatitude__west_northern": 0,
+    "east_northern__west_equatorial": 0,
+    "east_northern__west_northern": 0,
+    "west_equatorial__west_northern": 0
+  },
+  "failures": {},
+  "slurm_job": "61614649",
+  "reference_attempts": {
+    "original": {
+      "summary_sha256": "b66f56b79a52318b7fb8273c19a64ef2a213db449949f15f05aae597a7512d6b",
+      "source_commit": "1baee96dbc53e829e8acfc75966aacbf0b6985b6",
+      "slurm_job": "61596119"
+    },
+    "west_repair": {
+      "summary_sha256": "68e91f877197b1633b12828f3c0b17b2911187df7755cc0044fbc59a20be845d",
+      "source_commit": "329c4f81863a6aaa069c0bc77ef815ca27ac6b6f",
+      "slurm_job": "61606877"
+    }
+  },
+  "source_code_commit": "329c4f81863a6aaa069c0bc77ef815ca27ac6b6f"
+}

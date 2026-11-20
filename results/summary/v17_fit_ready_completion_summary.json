@@ -1,0 +1,8 @@
+{
+  "cores": 720,
+  "failed": {},
+  "planned": 720,
+  "all_nsc": 3703590,
+  "slurm_job": "61604618",
+  "source_code_commit": "1baee96dbc53e829e8acfc75966aacbf0b6985b6"
+}

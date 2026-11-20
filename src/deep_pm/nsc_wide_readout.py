@@ -19,6 +19,16 @@ from .nsc_science_summary import SETTINGS, known_cohorts
 from .public_summary import check_aggregate
 
 
+def observing_support(row):
+    """Report catalogue sampling using the existing production flags."""
+    if row['kind'] == 'non_r_anchor':
+        return 'non_r_anchor'
+    flags = set(row['quality_flags'])
+    if flags & {'fewer_than_three_nsc_seasons', 'one_group_supplies_at_least_80pct_leverage'}:
+        return 'r_anchor_limited_sampling'
+    return 'r_anchor_well_sampled'
+
+
 def condition_readout(rows):
     return coverage([dict(core=row['core'], sdss=[v for v in row['exposures'] if v.startswith('SDSS:')],
                           nights=len(row['nsc_epoch_days']), span=row['joint_span'], **row['values'])
@@ -48,6 +58,7 @@ def run(manifest, output, index):
     output_by_core = {}
     pixels = defaultdict(list)
     totals = Counter()
+    observing_totals = Counter()
     for part in config['partitions']:
         owned = Path(part['owned'])
         graph = json.loads((owned/'continuous_science_summary.json').read_text())
@@ -73,7 +84,9 @@ def run(manifest, output, index):
                 raise ValueError('Owned source count does not match the science receipt')
             conditions = Counter(flag for _,_,row in members for flag in row['quality_flags'])
             kinds = Counter(row['kind'] for _,_,row in members)
+            support = Counter(observing_support(row) for _,_,row in members)
             totals.update(kinds)
+            observing_totals.update(support)
             spec = specs[core]
             pixel = hp.ang2pix(128, *np.array([row['position_deg'] for _,_,row in members]).T, lonlat=True) if members else []
             for pix,(origin,slot,_) in zip(pixel,members):
@@ -83,7 +96,8 @@ def run(manifest, output, index):
             output_by_core[core] = dict(
                 region=regions[core], core_bounds_deg=dict(ra_bounds_deg=spec['ra'],dec_bounds_deg=spec['dec']),
                 area_sqdeg=area(spec), research_fits=len(members), physical_r_fits=summary['funnel']['strict_r_solutions'],
-                source_classes=dict(kinds), quality_flag_counts=dict(conditions), common_r21=r21, common_r22=r22,
+                source_classes=dict(kinds), quality_flag_counts=dict(conditions),
+                observing_support_counts=dict(support), common_r21=r21, common_r22=r22,
                 reference_component=summary['reference_gauge'],
                 reference_component_core_detection_counts=summary.get('reference_component_core_detection_counts',{}),
                 nside128_counts=dict(Counter(map(str,pixel))))
@@ -91,8 +105,13 @@ def run(manifest, output, index):
     for region in sorted(set(c['region'] for c in output_by_core.values())):
         subset=[c for c in output_by_core.values() if c['region']==region]
         counts=Counter()
+        observing_counts=Counter()
+        observing_core_area=Counter()
         for core in subset:
             counts.update(core['source_classes'])
+            observing_counts.update(core['observing_support_counts'])
+            for label in core['observing_support_counts']:
+                observing_core_area[label] += core['area_sqdeg']
         footprint = config.get('region_footprints', {}).get(region)
         opportunities = None
         if footprint:
@@ -102,18 +121,20 @@ def run(manifest, output, index):
         region_report[region]=dict(calibrated_geometric_opportunity_sqdeg=opportunities, nominal_area_sqdeg=sum(c['area_sqdeg'] for c in subset),
             source_occupied_core_area_sqdeg=sum(c['area_sqdeg'] for c in subset if c['research_fits']>0),
             research_fits=sum(c['research_fits'] for c in subset),physical_r_fits=sum(c['physical_r_fits'] for c in subset),
-            source_classes=dict(counts),**summarize(known[region],blind[region]))
+            source_classes=dict(counts),observing_support_counts=dict(observing_counts),
+            observing_support_core_area_sqdeg=dict(observing_core_area),**summarize(known[region],blind[region]))
     row_count=sum(len(p) for p in pixels.values())
-    if row_count!=sum(totals.values()):
+    if row_count!=sum(totals.values()) or row_count!=sum(observing_totals.values()):
         raise ValueError('HEALPix organization lost catalogue rows')
     with gzip.open(index, 'wt') as stream:
         json.dump(dict(nside=128, ordering='RING', partition_manifest_sha256=digest(manifest), pixels=pixels),
                   stream, default=json_default, allow_nan=False)
     result=dict(cores=output_by_core,regions=region_report,source_classes=dict(totals),
+        observing_support_counts=dict(observing_totals),
         aggregate=summarize([r for v in known.values() for r in v],[r for v in blind.values() for r in v]),
         output_healpix_pixels=len(pixels),research_fits=row_count,healpix_index_sha256=digest(index),
         slurm_job=os.environ['SLURM_JOB_ID'],
-        scope='Same individual spectral objects are pooled across processing areas. Per-owner research source count, band class and flags are separate from input-frame spectral cohorts. Area with a research source is a rectangular-core coverage summary. Geometric calibrated opportunity and formal area qualification are distinct.')
+        scope='Same individual spectral objects are pooled across processing areas. Per-owner counts and flags are separate from input-frame spectral cohorts. Observing support uses the frozen short-season and high-leverage flags. A core may contribute area to multiple support categories. Spatial zero, formal error calibration and independent source identity have separate evidence.')
     check_aggregate(result)
     save_json(output, result)
 

@@ -2,9 +2,11 @@
 
 项目研究较早的 SDSS 单历元位置、独立的 NSC DR2 单曝光位置与联合天测校准，能否改善普通恒星和缺少 Gaia 自行的暗星测量。Xiao et al. (2025) 用 SDSS 与 Legacy Surveys 的两端位置估计自行；本项目检验多历元采样和公共位置误差的独立贡献。 [Xiao et al. (2025)](https://doi.org/10.3847/1538-3881/adb72c) · [官方 NSC](https://datalab.noirlab.edu/data/nsc)
 
-**v1.7 已完成广域 C0/W0 科研基准。** 1095 个核心共 1047.672 名义平方度，1041.187 平方度有共同参考和合格观测时基。全波段 6,071,123 个科研解，较物理 r 净增 1,419,861 个（30.5%）。相对 Xiao2025，21–22 和 22–23 等严格共同光谱 QSO 的二维 P68 分别降低 19.8% 和 26.4%。物理组参考、实际观测和 ICRS 归属通过核验。科研精度、绝对区内零点及暗星独立身份仍用各自质量标志。 [中文科学报告](reports/experiment_A_v1.7_wide_production.md) · [空间分布](figures/v17_wide_quality_summary.png) · [观测条件](figures/v17_wide_conditions_summary.png)
+**v1.7 累计完成 1350.087 名义平方度。** 1399 个核心中，1338.550 平方度具备共同参考和合格观测时基，完成 7,585,222 个全 NSC 波段科研解，较物理 r 净增 1,735,002（29.7%）。56,539／25,198 颗严格共同光谱 QSO 上，相对 Xiao2025 的二维 P68 分别降低 20.8%／26.9%。维持冻结 C0/W0 继续广域科研生产。根据实际观测季、斜率杠杆及锚点分类，保留空间零点及独立暗星身份质量。 [最新科学报告](reports/experiment_A_v1.7_continuation.md) · [覆盖和空间质量](figures/v17_continuation_quality_summary.png) · [观测条件](figures/v17_continuation_conditions_summary.png)
 
-**302.415 平方度续跑已收齐输入。** 61630264 验证 304 核心的取数与参考回执，复用 299 个核心并补齐最后五个。实际训练物理组只涉及既有东西赤道两图。五套共同图已闭合并保留 32,443 个物理组，图间无重复组。两个真实核心先导中有 11,785 个全波段解通过拟合核验。304 新核心及两图的 647 个既有核心已通过拟合核验，其余三图的 448 核心复用签名结果。新核心在归属前合计 1,514,096 个全波段解。另有 804.097 名义平方度通过候选几何预查，正式登记等待本批拟合和归属核验。 [续跑输入](results/summary/v17_next_intake_verified_summary.json) · [共同参考闭合](results/summary/v17_continuation_reference_summary.json) · [拟合闭合](results/summary/v17_continuation_fit_summary.json) · [候选几何](results/summary/v17_future_candidate_footprint_summary.json)
+续跑新增 302.415 名义平方度、1,514,096 个全波段科研解，较物理 r 净增 315,509。新批两档的 P68 相对 Xiao2025 分别改善 24.0%／28.8%，单 run 为 16.6%／18.4%。五图保留 32,443 个物理组且两两交集为零，跨核心重复检测及未解决归属为零。原 1047.672 平方度、6,071,123 解随旧参考图及回执独立保存。 [首批冻结结果](reports/experiment_A_v1.7_wide_production.md) · [当前归属回执](results/summary/v17_continuation_ownership_summary.json)
+
+**下一批 804.097 名义平方度已登记并启动。** 61627753 在本批归属闭合后登记 852 核心，61627813 在四个节点运行原生取数及参考提取。十个真实先导通过，取得 3,270,368 条标准化检测（含 halo）。继续按真实物理组更新共同参考图和拟合回执。拟合与科学核验完成后，该批可将累计名义范围推进至 2154.184 平方度。 [登记范围](results/summary/v17_future_registration_summary.json)
 
 **三项专项审核已由 NERSC 成员及留出数据补齐。** 排除 w320_090 后，余下新核心仍净增 539,266 解，严格同源 QSO 的逐对象合并 P68 相对 Xiao2025 降低 20.43% 和 25.34%。A 区 12 核心以 16,309 个独立星系验证跨巡天位置对齐，校准后两轴中位差约 −1.4 和 −1.8 mas，仍保留绝对自行零点和覆盖质量标志。追加 r 锚点的西北图北向偏差约 −2.47 mas/yr，后续发布时按实测区域读取。现行 C0/W0 生产方法继续冻结。 [专项审核](docs/wide_followup_v17.md)
 

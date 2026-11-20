@@ -1,0 +1,46 @@
+{
+  "exports": {
+    "v17_continuation_science_summary.json": {
+      "original_sha256": "f28fd80853a592fa250e897bc79cb9b801fa25494d3b2abfbd1a1292aff1afcf",
+      "published_sha256": "fe0eb82739ae054a4434de908664300d26f29c18187e7da4eb5b59374ac0c2a2",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_continuation_new_spectral_summary.json": {
+      "original_sha256": "a231b7edb6fd469f4e80f53cf31a4ff0eb422a8d0dcc63e863b159f4a45a818a",
+      "published_sha256": "9c5e6e8272b96b42a6cbb5d90cf11ad058b85d8806138af4c6ef444f47a5f81e",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_continuation_fit_summary.json": {
+      "original_sha256": "712a50a447fea9816edac4c0d07b233db32bfc17c2ca8ce7b061fe8dfe7cd285",
+      "published_sha256": "d1d403b108a568283ef5c9e509fd83823ed75aa5dbb6b100b464f362f51f106e",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_continuation_intake_summary.json": {
+      "original_sha256": "75d9311dbc2723d9f335bb555d5177482f8d9e60ebf5eff67aa46bebbb22260d",
+      "published_sha256": "f2cdf8c3eedecbe47d52a4f14d7fdb8d4297c56af8f33e8ecaa2d8529844cd0f",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_continuation_physical_group_inputs_summary.json": {
+      "original_sha256": "2844b9e2313074d54cfb32935fe71c6fa630a36a5c53cb1b904c49535225faf5",
+      "published_sha256": "d95abceabd0cc6a91f6752ad34300d6566e19f8bf69c5beafbfa21c01a2640df",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_continuation_reference_summary.json": {
+      "original_sha256": "bea41c9e02a6cb4d893a5d17b4e8ae26ada72f551bc977315afc00a13ae39d52",
+      "published_sha256": "d9309db322f7eed3af9dce271acc0a2713a43fe7fa21e3a4e88a65175fd964f2",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_continuation_ownership_summary.json": {
+      "original_sha256": "0de558a612aeecd50fd0fc3c1fe536ec0b76fbdeff238e5fbcab1ec3d75fcf2b",
+      "published_sha256": "621d99038d2606ec9fd42ed1c63c299b48b7f14e6db90a271dda2441971c745c",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_continuation_class_conditions_summary.json": {
+      "original_sha256": "d3aaadc9efcf66ed9e9726b6b6836980387bdd9d5518179b9f50648a3ce225a1",
+      "published_sha256": "1ae2dc3d98d9202167d8b4ee95cd2cdf21df5528af25afc9dbecf60422f2e183",
+      "suppressed_sparse_blocks": 0
+    }
+  },
+  "source_receipt_sha256": "0de558a612aeecd50fd0fc3c1fe536ec0b76fbdeff238e5fbcab1ec3d75fcf2b",
+  "slurm_job": "61627813"
+}

@@ -1,0 +1,7 @@
+{
+  "cores": 1152,
+  "science_parts_sha256": "b35a082a13b372679d151cdd2f0c45a098af9c6774cbc44b1421f42667edba72",
+  "fit_summary_sha256": "0cdec950e62cfe0c3c41682697b5ca99c0549fb0e63dbead2e1c2c8b97666a82",
+  "reference_plan_sha256": "9606cece68aa9894545f2f9f36b5a5b9551048c2b786c96b56100b87bf035e9f",
+  "slurm_job": "61689000"
+}

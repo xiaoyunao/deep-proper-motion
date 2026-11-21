@@ -153,7 +153,7 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
 
     def draw(ref_weight):
         edge_weights = None if overlap_weight is None else overlap_weight * ref_weight[overlap_ref]
-        return solve(weight * ref_weight[r], edge_weights)[nr:]
+        return solve(weight * ref_weight[r], edge_weights)[nr:].copy()
 
     if workers>1:
         with ThreadPoolExecutor(max_workers=workers) as pool:

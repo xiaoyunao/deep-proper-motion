@@ -1,6 +1,7 @@
 """Prepare reference measurements per core and solve one common C0 graph."""
 import argparse
 from collections import Counter
+from functools import lru_cache
 import json
 import os
 from pathlib import Path
@@ -186,13 +187,31 @@ def solve(work, parts, specs, separate=False, diagnostic_groups=False):
         raise ValueError('Group-selection tracing requires explicit separate components')
     datasets = {}
     metadata = []
+    receipt_checksums = {}
     for name, path in parts.items():
-        verify_directory(path,("reference.csv.gz","reference_summary.json"))
+        receipt = verify_directory(path, ("reference.csv.gz", "reference_summary.json"))
+        receipt_checksums[name] = digest(receipt)
         datasets[name] = pd.read_csv(path/"reference.csv.gz",dtype={"reference":str,"is_holdout":bool})
         metadata.append(json.loads((path/'reference_summary.json').read_text()))
     center = common_reference_frame(metadata)
     rows, selection = deduplicate(list(datasets.values()))
-    train = rows.loc[~rows.is_holdout]
+    # Release the original halo-overlapping frames before building the fit matrices.
+    del datasets
+    graph_rows = rows[["reference", "is_holdout", "group"]].copy()
+    held_columns = ["reference", "is_holdout", "group", "ra_deg", "dec_deg", "east", "north", "exposure_id"]
+    held_rows = rows.loc[rows.is_holdout, held_columns].copy()
+    train = rows.loc[~rows.is_holdout, ["reference", "group", "east", "north", "sigma_e", "sigma_n"]].copy()
+    del rows
+
+    @lru_cache(maxsize=8)
+    def audit_shard(name):
+        path = parts[name]
+        receipt = verify_directory(path, ("reference.csv.gz",))
+        if digest(receipt) != receipt_checksums[name]:
+            raise ValueError("The reference shard changed during the solve")
+        return pd.read_csv(path/"reference.csv.gz",
+                           usecols=["reference", "group", "detection_id", "is_holdout"],
+                           dtype={"reference": str, "is_holdout": bool})
     opts = tomllib.loads(PRECISION.read_text())
     cal = opts["calibration"]
     offsets, gauges = {}, {}
@@ -225,8 +244,8 @@ def solve(work, parts, specs, separate=False, diagnostic_groups=False):
         raise ValueError("No jointly solvable SDSS–NSC component")
     diagnostic_summary=None
     if diagnostic_groups:
-        group_names=sorted(set(rows.group))
-        raw_counts=rows.groupby('group').reference.nunique()
+        group_names=sorted(set(graph_rows.group))
+        raw_counts=graph_rows.groupby('group').reference.nunique()
         training_counts=train.groupby('group').reference.nunique()
         records=[]
         peeled=trace.get('peeled_group_references',{}) if trace is not None else {}
@@ -243,19 +262,24 @@ def solve(work, parts, specs, separate=False, diagnostic_groups=False):
             selection_counts=table.status.value_counts().to_dict(),peeled_components=trace.get('peeled_components',{}),
             se_by_status={status:dict(group_count=len(part),p16_p50_p84_mas=quantiles(part[['se_e_mas','se_n_mas']].to_numpy()) if len(part)>=5 else None)
                 for status,part in table.loc[table.se_e_mas.notna()].groupby('status')},
-            core_selection={name:dict(Counter(table.set_index('group').status.reindex(sorted(set(d.group))).dropna())) for name,d in datasets.items()},
+            core_selection={name:dict(Counter(table.set_index('group').status.reindex(sorted(set(audit_shard(name).group))).dropna())) for name in parts},
             scope='Trace only. Original support, gauge, weights, bootstrap and 12mas SE selection unchanged.')
     serialize_offsets(work/"private_c0.npz",offsets,gauges,center)
-    membership = Counter(k for d in datasets.values() for k in set(d.group) if k in offsets)
+    del train, pieces, part
+    membership = Counter()
+    counts = {}
+    for name in parts:
+        shard = audit_shard(name)
+        groups = set(shard.group)
+        membership.update(groups & offsets.keys())
+        counts[name] = dict(reference_rows=len(shard), safe_groups=len(groups & offsets.keys()),
+                            unsupported_groups=len(groups - offsets.keys()))
     by_survey = Counter(k.split(":")[0] for k in offsets)
-    counts = {name:dict(reference_rows=len(d), safe_groups=len(set(d.group)&offsets.keys()),
-                        unsupported_groups=len(set(d.group)-offsets.keys()))
-              for name,d in datasets.items()}
     summary = dict(projection_center_deg=center, counts=selection, by_survey=by_survey, cores=counts, component_count=graph_support(
-                       rows,rows.group.to_numpy(),offsets)["components"],
-                   unsupported_groups=len(set(rows.group)-offsets.keys()),
+                       graph_rows,graph_rows.group.to_numpy(),offsets)["components"],
+                   unsupported_groups=len(set(graph_rows.group)-offsets.keys()),
                    shared_calibrated_groups=sum(v>1 for v in membership.values()),
-                   shared_groups_in_adjacent={}, held=held_reports(rows,offsets,specs,gauges), applied_gauges=dict(Counter(gauges.values())),
+                   shared_groups_in_adjacent={}, held=held_reports(held_rows,offsets,specs,gauges), applied_gauges=dict(Counter(gauges.values())),
                    offset_se_mas=quantiles([np.std(v[1],axis=0,ddof=1) for v in offsets.values()]),
                    max_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024)
     if diagnostic_summary is not None:summary['diagnostic_group_selection']=diagnostic_summary
@@ -268,7 +292,7 @@ def solve(work, parts, specs, separate=False, diagnostic_groups=False):
                 and min(first[along][1],second[along][1])>max(first[along][0],second[along][0])
                 for edge, along in (("ra","dec"),("dec","ra")))
             if adjacent:
-                aa,bb = datasets[a],datasets[b]
+                aa,bb = audit_shard(a),audit_shard(b)
                 shared = set(aa.group)&set(bb.group)&offsets.keys()
                 held_a = aa.loc[aa.is_holdout,"reference"]
                 held_b = bb.loc[bb.is_holdout,"reference"]

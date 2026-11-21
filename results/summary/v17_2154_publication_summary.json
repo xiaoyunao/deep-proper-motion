@@ -1,0 +1,56 @@
+{
+  "exports": {
+    "v17_2154_science_summary.json": {
+      "original_sha256": "b614ed93e1726a03269d880b2a4be03790fc040067dfa195def3032a14d580d4",
+      "published_sha256": "e8431eb1af03da4e64f82d652fea3fd0b7f85f57672ca5ba2f6ad3fdf729431d",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_new_spectral_summary.json": {
+      "original_sha256": "fff95d986c658bdc640f70035846cef58b89027394274a83c05304cc5585eca9",
+      "published_sha256": "fcb3f9a9207769a6969da3c72d29616c5b63d2bb9d782b8bd79c5a001e3b5807",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_north_east_fit_summary.json": {
+      "original_sha256": "0cdec950e62cfe0c3c41682697b5ca99c0549fb0e63dbead2e1c2c8b97666a82",
+      "published_sha256": "11eefbd2b927be21e261b79c0c3ee68fcb00a3c94d52959eeec6f3b7ee65916c",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_west_fit_summary.json": {
+      "original_sha256": "ab6ab28956d8174d7a6e5d53437a85a46531959460288acdbe507121d080fbbf",
+      "published_sha256": "83a429b04bdf918b09615c378f3a7483caa45f95d150e2f0034899e33b83c0c0",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_intake_summary.json": {
+      "original_sha256": "95afee80a3692e09b8a6c775797d2244d30ae3c2be539f52831653ff07afe72c",
+      "published_sha256": "6adf163d452615043f5d3a7d85d53b94ea60a6714f2ebf4ee2cb01a316e4606d",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_physical_group_inputs_summary.json": {
+      "original_sha256": "c83fca9fb673301c49061c8c5c3076f93d01741424afee7ac1d16d48b7c859b0",
+      "published_sha256": "f41264ba3a0d5255c5c9f2cf465a5cf220c39229f9ef5e65f00ca139bab087d3",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_reference_plan_summary.json": {
+      "original_sha256": "f1ebd209262c7e9b1532db286cab892837dd9cb47a834441f5eebee993d25f10",
+      "published_sha256": "0ae3269196bcd4a8e5ced87564d36bafce850a02cad3c7507ad29325d4b4f81f",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_reference_summary.json": {
+      "original_sha256": "809a244828c298a25825aba90346ee646ef67b75368a79c55d590f9a7787c04d",
+      "published_sha256": "ec3858fd5bc73a0b50dd03a2c00770c444667b94ef6eedbf1106b3305b24700e",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_ownership_summary.json": {
+      "original_sha256": "cd50aa28b795870c8ba5ca56ebf91e358741b32959b01473a051a80f9358dc1d",
+      "published_sha256": "79c53f6364eae39fa937059784b83c9631b6b6e3e049117f1f88790bea2f2f4b",
+      "suppressed_sparse_blocks": 0
+    },
+    "v17_2154_class_conditions_summary.json": {
+      "original_sha256": "aad4a2a3849dfe5fe747b3130fb26c3b96f54a7612d77c7087d9108f11f346cd",
+      "published_sha256": "a25722560153c8552b5a937438d4371cecdf2bbe100de47c29222594d8602947",
+      "suppressed_sparse_blocks": 0
+    }
+  },
+  "source_receipt_sha256": "cd50aa28b795870c8ba5ca56ebf91e358741b32959b01473a051a80f9358dc1d",
+  "slurm_job": "61689055"
+}

@@ -42,3 +42,16 @@
 对于更大的生产范围，按实际共享物理组建立参考域。已闭合的独立参考域可在其他图求解时拟合，阶段回执绑定各图 SHA、统一参考计划及拟合分片签名。科学分段统计保持原归属及足迹核验。最终合并检查三图的保留组互斥及全部核心身份，再读出累计科学面积和严格配对结果。
 
 较大参考图可以使用 `continuous_reference solve --checkpoint-dir DIRECTORY`。停点目录用版本、几何配置、输入签名、选择和随机种子绑定。稳健位置求解及每个完整抽样都带独立校验和，续跑只计算未写完的抽样。三图合并仍以完整参考回执为准。
+
+### 804 平方度批次的闭合回执
+
+61627813 核验 852 个新核心的输入及星系参考。61666919、61673629 和 61718833 完成北、东、西共同参考。西图沿用原 1,099 个投影回执，并从 61710358 已保存的 39 次同步抽样接续。三图保留 41,361 个互不重叠的物理观测组。61688874／61688875 分别核验 1,152／1,099 个新旧核心拟合。61689000／61689003 完成分区归属和实际足迹。61731451 合并光谱池与私有 NSIDE=128 索引，61689055 生成只含聚合统计的公开校验清单。 [输入](../results/summary/v17_2154_intake_summary.json) · [三图归属](../results/summary/v17_2154_ownership_summary.json) · [公开汇总校验](../results/summary/v17_2154_publication_summary.json)
+
+从仓库根目录使用同一公开汇总生成三张图。
+
+```bash
+PYTHONPATH=src python -m deep_pm.nsc_wide_figures \
+    results/summary/v17_2154_science_summary.json figures/v17_2154_quality_summary.png \
+    --conditions-output figures/v17_2154_conditions_summary.png \
+    --support-output figures/v17_2154_support_summary.png
+```

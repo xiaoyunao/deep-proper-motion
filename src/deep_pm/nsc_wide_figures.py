@@ -6,7 +6,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.colors import Normalize, TwoSlopeNorm
+from matplotlib.colors import Normalize, PowerNorm, TwoSlopeNorm
 from matplotlib.patches import Rectangle
 import numpy as np
 
@@ -25,14 +25,30 @@ def gain(core):
     return 100 * (1-current/ref) if ref and current is not None else None
 
 
-def map_figure(data, output):
-    cores = list(data['cores'].values())
-    if not cores:
-        raise ValueError('No complete processing cores in the science summary')
+def save_core_map(cores, panels, title, output):
     figure, axes = plt.subplots(2, 2, figsize=(12, 8), constrained_layout=True)
     areas = [r['core_bounds_deg'] for r in cores]
     lon = min(z['ra_bounds_deg'][0] for z in areas), max(z['ra_bounds_deg'][1] for z in areas)
     lat = min(z['dec_bounds_deg'][0] for z in areas), max(z['dec_bounds_deg'][1] for z in areas)
+    for ax,(name,values,palette,normal) in zip(axes.flat,panels):
+        cmap = plt.get_cmap(palette)
+        for row, bounds in zip(cores, areas):
+            value = values(row)
+            x, y = bounds['ra_bounds_deg'], bounds['dec_bounds_deg']
+            color = '#e2e2e2' if value is None or not np.isfinite(value) else cmap(normal(value))
+            ax.add_patch(Rectangle((x[0], y[0]), np.ptp(x), np.ptp(y),
+                                   facecolor=color, edgecolor='white', lw=.3))
+        ax.set(xlim=lon, ylim=lat, xlabel='ICRS RA [deg]', ylabel='ICRS Dec [deg]', title=name)
+        figure.colorbar(plt.cm.ScalarMappable(cmap=cmap, norm=normal), ax=ax, shrink=.78)
+    figure.suptitle(title)
+    figure.savefig(output, dpi=180)
+    plt.close(figure)
+
+
+def map_figure(data, output):
+    cores = list(data['cores'].values())
+    if not cores:
+        raise ValueError('No complete processing cores in the science summary')
     density = lambda row: row['research_fits']/row['area_sqdeg']
     upper = max(1, np.quantile([density(r) for r in cores], .95))
     panels = (
@@ -45,20 +61,40 @@ def map_figure(data, output):
          100*science_value(r,'all_nsc','fraction_within_1sigma',1),
          'PuBu', Normalize(0, 100)),
     )
-    for ax,(name,values,palette,normal) in zip(axes.flat,panels):
-        cmap = plt.get_cmap(palette)
-        for row, bounds in zip(cores, areas):
-            value = values(row)
-            x, y = bounds['ra_bounds_deg'], bounds['dec_bounds_deg']
-            color = '#e2e2e2' if value is None or not np.isfinite(value) else cmap(normal(value))
-            ax.add_patch(Rectangle((x[0], y[0]), np.ptp(x), np.ptp(y),
-                                   facecolor=color, edgecolor='white', lw=.3))
-        ax.set(xlim=lon, ylim=lat, xlabel='ICRS RA [deg]', ylabel='ICRS Dec [deg]', title=name)
-        figure.colorbar(plt.cm.ScalarMappable(cmap=cmap, norm=normal), ax=ax, shrink=.78)
-    figure.suptitle(f'Wide C0/W0 research catalogue · {len(cores)} processed cores\n'
-                    'QSO panels use common r=21–22 sources. Grey shows fewer than five objects.')
-    figure.savefig(output, dpi=180)
-    plt.close(figure)
+    title = (f'Wide C0/W0 research catalogue · {len(cores)} processed cores\n'
+             'QSO panels use common r=21–22 sources. Grey shows fewer than five objects.')
+    save_core_map(cores, panels, title, output)
+
+
+def support_figure(data, output):
+    """Map sampling flags among the final owned full-band fits."""
+    cores = list(data['cores'].values())
+    if not cores:
+        raise ValueError('No complete processing cores in the science summary')
+
+    def share(row, column, key):
+        if row['research_fits']:
+            return 100 * row[column].get(key, 0) / row['research_fits']
+        return None
+
+    no_r = lambda row: share(row, 'source_classes', 'non_r_anchor')
+    no_r_max = max((no_r(row) for row in cores if row['research_fits']), default=1)
+    panels = (
+        ('Well-sampled r-anchored fits [%]',
+         lambda row: share(row, 'observing_support_counts', 'r_anchor_well_sampled'),
+         'viridis', Normalize(0, 100)),
+        ('One group supplies ≥80% of slope information [%]',
+         lambda row: share(row, 'quality_flag_counts', 'one_group_supplies_at_least_80pct_leverage'),
+         'magma', Normalize(0, 100)),
+        ('Fewer than three NSC seasons [%]',
+         lambda row: share(row, 'quality_flag_counts', 'fewer_than_three_nsc_seasons'),
+         'magma', Normalize(0, 100)),
+        ('Fits without an NSC r anchor [%]', no_r,
+         'magma', PowerNorm(gamma=.35, vmin=0, vmax=max(1, np.ceil(no_r_max)))),
+    )
+    title = (f'Observing support · {data["research_fits"]:,} full-band fits\n'
+             'Each panel shows a fraction of all owned fits in that core.')
+    save_core_map(cores, panels, title, output)
 
 
 def condition_figure(data, output):
@@ -122,11 +158,14 @@ def main():
     parser.add_argument('science',type=Path)
     parser.add_argument('output',type=Path)
     parser.add_argument('--conditions-output', type=Path)
+    parser.add_argument('--support-output', type=Path)
     args=parser.parse_args()
     data = json.loads(args.science.read_text())
     map_figure(data,args.output)
     if args.conditions_output is not None:
         condition_figure(data,args.conditions_output)
+    if args.support_output is not None:
+        support_figure(data,args.support_output)
 
 
 if __name__=='__main__':

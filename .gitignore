@@ -30,6 +30,9 @@
 !/reports/experiment_A_v0.5_pilot.md
 !/figures/
 !/figures/*_summary.png
+!/figures/meeting_2e4a04a/
+!/figures/meeting_2e4a04a/*.pdf
+!/figures/meeting_2e4a04a/*.png
 !/results/
 !/results/summary/
 !/results/summary/*_summary.json
@@ -67,3 +70,4 @@
 !/reports/experiment_A_v1.7_wide_production.md
 !/reports/experiment_A_v1.7_continuation.md
 !/reports/experiment_A_v1.7_2154.md
+!/reports/meeting_2e4a04a_figures.md

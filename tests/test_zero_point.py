@@ -1,10 +1,13 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
 
 from deep_pm.precision_v03 import astrometric_metrics, fit_with_calibration
-from deep_pm.zero_point import fit_offsets
+from deep_pm.zero_point import fit_offsets, lsmr
 
 
 class ZeroPointTest(unittest.TestCase):
@@ -29,6 +32,28 @@ class ZeroPointTest(unittest.TestCase):
         refs = np.repeat(np.arange(10), 2)
         groups = ["SDSS:one", "SDSS:two"] * 5 + ["NSC:one", "NSC:two"] * 5
         self.assertEqual(fit_offsets(refs, np.zeros((20, 2)), np.ones((20, 2)), groups, 3, 8, 1), {})
+
+    def test_reference_resume_reuses_robust_fit_and_completed_draws(self):
+        rng = np.random.default_rng(5)
+        refs = np.repeat(np.arange(24), 3)
+        groups = np.tile(["SDSS:run", "NSC:first", "NSC:last"], 24)
+        xy = rng.normal(0, 70, (72, 2))
+        args = (refs, xy, np.full_like(xy, 50.), groups, 10, 8, 9137)
+        expected = fit_offsets(*args)
+        with TemporaryDirectory() as directory:
+            checkpoint = Path(directory)
+            fit_offsets(*args, checkpoint=checkpoint, workers=2)
+            for number in (3, 7):
+                (checkpoint/f"draw-{number:03d}.npz").unlink()
+            with patch("deep_pm.zero_point.lsmr", wraps=lsmr) as solver:
+                resumed = fit_offsets(*args, checkpoint=checkpoint)
+            self.assertEqual(solver.call_count, 4)
+            for group in expected:
+                for original, recovered in zip(expected[group], resumed[group]):
+                    np.testing.assert_array_equal(original, recovered)
+            (checkpoint/"draw-004.npz").write_bytes(b"truncated")
+            with self.assertRaisesRegex(ValueError, "Changed reference checkpoint"):
+                fit_offsets(*args, checkpoint=checkpoint)
 
     def test_absolute_error_exposes_bias_when_scatter_is_zero(self):
         result = astrometric_metrics([[0., -4.4]] * 5, [[1., 1.]] * 5, 5)

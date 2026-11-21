@@ -7,9 +7,33 @@ from scipy.sparse import coo_matrix, hstack, vstack
 from scipy.sparse.csgraph import connected_components
 from scipy.sparse.linalg import lsmr
 
+from .io import digest
+
+
+def read_checkpoint(path):
+    checksum = path.with_suffix(".sha256")
+    if not path.is_file() or not checksum.is_file():
+        return None
+    if digest(path) != checksum.read_text().strip():
+        raise ValueError(f"Changed reference checkpoint {path.name}")
+    with np.load(path, allow_pickle=False) as arrays:
+        return {name: arrays[name] for name in arrays.files}
+
+
+def write_checkpoint(path, **arrays):
+    pending = path.with_suffix(".part")
+    with pending.open("wb") as stream:
+        np.savez(stream, **arrays)
+    pending.replace(path)
+    checksum = path.with_suffix(".sha256")
+    pending = checksum.with_suffix(".sha-part")
+    pending.write_text(digest(path) + "\n")
+    pending.replace(checksum)
+
 
 def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
-                parents=None, shrinkage_mas=50., overlaps=None, features=None):
+                parents=None, shrinkage_mas=50., overlaps=None, features=None,
+                checkpoint=None):
     # Optional C0-only residual design: returns (offsets, coefficients, draws).
     # Default calls retain the original numerical solve and dict result.
     if features is not None and (parents or overlaps is not None):
@@ -138,28 +162,59 @@ def fit_offsets(refs, xy, sigma, group, min_refs, draws, seed, workers=1,
             coeff.append(scale*answer[0])
         return np.column_stack(coeff)
 
-    weight = np.ones(len(g))
-    for _ in range(6):
-        optimum = solve(weight, overlap_weight)
-        residual = (values - design @ optimum) / independent
-        weight = np.minimum(1, 6 / (4 + (residual**2).sum(axis=1)))
-        if overlap_design is not None:
-            residual = (overlap_value - overlap_design @ optimum) / overlap_sigma
-            overlap_weight = overlap_base * np.minimum(1, 6 / (4 + (residual**2).sum(axis=1)))
+    state = None
+    if checkpoint is not None:
+        checkpoint.mkdir(parents=True, exist_ok=True)
+        state = read_checkpoint(checkpoint/"robust.npz")
+    if state is None:
+        weight = np.ones(len(g))
+        for _ in range(6):
+            optimum = solve(weight, overlap_weight)
+            residual = (values - design @ optimum) / independent
+            weight = np.minimum(1, 6 / (4 + (residual**2).sum(axis=1)))
+            if overlap_design is not None:
+                residual = (overlap_value - overlap_design @ optimum) / overlap_sigma
+                overlap_weight = overlap_base * np.minimum(1, 6 / (4 + (residual**2).sum(axis=1)))
+        if checkpoint is not None:
+            state = dict(optimum=optimum, weight=weight)
+            if overlap_weight is not None:
+                state["overlap_weight"] = overlap_weight
+            write_checkpoint(checkpoint/"robust.npz", **state)
+    else:
+        optimum, weight = state["optimum"], state["weight"]
+        overlap_weight = state.get("overlap_weight")
+        if (optimum.shape != (design.shape[1], 2) or weight.shape != (len(g),)
+                or (overlap_design is None) != (overlap_weight is None)
+                or (overlap_design is not None and overlap_weight.shape != overlap_base.shape)):
+            raise ValueError("Reference checkpoint does not match the fitted graph")
+        print("Reusing robust reference fit", flush=True)
     random = np.random.default_rng(seed)
     # Bayesian bootstrap by reference object preserves shared visit covariance
     # and the connected graph, including groups with relatively few references.
     reference_weights = random.exponential(size=(draws, nr))
 
-    def draw(ref_weight):
+    def draw(item):
+        number, ref_weight = item
+        if checkpoint is not None:
+            path = checkpoint/f"draw-{number:03d}.npz"
+            saved = read_checkpoint(path)
+            if saved is not None:
+                result = saved["offsets"]
+                if result.shape != (ng - 1 + nfeatures, 2) or not np.isfinite(result).all():
+                    raise ValueError("Reference draw checkpoint has an invalid shape or value")
+                return result
         edge_weights = None if overlap_weight is None else overlap_weight * ref_weight[overlap_ref]
-        return solve(weight * ref_weight[r], edge_weights)[nr:].copy()
+        result = solve(weight * ref_weight[r], edge_weights)[nr:].copy()
+        if checkpoint is not None:
+            write_checkpoint(path, offsets=result)
+            print(f"Completed reference bootstrap draw {number+1}/{draws}", flush=True)
+        return result
 
     if workers>1:
         with ThreadPoolExecutor(max_workers=workers) as pool:
-            samples = np.asarray(list(pool.map(draw, reference_weights)))
+            samples = np.asarray(list(pool.map(draw, enumerate(reference_weights))))
     else:
-        samples = np.asarray(list(map(draw, reference_weights)))
+        samples = np.asarray(list(map(draw, enumerate(reference_weights))))
     support = active.groupby("group").ref.nunique()
     positions = np.r_[optimum[nr:nr+ng-1], np.zeros((1, 2))]
     feature_point = optimum[nr+ng-1:]

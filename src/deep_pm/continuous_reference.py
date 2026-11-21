@@ -2,6 +2,7 @@
 import argparse
 from collections import Counter
 from functools import lru_cache
+from hashlib import sha256
 import json
 import os
 from pathlib import Path
@@ -182,7 +183,7 @@ def held_reports(rows, offsets, specs, gauges):
     return result
 
 
-def solve(work, parts, specs, separate=False, diagnostic_groups=False):
+def solve(work, parts, specs, separate=False, diagnostic_groups=False, checkpoint_dir=None):
     if diagnostic_groups and not separate:
         raise ValueError('Group-selection tracing requires explicit separate components')
     datasets = {}
@@ -214,6 +215,13 @@ def solve(work, parts, specs, separate=False, diagnostic_groups=False):
                            dtype={"reference": str, "is_holdout": bool})
     opts = tomllib.loads(PRECISION.read_text())
     cal = opts["calibration"]
+    checkpoint = None
+    if checkpoint_dir is not None:
+        manifest = json.loads((work/"run_manifest.json").read_text())
+        binding = dict(commit=manifest["commit"], config_sha256=manifest["config_sha256"],
+                       receipts=list(receipt_checksums.items()), calibration=cal,
+                       seed=opts["seed"], separate_components=separate)
+        checkpoint = checkpoint_dir/sha256(json.dumps(binding, sort_keys=True).encode()).hexdigest()
     offsets, gauges = {}, {}
     trace={} if diagnostic_groups else None
     pieces = calibration_components(train,cal["min_references"],trace) if separate else (train,)
@@ -222,7 +230,8 @@ def solve(work, parts, specs, separate=False, diagnostic_groups=False):
         fit = fit_offsets(part.reference,part[["east","north"]].to_numpy(),
                           part[["sigma_e","sigma_n"]].to_numpy(),part.group.to_numpy(),
                           cal["min_references"],cal["bootstrap_draws"],opts["seed"]+component,
-                          workers=int(os.environ.get("DEEP_PM_M3_WORKERS","1")))
+                          workers=int(os.environ.get("DEEP_PM_M3_WORKERS","1")),
+                          checkpoint=checkpoint/f"component-{component:04d}" if checkpoint is not None else None)
         if not fit:
             continue
         late = [v for k,v in fit.items() if k.startswith("NSC:")]
@@ -319,6 +328,7 @@ def main():
     parser.add_argument("source",type=Path)
     parser.add_argument("--separate-components",action="store_true")
     parser.add_argument('--diagnostic-groups',action='store_true',help='Save private pre-SE offsets and group-selection reasons without changing C0')
+    parser.add_argument("--checkpoint-dir", type=Path, help="Save verified intermediate reference fits and bootstrap draws")
     args = parser.parse_args()
     if "SLURM_JOB_ID" not in os.environ:
         parser.error("Run on a Slurm compute node")
@@ -349,7 +359,8 @@ def main():
         with run_stage(args.work,args.config,args.region,"continuous-grid-v12",inputs=names,
                        outputs=outputs) as go:
             if go:
-                solve(args.work,parts,{k:specs[k] for k in parts},args.separate_components,args.diagnostic_groups)
+                solve(args.work,parts,{k:specs[k] for k in parts},args.separate_components,args.diagnostic_groups,
+                      args.checkpoint_dir)
 
 
 if __name__ == "__main__":

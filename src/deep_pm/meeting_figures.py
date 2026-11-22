@@ -8,10 +8,10 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib import patheffects
-from matplotlib.colors import ListedColormap, LogNorm, Normalize, TwoSlopeNorm
+from matplotlib.colors import LinearSegmentedColormap, ListedColormap, LogNorm, Normalize, TwoSlopeNorm
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
-from matplotlib.ticker import FuncFormatter
+from matplotlib.ticker import FuncFormatter, PercentFormatter
 import numpy as np
 from scipy.special import erf
 
@@ -27,6 +27,7 @@ LINESTYLES = (':','--','-.','-')
 AXES = (r'$\mu_{\alpha *}$', r'$\mu_\delta$')
 BANDS={21:'21 ≤ r < 22',22:'22 ≤ r < 23'}
 UNIT='mas yr⁻¹'
+GAIN_RANGES = {'Xiao': (-.40, .60), 'NSC': (-.30, .90)}
 plt.rcParams.update({'font.size':11,'axes.spines.top':False,'axes.spines.right':False,
                      'axes.labelcolor':'#183040','axes.titlecolor':'#142c3c',
                      'axes.edgecolor':'#58717e','text.color':'#142c3c',
@@ -130,9 +131,55 @@ def footprint(science, counts, output):
     save(fig,output,'01_footprint_density_outline')
 
 
+def qso_gain_figure(qso, output, nside=32, local=None):
+    """Show relative P68 reductions with one scale per named reference."""
+    cmap = LinearSegmentedColormap.from_list('qso_cold_hot', [
+        '#142655', '#1764a8', '#68bce2', '#fff9ef', '#f9ac64', '#ef561f', '#8d0923',
+    ], N=257)
+    fig, axes = plt.subplots(2, 2, figsize=(13, 8.2),
+                             subplot_kw={} if local else {'projection': 'aitoff'})
+    fig.subplots_adjust(top=.825, bottom=.205, left=.055, right=.95, hspace=.46, wspace=.14)
+    for col, (method, (lower, upper)) in enumerate(GAIN_RANGES.items()):
+        reference = METHODS.index(method)
+        all_bands = METHODS.index('all_nsc')
+        label = LABELS[reference]
+        norm = TwoSlopeNorm(vcenter=0, vmin=lower, vmax=upper)
+        clipped_below = clipped_above = False
+        for band, ax in zip(BANDS, axes[:, col]):
+            data = qso['bands'][str(band)]
+            cells = data['spatial'][str(nside)]
+            values = {key: 1 - cell['p68'][all_bands] / cell['p68'][reference]
+                      for key, cell in cells.items() if cell['display']}
+            support = {key: 2 if cell['n'] else 1 for key, cell in cells.items()}
+            mesh = sky_elements(ax, nside, values, cmap, norm, support, local)
+            ax.set_title(f'vs {label}   ·   {BANDS[band]}', pad=13, fontsize=11, fontweight='bold')
+            plotted = mesh.get_array()
+            clipped_below |= bool(np.ma.any(plotted < lower))
+            clipped_above |= bool(np.ma.any(plotted > upper))
+            if local is None:
+                count = sum(cells[key]['n'] for key in values)
+                ax.text(.5, -.095, f'N shown {count:,} / {data["n"]:,}',
+                        transform=ax.transAxes, ha='center', fontsize=8)
+        box = fig.add_axes([.085 + .475 * col, .111, .355, .022])
+        step = .2 if method == 'Xiao' else .3
+        ticks = np.round(np.arange(lower, upper + step / 2, step), 2)
+        extend = {(False, False): 'neither', (True, False): 'min',
+                  (False, True): 'max', (True, True): 'both'}[clipped_below, clipped_above]
+        fig.colorbar(mesh, cax=box, orientation='horizontal', extend=extend, ticks=ticks,
+                     format=PercentFormatter(xmax=1, decimals=0), label=f'P68 improvement vs {label}')
+    fig.legend(handles=[Patch(facecolor='#aebac3', label='1–29 common QSOs'),
+                        Patch(facecolor='#e3e9ed', label='Catalogue support, zero common QSOs')],
+               loc='lower center', bbox_to_anchor=(.5, .012), ncol=2, frameon=False, fontsize=9)
+    view = 'ICRS local view' if local else 'ICRS Aitoff'
+    title(fig, 'QSO proper-motion precision gains',
+          f'{view}   ·   HEALPix NSIDE {nside} / RING   ·   ≥30 strict common QSOs per pixel\n'
+          'Improvement = 1 − P68(all bands) / P68(reference)   ·   Dark red = larger gain   ·   Blue = worse')
+    filename = '02_qso_improvement_aitoff' + ('_local_nside64' if local else '')
+    save(fig, output, filename)
+
+
 def spatial_figure(qso, output, which, nside=32, local=None):
     choice={
-        'gain':('P68 gain on strictly common QSOs','P68 reduction [%]',80,'RdBu','02_qso_improvement_aitoff'),
         'count':('Spatial support of the common QSO sample','Common QSOs per pixel',None,'viridis','02_qso_improvement_qso_counts'),
         'median':('Spatial proper-motion zero point',f'QSO median [{UNIT}]',3,'RdBu_r','03_qso_precision_and_zero_aitoff'),
         'zero_change':('Zero-point change after adding bands',f'Median(all) − median(r only) [{UNIT}]',3,'RdBu_r','03_qso_precision_and_zero_all_minus_r'),
@@ -156,7 +203,7 @@ def spatial_figure(qso, output, which, nside=32, local=None):
                 subtitle=BANDS[band]
             else:
                 vals={k:(c[which][-1][col] if which=='median' else c[which][col]) for k,c in p.items() if c['display']}
-                subtitle=(LABELS[1-col] if which=='gain' else AXES[col])+'   ·   '+BANDS[band]
+                subtitle=AXES[col]+'   ·   '+BANDS[band]
             im=sky_elements(ax,nside,vals,cmap,norm,support,local)
             ax.set_title(subtitle,pad=13,fontsize=11,fontweight='bold')
             if which!='count':
@@ -555,7 +602,7 @@ def main():
     p.add_argument('--private-examples',type=Path)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--summaries',type=Path,default=Path('results/summary'))
-    p.add_argument('--set',choices=['all','historical','catalogue','qso'],default='all')
+    p.add_argument('--set',choices=['all','historical','catalogue','qso','gain'],default='all')
     a=p.parse_args()
     if a.private_examples:
         example_figures(read(a.private_examples),a.output)
@@ -564,14 +611,18 @@ def main():
     combined=read(a.summary) if a.summary else {}
     qso=read(a.qso) if a.qso else combined.get('qso')
     catalogue=read(a.catalogue) if a.catalogue else combined.get('catalogue')
+    if a.set=='gain' and qso is None:
+        p.error('--set gain requires --qso or --summary')
     if a.set in ('all','historical'):
         history(a.summaries,a.output)
-    if qso and a.set in ('all','qso'):
+    if qso and a.set in ('all','qso','gain'):
         assert qso['snapshot']==SNAPSHOT
+        qso_gain_figure(qso,a.output)
+        qso_gain_figure(qso,a.output,64,local=(137,215,-10,32))
+    if qso and a.set in ('all','qso'):
         footprint(science,qso['source_counts'],a.output)
-        for kind in ('gain','count','median','zero_change'):
+        for kind in ('count','median','zero_change'):
             spatial_figure(qso,a.output,kind)
-        spatial_figure(qso,a.output,'gain',64,local=(137,215,-10,32))
         precision_page(qso,a.output)
         precision_page(qso,a.output,pointlike=True)
         for method in (0,1,2):

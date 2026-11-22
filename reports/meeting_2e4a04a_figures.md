@@ -19,9 +19,9 @@ J2015.5 的最终归属索引有 11,852 个有源像素和 11,862,169 个全波�
 
 ## 02　精度改善 Aitoff
 
-四个面板用各 QSO 保存的 J2015.5 拟合位置在 NSIDE=32 RING 中重新分箱。先求四路各自的二维绝对自行 P68，再求全波段相对各对照的降幅。RA 向左增加，中心为 180°，两端是同一个 0° 接缝。蓝色为改善，橙红色为恶化。灰色区分每像素 1–29 颗 QSO 及有目录源但缺少共同 QSO 的天空，其余留白。
+四个面板用各 QSO 保存的 J2015.5 拟合位置在 NSIDE=32 RING 中分箱。颜色取相对改善率 $1-P_{68,\mathrm{all}}/P_{68,\mathrm{ref}}$。例如全波段 P68 为参考值的 80% 时，改善率为 20%。近白表示 0%，改善越大红色越深，恶化越明显蓝色越深。左列相对 Xiao2025，右列相对 NSC DR2。RA 向左增加，中心为 180°，两端是同一个 0° 接缝。灰色区分每像素 1–29 颗 QSO 及有目录源但缺少共同 QSO 的天空，其余留白。
 
-21–22 等有 638 个像素达到 30 颗，共显示 75,904 颗，另 4,034 颗保留在全区统计。22–23 等有 446 个达标像素，显示 31,469 颗，另 3,947 颗保留在全区统计。四面板共用 ±80% 色标。相对 Xiao2025 两行各有 0 个显示像素超出色标，相对 NSC 分别有 41 和 38 个。图附同格网 QSO 数量图及东部 NSIDE=64 放大。小格分母是对象数，共享扫描和观测夜仍会带来相关性。 [主图 PDF](../figures/meeting_2e4a04a/02_qso_improvement_aitoff.pdf) · [PNG](../figures/meeting_2e4a04a/02_qso_improvement_aitoff.png) · [QSO 分母 PDF](../figures/meeting_2e4a04a/02_qso_improvement_qso_counts.pdf) · [NSIDE64 局部 PDF](../figures/meeting_2e4a04a/02_qso_improvement_aitoff_local_nside64.pdf)
+21–22 等有 638 个像素达到 30 颗，共显示 75,904 颗，另 4,034 颗保留在全区统计。22–23 等有 446 个达标像素，显示 31,469 颗，另 3,947 颗保留在全区统计。Xiao2025 采用 −40% 至 +60% 的色标，NSC DR2 采用 −30% 至 +90%。每列上下两档及局部放大图共用各自的标尺。主图中，Xiao2025 两档超出下限／上限的像素数为 4／4 和 0／8，NSC DR2 为 0／3 和 0／3。NSIDE=64 局部图中，Xiao2025 两档为 2／1 和 1／0，NSC DR2 两档均在标尺内。色标三角代表存在超界像素，统计文件保留原值。小格分母是对象数，共享扫描和观测夜仍会带来相关性。 [主图 PDF](../figures/meeting_2e4a04a/02_qso_improvement_aitoff.pdf) · [PNG](../figures/meeting_2e4a04a/02_qso_improvement_aitoff.png) · [QSO 分母 PDF](../figures/meeting_2e4a04a/02_qso_improvement_qso_counts.pdf) · [NSIDE64 局部 PDF](../figures/meeting_2e4a04a/02_qso_improvement_aitoff_local_nside64.pdf)
 
 ## 03　随星等的精度、散布和零点
 
@@ -80,6 +80,8 @@ PYTHONPATH=src python -m deep_pm.meeting_figures \
   --summary results/summary/meeting_2e4a04a_plot_summary.json \
   --output figures/meeting_2e4a04a
 ```
+
+在同一命令加上 `--set gain` 可单独重绘全天和局部的改善率图。
 
 在 NERSC 已分配计算节点上，`meeting_stats` 的 `qso` 阶段重读光谱位置与冻结向量，`shard`／`catalogue` 核对最终归属和 NSC 成员，`xiao-index`／`xiao-shard`／`xiao-summary` 复现传播及位置配对。各分片都传入同一冻结归档及独立绘图工作目录，`--shards` 固定且 `--index` 覆盖全部分片。旧科研输出始终从签名索引读取。实测回执包括 QSO 61736396、目录分片 61736545、NSC 读出 61737669、时序图 61738105 及 Xiao2025 传播与配对 61737971／61738579。 [去标识绘图统计与校验和](../results/summary/meeting_2e4a04a_plot_summary.json)
 

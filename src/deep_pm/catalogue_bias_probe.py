@@ -156,7 +156,7 @@ def run(frozen,output,workers):
         fits = read(owned/'fits.json')
         specs = tomllib.loads(Path(part['geometry']).read_text())['fields']
         for core, window in part['region_by_core'].items():
-            if window in WINDOWS and survey['cores'][core]['common_r21']>=GATES['minimum_archived_common_r21']:
+            if window in WINDOWS and survey['cores'][core]['common_r21']['n']>=GATES['minimum_archived_common_r21']:
                 options[window].append((fits[core],core,specs[core]))
     rng = np.random.default_rng(GATES['seed'])
     result = {}

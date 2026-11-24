@@ -1,0 +1,624 @@
+{
+  "slurm_job": "61909983",
+  "workers": 6,
+  "cores": [
+    {
+      "baseline": {
+        "input_receipt_sha256": "1ff9aa3d0d5cb39862d7ebd98ed1a31ecd750c959aa77833792db7495fd51c1f",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 0.9411488979822025
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 4.109291994129308
+          },
+          "robust_solver": {
+            "calls": 14845,
+            "seconds": 11.622099473606795
+          },
+          "final_state_including_any_fit": {
+            "calls": 5803,
+            "seconds": 7.852061548852362
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 26.492677062982693
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 2.626936338027008
+          }
+        },
+        "elapsed_with_input_checks_seconds": 46.954058769973926,
+        "elapsed_pipeline_seconds": 45.89579079509713,
+        "original_pipeline_seconds": 60.78507470199838,
+        "peak_rss_mib": 776.09765625,
+        "input_detections": 193648,
+        "research_fits": 3219,
+        "affinity_cpus": 12,
+        "output_bytes": 4075226,
+        "cache": null,
+        "slurm_job": "61909983"
+      },
+      "trial": {
+        "input_receipt_sha256": "1ff9aa3d0d5cb39862d7ebd98ed1a31ecd750c959aa77833792db7495fd51c1f",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 0.8873150190338492
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 4.426318279001862
+          },
+          "robust_solver": {
+            "calls": 6280,
+            "seconds": 5.424221474211663
+          },
+          "final_state_including_any_fit": {
+            "calls": 5784,
+            "seconds": 2.7585918015101925
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 26.56722802692093
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 2.924574467004277
+          }
+        },
+        "elapsed_with_input_checks_seconds": 42.6618043880444,
+        "elapsed_pipeline_seconds": 42.08626715000719,
+        "original_pipeline_seconds": 60.78507470199838,
+        "peak_rss_mib": 792.20703125,
+        "input_detections": 193648,
+        "research_fits": 3219,
+        "affinity_cpus": 12,
+        "output_bytes": 4075329,
+        "cache": {
+          "hits": 8562,
+          "misses": 6146,
+          "maxsize": 32768,
+          "currsize": 6146
+        },
+        "slurm_job": "61909983"
+      }
+    },
+    {
+      "baseline": {
+        "input_receipt_sha256": "09232fee7d08f76a034cbb3ff5d92576f96a774e10f3c86d16773773ab898713",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 1.0370893779909238
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 5.89656489295885
+          },
+          "robust_solver": {
+            "calls": 20057,
+            "seconds": 17.73160115117207
+          },
+          "final_state_including_any_fit": {
+            "calls": 7964,
+            "seconds": 11.448852261528373
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 39.26486265100539
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 2.8404366800095886
+          }
+        },
+        "elapsed_with_input_checks_seconds": 66.5760631649755,
+        "elapsed_pipeline_seconds": 66.0012198870536,
+        "original_pipeline_seconds": 71.53774808300659,
+        "peak_rss_mib": 838.54296875,
+        "input_detections": 219442,
+        "research_fits": 4350,
+        "affinity_cpus": 12,
+        "output_bytes": 5519401,
+        "cache": null,
+        "slurm_job": "61909983"
+      },
+      "trial": {
+        "input_receipt_sha256": "09232fee7d08f76a034cbb3ff5d92576f96a774e10f3c86d16773773ab898713",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 1.1423066389979795
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 4.8385700159706175
+          },
+          "robust_solver": {
+            "calls": 8371,
+            "seconds": 6.761009268462658
+          },
+          "final_state_including_any_fit": {
+            "calls": 7944,
+            "seconds": 3.4521588248899207
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 30.38578219106421
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 2.7024537610122934
+          }
+        },
+        "elapsed_with_input_checks_seconds": 49.458764101029374,
+        "elapsed_pipeline_seconds": 48.4344375890214,
+        "original_pipeline_seconds": 71.53774808300659,
+        "peak_rss_mib": 842.984375,
+        "input_detections": 219442,
+        "research_fits": 4350,
+        "affinity_cpus": 12,
+        "output_bytes": 5519503,
+        "cache": {
+          "hits": 11674,
+          "misses": 8271,
+          "maxsize": 32768,
+          "currsize": 8271
+        },
+        "slurm_job": "61909983"
+      }
+    },
+    {
+      "baseline": {
+        "input_receipt_sha256": "bc58de2be5b66ca9703d1b879930d329f9b61a1b2d5d2f72dfafbab2f8b077f2",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 1.4820899099577218
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 4.728617237997241
+          },
+          "robust_solver": {
+            "calls": 24619,
+            "seconds": 20.449210269609466
+          },
+          "final_state_including_any_fit": {
+            "calls": 9627,
+            "seconds": 14.41722994518932
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 35.64085520606022
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 5.552462651976384
+          }
+        },
+        "elapsed_with_input_checks_seconds": 72.08526497101411,
+        "elapsed_pipeline_seconds": 70.94269321893808,
+        "original_pipeline_seconds": 70.17712042899802,
+        "peak_rss_mib": 909.66015625,
+        "input_detections": 323534,
+        "research_fits": 4909,
+        "affinity_cpus": 12,
+        "output_bytes": 7418498,
+        "cache": null,
+        "slurm_job": "61909983"
+      },
+      "trial": {
+        "input_receipt_sha256": "bc58de2be5b66ca9703d1b879930d329f9b61a1b2d5d2f72dfafbab2f8b077f2",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 1.3408306279452518
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 5.32208389416337
+          },
+          "robust_solver": {
+            "calls": 10177,
+            "seconds": 8.712265061563812
+          },
+          "final_state_including_any_fit": {
+            "calls": 9585,
+            "seconds": 4.1286803093971685
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 34.31191641301848
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 4.6788203390315175
+          }
+        },
+        "elapsed_with_input_checks_seconds": 58.15175899397582,
+        "elapsed_pipeline_seconds": 57.51510279101785,
+        "original_pipeline_seconds": 70.17712042899802,
+        "peak_rss_mib": 923.4609375,
+        "input_detections": 323534,
+        "research_fits": 4909,
+        "affinity_cpus": 12,
+        "output_bytes": 7418601,
+        "cache": {
+          "hits": 14412,
+          "misses": 9775,
+          "maxsize": 32768,
+          "currsize": 9775
+        },
+        "slurm_job": "61909983"
+      }
+    },
+    {
+      "baseline": {
+        "input_receipt_sha256": "4e560810ac720713726ff4366ef0c897383cda13402ced6abe8328234a8a9caa",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 2.3375612320378423
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 8.113903302932158
+          },
+          "robust_solver": {
+            "calls": 33928,
+            "seconds": 26.69263431930449
+          },
+          "final_state_including_any_fit": {
+            "calls": 12849,
+            "seconds": 17.3297393147368
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 55.25860045501031
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 6.006369735929184
+          }
+        },
+        "elapsed_with_input_checks_seconds": 99.76395112392493,
+        "elapsed_pipeline_seconds": 99.02739619102795,
+        "original_pipeline_seconds": 106.67661378599587,
+        "peak_rss_mib": 1103.90234375,
+        "input_detections": 562689,
+        "research_fits": 6776,
+        "affinity_cpus": 12,
+        "output_bytes": 10220827,
+        "cache": null,
+        "slurm_job": "61909983"
+      },
+      "trial": {
+        "input_receipt_sha256": "4e560810ac720713726ff4366ef0c897383cda13402ced6abe8328234a8a9caa",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 2.4175259090261534
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 8.405878171906807
+          },
+          "robust_solver": {
+            "calls": 14472,
+            "seconds": 11.548028368037194
+          },
+          "final_state_including_any_fit": {
+            "calls": 12820,
+            "seconds": 6.195253303390928
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 50.097584338043816
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 6.771355887991376
+          }
+        },
+        "elapsed_with_input_checks_seconds": 87.0157639849931,
+        "elapsed_pipeline_seconds": 85.75935572793242,
+        "original_pipeline_seconds": 106.67661378599587,
+        "peak_rss_mib": 1120.05859375,
+        "input_detections": 562689,
+        "research_fits": 6776,
+        "affinity_cpus": 12,
+        "output_bytes": 10220933,
+        "cache": {
+          "hits": 19439,
+          "misses": 13911,
+          "maxsize": 32768,
+          "currsize": 13911
+        },
+        "slurm_job": "61909983"
+      }
+    },
+    {
+      "baseline": {
+        "input_receipt_sha256": "45308c73a301fe28aff5e5a15ceddcc4242e0332a89b097e7dd2c5717082562e",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 1.8212866869289428
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 5.14295045088511
+          },
+          "robust_solver": {
+            "calls": 19287,
+            "seconds": 15.621409987099469
+          },
+          "final_state_including_any_fit": {
+            "calls": 7077,
+            "seconds": 10.373661479679868
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 33.95360894303303
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 5.625675332034007
+          }
+        },
+        "elapsed_with_input_checks_seconds": 64.35993834096007,
+        "elapsed_pipeline_seconds": 63.207123334053904,
+        "original_pipeline_seconds": 63.45129099901533,
+        "peak_rss_mib": 914.33203125,
+        "input_detections": 380907,
+        "research_fits": 4037,
+        "affinity_cpus": 12,
+        "output_bytes": 5910389,
+        "cache": null,
+        "slurm_job": "61909983"
+      },
+      "trial": {
+        "input_receipt_sha256": "45308c73a301fe28aff5e5a15ceddcc4242e0332a89b097e7dd2c5717082562e",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 1.6087595720309764
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 5.665573310106993
+          },
+          "robust_solver": {
+            "calls": 8648,
+            "seconds": 7.589562696870416
+          },
+          "final_state_including_any_fit": {
+            "calls": 7075,
+            "seconds": 3.165006562601775
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 33.8425653349841
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 4.99480450199917
+          }
+        },
+        "elapsed_with_input_checks_seconds": 55.252386308973655,
+        "elapsed_pipeline_seconds": 54.59000211197417,
+        "original_pipeline_seconds": 63.45129099901533,
+        "peak_rss_mib": 932.2734375,
+        "input_detections": 380907,
+        "research_fits": 4037,
+        "affinity_cpus": 12,
+        "output_bytes": 5910491,
+        "cache": {
+          "hits": 10648,
+          "misses": 8201,
+          "maxsize": 32768,
+          "currsize": 8201
+        },
+        "slurm_job": "61909983"
+      }
+    },
+    {
+      "baseline": {
+        "input_receipt_sha256": "c5919bea00e48096f4c4d4512c3fa764e3e9bc6a50a95df22f0307909725b9c0",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 3.699363360996358
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 9.19382740103174
+          },
+          "robust_solver": {
+            "calls": 37083,
+            "seconds": 29.63365424773656
+          },
+          "final_state_including_any_fit": {
+            "calls": 13283,
+            "seconds": 18.848575438954867
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 60.789045586949214
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 6.661410704022273
+          }
+        },
+        "elapsed_with_input_checks_seconds": 111.85970895504579,
+        "elapsed_pipeline_seconds": 111.05216608999763,
+        "original_pipeline_seconds": 229.2545910300105,
+        "peak_rss_mib": 1325.8515625,
+        "input_detections": 964180,
+        "research_fits": 7298,
+        "affinity_cpus": 12,
+        "output_bytes": 11649186,
+        "cache": null,
+        "slurm_job": "61909983"
+      },
+      "trial": {
+        "input_receipt_sha256": "c5919bea00e48096f4c4d4512c3fa764e3e9bc6a50a95df22f0307909725b9c0",
+        "reference_epoch": 2015.5,
+        "all_products_equal": true,
+        "equal_products": {
+          "private_standard_motion.json.gz": true,
+          "private_r_control.json.gz": true,
+          "private_known_qso_blocks.json": true,
+          "private_blind_qso.json": true,
+          "nsc_science_catalogue_summary.json": true
+        },
+        "stage_timings": {
+          "standardized_input": {
+            "calls": 1,
+            "seconds": 3.842857326962985
+          },
+          "track_construction": {
+            "calls": 5,
+            "seconds": 9.287101427908055
+          },
+          "robust_solver": {
+            "calls": 16134,
+            "seconds": 13.257819284917787
+          },
+          "final_state_including_any_fit": {
+            "calls": 13181,
+            "seconds": 6.7961856357287616
+          },
+          "selection_including_fits": {
+            "calls": 1,
+            "seconds": 55.621931951958686
+          },
+          "stationary_controls": {
+            "calls": 1,
+            "seconds": 7.805237281951122
+          }
+        },
+        "elapsed_with_input_checks_seconds": 99.59973057999741,
+        "elapsed_pipeline_seconds": 98.14956394396722,
+        "original_pipeline_seconds": 229.2545910300105,
+        "peak_rss_mib": 1333.8359375,
+        "input_detections": 964180,
+        "research_fits": 7298,
+        "affinity_cpus": 12,
+        "output_bytes": 11649291,
+        "cache": {
+          "hits": 20877,
+          "misses": 15666,
+          "maxsize": 32768,
+          "currsize": 15666
+        },
+        "slurm_job": "61909983"
+      }
+    }
+  ]
+}

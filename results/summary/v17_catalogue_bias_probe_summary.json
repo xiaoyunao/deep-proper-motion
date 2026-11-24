@@ -1,0 +1,975 @@
+{
+  "windows": {
+    "w150_110": {
+      "nominal_sqdeg": 3.673895828286171,
+      "eligible_cores": 60,
+      "cores": 4,
+      "source_receipt_hashes": [
+        "0ed23a74af119840bd67df09c3803ec42cf3eba33ec74b6ddf9cccb17afb5e33",
+        "40d53e3f7d24ebac740d5642f8193656231633d13679fdfc72ba74b2c2c04a35",
+        "1e69dc8b43d993ea643df036cb7864e88e2ee4100d8b7e2c5910f8035ffaa1e7",
+        "7b8fe06ba9350f4744eeca463b3dba11d8177515a18f4ca65e84ace818052127"
+      ],
+      "locally_supported_sdss_group_core_pairs": 44,
+      "independent_galaxy_cross_survey_mas": {
+        "n": 5128,
+        "median": [
+          -11.45331447198987,
+          -7.99181801173836
+        ],
+        "nmad": [
+          90.18773009080589,
+          81.71827823493071
+        ],
+        "absolute_p68": 143.29784004966373
+      },
+      "field_half_change_mas": {
+        "n": 44,
+        "median": [
+          1.0037284567952156,
+          15.262533787637949
+        ],
+        "nmad": [
+          30.71366718185842,
+          36.865787831913494
+        ],
+        "absolute_p68": 55.31203915427203
+      },
+      "magnitude_bins": {
+        "21": {
+          "known_all": {
+            "n": 73,
+            "median": [
+              1.9074098440476328,
+              -0.9222167495497144
+            ],
+            "nmad": [
+              3.5014740762478502,
+              4.264751547479545
+            ],
+            "absolute_p68": 6.24504416039155
+          },
+          "membership_counts": {
+            "same_set": 65,
+            "no_blind": 7,
+            "changed": 1
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 73,
+            "median": [
+              1.9074098440476328,
+              -0.9222167495497144
+            ],
+            "nmad": [
+              3.5014740762478502,
+              4.264751547479545
+            ],
+            "absolute_p68": 6.24504416039155
+          },
+          "held_galaxy_implied_motion": {
+            "n": 73,
+            "median": [
+              2.274072922591817,
+              1.0033001063976692
+            ],
+            "nmad": [
+              1.2029862508310838,
+              0.925052366081518
+            ],
+            "absolute_p68": 3.2877730634013482
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 73,
+            "median": [
+              0.5030178958797369,
+              -1.963016457503295
+            ],
+            "nmad": [
+              2.6946753386857547,
+              3.495837966200802
+            ],
+            "absolute_p68": 5.474344524717129
+          },
+          "eligible_after_remove_first_sdss_run": 45,
+          "deletion_original": {
+            "n": 73,
+            "median": [
+              1.9074098440476328,
+              -0.9222167495497144
+            ],
+            "nmad": [
+              3.5014740762478502,
+              4.264751547479545
+            ],
+            "absolute_p68": 6.24504416039155
+          },
+          "deletion_fit": {
+            "n": 73,
+            "median": [
+              1.7355698373817132,
+              -1.0351923695187237
+            ],
+            "nmad": [
+              5.380207111050899,
+              6.370389340557994
+            ],
+            "absolute_p68": 11.77780960741445
+          },
+          "deletion_remaining_span_median_years": 13.1084068706175,
+          "same_order_blind_difference": {
+            "n": 0
+          },
+          "same_set_blind_difference": {
+            "n": 65,
+            "median": [
+              0.0,
+              -1.7763568394002505e-15
+            ],
+            "nmad": [
+              1.2511227755140907e-09,
+              5.317917692870821e-10
+            ],
+            "absolute_p68": 1.534927983711995e-09
+          },
+          "changed_blind_difference": {
+            "n": 1
+          }
+        },
+        "22": {
+          "known_all": {
+            "n": 31,
+            "median": [
+              3.77347673975909,
+              0.7293738871940396
+            ],
+            "nmad": [
+              7.522417763388279,
+              4.9970875542689575
+            ],
+            "absolute_p68": 10.425933360993467
+          },
+          "membership_counts": {
+            "no_blind": 25,
+            "same_set": 6
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 31,
+            "median": [
+              3.77347673975909,
+              0.7293738871940396
+            ],
+            "nmad": [
+              7.522417763388279,
+              4.9970875542689575
+            ],
+            "absolute_p68": 10.425933360993467
+          },
+          "held_galaxy_implied_motion": {
+            "n": 31,
+            "median": [
+              2.610557444002532,
+              1.1895937379760544
+            ],
+            "nmad": [
+              0.5475035116548056,
+              0.814971560051544
+            ],
+            "absolute_p68": 3.414470949403931
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 31,
+            "median": [
+              0.48806539897186685,
+              -0.1067098450948114
+            ],
+            "nmad": [
+              6.590659016296235,
+              5.576654754978001
+            ],
+            "absolute_p68": 9.094344191467533
+          },
+          "eligible_after_remove_first_sdss_run": 14,
+          "deletion_original": {
+            "n": 31,
+            "median": [
+              3.77347673975909,
+              0.7293738871940396
+            ],
+            "nmad": [
+              7.522417763388279,
+              4.9970875542689575
+            ],
+            "absolute_p68": 10.425933360993467
+          },
+          "deletion_fit": {
+            "n": 31,
+            "median": [
+              2.0734851292736742,
+              3.1199507532783626
+            ],
+            "nmad": [
+              8.627434618244399,
+              7.814572839003084
+            ],
+            "absolute_p68": 25.030676328315145
+          },
+          "deletion_remaining_span_median_years": 3.8307360684073046,
+          "same_order_blind_difference": {
+            "n": 0
+          },
+          "same_set_blind_difference": {
+            "n": 6,
+            "median": [
+              1.9210188995089084e-11,
+              1.8872969853589439e-10
+            ],
+            "nmad": [
+              1.1634951035954798e-09,
+              5.874167623654003e-10
+            ],
+            "absolute_p68": 1.1148610782703865e-09
+          },
+          "changed_blind_difference": {
+            "n": 0
+          }
+        }
+      }
+    },
+    "w020_110": {
+      "nominal_sqdeg": 3.6094728460280896,
+      "eligible_cores": 63,
+      "cores": 4,
+      "source_receipt_hashes": [
+        "d4f31aa77745a72f1582480bd21ca5f39f7a9d04e833809fb51f906f0887b3b2",
+        "1b51d7ecbfbab8696aa6ab52cceb6a3fe59eb2794b05dd6af2d905cc1507bc01",
+        "f55e09e2d14488e79f056e3ff00423529d839b050a2046cfec230ca91f47860a",
+        "30c38fdf6d32d4c9aacd2c9bfe10f66d9cd33c0c6a9aeb55d5ceeec9fc089e70"
+      ],
+      "locally_supported_sdss_group_core_pairs": 34,
+      "independent_galaxy_cross_survey_mas": {
+        "n": 3213,
+        "median": [
+          -17.015093460679054,
+          -4.96191443502903
+        ],
+        "nmad": [
+          117.34241066013425,
+          111.86080719778685
+        ],
+        "absolute_p68": 188.11124857414947
+      },
+      "field_half_change_mas": {
+        "n": 32,
+        "median": [
+          13.23742600902915,
+          -18.3416264988482
+        ],
+        "nmad": [
+          47.62222393170744,
+          30.68847397701144
+        ],
+        "absolute_p68": 62.817745410542756
+      },
+      "magnitude_bins": {
+        "21": {
+          "known_all": {
+            "n": 146,
+            "median": [
+              0.174944795603668,
+              -2.4759852819163006
+            ],
+            "nmad": [
+              5.2263630894723345,
+              6.145640452562216
+            ],
+            "absolute_p68": 8.859415778493986
+          },
+          "membership_counts": {
+            "same_set": 115,
+            "no_blind": 30,
+            "changed": 1
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 146,
+            "median": [
+              0.174944795603668,
+              -2.4759852819163006
+            ],
+            "nmad": [
+              5.2263630894723345,
+              6.145640452562216
+            ],
+            "absolute_p68": 8.859415778493986
+          },
+          "held_galaxy_implied_motion": {
+            "n": 146,
+            "median": [
+              1.693995766172569,
+              0.3026594616989933
+            ],
+            "nmad": [
+              2.717301984998494,
+              2.4929811485229303
+            ],
+            "absolute_p68": 3.840139367189955
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 146,
+            "median": [
+              -1.153946764210455,
+              -2.621205701780701
+            ],
+            "nmad": [
+              4.860477823135593,
+              6.226741877222674
+            ],
+            "absolute_p68": 9.333625380799203
+          },
+          "eligible_after_remove_first_sdss_run": 69,
+          "deletion_original": {
+            "n": 146,
+            "median": [
+              0.174944795603668,
+              -2.4759852819163006
+            ],
+            "nmad": [
+              5.2263630894723345,
+              6.145640452562216
+            ],
+            "absolute_p68": 8.859415778493986
+          },
+          "deletion_fit": {
+            "n": 146,
+            "median": [
+              -0.6311186084757454,
+              -5.1756816687810545
+            ],
+            "nmad": [
+              10.210670443627595,
+              9.617802453488556
+            ],
+            "absolute_p68": 16.61570646530249
+          },
+          "deletion_remaining_span_median_years": 4.315345523651104,
+          "same_order_blind_difference": {
+            "n": 0
+          },
+          "same_set_blind_difference": {
+            "n": 115,
+            "median": [
+              2.7468072261171983e-10,
+              -1.585420683625216e-11
+            ],
+            "nmad": [
+              3.4402625443741286e-09,
+              2.906202728736318e-09
+            ],
+            "absolute_p68": 5.42881395337474e-09
+          },
+          "changed_blind_difference": {
+            "n": 1
+          }
+        },
+        "22": {
+          "known_all": {
+            "n": 48,
+            "median": [
+              0.8733459112367254,
+              -3.7949882903320704
+            ],
+            "nmad": [
+              9.569760437185233,
+              8.009354307691996
+            ],
+            "absolute_p68": 14.365161577941498
+          },
+          "membership_counts": {
+            "no_blind": 39,
+            "changed": 1,
+            "same_set": 8
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 48,
+            "median": [
+              0.8733459112367254,
+              -3.7949882903320704
+            ],
+            "nmad": [
+              9.569760437185233,
+              8.009354307691996
+            ],
+            "absolute_p68": 14.365161577941498
+          },
+          "held_galaxy_implied_motion": {
+            "n": 48,
+            "median": [
+              0.5423250078158988,
+              -0.10479359043549
+            ],
+            "nmad": [
+              2.4727539863383208,
+              2.3810923300302007
+            ],
+            "absolute_p68": 3.283074339252674
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 48,
+            "median": [
+              -0.4121802820048768,
+              -4.38595463650932
+            ],
+            "nmad": [
+              8.665175984215166,
+              7.955194397344353
+            ],
+            "absolute_p68": 11.641532412840807
+          },
+          "eligible_after_remove_first_sdss_run": 17,
+          "deletion_original": {
+            "n": 46,
+            "median": [
+              0.8733459112367254,
+              -3.7949882903320704
+            ],
+            "nmad": [
+              9.394531504598637,
+              8.009354307691996
+            ],
+            "absolute_p68": 14.435728388720433
+          },
+          "deletion_fit": {
+            "n": 46,
+            "median": [
+              -2.8578370662070633,
+              -2.2209306451495063
+            ],
+            "nmad": [
+              14.344979169439554,
+              17.80219982972289
+            ],
+            "absolute_p68": 25.057634550369052
+          },
+          "deletion_remaining_span_median_years": 4.139189433774618,
+          "same_order_blind_difference": {
+            "n": 0
+          },
+          "same_set_blind_difference": {
+            "n": 8,
+            "median": [
+              9.052758542793526e-12,
+              1.2174225516581316e-10
+            ],
+            "nmad": [
+              1.2944097215417115e-09,
+              4.678904398591754e-10
+            ],
+            "absolute_p68": 3.172994708539187e-09
+          },
+          "changed_blind_difference": {
+            "n": 1
+          }
+        }
+      }
+    },
+    "w130_090": {
+      "nominal_sqdeg": 3.9760684371302135,
+      "eligible_cores": 60,
+      "cores": 4,
+      "source_receipt_hashes": [
+        "76795875abd572bf4ce2c0bb322f47a55fef6e88b30db185ceb2ca0f903074b7",
+        "eeba1941b3a6f0091a427399b5a0207020d2664ccb551edbdd241fe190d464a4",
+        "c4284f9900915f8adef3b529cfa6ffd40110437b5c7b8094e9c255c72325a8b1",
+        "3afa1a109070fd505585b7b53859a7e51ba8b1a42bfc87a5a8e728a79f6dd106"
+      ],
+      "locally_supported_sdss_group_core_pairs": 47,
+      "independent_galaxy_cross_survey_mas": {
+        "n": 4701,
+        "median": [
+          9.499468207359314,
+          -2.062601737678051
+        ],
+        "nmad": [
+          138.8561490029633,
+          105.99771516273915
+        ],
+        "absolute_p68": 204.20179540525356
+      },
+      "field_half_change_mas": {
+        "n": 43,
+        "median": [
+          -40.337367206811905,
+          10.303954659029841
+        ],
+        "nmad": [
+          37.84272850292623,
+          40.79421288418472
+        ],
+        "absolute_p68": 70.76916457588452
+      },
+      "magnitude_bins": {
+        "21": {
+          "known_all": {
+            "n": 207,
+            "median": [
+              -0.5595561666430142,
+              -0.7603295868993963
+            ],
+            "nmad": [
+              3.3274139198762396,
+              3.0924017152134318
+            ],
+            "absolute_p68": 5.009800970466014
+          },
+          "membership_counts": {
+            "same_set": 180,
+            "no_blind": 19,
+            "changed": 8
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 207,
+            "median": [
+              -0.5595561666430142,
+              -0.7603295868993963
+            ],
+            "nmad": [
+              3.3274139198762396,
+              3.0924017152134318
+            ],
+            "absolute_p68": 5.009800970466014
+          },
+          "held_galaxy_implied_motion": {
+            "n": 207,
+            "median": [
+              -0.439041080747598,
+              0.2000229250192438
+            ],
+            "nmad": [
+              1.244050732083973,
+              0.7369326863988998
+            ],
+            "absolute_p68": 1.3588766638115757
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 207,
+            "median": [
+              -0.19170156410239525,
+              -0.9565957626374941
+            ],
+            "nmad": [
+              2.97827602204168,
+              3.4279556228286965
+            ],
+            "absolute_p68": 4.7070466516101455
+          },
+          "eligible_after_remove_first_sdss_run": 131,
+          "deletion_original": {
+            "n": 206,
+            "median": [
+              -0.5443029169876042,
+              -0.785869950939561
+            ],
+            "nmad": [
+              3.335150299539475,
+              3.1147306734302127
+            ],
+            "absolute_p68": 4.8737367751186875
+          },
+          "deletion_fit": {
+            "n": 206,
+            "median": [
+              0.19351252495984883,
+              -1.0662979259257857
+            ],
+            "nmad": [
+              4.246385072554434,
+              4.3187151108586574
+            ],
+            "absolute_p68": 7.27462913016617
+          },
+          "deletion_remaining_span_median_years": 15.336165974173582,
+          "same_order_blind_difference": {
+            "n": 0
+          },
+          "same_set_blind_difference": {
+            "n": 180,
+            "median": [
+              -1.249217101290112e-10,
+              2.772893026303791e-12
+            ],
+            "nmad": [
+              3.806720006016562e-09,
+              7.152505309360179e-10
+            ],
+            "absolute_p68": 4.0910912447670836e-09
+          },
+          "changed_blind_difference": {
+            "n": 8,
+            "median": [
+              -0.039630449585702776,
+              0.038983194356194906
+            ],
+            "nmad": [
+              0.21852446784314322,
+              0.1433534409519001
+            ],
+            "absolute_p68": 0.35377918691724036
+          }
+        },
+        "22": {
+          "known_all": {
+            "n": 113,
+            "median": [
+              -0.1933023893068442,
+              -0.8656114492382966
+            ],
+            "nmad": [
+              4.975141602001009,
+              5.179084579796737
+            ],
+            "absolute_p68": 7.509904139507606
+          },
+          "membership_counts": {
+            "no_blind": 61,
+            "same_set": 52
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 113,
+            "median": [
+              -0.1933023893068442,
+              -0.8656114492382966
+            ],
+            "nmad": [
+              4.975141602001009,
+              5.179084579796737
+            ],
+            "absolute_p68": 7.509904139507606
+          },
+          "held_galaxy_implied_motion": {
+            "n": 113,
+            "median": [
+              -0.40268857132328184,
+              0.18913377896609526
+            ],
+            "nmad": [
+              1.0937071395464888,
+              0.818232601443896
+            ],
+            "absolute_p68": 1.3291010017642926
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 113,
+            "median": [
+              -0.252768457500976,
+              -1.0541078485712418
+            ],
+            "nmad": [
+              5.241135765151262,
+              5.065943451076111
+            ],
+            "absolute_p68": 7.848075413825929
+          },
+          "eligible_after_remove_first_sdss_run": 48,
+          "deletion_original": {
+            "n": 110,
+            "median": [
+              -0.16759719300618656,
+              -0.68454376931771
+            ],
+            "nmad": [
+              4.78898850797897,
+              5.132851134930935
+            ],
+            "absolute_p68": 7.392429540898426
+          },
+          "deletion_fit": {
+            "n": 110,
+            "median": [
+              1.775089253194682,
+              -0.7983034539600948
+            ],
+            "nmad": [
+              6.13454733322815,
+              8.329759002678985
+            ],
+            "absolute_p68": 11.7201667446598
+          },
+          "deletion_remaining_span_median_years": 5.698066190471991,
+          "same_order_blind_difference": {
+            "n": 0
+          },
+          "same_set_blind_difference": {
+            "n": 52,
+            "median": [
+              7.778971911065469e-11,
+              -7.177547445280652e-11
+            ],
+            "nmad": [
+              4.740510275491605e-09,
+              4.97365330920374e-10
+            ],
+            "absolute_p68": 4.196904602699495e-09
+          },
+          "changed_blind_difference": {
+            "n": 0
+          }
+        }
+      }
+    },
+    "north_three": {
+      "nominal_sqdeg": 3.3915035459990834,
+      "eligible_cores": 31,
+      "cores": 4,
+      "source_receipt_hashes": [
+        "a86a57ee140e0255e55a45dab356753c7225e948d2cf22b8eaee28dcc5732205",
+        "94d083a93ab708eae11b189206b8220eae9a7d6d02e1614eb52ea2f2349059f9",
+        "fb5932e9798fa4935ec97ae7be548b66d63db5f025a583850aac6c471a1bebd4",
+        "c58381068faa4c7eb8085ed6cadb44eb3be9ec965e9e247ee0665683df766d26"
+      ],
+      "locally_supported_sdss_group_core_pairs": 24,
+      "independent_galaxy_cross_survey_mas": {
+        "n": 4386,
+        "median": [
+          1.6439548917114735,
+          1.537195525597781
+        ],
+        "nmad": [
+          100.94078093923777,
+          97.33641347921657
+        ],
+        "absolute_p68": 155.8605380094849
+      },
+      "field_half_change_mas": {
+        "n": 23,
+        "median": [
+          -0.033894602209329605,
+          -15.60487079108134
+        ],
+        "nmad": [
+          57.943702149651195,
+          39.30286379509913
+        ],
+        "absolute_p68": 90.6172032419283
+      },
+      "magnitude_bins": {
+        "21": {
+          "known_all": {
+            "n": 235,
+            "median": [
+              0.23826104681254015,
+              -1.2765119436368666
+            ],
+            "nmad": [
+              5.580005689857468,
+              5.386106503297756
+            ],
+            "absolute_p68": 8.425163320072224
+          },
+          "membership_counts": {
+            "same_order": 15,
+            "same_set": 186,
+            "changed": 3,
+            "no_blind": 31
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 235,
+            "median": [
+              0.23826104681254015,
+              -1.2765119436368666
+            ],
+            "nmad": [
+              5.580005689857468,
+              5.386106503297756
+            ],
+            "absolute_p68": 8.425163320072224
+          },
+          "held_galaxy_implied_motion": {
+            "n": 235,
+            "median": [
+              -0.16220977916722368,
+              -0.17756195513636863
+            ],
+            "nmad": [
+              1.9225182233825504,
+              2.514200662994354
+            ],
+            "absolute_p68": 3.2555694796714305
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 235,
+            "median": [
+              -0.14197924363794323,
+              -1.6681525098542835
+            ],
+            "nmad": [
+              5.322274332461257,
+              5.030903472900103
+            ],
+            "absolute_p68": 8.138717031897482
+          },
+          "eligible_after_remove_first_sdss_run": 15,
+          "deletion_original": {
+            "n": 231,
+            "median": [
+              0.24124631422381063,
+              -1.1862901517725677
+            ],
+            "nmad": [
+              5.538416702927125,
+              5.325450225938875
+            ],
+            "absolute_p68": 8.43018100501506
+          },
+          "deletion_fit": {
+            "n": 231,
+            "median": [
+              -1.6995027332204784,
+              -13.334693157374714
+            ],
+            "nmad": [
+              18.207184761291046,
+              23.817446091513993
+            ],
+            "absolute_p68": 35.76796267194989
+          },
+          "deletion_remaining_span_median_years": 3.019729567369268,
+          "same_order_blind_difference": {
+            "n": 15,
+            "median": [
+              0.0,
+              0.0
+            ],
+            "nmad": [
+              0.0,
+              0.0
+            ],
+            "absolute_p68": 0.0
+          },
+          "same_set_blind_difference": {
+            "n": 186,
+            "median": [
+              -5.099254352103344e-12,
+              -1.6692203175239229e-12
+            ],
+            "nmad": [
+              1.3826813974771033e-09,
+              3.364504545466662e-10
+            ],
+            "absolute_p68": 1.7453392215752374e-09
+          },
+          "changed_blind_difference": {
+            "n": 3
+          }
+        },
+        "22": {
+          "known_all": {
+            "n": 79,
+            "median": [
+              -2.5249895187097673,
+              0.9250393502250089
+            ],
+            "nmad": [
+              9.026096440114166,
+              8.4578238851066
+            ],
+            "absolute_p68": 11.975337465986614
+          },
+          "membership_counts": {
+            "no_blind": 67,
+            "same_set": 12
+          },
+          "observed_on_galaxy_supported_subset": {
+            "n": 79,
+            "median": [
+              -2.5249895187097673,
+              0.9250393502250089
+            ],
+            "nmad": [
+              9.026096440114166,
+              8.4578238851066
+            ],
+            "absolute_p68": 11.975337465986614
+          },
+          "held_galaxy_implied_motion": {
+            "n": 79,
+            "median": [
+              0.5987756857197942,
+              0.5419812215555316
+            ],
+            "nmad": [
+              1.8452857257789679,
+              1.5533368284271378
+            ],
+            "absolute_p68": 3.6847257993162192
+          },
+          "after_subtracting_conditional_prediction": {
+            "n": 79,
+            "median": [
+              -2.400103167801609,
+              -0.011503156331519548
+            ],
+            "nmad": [
+              8.563119515104646,
+              7.713466381001095
+            ],
+            "absolute_p68": 12.496260219507684
+          },
+          "eligible_after_remove_first_sdss_run": 2,
+          "deletion_original": {
+            "n": 73,
+            "median": [
+              -2.7617358695409147,
+              2.055093144162587
+            ],
+            "nmad": [
+              8.675096300371907,
+              8.17369897874701
+            ],
+            "absolute_p68": 11.747431686335148
+          },
+          "deletion_fit": {
+            "n": 73,
+            "median": [
+              -3.5767742035281707,
+              -3.0232054726290127
+            ],
+            "nmad": [
+              26.62679492938845,
+              28.34576802754575
+            ],
+            "absolute_p68": 49.79833306911306
+          },
+          "deletion_remaining_span_median_years": 2.9405360806665612,
+          "same_order_blind_difference": {
+            "n": 0
+          },
+          "same_set_blind_difference": {
+            "n": 12,
+            "median": [
+              -3.430855599617644e-11,
+              -7.063150064823276e-11
+            ],
+            "nmad": [
+              1.2150960797541187e-09,
+              2.3838930029995707e-10
+            ],
+            "absolute_p68": 9.397251028076986e-10
+          },
+          "changed_blind_difference": {
+            "n": 0
+          }
+        }
+      }
+    }
+  },
+  "preregistered": {
+    "seed": 13714,
+    "cores_per_window": 4,
+    "minimum_archived_common_r21": 10,
+    "minimum_held_galaxies_per_sdss_group": 12,
+    "minimum_held_galaxies_per_field_half": 8,
+    "target_zero_reduction": 0.3,
+    "maximum_p68_degradation": 0.05
+  },
+  "slurm_job": "61910110",
+  "scope": "Previously inspected windows. Held galaxy local SDSS minus NSC residuals propagate through fixed QSO slope influence; this conditional diagnostic does not recalibrate C0. Deleting a first SDSS run can remove the cross-survey fit criterion even when remaining positions support an NSC-only slope."
+}

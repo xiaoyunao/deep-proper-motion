@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None):
     prod = settings["production"]
     group = calibration_groups(data) if observation_groups is None else observation_groups
     nsc = data.survey.eq("NSC").to_numpy()
@@ -130,6 +130,8 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             _, model, error = cached
             if not np.array_equal(use, cached[0]):
                 raise ValueError("Trial must use the same calibrated detections for a cached fit")
+        elif fit_source is not None:
+            model, error = fit_source(use)
         else:
             model, error = fit_with_calibration(xy[use],time[use],sigma[use],config["reference_epoch"],
                                                 [offsets[k] for k in group[use]])

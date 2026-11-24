@@ -18,7 +18,7 @@ from scipy.spatial import cKDTree
 from astropy.time import Time
 
 from .__main__ import tomllib
-from .astrometry import project
+from .astrometry import fit_motion, project
 from .continuous_reference import PRECISION, SPATIAL, bind, read_offsets, reference_frame, verify_directory
 from .continuous_instruments import chip_receipts, instrument_by_exposure
 from .dark_precision import query_unique
@@ -27,7 +27,7 @@ from .independent_summary import standard_block
 from .io import save_json, json_default
 from .nsc_comparison import comparison, qso_matches
 from .pilot_production import quality_detections, valid_epochs
-from .precision_v03 import calibration_groups, calibration_support, fit_with_calibration
+from .precision_v03 import calibration_groups, calibration_support
 from .provenance import run_stage
 from .public_summary import check_aggregate
 from .standard_motion import calibrated_covariance, icrs_motion
@@ -47,9 +47,12 @@ def physical_candidates(data):
     return valid&np.where(nsc,defined&(fatal==0),data.band.eq('r').to_numpy())
 
 
-def evaluated_fit(index,data,xy,time,sigma,keys,solution,center,epoch):
-    model,_=fit_with_calibration(xy[index],time[index],sigma[index],epoch,[solution[k] for k in keys[index]])
-    total,independent,common,influence=calibrated_covariance(model,time[index],sigma[index],[solution[k] for k in keys[index]])
+def evaluated_fit(index,data,xy,time,sigma,keys,solution,center,epoch, *, model=None):
+    offsets = [solution[k] for k in keys[index]]
+    if model is None:
+        corrections = np.array([row[0] for row in offsets])
+        model = fit_motion(xy[index] - corrections, time[index], sigma[index], epoch)
+    total,independent,common,_=calibrated_covariance(model,time[index],sigma[index],offsets)
     result=icrs_motion(model.coeff[0],model.coeff[1],center,total)
     result.update(tangent_state=model.coeff.T.ravel(),reference_tangent_covariance=common,
                   independent_tangent_covariance=independent,robust_weight=model.weight,

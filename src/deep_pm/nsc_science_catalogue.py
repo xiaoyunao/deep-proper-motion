@@ -5,6 +5,7 @@ star: unknown membership, spatial zero and nightly covariance remain explicit.
 """
 import argparse
 from collections import Counter
+from functools import lru_cache
 import gzip
 import json
 import os
@@ -31,13 +32,13 @@ from .io import save_json,json_default,digest
 from .nsc_comparison import qso_matches,comparison
 from .nsc_information import information,night_labels,summarize_information
 from .pilot_production import make_tracks,quality_detections,source_funnel,valid_epochs
-from .precision_v03 import calibration_groups,calibration_support
+from .precision_v03 import calibration_groups,calibration_support,fit_with_calibration
 from .provenance import run_stage
 from .public_summary import check_aggregate
 from .regional_validation import official_table
 
 
-def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings):
+def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings,fit_source,output_fit):
     """r seeds stay r seeds; the non-r route cannot borrow an eligible r anchor."""
     prod=settings['production'];nsc=data.survey.eq('NSC').to_numpy();visit=data.exposure_id.to_numpy()
     support=calibration_support(keys,solution);physical=physical_candidates(data)
@@ -46,11 +47,11 @@ def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,se
     # NSC r must pass the same physical selection used for every other band.
     strict_r=keep&(~nsc|physical);full=strict_r|(nsc&physical&support)
     tracks=make_tracks(xy,visit,keep,prod['match_radius_mas']);seeds=make_tracks(xy,visit,keep&nsc,prod['match_radius_mas'])
-    funnel_r,baseline=source_funnel(data,xy,time,sigma,keep,tracks,solution,config,settings,9.,initial=seeds,observation_groups=keys,core_members=core)
+    funnel_r,baseline=source_funnel(data,xy,time,sigma,keep,tracks,solution,config,settings,9.,initial=seeds,observation_groups=keys,core_members=core,fit_source=fit_source)
     strict_tracks=make_tracks(xy,visit,strict_r,prod['match_radius_mas']);strict_seeds=make_tracks(xy,visit,strict_r&nsc,prod['match_radius_mas'])
-    _,strict=source_funnel(data,xy,time,sigma,strict_r,strict_tracks,solution,config,settings,9.,initial=strict_seeds,observation_groups=keys,core_members=core)
+    _,strict=source_funnel(data,xy,time,sigma,strict_r,strict_tracks,solution,config,settings,9.,initial=strict_seeds,observation_groups=keys,core_members=core,fit_source=fit_source)
     expanded=augment_tracks(strict_tracks,data,xy,full,strict_r,prod)
-    funnel_all,products=source_funnel(data,xy,time,sigma,full,expanded,solution,config,settings,9.,initial=strict_seeds,reference_keep=strict_r,observation_groups=keys,core_members=core)
+    funnel_all,products=source_funnel(data,xy,time,sigma,full,expanded,solution,config,settings,9.,initial=strict_seeds,reference_keep=strict_r,observation_groups=keys,core_members=core,fit_source=fit_source)
     original_members=[set(v[4]) for v in baseline.values()]
     # Membership overlap, rather than an output row number, identifies controls
     # when physical flags change track numbering.
@@ -70,15 +71,14 @@ def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,se
         if not valid_epochs(index,nsc,time,prod):counts['non_r_time_exit']+=1;continue
         shape=data.morphology.iloc[index[nsc[index]]].to_numpy(float);shape=shape[np.isfinite(shape)&(shape>=0)&(shape<=1)]
         if not len(shape) or np.median(shape)<.8:counts['non_r_morphology_exit']+=1;continue
-        fit=evaluated_fit(index,data,xy,time,sigma,keys,solution,center,config['reference_epoch'])
+        model,_=fit_source(index)
+        fit=output_fit(index)
         if not core(fit['tangent_state'][[0,2]]):counts['non_r_ownership_exit']+=1;continue
         if np.max(fit['pm_error_masyr'])>prod['max_axis_pm_error_masyr']:counts['non_r_formal_error_exit']+=1;continue
         # Same frozen robust residual gate as source_funnel, evaluated in the
         # original tangent axes. Robust downweighting never deletes measurements.
-        from .precision_v03 import fit_with_calibration
-        model,_=fit_with_calibration(xy[index],time[index],sigma[index],config['reference_epoch'],[solution[k] for k in keys[index]])
         if np.quantile(np.linalg.norm(model.residual/sigma[index],axis=1),.68)>3:counts['non_r_residual_exit']+=1;continue
-        candidates.append(dict(kind='non_r_anchor',index=index));reserved.update(index)
+        candidates.append(dict(kind='non_r_anchor',index=index,fit=fit));reserved.update(index)
     return baseline,candidates,dict(legacy_r=funnel_r,physical_all_r_anchor=funnel_all,non_r=dict(counts),strict_r_solutions=len(strict)),(keep,strict_r,full)
 
 
@@ -115,13 +115,35 @@ def run(work,source,shared,spec,legacy):
     data,xy,time,sigma,keep=quality_detections(source,center,config,settings['production']);nsc=data.survey.eq('NSC').to_numpy();keys=calibration_groups(data);night=night_labels(data)
     votes=pd.Series(keys[keep&inside(data.ra_deg,data.dec_deg,spec)]).map(gauges).value_counts();gauge=min(votes.index,key=lambda k:(-votes[k],k)) if len(votes) else None
     solution={k:v for k,v in solution.items() if gauges[k]==gauge}
-    baseline,candidates,funnel,masks=select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings)
+    epoch = config['reference_epoch']
+
+    # A cache lives inside this core's fixed input, graph component, projection,
+    # epoch, weights and solver settings. Ordered row indices identify physical
+    # detections in those arrays. No reference draw stack is retained per source.
+    @lru_cache(maxsize=32768)
+    def cached_fit(members):
+        index = np.asarray(members, dtype=int)
+        return fit_with_calibration(xy[index], time[index], sigma[index], epoch,
+                                    [solution[k] for k in keys[index]])
+
+    def fit_source(index):
+        return cached_fit(tuple(index))
+
+    def output_fit(index):
+        # Non-r needs the final ICRS errors at selection time as well as on
+        # output. Keep just the passing results in the candidate rows.
+        return evaluated_fit(index,data,xy,time,sigma,keys,solution,center,epoch,
+                             model=fit_source(index)[0])
+
+    baseline,candidates,funnel,masks=select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings,fit_source,output_fit)
     rows=[];records=[];used=set();band_counts=Counter();support=calibration_support(keys,solution);graph_hash=digest(graph)
     for row in candidates:
         index=row['index']
         if any(int(i) in used for i in index):raise ValueError('A physical measurement claimed by two all-band sources')
         used.update(map(int,index));mag,origin=r_magnitude(index,data,nsc)
-        fit=evaluated_fit(index,data,xy,time,sigma,keys,solution,center,config['reference_epoch'])
+        fit=row.get('fit')
+        if fit is None:
+            fit=output_fit(index)
         # Information diagnostics only need this source. Avoid rescanning the
         # million-row survey column for every catalogue entry.
         local=data.iloc[index].reset_index(drop=True);ix=np.arange(len(index))
@@ -143,7 +165,9 @@ def run(work,source,shared,spec,legacy):
     # The private full catalogue is frozen before any spectral target lookup.
     with gzip.open(work/'private_standard_motion.json.gz','wt') as stream:json.dump(records,stream,default=json_default,allow_nan=False)
     with gzip.open(work/'private_r_control.json.gz','wt') as stream:
-        json.dump([dict(detection_ids=data.detection_id.iloc[v[4]].tolist(),**evaluated_fit(v[4],data,xy,time,sigma,keys,solution,center,config['reference_epoch'])) for v in baseline.values()],stream,default=json_default,allow_nan=False)
+        json.dump([dict(detection_ids=data.detection_id.iloc[v[4]].tolist(),**output_fit(v[4])) for v in baseline.values()],stream,default=json_default,allow_nan=False)
+    fit_cache = cached_fit.cache_info()._asdict()
+    cached_fit.cache_clear()
     known,qso,lookup=stationary_controls(work,source,legacy,data,xy,time,sigma,keys,solution,center,spec,config,settings,masks)
     from .astrometry import project
     points=np.asarray([r['fit']['position_deg'] for r in rows]).reshape(-1,2);qpoints=project(qso.ra,qso.dec,center)
@@ -175,6 +199,7 @@ def run(work,source,shared,spec,legacy):
         input_detections=len(data),qualified_nsc_detected=int((physical_candidates(data)&nsc).sum()),qualified_supported_nsc_detected=int((physical_candidates(data)&nsc&support).sum()),
         spectral_matches_without_reference_r=sum(r['magnitude'] is None for r in blind),reference_gauge=gauge,elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Research catalogue only. SDSS published r positions for all real runs; every physically qualified NSC band eligible. Legacy-quality r control and physically filtered r control separate. Independent non-r route cannot include eligible NSC r or share a reserved detection. Same spectral objects compared; all private discovery frozen before spectral lookup. Full ICRS 4x4 and independent/reference tangent components retained. W0 diagonal+50mas does not certify nightly errors or local zero. Counts are research-usable solutions, not purity-certified stars or image completeness. No QSO or faint Gaia motion trains/chooses models; no DCR adopted.')
+    summary['fit_cache'] = fit_cache
     if spec.get('production_quality_tags',False):
         summary['reference_component_core_detection_counts']={str(key):int(n) for key,n in votes.items()}
     check_aggregate(summary);save_json(work/'nsc_science_catalogue_summary.json',summary)

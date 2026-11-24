@@ -117,7 +117,7 @@ def pair_photometry(phot, records):
     return {int(i):records[nearest[i]] for i in np.flatnonzero(found)}
 
 
-def match_xiao(records, directory):
+def match_xiao(records, directory, catalogue):
     receipt=read(directory/'xiao_epoch_index_receipt.json')
     archive=directory/'private_xiao_epoch_index.npz'
     if digest(archive)!=receipt['output_sha256']:
@@ -133,11 +133,28 @@ def match_xiao(records, directory):
         ids=np.concatenate([np.arange(a,b) for a,b in spans if b>a])
         coords=handle['xyz'][ids]
         motions=handle['pm'][ids]
+        if catalogue is not None:
+            source_indices=handle['external'][ids]
     radius=2*np.sin(np.deg2rad(1/3600)/2)
     pairs=cKDTree(coords).query_ball_point(vectors,radius)
     reverse=Counter(k for visit in pairs for k in visit)
-    return {id(row):motions[ix[0]] for (_,_,row),ix in zip(records,pairs)
-            if len(ix)==1 and reverse[ix[0]]==1}, receipt['output_sha256']
+    match = {id(row):ix[0] for (_,_,row),ix in zip(records,pairs)
+             if len(ix)==1 and reverse[ix[0]]==1}
+    if catalogue is None:
+        return {key: motions[i] for key,i in match.items()}, receipt['output_sha256']
+    indices = np.asarray(list(match.values()), dtype=int)
+    if catalogue.stat().st_size != receipt['catalogue_bytes']:
+        raise ValueError('Xiao catalogue size differs from the indexed release')
+    with fits.open(catalogue, memmap=True, character_as_bytes=True) as handle:
+        rows = handle[1].data[source_indices[indices]]
+        if not np.all(np.char.strip(rows['PM_SOURCE'].astype(str))=='DESI'):
+            raise ValueError('The common Xiao comparison must use ground-based motions')
+        original_motions = np.column_stack((rows['PMRA'], rows['PMDEC']))
+        np.testing.assert_array_equal(original_motions, motions[indices])
+        errors = np.column_stack((rows['PMRA_ERR'], rows['PMDEC_ERR']))
+        if not np.isfinite(errors).all() or np.any(errors<=0):
+            raise ValueError('The matched Xiao motions require finite positive errors')
+    return dict(zip(match, np.column_stack((original_motions, errors)))), receipt['output_sha256']
 
 
 def source_covariances(rows, original_fits, xiao_positions):
@@ -202,7 +219,25 @@ def estimate_mean(rows, qso):
     return out
 
 
-def run(frozen, sweep, output, xiao):
+def paired_precision(refits):
+    motions = np.asarray([row[0]['pm_icrs_masyr'] for row in refits])
+    xiao = np.asarray([row[-1] for row in refits])
+    common = dict(n=len(refits),
+                  median_difference=np.median(motions-xiao[:,:2],axis=0),
+                  xiao_median=np.median(xiao[:,:2],axis=0),
+                  allband_median=np.median(motions,axis=0))
+    if xiao.shape[1] == 4:
+        c0err = np.asarray([row[0]['pm_error_masyr'] for row in refits])
+        common['paired_median_reported_axis_error'] = dict(C0=np.median(c0err,axis=0),
+                                                          Xiao=np.median(xiao[:,2:],axis=0))
+        indices = np.random.default_rng(SEED).integers(0,len(refits),(256,len(refits)))
+        delta = np.mean((motions-xiao[:,:2])[indices],axis=1)
+        common['equal_weight_observed_mean'] = dict(C0=motions.mean(axis=0),Xiao=xiao[:,:2].mean(axis=0))
+        common['paired_mean_difference_object_interval'] = np.quantile(delta,[.025,.975],axis=0).T
+    return common
+
+
+def run(frozen, sweep, output, xiao, xiao_catalogue=None):
     output.mkdir(parents=True,exist_ok=True)
     phot=optical(sweep)
     if phot.empty:
@@ -239,7 +274,7 @@ def run(frozen, sweep, output, xiao):
     if np.any((target|background)&~exists):
         raise ValueError('Footprint cuts a target or background sample')
     matched=pair_photometry(phot,records)
-    xiao_positions, xiao_sha = match_xiao(records,xiao)
+    xiao_positions, xiao_sha = match_xiao(records,xiao,xiao_catalogue)
     by_group={}
     qso_quality=estimate(qso,('C0',),SEED)
     qso_zero=qso_quality.get('methods',{}).get('C0',{})
@@ -259,10 +294,7 @@ def run(frozen, sweep, output, xiao):
             cross=[v for v in values if v[-1] is not None]
             compar=dict(n=len(cross))
             if len(cross)>=5:
-                delta=np.array([np.asarray(v[0]['pm_icrs_masyr'])-v[-1][:2] for v in cross])
-                compar.update(median_difference=np.median(delta,axis=0),
-                              xiao_median=np.median([v[-1][:2] for v in cross],axis=0),
-                              allband_median=np.median([v[0]['pm_icrs_masyr'] for v in cross],axis=0))
+                compar = paired_precision(cross)
             by_group[name][label]=dict(
                 photometric_parents=int(relevant.sum()),cmd_candidates=int(candidates.sum()),
                 matched_frozen_motion=len(source),paired_xiao=compar,
@@ -291,6 +323,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     for name in ('frozen','sweep','output','xiao'):
         parser.add_argument(name,type=Path)
+    parser.add_argument('--xiao-catalogue',type=Path)
     args=parser.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):
         parser.error('Use a Slurm compute node')

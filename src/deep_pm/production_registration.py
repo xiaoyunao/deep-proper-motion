@@ -130,7 +130,9 @@ def register(metadata, frozen, spectra, output):
     active=[]
     for r in chosen:
         box=dict(ra=r['ra_bounds_deg'],dec=r['dec_bounds_deg'])
-        if intersects_previous(box,previous+active):
+        overlaps = any(all(max(box[k][0],other[k][0])<min(box[k][1],other[k][1])
+                           for k in ('ra','dec')) for other in active)
+        if intersects_previous(box,previous) or overlaps:
             raise ValueError('Registered new geometry overlaps the prior footprint or another parent')
         active.append(box)
     nominal=sum(r['area_sqdeg'] for r in chosen)

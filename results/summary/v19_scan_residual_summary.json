@@ -1,0 +1,128 @@
+{
+  "windows": {
+    "w150_110": {
+      "reference_sha256": "8c2922db76668a9ec874b8d69e20a3797f65202f088442f1ca1fb63236de30b7",
+      "input_reference_sha256": [
+        "118888be7708631ec0ff7a1d3df857aa67f432f8e0cf0abb4bf44f5a465fd5e0",
+        "51c851c94dc2868f3961a76f3113d43c998980f19c78053988e53e653dea1007",
+        "23db80ca5956421e1a719468503fbd9c46c82b1fac2c2fd6cfe2a4a93a21eebf",
+        "19f5090c1fefb79c836fe20eb96c37a26fb324308b2fd46a942fe129a00fd1be"
+      ],
+      "reference_counts": {
+        "candidate_rows": 179393,
+        "conflicting_match_rows": 0,
+        "multiple_exposure_rows": 0,
+        "unique_rows": 179393
+      },
+      "nsc_same_band_heldout": {
+        "pairs": 29632,
+        "galaxies": 13600,
+        "p68_ci95": [
+          [
+            109.59596495535635,
+            112.24465074889578
+          ]
+        ]
+      },
+      "components": {
+        "0": {
+          "train_repeat_galaxies": 6007,
+          "held_repeat_galaxies": 2497,
+          "train_pairs": 9274,
+          "held_pairs": 3840,
+          "candidate_sdss_groups": 26,
+          "design_rank": 26,
+          "parameters": 26,
+          "condition_number": 18.695209761827435,
+          "status": "conditional_test",
+          "held_test_pairs": 3835,
+          "held_original_p68_mas": 164.4462515129415,
+          "held_adjusted_p68_mas": 162.16067184499914,
+          "fraction_improved": 0.013898642546817164,
+          "held_repeat_p68_intervals": {
+            "galaxies": 2496,
+            "p68_ci95": [
+              [
+                159.45573549560117,
+                169.05925292396378
+              ],
+              [
+                158.28932225709593,
+                167.01656968156644
+              ]
+            ]
+          },
+          "scope": "Window-local conditional test with original C0 fixed. Neither fitted slopes nor their covariance are transferred to a catalogue."
+        }
+      }
+    },
+    "w020_110": {
+      "reference_sha256": "fadec0537e912d1d3d2c8f3ff0400b361661758e2b0e1f57c81709176ed64e3d",
+      "input_reference_sha256": [
+        "548f76cad2cf0e19c28ac509d2062f4aca7e4d73415ec02d7e450f357087ce5e",
+        "e681cdaeb3045326975efbff71ce020601b58d77ec2a1ddc58c68e2f3769bab0",
+        "60aa5e9738bbdaf901b79ffef1dc5884cc9c5c6c1b37c6784c43a96d152102d9",
+        "5489d5bd67707da4d2fca7cabe84f0827846a258358c9d776b3f143468b3858d"
+      ],
+      "reference_counts": {
+        "candidate_rows": 110563,
+        "conflicting_match_rows": 0,
+        "multiple_exposure_rows": 0,
+        "unique_rows": 110563
+      },
+      "nsc_same_band_heldout": {
+        "pairs": 18951,
+        "galaxies": 8455,
+        "p68_ci95": [
+          [
+            127.15843498578427,
+            130.7012022368686
+          ]
+        ]
+      },
+      "components": {
+        "0": {
+          "train_repeat_galaxies": 2848,
+          "held_repeat_galaxies": 1135,
+          "train_pairs": 3457,
+          "held_pairs": 1392,
+          "candidate_sdss_groups": 17,
+          "design_rank": 17,
+          "parameters": 17,
+          "condition_number": 17.20059966061144,
+          "status": "conditional_test",
+          "held_test_pairs": 1392,
+          "held_original_p68_mas": 224.12262725757034,
+          "held_adjusted_p68_mas": 224.00542157943386,
+          "fraction_improved": 0.0005229533473288805,
+          "held_repeat_p68_intervals": {
+            "galaxies": 1135,
+            "p68_ci95": [
+              [
+                214.5963252030138,
+                233.69128554131777
+              ],
+              [
+                213.186299516625,
+                234.13062318146052
+              ]
+            ]
+          },
+          "scope": "Window-local conditional test with original C0 fixed. Neither fitted slopes nor their covariance are transferred to a catalogue."
+        }
+      }
+    }
+  },
+  "development_repeat_gate": false,
+  "production_adopted": false,
+  "thresholds": {
+    "minimum_reference_per_group": 30,
+    "minimum_conditional_held_p68_gain": 0.03,
+    "zero_reduction_target": 0.3,
+    "maximum_qso_p68_loss": 0.05,
+    "cores_per_window": 4,
+    "seed": 13714
+  },
+  "slurm_job": "61910639",
+  "scope": "Same physical galaxies and distinct SDSS run/camcol r measurements. Field coordinate is FIELD_ID between fields within a physical scan. Candidate is one training-weight-centered linear field term per supported run/camcol, tested conditionally with the archived C0. A negative development repeat gate closes the method trial before evaluating a QSO correction."
+}

@@ -1,0 +1,125 @@
+{
+  "windows": [
+    "w130_110",
+    "w150_090",
+    "w170_090",
+    "w210_090",
+    "w220_090",
+    "w220_110",
+    "w230_090",
+    "w230_110"
+  ],
+  "window_metadata": {
+    "w230_090": {
+      "area_sqdeg": 99.49307700452984,
+      "cores": 100,
+      "qso_21_23_position_count": 12009,
+      "metadata_rich_area_sqdeg": 99.49307700452984,
+      "native_sdss_multi_fraction_across_window": 0.6056191467221644,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w160_090": 57
+      }
+    },
+    "w220_090": {
+      "area_sqdeg": 83.53529334036682,
+      "cores": 84,
+      "qso_21_23_position_count": 9974,
+      "metadata_rich_area_sqdeg": 83.53529334036682,
+      "native_sdss_multi_fraction_across_window": 0.45265348595213317,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w160_090": 503
+      }
+    },
+    "w230_110": {
+      "area_sqdeg": 90.51579035520831,
+      "cores": 100,
+      "qso_21_23_position_count": 7341,
+      "metadata_rich_area_sqdeg": 61.37162058355924,
+      "native_sdss_multi_fraction_across_window": 0.6097814776274714,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w150_110": 72
+      }
+    },
+    "w170_090": {
+      "area_sqdeg": 71.59608613088773,
+      "cores": 72,
+      "qso_21_23_position_count": 8030,
+      "metadata_rich_area_sqdeg": 67.64553334350147,
+      "native_sdss_multi_fraction_across_window": 0.48283038501560877,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w160_090": 126
+      }
+    },
+    "w130_110": {
+      "area_sqdeg": 72.41263228416665,
+      "cores": 80,
+      "qso_21_23_position_count": 3176,
+      "metadata_rich_area_sqdeg": 68.91433106916949,
+      "native_sdss_multi_fraction_across_window": 0.5858480749219563,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w150_110": 168
+      }
+    },
+    "w150_090": {
+      "area_sqdeg": 59.695846202717924,
+      "cores": 60,
+      "qso_21_23_position_count": 6671,
+      "metadata_rich_area_sqdeg": 59.695846202717924,
+      "native_sdss_multi_fraction_across_window": 0.34443288241415193,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w160_090": 158
+      }
+    },
+    "w220_110": {
+      "area_sqdeg": 72.41263228416665,
+      "cores": 80,
+      "qso_21_23_position_count": 5223,
+      "metadata_rich_area_sqdeg": 24.750284266739918,
+      "native_sdss_multi_fraction_across_window": 0.4422476586888658,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w150_110": 111
+      }
+    },
+    "w210_090": {
+      "area_sqdeg": 47.601054635018045,
+      "cores": 48,
+      "qso_21_23_position_count": 4265,
+      "metadata_rich_area_sqdeg": 47.601054635018045,
+      "native_sdss_multi_fraction_across_window": 0.4588969823100936,
+      "candidate_shared_physical_groups_by_prior_domain": {
+        "next_w160_090": 655
+      }
+    }
+  },
+  "new_nominal_area_sqdeg": 597.2624122370617,
+  "new_cores": 624,
+  "nominal_area_if_completed_sqdeg": 2751.446404262371,
+  "pre_reference_opportunity_sqdeg": 596.0231245436288,
+  "budget_nodes_hours": 48.0,
+  "estimated_resources": {
+    "estimated_cpu_node_hours": 47.61339074189249,
+    "estimated_cpu_node_hours_by_stage": {
+      "intake": 7.488,
+      "reference_projection": 1.9536000000000002,
+      "reference_solver": 11.756,
+      "fit": 20.751790741892492,
+      "final_owner_and_quality": 4.364,
+      "planning_and_recovery": 1.3
+    },
+    "estimated_additional_peak_bytes": 412631800000,
+    "estimated_additional_inodes": 735360,
+    "touched_prior_domains": [
+      "next_w150_110",
+      "next_w160_090"
+    ],
+    "estimated_old_replayed_cores": 1152,
+    "expected_new_normalized_rows_with_halo": 203774000,
+    "expected_new_research_fits": 3282240
+  },
+  "previous_scope_sha256": "cd50aa28b795870c8ba5ca56ebf91e358741b32959b01473a051a80f9358dc1d",
+  "geometry_sha256": "1a6a335976c7c27c44cd0fc1d715fedb2de77bf2d7b57697e9eda5fa4e30d875",
+  "config_sha256": "a6a2f5f82b9c13ce9f272907bffb7685bdc63d528687db9820acd2b20133f888",
+  "spectral_metadata_sha256": "f2aa553160d69a323f943a0e755763dbf442f77ad0147c9cc86ccbbe64c84f08",
+  "slurm_job": "61910796",
+  "scope": "Whole qualified-window selection from native footprint and cadence before new proper motion outcomes. Window cadence and possible group intersections are planning proxies. Exact replay scope comes from signed acquired reference galaxies."
+}

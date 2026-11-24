@@ -2,6 +2,7 @@
 
 import argparse
 from collections import Counter, defaultdict
+import json
 import os
 from pathlib import Path
 
@@ -78,12 +79,12 @@ def register(photometry, output):
             mask=photometry.r0.between(b['lower_r0'],b['upper_r0'],inclusive='left')
             photometry.loc[mask,'cmd']=abs(photometry.loc[mask,'color']-b['center_color'])<.105
     registration=dict(external_photometry_sha256=photometry.attrs['photometry_sha256'],center_deg=CENTER,
-                      photometric_selection='Legacy Surveys DR9 north PSF, SNR≥5 in g and r, dereddened, optical masks',
+                      photometric_selection='Legacy Surveys DR9 south PSF, SNR≥5 in g and r, dereddened, optical masks',
                       train_annulus_deg=TRAIN,target_annulus_deg=TARGET,background_annulus_deg=BACKGROUND,
                       independently_fitted_cmd=bins,cmd_half_width_mag=.105,source_matching_max_arcsec=.7,
                       source_matching_second_neighbor_margin_arcsec=.3)
     file=output/'sample_registration.json'
-    if file.is_file() and read(file)!=__import__('json').loads(__import__('json').dumps(registration,default=float)):
+    if file.is_file() and read(file)!=json.loads(json.dumps(registration,default=float)):
         raise ValueError('Photometric sample registration changed')
     save_json(file,registration)
     return photometry,registration
@@ -133,6 +134,7 @@ def source_covariances(rows, original_fits):
         measurements=measurements.loc[measurements.detection_id.isin(wanted)].set_index('detection_id',drop=False)
         legacy=pd.read_csv(fit/'legacy.csv',dtype={'objID':str})
         legacy=legacy.loc[legacy.PM_SOURCE.str.strip().eq('DESI')].drop_duplicates('objID',keep=False).set_index('objID')
+        legacy_ids=set(legacy.index)
         for row in records:
             if row['reference_model_sha256']!=graph_hash:
                 raise ValueError('Changed reference input')
@@ -150,7 +152,7 @@ def source_covariances(rows, original_fits):
             np.testing.assert_allclose(np.cov(shifts,rowvar=False),row['reference_tangent_covariance'],atol=2.e-7,rtol=2.e-8)
             shifted_icrs=shifts@jac[[1,3],:].T
             independent_icrs=(jac@independent@jac.T)[np.ix_([1,3],[1,3])]
-            xiao_ids={i.partition(':')[2] for i in row['detection_ids'] if i.startswith('SDSS:')} & set(legacy.index)
+            xiao_ids={i.partition(':')[2] for i in row['detection_ids'] if i.startswith('SDSS:')} & legacy_ids
             xiao=None
             if len(xiao_ids)==1:
                 a=legacy.loc[next(iter(xiao_ids))]
@@ -189,6 +191,8 @@ def estimate_mean(rows, qso):
 def run(frozen, sweep, output):
     output.mkdir(parents=True,exist_ok=True)
     phot=optical(sweep)
+    if phot.empty:
+        raise ValueError('The photometry tile has zero qualifying detections in the target footprint')
     phot.attrs['photometry_sha256']=digest(sweep)
     phot, registration=register(phot,output)
     target=phot.radius.between(*TARGET)
@@ -220,8 +224,7 @@ def run(frozen, sweep, output):
     exists=np.logical_or.reduce([inside(phot.ra,phot.dec,box) for box in geometry])
     if np.any((target|background)&~exists):
         raise ValueError('Footprint cuts a target or background sample')
-    raw=[r for r in records]
-    matched=pair_photometry(phot,raw)
+    matched=pair_photometry(phot,records)
     by_group={}
     qso_quality=estimate(qso,('C0',),SEED)
     qso_zero=qso_quality.get('methods',{}).get('C0',{})
@@ -230,11 +233,14 @@ def run(frozen, sweep, output):
     optical_summary={}
     for name,mask in [('target',target.to_numpy()),('background', background.to_numpy())]:
         by_group[name]={}
+        catalogued = {i:matched[i] for i in np.flatnonzero(mask&selected&(r0>=18)&(r0<23)) if i in matched}
+        evaluated = source_covariances(list(catalogued.values()),fits_by_core)
+        row_results = {id(v[0]):v for v in evaluated}
         for label,mag in [('all',(r0>=18)&(r0<23)),('bright',(r0>=18)&(r0<21)),('faint',(r0>=21)&(r0<23))]:
             relevant=mask&mag
             candidates=relevant&selected
-            source=[matched[i] for i in np.flatnonzero(candidates) if i in matched]
-            values=source_covariances(source,fits_by_core) if source else []
+            source=[catalogued[i] for i in np.flatnonzero(candidates) if i in catalogued]
+            values=[row_results[id(v[2])] for v in source]
             cross=[v for v in values if v[-1] is not None]
             compar=dict(n=len(cross))
             if len(cross)>=5:
@@ -250,7 +256,12 @@ def run(frozen, sweep, output):
                 observed_motion_hist=np.histogram2d(*np.array([v[0]['pm_icrs_masyr'] for v in values]).T,
                     bins=np.arange(-20,20.01,2))[0] if values else None)
         optical_summary[name]=np.histogram2d(r0[mask],phot.color.to_numpy()[mask],bins=(EDGES,COLORS))[0]
-    result=dict(scope='DR9 optical CMD selected before opening the motion files, using inner photometry distinct from the target/outskirts sample. Weighted candidate motions include field contamination. A missing direct Xiao SDSS member match does not independently establish a new star or a catalogue absence.',
+    delta = project(phot.ra,phot.dec,CENTER)/3600000
+    grid=np.linspace(-.5,.5,25)
+    spatial=np.histogram2d(*delta[phot.cmd].T,bins=(grid,grid))[0].astype(int)
+    # Release count maps rather than star coordinates.
+    spatial=np.where(spatial>=3,spatial,0)
+    result=dict(spatial_cmd_counts=dict(tile_counts=spatial,edges_deg=grid,display_minimum=3),scope='DR9 optical CMD selected before opening the motion files, using inner photometry distinct from the target/outskirts sample. Weighted candidate motions include field contamination. A missing direct Xiao SDSS member match does not independently establish a new star or a catalogue absence.',
                 sample_registration_sha256=digest(output/'sample_registration.json'),selection=registration,
                 nominal_input_core_area_sqdeg=coverage,input_cores=len(geometry), cohorts=by_group,
                 local_blind_qso=qso_quality, local_blind_qso_radius_deg=1.15,

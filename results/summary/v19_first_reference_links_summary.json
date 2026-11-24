@@ -1,0 +1,79 @@
+{
+  "windows": {
+    "w130_110": {
+      "groups": 214,
+      "training_measurement_rows_with_halo": 163772,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 22,
+        "next_w160_090": 0,
+        "next_w010_100": 0
+      }
+    },
+    "w150_090": {
+      "groups": 255,
+      "training_measurement_rows_with_halo": 139524,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 0,
+        "next_w160_090": 24,
+        "next_w010_100": 0
+      }
+    },
+    "w170_090": {
+      "groups": 131,
+      "training_measurement_rows_with_halo": 84078,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 0,
+        "next_w160_090": 17,
+        "next_w010_100": 0
+      }
+    },
+    "w210_090": {
+      "groups": 271,
+      "training_measurement_rows_with_halo": 167916,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 0,
+        "next_w160_090": 91,
+        "next_w010_100": 0
+      }
+    },
+    "w220_090": {
+      "groups": 129,
+      "training_measurement_rows_with_halo": 100304,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 0,
+        "next_w160_090": 22,
+        "next_w010_100": 0
+      }
+    },
+    "w220_110": {
+      "groups": 96,
+      "training_measurement_rows_with_halo": 65923,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 15,
+        "next_w160_090": 0,
+        "next_w010_100": 0
+      }
+    },
+    "w230_090": {
+      "groups": 173,
+      "training_measurement_rows_with_halo": 179431,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 0,
+        "next_w160_090": 13,
+        "next_w010_100": 0
+      }
+    },
+    "w230_110": {
+      "groups": 116,
+      "training_measurement_rows_with_halo": 119423,
+      "candidate_shared_prior_groups": {
+        "next_w150_110": 11,
+        "next_w160_090": 0,
+        "next_w010_100": 0
+      }
+    }
+  },
+  "canary_receipt_sha256": "662b01c050a69f3d85a781db8bdb928e12e5d6ca0998a7414c88fedf5dae2ecb",
+  "slurm_job": "61911072",
+  "scope": "Training positions from the signed first 16 reference extracts. Intersections are actual physical group identities; graph support and the final replay closure are downstream."
+}

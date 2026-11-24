@@ -1,0 +1,46 @@
+{
+  "cores": 16,
+  "planned": 16,
+  "failures": {},
+  "observed_rows": 10130666,
+  "first_tranche_bytes": 6818498754,
+  "forecast_rows_with_halos": 189198819,
+  "forecast_additional_peak_bytes": 193557274046,
+  "updated_cpu_node_hours": 47.61339074189249,
+  "method_version": "2fb0e63dcec9b9cc684875789012db5ab9c78daa",
+  "slurm_job": "61910861",
+  "windows": {
+    "w220_110": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 548878
+    },
+    "w170_090": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 809319
+    },
+    "w230_110": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 1141160
+    },
+    "w150_090": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 1290215
+    },
+    "w130_110": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 1326581
+    },
+    "w210_090": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 1748032
+    },
+    "w230_090": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 2219456
+    },
+    "w220_090": {
+      "completed_cores": 2,
+      "normalized_detection_rows_with_halo": 1047025
+    }
+  }
+}

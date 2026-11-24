@@ -49,7 +49,8 @@ def benchmark_one(args):
         setattr(target, name, timed)
 
     for module in (precision_v03, allband_qso):
-        meter(module, 'fit_motion', 'robust_solver')
+        if hasattr(module, 'fit_motion'):
+            meter(module, 'fit_motion', 'robust_solver')
     meter(catalogue, 'quality_detections', 'standardized_input')
     meter(catalogue, 'make_tracks', 'track_construction')
     meter(catalogue, 'select_catalogue', 'selection_including_fits')
@@ -115,7 +116,8 @@ def benchmark(args):
             logfile.parent.mkdir(parents=True, exist_ok=True)
             if (output/'performance_summary.json').is_file():
                 continue
-            env = dict(os.environ, PYTHONPATH=str(snapshot/'src')+os.pathsep+os.environ['PYTHONPATH'])
+            env = dict(os.environ, DPM_COMMIT=snapshot.name,
+                       PYTHONPATH=str(snapshot/'src')+os.pathsep+os.environ['PYTHONPATH'])
             with logfile.open('a') as log:
                 subprocess.run([sys.executable, __file__, '--one', str(output), str(original), core],
                                env=env, cwd=snapshot, stdout=log, stderr=subprocess.STDOUT, check=True)

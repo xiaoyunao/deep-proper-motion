@@ -90,8 +90,6 @@ def register(metadata, frozen, spectra, output):
         eligible.append(dict(window=w,new_cores=new,input_rows_proxy=proxy,overlap=overlap,
                              qso_21_23_position_count=int(qa.sum()),metadata_rich_area_sqdeg=rich))
     eligible.sort(key=lambda w:w['window']['name'])
-    if len(eligible)>26:
-        raise ValueError('Inventory exceeded the planned finite window set')
     # Keep whole candidate windows. Evaluate subsets of each permitted prior-domain
     # combination by a greedy cadence/coverage tie-break while charging old cores once.
     best=None

@@ -11,7 +11,7 @@ import pandas as pd
 
 from .__main__ import tomllib
 from .allband_qso import evaluated_fit, physical_candidates
-from .astrometry import fit_motion, icrs_motion, project
+from .astrometry import fit_motion, project
 from .blind_catalogue_quality import read
 from .continuous_reference import PRECISION, SPATIAL, read_offsets, reference_frame, verify_directory
 from .exposure_catalogues import inside
@@ -21,6 +21,7 @@ from .nsc_ownership_overlay import STANDARD
 from .pilot_production import quality_detections, valid_epochs
 from .precision_v03 import calibration_groups, calibration_support
 from .public_summary import check_aggregate
+from .standard_motion import icrs_motion
 
 WINDOWS = ('w150_110','w020_110','w130_090','north_three')
 GATES = dict(seed=13714, cores_per_window=4, minimum_archived_common_r21=10,

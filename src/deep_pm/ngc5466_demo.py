@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 
 from astropy.io import fits
+import healpy as hp
 import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
@@ -116,7 +117,30 @@ def pair_photometry(phot, records):
     return {int(i):records[nearest[i]] for i in np.flatnonzero(found)}
 
 
-def source_covariances(rows, original_fits):
+def match_xiao(records, directory):
+    receipt=read(directory/'xiao_epoch_index_receipt.json')
+    archive=directory/'private_xiao_epoch_index.npz'
+    if digest(archive)!=receipt['output_sha256']:
+        raise ValueError('Changed propagated Xiao archive')
+    sky=np.array([record['position_deg'] for _,_,record in records])
+    vectors=hp.ang2vec(*sky.T,lonlat=True)
+    nside=receipt['nside']
+    home=np.unique(hp.vec2pix(nside,*vectors.T))
+    nearby=np.unique(np.r_[home,hp.get_all_neighbours(nside,home).ravel()])
+    with np.load(archive) as handle:
+        pixels=handle['pix']
+        spans=zip(np.searchsorted(pixels,nearby,'left'),np.searchsorted(pixels,nearby,'right'))
+        ids=np.concatenate([np.arange(a,b) for a,b in spans if b>a])
+        coords=handle['xyz'][ids]
+        motions=handle['pm'][ids]
+    radius=2*np.sin(np.deg2rad(1/3600)/2)
+    pairs=cKDTree(coords).query_ball_point(vectors,radius)
+    reverse=Counter(k for visit in pairs for k in visit)
+    return {id(row):motions[ix[0]] for (_,_,row),ix in zip(records,pairs)
+            if len(ix)==1 and reverse[ix[0]]==1}, receipt['output_sha256']
+
+
+def source_covariances(rows, original_fits, xiao_positions):
     by_core = defaultdict(list)
     for origin,_,r in rows:
         by_core[origin].append(r)
@@ -132,9 +156,6 @@ def source_covariances(rows, original_fits):
         measurements=pd.read_csv(source/'detections.csv',usecols=columns)
         wanted={i for r in records for i in r['detection_ids']}
         measurements=measurements.loc[measurements.detection_id.isin(wanted)].set_index('detection_id',drop=False)
-        legacy=pd.read_csv(fit/'legacy.csv',dtype={'objID':str})
-        legacy=legacy.loc[legacy.PM_SOURCE.str.strip().eq('DESI')].drop_duplicates('objID',keep=False).set_index('objID')
-        legacy_ids=set(legacy.index)
         for row in records:
             if row['reference_model_sha256']!=graph_hash:
                 raise ValueError('Changed reference input')
@@ -152,14 +173,7 @@ def source_covariances(rows, original_fits):
             np.testing.assert_allclose(np.cov(shifts,rowvar=False),row['reference_tangent_covariance'],atol=2.e-7,rtol=2.e-8)
             shifted_icrs=shifts@jac[[1,3],:].T
             independent_icrs=(jac@independent@jac.T)[np.ix_([1,3],[1,3])]
-            xiao_ids={i.partition(':')[2] for i in row['detection_ids'] if i.startswith('SDSS:')} & legacy_ids
-            xiao=None
-            if len(xiao_ids)==1:
-                a=legacy.loc[next(iter(xiao_ids))]
-                xp=a[['PMRA','PMDEC','PMRA_ERR','PMDEC_ERR']].to_numpy(float)
-                if np.isfinite(xp).all() and np.all(xp[2:]>0) and np.all(abs(xp[:2])<1e5):
-                    xiao=xp
-            values.append((row,independent_icrs,shifted_icrs,graph_hash,xiao))
+            values.append((row,independent_icrs,shifted_icrs,graph_hash,xiao_positions.get(id(row))))
     return values
 
 
@@ -188,7 +202,7 @@ def estimate_mean(rows, qso):
     return out
 
 
-def run(frozen, sweep, output):
+def run(frozen, sweep, output, xiao):
     output.mkdir(parents=True,exist_ok=True)
     phot=optical(sweep)
     if phot.empty:
@@ -225,6 +239,7 @@ def run(frozen, sweep, output):
     if np.any((target|background)&~exists):
         raise ValueError('Footprint cuts a target or background sample')
     matched=pair_photometry(phot,records)
+    xiao_positions, xiao_sha = match_xiao(records,xiao)
     by_group={}
     qso_quality=estimate(qso,('C0',),SEED)
     qso_zero=qso_quality.get('methods',{}).get('C0',{})
@@ -234,7 +249,7 @@ def run(frozen, sweep, output):
     for name,mask in [('target',target.to_numpy()),('background', background.to_numpy())]:
         by_group[name]={}
         catalogued = {i:matched[i] for i in np.flatnonzero(mask&selected&(r0>=18)&(r0<23)) if i in matched}
-        evaluated = source_covariances(list(catalogued.values()),fits_by_core)
+        evaluated = source_covariances(list(catalogued.values()),fits_by_core,xiao_positions)
         row_results = {id(v[0]):v for v in evaluated}
         for label,mag in [('all',(r0>=18)&(r0<23)),('bright',(r0>=18)&(r0<21)),('faint',(r0>=21)&(r0<23))]:
             relevant=mask&mag
@@ -251,7 +266,7 @@ def run(frozen, sweep, output):
             by_group[name][label]=dict(
                 photometric_parents=int(relevant.sum()),cmd_candidates=int(candidates.sum()),
                 matched_frozen_motion=len(source),paired_xiao=compar,
-                not_linked_to_xiao_by_unique_sdss_member=len(values)-len(cross),
+                without_unique_xiao_position_match=len(values)-len(cross),
                 candidate_motion=estimate_mean(values,qso_zero),
                 observed_motion_hist=np.histogram2d(*np.array([v[0]['pm_icrs_masyr'] for v in values]).T,
                     bins=np.arange(-20,20.01,2))[0] if values else None)
@@ -261,7 +276,8 @@ def run(frozen, sweep, output):
     spatial=np.histogram2d(*delta[phot.cmd].T,bins=(grid,grid))[0].astype(int)
     # Release count maps rather than star coordinates.
     spatial=np.where(spatial>=3,spatial,0)
-    result=dict(spatial_cmd_counts=dict(tile_counts=spatial,edges_deg=grid,display_minimum=3),scope='DR9 optical CMD selected before opening the motion files, using inner photometry distinct from the target/outskirts sample. Weighted candidate motions include field contamination. A missing direct Xiao SDSS member match does not independently establish a new star or a catalogue absence.',
+    result=dict(spatial_cmd_counts=dict(tile_counts=spatial,edges_deg=grid,display_minimum=3),scope='DR9 optical CMD selected before opening the motion files, using inner photometry distinct from the target/outskirts sample. Weighted candidate motions include field contamination. Xiao comparison is reciprocal unique within the local source search at J2015.5. Candidate membership is conditional on photometry, and selection uses neither Gaia nor estimated motions.',
+                xiao_index_sha256=xiao_sha, independent_bright_cluster_reference_masyr=[-5.336,-.809],
                 sample_registration_sha256=digest(output/'sample_registration.json'),selection=registration,
                 nominal_input_core_area_sqdeg=coverage,input_cores=len(geometry), cohorts=by_group,
                 local_blind_qso=qso_quality, local_blind_qso_radius_deg=1.15,
@@ -273,7 +289,7 @@ def run(frozen, sweep, output):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    for name in ('frozen','sweep','output'):
+    for name in ('frozen','sweep','output','xiao'):
         parser.add_argument(name,type=Path)
     args=parser.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):

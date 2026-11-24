@@ -41,16 +41,9 @@ def scan_members(table,sky,xy,center,margin):
     return {k:np.unique(np.concatenate(v)) for k,v in byrun.items()},epochs
 
 
-def estimate(chips,window,box,solution,step,domain=None):
-    sky,unit=equal_area_grid(box,step)
-    if domain is not None:
-        coverage=np.zeros(len(sky),dtype=int)
-        for core in domain:
-            coverage+=inside(*sky.T,core)
-        if (coverage>1).any():
-            raise ValueError('Overlapping active ownership cores')
-        sky=sky[coverage==1]
-    center=tuple(float(np.mean(box[k])) for k in ('ra','dec'));xy=project(*sky.T,center);tree=cKDTree(xy);n=len(sky)
+def opportunity_masks(chips, window, sky, center, solution):
+    """Evaluate supported SDSS and NSC footprint and time at exact positions."""
+    xy=project(*sky.T,center);tree=cKDTree(xy);n=len(sky)
     layers={k:dict(count=np.zeros(n,int),first=np.full(n,np.inf),last=np.full(n,-np.inf)) for k in ('r','all')}
     def update(layer,indices,epoch):
         layer['count'][indices]+=1;layer['first'][indices]=np.minimum(layer['first'][indices],epoch);layer['last'][indices]=np.maximum(layer['last'][indices],epoch)
@@ -73,13 +66,31 @@ def estimate(chips,window,box,solution,step,domain=None):
     if set(members)!=set(other) or any(not np.array_equal(members[k],other[k]) for k in members):raise ValueError('SDSS native footprint changes with center margin')
     early=dict(count=np.zeros(n,int),first=np.full(n,np.inf),last=np.full(n,-np.inf))
     for run,ix in members.items():update(early,ix,float(np.median(epochs[run])))
-    masks={};result={}
+    masks={}
     for key,layer in layers.items():
         span=layer['last']-layer['first'];joint=np.maximum(layer['last'],early['last'])-np.minimum(layer['first'],early['first'])
         mask=(early['count']>=1)&(layer['count']>=2)&(span>=.60)&(joint>=5)
-        masks[key]=mask;result[key]=dict(geometric_joint_opportunity_area_sqdeg=float(mask.sum()*unit),sdss_calibrated_covered_area_sqdeg=float((early['count']>0).sum()*unit),nsc_calibrated_covered_area_sqdeg=float((layer['count']>0).sum()*unit))
+        masks[key]=mask
+    return early['count']>0, {key:layer['count']>0 for key,layer in layers.items()}, masks
+
+
+def estimate(chips,window,box,solution,step,domain=None):
+    sky,unit=equal_area_grid(box,step)
+    if domain is not None:
+        coverage=np.zeros(len(sky),dtype=int)
+        for core in domain:
+            coverage+=inside(*sky.T,core)
+        if (coverage>1).any():
+            raise ValueError('Overlapping active ownership cores')
+        sky=sky[coverage==1]
+    center=tuple(float(np.mean(box[k])) for k in ('ra','dec'))
+    early, late, masks=opportunity_masks(chips,window,sky,center,solution)
+    result={key:dict(geometric_joint_opportunity_area_sqdeg=float(mask.sum()*unit),
+                     sdss_calibrated_covered_area_sqdeg=float(early.sum()*unit),
+                     nsc_calibrated_covered_area_sqdeg=float(late[key].sum()*unit))
+            for key,mask in masks.items()}
     pixel=hp.ang2pix(128,*sky.T,lonlat=True);spatial={str(k):dict(nside128_nominal_grid_area_sqdeg=float(np.count_nonzero(pixel==k)*unit),r_opportunity_area_sqdeg=float(np.count_nonzero((pixel==k)&masks['r'])*unit),all_nsc_opportunity_area_sqdeg=float(np.count_nonzero((pixel==k)&masks['all'])*unit)) for k in np.unique(pixel)}
-    return dict(grid_points=n,equal_area_cell_sqdeg=unit,nominal_step_deg=step,layers=result,added_opportunity_area_sqdeg=float(np.count_nonzero(masks['all']&~masks['r'])*unit),nside128=spatial,sdss_margin_stability=True)
+    return dict(grid_points=len(sky),equal_area_cell_sqdeg=unit,nominal_step_deg=step,layers=result,added_opportunity_area_sqdeg=float(np.count_nonzero(masks['all']&~masks['r'])*unit),nside128=spatial,sdss_margin_stability=True)
 
 
 def run(work,preflight,shared,geometry,window_path):

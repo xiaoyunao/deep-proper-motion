@@ -94,9 +94,10 @@ def source_pool(task):
             values['known_all'] = [all_block['motion_icrs']['C0'], all_block['error_icrs']['C0']]
         if physical:
             values['physical_r'] = [physical['motion_icrs']['C0'], physical['error_icrs']['C0']]
-        # The archived union keeps DESI identity when available and the released
-        # DR16Q position for unmatched SDSS spectra. No proper motion selects identity.
-        identity = ('DESI', int(qso.target)) if pd.notna(qso.target) else ('DR16Q', float(qso.ra), float(qso.dec))
+        # Older source shards preserve the deduplicated union's coordinates
+        # and origin, but omit its optional DESI target ID. Use the same
+        # released spectral position key for all shards.
+        identity = (str(qso.origin), float(qso.ra), float(qso.dec))
         info = row['information']
         results.append(dict(identity=identity, core=owner, window=owner_window,
                             kind=row['kind'], magnitude=magnitude, shape=shape,

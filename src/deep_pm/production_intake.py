@@ -47,7 +47,14 @@ counts={v['name']:v['exposures'] for v in plan['first_batch']}
 ordered=defaultdict(list)
 for task in tasks:
     ordered[task[1]].append(task)
-buffer={node:170 for node in nodes}
+workers_per_node=int(os.environ.get('DEEP_PM_INTAKE_WORKERS_PER_NODE','2'))
+step_memory=int(os.environ.get('DEEP_PM_INTAKE_STEP_GIB','56'))
+reference_memory=int(os.environ.get('DEEP_PM_INTAKE_REFERENCE_GIB','57'))
+xiao_memory=int(os.environ.get('DEEP_PM_INTAKE_XIAO_GIB','39'))
+node_memory=int(os.environ.get('DEEP_PM_INTAKE_NODE_GIB','170'))
+if min(workers_per_node,step_memory,reference_memory,xiao_memory,node_memory)<=0 or max(step_memory,reference_memory,xiao_memory,110)>node_memory:
+    raise ValueError('Intake step exceeds its per-node worker memory budget')
+buffer={node:node_memory for node in nodes}
 condition=Condition()
 
 @contextmanager
@@ -94,12 +101,12 @@ def acquire(node,core,box):
     reference_reused=completed(ref,ref_stage,core,config_sha) is not None
     if reference_reused and not input_reused:
         raise ValueError('A cached reference lacks a valid acquired input')
-    need=110 if counts[core[:-3]]>500 else 56
+    need=110 if counts[core[:-3]]>500 else step_memory
     if not input_reused:
         command(node,'deep_pm.exposure_inputs',[work/'inputs',core,catalogues,sas,geom,'--workers','3'],core+'-fetch',need,3)
     inp=verify_directory(shard,(*FILES,'acquisition_summary.json'))
     if not reference_reused:
-        command(node,'deep_pm.continuous_reference',['extract',ref,geom,core,shard],core+'-refs',57,2)
+        command(node,'deep_pm.continuous_reference',['extract',ref,geom,core,shard],core+'-refs',reference_memory,2)
     rcp=verify_directory(ref,('reference.csv.gz','reference_summary.json'))
     input_sha=digest(inp)
     ref_proof=completed(ref,ref_stage,core,config_sha)
@@ -131,8 +138,8 @@ canaries=sorted({max(v,key=lambda t:(counts[t[0][:-3]],t[0])) for v in ordered.v
 lighter=sorted({min(v,key=lambda t:(counts[t[0][:-3]],t[0])) for v in ordered.values()}-set(canaries))
 canaries.extend(lighter[:max(0,20-len(canaries))])
 first_tranche = work/'next_intake_canary_summary.json'
-with ThreadPoolExecutor(2*len(nodes)+1) as pool:
-    control=pool.submit(command,nodes[0],'deep_pm.legacy_regions',[work/'catalogues',legacy,protocol],'xiao',39,1)
+with ThreadPoolExecutor(workers_per_node*len(nodes)+1) as pool:
+    control=pool.submit(command,nodes[0],'deep_pm.legacy_regions',[work/'catalogues',legacy,protocol],'xiao',xiao_memory,1)
     collect(canaries,pool)
     rows = sum(v['normalized_detections'] for v in complete.values())
     disk_bytes = sum(sum(f.stat().st_size for f in (work/'inputs'/k).rglob('*') if f.is_file())

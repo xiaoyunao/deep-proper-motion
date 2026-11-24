@@ -22,7 +22,11 @@ case "$mode" in
     sas=$3
     legacy=$4
     window=$5
-    "$python" -um deep_pm.production_intake "$work/intake" "$registered" "$frozen" "$catalogues" "$sas" "$legacy"
+    if [[ -n ${DPM_SIGNED_INTAKE_DRIVER:-} ]]; then
+      "$python" -u "$DPM_SIGNED_INTAKE_DRIVER" "$work/intake" "$registered" "$frozen" "$catalogues" "$sas" "$legacy"
+    else
+      "$python" -um deep_pm.production_intake "$work/intake" "$registered" "$frozen" "$catalogues" "$sas" "$legacy"
+    fi
     "$python" -um deep_pm.production_reference_plan "$work/reference" "$work/intake" "$registered" "$frozen"
     "$python" -um deep_pm.production_dispatch "$work" "$code" "$account" "$qos" "$python" "$runtime" "$window"
     ;;

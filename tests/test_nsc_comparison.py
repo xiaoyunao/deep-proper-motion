@@ -41,3 +41,23 @@ class SameSourcePrecisionTest(unittest.TestCase):
                 with (d/"detections.csv").open("a") as f:
                     f.write("NSC,NSC:shared\n")
             self.assertEqual(survey_overlap(directories)[0],[("a","b","c"),("d",)])
+
+
+    def test_chunked_draws_preserve_full_rng_and_quantiles(self):
+        random=np.random.default_rng(79)
+        for n in (101,104):
+            first=random.normal(size=(n,2))
+            second=random.normal(size=(n,2))*2
+            rows=[dict(M3=(a,[2.,3.]),published_nsc=(b,[4.,5.]))
+                  for a,b in zip(first,second)]
+            settings=dict(SETTINGS,bootstrap_draws=37,bootstrap_absolute_zero=True)
+            ids=np.random.default_rng(settings['seed']).integers(0,n,(37,n))
+            a,b=[absolute68(v[ids],axis=1) for v in (first,second)]
+            meda,medb=[np.median(v[ids],axis=1) for v in (first,second)]
+            for chunk in (1,7,16,64):
+                result=comparison(rows,dict(settings,bootstrap_draw_chunk=chunk))
+                pair=result['paired']['M3_vs_published_nsc']
+                np.testing.assert_array_equal(pair['absolute68_delta95'],np.quantile(a-b,[.025,.975],axis=0).T)
+                np.testing.assert_array_equal(pair['median_bias_delta95'],np.quantile(meda-medb,[.025,.975],axis=0).T)
+                np.testing.assert_array_equal(result['methods']['M3']['median_bias95'],np.quantile(meda,[.025,.975],axis=0).T)
+                np.testing.assert_array_equal(np.array(pair['fraction95']),np.quantile(1-a/b,[.025,.975],axis=0).T)

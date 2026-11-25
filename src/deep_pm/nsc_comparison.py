@@ -39,12 +39,23 @@ def comparison(rows, settings, additional_contrasts=()):
                        radial_tail_count=int(np.count_nonzero(norm > tail)),
                        axis_tail_count=np.count_nonzero(abs(residual) > tail, axis=0))
         summaries[k] = summary
-    resample = np.random.default_rng(settings["seed"]).integers(0, n, (settings["bootstrap_draws"], n))
-    boot = {k: absolute68(v[resample], axis=1) for k, v in motion.items()}
+    draws = settings["bootstrap_draws"]
+    rng = np.random.default_rng(settings["seed"])
+    boot = {key:np.empty((draws,3)) for key in motion}
+    medians = {key:np.empty((draws,2)) for key in motion}
+    # Draw-major chunks preserve the original flattened RNG stream and object
+    # order. Reuse each method's paired statistics without holding draws×N.
+    chunk = max(1,int(settings.get("bootstrap_draw_chunk",16)))
+    for start in range(0,draws,chunk):
+        stop = min(draws,start+chunk)
+        indices = rng.integers(0,n,(stop-start,n))
+        for key,residual in motion.items():
+            sampled = residual[indices]
+            boot[key][start:stop] = absolute68(sampled,axis=1)
+            medians[key][start:stop] = np.median(sampled,axis=1)
     if settings.get("bootstrap_absolute_zero"):
-        for key, residual in motion.items():
-            summaries[key]["median_bias95"] = np.quantile(
-                np.median(residual[resample], axis=1), [.025, .975], axis=0).T
+        for key in motion:
+            summaries[key]["median_bias95"] = np.quantile(medians[key],[.025,.975],axis=0).T
     contrasts = {}
     standard = (("M1", "published_nsc"), ("M2", "published_nsc"), ("M3", "published_nsc"),
                  ("M1", "M0"), ("M2", "M1"), ("M3", "M2"),
@@ -59,7 +70,7 @@ def comparison(rows, settings, additional_contrasts=()):
                                                where=ref>0, out=np.zeros(3)), eligible)]
         bounds = [np.quantile(1-boot[a][:,j]/boot[b][:,j], [.025,.975]) if ok else None
                   for j, ok in enumerate(eligible)]
-        bias_draw = np.median(motion[a][resample], axis=1) - np.median(motion[b][resample], axis=1)
+        bias_draw = medians[a] - medians[b]
         contrasts[f"{a}_vs_{b}"] = dict(
             absolute68_delta95=np.quantile(boot[a]-boot[b], [.025, .975], axis=0).T,
             median_bias_delta95=np.quantile(bias_draw, [.025, .975], axis=0).T,

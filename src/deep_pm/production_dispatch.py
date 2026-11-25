@@ -51,7 +51,14 @@ def run(work, code, account, qos, python, runtime, window):
                min_minutes+(reference_budget-min_minutes*len(stages))*n//sum(sizes.values()),[label])
               for label,n in sizes.items()]
     fit=submit('fit','fit',4,96,'320G',300,dependencies=ref_jobs)
-    submit('science','science',2,48,'0',90,[window],dependencies=[fit])
+    if 'science' in jobs:
+        print('RETAIN_LEGACY_SCIENCE_JOB',jobs['science']['job'],flush=True)
+        return
+    # Same three node-hour closure ceiling; no reserved second node during
+    # serial accumulation or the independently parallel blind quality readout.
+    partitions=submit('science-partitions','science-partitions',2,8,'180G',60,[window],dependencies=[fit])
+    merge=submit('science-merge','science-merge',1,8,'96G',30,[window],dependencies=[partitions])
+    submit('science-quality','science-quality',1,16,'96G',30,[window],dependencies=[merge])
 
 
 if __name__=='__main__':

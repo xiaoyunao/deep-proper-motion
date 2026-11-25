@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None, audit_records=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None, audit_records=None, morphology_accept=None):
     prod = settings["production"]
     group = calibration_groups(data) if observation_groups is None else observation_groups
     nsc = data.survey.eq("NSC").to_numpy()
@@ -93,7 +93,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             continue
         if audit is not None:audit['status']='pointlike_morphology'
         shape = np.median(morphology[anchor])
-        if shape<prod.get('min_anchor_morphology', .8):
+        if shape<prod.get('min_anchor_morphology', .8) and not (morphology_accept is not None and morphology_accept(anchor,position)):
             if trace is not None:
                 update_anchor_trace(trace,touched,"pointlike_morphology")
             continue

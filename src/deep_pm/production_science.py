@@ -1,3 +1,4 @@
+import argparse
 import gzip
 import json
 import os
@@ -18,7 +19,12 @@ from deep_pm.public_summary import check_aggregate
 
 if not os.environ.get('SLURM_JOB_ID'):
     raise RuntimeError('Use Slurm compute nodes')
-work,ref,fit,intake,window_fits=map(Path,sys.argv[1:6])
+parser=argparse.ArgumentParser(description='Signed partition readout, then serial global accumulation.')
+for name in ('work','ref','fit','intake','window_fits'):parser.add_argument(name,type=Path)
+parser.add_argument('--phase',choices=('all','partitions','merge'),default='all')
+parser.add_argument('--graph',action='append')
+args=parser.parse_args()
+work,ref,fit,intake,window_fits=(getattr(args,n) for n in ('work','ref','fit','intake','window_fits'))
 work.mkdir(parents=True,exist_ok=True)
 plan_path=ref/'private_continuation_reference_plan.json'
 plan_sha=digest(plan_path)
@@ -103,6 +109,7 @@ def collect(graph_name,node):
                 raise ValueError('Recorded footprint changed after its scientific readout')
         print('REUSE_SCIENCE_PARTITION',graph_name,len(actual),flush=True)
         return prior['result']
+    if args.phase=='merge':raise ValueError('Merge requires a completed signed partition; schedule the partition stage first')
     save_json(state/'private_frozen_plan.json',dict(sources=sources,reference_graph=str(shared/'private_c0.npz'),reference_sha256=graph_hash,
         nominal_area_sqdeg=sum(area(s) for s in specs.values()),source_code_commit=os.environ['DPM_COMMIT']))
     summary=state/'science_preownership_summary.json'
@@ -156,9 +163,15 @@ def process(graph,node):
     with locks[node]:
         return collect(graph,node)
 
+selected=sorted(graphs) if not args.graph else sorted(args.graph)
+if not set(selected)<=graphs.keys():raise ValueError('Requested unknown physical reference partition')
+if args.graph and args.phase!='partitions':raise ValueError('Partial graph scope is only valid for the partition stage')
 with ThreadPoolExecutor(len(nodes)) as pool:
-    runs={g:pool.submit(process,g,nodes[i%len(nodes)]) for i,g in enumerate(sorted(graphs))}
+    runs={g:pool.submit(process,g,nodes[i%len(nodes)]) for i,g in enumerate(selected)}
     result={g:r.result() for g,r in runs.items()}
+if args.phase=='partitions':
+    print('SCIENCE_PARTITIONS_VERIFIED',len(result),flush=True)
+    raise SystemExit(0)
 for label, entry in reference_plan['reuse'].items():
     if label in result:
         raise ValueError('Duplicate reference domain labels in the combined catalogue')

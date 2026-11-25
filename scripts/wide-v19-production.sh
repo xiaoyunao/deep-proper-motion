@@ -57,6 +57,17 @@ print(*domain["windows"],sep="\n")
   fit)
     "$python" -um deep_pm.production_fit "$work/fit" "$work/reference" "$work/intake" 6
     ;;
+  science-partitions)
+    export DPM_SCIENCE_STEP_MEM=145G
+    "$python" -um deep_pm.production_science "$work/science" "$work/reference" "$work/fit" "$work/intake" "$1" --phase partitions
+    ;;
+  science-merge)
+    export DPM_SCIENCE_STEP_MEM=80G
+    "$python" -um deep_pm.production_science "$work/science" "$work/reference" "$work/fit" "$work/intake" "$1" --phase merge
+    ;;
+  science-quality)
+    "$python" -um deep_pm.blind_catalogue_quality "$work/science" "$work/blind_quality" --workers 16
+    ;;
   science)
     "$python" -um deep_pm.production_science "$work/science" "$work/reference" "$work/fit" "$work/intake" "$1"
     "$python" -um deep_pm.blind_catalogue_quality "$work/science" "$work/blind_quality" --workers 16

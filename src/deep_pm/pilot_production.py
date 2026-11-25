@@ -133,6 +133,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         update_anchor_trace(trace,[j],"m3_support")
         if audit is not None:audit['status']='m3_support'
         use = index[support[index]]
+        if audit is not None:audit['selected_indices']=np.asarray(use,int).tolist()
         if not valid_epochs(use,nsc,time,prod):
             stats["insufficient_calibration_coverage"] += 1
             continue

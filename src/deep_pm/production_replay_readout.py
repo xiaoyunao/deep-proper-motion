@@ -109,7 +109,7 @@ def spectral_identity_mask(spectra, recovered, tolerance_deg=1.e-8):
     return found,result
 
 
-def spectral_opportunity(footprint, spectra, recovered):
+def spectral_opportunity(footprint, spectra, recovered, return_masks=False):
 
     chips_name = 'private_transfer_chips.csv.gz'
     verify_directory(footprint, (chips_name, 'transfer_footprint_summary.json'))
@@ -160,6 +160,8 @@ def spectral_opportunity(footprint, spectra, recovered):
         retained={key:value for key,value in solution.items() if gauges[key]==gauge}
         _,_,masks=opportunity_masks(chips,scans,spectra.loc[region,['ra','dec']].to_numpy(),center,retained)
         supported[region]=masks['all']
+    if return_masks:
+        return owners,supported
     found,_=spectral_identity_mask(spectra,recovered)
     output={}
     for low in (21,22):

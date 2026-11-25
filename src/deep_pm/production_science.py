@@ -90,8 +90,11 @@ def collect(graph_name,node):
     state.mkdir(exist_ok=True)
     sources={c:str((p/'source_receipt.json').resolve().parent) for c,p in actual.items()}
     saves={c:str(p) for c,p in actual.items()}
-    save_json(state/'fits.json',saves)
-    save_json(state/'sources.json',sources)
+    for name,content in [('fits.json',saves),('sources.json',sources)]:
+        path=state/name
+        if path.exists():
+            if json.loads(path.read_text())!=content:raise ValueError('Partition input map differs from existing signed cache')
+        else:save_json(path,content)
     checkpoint=state/'private_group_science_receipt.json'
     if checkpoint.exists():
         prior=json.loads(checkpoint.read_text())

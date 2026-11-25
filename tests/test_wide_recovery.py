@@ -34,3 +34,23 @@ def test_statistic_cache_rejects_changed_output(tmp_path):
     path.write_text(json.dumps(changed))
     with pytest.raises(ValueError,match='checkpoint changed'):
         cached_value(tmp_path,'sample',ticket)
+
+
+def test_spectral_identity_survives_float_roundtrip_and_rejects_competitors():
+    import pandas as pd
+    from deep_pm.production_replay_readout import spectral_identity_mask
+
+    spectra = pd.DataFrame({'ra':[211.36370000000003,212.0,213.0],
+                            'dec':[28.5344]*3,'origin':['DR16Q']*3})
+    recovered = {('DR16Q',211.3637,28.5344),('other',212.0,28.5344)}
+    mask,audit = spectral_identity_mask(spectra,recovered)
+    assert mask.tolist()==[True,False,False]
+    assert audit['exact_float_matches']==0
+    assert audit['unique_matches']==1
+    assert audit['maximum_accepted_separation_mas']<1.e-5
+
+    competitors = pd.DataFrame({'ra':[211.3637,211.36370000001],
+                                 'dec':[28.5344]*2,'origin':['DR16Q']*2})
+    mask,audit=spectral_identity_mask(competitors,recovered)
+    assert not mask.any()
+    assert audit['ambiguous_reference_positions']==1

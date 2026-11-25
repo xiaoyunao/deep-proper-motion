@@ -1,0 +1,54 @@
+{
+  "scope": "Explicit public aggregate, figure and diagnostic implementation allowlist; individual catalogue, spectral identities and operational raw logs remain remote.",
+  "scientific_source_commit": "2fb0e63dcec9b9cc684875789012db5ab9c78daa",
+  "verified": {
+    "aggregate_schema": true,
+    "private_path_scan": true,
+    "scientific_receipt": true,
+    "blind_readout_sha": true,
+    "identity_diagnostic_sha": true,
+    "source_class_sum": true,
+    "ownership_sum": true,
+    "spectral_recovery_sum": true,
+    "local_tests": 204,
+    "figure_visual_review": true
+  },
+  "files": {
+    "results/summary/v19_wide_completion_summary.json": {
+      "sha256": "59e7a5f4222e414ab7f62a67a625d750db9babbe3659740f49c1338695aa544a",
+      "bytes": 4527336
+    },
+    "results/summary/v19_blind_quality_summary.json": {
+      "sha256": "1bdbefa51e053f164a66fe8102e18b33ad68194b82f250f630819fb8050e76d1",
+      "bytes": 3100581
+    },
+    "results/summary/v19_scientific_recovery_summary.json": {
+      "sha256": "7c7f909958a133dd51fc513a1bb90080a3e24398b39f44f8dc40614f6e62b6af",
+      "bytes": 554
+    },
+    "results/summary/v19_production_replay_quality_summary.json": {
+      "sha256": "4e5c1cdf4771343ff0f038021157fe58c2c36ac002d326620fc31cb272053219",
+      "bytes": 580953
+    },
+    "results/summary/v19_resource_usage_summary.json": {
+      "sha256": "749c1abd010cfffa1dc678e62d9ad4e86a33b7030825570dcf44a46cea0e041f",
+      "bytes": 8235
+    },
+    "figures/v19_wide_completion_summary.png": {
+      "sha256": "d9624d3a7baaed09d9dde779799c716da3fd4f154b7b5d2f827d1c33809b3dae",
+      "bytes": 242953
+    },
+    "src/deep_pm/production_replay_readout.py": {
+      "sha256": "dd41d1bc98b1237887ee4cfb329c23c99f4a24a1d19ae437f5b3d11ae04774ec",
+      "bytes": 13546
+    },
+    "src/deep_pm/wide_completion_figure.py": {
+      "sha256": "4adb3b91e801a45ce7a71cb4c9290647c27dc5175a23aff42e1a265949328f59",
+      "bytes": 4116
+    },
+    "scripts/wide-v19-recovery.sh": {
+      "sha256": "c95689d94e156b1475e612f2a1b09d3c3fae9fe20c02aaa30364c707d3163bc8",
+      "bytes": 332
+    }
+  }
+}

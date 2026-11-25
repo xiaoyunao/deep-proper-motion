@@ -1,0 +1,11 @@
+{
+  "decisions": [
+    "reuse_completed_scientific_receipt"
+  ],
+  "frozen_scientific_commit": "2fb0e63dcec9b9cc684875789012db5ab9c78daa",
+  "recovery_source_sha256": "3763a380e3114d2ba099c91324b92cfbb34af7db7f4e6b4e567263423216ebae",
+  "statistics_helper_sha256": "5d35d2c9a4d1f13babb7e3fba5b3de573532127adb0aa055efa0784e7fc60524",
+  "scientific_receipt_sha256": "9909ed2fc3ace3b0c2df2df3f2c69a1a300035b9b3b92cbfdcd14215df68b8b5",
+  "blind_readout_sha256": "1bdbefa51e053f164a66fe8102e18b33ad68194b82f250f630819fb8050e76d1",
+  "slurm_job": "61962941"
+}

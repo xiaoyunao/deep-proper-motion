@@ -6,6 +6,8 @@ import os
 from pathlib import Path
 
 from astropy.io import fits
+import healpy as hp
+from scipy.spatial import cKDTree
 import numpy as np
 import pandas as pd
 
@@ -72,7 +74,43 @@ def summarize(rows):
     return strata
 
 
+def spectral_identity_mask(spectra, recovered, tolerance_deg=1.e-8):
+    """Map released spectral coordinates across CSV round trips with unique identities."""
+    found = np.zeros(len(spectra),bool)
+    origins = spectra.origin.astype(str).to_numpy()
+    audit = Counter(recovered_identities=len(recovered))
+    distances = []
+    chord = 2*np.sin(np.deg2rad(tolerance_deg)/2)
+    for origin in sorted({row[0] for row in recovered}):
+        target = np.flatnonzero(origins==origin)
+        query = [row for row in recovered if row[0]==origin]
+        if not len(target):
+            audit['unmatched_identities']+=len(query)
+            continue
+        positions = spectra.iloc[target][['ra','dec']].to_numpy()
+        vectors = hp.ang2vec(*positions.T,lonlat=True)
+        query_sky = np.array([[row[1],row[2]] for row in query])
+        length, nearest = cKDTree(vectors).query(hp.ang2vec(*query_sky.T,lonlat=True),k=2)
+        within = length[:,0]<=chord
+        unique = within & (length[:,1]>chord)
+        claims = Counter(map(int,nearest[unique,0]))
+        accepted = unique & np.array([claims.get(int(i),0)==1 for i in nearest[:,0]])
+        found[target[nearest[accepted,0]]]=True
+        distances.extend(length[accepted,0])
+        audit['unmatched_identities']+=int((~within).sum())
+        audit['ambiguous_reference_positions']+=int((within & ~unique).sum())
+        audit['duplicate_recovered_claims']+=int((unique & ~accepted).sum())
+    exact = sum((str(row.origin),float(row.ra),float(row.dec)) in recovered
+                for row in spectra.itertuples(index=False))
+    result = dict(audit,exact_float_matches=int(exact),unique_matches=int(found.sum()),
+                  tolerance_deg=tolerance_deg,
+                  maximum_accepted_separation_mas=float(2*np.arcsin(min(1,max(distances)/2))*180/np.pi*3600000) if distances else None,
+                  scope='Released spectral identity and origin only. Tiny positional tolerance handles numerical CSV round trips; both metadata and recovered identity must be unique.')
+    return found,result
+
+
 def spectral_opportunity(footprint, spectra, recovered):
+
     chips_name = 'private_transfer_chips.csv.gz'
     verify_directory(footprint, (chips_name, 'transfer_footprint_summary.json'))
     proof = read(footprint/'transfer_footprint_summary.json')
@@ -122,8 +160,7 @@ def spectral_opportunity(footprint, spectra, recovered):
         retained={key:value for key,value in solution.items() if gauges[key]==gauge}
         _,_,masks=opportunity_masks(chips,scans,spectra.loc[region,['ra','dec']].to_numpy(),center,retained)
         supported[region]=masks['all']
-    found=np.array([(row.origin,float(row.ra),float(row.dec)) in recovered
-                    for row in spectra.itertuples(index=False)])
+    found,_=spectral_identity_mask(spectra,recovered)
     output={}
     for low in (21,22):
         band=spectra.reference_r.between(low,low+1,inclusive='left')
@@ -165,6 +202,7 @@ def run(previous, previous_blind, batch, output, spectra_file=None):
                   exited_replayed_spectra=len(before_replay.keys()-after_replay.keys()),
                   entered_replayed_spectra=len(after_replay.keys()-before_replay.keys()),
                   samples={k:summarize(rows) for k,rows in scope_rows.items()},
+                  implementation_sha256=digest(Path(__file__)),
                   slurm_job=os.environ['SLURM_JOB_ID'])
     if spectra_file is not None:
         verify_directory(spectra_file.parent,(spectra_file.name,))
@@ -174,6 +212,8 @@ def run(previous, previous_blind, batch, output, spectra_file=None):
         spectra=pd.read_csv(spectra_file,usecols=('ra','dec','reference_r','origin'))
         spectra=spectra.loc[spectra.reference_r.between(21,23,inclusive='left')]
         recovered={key for key,row in after.items() if row['core'] in new}
+        _,identity_audit=spectral_identity_mask(spectra,recovered)
+        result['spectral_metadata_identity_audit']=identity_audit
         current_manifest=read(current/'private_continuation_manifest.json')
         windows={line.split()[1] for line in (batch/'intake/tasks.tsv').read_text().splitlines()}
         new_footprints={key:Path(value).parent for key,value in current_manifest['region_footprints'].items()

@@ -1,0 +1,296 @@
+{
+  "scope": "Tracked v1.9 allocated jobs including failed, timed-out, and cancelled work. Billing-TRES/256 times actual elapsed time is a Slurm-based CPU-node-hour estimate; final project-account charging is not independently audited.",
+  "budget_node_hours": 50,
+  "planned_batch_node_hours": 47.61,
+  "jobs": [
+    {
+      "slurm_job": "61910621",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1094,
+      "allocated_nodes": 1,
+      "billing_tres": 12,
+      "billing_normalized_node_hours": 0.014244791666666666
+    },
+    {
+      "slurm_job": "61910639",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 73,
+      "allocated_nodes": 1,
+      "billing_tres": 18,
+      "billing_normalized_node_hours": 0.00142578125
+    },
+    {
+      "slurm_job": "61910657",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 103,
+      "allocated_nodes": 1,
+      "billing_tres": 16,
+      "billing_normalized_node_hours": 0.0017881944444444445
+    },
+    {
+      "slurm_job": "61910704",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 89,
+      "allocated_nodes": 1,
+      "billing_tres": 16,
+      "billing_normalized_node_hours": 0.0015451388888888889
+    },
+    {
+      "slurm_job": "61910746",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 68,
+      "allocated_nodes": 1,
+      "billing_tres": 20,
+      "billing_normalized_node_hours": 0.0014756944444444444
+    },
+    {
+      "slurm_job": "61910760",
+      "qos": "shared_interactive",
+      "state": "FAILED",
+      "elapsed_seconds": 68,
+      "allocated_nodes": 1,
+      "billing_tres": 10,
+      "billing_normalized_node_hours": 0.0007378472222222222
+    },
+    {
+      "slurm_job": "61910796",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 100,
+      "allocated_nodes": 1,
+      "billing_tres": 10,
+      "billing_normalized_node_hours": 0.0010850694444444445
+    },
+    {
+      "slurm_job": "61910834",
+      "qos": "regular_1",
+      "state": "CANCELLED",
+      "elapsed_seconds": 0,
+      "allocated_nodes": 0,
+      "billing_tres": 0,
+      "billing_normalized_node_hours": 0.0
+    },
+    {
+      "slurm_job": "61910843",
+      "qos": "interactive",
+      "state": "FAILED",
+      "elapsed_seconds": 6,
+      "allocated_nodes": 4,
+      "billing_tres": 1024,
+      "billing_normalized_node_hours": 0.006666666666666667
+    },
+    {
+      "slurm_job": "61910856",
+      "qos": "interactive",
+      "state": "CANCELLED",
+      "elapsed_seconds": 33,
+      "allocated_nodes": 4,
+      "billing_tres": 1024,
+      "billing_normalized_node_hours": 0.03666666666666667
+    },
+    {
+      "slurm_job": "61910861",
+      "qos": "interactive",
+      "state": "CANCELLED",
+      "elapsed_seconds": 1345,
+      "allocated_nodes": 4,
+      "billing_tres": 1024,
+      "billing_normalized_node_hours": 1.4944444444444445
+    },
+    {
+      "slurm_job": "61910994",
+      "qos": "shared_interactive",
+      "state": "FAILED",
+      "elapsed_seconds": 67,
+      "allocated_nodes": 1,
+      "billing_tres": 20,
+      "billing_normalized_node_hours": 0.0014539930555555556
+    },
+    {
+      "slurm_job": "61911014",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 103,
+      "allocated_nodes": 1,
+      "billing_tres": 20,
+      "billing_normalized_node_hours": 0.0022352430555555554
+    },
+    {
+      "slurm_job": "61911015",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 109,
+      "allocated_nodes": 1,
+      "billing_tres": 10,
+      "billing_normalized_node_hours": 0.0011827256944444444
+    },
+    {
+      "slurm_job": "61911072",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 75,
+      "allocated_nodes": 1,
+      "billing_tres": 10,
+      "billing_normalized_node_hours": 0.0008138020833333334
+    },
+    {
+      "slurm_job": "61911117",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 57,
+      "allocated_nodes": 1,
+      "billing_tres": 10,
+      "billing_normalized_node_hours": 0.0006184895833333333
+    },
+    {
+      "slurm_job": "61911157",
+      "qos": "regular_1",
+      "state": "COMPLETED",
+      "elapsed_seconds": 7,
+      "allocated_nodes": 1,
+      "billing_tres": 256,
+      "billing_normalized_node_hours": 0.0019444444444444444
+    },
+    {
+      "slurm_job": "61911163",
+      "qos": "interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 6956,
+      "allocated_nodes": 4,
+      "billing_tres": 1024,
+      "billing_normalized_node_hours": 7.728888888888889
+    },
+    {
+      "slurm_job": "61913025",
+      "qos": "regular_1",
+      "state": "COMPLETED",
+      "elapsed_seconds": 6490,
+      "allocated_nodes": 1,
+      "billing_tres": 256,
+      "billing_normalized_node_hours": 1.8027777777777778
+    },
+    {
+      "slurm_job": "61913029",
+      "qos": "regular_1",
+      "state": "COMPLETED",
+      "elapsed_seconds": 19350,
+      "allocated_nodes": 1,
+      "billing_tres": 256,
+      "billing_normalized_node_hours": 5.375
+    },
+    {
+      "slurm_job": "61913030",
+      "qos": "regular_1",
+      "state": "COMPLETED",
+      "elapsed_seconds": 6741,
+      "allocated_nodes": 4,
+      "billing_tres": 1024,
+      "billing_normalized_node_hours": 7.49
+    },
+    {
+      "slurm_job": "61913031",
+      "qos": "regular_1",
+      "state": "TIMEOUT",
+      "elapsed_seconds": 5419,
+      "allocated_nodes": 2,
+      "billing_tres": 512,
+      "billing_normalized_node_hours": 3.0105555555555554
+    },
+    {
+      "slurm_job": "61914506",
+      "qos": "regular_1",
+      "state": "CANCELLED",
+      "elapsed_seconds": 0,
+      "allocated_nodes": 0,
+      "billing_tres": 0,
+      "billing_normalized_node_hours": 0.0
+    },
+    {
+      "slurm_job": "61956488",
+      "qos": "regular_1",
+      "state": "CANCELLED",
+      "elapsed_seconds": 0,
+      "allocated_nodes": 0,
+      "billing_tres": 0,
+      "billing_normalized_node_hours": 0.0
+    },
+    {
+      "slurm_job": "61956489",
+      "qos": "regular_1",
+      "state": "CANCELLED",
+      "elapsed_seconds": 0,
+      "allocated_nodes": 0,
+      "billing_tres": 0,
+      "billing_normalized_node_hours": 0.0
+    },
+    {
+      "slurm_job": "61957238",
+      "qos": "interactive",
+      "state": "TIMEOUT",
+      "elapsed_seconds": 10801,
+      "allocated_nodes": 2,
+      "billing_tres": 512,
+      "billing_normalized_node_hours": 6.000555555555556
+    },
+    {
+      "slurm_job": "61962437",
+      "qos": "interactive",
+      "state": "CANCELLED",
+      "elapsed_seconds": 0,
+      "allocated_nodes": 0,
+      "billing_tres": 0,
+      "billing_normalized_node_hours": 0.0
+    },
+    {
+      "slurm_job": "61962748",
+      "qos": "regular_1",
+      "state": "CANCELLED",
+      "elapsed_seconds": 0,
+      "allocated_nodes": 0,
+      "billing_tres": 0,
+      "billing_normalized_node_hours": 0.0
+    },
+    {
+      "slurm_job": "61962941",
+      "qos": "interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 439,
+      "allocated_nodes": 1,
+      "billing_tres": 256,
+      "billing_normalized_node_hours": 0.12194444444444444
+    },
+    {
+      "slurm_job": "61963365",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 188,
+      "allocated_nodes": 1,
+      "billing_tres": 26,
+      "billing_normalized_node_hours": 0.005303819444444444
+    },
+    {
+      "slurm_job": "61963820",
+      "qos": "shared_interactive",
+      "state": "COMPLETED",
+      "elapsed_seconds": 182,
+      "allocated_nodes": 1,
+      "billing_tres": 14,
+      "billing_normalized_node_hours": 0.0027647569444444442
+    }
+  ],
+  "total_billing_normalized_node_hours": 33.106119791666664,
+  "scratch_snapshot": {
+    "whole_user_used_kib": 11613567828,
+    "soft_quota_kib": 21474836480,
+    "hard_limit_kib": 32212254720,
+    "files": 4408980,
+    "soft_file_quota": 10000000,
+    "scope": "Whole-user quota snapshot after final catalogue reads, not an isolated project peak. Peak incremental occupancy was not continuously measured."
+  },
+  "complete": true
+}

@@ -81,9 +81,11 @@ def spatial_figure(data,output):
         for col,(key,axis,title,cmap,norm) in enumerate(columns):
             values={str(v['pixel']):v[key][axis] for k,v in data['spatial'].items() if k.startswith(str(low)+'__')}
             artist=sky_elements(axes[row,col],32,values,cmap,norm)
+            axes[row,col].set_xticks(np.deg2rad([-120,-60,0,60,120]))
+            axes[row,col].set_xticklabels(['300°','240°','180°','120°','60°'],fontsize=8)
             axes[row,col].set_title(f'{low}–{low+1} · {title}',fontsize=10,pad=12)
-            cb=fig.colorbar(artist,ax=axes[row,col],orientation='horizontal',fraction=.055,pad=.12)
-            cb.set_label('mas yr⁻¹' if key=='median' else 'Observed probability',fontsize=9)
+            cb=fig.colorbar(artist,ax=axes[row,col],orientation='horizontal',fraction=.055,pad=.12,extend='both')
+            cb.set_label('mas yr⁻¹' if key=='median' else 'Empirical 1σ coverage',fontsize=9)
             cb.ax.tick_params(labelsize=8)
     fig.suptitle('Blind spectroscopic QSO · HEALPix NSIDE32, N≥30 per displayed cell\nRaw medians and reported-error coverage; display cells do not certify their full sky area',fontsize=14)
     save(fig,output/'v20_spatial_quality_summary.png')

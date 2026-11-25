@@ -1,0 +1,38 @@
+{
+  "base_commit": "0568500ca2734c13000b2cd90bd2eb23f48689e4",
+  "scientific_fit_commit": "2fb0e63",
+  "production_unchanged": true,
+  "new_sky_production_started": false,
+  "nominal_sqdeg": 2751.446404,
+  "calibrated_geometric_opportunity_sqdeg": 2728.590311,
+  "production_research_solutions": 15625958,
+  "source_use_classes": {
+    "well_sampled_r_anchor": 11398015,
+    "limited_sampling_r_anchor": 4097781,
+    "non_r_anchor": 130162
+  },
+  "sole_selection_candidate": {
+    "original_members_retained": 91181,
+    "additional_fit_candidates": 7479,
+    "independent_added_qso_by_reference_r": {
+      "r21": 52,
+      "r22": 60
+    },
+    "adopted": false,
+    "missing_evidence": [
+      "Independent stellar/extended-source purity",
+      "Complete CCD/SNR opportunity denominator",
+      "Held-position competition against every original training source"
+    ]
+  },
+  "local_qso_translation_adopted": false,
+  "universal_qso_error_scale_adopted": false,
+  "empirical_qso_conditions_tested": 16,
+  "conditions_passing_all_transfers": 0,
+  "quality_evidence_sky_pixels": 895,
+  "quality_evidence_pixel_magnitude_cells": 1151,
+  "certified_faint_star_systematic_area_sqdeg": null,
+  "scientific_tests_passed": 219,
+  "resource_summary_sha256": "457d32697c56d1e3d982c517ce9bed060ea7b9f3ca877d5694e73d2aefc35e81",
+  "scope": "Scientific evidence and bounded stop decisions; not a validated new faint-stellar catalogue or universal systematic-error certification."
+}

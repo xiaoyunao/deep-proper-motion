@@ -1,0 +1,140 @@
+{
+  "implementation_sha256": "d516e34fff352dc30815bbe477d74b878552b907875f19444d1d3e4fe37d3611",
+  "old_owner_cores": 2251,
+  "new_owner_cores": 624,
+  "old_allband_net_change": 2,
+  "old_physical_r_net_change": -1305,
+  "windows": {
+    "a": {
+      "cores_with_count_change": 7,
+      "allband_delta": -11,
+      "physical_r_delta": -110
+    },
+    "b": {
+      "cores_with_count_change": 21,
+      "allband_delta": -13,
+      "physical_r_delta": -287
+    },
+    "north_one": {
+      "cores_with_count_change": 12,
+      "allband_delta": 24,
+      "physical_r_delta": -452
+    },
+    "north_three": {
+      "cores_with_count_change": 5,
+      "allband_delta": -16,
+      "physical_r_delta": -456
+    },
+    "north_two": {
+      "cores_with_count_change": 8,
+      "allband_delta": 0,
+      "physical_r_delta": 0
+    },
+    "w120_110": {
+      "cores_with_count_change": 40,
+      "allband_delta": 23,
+      "physical_r_delta": -3
+    },
+    "w130_090": {
+      "cores_with_count_change": 15,
+      "allband_delta": 1,
+      "physical_r_delta": -2
+    },
+    "w140_090": {
+      "cores_with_count_change": 16,
+      "allband_delta": -14,
+      "physical_r_delta": 1
+    },
+    "w150_110": {
+      "cores_with_count_change": 5,
+      "allband_delta": 1,
+      "physical_r_delta": 0
+    },
+    "w160_090": {
+      "cores_with_count_change": 5,
+      "allband_delta": 0,
+      "physical_r_delta": 3
+    },
+    "w170_080": {
+      "cores_with_count_change": 11,
+      "allband_delta": 7,
+      "physical_r_delta": -1
+    },
+    "w180_110": {
+      "cores_with_count_change": 1,
+      "allband_delta": 1,
+      "physical_r_delta": 0
+    },
+    "w190_090": {
+      "cores_with_count_change": 14,
+      "allband_delta": -2,
+      "physical_r_delta": 3
+    },
+    "w200_090": {
+      "cores_with_count_change": 4,
+      "allband_delta": -1,
+      "physical_r_delta": -1
+    },
+    "w200_110": {
+      "cores_with_count_change": 12,
+      "allband_delta": -1,
+      "physical_r_delta": 0
+    },
+    "w210_110": {
+      "cores_with_count_change": 16,
+      "allband_delta": 3,
+      "physical_r_delta": 0
+    }
+  },
+  "count_changed_cores": 192,
+  "selected_count_diagnostic_cores": 8,
+  "selected_physical_r_net_change": -1209,
+  "selected_physical_r_absolute_change": 1209,
+  "all_physical_r_absolute_change": 1457,
+  "slurm_job": "61966119",
+  "ngc": {
+    "cores": 9,
+    "gaia_columns": [
+      "source_id",
+      "ra",
+      "dec",
+      "ref_epoch",
+      "pmra",
+      "pmdec",
+      "pmra_error",
+      "pmdec_error",
+      "parallax",
+      "ruwe",
+      "phot_g_mean_mag",
+      "phot_rp_mean_mag",
+      "parallax_error",
+      "radial_velocity",
+      "astrometric_params_solved",
+      "visibility_periods_used"
+    ],
+    "validation_file_names": [
+      "gaia.csv"
+    ],
+    "pixel_products_available": {
+      "maskbits": true,
+      "nexp-g": true,
+      "nexp-r": true,
+      "depth-g": true,
+      "depth-r": true
+    },
+    "local_bricks": 28,
+    "brick_metadata_columns": [
+      "BRICKNAME",
+      "BRICKID",
+      "BRICKQ",
+      "BRICKROW",
+      "BRICKCOL",
+      "RA",
+      "DEC",
+      "RA1",
+      "RA2",
+      "DEC1",
+      "DEC2"
+    ]
+  }
+}

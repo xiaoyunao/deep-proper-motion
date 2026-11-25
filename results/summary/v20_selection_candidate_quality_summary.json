@@ -1,0 +1,101 @@
+{
+  "trial_sha256": "ab8e35611c09ba2ab76c8950a8dd44bafbba005016c4696fa744dbef4f4528df",
+  "added_qso": {
+    "21": {
+      "n": 52,
+      "median": [
+        -1.3398400177515033,
+        0.4065142375034887
+      ],
+      "nmad": [
+        4.292891518197507,
+        4.780219595757687
+      ],
+      "absolute_radial_p68": 7.3084491826961715,
+      "equal_mean": [
+        -0.5160535546409769,
+        0.39149037066656306
+      ],
+      "median_object_interval95": [
+        [
+          -3.288025353144123,
+          0.8741971358456568
+        ],
+        [
+          -1.0686911418800842,
+          2.143518284287745
+        ]
+      ],
+      "within_1sigma": [
+        0.4423076923076923,
+        0.5
+      ],
+      "within_2sigma": [
+        0.7884615384615384,
+        0.8846153846153846
+      ]
+    },
+    "22": {
+      "n": 60,
+      "median": [
+        -0.21441398452799065,
+        -0.6230166845152556
+      ],
+      "nmad": [
+        4.882966084088998,
+        6.069683764001156
+      ],
+      "absolute_radial_p68": 8.496085499187334,
+      "equal_mean": [
+        -0.0917559771607826,
+        -0.2767493518896743
+      ],
+      "median_object_interval95": [
+        [
+          -2.1400694651673886,
+          1.38524190265126
+        ],
+        [
+          -1.8049452114699511,
+          2.1813412356333863
+        ]
+      ],
+      "within_1sigma": [
+        0.48333333333333334,
+        0.5833333333333334
+      ],
+      "within_2sigma": [
+        0.8166666666666667,
+        0.85
+      ]
+    }
+  },
+  "total_training_candidates": 7254,
+  "unique_held_position_recovery": {
+    "n": 2707,
+    "denominator": 7254,
+    "value": 0.37317342156051836,
+    "wilson95": [
+      0.3621134662990186,
+      0.38436763136070135
+    ]
+  },
+  "displaced_matches": [
+    15,
+    9,
+    8,
+    13
+  ],
+  "unchanged_original_member_retention": {
+    "n": 91181,
+    "denominator": 91181,
+    "value": 1.0,
+    "wilson95": [
+      0.9999578717387753,
+      0.9999999999999999
+    ]
+  },
+  "adopted_dark_star_catalogue": false,
+  "scope": "Added source identities fixed before this QSO readout. J2015.5 position identity checked against both new and original catalogue claims; existing-QSO competitors excluded. No second selection threshold or QSO-based source choice. Motion fitted from exact saved members; original catalogue unmodified. Held-year recovery is one-to-one within the new-candidate set, not an exhaustive competition test against every original training source. It is conditional on published retrieved detections, not independently certified stellar purity.",
+  "slurm_job": "61968877"
+}

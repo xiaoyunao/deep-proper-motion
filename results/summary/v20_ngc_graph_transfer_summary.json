@@ -1,0 +1,20 @@
+{
+  "n_previous": 197,
+  "unique_physical_counterparts": 197,
+  "exact_members": 197,
+  "ambiguous_or_absent": 0,
+  "scientific_context": "Same old photometric identities connected by physical detections, not matched by fitted PM.",
+  "slurm_job": "61967856",
+  "current_weighted_mean": [
+    -8.547942707941326,
+    -2.9388953975565735
+  ],
+  "graph_update_pm_median": [
+    -0.14866908178522564,
+    0.20542009093665392
+  ],
+  "graph_update_pm_max_abs": [
+    0.47424594292057964,
+    0.6016764853347532
+  ]
+}

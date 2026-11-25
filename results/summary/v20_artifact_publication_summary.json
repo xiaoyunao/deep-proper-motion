@@ -1,0 +1,28 @@
+{
+  "base_commit": "0568500ca2734c13000b2cd90bd2eb23f48689e4",
+  "research_branch": "experiment-a-v2.0-science-usability",
+  "files": {
+    "figures/v20_blind_science_summary.png": "f6b3ed596e432b7b07fb327809bed3ddd67d404fcbae744f9b366dd6fcb3bc25",
+    "figures/v20_ngc_deep_summary.png": "a966933f7f3294b26f9244ee7cdad0ef0d8309301d2a5784a128ca51568c2a7a",
+    "figures/v20_ngc_stellar_bias_summary.png": "a183048945472ebc77e777d25f3e49dcb1e66ca1aa61dee4a1b8e2b3a32eeeaa",
+    "figures/v20_selection_funnel_summary.png": "5e528855424f9bfa64ec7d1f3b9f0f8613a9a652826a4ebb497614be51e71b8c",
+    "figures/v20_spatial_quality_summary.png": "df3c5a338c12da3736cf3e9427f1f982e7b8155bdcd7341637c5d8c0031059a9",
+    "reports/experiment_A_v2.0_science_usability.md": "8152d37221d4626dcf3df6feee5998d681a035286a2011af85d5ad8d26b83389",
+    "results/summary/v20_ancillary_quality_summary.json": "73bc0192d896e941a266530f99e4d1e191591af4b3322d9499a291d7ec656021",
+    "results/summary/v20_input_accounting_summary.json": "856c93a6a42827956dc95d76f4ba09960c9379ea86423837c751147693bd1d37",
+    "results/summary/v20_ngc_color_condition_summary.json": "a40764903648c321e32344ddc0b7ca5ba3bcec15b1e160672c7bbebd11d501ed",
+    "results/summary/v20_ngc_graph_transfer_summary.json": "44dbd3496a5e7c0498b7c600e2c860fa6559da31d03ab0b41ea93b2e4a3ecdf7",
+    "results/summary/v20_ngc_motion_summary.json": "7df347cf30675c004593cc302f6e1b78d125d02ba9c0a966ce6566fdc5d52d45",
+    "results/summary/v20_ngc_photometry_summary.json": "d0f5c0bedddd56e39270b2252638bdb0f4b155bb23c39360104a7889ae404328",
+    "results/summary/v20_quality_calibration_summary.json": "d91589428e6bc121aebfa55c9da5ef55d4a99148cab6f8723f81b7853bb619d9",
+    "results/summary/v20_replay_accounting_summary.json": "262f6052f2acddab92aef26496087441113ec747896185123006aaebff3f22ab",
+    "results/summary/v20_resource_summary.json": "457d32697c56d1e3d982c517ce9bed060ea7b9f3ca877d5694e73d2aefc35e81",
+    "results/summary/v20_science_usability_decision_summary.json": "c000bbff876dd5559d6677beee4617d08d10650edba507290ad8096d6a28141b",
+    "results/summary/v20_selection_candidate_quality_summary.json": "701bb5e8e0b607ebb0fb23f5e8820277b49b4033e97a3030ea1348db444ee117",
+    "results/summary/v20_selection_candidate_registration_summary.json": "d802427be281282841e5b612f0e69182ec514b2629e35e852eb12b180c08aef5",
+    "results/summary/v20_selection_candidate_summary.json": "ab8e35611c09ba2ab76c8950a8dd44bafbba005016c4696fa744dbef4f4528df",
+    "results/summary/v20_selection_summary.json": "9f1e532bbf5041f636ef2b51c427eaf37342e4396b8df7b7f0c051b513c57ce7",
+    "results/summary/v20_statistics_performance_summary.json": "39fc910134f4237cf1ca50917bd5a34c1e8f9b33dbd4cb20e26da106b75e1a85"
+  },
+  "scope": "Allowlisted public aggregate JSON, five scientific figures and Chinese report. Raw/per-source/reference caches remain on NERSC. All 14 downloaded aggregates matched remote SHA256; decision/figure/report artifacts derive only from reviewed public aggregates."
+}

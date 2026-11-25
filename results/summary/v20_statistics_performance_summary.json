@@ -1,0 +1,34 @@
+{
+  "n": 40001,
+  "bootstrap_draws": 800,
+  "methods": [
+    "blind_all",
+    "known_all",
+    "physical_r",
+    "Xiao",
+    "NSC"
+  ],
+  "contrasts": 4,
+  "exact_result_equal": true,
+  "result_sha256": "7f090ad23e6a96686d045ae0692867b8fc0d090fcf2808566f003ec7d18c044f",
+  "baseline": {
+    "elapsed_seconds": 43.102186025935225,
+    "peak_rss_mib": 3419.140625,
+    "result_sha256": "7f090ad23e6a96686d045ae0692867b8fc0d090fcf2808566f003ec7d18c044f",
+    "implementation_sha256": "a83d5a8abe8837dd45d2d98e6766d0b8d934256a57be81efea29973f72adb80e",
+    "input_sha256": "baa79b6287e4f9bade1beb27ad0e9d05bde8ef6046c6ce38178c467c3e41ab57",
+    "affinity_cpus": 8
+  },
+  "chunked": {
+    "elapsed_seconds": 26.492647890001535,
+    "peak_rss_mib": 1000.73046875,
+    "result_sha256": "7f090ad23e6a96686d045ae0692867b8fc0d090fcf2808566f003ec7d18c044f",
+    "implementation_sha256": "d7b6df009855f8a534dea957f8982a7995a8d153ca077d2e51a4356324c72b96",
+    "input_sha256": "baa79b6287e4f9bade1beb27ad0e9d05bde8ef6046c6ce38178c467c3e41ab57",
+    "affinity_cpus": 8
+  },
+  "cache_reuse_seconds": 0.028832252020947635,
+  "cache_bytes": 10533,
+  "slurm_job": "61965574",
+  "scope": "Same real spectral objects, frozen positions and formal errors, original object order, 800 paired draws and quantiles. Independent subprocess memory peaks; cache ticket includes input and implementation. No fitted science state changed."
+}

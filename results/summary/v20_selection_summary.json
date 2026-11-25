@@ -1,0 +1,5828 @@
+{
+  "registration_sha256": "4c8cc968a752481ad52494c6d52df56922b842b897b547edf92af7282ee02d79",
+  "cores": [
+    {
+      "ticket": {
+        "input_sha256": "a53e7ebf11cd70924c0ab54248c025b4bda1d79f86234a6ec2b296ea8a24bfa9",
+        "fit_sha256": "5cde7b33d5df3350660e1ffd395e271fa2cd7708bc64ecd0b3b51e0879b09623",
+        "reference_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w130_110",
+      "core": "w130_110_86_11",
+      "input_detections": 232361,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 3750,
+      "funnel": {
+        "legacy_r": {
+          "20_to_21": {
+            "initial": 1188,
+            "sdss_nearby": 807,
+            "associated": 805,
+            "fit_eligible": 771,
+            "calibrated": 771,
+            "final": 770,
+            "no_sdss_within_fixed_gate": 381,
+            "insufficient_time_sampling": 34,
+            "final_quality_rejection": 1,
+            "split_or_competing_track": 2
+          },
+          "lt20": {
+            "initial": 1721,
+            "sdss_nearby": 1560,
+            "associated": 1553,
+            "fit_eligible": 1453,
+            "calibrated": 1453,
+            "final": 1453,
+            "no_sdss_within_fixed_gate": 161,
+            "split_or_competing_track": 7,
+            "insufficient_time_sampling": 100
+          },
+          "21_to_22": {
+            "initial": 1484,
+            "sdss_nearby": 1237,
+            "associated": 1236,
+            "fit_eligible": 1164,
+            "calibrated": 1164,
+            "final": 1139,
+            "no_sdss_within_fixed_gate": 247,
+            "split_or_competing_track": 1,
+            "final_quality_rejection": 25,
+            "insufficient_time_sampling": 72
+          },
+          "22_to_23": {
+            "initial": 294,
+            "sdss_nearby": 199,
+            "associated": 199,
+            "fit_eligible": 161,
+            "calibrated": 161,
+            "final": 132,
+            "final_quality_rejection": 29,
+            "no_sdss_within_fixed_gate": 95,
+            "insufficient_time_sampling": 38
+          },
+          "ge23": {
+            "initial": 52,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 51,
+            "insufficient_time_sampling": 1
+          }
+        },
+        "physical_all_r_anchor": {
+          "20_to_21": {
+            "initial": 1188,
+            "sdss_nearby": 807,
+            "associated": 805,
+            "fit_eligible": 805,
+            "calibrated": 805,
+            "final": 804,
+            "no_sdss_within_fixed_gate": 381,
+            "split_or_competing_track": 2,
+            "final_quality_rejection": 1
+          },
+          "lt20": {
+            "initial": 1721,
+            "sdss_nearby": 1560,
+            "associated": 1553,
+            "fit_eligible": 1540,
+            "calibrated": 1540,
+            "final": 1534,
+            "no_sdss_within_fixed_gate": 161,
+            "split_or_competing_track": 7,
+            "insufficient_time_sampling": 13,
+            "final_quality_rejection": 6
+          },
+          "21_to_22": {
+            "initial": 1484,
+            "sdss_nearby": 1237,
+            "associated": 1236,
+            "fit_eligible": 1231,
+            "calibrated": 1231,
+            "final": 1215,
+            "no_sdss_within_fixed_gate": 247,
+            "split_or_competing_track": 1,
+            "insufficient_time_sampling": 5,
+            "final_quality_rejection": 16
+          },
+          "22_to_23": {
+            "initial": 294,
+            "sdss_nearby": 199,
+            "associated": 199,
+            "fit_eligible": 188,
+            "calibrated": 188,
+            "final": 169,
+            "final_quality_rejection": 19,
+            "no_sdss_within_fixed_gate": 95,
+            "insufficient_time_sampling": 11
+          },
+          "ge23": {
+            "initial": 52,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 51,
+            "final_quality_rejection": 1
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 47644,
+          "non_r_missing_survey": 28350,
+          "non_r_before_quality": 1011,
+          "non_r_morphology_exit": 520,
+          "non_r_ownership_exit": 7,
+          "non_r_time_exit": 452,
+          "non_r_formal_error_exit": 4
+        },
+        "strict_r_solutions": 3494
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 22416,
+          "states": {
+            "valid_pointlike": 4739,
+            "valid_below_threshold": 17677
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 10
+            },
+            "final": {
+              "valid_pointlike": 3494
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 935
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 17677
+            },
+            "quality": {
+              "valid_pointlike": 55
+            },
+            "time_baseline": {
+              "valid_pointlike": 245
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 22416,
+          "states": {
+            "valid_pointlike": 4739,
+            "valid_below_threshold": 17677
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 10
+            },
+            "final": {
+              "valid_pointlike": 3494
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 935
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 17677
+            },
+            "quality": {
+              "valid_pointlike": 55
+            },
+            "time_baseline": {
+              "valid_pointlike": 245
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 22416,
+          "states": {
+            "valid_pointlike": 4739,
+            "valid_below_threshold": 17677
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 10
+            },
+            "final": {
+              "valid_pointlike": 3722
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 935
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 17677
+            },
+            "quality": {
+              "valid_pointlike": 43
+            },
+            "time_baseline": {
+              "valid_pointlike": 29
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 552,
+          "states": {
+            "valid_below_threshold": 520,
+            "valid_pointlike": 32
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 28
+            },
+            "formal_error": {
+              "valid_pointlike": 4
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 520
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 3487,
+          "anchor_states": {
+            "valid_pointlike": 3487
+          }
+        },
+        "extra_r_anchor": {
+          "n": 235,
+          "anchor_states": {
+            "valid_pointlike": 235
+          }
+        },
+        "non_r_anchor": {
+          "n": 28,
+          "anchor_states": {
+            "non_r_valid_only_route": 28
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 36,
+            "primary_exit": {
+              "pointlike_morphology": 7,
+              "recovered": 29
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 7,
+              "valid_pointlike": 29
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 36,
+            "primary_exit": {
+              "pointlike_morphology": 7,
+              "recovered": 29
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 7,
+              "valid_pointlike": 29
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 36,
+            "primary_exit": {
+              "pointlike_morphology": 7,
+              "recovered": 29
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 7,
+              "valid_pointlike": 29
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 3,
+            "primary_exit": {
+              "pointlike_morphology": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 1,
+              "valid_pointlike": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 3,
+            "primary_exit": {
+              "pointlike_morphology": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 1,
+              "valid_pointlike": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 3,
+            "primary_exit": {
+              "pointlike_morphology": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 1,
+              "valid_pointlike": 2
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 54.872059298097156,
+      "peak_rss_mib": 898.5078125,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "c602a33ad921ff4201afe074f50c4f9853ac08ddeb02012db65df6ac97e8f933",
+        "fit_sha256": "a77b4e8ecd17d0b9a9d0ecc40c8db4cba52bc60ca55928a59271fc657a8dc11d",
+        "reference_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w130_110",
+      "core": "w130_110_60_10",
+      "input_detections": 563878,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 5107,
+      "funnel": {
+        "legacy_r": {
+          "20_to_21": {
+            "initial": 1487,
+            "sdss_nearby": 985,
+            "associated": 985,
+            "fit_eligible": 925,
+            "calibrated": 925,
+            "final": 925,
+            "no_sdss_within_fixed_gate": 502,
+            "insufficient_time_sampling": 60
+          },
+          "21_to_22": {
+            "initial": 1836,
+            "sdss_nearby": 1483,
+            "associated": 1482,
+            "fit_eligible": 1393,
+            "calibrated": 1393,
+            "final": 1381,
+            "insufficient_time_sampling": 89,
+            "final_quality_rejection": 12,
+            "no_sdss_within_fixed_gate": 353,
+            "split_or_competing_track": 1
+          },
+          "lt20": {
+            "initial": 2310,
+            "sdss_nearby": 2041,
+            "associated": 2036,
+            "fit_eligible": 1872,
+            "calibrated": 1872,
+            "final": 1871,
+            "no_sdss_within_fixed_gate": 269,
+            "insufficient_time_sampling": 164,
+            "split_or_competing_track": 5,
+            "final_quality_rejection": 1
+          },
+          "22_to_23": {
+            "initial": 832,
+            "sdss_nearby": 629,
+            "associated": 628,
+            "fit_eligible": 448,
+            "calibrated": 448,
+            "final": 403,
+            "final_quality_rejection": 45,
+            "no_sdss_within_fixed_gate": 203,
+            "insufficient_time_sampling": 180,
+            "split_or_competing_track": 1
+          },
+          "ge23": {
+            "initial": 51,
+            "sdss_nearby": 3,
+            "associated": 3,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 48,
+            "insufficient_time_sampling": 3
+          }
+        },
+        "physical_all_r_anchor": {
+          "20_to_21": {
+            "initial": 1487,
+            "sdss_nearby": 985,
+            "associated": 985,
+            "fit_eligible": 984,
+            "calibrated": 984,
+            "final": 983,
+            "no_sdss_within_fixed_gate": 502,
+            "final_quality_rejection": 1,
+            "insufficient_time_sampling": 1
+          },
+          "21_to_22": {
+            "initial": 1836,
+            "sdss_nearby": 1483,
+            "associated": 1482,
+            "fit_eligible": 1481,
+            "calibrated": 1481,
+            "final": 1478,
+            "no_sdss_within_fixed_gate": 353,
+            "final_quality_rejection": 3,
+            "split_or_competing_track": 1,
+            "insufficient_time_sampling": 1
+          },
+          "lt20": {
+            "initial": 2310,
+            "sdss_nearby": 2041,
+            "associated": 2036,
+            "fit_eligible": 2035,
+            "calibrated": 2035,
+            "final": 2027,
+            "no_sdss_within_fixed_gate": 269,
+            "final_quality_rejection": 8,
+            "split_or_competing_track": 5,
+            "insufficient_time_sampling": 1
+          },
+          "22_to_23": {
+            "initial": 832,
+            "sdss_nearby": 629,
+            "associated": 628,
+            "fit_eligible": 624,
+            "calibrated": 624,
+            "final": 554,
+            "no_sdss_within_fixed_gate": 203,
+            "final_quality_rejection": 70,
+            "insufficient_time_sampling": 4,
+            "split_or_competing_track": 1
+          },
+          "ge23": {
+            "initial": 51,
+            "sdss_nearby": 3,
+            "associated": 3,
+            "fit_eligible": 3,
+            "calibrated": 3,
+            "final": 2,
+            "no_sdss_within_fixed_gate": 48,
+            "final_quality_rejection": 1
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 55192,
+          "non_r_missing_survey": 33184,
+          "non_r_before_quality": 1069,
+          "non_r_morphology_exit": 696,
+          "non_r_time_exit": 289,
+          "non_r_ownership_exit": 19,
+          "non_r_formal_error_exit": 2
+        },
+        "strict_r_solutions": 4580
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 27355,
+          "states": {
+            "valid_pointlike": 6516,
+            "valid_below_threshold": 20839
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 7
+            },
+            "final": {
+              "valid_pointlike": 4580
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1375
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 20839
+            },
+            "quality": {
+              "valid_pointlike": 58
+            },
+            "time_baseline": {
+              "valid_pointlike": 496
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 27355,
+          "states": {
+            "valid_pointlike": 6516,
+            "valid_below_threshold": 20839
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 7
+            },
+            "final": {
+              "valid_pointlike": 4580
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1375
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 20839
+            },
+            "quality": {
+              "valid_pointlike": 58
+            },
+            "time_baseline": {
+              "valid_pointlike": 496
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 27355,
+          "states": {
+            "valid_pointlike": 6516,
+            "valid_below_threshold": 20839
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 7
+            },
+            "final": {
+              "valid_pointlike": 5044
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1375
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 20839
+            },
+            "quality": {
+              "valid_pointlike": 83
+            },
+            "time_baseline": {
+              "valid_pointlike": 7
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 761,
+          "states": {
+            "valid_below_threshold": 696,
+            "valid_pointlike": 65
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 63
+            },
+            "formal_error": {
+              "valid_pointlike": 2
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 696
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 4570,
+          "anchor_states": {
+            "valid_pointlike": 4570
+          }
+        },
+        "extra_r_anchor": {
+          "n": 474,
+          "anchor_states": {
+            "valid_pointlike": 474
+          }
+        },
+        "non_r_anchor": {
+          "n": 63,
+          "anchor_states": {
+            "non_r_valid_only_route": 63
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 7,
+            "primary_exit": {
+              "recovered": 5,
+              "quality": 1,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 6,
+              "valid_below_threshold": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 7,
+            "primary_exit": {
+              "recovered": 5,
+              "quality": 1,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 6,
+              "valid_below_threshold": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 7,
+            "primary_exit": {
+              "recovered": 5,
+              "quality": 1,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 6,
+              "valid_below_threshold": 1
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 0,
+            "primary_exit": {},
+            "overlap_flags": {},
+            "direct_anchor_morphology": {}
+          },
+          "geometric_opportunity": {
+            "denominator": 0,
+            "primary_exit": {},
+            "overlap_flags": {},
+            "direct_anchor_morphology": {}
+          },
+          "measured_both_surveys": {
+            "denominator": 0,
+            "primary_exit": {},
+            "overlap_flags": {},
+            "direct_anchor_morphology": {}
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 116.62668686301913,
+      "peak_rss_mib": 1112.7109375,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "a168662d916f737bfa65e3f3941d8a82b0453c66a59dc0bcb1cef3239dbe8501",
+        "fit_sha256": "92d932e6af16fef5b93073d589af39bc4e310885807bc918aa341a4f1c27b821",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w150_090",
+      "core": "w150_090_68_11",
+      "input_detections": 429435,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 3246,
+      "funnel": {
+        "legacy_r": {
+          "21_to_22": {
+            "initial": 1010,
+            "sdss_nearby": 702,
+            "associated": 702,
+            "fit_eligible": 699,
+            "calibrated": 699,
+            "final": 699,
+            "no_sdss_within_fixed_gate": 308,
+            "insufficient_time_sampling": 3
+          },
+          "20_to_21": {
+            "initial": 1306,
+            "sdss_nearby": 861,
+            "associated": 861,
+            "fit_eligible": 859,
+            "calibrated": 859,
+            "final": 859,
+            "no_sdss_within_fixed_gate": 445,
+            "insufficient_time_sampling": 2
+          },
+          "lt20": {
+            "initial": 1921,
+            "sdss_nearby": 1589,
+            "associated": 1586,
+            "fit_eligible": 1560,
+            "calibrated": 1560,
+            "final": 1560,
+            "no_sdss_within_fixed_gate": 332,
+            "insufficient_time_sampling": 26,
+            "split_or_competing_track": 3
+          },
+          "22_to_23": {
+            "initial": 296,
+            "sdss_nearby": 119,
+            "associated": 119,
+            "fit_eligible": 106,
+            "calibrated": 106,
+            "final": 91,
+            "no_sdss_within_fixed_gate": 177,
+            "final_quality_rejection": 15,
+            "insufficient_time_sampling": 13
+          },
+          "ge23": {
+            "initial": 40,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 39,
+            "insufficient_time_sampling": 1
+          }
+        },
+        "physical_all_r_anchor": {
+          "21_to_22": {
+            "initial": 1010,
+            "sdss_nearby": 702,
+            "associated": 702,
+            "fit_eligible": 702,
+            "calibrated": 702,
+            "final": 702,
+            "no_sdss_within_fixed_gate": 308
+          },
+          "20_to_21": {
+            "initial": 1306,
+            "sdss_nearby": 861,
+            "associated": 861,
+            "fit_eligible": 861,
+            "calibrated": 861,
+            "final": 861,
+            "no_sdss_within_fixed_gate": 445
+          },
+          "lt20": {
+            "initial": 1921,
+            "sdss_nearby": 1589,
+            "associated": 1586,
+            "fit_eligible": 1578,
+            "calibrated": 1578,
+            "final": 1578,
+            "no_sdss_within_fixed_gate": 332,
+            "insufficient_time_sampling": 8,
+            "split_or_competing_track": 3
+          },
+          "22_to_23": {
+            "initial": 296,
+            "sdss_nearby": 119,
+            "associated": 119,
+            "fit_eligible": 118,
+            "calibrated": 118,
+            "final": 104,
+            "no_sdss_within_fixed_gate": 177,
+            "final_quality_rejection": 14,
+            "insufficient_time_sampling": 1
+          },
+          "ge23": {
+            "initial": 40,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 39,
+            "final_quality_rejection": 1
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 48469,
+          "non_r_before_quality": 302,
+          "non_r_morphology_exit": 158,
+          "non_r_missing_survey": 31044,
+          "non_r_time_exit": 141,
+          "non_r_formal_error_exit": 2
+        },
+        "strict_r_solutions": 3209
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 24402,
+          "states": {
+            "valid_pointlike": 4573,
+            "valid_below_threshold": 19829
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 3
+            },
+            "final": {
+              "valid_pointlike": 3209
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1301
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 19829
+            },
+            "quality": {
+              "valid_pointlike": 15
+            },
+            "time_baseline": {
+              "valid_pointlike": 45
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 24402,
+          "states": {
+            "valid_pointlike": 4573,
+            "valid_below_threshold": 19829
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 3
+            },
+            "final": {
+              "valid_pointlike": 3209
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1301
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 19829
+            },
+            "quality": {
+              "valid_pointlike": 15
+            },
+            "time_baseline": {
+              "valid_pointlike": 45
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 24402,
+          "states": {
+            "valid_pointlike": 4573,
+            "valid_below_threshold": 19829
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 3
+            },
+            "final": {
+              "valid_pointlike": 3245
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1301
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 19829
+            },
+            "quality": {
+              "valid_pointlike": 15
+            },
+            "time_baseline": {
+              "valid_pointlike": 9
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 161,
+          "states": {
+            "valid_below_threshold": 158,
+            "valid_pointlike": 3
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 1
+            },
+            "formal_error": {
+              "valid_pointlike": 2
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 158
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 3209,
+          "anchor_states": {
+            "valid_pointlike": 3209
+          }
+        },
+        "extra_r_anchor": {
+          "n": 36,
+          "anchor_states": {
+            "valid_pointlike": 36
+          }
+        },
+        "non_r_anchor": {
+          "n": 1,
+          "anchor_states": {
+            "non_r_valid_only_route": 1
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 57,
+            "primary_exit": {
+              "pointlike_morphology": 24,
+              "recovered": 30,
+              "no_sdss_detection": 3
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 3
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 26,
+              "valid_pointlike": 31
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 56,
+            "primary_exit": {
+              "pointlike_morphology": 24,
+              "recovered": 29,
+              "no_sdss_detection": 3
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 3
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 26,
+              "valid_pointlike": 30
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 53,
+            "primary_exit": {
+              "pointlike_morphology": 24,
+              "recovered": 29
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 24,
+              "valid_pointlike": 29
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 37,
+            "primary_exit": {
+              "no_sdss_detection": 4,
+              "pointlike_morphology": 24,
+              "sdss_detection_quality_or_position": 6,
+              "quality": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 10
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 33,
+              "valid_pointlike": 4
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 37,
+            "primary_exit": {
+              "no_sdss_detection": 4,
+              "pointlike_morphology": 24,
+              "sdss_detection_quality_or_position": 6,
+              "quality": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 10
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 33,
+              "valid_pointlike": 4
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 33,
+            "primary_exit": {
+              "pointlike_morphology": 24,
+              "sdss_detection_quality_or_position": 6,
+              "quality": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 6
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 30,
+              "valid_pointlike": 3
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 62.004727668943815,
+      "peak_rss_mib": 1039.05078125,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "094115c35f516809dc6cdf3f8e3b375d841b213446d60dbf12d8e9173a687623",
+        "fit_sha256": "984c956adf7fde9c89fa6ceffa990cfa6b6ee050f4629b27d0f4687af30a2a50",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w150_090",
+      "core": "w150_090_22_10",
+      "input_detections": 809890,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 6581,
+      "funnel": {
+        "legacy_r": {
+          "ge23": {
+            "initial": 3428,
+            "sdss_nearby": 72,
+            "associated": 72,
+            "fit_eligible": 47,
+            "calibrated": 47,
+            "final": 14,
+            "no_sdss_within_fixed_gate": 3356,
+            "final_quality_rejection": 33,
+            "insufficient_time_sampling": 25
+          },
+          "lt20": {
+            "initial": 2293,
+            "sdss_nearby": 1919,
+            "associated": 1914,
+            "fit_eligible": 1799,
+            "calibrated": 1799,
+            "final": 1799,
+            "no_sdss_within_fixed_gate": 374,
+            "split_or_competing_track": 5,
+            "insufficient_time_sampling": 115
+          },
+          "22_to_23": {
+            "initial": 3471,
+            "sdss_nearby": 1809,
+            "associated": 1807,
+            "fit_eligible": 1751,
+            "calibrated": 1751,
+            "final": 1310,
+            "no_sdss_within_fixed_gate": 1662,
+            "final_quality_rejection": 441,
+            "insufficient_time_sampling": 56,
+            "split_or_competing_track": 2
+          },
+          "21_to_22": {
+            "initial": 2278,
+            "sdss_nearby": 1903,
+            "associated": 1902,
+            "fit_eligible": 1874,
+            "calibrated": 1874,
+            "final": 1851,
+            "final_quality_rejection": 23,
+            "no_sdss_within_fixed_gate": 375,
+            "split_or_competing_track": 1,
+            "insufficient_time_sampling": 28
+          },
+          "20_to_21": {
+            "initial": 1701,
+            "sdss_nearby": 1137,
+            "associated": 1133,
+            "fit_eligible": 1117,
+            "calibrated": 1117,
+            "final": 1116,
+            "no_sdss_within_fixed_gate": 564,
+            "split_or_competing_track": 4,
+            "final_quality_rejection": 1,
+            "insufficient_time_sampling": 16
+          }
+        },
+        "physical_all_r_anchor": {
+          "ge23": {
+            "initial": 3428,
+            "sdss_nearby": 72,
+            "associated": 72,
+            "fit_eligible": 61,
+            "calibrated": 61,
+            "final": 31,
+            "no_sdss_within_fixed_gate": 3356,
+            "final_quality_rejection": 30,
+            "insufficient_time_sampling": 11
+          },
+          "lt20": {
+            "initial": 2290,
+            "sdss_nearby": 1919,
+            "associated": 1914,
+            "fit_eligible": 1899,
+            "calibrated": 1899,
+            "final": 1898,
+            "no_sdss_within_fixed_gate": 371,
+            "split_or_competing_track": 5,
+            "final_quality_rejection": 1,
+            "insufficient_time_sampling": 15
+          },
+          "22_to_23": {
+            "initial": 3471,
+            "sdss_nearby": 1809,
+            "associated": 1807,
+            "fit_eligible": 1805,
+            "calibrated": 1805,
+            "final": 1601,
+            "no_sdss_within_fixed_gate": 1662,
+            "final_quality_rejection": 204,
+            "split_or_competing_track": 2,
+            "insufficient_time_sampling": 2
+          },
+          "21_to_22": {
+            "initial": 2278,
+            "sdss_nearby": 1903,
+            "associated": 1902,
+            "fit_eligible": 1902,
+            "calibrated": 1902,
+            "final": 1897,
+            "no_sdss_within_fixed_gate": 375,
+            "final_quality_rejection": 5,
+            "split_or_competing_track": 1
+          },
+          "20_to_21": {
+            "initial": 1701,
+            "sdss_nearby": 1137,
+            "associated": 1133,
+            "fit_eligible": 1133,
+            "calibrated": 1133,
+            "final": 1130,
+            "no_sdss_within_fixed_gate": 564,
+            "final_quality_rejection": 3,
+            "split_or_competing_track": 4
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 103082,
+          "non_r_missing_survey": 83234,
+          "non_r_before_quality": 169,
+          "non_r_ownership_exit": 9,
+          "non_r_time_exit": 80,
+          "non_r_morphology_exit": 56
+        },
+        "strict_r_solutions": 6090
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 71560,
+          "states": {
+            "valid_below_threshold": 58389,
+            "valid_pointlike": 13171
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 12
+            },
+            "final": {
+              "valid_pointlike": 6090
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 6331
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 58389
+            },
+            "quality": {
+              "valid_pointlike": 498
+            },
+            "time_baseline": {
+              "valid_pointlike": 240
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 71557,
+          "states": {
+            "valid_below_threshold": 58389,
+            "valid_pointlike": 13168
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 12
+            },
+            "final": {
+              "valid_pointlike": 6090
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 6328
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 58389
+            },
+            "quality": {
+              "valid_pointlike": 498
+            },
+            "time_baseline": {
+              "valid_pointlike": 240
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 71557,
+          "states": {
+            "valid_below_threshold": 58389,
+            "valid_pointlike": 13168
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 12
+            },
+            "final": {
+              "valid_pointlike": 6557
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 6328
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 58389
+            },
+            "quality": {
+              "valid_pointlike": 243
+            },
+            "time_baseline": {
+              "valid_pointlike": 28
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 80,
+          "states": {
+            "valid_pointlike": 24,
+            "valid_below_threshold": 56
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 24
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 56
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 6085,
+          "anchor_states": {
+            "valid_pointlike": 6085
+          }
+        },
+        "extra_r_anchor": {
+          "n": 472,
+          "anchor_states": {
+            "valid_pointlike": 472
+          }
+        },
+        "non_r_anchor": {
+          "n": 24,
+          "anchor_states": {
+            "non_r_valid_only_route": 24
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 73,
+            "primary_exit": {
+              "recovered": 68,
+              "sdss_detection_quality_or_position": 3,
+              "pointlike_morphology": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 3
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 71,
+              "valid_below_threshold": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 73,
+            "primary_exit": {
+              "recovered": 68,
+              "sdss_detection_quality_or_position": 3,
+              "pointlike_morphology": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 3
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 71,
+              "valid_below_threshold": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 73,
+            "primary_exit": {
+              "recovered": 68,
+              "sdss_detection_quality_or_position": 3,
+              "pointlike_morphology": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 3
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 71,
+              "valid_below_threshold": 2
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 48,
+            "primary_exit": {
+              "no_sdss_detection": 10,
+              "recovered": 18,
+              "sdss_detection_quality_or_position": 11,
+              "pointlike_morphology": 9
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 21
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 30,
+              "valid_below_threshold": 18
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 48,
+            "primary_exit": {
+              "no_sdss_detection": 10,
+              "recovered": 18,
+              "sdss_detection_quality_or_position": 11,
+              "pointlike_morphology": 9
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 21
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 30,
+              "valid_below_threshold": 18
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 38,
+            "primary_exit": {
+              "recovered": 18,
+              "sdss_detection_quality_or_position": 11,
+              "pointlike_morphology": 9
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 11
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 25,
+              "valid_below_threshold": 13
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 221.72719354298897,
+      "peak_rss_mib": 1554.96875,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "73bcc921e2c27861b25f2a3faabf7e06dc8e19399d52d291da5397d16a2fb4bf",
+        "fit_sha256": "61f17ec2fdc1245bb276cfc0b93858b013540b31ffcacc3b552eb224bc14cc41",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w170_090",
+      "core": "w170_090_28_00",
+      "input_detections": 264604,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 4252,
+      "funnel": {
+        "legacy_r": {
+          "20_to_21": {
+            "initial": 1348,
+            "sdss_nearby": 874,
+            "associated": 871,
+            "fit_eligible": 707,
+            "calibrated": 707,
+            "final": 707,
+            "no_sdss_within_fixed_gate": 474,
+            "insufficient_time_sampling": 164,
+            "split_or_competing_track": 3
+          },
+          "22_to_23": {
+            "initial": 1152,
+            "sdss_nearby": 736,
+            "associated": 736,
+            "fit_eligible": 621,
+            "calibrated": 621,
+            "final": 414,
+            "final_quality_rejection": 207,
+            "no_sdss_within_fixed_gate": 416,
+            "insufficient_time_sampling": 115
+          },
+          "lt20": {
+            "initial": 1711,
+            "sdss_nearby": 1427,
+            "associated": 1423,
+            "fit_eligible": 1089,
+            "calibrated": 1089,
+            "final": 1089,
+            "no_sdss_within_fixed_gate": 284,
+            "insufficient_time_sampling": 334,
+            "split_or_competing_track": 4
+          },
+          "21_to_22": {
+            "initial": 1685,
+            "sdss_nearby": 1384,
+            "associated": 1384,
+            "fit_eligible": 1136,
+            "calibrated": 1136,
+            "final": 1087,
+            "insufficient_time_sampling": 248,
+            "no_sdss_within_fixed_gate": 301,
+            "final_quality_rejection": 49
+          },
+          "ge23": {
+            "initial": 39,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 38,
+            "insufficient_time_sampling": 1
+          }
+        },
+        "physical_all_r_anchor": {
+          "20_to_21": {
+            "initial": 1348,
+            "sdss_nearby": 874,
+            "associated": 871,
+            "fit_eligible": 871,
+            "calibrated": 871,
+            "final": 869,
+            "no_sdss_within_fixed_gate": 474,
+            "split_or_competing_track": 3,
+            "final_quality_rejection": 2
+          },
+          "22_to_23": {
+            "initial": 1152,
+            "sdss_nearby": 736,
+            "associated": 736,
+            "fit_eligible": 732,
+            "calibrated": 732,
+            "final": 595,
+            "final_quality_rejection": 137,
+            "no_sdss_within_fixed_gate": 416,
+            "insufficient_time_sampling": 4
+          },
+          "lt20": {
+            "initial": 1711,
+            "sdss_nearby": 1427,
+            "associated": 1423,
+            "fit_eligible": 1403,
+            "calibrated": 1403,
+            "final": 1395,
+            "no_sdss_within_fixed_gate": 284,
+            "insufficient_time_sampling": 20,
+            "split_or_competing_track": 4,
+            "final_quality_rejection": 8
+          },
+          "21_to_22": {
+            "initial": 1685,
+            "sdss_nearby": 1384,
+            "associated": 1384,
+            "fit_eligible": 1383,
+            "calibrated": 1383,
+            "final": 1362,
+            "no_sdss_within_fixed_gate": 301,
+            "final_quality_rejection": 21,
+            "insufficient_time_sampling": 1
+          },
+          "ge23": {
+            "initial": 39,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 1,
+            "no_sdss_within_fixed_gate": 38
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 52389,
+          "non_r_missing_survey": 37678,
+          "non_r_before_quality": 251,
+          "non_r_morphology_exit": 128,
+          "non_r_time_exit": 89,
+          "non_r_ownership_exit": 4
+        },
+        "strict_r_solutions": 3297
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 24873,
+          "states": {
+            "valid_below_threshold": 18938,
+            "valid_pointlike": 5935
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 7
+            },
+            "final": {
+              "valid_pointlike": 3297
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1513
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 18938
+            },
+            "quality": {
+              "valid_pointlike": 256
+            },
+            "time_baseline": {
+              "valid_pointlike": 862
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 24873,
+          "states": {
+            "valid_below_threshold": 18938,
+            "valid_pointlike": 5935
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 7
+            },
+            "final": {
+              "valid_pointlike": 3297
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1513
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 18938
+            },
+            "quality": {
+              "valid_pointlike": 256
+            },
+            "time_baseline": {
+              "valid_pointlike": 862
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 24873,
+          "states": {
+            "valid_below_threshold": 18938,
+            "valid_pointlike": 5935
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 7
+            },
+            "final": {
+              "valid_pointlike": 4222
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1513
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 18938
+            },
+            "quality": {
+              "valid_pointlike": 168
+            },
+            "time_baseline": {
+              "valid_pointlike": 25
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 158,
+          "states": {
+            "valid_pointlike": 30,
+            "valid_below_threshold": 128
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 30
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 128
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 3289,
+          "anchor_states": {
+            "valid_pointlike": 3289
+          }
+        },
+        "extra_r_anchor": {
+          "n": 933,
+          "anchor_states": {
+            "valid_pointlike": 933
+          }
+        },
+        "non_r_anchor": {
+          "n": 30,
+          "anchor_states": {
+            "non_r_valid_only_route": 30
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 9,
+            "primary_exit": {
+              "recovered": 9
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 9
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 9,
+            "primary_exit": {
+              "recovered": 9
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 9
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 9,
+            "primary_exit": {
+              "recovered": 9
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 9
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 2,
+            "primary_exit": {
+              "recovered": 2
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 2,
+            "primary_exit": {
+              "recovered": 2
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 2,
+            "primary_exit": {
+              "recovered": 2
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 2
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 57.82480067003053,
+      "peak_rss_mib": 992.796875,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "628837aec61f3c54c1371820dafb3e71b1d4d4d8cda0b4bd3c09850121322a95",
+        "fit_sha256": "cf474731e6f7268e9253162fa5e6e8f0fc182149079d9d6d31d8a0b376e9aa3a",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w170_090",
+      "core": "w170_090_22_11",
+      "input_detections": 437093,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 4717,
+      "funnel": {
+        "legacy_r": {
+          "20_to_21": {
+            "initial": 1433,
+            "sdss_nearby": 956,
+            "associated": 951,
+            "fit_eligible": 897,
+            "calibrated": 897,
+            "final": 897,
+            "no_sdss_within_fixed_gate": 477,
+            "insufficient_time_sampling": 54,
+            "split_or_competing_track": 5
+          },
+          "lt20": {
+            "initial": 1794,
+            "sdss_nearby": 1588,
+            "associated": 1581,
+            "fit_eligible": 1456,
+            "calibrated": 1456,
+            "final": 1456,
+            "no_sdss_within_fixed_gate": 206,
+            "insufficient_time_sampling": 125,
+            "split_or_competing_track": 7
+          },
+          "21_to_22": {
+            "initial": 2132,
+            "sdss_nearby": 1493,
+            "associated": 1491,
+            "fit_eligible": 1386,
+            "calibrated": 1386,
+            "final": 1365,
+            "no_sdss_within_fixed_gate": 639,
+            "insufficient_time_sampling": 105,
+            "final_quality_rejection": 21,
+            "split_or_competing_track": 2
+          },
+          "22_to_23": {
+            "initial": 1123,
+            "sdss_nearby": 696,
+            "associated": 695,
+            "fit_eligible": 634,
+            "calibrated": 634,
+            "final": 541,
+            "no_sdss_within_fixed_gate": 427,
+            "final_quality_rejection": 93,
+            "insufficient_time_sampling": 61,
+            "split_or_competing_track": 1
+          },
+          "ge23": {
+            "initial": 72,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 70,
+            "insufficient_time_sampling": 2
+          }
+        },
+        "physical_all_r_anchor": {
+          "20_to_21": {
+            "initial": 1433,
+            "sdss_nearby": 956,
+            "associated": 951,
+            "fit_eligible": 951,
+            "calibrated": 951,
+            "final": 949,
+            "no_sdss_within_fixed_gate": 477,
+            "final_quality_rejection": 2,
+            "split_or_competing_track": 5
+          },
+          "lt20": {
+            "initial": 1794,
+            "sdss_nearby": 1588,
+            "associated": 1581,
+            "fit_eligible": 1578,
+            "calibrated": 1578,
+            "final": 1577,
+            "no_sdss_within_fixed_gate": 206,
+            "split_or_competing_track": 7,
+            "insufficient_time_sampling": 3,
+            "final_quality_rejection": 1
+          },
+          "21_to_22": {
+            "initial": 2132,
+            "sdss_nearby": 1493,
+            "associated": 1491,
+            "fit_eligible": 1490,
+            "calibrated": 1490,
+            "final": 1485,
+            "no_sdss_within_fixed_gate": 639,
+            "final_quality_rejection": 5,
+            "split_or_competing_track": 2,
+            "insufficient_time_sampling": 1
+          },
+          "22_to_23": {
+            "initial": 1123,
+            "sdss_nearby": 696,
+            "associated": 695,
+            "fit_eligible": 693,
+            "calibrated": 693,
+            "final": 655,
+            "no_sdss_within_fixed_gate": 427,
+            "final_quality_rejection": 38,
+            "insufficient_time_sampling": 2,
+            "split_or_competing_track": 1
+          },
+          "ge23": {
+            "initial": 72,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 2,
+            "calibrated": 2,
+            "final": 2,
+            "no_sdss_within_fixed_gate": 70
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 88053,
+          "non_r_missing_survey": 70845,
+          "non_r_before_quality": 409,
+          "non_r_morphology_exit": 185,
+          "non_r_ownership_exit": 11,
+          "non_r_time_exit": 160,
+          "non_r_formal_error_exit": 4
+        },
+        "strict_r_solutions": 4259
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 31032,
+          "states": {
+            "valid_below_threshold": 24478,
+            "valid_pointlike": 6554
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 15
+            },
+            "final": {
+              "valid_pointlike": 4259
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1819
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 24478
+            },
+            "quality": {
+              "valid_pointlike": 114
+            },
+            "time_baseline": {
+              "valid_pointlike": 347
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 31032,
+          "states": {
+            "valid_below_threshold": 24478,
+            "valid_pointlike": 6554
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 15
+            },
+            "final": {
+              "valid_pointlike": 4259
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1819
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 24478
+            },
+            "quality": {
+              "valid_pointlike": 114
+            },
+            "time_baseline": {
+              "valid_pointlike": 347
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 31032,
+          "states": {
+            "valid_below_threshold": 24478,
+            "valid_pointlike": 6554
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 15
+            },
+            "final": {
+              "valid_pointlike": 4668
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1819
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 24478
+            },
+            "quality": {
+              "valid_pointlike": 46
+            },
+            "time_baseline": {
+              "valid_pointlike": 6
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 238,
+          "states": {
+            "valid_below_threshold": 185,
+            "valid_pointlike": 53
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 49
+            },
+            "formal_error": {
+              "valid_pointlike": 4
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 185
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 4257,
+          "anchor_states": {
+            "valid_pointlike": 4257
+          }
+        },
+        "extra_r_anchor": {
+          "n": 411,
+          "anchor_states": {
+            "valid_pointlike": 411
+          }
+        },
+        "non_r_anchor": {
+          "n": 49,
+          "anchor_states": {
+            "non_r_valid_only_route": 49
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 79,
+            "primary_exit": {
+              "pointlike_morphology": 7,
+              "no_sdss_detection": 5,
+              "recovered": 65,
+              "sdss_detection_quality_or_position": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 7
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 8,
+              "valid_pointlike": 71
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 79,
+            "primary_exit": {
+              "pointlike_morphology": 7,
+              "no_sdss_detection": 5,
+              "recovered": 65,
+              "sdss_detection_quality_or_position": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 7
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 8,
+              "valid_pointlike": 71
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 74,
+            "primary_exit": {
+              "pointlike_morphology": 7,
+              "recovered": 65,
+              "sdss_detection_quality_or_position": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 7,
+              "valid_pointlike": 67
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 52,
+            "primary_exit": {
+              "pointlike_morphology": 24,
+              "recovered": 9,
+              "sdss_detection_quality_or_position": 11,
+              "no_sdss_detection": 7,
+              "quality": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 18
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 38,
+              "valid_pointlike": 14
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 52,
+            "primary_exit": {
+              "pointlike_morphology": 24,
+              "recovered": 9,
+              "sdss_detection_quality_or_position": 11,
+              "no_sdss_detection": 7,
+              "quality": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 18
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 38,
+              "valid_pointlike": 14
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 45,
+            "primary_exit": {
+              "pointlike_morphology": 24,
+              "recovered": 9,
+              "sdss_detection_quality_or_position": 11,
+              "quality": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 11
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 32,
+              "valid_pointlike": 13
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 69.15250443597324,
+      "peak_rss_mib": 1082.1796875,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "325dbedd46bac6b7c076d1277db9f384fa3118dbe942ac18a6eab0e8a4fccb45",
+        "fit_sha256": "dc59ea7e0c4e78353d9dc1850796868cbe80aadffdc35bfe2f988aca48d2fc29",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w210_090",
+      "core": "w210_090_08_11",
+      "input_detections": 388103,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 5947,
+      "funnel": {
+        "legacy_r": {
+          "21_to_22": {
+            "initial": 2140,
+            "sdss_nearby": 1789,
+            "associated": 1787,
+            "fit_eligible": 1498,
+            "calibrated": 1498,
+            "final": 1490,
+            "no_sdss_within_fixed_gate": 351,
+            "insufficient_time_sampling": 289,
+            "final_quality_rejection": 8,
+            "split_or_competing_track": 2
+          },
+          "lt20": {
+            "initial": 2152,
+            "sdss_nearby": 1945,
+            "associated": 1939,
+            "fit_eligible": 1574,
+            "calibrated": 1574,
+            "final": 1572,
+            "insufficient_time_sampling": 365,
+            "no_sdss_within_fixed_gate": 207,
+            "split_or_competing_track": 6,
+            "final_quality_rejection": 2
+          },
+          "22_to_23": {
+            "initial": 1375,
+            "sdss_nearby": 1111,
+            "associated": 1109,
+            "fit_eligible": 860,
+            "calibrated": 860,
+            "final": 776,
+            "insufficient_time_sampling": 249,
+            "no_sdss_within_fixed_gate": 264,
+            "final_quality_rejection": 84,
+            "split_or_competing_track": 2
+          },
+          "20_to_21": {
+            "initial": 1517,
+            "sdss_nearby": 1144,
+            "associated": 1142,
+            "fit_eligible": 940,
+            "calibrated": 940,
+            "final": 938,
+            "insufficient_time_sampling": 202,
+            "no_sdss_within_fixed_gate": 373,
+            "final_quality_rejection": 2,
+            "split_or_competing_track": 2
+          },
+          "ge23": {
+            "initial": 103,
+            "sdss_nearby": 4,
+            "associated": 4,
+            "fit_eligible": 2,
+            "calibrated": 2,
+            "final": 2,
+            "no_sdss_within_fixed_gate": 99,
+            "insufficient_time_sampling": 2
+          }
+        },
+        "physical_all_r_anchor": {
+          "21_to_22": {
+            "initial": 2140,
+            "sdss_nearby": 1789,
+            "associated": 1787,
+            "fit_eligible": 1786,
+            "calibrated": 1786,
+            "final": 1780,
+            "no_sdss_within_fixed_gate": 351,
+            "final_quality_rejection": 6,
+            "split_or_competing_track": 2,
+            "insufficient_time_sampling": 1
+          },
+          "lt20": {
+            "initial": 2152,
+            "sdss_nearby": 1945,
+            "associated": 1939,
+            "fit_eligible": 1937,
+            "calibrated": 1937,
+            "final": 1927,
+            "no_sdss_within_fixed_gate": 207,
+            "final_quality_rejection": 10,
+            "split_or_competing_track": 6,
+            "insufficient_time_sampling": 2
+          },
+          "22_to_23": {
+            "initial": 1375,
+            "sdss_nearby": 1111,
+            "associated": 1109,
+            "fit_eligible": 1100,
+            "calibrated": 1100,
+            "final": 1045,
+            "no_sdss_within_fixed_gate": 264,
+            "final_quality_rejection": 55,
+            "split_or_competing_track": 2,
+            "insufficient_time_sampling": 9
+          },
+          "20_to_21": {
+            "initial": 1517,
+            "sdss_nearby": 1144,
+            "associated": 1142,
+            "fit_eligible": 1140,
+            "calibrated": 1140,
+            "final": 1136,
+            "no_sdss_within_fixed_gate": 373,
+            "insufficient_time_sampling": 2,
+            "split_or_competing_track": 2,
+            "final_quality_rejection": 4
+          },
+          "ge23": {
+            "initial": 103,
+            "sdss_nearby": 4,
+            "associated": 4,
+            "fit_eligible": 4,
+            "calibrated": 4,
+            "final": 2,
+            "no_sdss_within_fixed_gate": 99,
+            "final_quality_rejection": 2
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 64643,
+          "non_r_missing_survey": 40504,
+          "non_r_before_quality": 869,
+          "non_r_time_exit": 330,
+          "non_r_ownership_exit": 10,
+          "non_r_morphology_exit": 472
+        },
+        "strict_r_solutions": 4778
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 33530,
+          "states": {
+            "valid_below_threshold": 26243,
+            "valid_pointlike": 7287
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 12
+            },
+            "final": {
+              "valid_pointlike": 4778
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1294
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 26243
+            },
+            "quality": {
+              "valid_pointlike": 96
+            },
+            "time_baseline": {
+              "valid_pointlike": 1107
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 33530,
+          "states": {
+            "valid_below_threshold": 26243,
+            "valid_pointlike": 7287
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 12
+            },
+            "final": {
+              "valid_pointlike": 4778
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1294
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 26243
+            },
+            "quality": {
+              "valid_pointlike": 96
+            },
+            "time_baseline": {
+              "valid_pointlike": 1107
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 33530,
+          "states": {
+            "valid_below_threshold": 26243,
+            "valid_pointlike": 7287
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 12
+            },
+            "final": {
+              "valid_pointlike": 5890
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1294
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 26243
+            },
+            "quality": {
+              "valid_pointlike": 77
+            },
+            "time_baseline": {
+              "valid_pointlike": 14
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 529,
+          "states": {
+            "valid_below_threshold": 472,
+            "valid_pointlike": 57
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 57
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 472
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 4767,
+          "anchor_states": {
+            "valid_pointlike": 4767
+          }
+        },
+        "extra_r_anchor": {
+          "n": 1123,
+          "anchor_states": {
+            "valid_pointlike": 1123
+          }
+        },
+        "non_r_anchor": {
+          "n": 57,
+          "anchor_states": {
+            "non_r_valid_only_route": 57
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 11,
+            "primary_exit": {
+              "recovered": 10,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 10,
+              "valid_below_threshold": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 11,
+            "primary_exit": {
+              "recovered": 10,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 10,
+              "valid_below_threshold": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 11,
+            "primary_exit": {
+              "recovered": 10,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 10,
+              "valid_below_threshold": 1
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 3,
+            "primary_exit": {
+              "pointlike_morphology": 2,
+              "recovered": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 2,
+              "valid_pointlike": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 3,
+            "primary_exit": {
+              "pointlike_morphology": 2,
+              "recovered": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 2,
+              "valid_pointlike": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 3,
+            "primary_exit": {
+              "pointlike_morphology": 2,
+              "recovered": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 2,
+              "valid_pointlike": 1
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 79.89744101406541,
+      "peak_rss_mib": 1102.18359375,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "30e0c0f12458bce7e23fad86a9284c90a6f9b7c7c8ffd011f4ec9c5ae5907a38",
+        "fit_sha256": "387f276d7442913428dd543b4aa42c171e2b2a97add192c3e282445c94297d10",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w210_090",
+      "core": "w210_090_06_11",
+      "input_detections": 470761,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 6048,
+      "funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 2348,
+            "sdss_nearby": 2019,
+            "associated": 1997,
+            "fit_eligible": 1683,
+            "calibrated": 1683,
+            "final": 1683,
+            "no_sdss_within_fixed_gate": 329,
+            "insufficient_time_sampling": 314,
+            "split_or_competing_track": 22
+          },
+          "21_to_22": {
+            "initial": 1901,
+            "sdss_nearby": 1698,
+            "associated": 1685,
+            "fit_eligible": 1495,
+            "calibrated": 1495,
+            "final": 1490,
+            "no_sdss_within_fixed_gate": 203,
+            "split_or_competing_track": 13,
+            "insufficient_time_sampling": 190,
+            "final_quality_rejection": 5
+          },
+          "20_to_21": {
+            "initial": 1634,
+            "sdss_nearby": 1186,
+            "associated": 1172,
+            "fit_eligible": 1026,
+            "calibrated": 1026,
+            "final": 1026,
+            "no_sdss_within_fixed_gate": 448,
+            "split_or_competing_track": 14,
+            "insufficient_time_sampling": 146
+          },
+          "22_to_23": {
+            "initial": 1419,
+            "sdss_nearby": 1221,
+            "associated": 1217,
+            "fit_eligible": 1009,
+            "calibrated": 1009,
+            "final": 936,
+            "final_quality_rejection": 73,
+            "no_sdss_within_fixed_gate": 198,
+            "split_or_competing_track": 4,
+            "insufficient_time_sampling": 208
+          },
+          "ge23": {
+            "initial": 53,
+            "sdss_nearby": 4,
+            "associated": 4,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 1,
+            "no_sdss_within_fixed_gate": 49,
+            "insufficient_time_sampling": 3
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 2348,
+            "sdss_nearby": 2019,
+            "associated": 1997,
+            "fit_eligible": 1989,
+            "calibrated": 1989,
+            "final": 1984,
+            "no_sdss_within_fixed_gate": 329,
+            "split_or_competing_track": 22,
+            "final_quality_rejection": 5,
+            "insufficient_time_sampling": 8
+          },
+          "21_to_22": {
+            "initial": 1901,
+            "sdss_nearby": 1698,
+            "associated": 1685,
+            "fit_eligible": 1685,
+            "calibrated": 1685,
+            "final": 1679,
+            "no_sdss_within_fixed_gate": 203,
+            "split_or_competing_track": 13,
+            "final_quality_rejection": 6
+          },
+          "20_to_21": {
+            "initial": 1634,
+            "sdss_nearby": 1186,
+            "associated": 1172,
+            "fit_eligible": 1169,
+            "calibrated": 1169,
+            "final": 1168,
+            "no_sdss_within_fixed_gate": 448,
+            "split_or_competing_track": 14,
+            "final_quality_rejection": 1,
+            "insufficient_time_sampling": 3
+          },
+          "22_to_23": {
+            "initial": 1419,
+            "sdss_nearby": 1221,
+            "associated": 1217,
+            "fit_eligible": 1214,
+            "calibrated": 1214,
+            "final": 1165,
+            "final_quality_rejection": 49,
+            "no_sdss_within_fixed_gate": 198,
+            "split_or_competing_track": 4,
+            "insufficient_time_sampling": 3
+          },
+          "ge23": {
+            "initial": 53,
+            "sdss_nearby": 4,
+            "associated": 4,
+            "fit_eligible": 4,
+            "calibrated": 4,
+            "final": 2,
+            "no_sdss_within_fixed_gate": 49,
+            "final_quality_rejection": 2
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 64769,
+          "non_r_missing_survey": 40725,
+          "non_r_before_quality": 906,
+          "non_r_morphology_exit": 509,
+          "non_r_time_exit": 334,
+          "non_r_ownership_exit": 13
+        },
+        "strict_r_solutions": 5136
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 30780,
+          "states": {
+            "valid_below_threshold": 23425,
+            "valid_pointlike": 7355
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 53
+            },
+            "final": {
+              "valid_pointlike": 5136
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1227
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 23425
+            },
+            "quality": {
+              "valid_pointlike": 78
+            },
+            "time_baseline": {
+              "valid_pointlike": 861
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 30780,
+          "states": {
+            "valid_below_threshold": 23425,
+            "valid_pointlike": 7355
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 53
+            },
+            "final": {
+              "valid_pointlike": 5136
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1227
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 23425
+            },
+            "quality": {
+              "valid_pointlike": 78
+            },
+            "time_baseline": {
+              "valid_pointlike": 861
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 30780,
+          "states": {
+            "valid_below_threshold": 23425,
+            "valid_pointlike": 7355
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 53
+            },
+            "final": {
+              "valid_pointlike": 5998
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1227
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 23425
+            },
+            "quality": {
+              "valid_pointlike": 63
+            },
+            "time_baseline": {
+              "valid_pointlike": 14
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 559,
+          "states": {
+            "valid_below_threshold": 509,
+            "valid_pointlike": 50
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 50
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 509
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 5128,
+          "anchor_states": {
+            "valid_pointlike": 5128
+          }
+        },
+        "extra_r_anchor": {
+          "n": 870,
+          "anchor_states": {
+            "valid_pointlike": 870
+          }
+        },
+        "non_r_anchor": {
+          "n": 50,
+          "anchor_states": {
+            "non_r_valid_only_route": 50
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 10,
+            "primary_exit": {
+              "recovered": 9,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 9,
+              "valid_below_threshold": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 10,
+            "primary_exit": {
+              "recovered": 9,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 9,
+              "valid_below_threshold": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 10,
+            "primary_exit": {
+              "recovered": 9,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 9,
+              "valid_below_threshold": 1
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 1,
+            "primary_exit": {
+              "no_sdss_detection": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 1,
+            "primary_exit": {
+              "no_sdss_detection": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 0,
+            "primary_exit": {},
+            "overlap_flags": {},
+            "direct_anchor_morphology": {}
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 126.78045243106317,
+      "peak_rss_mib": 1159.93359375,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "abd2f30cc73737688d0688a7ec28c588a6be32df47e964dd3bcda104996fa837",
+        "fit_sha256": "29e6e80eba79df8e7a272958699daa117b72781f06f02cc60abeb272c6bc5028",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w220_090",
+      "core": "w220_090_08_01",
+      "input_detections": 390231,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 4992,
+      "funnel": {
+        "legacy_r": {
+          "21_to_22": {
+            "initial": 1444,
+            "sdss_nearby": 1261,
+            "associated": 1250,
+            "fit_eligible": 1165,
+            "calibrated": 1165,
+            "final": 1151,
+            "split_or_competing_track": 11,
+            "no_sdss_within_fixed_gate": 183,
+            "final_quality_rejection": 14,
+            "insufficient_time_sampling": 85
+          },
+          "lt20": {
+            "initial": 2699,
+            "sdss_nearby": 2423,
+            "associated": 2415,
+            "fit_eligible": 2356,
+            "calibrated": 2356,
+            "final": 2353,
+            "no_sdss_within_fixed_gate": 276,
+            "split_or_competing_track": 8,
+            "insufficient_time_sampling": 59,
+            "final_quality_rejection": 3
+          },
+          "20_to_21": {
+            "initial": 1587,
+            "sdss_nearby": 1168,
+            "associated": 1166,
+            "fit_eligible": 1151,
+            "calibrated": 1151,
+            "final": 1151,
+            "no_sdss_within_fixed_gate": 419,
+            "insufficient_time_sampling": 15,
+            "split_or_competing_track": 2
+          },
+          "22_to_23": {
+            "initial": 260,
+            "sdss_nearby": 158,
+            "associated": 158,
+            "fit_eligible": 123,
+            "calibrated": 123,
+            "final": 113,
+            "no_sdss_within_fixed_gate": 102,
+            "final_quality_rejection": 10,
+            "insufficient_time_sampling": 35
+          },
+          "ge23": {
+            "initial": 44,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 44
+          }
+        },
+        "physical_all_r_anchor": {
+          "21_to_22": {
+            "initial": 1444,
+            "sdss_nearby": 1261,
+            "associated": 1250,
+            "fit_eligible": 1249,
+            "calibrated": 1249,
+            "final": 1244,
+            "split_or_competing_track": 11,
+            "no_sdss_within_fixed_gate": 183,
+            "final_quality_rejection": 5,
+            "insufficient_time_sampling": 1
+          },
+          "lt20": {
+            "initial": 2699,
+            "sdss_nearby": 2423,
+            "associated": 2415,
+            "fit_eligible": 2408,
+            "calibrated": 2408,
+            "final": 2390,
+            "final_quality_rejection": 18,
+            "no_sdss_within_fixed_gate": 276,
+            "split_or_competing_track": 8,
+            "insufficient_time_sampling": 7
+          },
+          "20_to_21": {
+            "initial": 1587,
+            "sdss_nearby": 1168,
+            "associated": 1166,
+            "fit_eligible": 1163,
+            "calibrated": 1163,
+            "final": 1161,
+            "no_sdss_within_fixed_gate": 419,
+            "insufficient_time_sampling": 3,
+            "final_quality_rejection": 2,
+            "split_or_competing_track": 2
+          },
+          "22_to_23": {
+            "initial": 260,
+            "sdss_nearby": 158,
+            "associated": 158,
+            "fit_eligible": 157,
+            "calibrated": 157,
+            "final": 149,
+            "no_sdss_within_fixed_gate": 102,
+            "final_quality_rejection": 8,
+            "insufficient_time_sampling": 1
+          },
+          "ge23": {
+            "initial": 44,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 44
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 62019,
+          "non_r_before_quality": 1713,
+          "non_r_morphology_exit": 1066,
+          "non_r_time_exit": 584,
+          "non_r_missing_survey": 36660,
+          "non_r_formal_error_exit": 1,
+          "non_r_ownership_exit": 13,
+          "non_r_residual_exit": 1
+        },
+        "strict_r_solutions": 4768
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 28946,
+          "states": {
+            "valid_below_threshold": 22912,
+            "valid_pointlike": 6034
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 21
+            },
+            "final": {
+              "valid_pointlike": 4768
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1024
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 22912
+            },
+            "quality": {
+              "valid_pointlike": 27
+            },
+            "time_baseline": {
+              "valid_pointlike": 194
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 28946,
+          "states": {
+            "valid_below_threshold": 22912,
+            "valid_pointlike": 6034
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 21
+            },
+            "final": {
+              "valid_pointlike": 4768
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1024
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 22912
+            },
+            "quality": {
+              "valid_pointlike": 27
+            },
+            "time_baseline": {
+              "valid_pointlike": 194
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 28946,
+          "states": {
+            "valid_below_threshold": 22912,
+            "valid_pointlike": 6034
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 21
+            },
+            "final": {
+              "valid_pointlike": 4944
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1024
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 22912
+            },
+            "quality": {
+              "valid_pointlike": 33
+            },
+            "time_baseline": {
+              "valid_pointlike": 12
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 1116,
+          "states": {
+            "valid_below_threshold": 1066,
+            "valid_pointlike": 50
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 48
+            },
+            "formal_error": {
+              "valid_pointlike": 1
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 1066
+            },
+            "residual": {
+              "valid_pointlike": 1
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 4748,
+          "anchor_states": {
+            "valid_pointlike": 4748
+          }
+        },
+        "extra_r_anchor": {
+          "n": 196,
+          "anchor_states": {
+            "valid_pointlike": 196
+          }
+        },
+        "non_r_anchor": {
+          "n": 48,
+          "anchor_states": {
+            "non_r_valid_only_route": 48
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 48,
+            "primary_exit": {
+              "pointlike_morphology": 26,
+              "recovered": 21,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 26,
+              "valid_pointlike": 22
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 48,
+            "primary_exit": {
+              "pointlike_morphology": 26,
+              "recovered": 21,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 26,
+              "valid_pointlike": 22
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 48,
+            "primary_exit": {
+              "pointlike_morphology": 26,
+              "recovered": 21,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 26,
+              "valid_pointlike": 22
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 37,
+            "primary_exit": {
+              "no_nsc_detection": 1,
+              "pointlike_morphology": 29,
+              "no_sdss_detection": 4,
+              "sdss_detection_quality_or_position": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 6,
+              "fewer_than_two_nsc_exposures": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 32,
+              "valid_pointlike": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 37,
+            "primary_exit": {
+              "no_nsc_detection": 1,
+              "pointlike_morphology": 29,
+              "no_sdss_detection": 4,
+              "sdss_detection_quality_or_position": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 6,
+              "fewer_than_two_nsc_exposures": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 32,
+              "valid_pointlike": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 32,
+            "primary_exit": {
+              "pointlike_morphology": 29,
+              "sdss_detection_quality_or_position": 1,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 30,
+              "valid_pointlike": 2
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 80.55197693803348,
+      "peak_rss_mib": 1096.83203125,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "67dc84d0edf0601f270a7e063a8dc9baf3cba279415b257fe62d73ca219373b5",
+        "fit_sha256": "0b851a2bf522ab569a645895bb7c63a2717943a5881ea5e226c0a4248f40c76a",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w220_090",
+      "core": "w220_090_42_01",
+      "input_detections": 1202367,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 7786,
+      "funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 3248,
+            "sdss_nearby": 2928,
+            "associated": 2914,
+            "fit_eligible": 2779,
+            "calibrated": 2779,
+            "final": 2777,
+            "no_sdss_within_fixed_gate": 320,
+            "insufficient_time_sampling": 135,
+            "split_or_competing_track": 14,
+            "final_quality_rejection": 2
+          },
+          "21_to_22": {
+            "initial": 2587,
+            "sdss_nearby": 2234,
+            "associated": 2230,
+            "fit_eligible": 2175,
+            "calibrated": 2175,
+            "final": 2157,
+            "no_sdss_within_fixed_gate": 353,
+            "insufficient_time_sampling": 55,
+            "final_quality_rejection": 18,
+            "split_or_competing_track": 4
+          },
+          "20_to_21": {
+            "initial": 2103,
+            "sdss_nearby": 1559,
+            "associated": 1555,
+            "fit_eligible": 1518,
+            "calibrated": 1518,
+            "final": 1515,
+            "no_sdss_within_fixed_gate": 544,
+            "insufficient_time_sampling": 37,
+            "final_quality_rejection": 3,
+            "split_or_competing_track": 4
+          },
+          "22_to_23": {
+            "initial": 1601,
+            "sdss_nearby": 1238,
+            "associated": 1232,
+            "fit_eligible": 1124,
+            "calibrated": 1124,
+            "final": 887,
+            "no_sdss_within_fixed_gate": 363,
+            "final_quality_rejection": 237,
+            "insufficient_time_sampling": 108,
+            "split_or_competing_track": 6
+          },
+          "ge23": {
+            "initial": 43,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 43
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 3248,
+            "sdss_nearby": 2928,
+            "associated": 2914,
+            "fit_eligible": 2890,
+            "calibrated": 2890,
+            "final": 2860,
+            "no_sdss_within_fixed_gate": 320,
+            "final_quality_rejection": 30,
+            "insufficient_time_sampling": 24,
+            "split_or_competing_track": 14
+          },
+          "21_to_22": {
+            "initial": 2587,
+            "sdss_nearby": 2234,
+            "associated": 2230,
+            "fit_eligible": 2219,
+            "calibrated": 2219,
+            "final": 2210,
+            "no_sdss_within_fixed_gate": 353,
+            "final_quality_rejection": 9,
+            "split_or_competing_track": 4,
+            "insufficient_time_sampling": 11
+          },
+          "20_to_21": {
+            "initial": 2103,
+            "sdss_nearby": 1559,
+            "associated": 1555,
+            "fit_eligible": 1551,
+            "calibrated": 1551,
+            "final": 1542,
+            "no_sdss_within_fixed_gate": 544,
+            "insufficient_time_sampling": 4,
+            "final_quality_rejection": 9,
+            "split_or_competing_track": 4
+          },
+          "22_to_23": {
+            "initial": 1601,
+            "sdss_nearby": 1238,
+            "associated": 1232,
+            "fit_eligible": 1222,
+            "calibrated": 1222,
+            "final": 1129,
+            "no_sdss_within_fixed_gate": 363,
+            "final_quality_rejection": 93,
+            "split_or_competing_track": 6,
+            "insufficient_time_sampling": 10
+          },
+          "ge23": {
+            "initial": 43,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 43
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 84774,
+          "non_r_missing_survey": 62232,
+          "non_r_before_quality": 366,
+          "non_r_morphology_exit": 117,
+          "non_r_time_exit": 193,
+          "non_r_ownership_exit": 11
+        },
+        "strict_r_solutions": 7336
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 38284,
+          "states": {
+            "valid_below_threshold": 28702,
+            "valid_pointlike": 9582
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 28
+            },
+            "final": {
+              "valid_pointlike": 7336
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1623
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 28702
+            },
+            "quality": {
+              "valid_pointlike": 260
+            },
+            "time_baseline": {
+              "valid_pointlike": 335
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 38284,
+          "states": {
+            "valid_below_threshold": 28702,
+            "valid_pointlike": 9582
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 28
+            },
+            "final": {
+              "valid_pointlike": 7336
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1623
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 28702
+            },
+            "quality": {
+              "valid_pointlike": 260
+            },
+            "time_baseline": {
+              "valid_pointlike": 335
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 38284,
+          "states": {
+            "valid_below_threshold": 28702,
+            "valid_pointlike": 9582
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 28
+            },
+            "final": {
+              "valid_pointlike": 7741
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1623
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 28702
+            },
+            "quality": {
+              "valid_pointlike": 141
+            },
+            "time_baseline": {
+              "valid_pointlike": 49
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 162,
+          "states": {
+            "valid_pointlike": 45,
+            "valid_below_threshold": 117
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 45
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 117
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 7292,
+          "anchor_states": {
+            "valid_pointlike": 7292
+          }
+        },
+        "extra_r_anchor": {
+          "n": 449,
+          "anchor_states": {
+            "valid_pointlike": 449
+          }
+        },
+        "non_r_anchor": {
+          "n": 45,
+          "anchor_states": {
+            "non_r_valid_only_route": 45
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 63,
+            "primary_exit": {
+              "recovered": 58,
+              "quality": 1,
+              "sdss_detection_quality_or_position": 2,
+              "pointlike_morphology": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 61,
+              "valid_below_threshold": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 63,
+            "primary_exit": {
+              "recovered": 58,
+              "quality": 1,
+              "sdss_detection_quality_or_position": 2,
+              "pointlike_morphology": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 61,
+              "valid_below_threshold": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 63,
+            "primary_exit": {
+              "recovered": 58,
+              "quality": 1,
+              "sdss_detection_quality_or_position": 2,
+              "pointlike_morphology": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 61,
+              "valid_below_threshold": 2
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 55,
+            "primary_exit": {
+              "no_sdss_detection": 13,
+              "pointlike_morphology": 17,
+              "sdss_detection_quality_or_position": 10,
+              "recovered": 15
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 23,
+              "fewer_than_two_nsc_exposures": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 20,
+              "valid_below_threshold": 34
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 55,
+            "primary_exit": {
+              "no_sdss_detection": 13,
+              "pointlike_morphology": 17,
+              "sdss_detection_quality_or_position": 10,
+              "recovered": 15
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 23,
+              "fewer_than_two_nsc_exposures": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 20,
+              "valid_below_threshold": 34
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 42,
+            "primary_exit": {
+              "pointlike_morphology": 17,
+              "sdss_detection_quality_or_position": 10,
+              "recovered": 15
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 10
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 25,
+              "valid_pointlike": 17
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 118.87572047300637,
+      "peak_rss_mib": 1626.4296875,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "7c859ad45ae6012ba1ad2b465fa32274d4c1fcb47f05f47b890fb72fb6ff3ae3",
+        "fit_sha256": "72a95798ebc241e2619a0b95d0a7f086b45fb4ce02d3614ee90c59371556af8b",
+        "reference_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w220_110",
+      "core": "w220_110_66_00",
+      "input_detections": 220133,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 4390,
+      "funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 2058,
+            "sdss_nearby": 1779,
+            "associated": 1773,
+            "fit_eligible": 1398,
+            "calibrated": 1398,
+            "final": 1398,
+            "no_sdss_within_fixed_gate": 279,
+            "insufficient_time_sampling": 375,
+            "split_or_competing_track": 6
+          },
+          "20_to_21": {
+            "initial": 1383,
+            "sdss_nearby": 934,
+            "associated": 924,
+            "fit_eligible": 757,
+            "calibrated": 757,
+            "final": 755,
+            "no_sdss_within_fixed_gate": 449,
+            "insufficient_time_sampling": 167,
+            "final_quality_rejection": 2,
+            "split_or_competing_track": 10
+          },
+          "21_to_22": {
+            "initial": 1582,
+            "sdss_nearby": 1393,
+            "associated": 1383,
+            "fit_eligible": 1156,
+            "calibrated": 1156,
+            "final": 1128,
+            "no_sdss_within_fixed_gate": 189,
+            "insufficient_time_sampling": 227,
+            "final_quality_rejection": 28,
+            "split_or_competing_track": 10
+          },
+          "22_to_23": {
+            "initial": 536,
+            "sdss_nearby": 428,
+            "associated": 423,
+            "fit_eligible": 351,
+            "calibrated": 351,
+            "final": 301,
+            "no_sdss_within_fixed_gate": 108,
+            "insufficient_time_sampling": 72,
+            "split_or_competing_track": 5,
+            "final_quality_rejection": 50
+          },
+          "ge23": {
+            "initial": 33,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 33
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 2058,
+            "sdss_nearby": 1779,
+            "associated": 1773,
+            "fit_eligible": 1744,
+            "calibrated": 1744,
+            "final": 1738,
+            "no_sdss_within_fixed_gate": 279,
+            "final_quality_rejection": 6,
+            "insufficient_time_sampling": 29,
+            "split_or_competing_track": 6
+          },
+          "20_to_21": {
+            "initial": 1383,
+            "sdss_nearby": 934,
+            "associated": 924,
+            "fit_eligible": 918,
+            "calibrated": 918,
+            "final": 916,
+            "no_sdss_within_fixed_gate": 449,
+            "split_or_competing_track": 10,
+            "insufficient_time_sampling": 6,
+            "final_quality_rejection": 2
+          },
+          "21_to_22": {
+            "initial": 1582,
+            "sdss_nearby": 1393,
+            "associated": 1383,
+            "fit_eligible": 1373,
+            "calibrated": 1373,
+            "final": 1350,
+            "no_sdss_within_fixed_gate": 189,
+            "final_quality_rejection": 23,
+            "insufficient_time_sampling": 10,
+            "split_or_competing_track": 10
+          },
+          "22_to_23": {
+            "initial": 536,
+            "sdss_nearby": 428,
+            "associated": 423,
+            "fit_eligible": 415,
+            "calibrated": 415,
+            "final": 363,
+            "no_sdss_within_fixed_gate": 108,
+            "final_quality_rejection": 52,
+            "split_or_competing_track": 5,
+            "insufficient_time_sampling": 8
+          },
+          "ge23": {
+            "initial": 33,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 33
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 44901,
+          "non_r_before_quality": 752,
+          "non_r_time_exit": 405,
+          "non_r_ownership_exit": 3,
+          "non_r_morphology_exit": 317,
+          "non_r_missing_survey": 26280,
+          "non_r_residual_exit": 1,
+          "non_r_formal_error_exit": 3
+        },
+        "strict_r_solutions": 3582
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 23246,
+          "states": {
+            "valid_pointlike": 5592,
+            "valid_below_threshold": 17654
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 31
+            },
+            "final": {
+              "valid_pointlike": 3582
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1058
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 17654
+            },
+            "quality": {
+              "valid_pointlike": 80
+            },
+            "time_baseline": {
+              "valid_pointlike": 841
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 23246,
+          "states": {
+            "valid_pointlike": 5592,
+            "valid_below_threshold": 17654
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 31
+            },
+            "final": {
+              "valid_pointlike": 3582
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1058
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 17654
+            },
+            "quality": {
+              "valid_pointlike": 80
+            },
+            "time_baseline": {
+              "valid_pointlike": 841
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 23246,
+          "states": {
+            "valid_pointlike": 5592,
+            "valid_below_threshold": 17654
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 31
+            },
+            "final": {
+              "valid_pointlike": 4367
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1058
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 17654
+            },
+            "quality": {
+              "valid_pointlike": 83
+            },
+            "time_baseline": {
+              "valid_pointlike": 53
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 344,
+          "states": {
+            "valid_below_threshold": 317,
+            "valid_pointlike": 27
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 23
+            },
+            "formal_error": {
+              "valid_pointlike": 3
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 317
+            },
+            "residual": {
+              "valid_pointlike": 1
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 3573,
+          "anchor_states": {
+            "valid_pointlike": 3573
+          }
+        },
+        "extra_r_anchor": {
+          "n": 794,
+          "anchor_states": {
+            "valid_pointlike": 794
+          }
+        },
+        "non_r_anchor": {
+          "n": 23,
+          "anchor_states": {
+            "non_r_valid_only_route": 23
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 17,
+            "primary_exit": {
+              "recovered": 16,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 17
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 17,
+            "primary_exit": {
+              "recovered": 16,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 17
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 17,
+            "primary_exit": {
+              "recovered": 16,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 17
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 9,
+            "primary_exit": {
+              "pointlike_morphology": 3,
+              "no_sdss_detection": 2,
+              "time_baseline": 1,
+              "sdss_detection_quality_or_position": 3
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 5
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 8,
+              "valid_pointlike": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 9,
+            "primary_exit": {
+              "pointlike_morphology": 3,
+              "no_sdss_detection": 2,
+              "time_baseline": 1,
+              "sdss_detection_quality_or_position": 3
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 5
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 8,
+              "valid_pointlike": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 7,
+            "primary_exit": {
+              "pointlike_morphology": 3,
+              "time_baseline": 1,
+              "sdss_detection_quality_or_position": 3
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 3
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 6,
+              "valid_pointlike": 1
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 51.9919574779924,
+      "peak_rss_mib": 1096.83203125,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "535ac82053df0f38dca22b0a71c968c9af4d7e7a1948ebb01c460c97332bc0b0",
+        "fit_sha256": "710da3bcf849149f065cf03301c6308b98c35f6f29987fc89492631bf0dd69dc",
+        "reference_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w220_110",
+      "core": "w220_110_62_10",
+      "input_detections": 249169,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 5009,
+      "funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 2200,
+            "sdss_nearby": 1932,
+            "associated": 1925,
+            "fit_eligible": 1415,
+            "calibrated": 1415,
+            "final": 1414,
+            "no_sdss_within_fixed_gate": 268,
+            "final_quality_rejection": 1,
+            "insufficient_time_sampling": 510,
+            "split_or_competing_track": 7
+          },
+          "20_to_21": {
+            "initial": 1487,
+            "sdss_nearby": 964,
+            "associated": 960,
+            "fit_eligible": 694,
+            "calibrated": 694,
+            "final": 693,
+            "no_sdss_within_fixed_gate": 523,
+            "split_or_competing_track": 4,
+            "insufficient_time_sampling": 266,
+            "final_quality_rejection": 1
+          },
+          "21_to_22": {
+            "initial": 1804,
+            "sdss_nearby": 1543,
+            "associated": 1538,
+            "fit_eligible": 1054,
+            "calibrated": 1054,
+            "final": 1049,
+            "no_sdss_within_fixed_gate": 261,
+            "insufficient_time_sampling": 484,
+            "split_or_competing_track": 5,
+            "final_quality_rejection": 5
+          },
+          "22_to_23": {
+            "initial": 992,
+            "sdss_nearby": 794,
+            "associated": 789,
+            "fit_eligible": 557,
+            "calibrated": 557,
+            "final": 447,
+            "no_sdss_within_fixed_gate": 198,
+            "insufficient_time_sampling": 232,
+            "final_quality_rejection": 110,
+            "split_or_competing_track": 5
+          },
+          "ge23": {
+            "initial": 52,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 52
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 2200,
+            "sdss_nearby": 1932,
+            "associated": 1925,
+            "fit_eligible": 1892,
+            "calibrated": 1892,
+            "final": 1881,
+            "no_sdss_within_fixed_gate": 268,
+            "insufficient_time_sampling": 33,
+            "final_quality_rejection": 11,
+            "split_or_competing_track": 7
+          },
+          "20_to_21": {
+            "initial": 1487,
+            "sdss_nearby": 964,
+            "associated": 960,
+            "fit_eligible": 957,
+            "calibrated": 957,
+            "final": 953,
+            "no_sdss_within_fixed_gate": 523,
+            "split_or_competing_track": 4,
+            "insufficient_time_sampling": 3,
+            "final_quality_rejection": 4
+          },
+          "21_to_22": {
+            "initial": 1804,
+            "sdss_nearby": 1543,
+            "associated": 1538,
+            "fit_eligible": 1527,
+            "calibrated": 1527,
+            "final": 1517,
+            "no_sdss_within_fixed_gate": 261,
+            "final_quality_rejection": 10,
+            "insufficient_time_sampling": 11,
+            "split_or_competing_track": 5
+          },
+          "22_to_23": {
+            "initial": 992,
+            "sdss_nearby": 794,
+            "associated": 789,
+            "fit_eligible": 779,
+            "calibrated": 779,
+            "final": 636,
+            "no_sdss_within_fixed_gate": 198,
+            "final_quality_rejection": 143,
+            "insufficient_time_sampling": 10,
+            "split_or_competing_track": 5
+          },
+          "ge23": {
+            "initial": 52,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 52
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 51697,
+          "non_r_before_quality": 629,
+          "non_r_time_exit": 356,
+          "non_r_morphology_exit": 242,
+          "non_r_missing_survey": 31436,
+          "non_r_residual_exit": 1,
+          "non_r_ownership_exit": 8
+        },
+        "strict_r_solutions": 3603
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 26929,
+          "states": {
+            "valid_pointlike": 6535,
+            "valid_below_threshold": 20394
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 21
+            },
+            "final": {
+              "valid_pointlike": 3603
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1302
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 20394
+            },
+            "quality": {
+              "valid_pointlike": 117
+            },
+            "time_baseline": {
+              "valid_pointlike": 1492
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 26929,
+          "states": {
+            "valid_pointlike": 6535,
+            "valid_below_threshold": 20394
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 21
+            },
+            "final": {
+              "valid_pointlike": 3603
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1302
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 20394
+            },
+            "quality": {
+              "valid_pointlike": 117
+            },
+            "time_baseline": {
+              "valid_pointlike": 1492
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 26929,
+          "states": {
+            "valid_pointlike": 6535,
+            "valid_below_threshold": 20394
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 21
+            },
+            "final": {
+              "valid_pointlike": 4987
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1302
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 20394
+            },
+            "quality": {
+              "valid_pointlike": 168
+            },
+            "time_baseline": {
+              "valid_pointlike": 57
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 265,
+          "states": {
+            "valid_below_threshold": 242,
+            "valid_pointlike": 23
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 22
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 242
+            },
+            "residual": {
+              "valid_pointlike": 1
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 3593,
+          "anchor_states": {
+            "valid_pointlike": 3593
+          }
+        },
+        "extra_r_anchor": {
+          "n": 1394,
+          "anchor_states": {
+            "valid_pointlike": 1394
+          }
+        },
+        "non_r_anchor": {
+          "n": 22,
+          "anchor_states": {
+            "non_r_valid_only_route": 22
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 57,
+            "primary_exit": {
+              "recovered": 48,
+              "no_sdss_detection": 2,
+              "pointlike_morphology": 4,
+              "sdss_detection_quality_or_position": 2,
+              "quality": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 53,
+              "valid_below_threshold": 4
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 57,
+            "primary_exit": {
+              "recovered": 48,
+              "no_sdss_detection": 2,
+              "pointlike_morphology": 4,
+              "sdss_detection_quality_or_position": 2,
+              "quality": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 53,
+              "valid_below_threshold": 4
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 55,
+            "primary_exit": {
+              "recovered": 48,
+              "pointlike_morphology": 4,
+              "sdss_detection_quality_or_position": 2,
+              "quality": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 51,
+              "valid_below_threshold": 4
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 44,
+            "primary_exit": {
+              "sdss_detection_quality_or_position": 3,
+              "no_sdss_detection": 9,
+              "pointlike_morphology": 20,
+              "recovered": 11,
+              "time_baseline": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 12,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 32,
+              "valid_pointlike": 12
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 44,
+            "primary_exit": {
+              "sdss_detection_quality_or_position": 3,
+              "no_sdss_detection": 9,
+              "pointlike_morphology": 20,
+              "recovered": 11,
+              "time_baseline": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 12,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 32,
+              "valid_pointlike": 12
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 35,
+            "primary_exit": {
+              "sdss_detection_quality_or_position": 3,
+              "pointlike_morphology": 20,
+              "recovered": 11,
+              "time_baseline": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 3,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 24,
+              "valid_pointlike": 11
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 91.68176902306732,
+      "peak_rss_mib": 1554.96875,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "286c3c288ad64bf88248301d4bb7833421fb6be4533c486e413f87d22f2bb677",
+        "fit_sha256": "ba880d1a55eea44570e3960f9ee8e9021cf370f00822bf7a4ac220f5da99f16e",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w230_090",
+      "core": "w230_090_26_01",
+      "input_detections": 474791,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 9100,
+      "funnel": {
+        "legacy_r": {
+          "21_to_22": {
+            "initial": 2734,
+            "sdss_nearby": 2461,
+            "associated": 2439,
+            "fit_eligible": 2346,
+            "calibrated": 2346,
+            "final": 2321,
+            "no_sdss_within_fixed_gate": 273,
+            "final_quality_rejection": 25,
+            "insufficient_time_sampling": 93,
+            "split_or_competing_track": 22
+          },
+          "20_to_21": {
+            "initial": 2254,
+            "sdss_nearby": 1697,
+            "associated": 1683,
+            "fit_eligible": 1597,
+            "calibrated": 1597,
+            "final": 1592,
+            "no_sdss_within_fixed_gate": 557,
+            "insufficient_time_sampling": 86,
+            "split_or_competing_track": 14,
+            "final_quality_rejection": 5
+          },
+          "22_to_23": {
+            "initial": 2056,
+            "sdss_nearby": 1792,
+            "associated": 1755,
+            "fit_eligible": 1650,
+            "calibrated": 1650,
+            "final": 1425,
+            "final_quality_rejection": 225,
+            "no_sdss_within_fixed_gate": 264,
+            "insufficient_time_sampling": 105,
+            "split_or_competing_track": 37
+          },
+          "lt20": {
+            "initial": 3750,
+            "sdss_nearby": 3318,
+            "associated": 3279,
+            "fit_eligible": 3068,
+            "calibrated": 3068,
+            "final": 3066,
+            "no_sdss_within_fixed_gate": 432,
+            "insufficient_time_sampling": 211,
+            "split_or_competing_track": 39,
+            "final_quality_rejection": 2
+          },
+          "ge23": {
+            "initial": 46,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 45,
+            "final_quality_rejection": 1
+          }
+        },
+        "physical_all_r_anchor": {
+          "21_to_22": {
+            "initial": 2734,
+            "sdss_nearby": 2461,
+            "associated": 2439,
+            "fit_eligible": 2438,
+            "calibrated": 2438,
+            "final": 2413,
+            "no_sdss_within_fixed_gate": 273,
+            "final_quality_rejection": 25,
+            "insufficient_time_sampling": 1,
+            "split_or_competing_track": 22
+          },
+          "20_to_21": {
+            "initial": 2254,
+            "sdss_nearby": 1697,
+            "associated": 1683,
+            "fit_eligible": 1682,
+            "calibrated": 1682,
+            "final": 1650,
+            "no_sdss_within_fixed_gate": 557,
+            "final_quality_rejection": 32,
+            "split_or_competing_track": 14,
+            "insufficient_time_sampling": 1
+          },
+          "22_to_23": {
+            "initial": 2056,
+            "sdss_nearby": 1792,
+            "associated": 1755,
+            "fit_eligible": 1749,
+            "calibrated": 1749,
+            "final": 1626,
+            "no_sdss_within_fixed_gate": 264,
+            "final_quality_rejection": 123,
+            "split_or_competing_track": 37,
+            "insufficient_time_sampling": 6
+          },
+          "lt20": {
+            "initial": 3750,
+            "sdss_nearby": 3318,
+            "associated": 3279,
+            "fit_eligible": 3272,
+            "calibrated": 3272,
+            "final": 3235,
+            "no_sdss_within_fixed_gate": 432,
+            "final_quality_rejection": 37,
+            "split_or_competing_track": 39,
+            "insufficient_time_sampling": 7
+          },
+          "ge23": {
+            "initial": 46,
+            "sdss_nearby": 1,
+            "associated": 1,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 1,
+            "no_sdss_within_fixed_gate": 45
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 77723,
+          "non_r_before_quality": 1505,
+          "non_r_time_exit": 634,
+          "non_r_missing_survey": 48721,
+          "non_r_morphology_exit": 663,
+          "non_r_ownership_exit": 27,
+          "non_r_shared_detection_rejected": 2,
+          "non_r_residual_exit": 4
+        },
+        "strict_r_solutions": 8404
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 36359,
+          "states": {
+            "valid_pointlike": 10840,
+            "valid_below_threshold": 25519
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 112
+            },
+            "final": {
+              "valid_pointlike": 8404
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1571
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 25519
+            },
+            "quality": {
+              "valid_pointlike": 258
+            },
+            "time_baseline": {
+              "valid_pointlike": 495
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 36359,
+          "states": {
+            "valid_pointlike": 10840,
+            "valid_below_threshold": 25519
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 112
+            },
+            "final": {
+              "valid_pointlike": 8404
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1571
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 25519
+            },
+            "quality": {
+              "valid_pointlike": 258
+            },
+            "time_baseline": {
+              "valid_pointlike": 495
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 36359,
+          "states": {
+            "valid_pointlike": 10840,
+            "valid_below_threshold": 25519
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 112
+            },
+            "final": {
+              "valid_pointlike": 8925
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1571
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 25519
+            },
+            "quality": {
+              "valid_pointlike": 217
+            },
+            "time_baseline": {
+              "valid_pointlike": 15
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 842,
+          "states": {
+            "valid_below_threshold": 663,
+            "valid_pointlike": 179
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 175
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 663
+            },
+            "residual": {
+              "valid_pointlike": 4
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 8308,
+          "anchor_states": {
+            "valid_pointlike": 8308
+          }
+        },
+        "extra_r_anchor": {
+          "n": 617,
+          "anchor_states": {
+            "valid_pointlike": 617
+          }
+        },
+        "non_r_anchor": {
+          "n": 175,
+          "anchor_states": {
+            "non_r_valid_only_route": 175
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 65,
+            "primary_exit": {
+              "recovered": 60,
+              "pointlike_morphology": 2,
+              "quality": 1,
+              "no_sdss_detection": 1,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 63,
+              "valid_below_threshold": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 65,
+            "primary_exit": {
+              "recovered": 60,
+              "pointlike_morphology": 2,
+              "quality": 1,
+              "no_sdss_detection": 1,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 63,
+              "valid_below_threshold": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 64,
+            "primary_exit": {
+              "recovered": 60,
+              "pointlike_morphology": 2,
+              "quality": 1,
+              "sdss_detection_quality_or_position": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 62,
+              "valid_below_threshold": 2
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 52,
+            "primary_exit": {
+              "pointlike_morphology": 13,
+              "sdss_detection_quality_or_position": 8,
+              "recovered": 19,
+              "no_nsc_detection": 1,
+              "no_sdss_detection": 9,
+              "quality": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 18,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 25,
+              "valid_pointlike": 26
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 52,
+            "primary_exit": {
+              "pointlike_morphology": 13,
+              "sdss_detection_quality_or_position": 8,
+              "recovered": 19,
+              "no_nsc_detection": 1,
+              "no_sdss_detection": 9,
+              "quality": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 18,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 25,
+              "valid_pointlike": 26
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 42,
+            "primary_exit": {
+              "pointlike_morphology": 13,
+              "sdss_detection_quality_or_position": 8,
+              "recovered": 19,
+              "quality": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 8,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 17,
+              "valid_pointlike": 25
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 158.48976846900769,
+      "peak_rss_mib": 1234.39453125,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "078fe9538e56834d4e1a41379ebde213220f930039902c932078045d632c7275",
+        "fit_sha256": "8512b8b10902e92c09027264c196e0b1d4fd59f337b756873d49bb199cd8dfff",
+        "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w230_090",
+      "core": "w230_090_04_00",
+      "input_detections": 951074,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 8862,
+      "funnel": {
+        "legacy_r": {
+          "20_to_21": {
+            "initial": 3038,
+            "sdss_nearby": 1824,
+            "associated": 1785,
+            "fit_eligible": 1760,
+            "calibrated": 1760,
+            "final": 1752,
+            "no_sdss_within_fixed_gate": 1214,
+            "insufficient_time_sampling": 25,
+            "split_or_competing_track": 39,
+            "final_quality_rejection": 8
+          },
+          "22_to_23": {
+            "initial": 1905,
+            "sdss_nearby": 1418,
+            "associated": 1365,
+            "fit_eligible": 1310,
+            "calibrated": 1310,
+            "final": 1148,
+            "split_or_competing_track": 53,
+            "final_quality_rejection": 162,
+            "no_sdss_within_fixed_gate": 487,
+            "insufficient_time_sampling": 55
+          },
+          "lt20": {
+            "initial": 4355,
+            "sdss_nearby": 3446,
+            "associated": 3374,
+            "fit_eligible": 3254,
+            "calibrated": 3254,
+            "final": 3245,
+            "no_sdss_within_fixed_gate": 909,
+            "split_or_competing_track": 72,
+            "insufficient_time_sampling": 120,
+            "final_quality_rejection": 9
+          },
+          "21_to_22": {
+            "initial": 3889,
+            "sdss_nearby": 2537,
+            "associated": 2484,
+            "fit_eligible": 2442,
+            "calibrated": 2442,
+            "final": 2430,
+            "no_sdss_within_fixed_gate": 1352,
+            "insufficient_time_sampling": 42,
+            "split_or_competing_track": 53,
+            "final_quality_rejection": 12
+          },
+          "ge23": {
+            "initial": 65,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 65
+          }
+        },
+        "physical_all_r_anchor": {
+          "20_to_21": {
+            "initial": 3038,
+            "sdss_nearby": 1824,
+            "associated": 1785,
+            "fit_eligible": 1783,
+            "calibrated": 1783,
+            "final": 1761,
+            "no_sdss_within_fixed_gate": 1214,
+            "final_quality_rejection": 22,
+            "split_or_competing_track": 39,
+            "insufficient_time_sampling": 2
+          },
+          "22_to_23": {
+            "initial": 1905,
+            "sdss_nearby": 1418,
+            "associated": 1365,
+            "fit_eligible": 1359,
+            "calibrated": 1359,
+            "final": 1307,
+            "split_or_competing_track": 53,
+            "no_sdss_within_fixed_gate": 487,
+            "final_quality_rejection": 52,
+            "insufficient_time_sampling": 6
+          },
+          "lt20": {
+            "initial": 4354,
+            "sdss_nearby": 3446,
+            "associated": 3374,
+            "fit_eligible": 3326,
+            "calibrated": 3326,
+            "final": 3309,
+            "no_sdss_within_fixed_gate": 908,
+            "split_or_competing_track": 72,
+            "insufficient_time_sampling": 48,
+            "final_quality_rejection": 17
+          },
+          "21_to_22": {
+            "initial": 3889,
+            "sdss_nearby": 2537,
+            "associated": 2484,
+            "fit_eligible": 2476,
+            "calibrated": 2476,
+            "final": 2461,
+            "no_sdss_within_fixed_gate": 1352,
+            "split_or_competing_track": 53,
+            "insufficient_time_sampling": 8,
+            "final_quality_rejection": 15
+          },
+          "ge23": {
+            "initial": 65,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 65
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 92489,
+          "non_r_missing_survey": 64513,
+          "non_r_before_quality": 575,
+          "non_r_ownership_exit": 10,
+          "non_r_time_exit": 332,
+          "non_r_morphology_exit": 207,
+          "non_r_residual_exit": 1,
+          "non_r_shared_detection_rejected": 1
+        },
+        "strict_r_solutions": 8575
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 45374,
+          "states": {
+            "valid_below_threshold": 32122,
+            "valid_pointlike": 13252
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 217
+            },
+            "final": {
+              "valid_pointlike": 8575
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 4027
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 32122
+            },
+            "quality": {
+              "valid_pointlike": 191
+            },
+            "time_baseline": {
+              "valid_pointlike": 242
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 45373,
+          "states": {
+            "valid_below_threshold": 32122,
+            "valid_pointlike": 13251
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 217
+            },
+            "final": {
+              "valid_pointlike": 8575
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 4026
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 32122
+            },
+            "quality": {
+              "valid_pointlike": 191
+            },
+            "time_baseline": {
+              "valid_pointlike": 242
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 45373,
+          "states": {
+            "valid_below_threshold": 32122,
+            "valid_pointlike": 13251
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 217
+            },
+            "final": {
+              "valid_pointlike": 8838
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 4026
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 32122
+            },
+            "quality": {
+              "valid_pointlike": 106
+            },
+            "time_baseline": {
+              "valid_pointlike": 64
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 232,
+          "states": {
+            "valid_below_threshold": 207,
+            "valid_pointlike": 25
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 24
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 207
+            },
+            "residual": {
+              "valid_pointlike": 1
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 8535,
+          "anchor_states": {
+            "valid_pointlike": 8535
+          }
+        },
+        "extra_r_anchor": {
+          "n": 303,
+          "anchor_states": {
+            "valid_pointlike": 303
+          }
+        },
+        "non_r_anchor": {
+          "n": 24,
+          "anchor_states": {
+            "non_r_valid_only_route": 24
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 63,
+            "primary_exit": {
+              "recovered": 55,
+              "no_nsc_detection": 2,
+              "sdss_detection_quality_or_position": 4,
+              "pointlike_morphology": 1,
+              "no_sdss_detection": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 5
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 59,
+              "valid_below_threshold": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 63,
+            "primary_exit": {
+              "recovered": 55,
+              "no_nsc_detection": 2,
+              "sdss_detection_quality_or_position": 4,
+              "pointlike_morphology": 1,
+              "no_sdss_detection": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 5
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 59,
+              "valid_below_threshold": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 60,
+            "primary_exit": {
+              "recovered": 55,
+              "sdss_detection_quality_or_position": 4,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 58,
+              "valid_below_threshold": 2
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 49,
+            "primary_exit": {
+              "recovered": 21,
+              "no_sdss_detection": 5,
+              "pointlike_morphology": 17,
+              "sdss_detection_quality_or_position": 4,
+              "quality": 1,
+              "no_nsc_detection": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 10
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 24,
+              "valid_below_threshold": 25
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 49,
+            "primary_exit": {
+              "recovered": 21,
+              "no_sdss_detection": 5,
+              "pointlike_morphology": 17,
+              "sdss_detection_quality_or_position": 4,
+              "quality": 1,
+              "no_nsc_detection": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 10
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 24,
+              "valid_below_threshold": 25
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 43,
+            "primary_exit": {
+              "recovered": 21,
+              "pointlike_morphology": 17,
+              "sdss_detection_quality_or_position": 4,
+              "quality": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 23,
+              "valid_below_threshold": 21
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 122.62633843906224,
+      "peak_rss_mib": 1561.00390625,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "6af19258231894aa72baaac4eca3f1a0c0e90aed0f5d16743ff628f9b1e6d4bd",
+        "fit_sha256": "c6613cdf44254ff428dd44888797a26a99f70eada4d5bdce61ae8c7476820c17",
+        "reference_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w230_110",
+      "core": "w230_110_46_10",
+      "input_detections": 242945,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 5095,
+      "funnel": {
+        "legacy_r": {
+          "20_to_21": {
+            "initial": 1519,
+            "sdss_nearby": 1104,
+            "associated": 1098,
+            "fit_eligible": 881,
+            "calibrated": 881,
+            "final": 880,
+            "no_sdss_within_fixed_gate": 415,
+            "insufficient_time_sampling": 217,
+            "split_or_competing_track": 6,
+            "final_quality_rejection": 1
+          },
+          "22_to_23": {
+            "initial": 419,
+            "sdss_nearby": 313,
+            "associated": 311,
+            "fit_eligible": 228,
+            "calibrated": 228,
+            "final": 225,
+            "no_sdss_within_fixed_gate": 106,
+            "insufficient_time_sampling": 83,
+            "final_quality_rejection": 3,
+            "split_or_competing_track": 2
+          },
+          "lt20": {
+            "initial": 2464,
+            "sdss_nearby": 2095,
+            "associated": 2075,
+            "fit_eligible": 1622,
+            "calibrated": 1622,
+            "final": 1621,
+            "insufficient_time_sampling": 453,
+            "no_sdss_within_fixed_gate": 369,
+            "split_or_competing_track": 20,
+            "final_quality_rejection": 1
+          },
+          "21_to_22": {
+            "initial": 1931,
+            "sdss_nearby": 1582,
+            "associated": 1572,
+            "fit_eligible": 1253,
+            "calibrated": 1253,
+            "final": 1253,
+            "no_sdss_within_fixed_gate": 349,
+            "insufficient_time_sampling": 319,
+            "split_or_competing_track": 10
+          },
+          "ge23": {
+            "initial": 50,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 50
+          }
+        },
+        "physical_all_r_anchor": {
+          "20_to_21": {
+            "initial": 1519,
+            "sdss_nearby": 1104,
+            "associated": 1098,
+            "fit_eligible": 1095,
+            "calibrated": 1095,
+            "final": 1091,
+            "no_sdss_within_fixed_gate": 415,
+            "insufficient_time_sampling": 3,
+            "final_quality_rejection": 4,
+            "split_or_competing_track": 6
+          },
+          "22_to_23": {
+            "initial": 419,
+            "sdss_nearby": 313,
+            "associated": 311,
+            "fit_eligible": 307,
+            "calibrated": 307,
+            "final": 301,
+            "no_sdss_within_fixed_gate": 106,
+            "final_quality_rejection": 6,
+            "split_or_competing_track": 2,
+            "insufficient_time_sampling": 4
+          },
+          "lt20": {
+            "initial": 2464,
+            "sdss_nearby": 2095,
+            "associated": 2075,
+            "fit_eligible": 2053,
+            "calibrated": 2053,
+            "final": 2035,
+            "no_sdss_within_fixed_gate": 369,
+            "split_or_competing_track": 20,
+            "insufficient_time_sampling": 22,
+            "final_quality_rejection": 18
+          },
+          "21_to_22": {
+            "initial": 1931,
+            "sdss_nearby": 1582,
+            "associated": 1572,
+            "fit_eligible": 1566,
+            "calibrated": 1566,
+            "final": 1562,
+            "no_sdss_within_fixed_gate": 349,
+            "final_quality_rejection": 4,
+            "split_or_competing_track": 10,
+            "insufficient_time_sampling": 6
+          },
+          "ge23": {
+            "initial": 50,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 50
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 51106,
+          "non_r_before_quality": 1885,
+          "non_r_morphology_exit": 851,
+          "non_r_time_exit": 903,
+          "non_r_missing_survey": 28616,
+          "non_r_ownership_exit": 25
+        },
+        "strict_r_solutions": 3979
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 23266,
+          "states": {
+            "valid_below_threshold": 16883,
+            "valid_pointlike": 6383
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 38
+            },
+            "final": {
+              "valid_pointlike": 3979
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1289
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 16883
+            },
+            "quality": {
+              "valid_pointlike": 5
+            },
+            "time_baseline": {
+              "valid_pointlike": 1072
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 23266,
+          "states": {
+            "valid_below_threshold": 16883,
+            "valid_pointlike": 6383
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 38
+            },
+            "final": {
+              "valid_pointlike": 3979
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1289
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 16883
+            },
+            "quality": {
+              "valid_pointlike": 5
+            },
+            "time_baseline": {
+              "valid_pointlike": 1072
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 23266,
+          "states": {
+            "valid_below_threshold": 16883,
+            "valid_pointlike": 6383
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 38
+            },
+            "final": {
+              "valid_pointlike": 4989
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1289
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 16883
+            },
+            "quality": {
+              "valid_pointlike": 32
+            },
+            "time_baseline": {
+              "valid_pointlike": 35
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 957,
+          "states": {
+            "valid_below_threshold": 851,
+            "valid_pointlike": 106
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 106
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 851
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 3962,
+          "anchor_states": {
+            "valid_pointlike": 3962
+          }
+        },
+        "extra_r_anchor": {
+          "n": 1027,
+          "anchor_states": {
+            "valid_pointlike": 1027
+          }
+        },
+        "non_r_anchor": {
+          "n": 106,
+          "anchor_states": {
+            "non_r_valid_only_route": 106
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 55,
+            "primary_exit": {
+              "pointlike_morphology": 8,
+              "recovered": 43,
+              "no_sdss_detection": 4
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 9,
+              "valid_pointlike": 46
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 55,
+            "primary_exit": {
+              "pointlike_morphology": 8,
+              "recovered": 43,
+              "no_sdss_detection": 4
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 9,
+              "valid_pointlike": 46
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 51,
+            "primary_exit": {
+              "pointlike_morphology": 8,
+              "recovered": 43
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 8,
+              "valid_pointlike": 43
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 48,
+            "primary_exit": {
+              "pointlike_morphology": 30,
+              "no_sdss_detection": 13,
+              "sdss_detection_quality_or_position": 4,
+              "recovered": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 17,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 48,
+              "valid_pointlike": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 48,
+            "primary_exit": {
+              "pointlike_morphology": 30,
+              "no_sdss_detection": 13,
+              "sdss_detection_quality_or_position": 4,
+              "recovered": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 17,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 48,
+              "valid_pointlike": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 35,
+            "primary_exit": {
+              "pointlike_morphology": 30,
+              "sdss_detection_quality_or_position": 4,
+              "recovered": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4,
+              "multiple_anchor_or_track_candidates": 1
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 35,
+              "valid_pointlike": 1
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 64.68146474403329,
+      "peak_rss_mib": 1626.4296875,
+      "slurm_job": "61965720"
+    },
+    {
+      "ticket": {
+        "input_sha256": "461b8e25ed20ad7d1b2e6a6496321f7164aa9eb605ecca6afbffe4b726ee0475",
+        "fit_sha256": "bf77779008e0ac5d3fafcccb92786a1b255be0213b7eb22298ad3fdfa673dc5c",
+        "reference_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "1a4dc4f335d7e67bda423a4875fb4d4ccc336cd950001a44781f44f90e6ad9c8"
+      },
+      "window": "w230_110",
+      "core": "w230_110_86_10",
+      "input_detections": 278279,
+      "exact_source_members_replayed": true,
+      "exact_funnel_replayed": true,
+      "science_sources": 6299,
+      "funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 2840,
+            "sdss_nearby": 2454,
+            "associated": 2442,
+            "fit_eligible": 2058,
+            "calibrated": 2058,
+            "final": 2056,
+            "no_sdss_within_fixed_gate": 386,
+            "insufficient_time_sampling": 384,
+            "split_or_competing_track": 12,
+            "final_quality_rejection": 2
+          },
+          "21_to_22": {
+            "initial": 2181,
+            "sdss_nearby": 1744,
+            "associated": 1734,
+            "fit_eligible": 1495,
+            "calibrated": 1495,
+            "final": 1486,
+            "no_sdss_within_fixed_gate": 437,
+            "split_or_competing_track": 10,
+            "insufficient_time_sampling": 239,
+            "final_quality_rejection": 9
+          },
+          "20_to_21": {
+            "initial": 1819,
+            "sdss_nearby": 1301,
+            "associated": 1293,
+            "fit_eligible": 1106,
+            "calibrated": 1106,
+            "final": 1103,
+            "no_sdss_within_fixed_gate": 518,
+            "split_or_competing_track": 8,
+            "insufficient_time_sampling": 187,
+            "final_quality_rejection": 3
+          },
+          "22_to_23": {
+            "initial": 1091,
+            "sdss_nearby": 877,
+            "associated": 867,
+            "fit_eligible": 695,
+            "calibrated": 695,
+            "final": 665,
+            "no_sdss_within_fixed_gate": 214,
+            "final_quality_rejection": 30,
+            "split_or_competing_track": 10,
+            "insufficient_time_sampling": 172
+          },
+          "ge23": {
+            "initial": 56,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 54,
+            "insufficient_time_sampling": 2
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 2840,
+            "sdss_nearby": 2454,
+            "associated": 2442,
+            "fit_eligible": 2428,
+            "calibrated": 2428,
+            "final": 2405,
+            "no_sdss_within_fixed_gate": 386,
+            "final_quality_rejection": 23,
+            "split_or_competing_track": 12,
+            "insufficient_time_sampling": 14
+          },
+          "21_to_22": {
+            "initial": 2181,
+            "sdss_nearby": 1744,
+            "associated": 1734,
+            "fit_eligible": 1732,
+            "calibrated": 1732,
+            "final": 1722,
+            "no_sdss_within_fixed_gate": 437,
+            "split_or_competing_track": 10,
+            "final_quality_rejection": 10,
+            "insufficient_time_sampling": 2
+          },
+          "20_to_21": {
+            "initial": 1819,
+            "sdss_nearby": 1301,
+            "associated": 1293,
+            "fit_eligible": 1291,
+            "calibrated": 1291,
+            "final": 1273,
+            "no_sdss_within_fixed_gate": 518,
+            "split_or_competing_track": 8,
+            "final_quality_rejection": 18,
+            "insufficient_time_sampling": 2
+          },
+          "22_to_23": {
+            "initial": 1091,
+            "sdss_nearby": 877,
+            "associated": 867,
+            "fit_eligible": 849,
+            "calibrated": 849,
+            "final": 817,
+            "no_sdss_within_fixed_gate": 214,
+            "split_or_competing_track": 10,
+            "final_quality_rejection": 32,
+            "insufficient_time_sampling": 18
+          },
+          "ge23": {
+            "initial": 56,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 2,
+            "calibrated": 2,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 54,
+            "final_quality_rejection": 2
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 61301,
+          "non_r_before_quality": 1380,
+          "non_r_morphology_exit": 389,
+          "non_r_time_exit": 888,
+          "non_r_missing_survey": 36743,
+          "non_r_ownership_exit": 18,
+          "non_r_residual_exit": 3
+        },
+        "strict_r_solutions": 5310
+      },
+      "morphology": {
+        "legacy_r": {
+          "anchors": 30824,
+          "states": {
+            "valid_pointlike": 7987,
+            "valid_below_threshold": 22837
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 40
+            },
+            "final": {
+              "valid_pointlike": 5310
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1609
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 22837
+            },
+            "quality": {
+              "valid_pointlike": 44
+            },
+            "time_baseline": {
+              "valid_pointlike": 984
+            }
+          }
+        },
+        "physical_r": {
+          "anchors": 30824,
+          "states": {
+            "valid_pointlike": 7987,
+            "valid_below_threshold": 22837
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 40
+            },
+            "final": {
+              "valid_pointlike": 5310
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1609
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 22837
+            },
+            "quality": {
+              "valid_pointlike": 44
+            },
+            "time_baseline": {
+              "valid_pointlike": 984
+            }
+          }
+        },
+        "all_r_anchor": {
+          "anchors": 30824,
+          "states": {
+            "valid_pointlike": 7987,
+            "valid_below_threshold": 22837
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "anchor_competition": {
+              "valid_pointlike": 40
+            },
+            "final": {
+              "valid_pointlike": 6217
+            },
+            "no_sdss_position": {
+              "valid_pointlike": 1609
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 22837
+            },
+            "quality": {
+              "valid_pointlike": 85
+            },
+            "time_baseline": {
+              "valid_pointlike": 36
+            }
+          }
+        },
+        "non_r": {
+          "anchors": 474,
+          "states": {
+            "valid_below_threshold": 389,
+            "valid_pointlike": 85
+          },
+          "legacy_pass_valid_only_fail": 0,
+          "by_exit": {
+            "final": {
+              "valid_pointlike": 82
+            },
+            "pointlike_morphology": {
+              "valid_below_threshold": 389
+            },
+            "residual": {
+              "valid_pointlike": 3
+            }
+          }
+        }
+      },
+      "source_morphology": {
+        "r_existing": {
+          "n": 5268,
+          "anchor_states": {
+            "valid_pointlike": 5268
+          }
+        },
+        "extra_r_anchor": {
+          "n": 949,
+          "anchor_states": {
+            "valid_pointlike": 949
+          }
+        },
+        "non_r_anchor": {
+          "n": 82,
+          "anchor_states": {
+            "non_r_valid_only_route": 82
+          }
+        }
+      },
+      "qso": {
+        "21": {
+          "core_positions": {
+            "denominator": 23,
+            "primary_exit": {
+              "recovered": 19,
+              "no_sdss_detection": 2,
+              "no_eligible_anchor_or_track": 1,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 21,
+              "valid_below_threshold": 1
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 23,
+            "primary_exit": {
+              "recovered": 19,
+              "no_sdss_detection": 2,
+              "no_eligible_anchor_or_track": 1,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_pointlike": 21,
+              "valid_below_threshold": 1
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 21,
+            "primary_exit": {
+              "recovered": 19,
+              "no_eligible_anchor_or_track": 1,
+              "pointlike_morphology": 1
+            },
+            "overlap_flags": {},
+            "direct_anchor_morphology": {
+              "valid_pointlike": 19,
+              "valid_below_threshold": 1
+            }
+          }
+        },
+        "22": {
+          "core_positions": {
+            "denominator": 11,
+            "primary_exit": {
+              "sdss_detection_quality_or_position": 2,
+              "no_sdss_detection": 2,
+              "pointlike_morphology": 5,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 9,
+              "valid_pointlike": 2
+            }
+          },
+          "geometric_opportunity": {
+            "denominator": 11,
+            "primary_exit": {
+              "sdss_detection_quality_or_position": 2,
+              "no_sdss_detection": 2,
+              "pointlike_morphology": 5,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 4
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 9,
+              "valid_pointlike": 2
+            }
+          },
+          "measured_both_surveys": {
+            "denominator": 9,
+            "primary_exit": {
+              "sdss_detection_quality_or_position": 2,
+              "pointlike_morphology": 5,
+              "recovered": 2
+            },
+            "overlap_flags": {
+              "no_qualified_sdss_position": 2
+            },
+            "direct_anchor_morphology": {
+              "valid_below_threshold": 7,
+              "valid_pointlike": 2
+            }
+          }
+        }
+      },
+      "scope": "Sixteen metadata-selected core replay. Input/anchor morphology is independent of known-position-control fit success. Original C0/W0 selection and scientific outputs remain frozen.",
+      "maximum_qso_pm_replay_difference_masyr": 0.0,
+      "elapsed_seconds": 106.4925567599712,
+      "peak_rss_mib": 1554.96875,
+      "slurm_job": "61965720"
+    }
+  ],
+  "slurm_job": "61965720"
+}

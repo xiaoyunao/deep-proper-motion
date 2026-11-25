@@ -31,7 +31,7 @@ def run(root,output,extra_jobs):
         billing=float(tres.get('billing',tres.get('cpu',0)))
         cost=billing/256*row['elapsed_seconds']/3600
         row['estimated_billed_cpu_node_hours']=cost;total+=cost
-        row['budget_class']='performance' if job=='61965574' else 'science_or_recovery'
+        row['budget_class']='performance' if job in ('61965574','61968365') else 'science_or_recovery'
         if row['budget_class']=='performance':performance+=cost
     allocated_kib=int(subprocess.check_output(['du','-sk',str(root)],text=True).split()[0])
     files=sum(len(names) for _,_,names in os.walk(root))

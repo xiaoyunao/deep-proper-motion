@@ -1,0 +1,2294 @@
+{
+  "registration_sha256": "d802427be281282841e5b612f0e69182ec514b2629e35e852eb12b180c08aef5",
+  "cores": [
+    {
+      "ticket": {
+        "source_sha256": "a53e7ebf11cd70924c0ab54248c025b4bda1d79f86234a6ec2b296ea8a24bfa9",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w130_110_86_11",
+      "samples": {
+        "full": {
+          "original": 3750,
+          "candidate": 4107,
+          "identical_members_retained": 3750,
+          "retention": {
+            "n": 3750,
+            "denominator": 3750,
+            "value": 1.0,
+            "wilson95": [
+              0.9989766592801443,
+              1.0
+            ]
+          },
+          "new": 357,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 6,
+              "median": [
+                -0.45164809671697703,
+                -2.81638035677019
+              ],
+              "nmad": [
+                3.176425313850945,
+                6.592972609049789
+              ],
+              "absolute_radial_p68": 7.971534145508253,
+              "equal_mean": [
+                -0.414940418011597,
+                -3.4653837575511925
+              ],
+              "median_object_interval95": [
+                [
+                  -3.8886117274417877,
+                  3.095438570123974
+                ],
+                [
+                  -10.42987587323522,
+                  2.8501049573518324
+                ]
+              ]
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        },
+        "training": {
+          "original": 3715,
+          "candidate": 4061,
+          "identical_members_retained": 3715,
+          "retention": {
+            "n": 3715,
+            "denominator": 3715,
+            "value": 1.0,
+            "wilson95": [
+              0.9989670280749445,
+              1.0
+            ]
+          },
+          "new": 346,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 346,
+            "uniquely_reproduced": 212,
+            "conditional_ratio": {
+              "n": 212,
+              "denominator": 346,
+              "value": 0.6127167630057804,
+              "wilson95": [
+                0.5604186571366688,
+                0.6625394801376722
+              ]
+            },
+            "shifted_counts": [
+              1,
+              0,
+              1,
+              4
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 230,
+              "median": [
+                4.1562259048223495,
+                -3.700032267719507
+              ],
+              "nmad": [
+                106.01682092235087,
+                130.38092351008112
+              ],
+              "absolute_radial_p68": 166.06778382532144,
+              "equal_mean": [
+                12.290020242203838,
+                18.194532970205437
+              ],
+              "median_object_interval95": [
+                [
+                  -7.221564546227455,
+                  16.994391488842666
+                ],
+                [
+                  -16.146287284907885,
+                  16.178615636541508
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 6,
+              "median": [
+                -0.45164809671697703,
+                -2.915689122526576
+              ],
+              "nmad": [
+                4.227077031464817,
+                7.568396367075095
+              ],
+              "absolute_radial_p68": 9.248104900838376,
+              "equal_mean": [
+                -1.0858672066687545,
+                -2.499015894799448
+              ],
+              "median_object_interval95": [
+                [
+                  -5.279940324756531,
+                  2.4739868014672446
+                ],
+                [
+                  -9.339817940021895,
+                  4.758459378150126
+                ]
+              ]
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "c602a33ad921ff4201afe074f50c4f9853ac08ddeb02012db65df6ac97e8f933",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w130_110_60_10",
+      "samples": {
+        "full": {
+          "original": 5107,
+          "candidate": 5592,
+          "identical_members_retained": 5107,
+          "retention": {
+            "n": 5107,
+            "denominator": 5107,
+            "value": 1.0,
+            "wilson95": [
+              0.9992483705762257,
+              0.9999999999999999
+            ]
+          },
+          "new": 485,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        },
+        "training": {
+          "original": 5107,
+          "candidate": 5592,
+          "identical_members_retained": 5107,
+          "retention": {
+            "n": 5107,
+            "denominator": 5107,
+            "value": 1.0,
+            "wilson95": [
+              0.9992483705762257,
+              0.9999999999999999
+            ]
+          },
+          "new": 485,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 485,
+            "uniquely_reproduced": 0,
+            "conditional_ratio": {
+              "n": 0,
+              "denominator": 485,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.00785829178638296
+              ]
+            },
+            "shifted_counts": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 0
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "a168662d916f737bfa65e3f3941d8a82b0453c66a59dc0bcb1cef3239dbe8501",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w150_090_68_11",
+      "samples": {
+        "full": {
+          "original": 3246,
+          "candidate": 3896,
+          "identical_members_retained": 3246,
+          "retention": {
+            "n": 3246,
+            "denominator": 3246,
+            "value": 1.0,
+            "wilson95": [
+              0.9988179550081534,
+              0.9999999999999999
+            ]
+          },
+          "new": 650,
+          "held_year": 2018,
+          "added_qso": {
+            "21": {
+              "n": 15,
+              "median": [
+                -3.332033915383261,
+                -1.3465616510535585
+              ],
+              "nmad": [
+                2.225411738497842,
+                3.673308737179119
+              ],
+              "absolute_radial_p68": 7.3981104920523535,
+              "equal_mean": [
+                -2.057502694105678,
+                -0.18130224064567618
+              ],
+              "median_object_interval95": [
+                [
+                  -4.640786299817002,
+                  -1.736732182035428
+                ],
+                [
+                  -3.4661699600750113,
+                  1.421908565994854
+                ]
+              ]
+            },
+            "22": {
+              "n": 8,
+              "median": [
+                -2.294689688916577,
+                -1.5976656157533822
+              ],
+              "nmad": [
+                5.617895150920422,
+                4.0152990224822664
+              ],
+              "absolute_radial_p68": 8.427477910995751,
+              "equal_mean": [
+                -1.7864012017445483,
+                -2.080939579141231
+              ],
+              "median_object_interval95": [
+                [
+                  -6.278360069140117,
+                  0.9812200460206042
+                ],
+                [
+                  -6.784237495878392,
+                  2.271895318773008
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 3065,
+          "candidate": 3603,
+          "identical_members_retained": 3065,
+          "retention": {
+            "n": 3065,
+            "denominator": 3065,
+            "value": 1.0,
+            "wilson95": [
+              0.9987482380982398,
+              1.0
+            ]
+          },
+          "new": 538,
+          "held_year": {
+            "year": 2018,
+            "training_new_sources": 538,
+            "uniquely_reproduced": 467,
+            "conditional_ratio": {
+              "n": 467,
+              "denominator": 538,
+              "value": 0.8680297397769516,
+              "wilson95": [
+                0.836803155118539,
+                0.8940379305043388
+              ]
+            },
+            "shifted_counts": [
+              5,
+              1,
+              3,
+              3
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 1044,
+              "median": [
+                4.00475151091814,
+                3.539654590189457
+              ],
+              "nmad": [
+                47.04315913908183,
+                50.71387122917175
+              ],
+              "absolute_radial_p68": 75.70783554516298,
+              "equal_mean": [
+                4.695510244632133,
+                4.999539352161275
+              ],
+              "median_object_interval95": [
+                [
+                  1.2245716601610184,
+                  6.967405907809734
+                ],
+                [
+                  -0.3730182903818786,
+                  7.2676633801311255
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 20,
+              "median": [
+                -2.367887378027354,
+                -1.3908039098961156
+              ],
+              "nmad": [
+                4.386274973114372,
+                2.8990805790625935
+              ],
+              "absolute_radial_p68": 7.36160887220567,
+              "equal_mean": [
+                -1.6712319591272036,
+                -0.052654755680750044
+              ],
+              "median_object_interval95": [
+                [
+                  -4.540653027447831,
+                  0.298600684757092
+                ],
+                [
+                  -2.9809252388149465,
+                  0.2179203402490929
+                ]
+              ]
+            },
+            "22": {
+              "n": 4,
+              "median": [
+                -0.6969790592832587,
+                -5.329216964031021
+              ],
+              "nmad": [
+                0.7401225565060643,
+                7.1697358849895
+              ],
+              "absolute_radial_p68": 7.8848906034724475,
+              "equal_mean": [
+                -0.17052147067145818,
+                -3.953317714393777
+              ],
+              "median_object_interval95": [
+                [
+                  -1.5006278337989787,
+                  2.2125000696796633
+                ],
+                [
+                  -12.816510060252714,
+                  2.258502137556633
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "094115c35f516809dc6cdf3f8e3b375d841b213446d60dbf12d8e9173a687623",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w150_090_22_10",
+      "samples": {
+        "full": {
+          "original": 6581,
+          "candidate": 6957,
+          "identical_members_retained": 6581,
+          "retention": {
+            "n": 6581,
+            "denominator": 6581,
+            "value": 1.0,
+            "wilson95": [
+              0.999416620909597,
+              0.9999999999999999
+            ]
+          },
+          "new": 376,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 5,
+              "median": [
+                -1.7085653961399172,
+                0.7475120550184569
+              ],
+              "nmad": [
+                2.235266129279451,
+                3.8519984918725516
+              ],
+              "absolute_radial_p68": 6.023870850505447,
+              "equal_mean": [
+                0.31337346034835606,
+                2.6139465284160335
+              ],
+              "median_object_interval95": [
+                [
+                  -3.216231745309923,
+                  6.182195150758929
+                ],
+                [
+                  -1.85062533326736,
+                  10.939066026985616
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 6581,
+          "candidate": 6957,
+          "identical_members_retained": 6581,
+          "retention": {
+            "n": 6581,
+            "denominator": 6581,
+            "value": 1.0,
+            "wilson95": [
+              0.999416620909597,
+              0.9999999999999999
+            ]
+          },
+          "new": 376,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 376,
+            "uniquely_reproduced": 0,
+            "conditional_ratio": {
+              "n": 0,
+              "denominator": 376,
+              "value": 0.0,
+              "wilson95": [
+                0.0,
+                0.010113321575324678
+              ]
+            },
+            "shifted_counts": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 0
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 5,
+              "median": [
+                -1.7085653961399172,
+                0.7475120550184569
+              ],
+              "nmad": [
+                2.235266129279451,
+                3.8519984918725516
+              ],
+              "absolute_radial_p68": 6.023870850505447,
+              "equal_mean": [
+                0.31337346034835606,
+                2.6139465284160335
+              ],
+              "median_object_interval95": [
+                [
+                  -3.216231745309923,
+                  6.182195150758929
+                ],
+                [
+                  -1.85062533326736,
+                  10.939066026985616
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "73bcc921e2c27861b25f2a3faabf7e06dc8e19399d52d291da5397d16a2fb4bf",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w170_090_28_00",
+      "samples": {
+        "full": {
+          "original": 4252,
+          "candidate": 4507,
+          "identical_members_retained": 4252,
+          "retention": {
+            "n": 4252,
+            "denominator": 4252,
+            "value": 1.0,
+            "wilson95": [
+              0.9990973679687403,
+              0.9999999999999998
+            ]
+          },
+          "new": 255,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        },
+        "training": {
+          "original": 4204,
+          "candidate": 4422,
+          "identical_members_retained": 4204,
+          "retention": {
+            "n": 4204,
+            "denominator": 4204,
+            "value": 1.0,
+            "wilson95": [
+              0.9990870713979393,
+              0.9999999999999999
+            ]
+          },
+          "new": 218,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 218,
+            "uniquely_reproduced": 138,
+            "conditional_ratio": {
+              "n": 138,
+              "denominator": 218,
+              "value": 0.6330275229357798,
+              "wilson95": [
+                0.5672580013558614,
+                0.694189972834027
+              ]
+            },
+            "shifted_counts": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 138,
+              "median": [
+                -6.925327272154391,
+                -8.332843638956547
+              ],
+              "nmad": [
+                53.53886896767262,
+                55.64597143512368
+              ],
+              "absolute_radial_p68": 91.54061863352167,
+              "equal_mean": [
+                -14.70695842768781,
+                -3.940663793515684
+              ],
+              "median_object_interval95": [
+                [
+                  -21.39567086659372,
+                  1.142163602169603
+                ],
+                [
+                  -17.92483498319052,
+                  5.385287740966305
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "628837aec61f3c54c1371820dafb3e71b1d4d4d8cda0b4bd3c09850121322a95",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w170_090_22_11",
+      "samples": {
+        "full": {
+          "original": 4717,
+          "candidate": 5133,
+          "identical_members_retained": 4717,
+          "retention": {
+            "n": 4717,
+            "denominator": 4717,
+            "value": 1.0,
+            "wilson95": [
+              0.9991862766724526,
+              0.9999999999999998
+            ]
+          },
+          "new": 416,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 4,
+              "median": [
+                -1.108560764589406,
+                2.995053163559314
+              ],
+              "nmad": [
+                6.783261769855002,
+                1.8761605595546456
+              ],
+              "absolute_radial_p68": 8.688221764864856,
+              "equal_mean": [
+                -0.7852865036905144,
+                3.8768489274388136
+              ],
+              "median_object_interval95": [
+                [
+                  -5.6838081474674595,
+                  8.405238271830987
+                ],
+                [
+                  1.4977039641163221,
+                  6.02409765203236
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 4717,
+          "candidate": 5133,
+          "identical_members_retained": 4717,
+          "retention": {
+            "n": 4717,
+            "denominator": 4717,
+            "value": 1.0,
+            "wilson95": [
+              0.9991862766724526,
+              0.9999999999999998
+            ]
+          },
+          "new": 416,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 416,
+            "uniquely_reproduced": 10,
+            "conditional_ratio": {
+              "n": 10,
+              "denominator": 416,
+              "value": 0.02403846153846154,
+              "wilson95": [
+                0.013108607072005066,
+                0.043678206902163064
+              ]
+            },
+            "shifted_counts": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 16,
+              "median": [
+                -10.698887718841434,
+                27.905935557559133
+              ],
+              "nmad": [
+                66.6415326358756,
+                49.34040159640051
+              ],
+              "absolute_radial_p68": 112.04747787594822,
+              "equal_mean": [
+                -9.346236142679118,
+                26.062797238235362
+              ],
+              "median_object_interval95": [
+                [
+                  -72.50026904605329,
+                  26.410800367593765
+                ],
+                [
+                  -12.046647130511701,
+                  46.834531976724975
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 4,
+              "median": [
+                -1.108560764589406,
+                2.995053163559314
+              ],
+              "nmad": [
+                6.783261769855002,
+                1.8761605595546456
+              ],
+              "absolute_radial_p68": 8.688221764864856,
+              "equal_mean": [
+                -0.7852865036905144,
+                3.8768489274388136
+              ],
+              "median_object_interval95": [
+                [
+                  -5.6838081474674595,
+                  8.405238271830987
+                ],
+                [
+                  1.4977039641163221,
+                  6.02409765203236
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "325dbedd46bac6b7c076d1277db9f384fa3118dbe942ac18a6eab0e8a4fccb45",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w210_090_08_11",
+      "samples": {
+        "full": {
+          "original": 5947,
+          "candidate": 6515,
+          "identical_members_retained": 5947,
+          "retention": {
+            "n": 5947,
+            "denominator": 5947,
+            "value": 1.0,
+            "wilson95": [
+              0.9993544679609973,
+              0.9999999999999999
+            ]
+          },
+          "new": 568,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 1
+            }
+          }
+        },
+        "training": {
+          "original": 5886,
+          "candidate": 6434,
+          "identical_members_retained": 5886,
+          "retention": {
+            "n": 5886,
+            "denominator": 5886,
+            "value": 1.0,
+            "wilson95": [
+              0.9993477823049138,
+              0.9999999999999999
+            ]
+          },
+          "new": 548,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 548,
+            "uniquely_reproduced": 101,
+            "conditional_ratio": {
+              "n": 101,
+              "denominator": 548,
+              "value": 0.1843065693430657,
+              "wilson95": [
+                0.1540795660700002,
+                0.21892876001804876
+              ]
+            },
+            "shifted_counts": [
+              1,
+              2,
+              1,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 102,
+              "median": [
+                1.8595509380102158,
+                0.21610796451568604
+              ],
+              "nmad": [
+                76.87452555917501,
+                74.26062005533129
+              ],
+              "absolute_radial_p68": 111.99457397421101,
+              "equal_mean": [
+                5.414748891019354,
+                -3.3939627758135984
+              ],
+              "median_object_interval95": [
+                [
+                  -13.278860658407211,
+                  17.078986406326294
+                ],
+                [
+                  -19.680322573520243,
+                  14.676720685791224
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 1
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "30e0c0f12458bce7e23fad86a9284c90a6f9b7c7c8ffd011f4ec9c5ae5907a38",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w210_090_06_11",
+      "samples": {
+        "full": {
+          "original": 6048,
+          "candidate": 6528,
+          "identical_members_retained": 6048,
+          "retention": {
+            "n": 6048,
+            "denominator": 6048,
+            "value": 1.0,
+            "wilson95": [
+              0.9993652413324385,
+              1.0
+            ]
+          },
+          "new": 480,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        },
+        "training": {
+          "original": 5763,
+          "candidate": 6272,
+          "identical_members_retained": 5763,
+          "retention": {
+            "n": 5763,
+            "denominator": 5763,
+            "value": 1.0,
+            "wilson95": [
+              0.9993338712624364,
+              1.0
+            ]
+          },
+          "new": 509,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 509,
+            "uniquely_reproduced": 395,
+            "conditional_ratio": {
+              "n": 395,
+              "denominator": 509,
+              "value": 0.7760314341846758,
+              "wilson95": [
+                0.7378226908329572,
+                0.8101049292275858
+              ]
+            },
+            "shifted_counts": [
+              2,
+              2,
+              2,
+              3
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 395,
+              "median": [
+                -5.040496468544006,
+                9.665817216038704
+              ],
+              "nmad": [
+                78.12322939867973,
+                68.40211578504145
+              ],
+              "absolute_radial_p68": 112.98317763756849,
+              "equal_mean": [
+                -2.78046067168441,
+                11.659770945072928
+              ],
+              "median_object_interval95": [
+                [
+                  -14.993922501802444,
+                  1.834758073091507
+                ],
+                [
+                  -0.7974465414881706,
+                  18.012693061493337
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "abd2f30cc73737688d0688a7ec28c588a6be32df47e964dd3bcda104996fa837",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w220_090_08_01",
+      "samples": {
+        "full": {
+          "original": 4992,
+          "candidate": 5867,
+          "identical_members_retained": 4992,
+          "retention": {
+            "n": 4992,
+            "denominator": 4992,
+            "value": 1.0,
+            "wilson95": [
+              0.999231068709374,
+              1.0
+            ]
+          },
+          "new": 875,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 17,
+              "median": [
+                -0.9935020231767983,
+                1.9227285583071434
+              ],
+              "nmad": [
+                4.136535580497864,
+                2.666444359746144
+              ],
+              "absolute_radial_p68": 5.905029610655565,
+              "equal_mean": [
+                -0.6622092471395592,
+                2.2821646241062377
+              ],
+              "median_object_interval95": [
+                [
+                  -3.783557048468761,
+                  1.0884281306091839
+                ],
+                [
+                  0.44570451387648086,
+                  4.294777820910792
+                ]
+              ]
+            },
+            "22": {
+              "n": 6,
+              "median": [
+                -2.9768952433101736,
+                3.292007779412267
+              ],
+              "nmad": [
+                2.432529018122109,
+                4.236593916585646
+              ],
+              "absolute_radial_p68": 7.764219381752332,
+              "equal_mean": [
+                -0.3237739388984196,
+                3.7684821241404705
+              ],
+              "median_object_interval95": [
+                [
+                  -4.617613588192212,
+                  3.493974875954826
+                ],
+                [
+                  -0.08459528538548682,
+                  7.772291240401264
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 4985,
+          "candidate": 5860,
+          "identical_members_retained": 4985,
+          "retention": {
+            "n": 4985,
+            "denominator": 4985,
+            "value": 1.0,
+            "wilson95": [
+              0.9992299897977512,
+              1.0
+            ]
+          },
+          "new": 875,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 875,
+            "uniquely_reproduced": 242,
+            "conditional_ratio": {
+              "n": 242,
+              "denominator": 875,
+              "value": 0.2765714285714286,
+              "wilson95": [
+                0.24795899744846026,
+                0.30713709403011225
+              ]
+            },
+            "shifted_counts": [
+              3,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 242,
+              "median": [
+                -10.767957851290703,
+                -21.15366381034255
+              ],
+              "nmad": [
+                161.6144336822748,
+                117.67180969318449
+              ],
+              "absolute_radial_p68": 219.6228174745379,
+              "equal_mean": [
+                -12.486219474722532,
+                -6.001584757027055
+              ],
+              "median_object_interval95": [
+                [
+                  -35.94590722955763,
+                  17.608773129060864
+                ],
+                [
+                  -37.734934616833925,
+                  -0.6599930673837662
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 17,
+              "median": [
+                -0.9935020231767983,
+                1.9227285583071434
+              ],
+              "nmad": [
+                4.613790201451972,
+                2.814474809269641
+              ],
+              "absolute_radial_p68": 5.792525854347278,
+              "equal_mean": [
+                -0.6658192161637878,
+                2.3953491216441316
+              ],
+              "median_object_interval95": [
+                [
+                  -3.8950867950245214,
+                  2.1184568338662157
+                ],
+                [
+                  0.5128595445868637,
+                  4.7200016558926725
+                ]
+              ]
+            },
+            "22": {
+              "n": 6,
+              "median": [
+                -3.5333720163457696,
+                3.1751432947992595
+              ],
+              "nmad": [
+                1.5366170082212576,
+                4.229036363522696
+              ],
+              "absolute_radial_p68": 7.614295778706971,
+              "equal_mean": [
+                -0.7147043482778441,
+                4.160149448178849
+              ],
+              "median_object_interval95": [
+                [
+                  -4.569805989245579,
+                  3.342345128789021
+                ],
+                [
+                  0.6433424844008501,
+                  7.772291240401264
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "67dc84d0edf0601f270a7e063a8dc9baf3cba279415b257fe62d73ca219373b5",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w220_090_42_01",
+      "samples": {
+        "full": {
+          "original": 7786,
+          "candidate": 8257,
+          "identical_members_retained": 7786,
+          "retention": {
+            "n": 7786,
+            "denominator": 7786,
+            "value": 1.0,
+            "wilson95": [
+              0.9995068630291128,
+              1.0
+            ]
+          },
+          "new": 471,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 6,
+              "median": [
+                3.490123427531896,
+                -0.21214634607859217
+              ],
+              "nmad": [
+                6.3519599130564455,
+                9.727180687278754
+              ],
+              "absolute_radial_p68": 10.50180563065959,
+              "equal_mean": [
+                2.057459241267711,
+                -2.5004785756478807
+              ],
+              "median_object_interval95": [
+                [
+                  -4.528680501280727,
+                  7.774461693454226
+                ],
+                [
+                  -12.848827403189164,
+                  6.543836893035077
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 7704,
+          "candidate": 8134,
+          "identical_members_retained": 7704,
+          "retention": {
+            "n": 7704,
+            "denominator": 7704,
+            "value": 1.0,
+            "wilson95": [
+              0.9995016167832179,
+              1.0
+            ]
+          },
+          "new": 430,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 430,
+            "uniquely_reproduced": 325,
+            "conditional_ratio": {
+              "n": 325,
+              "denominator": 430,
+              "value": 0.7558139534883721,
+              "wilson95": [
+                0.7130603948985011,
+                0.7940372914268751
+              ]
+            },
+            "shifted_counts": [
+              0,
+              2,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 467,
+              "median": [
+                -20.916710704565048,
+                -17.54133227467537
+              ],
+              "nmad": [
+                143.93621576800345,
+                96.36250739558861
+              ],
+              "absolute_radial_p68": 195.2499954885397,
+              "equal_mean": [
+                -23.64751931157051,
+                -23.16585901930402
+              ],
+              "median_object_interval95": [
+                [
+                  -33.99669051170349,
+                  -6.472405292093754
+                ],
+                [
+                  -31.70035536470823,
+                  -4.932700180914253
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 6,
+              "median": [
+                4.06965955343818,
+                0.9230528983133104
+              ],
+              "nmad": [
+                6.955840116671064,
+                9.152696042441935
+              ],
+              "absolute_radial_p68": 11.587432265164631,
+              "equal_mean": [
+                2.6414924830853233,
+                -1.8815891003096514
+              ],
+              "median_object_interval95": [
+                [
+                  -4.273321198632601,
+                  8.761309436529416
+                ],
+                [
+                  -12.284126838723918,
+                  6.67772960575955
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "7c859ad45ae6012ba1ad2b465fa32274d4c1fcb47f05f47b890fb72fb6ff3ae3",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w220_110_66_00",
+      "samples": {
+        "full": {
+          "original": 4390,
+          "candidate": 4654,
+          "identical_members_retained": 4390,
+          "retention": {
+            "n": 4390,
+            "denominator": 4390,
+            "value": 1.0,
+            "wilson95": [
+              0.9991257174714436,
+              1.0
+            ]
+          },
+          "new": 264,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 2
+            }
+          }
+        },
+        "training": {
+          "original": 4389,
+          "candidate": 4652,
+          "identical_members_retained": 4389,
+          "retention": {
+            "n": 4389,
+            "denominator": 4389,
+            "value": 1.0,
+            "wilson95": [
+              0.999125518447068,
+              1.0
+            ]
+          },
+          "new": 263,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 263,
+            "uniquely_reproduced": 5,
+            "conditional_ratio": {
+              "n": 5,
+              "denominator": 263,
+              "value": 0.019011406844106463,
+              "wilson95": [
+                0.008147200122500114,
+                0.043724270232468165
+              ]
+            },
+            "shifted_counts": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 5,
+              "median": [
+                -179.2908464372158,
+                185.64655784890056
+              ],
+              "nmad": [
+                57.04038959562778,
+                51.28035038828104
+              ],
+              "absolute_radial_p68": 306.89092762992266,
+              "equal_mean": [
+                -216.88289615511894,
+                197.22805688157678
+              ],
+              "median_object_interval95": [
+                [
+                  -453.62399756908417,
+                  -127.58782044053078
+                ],
+                [
+                  137.31409003213048,
+                  288.87674236670136
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 0
+            },
+            "22": {
+              "n": 2
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "535ac82053df0f38dca22b0a71c968c9af4d7e7a1948ebb01c460c97332bc0b0",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w220_110_62_10",
+      "samples": {
+        "full": {
+          "original": 5009,
+          "candidate": 5403,
+          "identical_members_retained": 5009,
+          "retention": {
+            "n": 5009,
+            "denominator": 5009,
+            "value": 1.0,
+            "wilson95": [
+              0.999233676378507,
+              1.0
+            ]
+          },
+          "new": 394,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 3,
+              "median": [
+                4.120669901398485,
+                0.7365570826389515
+              ],
+              "nmad": [
+                4.137574894471097,
+                0.778333240754565
+              ],
+              "absolute_radial_p68": 6.088994942596914,
+              "equal_mean": [
+                4.250624458766469,
+                1.4821376261762234
+              ],
+              "median_object_interval95": [
+                [
+                  1.3299138684353815,
+                  7.301289606465542
+                ],
+                [
+                  0.21157850395652533,
+                  3.498277291933193
+                ]
+              ]
+            },
+            "22": {
+              "n": 11,
+              "median": [
+                0.2181187323363246,
+                -3.402315909983573
+              ],
+              "nmad": [
+                3.571005657115457,
+                8.35354744478133
+              ],
+              "absolute_radial_p68": 7.753827083658162,
+              "equal_mean": [
+                1.638071500286994,
+                -1.4160775555469967
+              ],
+              "median_object_interval95": [
+                [
+                  -2.1126517228894373,
+                  5.6593677880803135
+                ],
+                [
+                  -6.795944634982363,
+                  2.5431206224243956
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 5008,
+          "candidate": 5402,
+          "identical_members_retained": 5008,
+          "retention": {
+            "n": 5008,
+            "denominator": 5008,
+            "value": 1.0,
+            "wilson95": [
+              0.9992335234759007,
+              1.0
+            ]
+          },
+          "new": 394,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 394,
+            "uniquely_reproduced": 2,
+            "conditional_ratio": {
+              "n": 2,
+              "denominator": 394,
+              "value": 0.005076142131979695,
+              "wilson95": [
+                0.001393166818154436,
+                0.018316842399935238
+              ]
+            },
+            "shifted_counts": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 2
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 3,
+              "median": [
+                4.120669901398485,
+                0.7365570826389515
+              ],
+              "nmad": [
+                4.137574894471097,
+                0.778333240754565
+              ],
+              "absolute_radial_p68": 6.088994942596914,
+              "equal_mean": [
+                4.250624458766469,
+                1.4821376261762234
+              ],
+              "median_object_interval95": [
+                [
+                  1.3299138684353815,
+                  7.301289606465542
+                ],
+                [
+                  0.21157850395652533,
+                  3.498277291933193
+                ]
+              ]
+            },
+            "22": {
+              "n": 11,
+              "median": [
+                0.2181187323363246,
+                -3.402315909983573
+              ],
+              "nmad": [
+                3.571005657115457,
+                8.35354744478133
+              ],
+              "absolute_radial_p68": 7.753827083658162,
+              "equal_mean": [
+                1.638071500286994,
+                -1.4160775555469967
+              ],
+              "median_object_interval95": [
+                [
+                  -2.1126517228894373,
+                  5.6593677880803135
+                ],
+                [
+                  -6.795944634982363,
+                  2.5431206224243956
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "286c3c288ad64bf88248301d4bb7833421fb6be4533c486e413f87d22f2bb677",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w230_090_26_01",
+      "samples": {
+        "full": {
+          "original": 9100,
+          "candidate": 9508,
+          "identical_members_retained": 9100,
+          "retention": {
+            "n": 9100,
+            "denominator": 9100,
+            "value": 1.0,
+            "wilson95": [
+              0.9995780397936332,
+              0.9999999999999999
+            ]
+          },
+          "new": 408,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 4,
+              "median": [
+                0.26181323086718195,
+                -1.8097971718712285
+              ],
+              "nmad": [
+                0.8326118175202699,
+                9.70933929239997
+              ],
+              "absolute_radial_p68": 7.936179263254936,
+              "equal_mean": [
+                1.20076290382491,
+                -1.770623260426913
+              ],
+              "median_object_interval95": [
+                [
+                  -0.7139293946733911,
+                  2.701301553931073
+                ],
+                [
+                  -9.544800994124426,
+                  4.817410284364207
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 8925,
+          "candidate": 9345,
+          "identical_members_retained": 8925,
+          "retention": {
+            "n": 8925,
+            "denominator": 8925,
+            "value": 1.0,
+            "wilson95": [
+              0.9995697696237063,
+              0.9999999999999998
+            ]
+          },
+          "new": 420,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 420,
+            "uniquely_reproduced": 345,
+            "conditional_ratio": {
+              "n": 345,
+              "denominator": 420,
+              "value": 0.8214285714285714,
+              "wilson95": [
+                0.7819373985097225,
+                0.8550932514678752
+              ]
+            },
+            "shifted_counts": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 357,
+              "median": [
+                -10.66010069847107,
+                9.698312103748322
+              ],
+              "nmad": [
+                186.62684213039873,
+                102.79093081456571
+              ],
+              "absolute_radial_p68": 238.07042150597832,
+              "equal_mean": [
+                0.9972088014712187,
+                14.266480287333497
+              ],
+              "median_object_interval95": [
+                [
+                  -34.213309019804,
+                  8.615522757172585
+                ],
+                [
+                  -5.242046176455915,
+                  24.070221103727818
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 2
+            },
+            "22": {
+              "n": 3,
+              "median": [
+                5.543946795930553,
+                -2.2915036298214178
+              ],
+              "nmad": [
+                3.3577437932741723,
+                8.467564295846692
+              ],
+              "absolute_radial_p68": 9.583298967070238,
+              "equal_mean": [
+                5.100198002477531,
+                -3.622435494611112
+              ],
+              "median_object_interval95": [
+                [
+                  1.9479332543181693,
+                  7.808713957183873
+                ],
+                [
+                  -11.995593097013037,
+                  3.4197902430011187
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "078fe9538e56834d4e1a41379ebde213220f930039902c932078045d632c7275",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w230_090_04_00",
+      "samples": {
+        "full": {
+          "original": 8862,
+          "candidate": 9356,
+          "identical_members_retained": 8862,
+          "retention": {
+            "n": 8862,
+            "denominator": 8862,
+            "value": 1.0,
+            "wilson95": [
+              0.9995667124391366,
+              1.0
+            ]
+          },
+          "new": 494,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 6,
+              "median": [
+                -1.3407558290211967,
+                -1.8295583855207767
+              ],
+              "nmad": [
+                5.200960347784197,
+                7.824993672618716
+              ],
+              "absolute_radial_p68": 8.625232577695584,
+              "equal_mean": [
+                -1.8937651406420766,
+                -1.237796124295365
+              ],
+              "median_object_interval95": [
+                [
+                  -6.385623685496697,
+                  2.167243865963423
+                ],
+                [
+                  -7.557224385330102,
+                  5.2518971030272725
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 8831,
+          "candidate": 9288,
+          "identical_members_retained": 8831,
+          "retention": {
+            "n": 8831,
+            "denominator": 8831,
+            "value": 1.0,
+            "wilson95": [
+              0.9995651921046236,
+              1.0
+            ]
+          },
+          "new": 457,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 457,
+            "uniquely_reproduced": 327,
+            "conditional_ratio": {
+              "n": 327,
+              "denominator": 457,
+              "value": 0.7155361050328227,
+              "wilson95": [
+                0.6725093486636299,
+                0.7549695515727516
+              ]
+            },
+            "shifted_counts": [
+              1,
+              1,
+              0,
+              2
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 338,
+              "median": [
+                31.526448398828506,
+                2.4465176183730364
+              ],
+              "nmad": [
+                154.13261186453104,
+                97.48922225436978
+              ],
+              "absolute_radial_p68": 208.7491327295936,
+              "equal_mean": [
+                34.501430932586715,
+                2.348347894362444
+              ],
+              "median_object_interval95": [
+                [
+                  14.224249005317688,
+                  53.81946963071823
+                ],
+                [
+                  -9.555551048368216,
+                  19.774549417896196
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 6,
+              "median": [
+                -1.2599883030635723,
+                -2.019771944553406
+              ],
+              "nmad": [
+                5.11319815839047,
+                6.571308020688975
+              ],
+              "absolute_radial_p68": 8.536708213484044,
+              "equal_mean": [
+                -1.8264172119084894,
+                -1.5956169842920962
+              ],
+              "median_object_interval95": [
+                [
+                  -6.186216645370665,
+                  2.188816606143544
+                ],
+                [
+                  -7.538931732965933,
+                  3.560698327997269
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "6af19258231894aa72baaac4eca3f1a0c0e90aed0f5d16743ff628f9b1e6d4bd",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w230_110_46_10",
+      "samples": {
+        "full": {
+          "original": 5095,
+          "candidate": 5574,
+          "identical_members_retained": 5095,
+          "retention": {
+            "n": 5095,
+            "denominator": 5095,
+            "value": 1.0,
+            "wilson95": [
+              0.9992466016345636,
+              0.9999999999999998
+            ]
+          },
+          "new": 479,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 6,
+              "median": [
+                1.0537629054746476,
+                1.9857852915636585
+              ],
+              "nmad": [
+                5.175519531009914,
+                2.769805838809763
+              ],
+              "absolute_radial_p68": 9.250166776989351,
+              "equal_mean": [
+                0.8242593248902965,
+                -0.17582047374564083
+              ],
+              "median_object_interval95": [
+                [
+                  -6.04833288416217,
+                  5.676285745887858
+                ],
+                [
+                  -3.9595144908805864,
+                  3.7508456157496233
+                ]
+              ]
+            },
+            "22": {
+              "n": 7,
+              "median": [
+                1.1596476462009646,
+                -1.7592650859838548
+              ],
+              "nmad": [
+                2.7604604004718087,
+                1.983249720491273
+              ],
+              "absolute_radial_p68": 5.23708187342467,
+              "equal_mean": [
+                -1.0812152485278388,
+                -0.94433923152316
+              ],
+              "median_object_interval95": [
+                [
+                  -4.052570037207917,
+                  2.995240496422633
+                ],
+                [
+                  -3.0969486961897585,
+                  0.06627716466446247
+                ]
+              ]
+            }
+          }
+        },
+        "training": {
+          "original": 5089,
+          "candidate": 5563,
+          "identical_members_retained": 5089,
+          "retention": {
+            "n": 5089,
+            "denominator": 5089,
+            "value": 1.0,
+            "wilson95": [
+              0.9992457140376831,
+              1.0
+            ]
+          },
+          "new": 474,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 474,
+            "uniquely_reproduced": 91,
+            "conditional_ratio": {
+              "n": 91,
+              "denominator": 474,
+              "value": 0.19198312236286919,
+              "wilson95": [
+                0.15905853835389608,
+                0.2298601194774025
+              ]
+            },
+            "shifted_counts": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 91,
+              "median": [
+                31.744977563619614,
+                -5.558030426502228
+              ],
+              "nmad": [
+                133.90969642934203,
+                109.10455218739807
+              ],
+              "absolute_radial_p68": 190.31735002532358,
+              "equal_mean": [
+                37.57292585353275,
+                -7.092040378068175
+              ],
+              "median_object_interval95": [
+                [
+                  -11.01808750629425,
+                  58.20061459392309
+                ],
+                [
+                  -40.29007829725742,
+                  12.693830988369882
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 6,
+              "median": [
+                1.2186062130445174,
+                1.9857852915636585
+              ],
+              "nmad": [
+                5.175519531009914,
+                2.769805838809763
+              ],
+              "absolute_radial_p68": 9.250166776989351,
+              "equal_mean": [
+                0.8792070940802533,
+                -0.30438673853578935
+              ],
+              "median_object_interval95": [
+                [
+                  -6.04833288416217,
+                  5.676285745887858
+                ],
+                [
+                  -4.404475059455287,
+                  3.7508456157496233
+                ]
+              ]
+            },
+            "22": {
+              "n": 7,
+              "median": [
+                1.1596476462009646,
+                -1.7592650859838548
+              ],
+              "nmad": [
+                2.7604604004718087,
+                1.983249720491273
+              ],
+              "absolute_radial_p68": 5.23708187342467,
+              "equal_mean": [
+                -1.0812152485278388,
+                -0.94433923152316
+              ],
+              "median_object_interval95": [
+                [
+                  -4.052570037207917,
+                  2.995240496422633
+                ],
+                [
+                  -3.0969486961897585,
+                  0.06627716466446247
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    },
+    {
+      "ticket": {
+        "source_sha256": "461b8e25ed20ad7d1b2e6a6496321f7164aa9eb605ecca6afbffe4b726ee0475",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "62b8882315f45b3635af4dfdba9b9b300be12cece7f1cb4ae49a617833148cb9"
+      },
+      "core": "w230_110_86_10",
+      "samples": {
+        "full": {
+          "original": 6299,
+          "candidate": 6806,
+          "identical_members_retained": 6299,
+          "retention": {
+            "n": 6299,
+            "denominator": 6299,
+            "value": 1.0,
+            "wilson95": [
+              0.999390519522696,
+              1.0
+            ]
+          },
+          "new": 507,
+          "held_year": 2019,
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        },
+        "training": {
+          "original": 6286,
+          "candidate": 6791,
+          "identical_members_retained": 6286,
+          "retention": {
+            "n": 6286,
+            "denominator": 6286,
+            "value": 1.0,
+            "wilson95": [
+              0.9993892598333609,
+              1.0
+            ]
+          },
+          "new": 505,
+          "held_year": {
+            "year": 2019,
+            "training_new_sources": 505,
+            "uniquely_reproduced": 47,
+            "conditional_ratio": {
+              "n": 47,
+              "denominator": 505,
+              "value": 0.09306930693069307,
+              "wilson95": [
+                0.07071179166931836,
+                0.12157100511271736
+              ]
+            },
+            "shifted_counts": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "competing_claims_rejected": 0,
+            "position_residual": {
+              "n": 47,
+              "median": [
+                0.3752704858779907,
+                1.7142065092921257
+              ],
+              "nmad": [
+                201.3051554386139,
+                224.98192756957857
+              ],
+              "absolute_radial_p68": 363.6841346396483,
+              "equal_mean": [
+                10.843492142697597,
+                26.810525440789284
+              ],
+              "median_object_interval95": [
+                [
+                  -58.49207528680563,
+                  88.88630823045969
+                ],
+                [
+                  -44.67482578754425,
+                  78.11275005340576
+                ]
+              ]
+            },
+            "scope": "All held target bands excluded before association. One-to-one 1arcsec and four shifts. Denominator is training candidates, not independently verified CCD/SNR opportunities or true stars."
+          },
+          "added_qso": {
+            "21": {
+              "n": 1
+            },
+            "22": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "slurm_job": "61967758"
+    }
+  ],
+  "counts": {
+    "full": {
+      "original": 91181,
+      "candidate": 98660,
+      "identical_members_retained": 91181,
+      "new": 7479
+    },
+    "training": {
+      "original": 90255,
+      "candidate": 97509,
+      "identical_members_retained": 90255,
+      "new": 7254
+    }
+  },
+  "candidate_adopted": false,
+  "decision": "Close the one candidate for adopted dark-star production: these tests do not provide an independent extended-source/blend purity denominator or full CCD/SNR opportunity audit. Keep measured recovery and QSO zero results as conditional evidence; do not tune a second threshold.",
+  "scope": "Single registered 0.6 morphology relaxation requiring unique SDSS STAR source. Baseline fits and unknown-morphology policy unchanged. No production catalogue overwritten.",
+  "slurm_job": "61967758"
+}

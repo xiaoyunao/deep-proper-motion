@@ -1,0 +1,53 @@
+{
+  "registration_sha256": "4c8cc968a752481ad52494c6d52df56922b842b897b547edf92af7282ee02d79",
+  "trace_sha256": {
+    "w130_110_86_11": "e9a1910a5ef5bb4a007614d0478635104f185bae2f7a1f2d02f38b1619f6a431",
+    "w130_110_60_10": "74a495cc0fb3a4486a68928b172cefd924c89b07dfdd7cfa812f7280001e6ca2",
+    "w150_090_68_11": "f7870ee0cddbc53ac4d1966d312ee46f40920dfc8e565cdf44ba63f786cdb38f",
+    "w150_090_22_10": "eb962758cf46362f6c612fbbea77537b77becd1d739c12faba1adb6ce3fca6e7",
+    "w170_090_28_00": "5c5010dc16c846aae31a4ab7d25322b6a4e9bc14bd055aa4bb1a7fab5625b458",
+    "w170_090_22_11": "2ae3b3c8e59f42ce394cf8234e661bf6647dbe078642cd566699045979566e1f",
+    "w210_090_08_11": "c1f0a5426b21b1163fb08ea3c7607fabc85cb3f21d11cbd477decefa9ff0af88",
+    "w210_090_06_11": "68f7cf1fd6d8c8cdaf9bdaf0d8dce95f57bdd134d7381c49e438765c23ffa1dc",
+    "w220_090_08_01": "aff29c67263dad96d2ad38992ed0256a44a482ca3090ede20a115224d9ce5e8d",
+    "w220_090_42_01": "38d6976dcec15fa702b23e1791c692557b23794663bc66e6425abe8950b24fba",
+    "w220_110_66_00": "d9bf602e8f08372139ea676029cea1faaa7ada6313dab2e6620113253005db0d",
+    "w220_110_62_10": "e6eaf8a76531f097bdea444bcd2f2c53fef7158b478d86ab43f0a6782c6ca1ac",
+    "w230_090_26_01": "8d3a30d74df1422fc78c9c129bb5fd5b56a72aba4c5f3b2758f5b8eb4566be07",
+    "w230_090_04_00": "ca9bc17cd82f1e6f5ea6f278425f54521e35d53cd423a22a69850404f664419c",
+    "w230_110_46_10": "b79f240424c17856c29bb374779d793d84bc6ce90aa064b7c91bb9a54a99d1a5",
+    "w230_110_86_10": "a3b21fa11eb3d104ae7f3b666486c586805c7c501fabdf20e4b92327cfd613ed"
+  },
+  "opportunity_pool": {
+    "21": {
+      "geometry": 672,
+      "morphology_exit": 87,
+      "morphology_between06_08": 66,
+      "potential_independent_sdss_star_pool": 53
+    },
+    "22": {
+      "geometry": 451,
+      "morphology_exit": 194,
+      "morphology_between06_08": 111,
+      "potential_independent_sdss_star_pool": 65
+    }
+  },
+  "parameters": {
+    "nsc_valid_median_min": 0.6,
+    "baseline_min": 0.8,
+    "independent_evidence": "Unique SDSS source track with all defined run morphology=STAR(6); source tracks collapse independent SDSS runs before competitor testing.",
+    "independent_radius_mas": 500,
+    "competitor_margin_mas": 300,
+    "baseline_keep_fraction_min": 0.99,
+    "max_common_p68_degradation": 0.05,
+    "max_axis_zero_increase_masyr": 0.5,
+    "max_wrong_member_increment": 0.01,
+    "potential_pool_recovery_fraction_min": 0.1,
+    "minimum_added_qso_for_magnitude_zero": 20,
+    "test_year": "Metadata-selected final physical NSC year per core, excluded from every target-band association before training.",
+    "disposition": "Only this one candidate; no second threshold search. Adopt only scoped layer with independent identity, extended-source and held-year evidence. Otherwise close.",
+    "old_unknown_policy": "Legacy selection unchanged; unknown/invalid morphology never granted additional passage."
+  },
+  "slurm_job": "61966558",
+  "scope": "Potential pool derived from position/quality/morphology only, without reading candidate proper motions. It is not a promised recovery yield or a stellar purity estimate."
+}

@@ -1,0 +1,452 @@
+{
+  "snapshot_utc": "2026-11-25T09:00:40.710406+00:00",
+  "jobs": {
+    "61964815": {
+      "job": "61964815",
+      "name": "dpm-v20-preregister",
+      "state": "COMPLETED",
+      "elapsed_seconds": 39,
+      "allocated_tres": "billing=6,cpu=6,energy=16944,mem=8G,node=1",
+      "total_cpu": "00:05.890",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00025390625,
+      "budget_class": "science_or_recovery"
+    },
+    "61965574": {
+      "job": "61965574",
+      "name": "dpm-v20-statistics",
+      "state": "COMPLETED",
+      "elapsed_seconds": 139,
+      "allocated_tres": "billing=10,cpu=10,energy=74237,mem=16G,node=1",
+      "total_cpu": "01:29.997",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0015082465277777778,
+      "budget_class": "performance"
+    },
+    "61965664": {
+      "job": "61965664",
+      "name": "dpm-v20-selection",
+      "state": "FAILED",
+      "elapsed_seconds": 29,
+      "allocated_tres": "billing=18,cpu=18,energy=17880,mem=32G,node=1",
+      "total_cpu": "00:05.704",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00056640625,
+      "budget_class": "science_or_recovery"
+    },
+    "61965720": {
+      "job": "61965720",
+      "name": "dpm-v20-selection",
+      "state": "COMPLETED",
+      "elapsed_seconds": 447,
+      "allocated_tres": "billing=18,cpu=18,energy=199707,mem=32G,node=1",
+      "total_cpu": "26:26.363",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00873046875,
+      "budget_class": "science_or_recovery"
+    },
+    "61965915": {
+      "job": "61965915",
+      "name": "dpm-v20-quality",
+      "state": "COMPLETED",
+      "elapsed_seconds": 41,
+      "allocated_tres": "billing=8,cpu=8,energy=11079,mem=12G,node=1",
+      "total_cpu": "00:24.596",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0003559027777777778,
+      "budget_class": "science_or_recovery"
+    },
+    "61966119": {
+      "job": "61966119",
+      "name": "dpm-v20-inventory",
+      "state": "COMPLETED",
+      "elapsed_seconds": 33,
+      "allocated_tres": "billing=6,cpu=6,energy=18491,mem=8G,node=1",
+      "total_cpu": "00:07.388",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00021484375,
+      "budget_class": "science_or_recovery"
+    },
+    "61966448": {
+      "job": "61966448",
+      "name": "dpm-v20-counts",
+      "state": "FAILED",
+      "elapsed_seconds": 579,
+      "allocated_tres": "billing=18,cpu=18,energy=256002,mem=32G,node=1",
+      "total_cpu": "46:00.308",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.01130859375,
+      "budget_class": "science_or_recovery"
+    },
+    "61966558": {
+      "job": "61966558",
+      "name": "dpm-v20-photometry",
+      "state": "COMPLETED",
+      "elapsed_seconds": 116,
+      "allocated_tres": "billing=4,cpu=4,energy=46106,mem=6G,node=1",
+      "total_cpu": "00:58.038",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0005034722222222222,
+      "budget_class": "science_or_recovery"
+    },
+    "61967287": {
+      "job": "61967287",
+      "name": "dpm-v20-count-merge",
+      "state": "COMPLETED",
+      "elapsed_seconds": 243,
+      "allocated_tres": "billing=14,cpu=14,energy=120144,mem=24G,node=1",
+      "total_cpu": "03:36.594",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00369140625,
+      "budget_class": "science_or_recovery"
+    },
+    "61967420": {
+      "job": "61967420",
+      "name": "dpm-v20-stellar",
+      "state": "COMPLETED",
+      "elapsed_seconds": 108,
+      "allocated_tres": "billing=10,cpu=10,energy=34652,mem=16G,node=1",
+      "total_cpu": "01:20.722",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.001171875,
+      "budget_class": "science_or_recovery"
+    },
+    "61967758": {
+      "job": "61967758",
+      "name": "dpm-v20-selecttrial",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1166,
+      "allocated_tres": "billing=10,cpu=10,energy=490877,mem=16G,node=1",
+      "total_cpu": "36:18.390",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.012651909722222222,
+      "budget_class": "science_or_recovery"
+    },
+    "61967856": {
+      "job": "61967856",
+      "name": "dpm-v20-scope",
+      "state": "COMPLETED",
+      "elapsed_seconds": 35,
+      "allocated_tres": "billing=8,cpu=8,energy=15907,mem=12G,node=1",
+      "total_cpu": "00:12.876",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00030381944444444445,
+      "budget_class": "science_or_recovery"
+    },
+    "61968365": {
+      "job": "61968365",
+      "name": "dpm-v20-readonly",
+      "state": "COMPLETED",
+      "elapsed_seconds": 55,
+      "allocated_tres": "billing=4,cpu=4,energy=10820,mem=6G,node=1",
+      "total_cpu": "00:04.157",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00023871527777777777,
+      "budget_class": "performance"
+    },
+    "61968755": {
+      "job": "61968755",
+      "name": "dpm-v20-candidateqc",
+      "state": "COMPLETED",
+      "elapsed_seconds": 57,
+      "allocated_tres": "billing=8,cpu=8,energy=13528,mem=12G,node=1",
+      "total_cpu": "00:46.726",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0004947916666666667,
+      "budget_class": "science_or_recovery"
+    },
+    "61968877": {
+      "job": "61968877",
+      "name": "dpm-v20-identityqc",
+      "state": "COMPLETED",
+      "elapsed_seconds": 72,
+      "allocated_tres": "billing=8,cpu=8,energy=22531,mem=12G,node=1",
+      "total_cpu": "01:06.368",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.000625,
+      "budget_class": "science_or_recovery"
+    }
+  },
+  "steps": {
+    "61964815.extern": {
+      "job": "61964815.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 42,
+      "allocated_tres": "billing=6,cpu=6,mem=8G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61964815.0": {
+      "job": "61964815.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 30,
+      "allocated_tres": "cpu=4,mem=8G,node=1",
+      "total_cpu": "00:05.890",
+      "maximum_rss": "0"
+    },
+    "61965574.extern": {
+      "job": "61965574.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 139,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61965574.0": {
+      "job": "61965574.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 134,
+      "allocated_tres": "cpu=8,mem=16G,node=1",
+      "total_cpu": "01:29.997",
+      "maximum_rss": "4917728K"
+    },
+    "61965664.extern": {
+      "job": "61965664.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 32,
+      "allocated_tres": "billing=18,cpu=18,mem=32G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61965664.0": {
+      "job": "61965664.0",
+      "name": "python",
+      "state": "FAILED",
+      "elapsed_seconds": 21,
+      "allocated_tres": "cpu=12,mem=32G,node=1",
+      "total_cpu": "00:05.704",
+      "maximum_rss": "0"
+    },
+    "61965720.extern": {
+      "job": "61965720.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 454,
+      "allocated_tres": "billing=18,cpu=18,mem=32G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61965720.0": {
+      "job": "61965720.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 438,
+      "allocated_tres": "cpu=12,mem=32G,node=1",
+      "total_cpu": "26:26.363",
+      "maximum_rss": "4968812K"
+    },
+    "61965915.extern": {
+      "job": "61965915.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 41,
+      "allocated_tres": "billing=8,cpu=8,mem=12G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61965915.0": {
+      "job": "61965915.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 35,
+      "allocated_tres": "cpu=4,mem=12G,node=1",
+      "total_cpu": "00:24.596",
+      "maximum_rss": "1026992K"
+    },
+    "61966119.extern": {
+      "job": "61966119.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 37,
+      "allocated_tres": "billing=6,cpu=6,mem=8G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61966119.0": {
+      "job": "61966119.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 30,
+      "allocated_tres": "cpu=4,mem=8G,node=1",
+      "total_cpu": "00:07.388",
+      "maximum_rss": "0"
+    },
+    "61966448.extern": {
+      "job": "61966448.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 582,
+      "allocated_tres": "billing=18,cpu=18,mem=32G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61966448.0": {
+      "job": "61966448.0",
+      "name": "python",
+      "state": "OUT_OF_MEMORY",
+      "elapsed_seconds": 572,
+      "allocated_tres": "cpu=12,mem=32G,node=1",
+      "total_cpu": "46:00.308",
+      "maximum_rss": "33507112K"
+    },
+    "61966558.extern": {
+      "job": "61966558.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 120,
+      "allocated_tres": "billing=4,cpu=4,mem=6G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61966558.0": {
+      "job": "61966558.0",
+      "name": "bash",
+      "state": "COMPLETED",
+      "elapsed_seconds": 108,
+      "allocated_tres": "cpu=2,mem=6G,node=1",
+      "total_cpu": "00:58.038",
+      "maximum_rss": "2087444K"
+    },
+    "61967287.extern": {
+      "job": "61967287.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 243,
+      "allocated_tres": "billing=14,cpu=14,mem=24G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61967287.0": {
+      "job": "61967287.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 240,
+      "allocated_tres": "cpu=4,mem=24G,node=1",
+      "total_cpu": "03:36.594",
+      "maximum_rss": "9733836K"
+    },
+    "61967420.extern": {
+      "job": "61967420.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 108,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61967420.0": {
+      "job": "61967420.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 105,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "total_cpu": "01:20.722",
+      "maximum_rss": "5176580K"
+    },
+    "61967758.extern": {
+      "job": "61967758.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1166,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61967758.0": {
+      "job": "61967758.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1160,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "total_cpu": "36:18.390",
+      "maximum_rss": "3120800K"
+    },
+    "61967856.extern": {
+      "job": "61967856.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 41,
+      "allocated_tres": "billing=8,cpu=8,mem=12G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61967856.0": {
+      "job": "61967856.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 28,
+      "allocated_tres": "cpu=2,mem=12G,node=1",
+      "total_cpu": "00:12.876",
+      "maximum_rss": "0"
+    },
+    "61968365.extern": {
+      "job": "61968365.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 58,
+      "allocated_tres": "billing=4,cpu=4,mem=6G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61968365.0": {
+      "job": "61968365.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 45,
+      "allocated_tres": "cpu=2,mem=6G,node=1",
+      "total_cpu": "00:04.157",
+      "maximum_rss": "105612K"
+    },
+    "61968755.extern": {
+      "job": "61968755.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 59,
+      "allocated_tres": "billing=8,cpu=8,mem=12G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61968755.0": {
+      "job": "61968755.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 51,
+      "allocated_tres": "cpu=4,mem=12G,node=1",
+      "total_cpu": "00:46.726",
+      "maximum_rss": "1084548K"
+    },
+    "61968877.extern": {
+      "job": "61968877.extern",
+      "name": "extern",
+      "state": "COMPLETED",
+      "elapsed_seconds": 72,
+      "allocated_tres": "billing=8,cpu=8,mem=12G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "61968877.0": {
+      "job": "61968877.0",
+      "name": "python",
+      "state": "COMPLETED",
+      "elapsed_seconds": 63,
+      "allocated_tres": "cpu=4,mem=12G,node=1",
+      "total_cpu": "01:06.368",
+      "maximum_rss": "2031076K"
+    }
+  },
+  "estimated_cpu_node_hours": 0.04261935763888889,
+  "performance_cpu_node_hours": 0.0017469618055555556,
+  "budget_cpu_node_hours": 10,
+  "performance_cap_cpu_node_hours": 2,
+  "pscratch_task_allocated_bytes": 2544467968,
+  "task_file_count": 1701,
+  "accounting": "Actual sacct allocations and elapsed wall time, including failed/OOM jobs. Estimate = AllocTRES billing/256*elapsed_hours; final NERSC Iris ledger remains authoritative. Requested limits are not charged elapsed time.",
+  "storage": "Task root created for v2.0. Snapshot is task increment, not user filesystem quota or measured all-process storage peak; original historical data are excluded.",
+  "peak_memory": "Per-step sacct MaxRSS and measured process peaks are supplied; no claim of a simultaneously measured aggregate memory peak.",
+  "current_jobs_all_terminal": true
+}

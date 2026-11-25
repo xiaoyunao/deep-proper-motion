@@ -20,7 +20,8 @@ from deep_pm.public_summary import check_aggregate
 if not os.environ.get('SLURM_JOB_ID'):
     raise RuntimeError('Use Slurm compute nodes')
 parser=argparse.ArgumentParser(description='Signed partition readout, then serial global accumulation.')
-for name in ('work','ref','fit','intake','window_fits'):parser.add_argument(name,type=Path)
+for name in ('work','ref','fit','intake'):parser.add_argument(name,type=Path)
+parser.add_argument('window_fits',type=Path,nargs='?',help='Required only for uncached native footprint extraction')
 parser.add_argument('--phase',choices=('all','partitions','merge'),default='all')
 parser.add_argument('--graph',action='append')
 args=parser.parse_args()
@@ -113,6 +114,7 @@ def collect(graph_name,node):
         print('REUSE_SCIENCE_PARTITION',graph_name,len(actual),flush=True)
         return prior['result']
     if args.phase=='merge':raise ValueError('Merge requires a completed signed partition; schedule the partition stage first')
+    if window_fits is None:raise ValueError('Uncached partition needs the real SDSS window catalogue')
     save_json(state/'private_frozen_plan.json',dict(sources=sources,reference_graph=str(shared/'private_c0.npz'),reference_sha256=graph_hash,
         nominal_area_sqdeg=sum(area(s) for s in specs.values()),source_code_commit=os.environ['DPM_COMMIT']))
     summary=state/'science_preownership_summary.json'

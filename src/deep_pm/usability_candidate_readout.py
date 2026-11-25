@@ -36,22 +36,28 @@ def one(task):
     spectra=spectra.loc[inside(spectra.ra,spectra.dec,spec)].reset_index(drop=True)
     targets=project(spectra.ra,spectra.dec,center);tree=cKDTree(targets)
     keys=calibration_groups(data);lookup=pd.Index(data.detection_id);result=[]
+    baseline=read(Path(row['fit'])/'private_standard_motion.json.gz')
+    baseline_xy=project(*np.asarray([r['position_deg'] for r in baseline]).T,center)
+    base_found,base_near=query_unique(tree,baseline_xy,500,300)
+    baseline_claims=Counter(map(int,base_near[base_found]))
     members=read(work/'private_full_candidate_members.json.gz')
     for row in members:
         ix=lookup.get_indexer(row['detection_ids'])
         if (ix<0).any():raise ValueError('Candidate member missing')
-        position=np.median(xy[ix],axis=0)
-        found,near=query_unique(tree,position.reshape(1,2),500,300)
+        fit=evaluated_fit(ix,data,xy,time,sigma,keys,solution,center,config['reference_epoch'])
+        found,near=query_unique(tree,project(*fit['position_deg'],center),500,300)
         if not found[0]:continue
         k=int(near[0]);magnitude=float(spectra.reference_r.iat[k])
         if not 21<=magnitude<23:continue
-        fit=evaluated_fit(ix,data,xy,time,sigma,keys,solution,center,config['reference_epoch'])
+        if baseline_claims[k]:continue  # Never count a second source as a newly recovered QSO.
+        if not inside(*fit['position_deg'],spec):continue
         result.append(dict(core=str(work.name),qso=k,magnitude=magnitude,motion=fit['pm_icrs_masyr'],error=fit['pm_error_masyr']))
     counts=Counter(r['qso'] for r in result)
     return [r for r in result if counts[r['qso']]==1]
 
 
 def run(registration,trial,output,workers):
+    output.mkdir(parents=True,exist_ok=True)
     plan=read(registration);trial_summary=read(trial/'v20_selection_candidate_summary.json')
     with ProcessPoolExecutor(max_workers=workers) as pool:rows=sum(pool.map(one,[(r,str(trial)) for r in plan['selected']]),[])
     cohorts={str(low):summarize([r['motion'] for r in rows if low<=r['magnitude']<low+1],
@@ -63,7 +69,7 @@ def run(registration,trial,output,workers):
         displaced_matches=[sum(r['shifted_counts'][j] for r in hold) for j in range(4)],
         unchanged_original_member_retention=ratio(trial_summary['counts']['full']['identical_members_retained'],trial_summary['counts']['full']['original']),
         adopted_dark_star_catalogue=False,
-        scope='Added source identities fixed before this QSO readout. No second selection threshold or QSO-based source choice. Motion fitted from exact saved members; original catalogue unmodified. Held-year recovery is conditional on published retrieved detections, not independently certified stellar purity.',slurm_job=os.environ['SLURM_JOB_ID'])
+        scope='Added source identities fixed before this QSO readout. J2015.5 position identity checked against both new and original catalogue claims; existing-QSO competitors excluded. No second selection threshold or QSO-based source choice. Motion fitted from exact saved members; original catalogue unmodified. Held-year recovery is one-to-one within the new-candidate set, not an exhaustive competition test against every original training source. It is conditional on published retrieved detections, not independently certified stellar purity.',slurm_job=os.environ['SLURM_JOB_ID'])
     check_aggregate(report);save_json(output/'v20_selection_candidate_quality_summary.json',report)
     print('CANDIDATE_QUALITY_DONE',cohorts,flush=True)
 

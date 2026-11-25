@@ -38,7 +38,7 @@ from .public_summary import check_aggregate
 from .regional_validation import official_table
 
 
-def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings,fit_source,output_fit):
+def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings,fit_source,output_fit,selection_audit=None):
     """r seeds stay r seeds; the non-r route cannot borrow an eligible r anchor."""
     prod=settings['production'];nsc=data.survey.eq('NSC').to_numpy();visit=data.exposure_id.to_numpy()
     support=calibration_support(keys,solution);physical=physical_candidates(data)
@@ -47,11 +47,11 @@ def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,se
     # NSC r must pass the same physical selection used for every other band.
     strict_r=keep&(~nsc|physical);full=strict_r|(nsc&physical&support)
     tracks=make_tracks(xy,visit,keep,prod['match_radius_mas']);seeds=make_tracks(xy,visit,keep&nsc,prod['match_radius_mas'])
-    funnel_r,baseline=source_funnel(data,xy,time,sigma,keep,tracks,solution,config,settings,9.,initial=seeds,observation_groups=keys,core_members=core,fit_source=fit_source)
+    funnel_r,baseline=source_funnel(data,xy,time,sigma,keep,tracks,solution,config,settings,9.,initial=seeds,observation_groups=keys,core_members=core,fit_source=fit_source,audit_records=selection_audit.setdefault('legacy_r',[]) if selection_audit is not None else None)
     strict_tracks=make_tracks(xy,visit,strict_r,prod['match_radius_mas']);strict_seeds=make_tracks(xy,visit,strict_r&nsc,prod['match_radius_mas'])
-    _,strict=source_funnel(data,xy,time,sigma,strict_r,strict_tracks,solution,config,settings,9.,initial=strict_seeds,observation_groups=keys,core_members=core,fit_source=fit_source)
+    _,strict=source_funnel(data,xy,time,sigma,strict_r,strict_tracks,solution,config,settings,9.,initial=strict_seeds,observation_groups=keys,core_members=core,fit_source=fit_source,audit_records=selection_audit.setdefault('physical_r',[]) if selection_audit is not None else None)
     expanded=augment_tracks(strict_tracks,data,xy,full,strict_r,prod)
-    funnel_all,products=source_funnel(data,xy,time,sigma,full,expanded,solution,config,settings,9.,initial=strict_seeds,reference_keep=strict_r,observation_groups=keys,core_members=core,fit_source=fit_source)
+    funnel_all,products=source_funnel(data,xy,time,sigma,full,expanded,solution,config,settings,9.,initial=strict_seeds,reference_keep=strict_r,observation_groups=keys,core_members=core,fit_source=fit_source,audit_records=selection_audit.setdefault('all_r_anchor',[]) if selection_audit is not None else None)
     original_members=[set(v[4]) for v in baseline.values()]
     # Membership overlap, rather than an output row number, identifies controls
     # when physical flags change track numbering.
@@ -64,20 +64,34 @@ def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,se
         candidates.append(dict(kind=kind,index=index));reserved.update(index)
     tracks_all=make_tracks(xy,visit,full&support,prod['match_radius_mas']);counts['all_filter_tracks']=len(tracks_all)
     for index in tracks_all:
+        trace=None
+        if selection_audit is not None:
+            trace=dict(track_indices=np.asarray(index,int).tolist(),status='missing_survey')
+            selection_audit.setdefault('non_r',[]).append(trace)
         if not nsc[index].any() or nsc[index].all():counts['non_r_missing_survey']+=1;continue
+        if trace is not None:trace['status']='contains_r'
         if np.any(nsc[index]&data.band.iloc[index].eq('r').to_numpy()):continue
         counts['non_r_before_quality']=counts.get('non_r_before_quality',0)+1
+        if trace is not None:trace['status']='shared_detection'
         if any(i in reserved for i in index):counts['non_r_shared_detection_rejected']+=1;continue
+        if trace is not None:trace['status']='time_baseline'
         if not valid_epochs(index,nsc,time,prod):counts['non_r_time_exit']+=1;continue
+        if trace is not None:
+            from .selection_semantics import morphology_state
+            trace.update(status='pointlike_morphology',morphology=morphology_state(data.morphology.iloc[index[nsc[index]]]))
         shape=data.morphology.iloc[index[nsc[index]]].to_numpy(float);shape=shape[np.isfinite(shape)&(shape>=0)&(shape<=1)]
         if not len(shape) or np.median(shape)<.8:counts['non_r_morphology_exit']+=1;continue
         model,_=fit_source(index)
         fit=output_fit(index)
+        if trace is not None:trace['status']='outside_core'
         if not core(fit['tangent_state'][[0,2]]):counts['non_r_ownership_exit']+=1;continue
+        if trace is not None:trace['status']='formal_error'
         if np.max(fit['pm_error_masyr'])>prod['max_axis_pm_error_masyr']:counts['non_r_formal_error_exit']+=1;continue
         # Same frozen robust residual gate as source_funnel, evaluated in the
         # original tangent axes. Robust downweighting never deletes measurements.
+        if trace is not None:trace['status']='residual'
         if np.quantile(np.linalg.norm(model.residual/sigma[index],axis=1),.68)>3:counts['non_r_residual_exit']+=1;continue
+        if trace is not None:trace['status']='final'
         candidates.append(dict(kind='non_r_anchor',index=index,fit=fit));reserved.update(index)
     return baseline,candidates,dict(legacy_r=funnel_r,physical_all_r_anchor=funnel_all,non_r=dict(counts),strict_r_solutions=len(strict)),(keep,strict_r,full)
 

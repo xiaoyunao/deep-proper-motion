@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None, audit_records=None):
     prod = settings["production"]
     group = calibration_groups(data) if observation_groups is None else observation_groups
     nsc = data.survey.eq("NSC").to_numpy()
@@ -78,12 +78,20 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
     results = {}
     for anchor in initial:
         position = np.median(xy[anchor],axis=0)
+        audit = None
+        if audit_records is not None:
+            from .selection_semantics import morphology_state
+            audit=dict(anchor_indices=np.asarray(anchor,int).tolist(),position=position.tolist(),
+                       morphology=morphology_state(morphology[anchor],prod.get('min_anchor_morphology',.8)),
+                       status='outside_core')
+            audit_records.append(audit)
         if trace is not None:
             touched = np.unique(owner[anchor])
         if (np.linalg.norm(position)>limit if core_members is None else not core_members(position)):
             if trace is not None:
                 update_anchor_trace(trace,touched,"outside_core")
             continue
+        if audit is not None:audit['status']='pointlike_morphology'
         shape = np.median(morphology[anchor])
         if shape<prod.get('min_anchor_morphology', .8):
             if trace is not None:
@@ -92,6 +100,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         bucket = bin_name(np.median(mag[anchor]),settings["reference_r_edges"])
         stats = p.setdefault(bucket, Counter({step:0 for step in STAGES}))
         stats["initial"] += 1
+        if audit is not None:audit['status']='no_sdss_position'
         if sdss_tree.query(position)[0] > prod["match_radius_mas"]:
             stats["no_sdss_within_fixed_gate"] += 1
             if trace is not None:
@@ -100,12 +109,14 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
         stats["sdss_nearby"] += 1
         if trace is not None:
             update_anchor_trace(trace,touched,"anchor_competition")
+        if audit is not None:audit['status']='anchor_competition'
         overlap = Counter(owner[anchor])
         j, covered = overlap.most_common(1)[0]
         if j<0:
             stats["split_or_competing_track"] += 1
             continue
         index = tracks[j]
+        if audit is not None:audit.update(track_index=int(j),track_indices=np.asarray(index,int).tolist())
         if (covered/len(anchor)<prod["validation_min_recovery"]
                 or covered<=np.count_nonzero(nsc[index] & reference_keep[index])/2 or nsc[index].all()):
             stats["split_or_competing_track"] += 1
@@ -114,17 +125,20 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             raise ValueError("Two independent NSC anchors own one final track.")
         stats["associated"] += 1
         update_anchor_trace(trace,[j],"time_baseline")
+        if audit is not None:audit['status']='time_baseline'
         if not valid_epochs(index,nsc,time,prod):
             stats["insufficient_time_sampling"] += 1
             continue
         stats["fit_eligible"] += 1
         update_anchor_trace(trace,[j],"m3_support")
+        if audit is not None:audit['status']='m3_support'
         use = index[support[index]]
         if not valid_epochs(use,nsc,time,prod):
             stats["insufficient_calibration_coverage"] += 1
             continue
         stats["calibrated"] += 1
         update_anchor_trace(trace,[j],"quality")
+        if audit is not None:audit['status']='quality'
         cached = model_cache.get(j) if model_cache is not None else None
         if cached is not None:
             _, model, error = cached
@@ -149,9 +163,11 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
             late = use[nsc[use]]
             quality_audit.append((formal,scatter,finite,error.max(),residual,np.ptp(time[use]),
                                   first_run_share,len(set(exposure[late])),np.median(mag[late])))
+        if audit is not None:audit.update(formal_error_exit=bool(formal),residual_exit=bool(scatter),finite_error=bool(finite),selected_detection_count=len(use))
         if formal or scatter:
             stats["final_quality_rejection"] += 1
             continue
+        if audit is not None:audit['status']='final'
         stats["final"] += 1
         update_anchor_trace(trace,[j],"final")
         if fits is not None:

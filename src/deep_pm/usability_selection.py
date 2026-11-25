@@ -79,6 +79,7 @@ def one(task):
         selected=[r for r in frozen if r['kind']==kind]
         summary['source_morphology'][kind]=dict(n=len(selected),anchor_states=dict(Counter(anchor_lookup[tuple(r['detection_ids'])]['morphology']['state'] if tuple(r['detection_ids']) in anchor_lookup else 'non_r_valid_only_route' for r in selected)))
     spectra=pd.read_csv(source/'spectra_union.csv')
+    spectra['original_csv_row']=np.arange(len(spectra))
     spectra=spectra.loc[inside(spectra.ra,spectra.dec,spec)].reset_index(drop=True)
     _,opportunity=spectral_opportunity(Path(footprint),spectra,set(),return_masks=True)
     targets=project(spectra.ra,spectra.dec,center)
@@ -132,9 +133,9 @@ def one(task):
             if len({data.exposure_id.iat[i] for i in late})<2:flags.append('fewer_than_two_nsc_exposures')
         if not len(early):flags.append('no_qualified_sdss_position')
         morph=[e['morphology'] for _,e in options.values() if 'morphology' in e]
-        identity=dict(origin=str(goal.origin),ra=float(goal.ra),dec=float(goal.dec),original_table_row=int(k),
+        identity=dict(origin=str(goal.origin),ra=float(goal.ra),dec=float(goal.dec),original_table_row=int(goal.original_csv_row),
                       original_table_sha256=digest(source/'spectra_union.csv'))
-        if 'target' in goal and pd.notna(goal['target']):identity['native_target_id']=str(goal['target'])
+        if 'target' in goal and pd.notna(goal['target']):identity['archived_auxiliary_target_label']=str(goal['target'])
         private.append(dict(identity=identity,magnitude=float(goal.reference_r),geometric_opportunity=bool(opportunity[k]),
             primary_exit=status,overlap_flags=flags,anchor_morphology=morph,
             raw_nsc_detections=int(raw_counts['NSC'][k]),raw_sdss_detections=int(raw_counts['SDSS'][k]),

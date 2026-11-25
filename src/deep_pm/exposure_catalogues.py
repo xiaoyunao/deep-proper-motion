@@ -35,6 +35,8 @@ def optical_qsos(sdss_file, desi_file):
                                                                    table["PSFFLUX"][:,2], np.nan))),
                               z=table["Z"].astype(float)))
         a["origin"] = "DR16Q"
+        a["original_catalogue_row"] = np.arange(len(table),dtype=np.int64)
+        a["native_spectral_id"] = np.char.strip(table["SDSS_NAME"].astype(str)) if "SDSS_NAME" in table.dtype.names else [f'DR16Q-row-{i}' for i in range(len(table))]
     with fits.open(desi_file, memmap=True) as handle:
         t = handle["QSO_CAT"].data
         ok = ((t["Z"]>.5)&(t["Z"]<6)&(t["ZWARN"]==0)&(t["FLUX_R"]>0)&(t["FLUX_IVAR_R"]>0))
@@ -42,6 +44,8 @@ def optical_qsos(sdss_file, desi_file):
                               reference_r=22.5-2.5*np.log10(t["FLUX_R"][ok].astype(float)),
                               z=t["Z"][ok].astype(float), snr=t["TSNR2_QSO"][ok].astype(float),
                               target=t["TARGETID"][ok].astype(np.int64)))
+        b["original_catalogue_row"] = np.flatnonzero(ok)
+        b["native_spectral_id"] = t["TARGETID"][ok].astype(np.int64).astype(str)
         b = b.sort_values("snr", ascending=False).drop_duplicates("target").reset_index(drop=True)
         b["origin"] = "DESI"
     a = a.loc[np.isfinite(a[["ra","dec"]]).all(axis=1)].reset_index(drop=True)

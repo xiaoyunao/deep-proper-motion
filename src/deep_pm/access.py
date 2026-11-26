@@ -7,7 +7,6 @@ import time
 
 import numpy as np
 import pandas as pd
-import requests
 from astropy.io import fits
 from matplotlib.path import Path as Polygon
 
@@ -22,6 +21,8 @@ SDSS_COLUMNS = ("objID,run,rerun,camcol,field,ra,dec,raErr,decErr,TAI_r,psfMag_r
 
 
 def request(service, query):
+    # Cached scientific replay must not import the optional network stack.
+    import requests
     if service == "nsc":
         url, params = DATALAB, dict(sql=query, ofmt="csv", **{"async": "False"})
         headers = {"X-DL-AuthToken": "anonymous.0.0.anon_access"}

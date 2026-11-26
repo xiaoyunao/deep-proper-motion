@@ -48,13 +48,14 @@ def run(root,components,workers,memory_gib,hours):
     pending.sort(key=lambda r:(-r[1],-r[2],r[0]));running=[];done=[];failed=[];start=monotonic();deadline=start+hours*3600
     while pending or running:
         # Never start work late in the allocation; finished core receipts resume.
+        if len(failed)>=3 and not done:deadline=monotonic() # universal startup failure: stop further dispatch
         if monotonic()<deadline:
             while pending and len(running)<workers:
                 available=memory_gib-sum(r['memory'] for r in running)
                 slot=next((j for j,r in enumerate(pending) if r[1]<=available),None)
                 if slot is None:break
                 i,memory,size=pending.pop(slot);e=plan['cores'][i];log=(dest/(e['core']+'.log')).open('w')
-                cmd=[sys.executable,'-um',__name__,str(root),'--single-index',str(i)]
+                cmd=[sys.executable,'-um','deep_pm.full_coordinate_batch',str(root),'--single-index',str(i)]
                 for c in components:cmd+=['--component',str(c)]
                 process=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
                 running.append(dict(index=i,core=e['core'],memory=memory,process=process,log=log))
@@ -81,5 +82,8 @@ if __name__=='__main__':
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
     if a.single_index is not None:
         entry=read(a.root/'registration/private_full_coordinate_plan.json')['cores'][a.single_index]
-        one((entry,str(a.root),a.component))
+        meta=read(a.root/'graph/v22_global_graph_summary.json')
+        actual=[r['component'] for r in meta['components'] if r['component'] in a.component and np.allclose(entry['center'],r['center_deg'],atol=1e-12,rtol=0)]
+        if len(actual)!=1:raise ValueError('Core needs explicit physical component dispatch')
+        one((entry,str(a.root),actual))
     else:run(a.root,a.component,a.workers,a.memory_gib,a.hours)

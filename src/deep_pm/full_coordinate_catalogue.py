@@ -23,6 +23,7 @@ from .continuous_summary import area
 from .exposure_catalogues import inside
 from .io import digest,save_json
 from .public_summary import check_aggregate
+from .stream_json import array_items
 from .full_coordinate_sources import write_rows
 from .usability_accounting import index as old_index
 
@@ -51,7 +52,9 @@ def index_core(task):
     number,entry,root,old_entries=task;root=Path(root);core=entry['core'];folder=root/'sources'/core;dest=root/'catalogue/index'/core;dest.mkdir(parents=True,exist_ok=True)
     path=root/'registration/private_full_coordinate_plan.json';stat=path.stat();specs,plan_sha=ownership_specs(str(path),stat.st_size,stat.st_mtime_ns)
     proof=read(folder/'v22_source_core_summary.json');old_entry=old_entries[core]
-    ticket=dict(plan_sha256=plan_sha,source_summary_sha256=digest(folder/'v22_source_core_summary.json'),old_sha256=digest(Path(old_entry['path'])/'private_standard_motion.json.gz'),implementation_sha256=sha256((inspect.getsource(index_core)+inspect.getsource(ownership_specs)+inspect.getsource(owners)+inspect.getsource(member_key)).encode()).hexdigest())
+    source_file=folder/'private_standard_motion.json.gz';source_sha=digest(source_file)
+    if source_sha!=proof['private_output_sha256']['private_standard_motion.json.gz']:raise ValueError('Changed completed scientific source file')
+    ticket=dict(plan_sha256=plan_sha,new_science_sha256=source_sha,source_summary_sha256=digest(folder/'v22_source_core_summary.json'),old_sha256=digest(Path(old_entry['path'])/'private_standard_motion.json.gz'),implementation_sha256=sha256((inspect.getsource(index_core)+inspect.getsource(array_items)+inspect.getsource(ownership_specs)+inspect.getsource(owners)+inspect.getsource(member_key)).encode()).hexdigest())
     receipt=dest/'private_index_receipt.json'
     if receipt.exists():
         done=read(receipt)
@@ -59,10 +62,11 @@ def index_core(task):
         for name,checksum in done['files'].items():
             if digest(dest/name)!=checksum:raise ValueError('Changed completed catalogue index')
         return done
-    start=monotonic();science=read(folder/'private_standard_motion.json.gz');ownership=owners(science,core,specs)
-    compact=[];claims=[];changed=[];prior=[];older=read(Path(old_entry['path'])/'private_standard_motion.json.gz')
+    start=monotonic();science=array_items(source_file);ownership=[]
+    compact=[];claims=[];changed=[];prior=[];older=[dict(detection_ids=r['detection_ids']) for r in array_items(Path(old_entry['path'])/'private_standard_motion.json.gz')]
     old_by_key={member_key(r['detection_ids']):j for j,r in enumerate(older)};new_keys=set()
-    for slot,(r,owner) in enumerate(zip(science,ownership)):
+    for slot,r in enumerate(science):
+        owner=owners([r],core,specs)[0];ownership.append(owner)
         ident=(number<<32)+slot;key=member_key(r['detection_ids']);new_keys.add(key);info=r['information'];cov=np.asarray(r['covariance'])
         if np.linalg.eigvalsh(cov).min()<=0 or not np.isfinite(cov).all():raise ValueError('Invalid ICRS covariance')
         if r['reference_epoch']!=2015.5:raise ValueError('Changed output epoch')
@@ -89,11 +93,11 @@ def index_core(task):
     pd.DataFrame(claims,columns=['detection_id','src']).to_parquet(dest/'claims.parquet',index=False,compression='zstd')
     pd.DataFrame(prior,columns=['src','member_sha256','n_members']).to_parquet(dest/'old.parquet',index=False,compression='zstd')
     write_rows(dest/'private_changed_members.json.gz',changed)
-    result=dict(ticket=ticket,core=core,origin_science=len(science),inside_union=sum(v is not None for v in ownership),
+    result=dict(ticket=ticket,core=core,origin_science=len(compact),inside_union=sum(v is not None for v in ownership),
         transferred=sum(v is not None and v!=core for v in ownership),exterior=sum(v is None for v in ownership),old_retained=len(prior),
         files={name:digest(dest/name) for name in ('science.parquet','claims.parquet','old.parquet','private_changed_members.json.gz')},
         elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024)
-    save_json(receipt,result);print('SCIENCE_INDEX',core,len(science),flush=True);return result
+    save_json(receipt,result);print('SCIENCE_INDEX',core,len(compact),flush=True);return result
 
 
 def database(root,memory='24GB',threads=8):

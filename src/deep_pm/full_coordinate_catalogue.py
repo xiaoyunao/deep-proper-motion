@@ -108,11 +108,15 @@ def database(root,memory='24GB',threads=8):
 
 
 def close(root):
-    dest=root/'catalogue';plan=read(root/'registration/private_full_coordinate_plan.json');proofs=[]
+    dest=root/'catalogue';plan=read(root/'registration/private_full_coordinate_plan.json');proofs=[];source_proofs=[]
     for e in plan['cores']:
         folder=dest/'index'/e['core'];r=read(folder/'private_index_receipt.json')
         for name,checksum in r['files'].items():
             if digest(folder/name)!=checksum:raise ValueError('Changed completed scientific index')
+        source_summary=root/'sources'/e['core']/'v22_source_core_summary.json'
+        if 'ticket' in r and 'source_summary_sha256' in r['ticket']:
+            if digest(source_summary)!=r['ticket']['source_summary_sha256']:raise ValueError('Source version changed after final indexing')
+            source_proofs.append(read(source_summary))
         proofs.append(digest(folder/'private_index_receipt.json'))
     ticket=dict(plan_sha256=digest(root/'registration/private_full_coordinate_plan.json'),input_signatures=proofs,implementation_sha256=digest(Path(__file__)))
     lock=dest/'private_closure_binding.json'
@@ -170,6 +174,9 @@ def close(root):
     # An identity ambiguity is archived explicitly; no detection is silently
     # offered to two high-confidence sources, and no QSO value selects a winner.
     db.execute('CREATE OR REPLACE TABLE exact_common AS SELECT a.src new_src,o.src old_src,a.member_sha256 FROM accepted a JOIN old o USING(member_sha256)')
+    columns={r[0] for r in db.execute('DESCRIBE science').fetchall()}
+    if {'component','reference_model_sha256'}<=columns:
+        if db.execute('SELECT count(*) FROM (SELECT component FROM science GROUP BY component HAVING count(DISTINCT reference_model_sha256)>1)').fetchone()[0]:raise ValueError('Conflicting reference versions in one physical component')
     duplicates=db.execute('SELECT count(*) FROM (SELECT member_sha256 FROM accepted GROUP BY member_sha256 HAVING count(*)>1)').fetchone()[0]
     if duplicates:raise ValueError('Duplicate accepted physical source')
     if len(plan['cores'])==2875 and db.execute('SELECT count(*) FROM old').fetchone()[0]!=15625958:raise ValueError('Frozen full-area catalogue denominator did not reproduce')
@@ -187,6 +194,10 @@ def close(root):
         old_retained_solutions=db.execute('SELECT count(*) FROM old').fetchone()[0],
         private_input_binding_sha256=digest(lock),slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Full-source native ICRS/J2015.5 catalogue. Owner remapping leaves state/covariance/members unchanged. Exterior archived; exact-member clones only collapse if reference/state/covariance/owner agree within numerical tolerance, canonical origin-owner then source index. Any remaining shared detection quarantines competing raw solutions pending explicit local audit. Occupied HEALPix pixels are not effective or certified area. Exact membership does not certify a true star; changed-member continuity follows separately.')
+    if len(source_proofs)==len(plan['cores']):
+        physical=sum(r['physical_r_control_solutions'] for r in source_proofs);legacy=sum(r['r_control_solutions'] for r in source_proofs)
+        result['origin_scope_r_controls']=dict(physical_r=physical,legacy_r=legacy,all_band=sum(r['research_solutions'] for r in source_proofs),all_band_minus_physical_r=sum(r['research_solutions'] for r in source_proofs)-physical,
+            scope='Same frozen inputs/coordinate model, counts per origin-core before common-epoch transfer and global identity exclusions. This net is an origin-stage comparison; never subtract origin r counts from the final global accepted all-band count.')
     if 'se_e' in {r[0] for r in db.execute('DESCRIBE accepted').fetchall()}:
         spatial=db.execute('''SELECT pixel128,count(*) source_count,median(se_e) median_SE_e,median(se_n) median_SE_n,
           avg(CASE WHEN maximum_group_leverage>=.8 THEN 1.0 ELSE 0.0 END) high_leverage_fraction,

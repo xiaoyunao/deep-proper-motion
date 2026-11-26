@@ -12,6 +12,9 @@ import sys
 from time import monotonic,sleep
 
 import numpy as np
+import pandas as pd
+from .full_coordinate_sources import component_map
+from .precision_v03 import calibration_groups
 
 from .blind_catalogue_quality import read
 from .full_coordinate_sources import one
@@ -82,8 +85,22 @@ if __name__=='__main__':
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
     if a.single_index is not None:
         entry=read(a.root/'registration/private_full_coordinate_plan.json')['cores'][a.single_index]
-        meta=read(a.root/'graph/v22_global_graph_summary.json')
-        actual=[r['component'] for r in meta['components'] if r['component'] in a.component and np.allclose(entry['center'],r['center_deg'],atol=1e-12,rtol=0)]
-        if len(actual)!=1:raise ValueError('Core needs explicit physical component dispatch')
-        one((entry,str(a.root),actual))
+        # Scheduling domains never define a star's available calibration.
+        # Inspect all actual target physical groups, including exposures with
+        # no local selected reference galaxies. This also closes previously
+        # accepted single-component preliminary replay after all graphs exist.
+        mapping,_=component_map(str(a.root))
+        physical=pd.read_csv(Path(entry['source'])/'detections.csv',usecols=['survey','exposure_id','detector_id'],dtype=str).drop_duplicates()
+        groups=calibration_groups(physical)
+        actual=sorted(set(mapping.reindex(pd.unique(groups)).dropna().astype(int)))
+        available=[c for c in actual if (a.root/'reference'/f'component-{c:04d}'/'private_c0_unfiltered.npz').exists()]
+        if available!=actual:
+            print('SOURCE_DEFERRED_UNSOLVED_PHYSICAL_COMPONENT',entry['core'],actual,flush=True)
+            raise SystemExit(3)
+        folder=a.root/'sources'/entry['core'];prior=folder/'v22_source_core_summary.json'
+        if prior.exists() and set(read(prior)['ticket']['graphs'])!=set(map(str,actual)):
+            archive=a.root/'partial-source-archives'/entry['core'];archive.parent.mkdir(exist_ok=True)
+            if archive.exists():raise ValueError('Repeated partial component archive requires inspection')
+            folder.rename(archive);print('PRESERVED_PRELIMINARY_COMPONENT_SOURCE',entry['core'],flush=True)
+        one((entry,str(a.root),None))
     else:run(a.root,a.component,a.workers,a.memory_gib,a.hours)

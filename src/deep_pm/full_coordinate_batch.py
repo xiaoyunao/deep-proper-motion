@@ -90,7 +90,7 @@ if __name__=='__main__':
         # no local selected reference galaxies. This also closes previously
         # accepted single-component preliminary replay after all graphs exist.
         mapping,_=component_map(str(a.root))
-        physical=pd.read_csv(Path(entry['source'])/'detections.csv',usecols=['survey','exposure_id','detector_id'],dtype=str).drop_duplicates()
+        physical=pd.read_csv(Path(entry['source'])/'detections.csv',usecols=['survey','exposure_id','detector_id'],low_memory=False).drop_duplicates()
         groups=calibration_groups(physical)
         actual=sorted(set(mapping.reindex(pd.unique(groups)).dropna().astype(int)))
         available=[c for c in actual if (a.root/'reference'/f'component-{c:04d}'/'private_c0_unfiltered.npz').exists()]

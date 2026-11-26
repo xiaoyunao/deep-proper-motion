@@ -160,6 +160,29 @@ def run(registration,fixed,association,output):
     print('COORDINATE_SCIENCE_READOUT',len(fixedrows),flush=True)
 
 
+def quality_gates(registration,fixed,association,output):
+    from collections import Counter
+    plan=read(registration);cores=[]
+    for row in plan['selected']:
+        core=row['core'];states=read(fixed/core/'private_coordinate_states.json.gz');counts=Counter()
+        for s in states:
+            counts['frozen_sources']+=1
+            counts['B1_error_above10']+=np.max(s['b1_error'])>10
+            formal=np.max(s['b2']['pm_error_masyr'])>10;residual=s['b2_mahalanobis_p68']>3
+            counts['B2_error_above10']+=formal;counts['B2_Mahalanobis_above3']+=residual
+            counts['B2_both_exits']+=formal and residual;counts['B2_pass']+=not(formal or residual)
+        trace=read(association/core/'private_geometry_selection_trace.json.gz');audit={}
+        for method,paths in trace.items():
+            audit[method]={}
+            for route in ('all_r_anchor','non_r'):
+                values=paths[route];audit[method][route]=dict(anchors=len(values),statuses=dict(Counter(r['status'] for r in values)),
+                    formal_error_flags=sum(r.get('formal_error_exit',False) for r in values),residual_flags=sum(r.get('residual_exit',False) for r in values))
+        cores.append(dict(core=core,fixed_member_gate_counts=dict(counts),association_anchor_gates=audit))
+    result=dict(cores=cores,slurm_job=os.environ['SLURM_JOB_ID'],
+        scope='Fixed sources retain every original identity: error10mas/yr and MahalanobisP68=3 failures separated, overlap explicit. Association anchor denominators may change, so status-count differences are descriptive, not isolated causal effect of a threshold. B2_selected vs B3 shares 2D weighting and native ICRS gates; only sky distance changes.')
+    check_aggregate(result);save_json(output,result)
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for n in ('registration','fixed','association','output'):p.add_argument(n,type=Path)

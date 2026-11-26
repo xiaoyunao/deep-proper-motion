@@ -34,3 +34,12 @@ def test_global_duplicates_connectivity_and_numeric_export(tmp_path,monkeypatch)
     assert np.isfinite(np.load(dest/'precision.npy')).all()
     # Every object's first datum is centred, including external Arrow batches.
     values=np.load(dest/'values.npy');np.testing.assert_allclose(values[::3],0,atol=1e-10)
+
+
+def test_common_hemisphere_uses_geometry_across_ra_wrap():
+    from deep_pm.full_reference_graph import hemisphere_center
+    from deep_pm.coordinate_metric import sky_basis
+    sky=np.array([[350.,20.],[10.,25.],[170.,40.],[190.,35.]])
+    center=hemisphere_center(sky)
+    dot=sky_basis(*sky.T)[:,0,:]@sky_basis(*center)[0]
+    assert np.min(dot)>.3

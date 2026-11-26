@@ -22,7 +22,7 @@ from .allband_blind_year import r_magnitude
 from .astrometry import project,seasons
 from .blind_catalogue_quality import read
 from .continuous_reference import PRECISION,SPATIAL,read_offsets,reference_frame,verify_directory
-from .coordinate_metric import native_covariance,projected_covariance,fit_vector_motion,reference_covariance,AngularTree
+from .coordinate_metric import native_covariance,projected_covariance,fit_vector_motion,reference_covariance,AngularTree,old_influence,covariance_of_estimator
 from .dark_precision import query_unique
 from .exposure_catalogues import inside
 from .full_reference_run import local_support
@@ -262,13 +262,13 @@ def one(task):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--core',action='append');p.add_argument('--workers',type=int,default=2)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--core',action='append');p.add_argument('--workers',type=int,default=2);p.add_argument('--component',action='append',type=int)
     args=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
     plan=read(args.root/'registration/private_full_coordinate_plan.json')
     # Dispatch from actual target groups, including restored regions without
     # local reference galaxies. Local12mas support remains per measurement.
     selected=[r for r in plan['cores'] if args.core is None or r['core'] in args.core]
-    tasks=[(entry,str(args.root),None) for entry in selected]
+    tasks=[(entry,str(args.root),args.component) for entry in selected]
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
         for result in pool.map(one,tasks,chunksize=1):print('SOURCE_CHECKPOINT',result['core'],flush=True)

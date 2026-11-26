@@ -123,6 +123,8 @@ def close(root):
         # reference agree. Contradictory clones retain ordinary claim conflicts.
         covcols=sorted(k for k in columns if k.startswith('cov_'))
         checks=' AND '.join(f'max({k})-min({k})<=1e-5' for k in covcols) or 'true'
+        if {'ra_deg','dec_deg'}<=columns:checks+=' AND least(max(ra_deg)-min(ra_deg),360-(max(ra_deg)-min(ra_deg)))<=3e-10 AND max(dec_deg)-min(dec_deg)<=3e-10'
+        if 'reference_model_sha256' in columns:checks+=' AND count(DISTINCT reference_model_sha256)=1'
         db.execute(f'''CREATE OR REPLACE TEMP TABLE exact_clone_groups AS
           SELECT member_sha256 FROM science GROUP BY member_sha256
           HAVING count(*)>1 AND count(DISTINCT owner)<=1 AND count(DISTINCT component)=1

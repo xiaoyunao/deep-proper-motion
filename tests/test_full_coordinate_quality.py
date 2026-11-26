@@ -37,6 +37,15 @@ def test_unbinned_spectral_photometry_does_not_become_a_faint_quality_case():
     assert not in_magnitude_bin({'magnitude':22.0},21)
 
 
+def test_extreme_tail_counts_keep_absolute_and_formal_sigma_definitions_distinct():
+    from deep_pm.full_coordinate_quality import metrics
+    points=[[-30,0],[0,0],[3,0],[0,4],[21,0]]
+    report=metrics([dict(values={'new':(p,[1,2])}) for p in points],('new',))
+    tail=report['tail_diagnostics']['new']
+    assert tail['absolute_radial_gt20_masyr']['n']==2
+    assert [r['n'] for r in tail['raw_axis_abs_z_gt3']]==[2,0]
+
+
 def test_fixed_identity_common_reference_is_rotated_before_population_combination():
     import numpy as np
     from deep_pm.full_coordinate_quality import reference_common

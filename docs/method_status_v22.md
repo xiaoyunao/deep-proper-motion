@@ -48,6 +48,8 @@ NSC物理选择实际为有限且正的原生两轴误差≤200mas、有限坐�
 
 旧固定盲QSO保留全部身份及新质量退出；B1冻结旧成员/point/IRLS/影响矩阵/输出Jacobian/旧公共项，仅改变误差传播。完整新参考与新权重的同成员点估计变化另列，新最终盲目录的选择变化第三列。三者不能互相替代。严格共同Xiao2025仅PM_SOURCE=DESI地基条目，NSC使用其发布质量条件；NSC r≥21的Gaia自行退出精度评分。
 
+保留原有>5mas/yr幅度计数作历史对照；对于P68本身超过5的暗档，它不自动等于极端异常。同时在首次完整v2.2读出前固定>20mas/yr径向幅度及原始单轴>3形式sigma计数，附样本数/条件比例区间；不改变源选择、点值或权重，不用这些统计重新排名调参。
+
 代表核心先完整移除测试年全部目标band，再进行原/新训练关联和共同竞争。位置重现使用实际CCD/深度/参考机会分母；对象区间按物理训练源整体重采样，不把重复检测当独立源。QSO对象bootstrap、物理观测组重权、同步参考误差分别解释；不把总体P68或零误配计数当空间零点或恒星纯度认证。
 
 实际来源：[参考入口](../src/deep_pm/full_reference_input.py)、[参考选择](../src/deep_pm/precision_v03.py)、[完整参考解](../src/deep_pm/full_reference_solver.py)、[逐位置支持](../src/deep_pm/full_reference_run.py)、[源生产](../src/deep_pm/full_coordinate_sources.py)、[二维估计量](../src/deep_pm/coordinate_metric.py)、[标准ICRS输出](../src/deep_pm/standard_motion.py)、[全域归属](../src/deep_pm/full_coordinate_catalogue.py)、[独立评价](../src/deep_pm/full_coordinate_quality.py)。

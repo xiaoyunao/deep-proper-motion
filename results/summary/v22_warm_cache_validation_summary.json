@@ -1,0 +1,12 @@
+{
+  "verified_completed_source_checks": 12,
+  "unchanged_scientific_receipts": true,
+  "all_private_output_hashes_validated": true,
+  "maximum_cache_worker_rss_mib": 291.7734375,
+  "wall_seconds": 1.995222405064851,
+  "workers": 4,
+  "source_implementation_sha256": "f7916c4cbec7f8219035791ef52a66a1224d058147628a7e0aa9aaeee9b40513",
+  "private_receipt_set_sha256": "a1ee19c39607b79a7647f20c18603f61fd07cabab581086726d7605f9bd35acb",
+  "slurm_job": "62041938",
+  "scope": "Twelve completed cores selected only by compressed scientific file size, largest first. Warm processes do metadata/signature checks only, never fit missing checkpoints; all original source receipts and numerical outputs preserved. Not a fit-speed or new-science result."
+}

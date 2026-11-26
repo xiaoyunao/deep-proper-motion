@@ -1,0 +1,42 @@
+{
+  "all_scientific_outputs_decompressed_byte_identical": true,
+  "components": [
+    {
+      "component": 0,
+      "chart_angle_deg": 26.165944747003188,
+      "scientific_solutions": 2730,
+      "all_product_content_equal": true,
+      "peak_process_rss_mib": 854.3671875,
+      "worker_elapsed_seconds": 80.3449199940078
+    },
+    {
+      "component": 1,
+      "chart_angle_deg": 49.19152168231908,
+      "scientific_solutions": 6358,
+      "all_product_content_equal": true,
+      "peak_process_rss_mib": 1232.17578125,
+      "worker_elapsed_seconds": 87.92720581707545
+    },
+    {
+      "component": 2,
+      "chart_angle_deg": 46.46995665930708,
+      "scientific_solutions": 5109,
+      "all_product_content_equal": true,
+      "peak_process_rss_mib": 1026.87890625,
+      "worker_elapsed_seconds": 99.192140114028
+    }
+  ],
+  "total_scientific_solutions": 14197,
+  "scientific_implementation_sha256": {
+    "full_coordinate_sources.py": "f7916c4cbec7f8219035791ef52a66a1224d058147628a7e0aa9aaeee9b40513",
+    "coordinate_metric.py": "4565ddf93372c55e823093b6e2e21a7c4315cd7e80f40a0835b862f0dce46e00",
+    "nsc_science_catalogue.py": "3cf96b6b4961f444352af6287ac913c0d275b3f2e4a52951f6c76968034c77e4",
+    "pilot_production.py": "401a5c34d3724862b01c7eb74217b6627e97b51afabb2535d2a53f2bf8a9abdc",
+    "full_reference_run.py": "2e6c273a565b022a11b8272398a6d5f9e575fce91ec5498300ab1fe5dfaf391f",
+    "standard_motion.py": "bd72e9ef7058f04a1bfccca64a14094233ba9e562f63758a16d26fb72af0ded0"
+  },
+  "worker_entry_sha256": "1e58ab81eac3dce36406d57fbc6be5e3d49b5df47c6a53b0efe892ea7a45d34d",
+  "wall_seconds": 102.15367985796183,
+  "slurm_job": "62041938",
+  "scope": "Three real pre-existing cores chosen by source CSV size and actual chart-angle metadata, one per complete reference component, never by PM/QSO performance. Fresh isolated fork per core. All full standard states/covariances/members/weights and both r controls, fixed old QSO and blind QSO have exact decompressed content equality. Original source receipts unchanged. Wall phase excludes initial import/metadata enumeration; not a scientific precision comparison."
+}

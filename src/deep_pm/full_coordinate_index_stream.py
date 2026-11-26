@@ -7,10 +7,13 @@ import os
 from .blind_catalogue_quality import read
 from .full_coordinate_catalogue import index_core
 from .usability_accounting import index as old_index
+from .full_coordinate_batch import DISPATCH_DEFINITION
+from .full_coordinate_sources import component_map
 
 
 def run(root,workers,hours):
     plan=read(root/'registration/private_full_coordinate_plan.json');old=old_index(root.parent/'v1.9/batch/science')
+    _,mapping_sha=component_map(str(root))
     pending=set(range(len(plan['cores'])));running={};done=set();deadline=monotonic()+hours*3600
     with ProcessPoolExecutor(max_workers=workers) as pool:
         while pending or running:
@@ -20,6 +23,8 @@ def run(root,workers,hours):
                     e=plan['cores'][i];folder=root/'sources'/e['core'];summary=folder/'v22_source_core_summary.json';dispatch=folder/'private_dispatch.json'
                     if not summary.exists() or not dispatch.exists():continue
                     proof=read(summary);physical=read(dispatch)
+                    if physical.get('definition')!=DISPATCH_DEFINITION:continue
+                    if physical['source_sha256']!=e['source_receipt_sha256'] or physical['group_map_sha256']!=mapping_sha:raise ValueError('Changed signed full-target dispatch before catalogue indexing')
                     if set(proof['ticket']['graphs'])!=set(map(str,physical['components'])):continue
                     running[pool.submit(index_core,(i,e,str(root),{e['core']:old[e['core']]}))]=i
                 pending-=set(running.values())

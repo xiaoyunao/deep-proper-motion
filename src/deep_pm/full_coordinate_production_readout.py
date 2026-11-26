@@ -38,6 +38,9 @@ def aggregate(proofs):
     return dict(origin_counts=dict(counts),selection_funnel=dict(funnel),component_detection_applications={k:dict(v) for k,v in support.items()},
         core_count=len(proofs),summed_source_worker_elapsed_seconds=sum(elapsed),
         core_elapsed_seconds_p16_p50_p84=np.quantile(elapsed,[.16,.5,.84]).tolist() if elapsed else None,
+        maximum_source_worker_elapsed_seconds=max(elapsed) if elapsed else None,
+        source_workers_elapsed_ge600_seconds=sum(v>=600 for v in elapsed),
+        source_workers_elapsed_ge1800_seconds=sum(v>=1800 for v in elapsed),
         maximum_source_process_rss_mib=max(rss) if rss else None,
         core_rss_mib_p16_p50_p84=np.quantile(rss,[.16,.5,.84]).tolist() if rss else None)
 

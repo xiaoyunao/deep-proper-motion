@@ -126,11 +126,19 @@ def metrics(rows,methods):
     pairs=tuple((methods[0],other) for other in methods[1:])
     out=comparison([{m:r['values'][m] for m in methods} for r in selected],SETTINGS,pairs)
     if len(selected)<5:return out
+    # Preserve the frozen >5mas/yr descriptive threshold, and distinguish it
+    # from a larger absolute tail and a conditional standardized-error tail.
+    # These are readout definitions, never selection or rescaling criteria.
+    out['tail_diagnostics']={}
+    for method in methods:
+        value=np.array([r['values'][method][0] for r in selected]);error=np.array([r['values'][method][1] for r in selected])
+        out['tail_diagnostics'][method]=dict(absolute_radial_gt20_masyr=ratio(int((np.linalg.norm(value,axis=1)>20).sum()),len(selected)),
+            raw_axis_abs_z_gt3=[ratio(int(n),len(selected)) for n in (abs(value/error)>3).sum(axis=0)])
     points=np.array([r['values'][methods[0]][0] for r in selected]);errors=np.array([r['values'][methods[0]][1] for r in selected]);center=np.median(points,axis=0)
     out['primary_centered_coverage_diagnostic']={str(k):[ratio(int(n),len(selected)) for n in (abs(points-center)<=k*errors).sum(axis=0)] for k in (1,2)}
     out['primary_raw_coverage_count_intervals']={str(k):[ratio(int(n),len(selected)) for n in (abs(points)<=k*errors).sum(axis=0)] for k in (1,2)}
     if all('pm_covariance' in r for r in selected):out['primary_2D_error_ellipse']=ellipse_coverage(points,[r['pm_covariance'] for r in selected])
-    out['coverage_scope']='Axis intervals condition on these objects and measured shared groups; not independent-sky intervals. Centering is diagnostic only, not a catalogue correction.'
+    out['coverage_scope']='Axis/tail count intervals condition on these objects and measured shared groups; not independent-sky intervals. The frozen >5mas/yr threshold is descriptive, not necessarily an extreme tail. Additional absolute >20mas/yr and raw axis >3 formal-sigma thresholds never alter samples or weights. Centering is diagnostic only, not a catalogue correction.'
     return out
 
 

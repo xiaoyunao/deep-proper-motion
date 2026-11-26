@@ -70,3 +70,22 @@ def test_projection_keeps_full_covariance_and_invariant_mahalanobis_distance():
     r=np.einsum('nij,nj->ni',a,residual)
     np.testing.assert_allclose(np.einsum('ni,nij,nj->n',r,np.linalg.inv(cp),r),np.einsum('ni,nij,nj->n',residual,np.linalg.inv(covariance),residual),rtol=1.e-12)
     assert np.any(abs(cp[:,0,1])>1)
+
+
+def test_bounded_reference_has_explicit_fixed_boundary_and_paired_draws():
+    import pandas as pd
+    from deep_pm.coordinate_reference import bounded_fit
+    rng=np.random.default_rng(21621);n=50
+    reference=np.repeat(np.arange(n),3);group=np.tile(['fixed','freeA','freeB'],n)
+    shift=np.tile(np.array([[0,0],[15,-21],[-11,7]]),(n,1))
+    position=np.repeat(rng.normal(0,2000,(n,2)),3,axis=0)
+    xy=position+shift+rng.normal(0,.01,(3*n,2))
+    frame=pd.DataFrame(dict(reference=reference,group=group,corrected_e=xy[:,0],corrected_n=xy[:,1]))
+    cov=np.repeat(np.array([[[4.,1.],[1.,9.]]]),3*n,axis=0)
+    point,draws,meta=bounded_fit(frame,cov,['freeA','freeB'],draws=6)
+    np.testing.assert_allclose(point,[[15,-21],[-11,7]],atol=.01)
+    point2,draws2,_=bounded_fit(frame,cov,['freeA','freeB'],draws=6)
+    np.testing.assert_array_equal(draws,draws2)
+    assert meta['fixed_boundary_groups']==1
+    with pytest.raises(ValueError,match='fixed boundary'):
+        bounded_fit(frame,cov,['fixed','freeA','freeB'],draws=1)

@@ -206,7 +206,20 @@ def close(root):
           count(*) FILTER(WHERE kind='extra_r_anchor') extra_r_anchor,
           count(*) FILTER(WHERE kind='non_r_anchor') non_r_anchor
           FROM accepted GROUP BY pixel128''').fetchdf().to_dict('records')
-        public=dict(nside=128,spatial=spatial,scope='Source-occupied pixels and conditional error/support diagnostics; neither geometric effective area nor certified spatial zero area.')
+        mapping=pd.DataFrame(dict(pixel128=[r['pixel128'] for r in spatial]))
+        if len(mapping):
+            mapping['pixel64']=hp.nest2ring(64,hp.ring2nest(128,mapping.pixel128.to_numpy())//4)
+            db.register('plot_pixel_mapping',mapping)
+            query='''SELECT pixel64,count(*) source_count,median(se_e) median_SE_e,median(se_n) median_SE_n,
+              avg(CASE WHEN maximum_group_leverage>=.8 THEN 1.0 ELSE 0.0 END) high_leverage_fraction,
+              median(nsc_nights) median_nsc_nights,median(joint_span) median_joint_span,
+              count(*) FILTER(WHERE kind='r_existing') r_existing,
+              count(*) FILTER(WHERE kind='extra_r_anchor') extra_r_anchor,
+              count(*) FILTER(WHERE kind='non_r_anchor') non_r_anchor
+              FROM accepted JOIN plot_pixel_mapping USING(pixel128) GROUP BY pixel64'''
+            spatial64=db.execute(query).fetchdf().to_dict('records')
+        else:spatial64=[]
+        public=dict(nside=128,spatial=spatial,plot_nside=64,plot_spatial_nside64=spatial64,scope='Source-occupied pixels and conditional error/support diagnostics; neither geometric effective area nor certified spatial zero area.')
         check_aggregate(public);save_json(dest/'v22_catalogue_spatial_support_summary.json',public)
     check_aggregate(result);save_json(dest/'v22_catalogue_ownership_summary.json',result)
     save_json(dest/'private_owned_counts.json',dict(by_core));db.execute('CHECKPOINT');db.close()

@@ -1,0 +1,40 @@
+{
+  "real_core_checks": [
+    {
+      "core": "w220_110_28_11",
+      "solutions": 4136,
+      "maximum_absolute_change": {
+        "pm_icrs_masyr": 0.0,
+        "covariance": 0.0,
+        "robust_weight": 0.0,
+        "tangent_state": 0.0
+      },
+      "elapsed_seconds": 55.736790245980956
+    },
+    {
+      "core": "w170_090_88_00",
+      "solutions": 4248,
+      "maximum_absolute_change": {
+        "pm_icrs_masyr": 0.0,
+        "covariance": 0.0,
+        "robust_weight": 0.0,
+        "tangent_state": 0.0
+      },
+      "elapsed_seconds": 58.14422525104601
+    },
+    {
+      "core": "w010_100_02_00",
+      "solutions": 2996,
+      "maximum_absolute_change": {
+        "pm_icrs_masyr": 0.0,
+        "covariance": 0.0,
+        "robust_weight": 0.0,
+        "tangent_state": 0.0
+      },
+      "elapsed_seconds": 48.63339576497674
+    }
+  ],
+  "member_sets_identical": true,
+  "tolerance_absolute": 1e-06,
+  "scope": "Cached homogeneous unit vectors replace RA/Dec round trips only; same real small-reference inputs. Every source, robust weight, point, fullcovariance and member set compared. New spectral synchronous response covariance also asserted on output."
+}

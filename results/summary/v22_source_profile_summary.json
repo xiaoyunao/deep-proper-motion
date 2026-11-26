@@ -1,0 +1,869 @@
+{
+  "cores": [
+    {
+      "core": "w220_110_28_11",
+      "research_solutions": 4136,
+      "elapsed_seconds": 138.31037307193037,
+      "peak_rss_mib": 1059.25,
+      "profile_top": [
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "one",
+          "calls": 1,
+          "own_seconds": 0.47798559100000004,
+          "cumulative_seconds": 139.763993731
+        },
+        {
+          "module": "nsc_science_catalogue.py",
+          "function": "select_catalogue",
+          "calls": 1,
+          "own_seconds": 0.22990004200000003,
+          "cumulative_seconds": 106.25251710200001
+        },
+        {
+          "module": "pilot_production.py",
+          "function": "make_tracks",
+          "calls": 5,
+          "own_seconds": 0.014996174000000001,
+          "cumulative_seconds": 71.99385672400001
+        },
+        {
+          "module": "associate.py",
+          "function": "static_tracks",
+          "calls": 5,
+          "own_seconds": 2.015268978,
+          "cumulative_seconds": 71.82457394500001
+        },
+        {
+          "module": "~",
+          "function": "<built-in method numpy.core._multiarray_umath.implement_array_function>",
+          "calls": 12794828,
+          "own_seconds": 12.046249945000001,
+          "cumulative_seconds": 56.897432192000004
+        },
+        {
+          "module": "associate.py",
+          "function": "<lambda>",
+          "calls": 159800,
+          "own_seconds": 0.120982827,
+          "cumulative_seconds": 46.785879716000004
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "angular_distance",
+          "calls": 159800,
+          "own_seconds": 2.046104623,
+          "cumulative_seconds": 46.664896889000005
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "sky_basis",
+          "calls": 495154,
+          "own_seconds": 6.526683187000001,
+          "cumulative_seconds": 29.532530671000004
+        },
+        {
+          "module": "astrometry.py",
+          "function": "unproject",
+          "calls": 587173,
+          "own_seconds": 8.561118321,
+          "cumulative_seconds": 28.843352758
+        },
+        {
+          "module": "pilot_production.py",
+          "function": "source_funnel",
+          "calls": 3,
+          "own_seconds": 0.868446362,
+          "cumulative_seconds": 27.701486872
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "query_ball_point",
+          "calls": 159800,
+          "own_seconds": 0.8823869110000001,
+          "cumulative_seconds": 21.204150918
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "units",
+          "calls": 175474,
+          "own_seconds": 0.62052721,
+          "cumulative_seconds": 20.831690884
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "stack",
+          "calls": 2010673,
+          "own_seconds": 1.105400698,
+          "cumulative_seconds": 17.334185957000003
+        },
+        {
+          "module": "shape_base.py",
+          "function": "stack",
+          "calls": 2010673,
+          "own_seconds": 4.3862160590000006,
+          "cumulative_seconds": 13.706036929000001
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "write_rows",
+          "calls": 3,
+          "own_seconds": 0.000126727,
+          "cumulative_seconds": 11.800657563000001
+        },
+        {
+          "module": "__init__.py",
+          "function": "dump",
+          "calls": 3,
+          "own_seconds": 0.8162347010000001,
+          "cumulative_seconds": 11.785202253000001
+        },
+        {
+          "module": "function_base.py",
+          "function": "_ureduce",
+          "calls": 220398,
+          "own_seconds": 0.48148496700000004,
+          "cumulative_seconds": 10.192523718
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "median",
+          "calls": 209499,
+          "own_seconds": 0.13439778900000002,
+          "cumulative_seconds": 9.542794273
+        },
+        {
+          "module": "function_base.py",
+          "function": "median",
+          "calls": 209499,
+          "own_seconds": 0.171266844,
+          "cumulative_seconds": 9.270086943
+        },
+        {
+          "module": "astrometry.py",
+          "function": "basis",
+          "calls": 594776,
+          "own_seconds": 8.030483009000001,
+          "cumulative_seconds": 8.970441585000001
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "fit_source",
+          "calls": 10832,
+          "own_seconds": 0.040786591000000004,
+          "cumulative_seconds": 8.57109531
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "cached",
+          "calls": 7514,
+          "own_seconds": 0.216709383,
+          "cumulative_seconds": 8.534279724000001
+        },
+        {
+          "module": "function_base.py",
+          "function": "_median",
+          "calls": 209499,
+          "own_seconds": 1.121215541,
+          "cumulative_seconds": 8.174325209000001
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "concatenate",
+          "calls": 3230214,
+          "own_seconds": 1.701453823,
+          "cumulative_seconds": 8.150637015000001
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "column_stack",
+          "calls": 1174433,
+          "own_seconds": 0.5794495740000001,
+          "cumulative_seconds": 8.132900954
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "cross",
+          "calls": 159800,
+          "own_seconds": 0.087521367,
+          "cumulative_seconds": 7.749591253
+        },
+        {
+          "module": "numeric.py",
+          "function": "cross",
+          "calls": 159800,
+          "own_seconds": 2.6815907180000003,
+          "cumulative_seconds": 7.501912937
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode",
+          "calls": 8894247,
+          "own_seconds": 1.59485213,
+          "cumulative_seconds": 6.994573453
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode_list",
+          "calls": 8962088,
+          "own_seconds": 2.536979487,
+          "cumulative_seconds": 6.385444465
+        },
+        {
+          "module": "shape_base.py",
+          "function": "column_stack",
+          "calls": 1174433,
+          "own_seconds": 2.379473867,
+          "cumulative_seconds": 6.118292362
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode_dict",
+          "calls": 4584620,
+          "own_seconds": 0.977997701,
+          "cumulative_seconds": 5.742285001
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "fit_vector_motion",
+          "calls": 7514,
+          "own_seconds": 1.1711886900000001,
+          "cumulative_seconds": 5.150281491
+        },
+        {
+          "module": "indexing.py",
+          "function": "__getitem__",
+          "calls": 68707,
+          "own_seconds": 0.101200595,
+          "cumulative_seconds": 4.88269948
+        },
+        {
+          "module": "nsc_science_catalogue.py",
+          "function": "<lambda>",
+          "calls": 84585,
+          "own_seconds": 0.21065792000000003,
+          "cumulative_seconds": 4.794004804
+        },
+        {
+          "module": "__init__.py",
+          "function": "flex_wrapper",
+          "calls": 35890,
+          "own_seconds": 0.060760737,
+          "cumulative_seconds": 4.614906987
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "information",
+          "calls": 4136,
+          "own_seconds": 0.553856121,
+          "cumulative_seconds": 4.555652629
+        },
+        {
+          "module": "common.py",
+          "function": "new_method",
+          "calls": 35914,
+          "own_seconds": 0.051444251,
+          "cumulative_seconds": 4.485697200000001
+        },
+        {
+          "module": "~",
+          "function": "<built-in method _operator.eq>",
+          "calls": 35890,
+          "own_seconds": 0.021840283000000002,
+          "cumulative_seconds": 4.416742511000001
+        },
+        {
+          "module": "indexing.py",
+          "function": "_getitem_axis",
+          "calls": 68225,
+          "own_seconds": 0.11909349400000001,
+          "cumulative_seconds": 4.374330952
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "moveaxis",
+          "calls": 479400,
+          "own_seconds": 0.22782364300000002,
+          "cumulative_seconds": 4.298361682
+        }
+      ]
+    },
+    {
+      "core": "w170_090_88_00",
+      "research_solutions": 4248,
+      "elapsed_seconds": 152.04432814801112,
+      "peak_rss_mib": 1049.5546875,
+      "profile_top": [
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "one",
+          "calls": 1,
+          "own_seconds": 0.47627651800000004,
+          "cumulative_seconds": 153.405404119
+        },
+        {
+          "module": "nsc_science_catalogue.py",
+          "function": "select_catalogue",
+          "calls": 1,
+          "own_seconds": 0.23109810500000003,
+          "cumulative_seconds": 120.58317196600001
+        },
+        {
+          "module": "pilot_production.py",
+          "function": "make_tracks",
+          "calls": 5,
+          "own_seconds": 0.015437795,
+          "cumulative_seconds": 84.135067288
+        },
+        {
+          "module": "associate.py",
+          "function": "static_tracks",
+          "calls": 5,
+          "own_seconds": 2.350502574,
+          "cumulative_seconds": 83.944236386
+        },
+        {
+          "module": "~",
+          "function": "<built-in method numpy.core._multiarray_umath.implement_array_function>",
+          "calls": 14708792,
+          "own_seconds": 13.90924534,
+          "cumulative_seconds": 64.585820035
+        },
+        {
+          "module": "associate.py",
+          "function": "<lambda>",
+          "calls": 186384,
+          "own_seconds": 0.145442866,
+          "cumulative_seconds": 54.820215989000005
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "angular_distance",
+          "calls": 186384,
+          "own_seconds": 2.433514547,
+          "cumulative_seconds": 54.674773123
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "sky_basis",
+          "calls": 576381,
+          "own_seconds": 7.609030977000001,
+          "cumulative_seconds": 34.410457166
+        },
+        {
+          "module": "astrometry.py",
+          "function": "unproject",
+          "calls": 681831,
+          "own_seconds": 9.866027567000001,
+          "cumulative_seconds": 33.365527836000005
+        },
+        {
+          "module": "pilot_production.py",
+          "function": "source_funnel",
+          "calls": 3,
+          "own_seconds": 0.9585138200000001,
+          "cumulative_seconds": 29.578996779
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "query_ball_point",
+          "calls": 186384,
+          "own_seconds": 1.031153287,
+          "cumulative_seconds": 24.771416955000003
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "units",
+          "calls": 203497,
+          "own_seconds": 0.7241052130000001,
+          "cumulative_seconds": 24.082288855
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "stack",
+          "calls": 2335089,
+          "own_seconds": 1.2667657090000002,
+          "cumulative_seconds": 20.091196994
+        },
+        {
+          "module": "shape_base.py",
+          "function": "stack",
+          "calls": 2335089,
+          "own_seconds": 5.063309072,
+          "cumulative_seconds": 15.916881871000001
+        },
+        {
+          "module": "function_base.py",
+          "function": "_ureduce",
+          "calls": 249147,
+          "own_seconds": 0.5421354190000001,
+          "cumulative_seconds": 11.298550713000001
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "write_rows",
+          "calls": 3,
+          "own_seconds": 9.670700000000001e-05,
+          "cumulative_seconds": 10.886505719
+        },
+        {
+          "module": "__init__.py",
+          "function": "dump",
+          "calls": 3,
+          "own_seconds": 0.7330031180000001,
+          "cumulative_seconds": 10.870193596
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "median",
+          "calls": 238626,
+          "own_seconds": 0.15027659100000001,
+          "cumulative_seconds": 10.745937477
+        },
+        {
+          "module": "function_base.py",
+          "function": "median",
+          "calls": 238626,
+          "own_seconds": 0.19380423200000002,
+          "cumulative_seconds": 10.435925343000001
+        },
+        {
+          "module": "astrometry.py",
+          "function": "basis",
+          "calls": 689347,
+          "own_seconds": 9.294713981000001,
+          "cumulative_seconds": 10.395681620000001
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "concatenate",
+          "calls": 3747769,
+          "own_seconds": 1.962498504,
+          "cumulative_seconds": 9.436780838
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "column_stack",
+          "calls": 1363785,
+          "own_seconds": 0.6847457840000001,
+          "cumulative_seconds": 9.409951022000001
+        },
+        {
+          "module": "function_base.py",
+          "function": "_median",
+          "calls": 238626,
+          "own_seconds": 1.263454888,
+          "cumulative_seconds": 9.193476779000001
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "cross",
+          "calls": 186384,
+          "own_seconds": 0.10217691100000001,
+          "cumulative_seconds": 9.156913781
+        },
+        {
+          "module": "numeric.py",
+          "function": "cross",
+          "calls": 186384,
+          "own_seconds": 3.1666105260000004,
+          "cumulative_seconds": 8.860323136
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "fit_source",
+          "calls": 10419,
+          "own_seconds": 0.036938089,
+          "cumulative_seconds": 8.309579807
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "cached",
+          "calls": 7391,
+          "own_seconds": 0.21127002700000003,
+          "cumulative_seconds": 8.272641718000001
+        },
+        {
+          "module": "shape_base.py",
+          "function": "column_stack",
+          "calls": 1363785,
+          "own_seconds": 2.74413111,
+          "cumulative_seconds": 7.075436507
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode",
+          "calls": 8339779,
+          "own_seconds": 1.475792373,
+          "cumulative_seconds": 6.502021475
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode_list",
+          "calls": 8353882,
+          "own_seconds": 2.319772308,
+          "cumulative_seconds": 5.958462735
+        },
+        {
+          "module": "nsc_science_catalogue.py",
+          "function": "<lambda>",
+          "calls": 98175,
+          "own_seconds": 0.24619955100000002,
+          "cumulative_seconds": 5.557926355
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode_dict",
+          "calls": 4360141,
+          "own_seconds": 0.9336527600000001,
+          "cumulative_seconds": 5.3681578530000005
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "moveaxis",
+          "calls": 559152,
+          "own_seconds": 0.273138339,
+          "cumulative_seconds": 5.076182338000001
+        },
+        {
+          "module": "indexing.py",
+          "function": "__getitem__",
+          "calls": 69057,
+          "own_seconds": 0.100219348,
+          "cumulative_seconds": 4.972593237
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "fit_vector_motion",
+          "calls": 7391,
+          "own_seconds": 1.147771727,
+          "cumulative_seconds": 4.961321828
+        },
+        {
+          "module": "__init__.py",
+          "function": "flex_wrapper",
+          "calls": 35985,
+          "own_seconds": 0.06168014,
+          "cumulative_seconds": 4.663302961
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "information",
+          "calls": 4248,
+          "own_seconds": 0.559667588,
+          "cumulative_seconds": 4.53769213
+        },
+        {
+          "module": "common.py",
+          "function": "new_method",
+          "calls": 36009,
+          "own_seconds": 0.052250517,
+          "cumulative_seconds": 4.515857338
+        },
+        {
+          "module": "~",
+          "function": "<built-in method _operator.eq>",
+          "calls": 35985,
+          "own_seconds": 0.022244369,
+          "cumulative_seconds": 4.462197002
+        },
+        {
+          "module": "numeric.py",
+          "function": "moveaxis",
+          "calls": 559152,
+          "own_seconds": 1.467608492,
+          "cumulative_seconds": 4.45347304
+        }
+      ]
+    },
+    {
+      "core": "w010_100_02_00",
+      "research_solutions": 2996,
+      "elapsed_seconds": 126.89153984293807,
+      "peak_rss_mib": 907.32421875,
+      "profile_top": [
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "one",
+          "calls": 1,
+          "own_seconds": 0.34303252900000003,
+          "cumulative_seconds": 128.579867602
+        },
+        {
+          "module": "nsc_science_catalogue.py",
+          "function": "select_catalogue",
+          "calls": 1,
+          "own_seconds": 0.177662237,
+          "cumulative_seconds": 103.43027662300001
+        },
+        {
+          "module": "pilot_production.py",
+          "function": "make_tracks",
+          "calls": 5,
+          "own_seconds": 0.010754825,
+          "cumulative_seconds": 72.217355713
+        },
+        {
+          "module": "associate.py",
+          "function": "static_tracks",
+          "calls": 5,
+          "own_seconds": 2.023687928,
+          "cumulative_seconds": 72.059351795
+        },
+        {
+          "module": "~",
+          "function": "<built-in method numpy.core._multiarray_umath.implement_array_function>",
+          "calls": 12800743,
+          "own_seconds": 11.921361222000002,
+          "cumulative_seconds": 55.626892088000005
+        },
+        {
+          "module": "associate.py",
+          "function": "<lambda>",
+          "calls": 162155,
+          "own_seconds": 0.121259983,
+          "cumulative_seconds": 47.002525396
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "angular_distance",
+          "calls": 162155,
+          "own_seconds": 2.0522412620000003,
+          "cumulative_seconds": 46.881265413
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "sky_basis",
+          "calls": 501815,
+          "own_seconds": 6.429447495000001,
+          "cumulative_seconds": 29.604312022000002
+        },
+        {
+          "module": "astrometry.py",
+          "function": "unproject",
+          "calls": 594615,
+          "own_seconds": 8.550630599,
+          "cumulative_seconds": 28.812791376000003
+        },
+        {
+          "module": "pilot_production.py",
+          "function": "source_funnel",
+          "calls": 3,
+          "own_seconds": 0.8409660640000001,
+          "cumulative_seconds": 25.780730799
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "query_ball_point",
+          "calls": 162155,
+          "own_seconds": 0.893536289,
+          "cumulative_seconds": 21.362220026000003
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "units",
+          "calls": 177413,
+          "own_seconds": 0.621721692,
+          "cumulative_seconds": 20.834500756
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "stack",
+          "calls": 2032657,
+          "own_seconds": 1.094984063,
+          "cumulative_seconds": 17.305677170000003
+        },
+        {
+          "module": "shape_base.py",
+          "function": "stack",
+          "calls": 2032657,
+          "own_seconds": 4.3733570760000005,
+          "cumulative_seconds": 13.700893524000001
+        },
+        {
+          "module": "function_base.py",
+          "function": "_ureduce",
+          "calls": 218997,
+          "own_seconds": 0.47166407600000004,
+          "cumulative_seconds": 9.83270426
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "median",
+          "calls": 209782,
+          "own_seconds": 0.129034926,
+          "cumulative_seconds": 9.347937344
+        },
+        {
+          "module": "function_base.py",
+          "function": "median",
+          "calls": 209782,
+          "own_seconds": 0.169293095,
+          "cumulative_seconds": 9.083082774000001
+        },
+        {
+          "module": "astrometry.py",
+          "function": "basis",
+          "calls": 601065,
+          "own_seconds": 8.021429415,
+          "cumulative_seconds": 8.991407383
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "write_rows",
+          "calls": 3,
+          "own_seconds": 0.00012869700000000002,
+          "cumulative_seconds": 8.102541324
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "concatenate",
+          "calls": 3263957,
+          "own_seconds": 1.661993591,
+          "cumulative_seconds": 8.094830512
+        },
+        {
+          "module": "__init__.py",
+          "function": "dump",
+          "calls": 3,
+          "own_seconds": 0.5519380850000001,
+          "cumulative_seconds": 8.074209842
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "column_stack",
+          "calls": 1189329,
+          "own_seconds": 0.573897314,
+          "cumulative_seconds": 8.064280741000001
+        },
+        {
+          "module": "function_base.py",
+          "function": "_median",
+          "calls": 209782,
+          "own_seconds": 1.093411221,
+          "cumulative_seconds": 8.003896389000001
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "cross",
+          "calls": 162155,
+          "own_seconds": 0.087257632,
+          "cumulative_seconds": 7.865537619
+        },
+        {
+          "module": "numeric.py",
+          "function": "cross",
+          "calls": 162155,
+          "own_seconds": 2.727453728,
+          "cumulative_seconds": 7.610517928
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "fit_source",
+          "calls": 9134,
+          "own_seconds": 0.031110827,
+          "cumulative_seconds": 7.120648882
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "cached",
+          "calls": 6349,
+          "own_seconds": 0.181736387,
+          "cumulative_seconds": 7.089538055
+        },
+        {
+          "module": "shape_base.py",
+          "function": "column_stack",
+          "calls": 1189329,
+          "own_seconds": 2.36961098,
+          "cumulative_seconds": 6.106973321000001
+        },
+        {
+          "module": "nsc_science_catalogue.py",
+          "function": "<lambda>",
+          "calls": 86543,
+          "own_seconds": 0.214346542,
+          "cumulative_seconds": 4.869405673
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode",
+          "calls": 6146403,
+          "own_seconds": 1.086425154,
+          "cumulative_seconds": 4.7944260430000005
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode_list",
+          "calls": 6160788,
+          "own_seconds": 1.728260759,
+          "cumulative_seconds": 4.391601156
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "moveaxis",
+          "calls": 486465,
+          "own_seconds": 0.23088112300000002,
+          "cumulative_seconds": 4.353015994000001
+        },
+        {
+          "module": "coordinate_metric.py",
+          "function": "fit_vector_motion",
+          "calls": 6349,
+          "own_seconds": 0.982560736,
+          "cumulative_seconds": 4.2475065380000006
+        },
+        {
+          "module": "encoder.py",
+          "function": "_iterencode_dict",
+          "calls": 3193325,
+          "own_seconds": 0.675218293,
+          "cumulative_seconds": 3.9538837200000003
+        },
+        {
+          "module": "numeric.py",
+          "function": "moveaxis",
+          "calls": 486465,
+          "own_seconds": 1.2449026220000001,
+          "cumulative_seconds": 3.8238295910000004
+        },
+        {
+          "module": "indexing.py",
+          "function": "__getitem__",
+          "calls": 50636,
+          "own_seconds": 0.07308527000000001,
+          "cumulative_seconds": 3.6986217800000003
+        },
+        {
+          "module": "full_coordinate_sources.py",
+          "function": "external_values",
+          "calls": 1,
+          "own_seconds": 0.020121718,
+          "cumulative_seconds": 3.599757401
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "broadcast_arrays",
+          "calls": 501815,
+          "own_seconds": 0.267087579,
+          "cumulative_seconds": 3.50795357
+        },
+        {
+          "module": "__init__.py",
+          "function": "flex_wrapper",
+          "calls": 26619,
+          "own_seconds": 0.044951344000000004,
+          "cumulative_seconds": 3.419192321
+        },
+        {
+          "module": "<__array_function__ internals>",
+          "function": "mean",
+          "calls": 209782,
+          "own_seconds": 0.136617228,
+          "cumulative_seconds": 3.4161550700000003
+        }
+      ]
+    }
+  ],
+  "scope": "Real three small-reference pilot source runs under cProfile; source point/covariance and fixedB1 verify before full-component production. Profile overhead included."
+}

@@ -42,3 +42,18 @@ def test_measured_memory_envelope_requires_sufficient_safe_source_receipts(tmp_p
     selected,legacy,audit=memory_queue(tmp_path,plan,range(50),'receipt-validated')
     assert audit['used']=='reference-input-conservative'
     assert all(memory==legacy[i] for i,memory,size in selected)
+
+
+def test_warm_cache_validation_cannot_fit_a_missing_or_differently_dispatched_source(tmp_path,monkeypatch):
+    import deep_pm.full_coordinate_batch as batch
+    entry=dict(core='a');folder=tmp_path/'sources/a';folder.mkdir(parents=True)
+    path=folder/'v22_source_core_summary.json';save_json(path,dict(ticket=dict(graphs={'2':'reference'})))
+    before=path.read_bytes()
+    monkeypatch.setattr(batch,'component_map',lambda root:(None,'fixed-map'))
+    monkeypatch.setattr(batch,'physical_dispatch',lambda *args:([0],{},False))
+    monkeypatch.setattr(batch,'one',lambda *args:pytest.fail('Cache-only pool must not fit a changed dispatch'))
+    assert batch.cached_check((entry,str(tmp_path)))['reused'] is False
+    assert path.read_bytes()==before
+    assert not (folder/'private_dispatch.json').exists()
+    path.unlink()
+    with pytest.raises(FileNotFoundError):batch.cached_check((entry,str(tmp_path)))

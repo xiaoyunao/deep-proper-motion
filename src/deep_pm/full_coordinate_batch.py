@@ -5,11 +5,13 @@ uses only file size and measured reference-input RSS, never QSO performance.
 """
 import argparse
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor,as_completed
 from hashlib import sha256
 import os
 from pathlib import Path
 import subprocess
 import sys
+import resource
 from time import monotonic,sleep
 
 import numpy as np
@@ -36,6 +38,30 @@ def physical_dispatch(entry,root,mapping,mapping_sha):
     physical=pd.read_csv(Path(entry['source'])/'detections.csv',usecols=['survey','exposure_id','detector_id'],low_memory=False).drop_duplicates()
     groups=calibration_groups(physical);actual=sorted(set(mapping.reindex(pd.unique(groups)).dropna().astype(int)))
     return actual,dict(source_sha256=source_sha,group_map_sha256=mapping_sha,components=actual,definition=DISPATCH_DEFINITION),False
+
+
+def cached_check(task):
+    """Validate completed files in a warm pool; never fit a missing checkpoint."""
+    entry,root=task;root=Path(root);folder=root/'sources'/entry['core'];path=folder/'v22_source_core_summary.json'
+    before=digest(path);start=monotonic();proof=read(path)
+    mapping,mapping_sha=component_map(str(root));actual,payload,reused=physical_dispatch(entry,root,mapping,mapping_sha)
+    if set(proof['ticket']['graphs'])!=set(map(str,actual)):
+        return dict(core=entry['core'],reused=False,source_sha256=before)
+    dispatch=folder/'private_dispatch.json'
+    if not reused:
+        if dispatch.exists():
+            preserved=folder/'private_dispatch_before_actual_cache_check.json'
+            if preserved.exists() and read(preserved)!=read(dispatch):raise ValueError('Repeated changed preliminary dispatch')
+            if not preserved.exists():save_json(preserved,read(dispatch))
+        save_json(dispatch,payload)
+    # Existing proof is mandatory: the normal one() cache branch verifies its
+    # complete scientific ticket and every output hash before returning.
+    if not path.exists():raise ValueError('Completed cache disappeared')
+    one((entry,str(root),None))
+    if digest(path)!=before:raise ValueError('Read-only source cache validation changed the scientific receipt')
+    return dict(core=entry['core'],reused=True,source_sha256=before,elapsed_seconds=monotonic()-start,
+        process_peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
+        scope='Warm cache-only worker high-water RSS may include earlier metadata checks; no missing-source fit allowed.')
 
 
 def selected_cores(root,components):
@@ -90,6 +116,21 @@ def run(root,components,workers,memory_gib,hours,memory_model='reference-input-c
     fallbacks=0
     print('SOURCE_MEMORY_ADMISSION',audit,flush=True)
     pending.sort(key=lambda r:(-r[1],-r[2],r[0]));running=[];done=[];failed=[];start=monotonic();deadline=start+hours*3600
+    cache_start=monotonic();cache_checks=[]
+    if memory_model=='receipt-validated':
+        # Fork only cache/three-column metadata checks. New fits still get an
+        # isolated subprocess so giant scientific allocators cannot accumulate.
+        candidates=[i for i,_,_ in pending if (root/'sources'/plan['cores'][i]['core']/'v22_source_core_summary.json').exists()]
+        from deep_pm.full_coordinate_batch import cached_check as stable_cached_check
+        with ProcessPoolExecutor(max_workers=min(8,workers)) as pool:
+            futures={pool.submit(stable_cached_check,(plan['cores'][i],str(root))):i for i in candidates}
+            for future in as_completed(futures):
+                item=future.result();cache_checks.append(item)
+                if item['reused']:done.append(item['core'])
+                print('SOURCE_CACHE_VERIFIED',item['core'],item['reused'],'verified',len(done),flush=True)
+        finished=set(done);pending=[item for item in pending if plan['cores'][item[0]]['core'] not in finished]
+        save_json(dest/'private_cache_validation.json',cache_checks)
+    cache_elapsed=monotonic()-cache_start
     while pending or running:
         # Never start work late in the allocation; finished core receipts resume.
         if len(failed)>=3 and not done:deadline=monotonic() # universal startup failure: stop further dispatch
@@ -123,6 +164,8 @@ def run(root,components,workers,memory_gib,hours,memory_model='reference-input-c
     result=dict(components=components,registered_cores=len(indices),completed_core_checks=len(done),failed_cores=failed,
         undispatched_cores=len(pending),maximum_workers=workers,memory_budget_gib=memory_gib,elapsed_seconds=monotonic()-start,
         memory_reservation_audit=audit,memory_reservation_fallbacks=fallbacks,
+        warm_cache_checks=len(cache_checks),warm_cache_reused=sum(v['reused'] for v in cache_checks),
+        warm_cache_elapsed_seconds=cache_elapsed,
         implementation_sha256=digest(Path(__file__)),slurm_job=job,
         scope='Every worker validates source/reference/ticket and all private output hashes; isolated process per core prevents retained giant-input memory. Completion is per origin core, before global ownership/detection/spectral closure. Failed cores retain logs and must recover; no silent numerical failure acceptance.')
     check_aggregate(result);save_json(dest/'v22_source_batch_summary.json',result)

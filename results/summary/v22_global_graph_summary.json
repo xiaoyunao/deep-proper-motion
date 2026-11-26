@@ -1,0 +1,76 @@
+{
+  "plan_sha256": "6c78c0ea3c5d69d9cbd0f2a17e39fc33991d5dabf48222929f3a90329d76c84b",
+  "input_shard_measurements": 318694317,
+  "conflict_detection_count": 0,
+  "unique_measurements": 263695627,
+  "physical_exposure_conflicts": 0,
+  "clean_measurements": 263695627,
+  "clean_holdout_measurements": 79122540,
+  "training_measurements": 184570652,
+  "peeling": [
+    {
+      "before": 184573087,
+      "after": 184570652
+    },
+    {
+      "before": 184570652,
+      "after": 184570652
+    }
+  ],
+  "components": [
+    {
+      "component": 0,
+      "status": "ready",
+      "groups": 21780,
+      "reference_sources": 2970177,
+      "measurements": 83120327,
+      "center_deg": [
+        0.20657383434754126,
+        8.058668188463164
+      ],
+      "center_inherited": true,
+      "old_domain_count": 1,
+      "maximum_theta_deg": 40.93729727949394,
+      "nsc_gauge_group_count": 20617
+    },
+    {
+      "component": 1,
+      "status": "ready",
+      "groups": 22433,
+      "reference_sources": 2766912,
+      "measurements": 73871667,
+      "center_deg": [
+        177.0,
+        0.0
+      ],
+      "center_inherited": true,
+      "old_domain_count": 1,
+      "maximum_theta_deg": 63.503652710765294,
+      "nsc_gauge_group_count": 21911
+    },
+    {
+      "component": 2,
+      "status": "ready",
+      "groups": 7493,
+      "reference_sources": 2374858,
+      "measurements": 27578658,
+      "center_deg": [
+        176.05683979156782,
+        30.767495215576464
+      ],
+      "center_inherited": true,
+      "old_domain_count": 1,
+      "maximum_theta_deg": 58.092441454348005,
+      "nsc_gauge_group_count": 6950
+    }
+  ],
+  "old_retained_group_count": 49018,
+  "new_solved_group_count": 51706,
+  "restored_or_new_groups": 2688,
+  "old_retained_groups_lost": 0,
+  "scope_of_group_change": "Old graph-plane SE-filtered groups vs new peeled pre-SE solvable groups; native12mas target support is a separate downstream selection.",
+  "elapsed_seconds": 590.012420326937,
+  "peak_rss_mib": 25820.0859375,
+  "slurm_job": "62038110",
+  "support_definition": "Graph peeling is pre-SE. No group-level planar SE rejection. Native12mas support evaluated at each target measurement."
+}

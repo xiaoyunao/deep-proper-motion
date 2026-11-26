@@ -57,7 +57,8 @@ def information(data,time,night,keys,model,fit,covariance,utc_years=None):
     return dict(detections=len(data),nsc_exposures=data.exposure_id[nsc].nunique(),nsc_nights=len(set(night[nsc])),
         nsc_seasons=len(set(seasons(tlate,90))),nsc_span_years=float(np.ptp(tlate)),joint_span_years=float(np.ptp(time)),
         sdss_physical_runs=data.exposure_id[~nsc].nunique(),
-        sdss_independent_UTC_years=len(set(utc_years[~nsc])),nsc_independent_UTC_years=len(set(utc_years[nsc])),
+        sdss_unique_UTC_years=len(set(utc_years[~nsc])),nsc_unique_UTC_years=len(set(utc_years[nsc])),
+        UTC_year_scope='Distinct calendar years; independent long-term support additionally requires actual span/night/season/leverage.',
         full2D_profiled_ICRS_slope_information=total,largest_information_fraction=maximum,effective_information_groups=effective,
         independent_pm_variance=np.diag(jacobian@fit['independent_tangent_covariance']@jacobian.T)[[1,3]],
         reference_pm_variance=np.diag(jacobian@fit['reference_tangent_covariance']@jacobian.T)[[1,3]],
@@ -204,6 +205,8 @@ def one(task):
             info=information(local,t[ix],night[ix],keys[ix],model,fit,cp[ix],year[ix])
             mag,origin=r_magnitude(ix,data,nsc)
             flags=['spatial_zero_uncertified','night_correlation_unqualified','identity_unconfirmed_outside_spectral_audit']
+            shape=local.morphology[local.survey.eq('NSC')].to_numpy(float)
+            if not np.isfinite(shape).all() or np.any((shape<0)|(shape>1)):flags.append('unknown_or_invalid_morphology')
             if candidate['kind']=='non_r_anchor':flags.append('non_r_anchor_requires_identity_validation')
             if max(info['largest_information_fraction']['physical_group'])>=.8:flags.append('one_group_supplies_at_least_80pct_leverage')
             if info['nsc_seasons']<3:flags.append('fewer_than_three_nsc_seasons')

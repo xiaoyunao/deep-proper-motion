@@ -89,7 +89,7 @@ if __name__=='__main__':
         # Inspect all actual target physical groups, including exposures with
         # no local selected reference galaxies. This also closes previously
         # accepted single-component preliminary replay after all graphs exist.
-        mapping,_=component_map(str(a.root))
+        mapping,mapping_sha=component_map(str(a.root))
         physical=pd.read_csv(Path(entry['source'])/'detections.csv',usecols=['survey','exposure_id','detector_id'],low_memory=False).drop_duplicates()
         groups=calibration_groups(physical)
         actual=sorted(set(mapping.reindex(pd.unique(groups)).dropna().astype(int)))
@@ -102,5 +102,8 @@ if __name__=='__main__':
             archive=a.root/'partial-source-archives'/entry['core'];archive.parent.mkdir(exist_ok=True)
             if archive.exists():raise ValueError('Repeated partial component archive requires inspection')
             folder.rename(archive);print('PRESERVED_PRELIMINARY_COMPONENT_SOURCE',entry['core'],flush=True)
+        folder.mkdir(parents=True,exist_ok=True)
+        save_json(folder/'private_dispatch.json',dict(source_sha256=digest(Path(entry['source'])/'run_manifest.json'),group_map_sha256=mapping_sha,components=actual,
+            definition='All normalized target physical groups. Metadata-only dispatch, including groups with no local reference galaxies; physical quality selection remains in source normalization.'))
         one((entry,str(a.root),None))
     else:run(a.root,a.component,a.workers,a.memory_gib,a.hours)

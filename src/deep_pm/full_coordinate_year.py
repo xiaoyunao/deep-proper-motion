@@ -62,6 +62,7 @@ def training(data,xy,t,sigma,keep,keys,solution,center,spec,config,settings,full
             model=fit_vector_motion(xy[ix]-np.array([v[0] for v in offset]),t[ix],cp[ix],config['reference_epoch'])
             common,response=reference_covariance(model.influence,np.stack([v[1] for v in offset],axis=1));independent=model.cov;h=model.influence
             out=icrs_motion(model.coeff[0],model.coeff[1],center,independent+common)
+            out['tangent_state']=model.coeff.T.ravel()
         else:
             model,_=fit_with_calibration(xy[ix],t[ix],sigma[ix],config['reference_epoch'],offset)
             out=evaluated_fit(ix,data,xy,t,sigma,keys,solution,center,config['reference_epoch'],model=model)

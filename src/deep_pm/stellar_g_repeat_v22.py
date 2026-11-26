@@ -15,7 +15,7 @@ from .__main__ import tomllib
 from .astrometry import project
 from .blind_catalogue_quality import read
 from .continuous_reference import PRECISION,SPATIAL,read_offsets
-from .coordinate_metric import AngularTree,native_covariance,projected_covariance,forward_jacobian
+from .coordinate_metric import AngularTree,native_covariance,projected_covariance,sky_basis
 from .dcr_geometry import sdss_colors,combine_color,zenith_vectors,tangent_geometry
 from .io import digest,save_json
 from .pilot_production import quality_detections
@@ -59,6 +59,10 @@ def run(root,lsroot,sas,output):
         nights=Time(np.floor(mjd-.75),format='mjd',scale='utc').isot
         eligible=np.flatnonzero(initial);unique,inverse=np.unique(mjd[eligible],return_inverse=True)
         zenith=zenith_vectors(unique)[inverse]
+        directions=sky_basis(data.ra_deg.to_numpy()[eligible],data.dec_deg.to_numpy()[eligible])[:,0,:]
+        supported=np.sum(directions*zenith,axis=1)>.2
+        initial[eligible[~supported]]=False
+        eligible=eligible[supported];zenith=zenith[supported]
         h_native,air=tangent_geometry(data.ra_deg.to_numpy()[eligible],data.dec_deg.to_numpy()[eligible],zenith,(center[0],center[1]))
         # tangent_geometry already expresses the zenith displacement in the
         # common chart defined by its center; do not apply another Jacobian.
@@ -69,7 +73,8 @@ def run(root,lsroot,sas,output):
             if j%400==0:print('G_REPEAT_CORE_PROGRESS',core,j,len(sources),flush=True)
             if neighbor.get('status')!='unique_deep_self' or neighbor.get('neighbour_distance_mas',0)<3000:fail['deep_neighbor_control']+=1;continue
             selected_sources+=1;physical_key=sha256('\0'.join(sorted(row['members'])).encode()).hexdigest();by_night=defaultdict(list)
-            for i in row['g_indices']:by_night[nights[i][:10]].append(int(i))
+            for i in row['g_indices']:
+                if initial[i]:by_night[nights[i][:10]].append(int(i))
             for night,indices in by_night.items():
                 pairs=[(a,b) if time[a]<time[b] else (b,a) for a,b in combinations(indices,2) if data.exposure_id.iat[a]!=data.exposure_id.iat[b]]
                 if not pairs:continue

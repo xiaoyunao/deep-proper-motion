@@ -1,0 +1,40 @@
+{
+  "components": {
+    "0": {
+      "requested": "receipt-validated",
+      "used": "receipt-validated",
+      "completed_source_cost_receipts": 243,
+      "maximum_observed_rss_over_selected_bound": 0.6899187397401012,
+      "receipt_set_sha256": "a1e6b9eb5404f99136750c01185016c41fc8e7b52be0bd4d153804d40fd5288c",
+      "admission_minimum_completed_cores": 50,
+      "admission_maximum_rss_fraction": 0.8,
+      "formula": "min(original reference-input bound, 2 + 8*CSV_GiB + 128*old_science_gzip_GiB); all units GiB",
+      "scope": "Only scheduling reservations/order change. Source implementation, inputs, reference, RNG, members, point and covariance are unchanged. Observed cost envelope is conditional, not a guaranteed process memory limit. Fall back if a subsequent core exceeds 80percent of its reservation.",
+      "selected_core_count": 1099,
+      "reserved_memory_over_original_p16_p50_p84": [
+        0.2815259627419036,
+        0.35742240392940633,
+        0.38112913990135433
+      ]
+    },
+    "1-2": {
+      "requested": "receipt-validated",
+      "used": "receipt-validated",
+      "completed_source_cost_receipts": 454,
+      "maximum_observed_rss_over_selected_bound": 0.6902428816345219,
+      "receipt_set_sha256": "ded6071fd3f871230fed972b90d9688f1cca661984f023e425f4f766a60c95c0",
+      "admission_minimum_completed_cores": 50,
+      "admission_maximum_rss_fraction": 0.8,
+      "formula": "min(original reference-input bound, 2 + 8*CSV_GiB + 128*old_science_gzip_GiB); all units GiB",
+      "scope": "Only scheduling reservations/order change. Source implementation, inputs, reference, RNG, members, point and covariance are unchanged. Observed cost envelope is conditional, not a guaranteed process memory limit. Fall back if a subsequent core exceeds 80percent of its reservation.",
+      "selected_core_count": 1776,
+      "reserved_memory_over_original_p16_p50_p84": [
+        0.32881704981257953,
+        0.7203702606350975,
+        0.8859223005080576
+      ]
+    }
+  },
+  "slurm_job": "62041280",
+  "scope": "Real completed-source resource metadata only; not a new fit or measured speedup. Source/metric/selection/reference/output science modules unchanged versus running frozen snapshots."
+}

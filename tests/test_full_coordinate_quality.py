@@ -35,3 +35,13 @@ def test_unbinned_spectral_photometry_does_not_become_a_faint_quality_case():
     assert not in_magnitude_bin({'magnitude':float('nan')},21)
     assert in_magnitude_bin({'magnitude':21.99},21)
     assert not in_magnitude_bin({'magnitude':22.0},21)
+
+
+def test_fixed_identity_common_reference_is_rotated_before_population_combination():
+    import numpy as np
+    from deep_pm.full_coordinate_quality import reference_common
+    rng=np.random.default_rng(15);tangent=rng.normal(size=(48,4));tangent[:,1]*=2;tangent[:,3]*=3
+    j=np.eye(4);j[[1,3]]=j[[3,1]]
+    rows=[dict(synchronous_reference_state_draws=tangent,new_fit={'state_jacobian':j},new_values=([0,0],[1,1]),reference_model_sha256='same') for _ in range(10)]
+    out=reference_common(rows)
+    np.testing.assert_allclose(out['equal_mean_common_SE'],np.std((tangent@j.T)[:,[1,3]],axis=0,ddof=1))

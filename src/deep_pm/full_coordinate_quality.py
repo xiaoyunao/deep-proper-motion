@@ -94,16 +94,16 @@ def unique_positions(rows,tolerance_mas=.036):
 
 
 def reference_common(rows):
-    selected=[r for r in rows if 'synchronous_reference_icrs_state_draws' in r]
+    selected=[r for r in rows if 'synchronous_reference_icrs_state_draws' in r or ('synchronous_reference_state_draws' in r and 'new_fit' in r)]
     if len(selected)<5:return dict(n=len(selected))
     grouped=defaultdict(list)
     for r in selected:grouped[r['reference_model_sha256']].append(r)
     n=len(selected);mean_cov=np.zeros((2,2));pieces=[]
     for checksum,part in grouped.items():
-        draw=np.array([r['synchronous_reference_icrs_state_draws'] for r in part])[:,:,[1,3]]
+        draw=np.array([r['synchronous_reference_icrs_state_draws'] if 'synchronous_reference_icrs_state_draws' in r else np.asarray(r['synchronous_reference_state_draws'])@np.asarray(r['new_fit']['state_jacobian']).T for r in part])[:,:,[1,3]]
         draw-=draw.mean(axis=1,keepdims=True);means=draw.mean(axis=0)
         mean_cov+=(len(part)/n)**2*np.cov(means,rowvar=False)
-        points=np.array([r['values']['new_all'][0] for r in part])
+        points=np.array([r['new_values'][0] if 'new_values' in r else r['values']['new_all'][0] for r in part])
         medians=np.array([np.median(points+draw[:,j],axis=0) for j in range(48)])
         pieces.append(dict(n=len(part),reference_sha256=checksum,mean_common_SE=np.std(means,axis=0,ddof=1),
             median_common_sensitivity_SE=np.std(medians,axis=0,ddof=1)))
@@ -209,7 +209,7 @@ def run(root,workers,frozen=None):
         points=[dict(r,values=dict(old=r['old_values']['blind_all'],new=r['new_values'],B1=r['B1_values'])) for r in computed]
         fixed_report[str(low)]=dict(frozen_denominator=len(before),status=dict(Counter(r['status'] for r in before)),
             local_support_exits=sum(not r['local_support_pass'] for r in computed),formal_error_exits=sum(not r['formal_error_pass'] for r in computed),
-            residual_exits=sum(not r['residual_pass'] for r in computed),by_chart_angle=fixed_angle_readout(before),all_computed_same_members=metrics(points,('new','old','B1')),
+            residual_exits=sum(not r['residual_pass'] for r in computed),new_reference_common_on_fixed_identities=reference_common(computed),by_chart_angle=fixed_angle_readout(before),all_computed_same_members=metrics(points,('new','old','B1')),
             scope='New quality failures stay in same-member evaluation. Only unavailable new fits leave computed comparison, with explicit original denominator/status.')
     spatial=[]
     for low in (20,21,22):

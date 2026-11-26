@@ -1,0 +1,399 @@
+{
+  "cores": [
+    {
+      "ticket": {
+        "competition_sha256": "df1905422fb87f40e518c25383db5489319193ac6055ba53b1a8500283ac239f",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w130_110_86_11",
+      "training_added_sources": 346,
+      "external_morphology_counts": {
+        "REX": 48,
+        "PSF": 280,
+        "DEV": 12,
+        "EXP": 6
+      },
+      "blend_proxy_count": 15,
+      "mask_flag_count": 18,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 346,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 6.91507469501812,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "45d31fddf9dd307c5f24d3a23a294ae314d8dd98dab99f87510f4bf4249748f1",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w130_110_60_10",
+      "training_added_sources": 485,
+      "external_morphology_counts": {
+        "PSF": 397,
+        "REX": 70,
+        "EXP": 9,
+        "DEV": 9
+      },
+      "blend_proxy_count": 7,
+      "mask_flag_count": 19,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 485,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 11.918496032943949,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "7c318c093a8c6d060f61a5263ccd2a81dce1aa3a207a2386a3e261c9c114bfa2",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w150_090_68_11",
+      "training_added_sources": 538,
+      "external_morphology_counts": {
+        "REX": 65,
+        "PSF": 450,
+        "DEV": 14,
+        "EXP": 9
+      },
+      "blend_proxy_count": 7,
+      "mask_flag_count": 19,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 538,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 12.141858932911418,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "a42b7def159fb1bd633e91f0ea8088204fd7ac49274f6915389a81f6950a2bf8",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w150_090_22_10",
+      "training_added_sources": 376,
+      "external_morphology_counts": {
+        "PSF": 181,
+        "REX": 149,
+        "DEV": 15,
+        "EXP": 31
+      },
+      "blend_proxy_count": 7,
+      "mask_flag_count": 11,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 376,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 11.60033005499281,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "8542ea8be62019c960fbdb2f64e5ee92b953041cfb7ebb6adb582d1bb7ba25e6",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w170_090_28_00",
+      "training_added_sources": 218,
+      "external_morphology_counts": {
+        "EXP": 9,
+        "REX": 77,
+        "PSF": 118,
+        "DEV": 13,
+        "SER": 1
+      },
+      "blend_proxy_count": 2,
+      "mask_flag_count": 9,
+      "metadata": {
+        "sweep_files": 1,
+        "matched": 218,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 6.2561085250927135,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "66735c1f95a6bae34ac089eb939baeef15097b0df6b23adae47a6b9338ef827d",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w170_090_22_11",
+      "training_added_sources": 416,
+      "external_morphology_counts": {
+        "PSF": 229,
+        "REX": 136,
+        "DEV": 26,
+        "EXP": 25
+      },
+      "blend_proxy_count": 7,
+      "mask_flag_count": 10,
+      "metadata": {
+        "sweep_files": 1,
+        "matched": 416,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 8.415197166032158,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "c8e935adde2386e8fbdc2f896a77431958bac1e24047ad3645d35967b5509495",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w210_090_08_11",
+      "training_added_sources": 548,
+      "external_morphology_counts": {
+        "PSF": 422,
+        "REX": 102,
+        "EXP": 10,
+        "DEV": 12,
+        "SER": 1,
+        "no_unique_external_position": 1
+      },
+      "blend_proxy_count": 21,
+      "mask_flag_count": 14,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 547,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 13.700027081067674,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "53e37555dd71ab222f37f241b6a3d191cac0149aeba3e9fe959cf677ee5f1645",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w210_090_06_11",
+      "training_added_sources": 509,
+      "external_morphology_counts": {
+        "PSF": 374,
+        "REX": 108,
+        "DEV": 9,
+        "EXP": 17,
+        "no_unique_external_position": 1
+      },
+      "blend_proxy_count": 10,
+      "mask_flag_count": 14,
+      "metadata": {
+        "sweep_files": 1,
+        "matched": 508,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 6.794967220979743,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "5b239d8439e68325f96eea801bdf2df6a621a10a82ce1499fe6e97f09d47d2bb",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w220_090_08_01",
+      "training_added_sources": 875,
+      "external_morphology_counts": {
+        "PSF": 776,
+        "REX": 65,
+        "EXP": 19,
+        "DEV": 13,
+        "SER": 2
+      },
+      "blend_proxy_count": 33,
+      "mask_flag_count": 28,
+      "metadata": {
+        "sweep_files": 3,
+        "matched": 875,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 18.635437895078212,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "9f713738dccb6d7c839a01e594ee19ef7d8649a73622f0cf7df000793d4ac8fe",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w220_090_42_01",
+      "training_added_sources": 430,
+      "external_morphology_counts": {
+        "PSF": 288,
+        "DEV": 19,
+        "REX": 108,
+        "EXP": 15
+      },
+      "blend_proxy_count": 11,
+      "mask_flag_count": 15,
+      "metadata": {
+        "sweep_files": 1,
+        "matched": 430,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 12.829863138962537,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "bce2f119e47f753cdace695d4e4cac95cb6216eced2ddec32ae0beb2f7cb44e8",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w220_110_66_00",
+      "training_added_sources": 263,
+      "external_morphology_counts": {
+        "PSF": 199,
+        "DEV": 5,
+        "REX": 48,
+        "EXP": 11
+      },
+      "blend_proxy_count": 7,
+      "mask_flag_count": 30,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 263,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 6.9438796759350225,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "104f18497cf2ed88a41fab716cc6343631a69a489d39e5ccce2ab9933930ff0b",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w220_110_62_10",
+      "training_added_sources": 394,
+      "external_morphology_counts": {
+        "PSF": 291,
+        "REX": 87,
+        "EXP": 5,
+        "DEV": 11
+      },
+      "blend_proxy_count": 6,
+      "mask_flag_count": 22,
+      "metadata": {
+        "sweep_files": 1,
+        "matched": 394,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 7.451451529050246,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "3641a9c851fac1b9b3f4678cc15cdf95818e84149a5f3e0c267557e37d3a285a",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w230_090_26_01",
+      "training_added_sources": 420,
+      "external_morphology_counts": {
+        "PSF": 339,
+        "REX": 68,
+        "DEV": 8,
+        "EXP": 4,
+        "no_unique_external_position": 1
+      },
+      "blend_proxy_count": 14,
+      "mask_flag_count": 15,
+      "metadata": {
+        "sweep_files": 1,
+        "matched": 419,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 9.362170461914502,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "3516461f552a8adedb941a5b6785e1e5f8d68de87a40a5b9df13701165a40d15",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w230_090_04_00",
+      "training_added_sources": 457,
+      "external_morphology_counts": {
+        "PSF": 337,
+        "REX": 94,
+        "DEV": 14,
+        "SER": 2,
+        "EXP": 10
+      },
+      "blend_proxy_count": 21,
+      "mask_flag_count": 19,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 457,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 17.94283944799099,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "bfa358eea8d4bf87e16e7366205f66c1b31f18fc1e71b2e09cab63a5551597e3",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w230_110_46_10",
+      "training_added_sources": 474,
+      "external_morphology_counts": {
+        "PSF": 428,
+        "REX": 31,
+        "EXP": 5,
+        "DEV": 9,
+        "SER": 1
+      },
+      "blend_proxy_count": 12,
+      "mask_flag_count": 22,
+      "metadata": {
+        "sweep_files": 2,
+        "matched": 474,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 7.0013214480131865,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    },
+    {
+      "ticket": {
+        "competition_sha256": "1671e86f27992468ac3f84514124bd6ae1f9a422a6e3f521b4915ca343344d37",
+        "implementation_sha256": "e52a763a09d3ba45af657e529338ed4723cacdbac001b734a531d1e6b544077e"
+      },
+      "core": "w230_110_86_10",
+      "training_added_sources": 505,
+      "external_morphology_counts": {
+        "PSF": 415,
+        "REX": 71,
+        "DEV": 11,
+        "EXP": 7,
+        "no_unique_external_position": 1
+      },
+      "blend_proxy_count": 11,
+      "mask_flag_count": 108,
+      "metadata": {
+        "sweep_files": 4,
+        "matched": 504,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 12.928221789072268,
+      "slurm_job": "62017155",
+      "scope": "Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth."
+    }
+  ],
+  "slurm_job": "62017155",
+  "supersedes": "Only external morphology of v21 candidate completion; fixed training identities, competition and CCD/depth results remain."
+}

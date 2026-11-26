@@ -1,0 +1,39 @@
+{
+  "actual_scope_cores": 2875,
+  "actual_research_sources": 15625958,
+  "actual_halo_loaded_measurements": 1750398729,
+  "measured_registered_cores": 16,
+  "measured_registered_sources": 70120,
+  "measured_halo_input": 5020798,
+  "fixed_worker_seconds": 317.6251162739936,
+  "angular_worker_seconds": 2513.960469272919,
+  "measured_fixed_extrapolated_cpu_node_hours": [
+    0.2048074962862334,
+    0.3204094700372269
+  ],
+  "measured_two_variant_angular_extrapolated_cpu_node_hours": [
+    2.0262800511271624,
+    3.1699978228399415
+  ],
+  "two_axis_reference_old_full_jobs": [
+    "61913025",
+    "61913029"
+  ],
+  "old_reference_measured_cpu_node_hours": 7.177777777777778,
+  "third_graph_proxy_cpu_node_hours": 6.039212207686913,
+  "full_reference_planning_factor": [
+    1.5,
+    3
+  ],
+  "full_reference_conditional_planning_cpu_node_hours": [
+    19.825484978197036,
+    39.65096995639407
+  ],
+  "next_update_conditional_planning_cpu_node_hours": [
+    22,
+    46
+  ],
+  "suggested_future_budget_ceiling": 48,
+  "executed_full_global_update": false,
+  "scope": "Forecast only. Source-rate and input-rate extrapolations differ; angular phase includes two method variants. Third graph uses archived second-graph cost times reference measurement count ratio, not an actual measurement.1.5\u20133factor is engineering/conditioning planning reserve, not a validated global2D ratio. Largest old reference peak349GiB: full global solver needs memory-bounded equivalent implementation and a component pilot before adopting48node-hour budget. This is outside current5node-hour diagnostic task."
+}

@@ -1,6 +1,6 @@
 # deep-proper-motion
 
-当前科研阶段为 **v1.7 广域多波段生产**。已完成 1047.672 名义平方度、6,071,123 个科研解，比物理 r 对照增加 1,419,861 个。SDSS 每个独立 run 采用发布 r 位置，NSC 使用合格实际单曝光波段。C0/W0 为冻结科学基准。 [中文科学报告](reports/experiment_A_v1.7_wide_production.md) · [生产流程](docs/running_v17.md) · [当前计划](PLAN.md)
+当前科研阶段为 **v2.1 广域坐标一致性与暗源影响审计**。原2,751.446平方度、15,625,958个全波段科研解冻结；16核70,120固定源验证了前向协方差及实际球面半径修复的影响。该修复改善误差解释，恒星颜色零点与最暗端早期位置支持仍受限制；尚未重算三个完整参考分量或发布新版全域目录。 [中文科学报告](reports/experiment_A_v2.1_coordinate_consistency.md) · [实际单位与gauge](docs/coordinate_units_v21.md) · [运行/完整更新预算](docs/running_v21.md) · [当前计划](PLAN.md)
 
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**

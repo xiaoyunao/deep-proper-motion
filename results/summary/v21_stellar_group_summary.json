@@ -1,0 +1,854 @@
+{
+  "input_sha256": "96cc3bfc1d4d548b70e7774dd6fec8a276cb39cfb7d427a8635455de24cbca01",
+  "band_year_airmass": {
+    "instrument_band": {
+      "c4d:g": {
+        "pairs": 804,
+        "descriptive_pair_distribution": {
+          "n": 804,
+          "median": [
+            -1.9000153593401135,
+            123.56087859639521
+          ],
+          "nmad": [
+            33.86339901035699,
+            40.521702739206525
+          ],
+          "absolute_radial_p68": 152.03582500794005,
+          "equal_mean": [
+            -0.7474769687631112,
+            128.51539894626964
+          ],
+          "median_object_interval95": [
+            [
+              -3.9814162411669565,
+              1.3150185845220745
+            ],
+            [
+              119.55224988740447,
+              127.75293274994175
+            ]
+          ]
+        },
+        "independent_UTC_nights": 12,
+        "physical_calibration_groups": 17,
+        "night_median_distribution": {
+          "n": 12,
+          "median": [
+            3.328821141111212,
+            120.75598636660615
+          ],
+          "nmad": [
+            19.881575356292437,
+            10.997417019918894
+          ],
+          "absolute_radial_p68": 130.2888233285238,
+          "equal_mean": [
+            -2.5159242955931207,
+            128.17121341078553
+          ],
+          "median_object_interval95": [
+            [
+              -15.823283798407367,
+              11.632100393968553
+            ],
+            [
+              113.86217800672962,
+              136.53202886241039
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -14.072719746332341,
+            12.77831054483375
+          ],
+          [
+            113.86217800672962,
+            136.5470337067095
+          ]
+        ]
+      },
+      "c4d:r": {
+        "pairs": 786,
+        "descriptive_pair_distribution": {
+          "n": 786,
+          "median": [
+            -0.46697934769494154,
+            30.78475279811944
+          ],
+          "nmad": [
+            20.228811847955104,
+            24.82938512106852
+          ],
+          "absolute_radial_p68": 51.29322467327553,
+          "equal_mean": [
+            -0.6822772978540181,
+            31.120168797355667
+          ],
+          "median_object_interval95": [
+            [
+              -1.7146460790333504,
+              1.535878744201882
+            ],
+            [
+              28.455971382651953,
+              32.820095666384674
+            ]
+          ]
+        },
+        "independent_UTC_nights": 9,
+        "physical_calibration_groups": 17,
+        "night_median_distribution": {
+          "n": 9,
+          "median": [
+            -1.4752574546748054,
+            30.87725443113819
+          ],
+          "nmad": [
+            7.680692627211471,
+            3.8352857808635434
+          ],
+          "absolute_radial_p68": 32.30897034117773,
+          "equal_mean": [
+            6.129938835865801,
+            46.60833798445339
+          ],
+          "median_object_interval95": [
+            [
+              -6.9534712881006335,
+              3.7052987487593447
+            ],
+            [
+              26.051334510951097,
+              33.46411925028263
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -9.763619046187557,
+            3.6497073867956757
+          ],
+          [
+            23.44242617203298,
+            33.46411925028263
+          ]
+        ]
+      },
+      "c4d:z": {
+        "pairs": 909,
+        "descriptive_pair_distribution": {
+          "n": 909,
+          "median": [
+            0.23521381874739777,
+            -5.620937601508519
+          ],
+          "nmad": [
+            21.23086139832202,
+            25.94002217700239
+          ],
+          "absolute_radial_p68": 36.8729539878947,
+          "equal_mean": [
+            1.370131777243144,
+            -6.0385582354151595
+          ],
+          "median_object_interval95": [
+            [
+              -0.9695935691141311,
+              2.2634697895701477
+            ],
+            [
+              -7.935371873564609,
+              -3.0614965672980747
+            ]
+          ]
+        },
+        "independent_UTC_nights": 8,
+        "physical_calibration_groups": 20,
+        "night_median_distribution": {
+          "n": 8,
+          "median": [
+            1.8838841221716183,
+            -2.7619512334214917
+          ],
+          "nmad": [
+            3.813847169359539,
+            6.863682899896425
+          ],
+          "absolute_radial_p68": 12.851106304189974,
+          "equal_mean": [
+            50.295907999974546,
+            18.148207875410463
+          ],
+          "median_object_interval95": [
+            [
+              -0.6885205516173596,
+              9.684736335896512
+            ],
+            [
+              -7.391441925379151,
+              1.3406946218090616
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -0.6885205516173596,
+            16.04322183849323
+          ],
+          [
+            -7.839414395517926,
+            2.9414272813076563
+          ]
+        ]
+      },
+      "ksb:g": {
+        "pairs": 11,
+        "descriptive_pair_distribution": {
+          "n": 11,
+          "median": [
+            -6.147979399079254,
+            -50.69956423881625
+          ],
+          "nmad": [
+            55.839610860544866,
+            21.532399904080997
+          ],
+          "absolute_radial_p68": 95.11443974954096,
+          "equal_mean": [
+            -19.397076407719183,
+            -15.019766345896079
+          ],
+          "median_object_interval95": [
+            [
+              -25.335030560869843,
+              32.17639197682928
+            ],
+            [
+              -60.45037780083391,
+              45.913930254042185
+            ]
+          ]
+        },
+        "independent_UTC_nights": 1,
+        "physical_calibration_groups": 1,
+        "night_median_distribution": {
+          "n": 1
+        }
+      },
+      "nan:r": {
+        "pairs": 331,
+        "descriptive_pair_distribution": {
+          "n": 331,
+          "median": [
+            2.7681767702960034,
+            -1.2613184532627684
+          ],
+          "nmad": [
+            17.67645584562464,
+            22.858258039866204
+          ],
+          "absolute_radial_p68": 33.223266451394835,
+          "equal_mean": [
+            4.1219544936459,
+            -3.437559147296699
+          ],
+          "median_object_interval95": [
+            [
+              0.7830148012357405,
+              5.79191271460572
+            ],
+            [
+              -5.629908361266011,
+              1.3984713399134083
+            ]
+          ]
+        },
+        "independent_UTC_nights": 5,
+        "physical_calibration_groups": 14,
+        "night_median_distribution": {
+          "n": 5,
+          "median": [
+            5.769577904878176,
+            -6.466016913986628
+          ],
+          "nmad": [
+            1.9737167526826842,
+            9.347512627028086
+          ],
+          "absolute_radial_p68": 11.433910247203269,
+          "equal_mean": [
+            4.054691291011865,
+            -3.4471900678264
+          ],
+          "median_object_interval95": [
+            [
+              -0.5087116443512372,
+              7.100831616386799
+            ],
+            [
+              -12.770827805007865,
+              8.474532645851706
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -0.5087116443512372,
+            7.100831616386799
+          ],
+          [
+            -12.770827805007865,
+            8.474532645851706
+          ]
+        ]
+      }
+    },
+    "UTC_year": {
+      "2004": {
+        "pairs": 331,
+        "descriptive_pair_distribution": {
+          "n": 331,
+          "median": [
+            2.7681767702960034,
+            -1.2613184532627684
+          ],
+          "nmad": [
+            17.67645584562464,
+            22.858258039866204
+          ],
+          "absolute_radial_p68": 33.223266451394835,
+          "equal_mean": [
+            4.1219544936459,
+            -3.437559147296699
+          ],
+          "median_object_interval95": [
+            [
+              0.7830148012357405,
+              5.79191271460572
+            ],
+            [
+              -5.629908361266011,
+              1.3984713399134083
+            ]
+          ]
+        },
+        "independent_UTC_nights": 5,
+        "physical_calibration_groups": 14,
+        "night_median_distribution": {
+          "n": 5,
+          "median": [
+            5.769577904878176,
+            -6.466016913986628
+          ],
+          "nmad": [
+            1.9737167526826842,
+            9.347512627028086
+          ],
+          "absolute_radial_p68": 11.433910247203269,
+          "equal_mean": [
+            4.054691291011865,
+            -3.4471900678264
+          ],
+          "median_object_interval95": [
+            [
+              -0.5087116443512372,
+              7.100831616386799
+            ],
+            [
+              -12.770827805007865,
+              8.474532645851706
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -0.5087116443512372,
+            7.100831616386799
+          ],
+          [
+            -12.770827805007865,
+            8.474532645851706
+          ]
+        ]
+      },
+      "2014": {
+        "pairs": 1,
+        "descriptive_pair_distribution": {
+          "n": 1
+        },
+        "independent_UTC_nights": 1,
+        "physical_calibration_groups": 1,
+        "night_median_distribution": {
+          "n": 1
+        }
+      },
+      "2015": {
+        "pairs": 529,
+        "descriptive_pair_distribution": {
+          "n": 529,
+          "median": [
+            -0.5746006555102046,
+            -6.802895584779362
+          ],
+          "nmad": [
+            22.80823751093454,
+            28.294769902119487
+          ],
+          "absolute_radial_p68": 40.32227025656718,
+          "equal_mean": [
+            -0.08354721021848603,
+            -6.910588891250745
+          ],
+          "median_object_interval95": [
+            [
+              -2.126100909372129,
+              2.9760133746704813
+            ],
+            [
+              -9.367328782275623,
+              -2.561448981761864
+            ]
+          ]
+        },
+        "independent_UTC_nights": 3,
+        "physical_calibration_groups": 12,
+        "night_median_distribution": {
+          "n": 3,
+          "median": [
+            -0.515791407654453,
+            2.9414272813076563
+          ],
+          "nmad": [
+            0.5879704415398259,
+            26.123370683186852
+          ],
+          "absolute_radial_p68": 160.89483755728082,
+          "equal_mean": [
+            126.69709092641345,
+            55.25082911952484
+          ],
+          "median_object_interval95": [
+            [
+              -0.9123720373184392,
+              381.5194362242132
+            ],
+            [
+              -14.678544850883664,
+              177.48960492815053
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -0.9123720373184392,
+            381.5194362242132
+          ],
+          [
+            -14.678544850883664,
+            177.48960492815053
+          ]
+        ]
+      },
+      "2017": {
+        "pairs": 1250,
+        "descriptive_pair_distribution": {
+          "n": 1250,
+          "median": [
+            -2.434294161266283,
+            36.78608116947508
+          ],
+          "nmad": [
+            25.61457285251513,
+            64.86602057909532
+          ],
+          "absolute_radial_p68": 102.19870823666041,
+          "equal_mean": [
+            -2.926545934817205,
+            53.902581553749435
+          ],
+          "median_object_interval95": [
+            [
+              -3.8031287598835033,
+              -0.9441900057649334
+            ],
+            [
+              32.47959693464557,
+              40.43490218301265
+            ]
+          ]
+        },
+        "independent_UTC_nights": 12,
+        "physical_calibration_groups": 26,
+        "night_median_distribution": {
+          "n": 12,
+          "median": [
+            -1.4088241257505356,
+            23.780682887266213
+          ],
+          "nmad": [
+            7.623382745568707,
+            46.215792247228016
+          ],
+          "absolute_radial_p68": 71.92868616722923,
+          "equal_mean": [
+            -6.239636288976368,
+            46.15206517078519
+          ],
+          "median_object_interval95": [
+            [
+              -8.995184740162925,
+              1.9917832879384405
+            ],
+            [
+              -5.567506071293657,
+              105.79276601098842
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -9.04622757646448,
+            1.251482636836713
+          ],
+          [
+            -4.191542687346939,
+            105.79276601098842
+          ]
+        ]
+      },
+      "2018": {
+        "pairs": 719,
+        "descriptive_pair_distribution": {
+          "n": 719,
+          "median": [
+            3.3659831708883514,
+            77.11246519229378
+          ],
+          "nmad": [
+            21.627859642493313,
+            72.28355023401272
+          ],
+          "absolute_radial_p68": 117.78184932687387,
+          "equal_mean": [
+            4.847953548242723,
+            78.53378762603666
+          ],
+          "median_object_interval95": [
+            [
+              1.1998562948520635,
+              5.369341201677301
+            ],
+            [
+              66.30082222136858,
+              87.15418017401716
+            ]
+          ]
+        },
+        "independent_UTC_nights": 7,
+        "physical_calibration_groups": 15,
+        "night_median_distribution": {
+          "n": 7,
+          "median": [
+            5.4807112158111995,
+            104.74753045219255
+          ],
+          "nmad": [
+            6.662492230050949,
+            26.860153492058142
+          ],
+          "absolute_radial_p68": 114.12630433749702,
+          "equal_mean": [
+            10.037191131769012,
+            83.29875069787077
+          ],
+          "median_object_interval95": [
+            [
+              0.9869217715572206,
+              24.097066452102922
+            ],
+            [
+              39.72627394566899,
+              115.30566455134561
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            0.9869217715572206,
+            24.097066452102922
+          ],
+          [
+            39.72627394566899,
+            115.30566455134561
+          ]
+        ]
+      },
+      "2019": {
+        "pairs": 11,
+        "descriptive_pair_distribution": {
+          "n": 11,
+          "median": [
+            1.1769310664112247,
+            150.1130826837733
+          ],
+          "nmad": [
+            26.358156468994455,
+            56.43725177641489
+          ],
+          "absolute_radial_p68": 168.2001135665687,
+          "equal_mean": [
+            3.2100133458023077,
+            159.45727629132242
+          ],
+          "median_object_interval95": [
+            [
+              -12.068193466787706,
+              33.27277839377714
+            ],
+            [
+              110.48788577281137,
+              178.76312206631678
+            ]
+          ]
+        },
+        "independent_UTC_nights": 1,
+        "physical_calibration_groups": 1,
+        "night_median_distribution": {
+          "n": 1
+        }
+      }
+    },
+    "airmass": {
+      "1_to1.3": {
+        "pairs": 11,
+        "descriptive_pair_distribution": {
+          "n": 11,
+          "median": [
+            -6.147979399079254,
+            -50.69956423881625
+          ],
+          "nmad": [
+            55.839610860544866,
+            21.532399904080997
+          ],
+          "absolute_radial_p68": 95.11443974954096,
+          "equal_mean": [
+            -19.397076407719183,
+            -15.019766345896079
+          ],
+          "median_object_interval95": [
+            [
+              -25.335030560869843,
+              32.17639197682928
+            ],
+            [
+              -60.45037780083391,
+              45.913930254042185
+            ]
+          ]
+        },
+        "independent_UTC_nights": 1,
+        "physical_calibration_groups": 1,
+        "night_median_distribution": {
+          "n": 1
+        }
+      },
+      "above1.7": {
+        "pairs": 2499,
+        "descriptive_pair_distribution": {
+          "n": 2499,
+          "median": [
+            -0.34043678886589035,
+            31.165928066926504
+          ],
+          "nmad": [
+            23.96956140560705,
+            64.90880437680072
+          ],
+          "absolute_radial_p68": 96.25655867538804,
+          "equal_mean": [
+            0.043300658869635605,
+            48.938689072240926
+          ],
+          "median_object_interval95": [
+            [
+              -1.401976354922831,
+              0.6735899386243849
+            ],
+            [
+              28.747834963091087,
+              33.000333614732384
+            ]
+          ]
+        },
+        "independent_UTC_nights": 23,
+        "physical_calibration_groups": 54,
+        "night_median_distribution": {
+          "n": 23,
+          "median": [
+            0.9869217715572206,
+            86.63060512367633
+          ],
+          "nmad": [
+            6.662492230050949,
+            94.11912123059977
+          ],
+          "absolute_radial_p68": 115.58156810458264,
+          "equal_mean": [
+            19.95789288984538,
+            73.63908573481123
+          ],
+          "median_object_interval95": [
+            [
+              -0.9123720373184392,
+              7.610319453674865
+            ],
+            [
+              21.51003126358133,
+              115.30566455134561
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -1.1796343612453182,
+            5.4807112158111995
+          ],
+          [
+            2.9414272813076563,
+            115.36571141196657
+          ]
+        ]
+      },
+      "unknown": {
+        "pairs": 331,
+        "descriptive_pair_distribution": {
+          "n": 331,
+          "median": [
+            2.7681767702960034,
+            -1.2613184532627684
+          ],
+          "nmad": [
+            17.67645584562464,
+            22.858258039866204
+          ],
+          "absolute_radial_p68": 33.223266451394835,
+          "equal_mean": [
+            4.1219544936459,
+            -3.437559147296699
+          ],
+          "median_object_interval95": [
+            [
+              0.7830148012357405,
+              5.79191271460572
+            ],
+            [
+              -5.629908361266011,
+              1.3984713399134083
+            ]
+          ]
+        },
+        "independent_UTC_nights": 5,
+        "physical_calibration_groups": 14,
+        "night_median_distribution": {
+          "n": 5,
+          "median": [
+            5.769577904878176,
+            -6.466016913986628
+          ],
+          "nmad": [
+            1.9737167526826842,
+            9.347512627028086
+          ],
+          "absolute_radial_p68": 11.433910247203269,
+          "equal_mean": [
+            4.054691291011865,
+            -3.4471900678264
+          ],
+          "median_object_interval95": [
+            [
+              -0.5087116443512372,
+              7.100831616386799
+            ],
+            [
+              -12.770827805007865,
+              8.474532645851706
+            ]
+          ]
+        },
+        "equal_night_median_sensitivity95": [
+          [
+            -0.5087116443512372,
+            7.100831616386799
+          ],
+          [
+            -12.770827805007865,
+            8.474532645851706
+          ]
+        ]
+      }
+    }
+  },
+  "bright_optical_target_vs_field": {
+    "target_candidates": 261,
+    "field_candidates": 6209,
+    "metadata_pairs": 102,
+    "Gaia_residual_difference_after_known_parallax_slope": {
+      "n": 102,
+      "median": [
+        -1.708551627916751,
+        -0.12015702562931467
+      ],
+      "nmad": [
+        3.8553547177309357,
+        3.678249378352038
+      ],
+      "absolute_radial_p68": 6.424216619992142,
+      "equal_mean": [
+        -1.6145819183864905,
+        -0.5233358196063232
+      ],
+      "median_object_interval95": [
+        [
+          -2.620297736025973,
+          -1.0710509064280882
+        ],
+        [
+          -0.9093188895330075,
+          0.616146075683745
+        ]
+      ]
+    },
+    "C0_response_difference": {
+      "n": 102,
+      "median": [
+        0.009971753677677997,
+        0.018438374519035183
+      ],
+      "nmad": [
+        0.2596954446081782,
+        0.34691082382452193
+      ],
+      "absolute_radial_p68": 0.4197563003864442,
+      "equal_mean": [
+        0.027579059073349187,
+        0.022582640064461416
+      ],
+      "median_object_interval95": [
+        [
+          -0.02189017364886542,
+          0.07199584665544201
+        ],
+        [
+          -0.03579868672583267,
+          0.07984446801422791
+        ]
+      ]
+    },
+    "scope": "Fixed optical target identities and field Gaia controls; no PM selection. Same SDSS run/camcol set,>=0.8NSC band-set Jaccard, baseline within2yr, r within0.3mag, g-i within0.15mag, neighbour>=2arcsec and crowding ratio<=2. Individual Gaia PM removed, known annual-parallax slope removed. Bright overlap only: cannot certify dark21+ field or cluster membership."
+  },
+  "slurm_job": "62017155",
+  "scope": "Position colour contrasts conditioned on actual physical group; UTC-night aggregate intervals are sensitivity to repeated measurements. No zenith direction supplied: airmass/colour dependence alone cannot identify residual DCR. No production correction is fitted."
+}

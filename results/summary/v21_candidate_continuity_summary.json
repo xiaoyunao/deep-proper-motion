@@ -1,0 +1,261 @@
+{
+  "cores": [
+    {
+      "core": "w130_110_86_11",
+      "full_epoch_additions": 357,
+      "training_additions": 346,
+      "correspondence_counts": {
+        "unique_added_training": 346,
+        "unique_correspondence_with_held_position": 212,
+        "training_members_subset_of_full": 346,
+        "no_shared_training_detection": 11
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w130_110_60_10",
+      "full_epoch_additions": 485,
+      "training_additions": 485,
+      "correspondence_counts": {
+        "unique_added_training": 485,
+        "training_members_subset_of_full": 485
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w150_090_68_11",
+      "full_epoch_additions": 650,
+      "training_additions": 538,
+      "correspondence_counts": {
+        "no_shared_training_detection": 258,
+        "unique_added_training": 386,
+        "unique_correspondence_with_held_position": 321,
+        "training_members_subset_of_full": 392,
+        "unique_original_training": 6
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w150_090_22_10",
+      "full_epoch_additions": 376,
+      "training_additions": 376,
+      "correspondence_counts": {
+        "unique_added_training": 376,
+        "training_members_subset_of_full": 376
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w170_090_28_00",
+      "full_epoch_additions": 255,
+      "training_additions": 218,
+      "correspondence_counts": {
+        "unique_added_training": 218,
+        "unique_correspondence_with_held_position": 138,
+        "training_members_subset_of_full": 218,
+        "no_shared_training_detection": 37
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w170_090_22_11",
+      "full_epoch_additions": 416,
+      "training_additions": 416,
+      "correspondence_counts": {
+        "unique_added_training": 416,
+        "training_members_subset_of_full": 416,
+        "unique_correspondence_with_held_position": 10
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w210_090_08_11",
+      "full_epoch_additions": 568,
+      "training_additions": 548,
+      "correspondence_counts": {
+        "no_shared_training_detection": 51,
+        "unique_added_training": 508,
+        "training_members_subset_of_full": 517,
+        "unique_correspondence_with_held_position": 70,
+        "unique_original_training": 9
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w210_090_06_11",
+      "full_epoch_additions": 480,
+      "training_additions": 509,
+      "correspondence_counts": {
+        "unique_added_training": 304,
+        "training_members_subset_of_full": 322,
+        "no_shared_training_detection": 158,
+        "unique_correspondence_with_held_position": 208,
+        "unique_original_training": 18
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w220_090_08_01",
+      "full_epoch_additions": 875,
+      "training_additions": 875,
+      "correspondence_counts": {
+        "unique_added_training": 874,
+        "training_members_subset_of_full": 874,
+        "unique_correspondence_with_held_position": 241,
+        "no_shared_training_detection": 1
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w220_090_42_01",
+      "full_epoch_additions": 471,
+      "training_additions": 430,
+      "correspondence_counts": {
+        "unique_added_training": 430,
+        "unique_correspondence_with_held_position": 325,
+        "training_members_subset_of_full": 430,
+        "no_shared_training_detection": 41
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w220_110_66_00",
+      "full_epoch_additions": 264,
+      "training_additions": 263,
+      "correspondence_counts": {
+        "unique_added_training": 263,
+        "training_members_subset_of_full": 263,
+        "unique_correspondence_with_held_position": 5,
+        "no_shared_training_detection": 1
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w220_110_62_10",
+      "full_epoch_additions": 394,
+      "training_additions": 394,
+      "correspondence_counts": {
+        "unique_added_training": 394,
+        "training_members_subset_of_full": 394,
+        "unique_correspondence_with_held_position": 2
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w230_090_26_01",
+      "full_epoch_additions": 408,
+      "training_additions": 420,
+      "correspondence_counts": {
+        "unique_added_training": 252,
+        "unique_correspondence_with_held_position": 205,
+        "training_members_subset_of_full": 280,
+        "no_shared_training_detection": 128,
+        "unique_original_training": 28
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w230_090_04_00",
+      "full_epoch_additions": 494,
+      "training_additions": 457,
+      "correspondence_counts": {
+        "unique_added_training": 457,
+        "unique_correspondence_with_held_position": 329,
+        "training_members_subset_of_full": 459,
+        "no_shared_training_detection": 35,
+        "unique_original_training": 2
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w230_110_46_10",
+      "full_epoch_additions": 479,
+      "training_additions": 474,
+      "correspondence_counts": {
+        "unique_added_training": 473,
+        "training_members_subset_of_full": 473,
+        "unique_correspondence_with_held_position": 90,
+        "no_shared_training_detection": 6
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "core": "w230_110_86_10",
+      "full_epoch_additions": 507,
+      "training_additions": 505,
+      "correspondence_counts": {
+        "unique_added_training": 505,
+        "training_members_subset_of_full": 505,
+        "unique_correspondence_with_held_position": 47,
+        "no_shared_training_detection": 2
+      },
+      "training_member_recovery_p16_p50_p84": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "slurm_job": "62018123",
+  "scope": "Correspondence by unique strongest shared physical detection identity; ties and many-to-one claims ambiguous. No new selection gate. Full-epoch7479 and training7254 are different member universes, not identical denominators. Held reproduction only attaches through explicit unique correspondence; cannot certify the remaining full-epoch sources."
+}

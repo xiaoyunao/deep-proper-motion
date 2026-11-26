@@ -1,0 +1,48 @@
+{
+  "graphs": [
+    {
+      "label": "v19_w130_110",
+      "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+      "pre_SE_graph_available": false,
+      "registered_NSC_groups": 6828,
+      "NSC_group_set_signature": "4c2b58c9e031bd4979a877efd3e6c8dcc94892e91047940f7c6c2a536f2d4003",
+      "median_NSC_offset_graph_mas": [
+        -0.28798951392877825,
+        -0.07080216978495812
+      ],
+      "maximum_abs_draw_NSC_median_graph_mas": 0.014036124092775992,
+      "exactly_zero_single_group_count": 0
+    },
+    {
+      "label": "v19_w150_090",
+      "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+      "pre_SE_graph_available": false,
+      "registered_NSC_groups": 20378,
+      "NSC_group_set_signature": "a2659e8466a6e6239c19e8eb507cda7ba95677e6999755e68815026495e8db1a",
+      "median_NSC_offset_graph_mas": [
+        -0.19688393970172058,
+        -0.6361746154706349
+      ],
+      "maximum_abs_draw_NSC_median_graph_mas": 0.01674169602054576,
+      "exactly_zero_single_group_count": 0
+    },
+    {
+      "label": "next_w010_100",
+      "graph_sha256": "fadec0537e912d1d3d2c8f3ff0400b361661758e2b0e1f57c81709176ed64e3d",
+      "pre_SE_graph_available": false,
+      "registered_NSC_groups": 19602,
+      "NSC_group_set_signature": "3eca99dcbce968a08cb75b8f3789119f1cce5dcf69b292a4fb8b6f132f12e67a",
+      "median_NSC_offset_graph_mas": [
+        0.0013619020314621366,
+        -0.447559183916713
+      ],
+      "maximum_abs_draw_NSC_median_graph_mas": 0.013501239843998647,
+      "exactly_zero_single_group_count": 0
+    }
+  ],
+  "continuous_reference_source_sha256": "952184bebdb5db833312dd815a95026ddbe88fee8af3fdd107e93f446cf2cc97",
+  "actual_policy": "Within each solved component, point offsets subtract the median NSC group point. Each bootstrap group subtracts its own draw mean, then all groups subtract the per-draw median of these centred NSC draws. These operations precede the12graph-mas SE selection. No individual physical observation group remains pinned to zero in serialized C0.",
+  "evidence_scope": "If unfiltered graph unavailable, retained group set is only a post-SE diagnostic subset; its NSC medians need not be exactly zero. It cannot reconstruct the original pre-SE anchor universe. Bounded trial fixes external archived offsets and thus retains their gauge. Complete re-solve must register pre-SE NSC group universe and normalization; never create separate per-core zeros.",
+  "supersedes": "v21_gauge_anchor_summary used a single-zero-group heuristic, found zero anchors, and is not a valid anchor registration.",
+  "slurm_job": "62018626"
+}

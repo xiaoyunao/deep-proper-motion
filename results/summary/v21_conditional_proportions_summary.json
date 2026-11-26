@@ -1,0 +1,68 @@
+{
+  "proportions": {
+    "candidate_all_training": {
+      "successes": 2707,
+      "denominator": 7254,
+      "fraction": 0.37317342156051836,
+      "wilson95": [
+        0.3621134662990186,
+        0.38436763136070135
+      ]
+    },
+    "candidate_CCD_geometry": {
+      "successes": 2707,
+      "denominator": 3634,
+      "fraction": 0.7449091909741332,
+      "wilson95": [
+        0.7304829293467999,
+        0.7588182180916142
+      ]
+    },
+    "candidate_CCD_10sigma": {
+      "successes": 1139,
+      "denominator": 1211,
+      "fraction": 0.9405450041288191,
+      "wilson95": [
+        0.925781615807549,
+        0.9525222914659063
+      ]
+    },
+    "candidate_LS_PSF": {
+      "successes": 5524,
+      "denominator": 7254,
+      "fraction": 0.7615108905431486,
+      "wilson95": [
+        0.7515671978780055,
+        0.7711777561866807
+      ]
+    },
+    "original_control_LS_PSF": {
+      "successes": 8413,
+      "denominator": 9019,
+      "fraction": 0.9328085153564697,
+      "wilson95": [
+        0.9274552550756097,
+        0.9377932407148055
+      ]
+    },
+    "NGC_22_to22p5": {
+      "successes": 37,
+      "denominator": 212,
+      "fraction": 0.17452830188679244,
+      "wilson95": [
+        0.12935405009921555,
+        0.23128778046476015
+      ]
+    },
+    "NGC_22p5_to23": {
+      "successes": 0,
+      "denominator": 203,
+      "fraction": 0.0,
+      "wilson95": [
+        0.0,
+        0.018571996361832828
+      ]
+    }
+  },
+  "scope": "Conditional binomial Wilson descriptions only, not image completeness or verified stellar purity. Common observing/spatial selection uncertainty excluded."
+}

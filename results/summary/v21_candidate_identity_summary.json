@@ -1,0 +1,2588 @@
+{
+  "cores": [
+    {
+      "core": "w130_110_86_11",
+      "ticket": {
+        "completion_sha256": "cfa1016b597bb019feec20a5747cf0b33c954d3a3d7acbc9b9a9d8baa6df9c1f",
+        "morphology_sha256": "f3d39f141b01d612f0c10549bb6be12a2289a42b9cc3a17695e9d020dba80c5c",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 353,
+            "shape_counts": {
+              "PSF": 315,
+              "REX": 34,
+              "EXP": 2,
+              "DEV": 2
+            },
+            "unique_held_sources": 256,
+            "PSF_with_unique_held": 232,
+            "PSF_with_ten_sigma": 224,
+            "PSF_ten_sigma_unique_held": 206,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 38
+          },
+          "other_or_missing": {
+            "n": 152,
+            "shape_counts": {
+              "PSF": 152
+            },
+            "unique_held_sources": 121,
+            "PSF_with_unique_held": 121,
+            "PSF_with_ten_sigma": 129,
+            "PSF_ten_sigma_unique_held": 121,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 30
+          },
+          "21": {
+            "n": 100,
+            "shape_counts": {
+              "PSF": 73,
+              "REX": 24,
+              "EXP": 1,
+              "DEV": 2
+            },
+            "unique_held_sources": 66,
+            "PSF_with_unique_held": 50,
+            "PSF_with_ten_sigma": 34,
+            "PSF_ten_sigma_unique_held": 31,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 3
+          },
+          "20": {
+            "n": 86,
+            "shape_counts": {
+              "PSF": 76,
+              "REX": 10
+            },
+            "unique_held_sources": 60,
+            "PSF_with_unique_held": 53,
+            "PSF_with_ten_sigma": 59,
+            "PSF_ten_sigma_unique_held": 53,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 3
+          },
+          "22": {
+            "n": 15,
+            "shape_counts": {
+              "PSF": 14,
+              "EXP": 1
+            },
+            "unique_held_sources": 9,
+            "PSF_with_unique_held": 8,
+            "PSF_with_ten_sigma": 2,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 2
+          }
+        },
+        "added": {
+          "all": {
+            "n": 346,
+            "shape_counts": {
+              "REX": 48,
+              "PSF": 280,
+              "DEV": 12,
+              "EXP": 6
+            },
+            "unique_held_sources": 212,
+            "PSF_with_unique_held": 175,
+            "PSF_with_ten_sigma": 68,
+            "PSF_ten_sigma_unique_held": 62,
+            "blend_proxy_count": 15,
+            "mask_flag_count": 18
+          },
+          "21": {
+            "n": 81,
+            "shape_counts": {
+              "REX": 27,
+              "PSF": 46,
+              "DEV": 6,
+              "EXP": 2
+            },
+            "unique_held_sources": 52,
+            "PSF_with_unique_held": 30,
+            "PSF_with_ten_sigma": 19,
+            "PSF_ten_sigma_unique_held": 17,
+            "blend_proxy_count": 7,
+            "mask_flag_count": 6
+          },
+          "22": {
+            "n": 260,
+            "shape_counts": {
+              "PSF": 230,
+              "REX": 20,
+              "DEV": 6,
+              "EXP": 4
+            },
+            "unique_held_sources": 157,
+            "PSF_with_unique_held": 143,
+            "PSF_with_ten_sigma": 46,
+            "PSF_ten_sigma_unique_held": 43,
+            "blend_proxy_count": 6,
+            "mask_flag_count": 10
+          },
+          "other_or_missing": {
+            "n": 2,
+            "shape_counts": {
+              "PSF": 2
+            },
+            "unique_held_sources": 1,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 1
+          },
+          "20": {
+            "n": 3,
+            "shape_counts": {
+              "PSF": 2,
+              "REX": 1
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 2,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 1
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w130_110_60_10",
+      "ticket": {
+        "completion_sha256": "9d7ecadb3870139ad0d7c2d3221d5cbe437876efc7878817e0b0439a9162ce72",
+        "morphology_sha256": "a403ef5294276e6c1023c88d42beee6dfc762ddb1e722de1961a2db40ac69f24",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 498,
+            "shape_counts": {
+              "PSF": 456,
+              "REX": 33,
+              "EXP": 4,
+              "DEV": 3,
+              "SER": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 48
+          },
+          "other_or_missing": {
+            "n": 203,
+            "shape_counts": {
+              "PSF": 202,
+              "REX": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 42
+          },
+          "20": {
+            "n": 99,
+            "shape_counts": {
+              "PSF": 95,
+              "REX": 1,
+              "DEV": 1,
+              "EXP": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 2
+          },
+          "21": {
+            "n": 149,
+            "shape_counts": {
+              "PSF": 126,
+              "REX": 20,
+              "EXP": 2,
+              "DEV": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 4
+          },
+          "22": {
+            "n": 47,
+            "shape_counts": {
+              "PSF": 33,
+              "REX": 11,
+              "DEV": 1,
+              "EXP": 1,
+              "SER": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          }
+        },
+        "added": {
+          "all": {
+            "n": 485,
+            "shape_counts": {
+              "PSF": 397,
+              "REX": 70,
+              "EXP": 9,
+              "DEV": 9
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 7,
+            "mask_flag_count": 19
+          },
+          "22": {
+            "n": 410,
+            "shape_counts": {
+              "PSF": 348,
+              "REX": 48,
+              "DEV": 7,
+              "EXP": 7
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 10
+          },
+          "21": {
+            "n": 58,
+            "shape_counts": {
+              "PSF": 34,
+              "REX": 20,
+              "EXP": 2,
+              "DEV": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 7
+          },
+          "20": {
+            "n": 2,
+            "shape_counts": {
+              "PSF": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 2
+          },
+          "other_or_missing": {
+            "n": 15,
+            "shape_counts": {
+              "PSF": 13,
+              "REX": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w150_090_68_11",
+      "ticket": {
+        "completion_sha256": "5f125190222a1e322a71d42fb909c09bc0f1595949c0a4fcba1e64f177e00bc4",
+        "morphology_sha256": "19b8f2b8b79a426c82ed88c6bab7ae9ab4cdfcfea4a1f3c6ca633580479d42ba",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 306,
+            "shape_counts": {
+              "PSF": 294,
+              "REX": 8,
+              "EXP": 2,
+              "no_unique_external_position": 1,
+              "DEV": 1
+            },
+            "unique_held_sources": 254,
+            "PSF_with_unique_held": 244,
+            "PSF_with_ten_sigma": 252,
+            "PSF_ten_sigma_unique_held": 239,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 38
+          },
+          "20": {
+            "n": 80,
+            "shape_counts": {
+              "PSF": 73,
+              "REX": 5,
+              "EXP": 1,
+              "DEV": 1
+            },
+            "unique_held_sources": 69,
+            "PSF_with_unique_held": 62,
+            "PSF_with_ten_sigma": 65,
+            "PSF_ten_sigma_unique_held": 62,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 4
+          },
+          "other_or_missing": {
+            "n": 160,
+            "shape_counts": {
+              "PSF": 157,
+              "REX": 2,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 127,
+            "PSF_with_unique_held": 126,
+            "PSF_with_ten_sigma": 134,
+            "PSF_ten_sigma_unique_held": 126,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 30
+          },
+          "21": {
+            "n": 57,
+            "shape_counts": {
+              "PSF": 56,
+              "EXP": 1
+            },
+            "unique_held_sources": 49,
+            "PSF_with_unique_held": 48,
+            "PSF_with_ten_sigma": 50,
+            "PSF_ten_sigma_unique_held": 48,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 4
+          },
+          "22": {
+            "n": 9,
+            "shape_counts": {
+              "PSF": 8,
+              "REX": 1
+            },
+            "unique_held_sources": 9,
+            "PSF_with_unique_held": 8,
+            "PSF_with_ten_sigma": 3,
+            "PSF_ten_sigma_unique_held": 3,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          }
+        },
+        "added": {
+          "all": {
+            "n": 538,
+            "shape_counts": {
+              "REX": 65,
+              "PSF": 450,
+              "DEV": 14,
+              "EXP": 9
+            },
+            "unique_held_sources": 467,
+            "PSF_with_unique_held": 390,
+            "PSF_with_ten_sigma": 326,
+            "PSF_ten_sigma_unique_held": 313,
+            "blend_proxy_count": 7,
+            "mask_flag_count": 19
+          },
+          "22": {
+            "n": 154,
+            "shape_counts": {
+              "REX": 22,
+              "PSF": 123,
+              "EXP": 6,
+              "DEV": 3
+            },
+            "unique_held_sources": 134,
+            "PSF_with_unique_held": 106,
+            "PSF_with_ten_sigma": 31,
+            "PSF_ten_sigma_unique_held": 29,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 8
+          },
+          "21": {
+            "n": 378,
+            "shape_counts": {
+              "PSF": 327,
+              "REX": 39,
+              "DEV": 9,
+              "EXP": 3
+            },
+            "unique_held_sources": 327,
+            "PSF_with_unique_held": 284,
+            "PSF_with_ten_sigma": 295,
+            "PSF_ten_sigma_unique_held": 284,
+            "blend_proxy_count": 6,
+            "mask_flag_count": 11
+          },
+          "20": {
+            "n": 5,
+            "shape_counts": {
+              "REX": 3,
+              "DEV": 2
+            },
+            "unique_held_sources": 5,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          },
+          "other_or_missing": {
+            "n": 1,
+            "shape_counts": {
+              "REX": 1
+            },
+            "unique_held_sources": 1,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w150_090_22_10",
+      "ticket": {
+        "completion_sha256": "fc62309a558bd38232ec785d9b313beed5e1334b77922ffb441c12d3be7c9176",
+        "morphology_sha256": "f73272fdc91d58519f56f1f7498297d118f705877b32254d0c6b2064459e1b69",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 632,
+            "shape_counts": {
+              "REX": 101,
+              "PSF": 499,
+              "DEV": 15,
+              "EXP": 12,
+              "no_unique_external_position": 3,
+              "SER": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 48
+          },
+          "22": {
+            "n": 141,
+            "shape_counts": {
+              "REX": 41,
+              "EXP": 4,
+              "PSF": 91,
+              "DEV": 4,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 4
+          },
+          "20": {
+            "n": 129,
+            "shape_counts": {
+              "PSF": 104,
+              "REX": 18,
+              "DEV": 4,
+              "SER": 2,
+              "EXP": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 5
+          },
+          "other_or_missing": {
+            "n": 184,
+            "shape_counts": {
+              "PSF": 178,
+              "no_unique_external_position": 2,
+              "REX": 4
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 35
+          },
+          "21": {
+            "n": 178,
+            "shape_counts": {
+              "PSF": 126,
+              "REX": 38,
+              "EXP": 7,
+              "DEV": 7
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 4
+          }
+        },
+        "added": {
+          "all": {
+            "n": 376,
+            "shape_counts": {
+              "PSF": 181,
+              "REX": 149,
+              "DEV": 15,
+              "EXP": 31
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 7,
+            "mask_flag_count": 11
+          },
+          "other_or_missing": {
+            "n": 27,
+            "shape_counts": {
+              "PSF": 19,
+              "REX": 7,
+              "DEV": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          },
+          "22": {
+            "n": 312,
+            "shape_counts": {
+              "PSF": 159,
+              "DEV": 8,
+              "REX": 115,
+              "EXP": 30
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 9
+          },
+          "21": {
+            "n": 34,
+            "shape_counts": {
+              "REX": 26,
+              "DEV": 4,
+              "EXP": 1,
+              "PSF": 3
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 2
+          },
+          "20": {
+            "n": 3,
+            "shape_counts": {
+              "DEV": 2,
+              "REX": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w170_090_28_00",
+      "ticket": {
+        "completion_sha256": "e3c3a2b7fce4cec5ff9b918d7bbc095a2c78ff097c87360997e6a8d1b9be737c",
+        "morphology_sha256": "be504e64d1494bac6667a10bbf5afa0ca819fe6c6e76a6c2eab9d45d87b8a0ab",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 408,
+            "shape_counts": {
+              "REX": 22,
+              "PSF": 374,
+              "SER": 3,
+              "EXP": 5,
+              "DEV": 2,
+              "no_unique_external_position": 2
+            },
+            "unique_held_sources": 254,
+            "PSF_with_unique_held": 232,
+            "PSF_with_ten_sigma": 259,
+            "PSF_ten_sigma_unique_held": 221,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 44
+          },
+          "20": {
+            "n": 77,
+            "shape_counts": {
+              "REX": 6,
+              "PSF": 68,
+              "SER": 1,
+              "no_unique_external_position": 1,
+              "DEV": 1
+            },
+            "unique_held_sources": 42,
+            "PSF_with_unique_held": 36,
+            "PSF_with_ten_sigma": 45,
+            "PSF_ten_sigma_unique_held": 36,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 5
+          },
+          "other_or_missing": {
+            "n": 160,
+            "shape_counts": {
+              "PSF": 155,
+              "SER": 1,
+              "DEV": 1,
+              "no_unique_external_position": 1,
+              "EXP": 1,
+              "REX": 1
+            },
+            "unique_held_sources": 97,
+            "PSF_with_unique_held": 94,
+            "PSF_with_ten_sigma": 116,
+            "PSF_ten_sigma_unique_held": 94,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 31
+          },
+          "21": {
+            "n": 126,
+            "shape_counts": {
+              "PSF": 112,
+              "REX": 11,
+              "EXP": 2,
+              "SER": 1
+            },
+            "unique_held_sources": 86,
+            "PSF_with_unique_held": 76,
+            "PSF_with_ten_sigma": 77,
+            "PSF_ten_sigma_unique_held": 71,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 7
+          },
+          "22": {
+            "n": 45,
+            "shape_counts": {
+              "PSF": 39,
+              "EXP": 2,
+              "REX": 4
+            },
+            "unique_held_sources": 29,
+            "PSF_with_unique_held": 26,
+            "PSF_with_ten_sigma": 21,
+            "PSF_ten_sigma_unique_held": 20,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 1
+          }
+        },
+        "added": {
+          "all": {
+            "n": 218,
+            "shape_counts": {
+              "EXP": 9,
+              "REX": 77,
+              "PSF": 118,
+              "DEV": 13,
+              "SER": 1
+            },
+            "unique_held_sources": 138,
+            "PSF_with_unique_held": 73,
+            "PSF_with_ten_sigma": 39,
+            "PSF_ten_sigma_unique_held": 30,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 9
+          },
+          "21": {
+            "n": 39,
+            "shape_counts": {
+              "EXP": 4,
+              "REX": 24,
+              "PSF": 8,
+              "DEV": 3
+            },
+            "unique_held_sources": 26,
+            "PSF_with_unique_held": 6,
+            "PSF_with_ten_sigma": 6,
+            "PSF_ten_sigma_unique_held": 6,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 3
+          },
+          "22": {
+            "n": 170,
+            "shape_counts": {
+              "PSF": 106,
+              "REX": 50,
+              "EXP": 5,
+              "DEV": 9
+            },
+            "unique_held_sources": 106,
+            "PSF_with_unique_held": 64,
+            "PSF_with_ten_sigma": 32,
+            "PSF_ten_sigma_unique_held": 24,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 5
+          },
+          "20": {
+            "n": 5,
+            "shape_counts": {
+              "DEV": 1,
+              "REX": 3,
+              "SER": 1
+            },
+            "unique_held_sources": 3,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          },
+          "other_or_missing": {
+            "n": 4,
+            "shape_counts": {
+              "PSF": 4
+            },
+            "unique_held_sources": 3,
+            "PSF_with_unique_held": 3,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 1
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w170_090_22_11",
+      "ticket": {
+        "completion_sha256": "a84d22da9ef487a0ae54eeefd25a750a7af594fb7eff3d0dddb58c72d0b39a6d",
+        "morphology_sha256": "12cebf21598d52db713da541b5b22ca5eeb48deb46c8f005fcde95025b273c19",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 451,
+            "shape_counts": {
+              "PSF": 406,
+              "REX": 38,
+              "EXP": 1,
+              "DEV": 4,
+              "SER": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 10,
+            "PSF_with_unique_held": 10,
+            "PSF_with_ten_sigma": 10,
+            "PSF_ten_sigma_unique_held": 10,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 21
+          },
+          "other_or_missing": {
+            "n": 156,
+            "shape_counts": {
+              "PSF": 153,
+              "REX": 2,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 2,
+            "PSF_ten_sigma_unique_held": 2,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 14
+          },
+          "22": {
+            "n": 57,
+            "shape_counts": {
+              "PSF": 46,
+              "REX": 8,
+              "EXP": 1,
+              "DEV": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 1
+          },
+          "21": {
+            "n": 159,
+            "shape_counts": {
+              "PSF": 139,
+              "REX": 19,
+              "DEV": 1
+            },
+            "unique_held_sources": 6,
+            "PSF_with_unique_held": 6,
+            "PSF_with_ten_sigma": 6,
+            "PSF_ten_sigma_unique_held": 6,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 3
+          },
+          "20": {
+            "n": 79,
+            "shape_counts": {
+              "PSF": 68,
+              "REX": 9,
+              "DEV": 1,
+              "SER": 1
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 2,
+            "PSF_ten_sigma_unique_held": 2,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 3
+          }
+        },
+        "added": {
+          "all": {
+            "n": 416,
+            "shape_counts": {
+              "PSF": 229,
+              "REX": 136,
+              "DEV": 26,
+              "EXP": 25
+            },
+            "unique_held_sources": 10,
+            "PSF_with_unique_held": 5,
+            "PSF_with_ten_sigma": 4,
+            "PSF_ten_sigma_unique_held": 4,
+            "blend_proxy_count": 7,
+            "mask_flag_count": 10
+          },
+          "other_or_missing": {
+            "n": 14,
+            "shape_counts": {
+              "PSF": 8,
+              "REX": 6
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          },
+          "21": {
+            "n": 52,
+            "shape_counts": {
+              "PSF": 7,
+              "REX": 34,
+              "DEV": 7,
+              "EXP": 4
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 1
+          },
+          "22": {
+            "n": 342,
+            "shape_counts": {
+              "PSF": 212,
+              "REX": 92,
+              "DEV": 17,
+              "EXP": 21
+            },
+            "unique_held_sources": 8,
+            "PSF_with_unique_held": 5,
+            "PSF_with_ten_sigma": 4,
+            "PSF_ten_sigma_unique_held": 4,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 9
+          },
+          "20": {
+            "n": 8,
+            "shape_counts": {
+              "PSF": 2,
+              "REX": 4,
+              "DEV": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w210_090_08_11",
+      "ticket": {
+        "completion_sha256": "9ef414e519f1dd255c39ef3d05babb02dff8fdd5bbbeeb9b06c45f935d56ae0f",
+        "morphology_sha256": "fa8a40319aa2f905f4dff1dcb4375952768bd562389dd94e25c84541d7b0863c",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 592,
+            "shape_counts": {
+              "PSF": 544,
+              "REX": 36,
+              "EXP": 3,
+              "DEV": 7,
+              "SER": 2
+            },
+            "unique_held_sources": 134,
+            "PSF_with_unique_held": 124,
+            "PSF_with_ten_sigma": 138,
+            "PSF_ten_sigma_unique_held": 117,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 29
+          },
+          "21": {
+            "n": 172,
+            "shape_counts": {
+              "PSF": 152,
+              "EXP": 1,
+              "REX": 16,
+              "DEV": 3
+            },
+            "unique_held_sources": 41,
+            "PSF_with_unique_held": 36,
+            "PSF_with_ten_sigma": 41,
+            "PSF_ten_sigma_unique_held": 36,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 2
+          },
+          "22": {
+            "n": 98,
+            "shape_counts": {
+              "PSF": 88,
+              "REX": 8,
+              "DEV": 1,
+              "EXP": 1
+            },
+            "unique_held_sources": 23,
+            "PSF_with_unique_held": 21,
+            "PSF_with_ten_sigma": 16,
+            "PSF_ten_sigma_unique_held": 14,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 0
+          },
+          "other_or_missing": {
+            "n": 189,
+            "shape_counts": {
+              "PSF": 187,
+              "REX": 1,
+              "SER": 1
+            },
+            "unique_held_sources": 36,
+            "PSF_with_unique_held": 35,
+            "PSF_with_ten_sigma": 43,
+            "PSF_ten_sigma_unique_held": 35,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 24
+          },
+          "20": {
+            "n": 133,
+            "shape_counts": {
+              "REX": 11,
+              "PSF": 117,
+              "DEV": 3,
+              "EXP": 1,
+              "SER": 1
+            },
+            "unique_held_sources": 34,
+            "PSF_with_unique_held": 32,
+            "PSF_with_ten_sigma": 38,
+            "PSF_ten_sigma_unique_held": 32,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 3
+          }
+        },
+        "added": {
+          "all": {
+            "n": 548,
+            "shape_counts": {
+              "PSF": 422,
+              "REX": 102,
+              "EXP": 10,
+              "DEV": 12,
+              "SER": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 101,
+            "PSF_with_unique_held": 82,
+            "PSF_with_ten_sigma": 18,
+            "PSF_ten_sigma_unique_held": 16,
+            "blend_proxy_count": 21,
+            "mask_flag_count": 14
+          },
+          "22": {
+            "n": 486,
+            "shape_counts": {
+              "PSF": 389,
+              "REX": 81,
+              "EXP": 8,
+              "DEV": 8
+            },
+            "unique_held_sources": 92,
+            "PSF_with_unique_held": 75,
+            "PSF_with_ten_sigma": 13,
+            "PSF_ten_sigma_unique_held": 11,
+            "blend_proxy_count": 16,
+            "mask_flag_count": 10
+          },
+          "21": {
+            "n": 38,
+            "shape_counts": {
+              "PSF": 15,
+              "REX": 17,
+              "DEV": 4,
+              "EXP": 2
+            },
+            "unique_held_sources": 6,
+            "PSF_with_unique_held": 4,
+            "PSF_with_ten_sigma": 4,
+            "PSF_ten_sigma_unique_held": 4,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 2
+          },
+          "other_or_missing": {
+            "n": 22,
+            "shape_counts": {
+              "PSF": 18,
+              "REX": 3,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 3,
+            "PSF_with_unique_held": 3,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 2
+          },
+          "20": {
+            "n": 2,
+            "shape_counts": {
+              "SER": 1,
+              "REX": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w210_090_06_11",
+      "ticket": {
+        "completion_sha256": "c538d7998124ef2e4269b54ac5c76106e6e5c7bd054ce55629af06fba1a26dd4",
+        "morphology_sha256": "80da44538049cc01853a0f9566dadbdbb66a9121cdcbb8b90fd3e9013053a1e8",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 587,
+            "shape_counts": {
+              "PSF": 539,
+              "no_unique_external_position": 1,
+              "DEV": 9,
+              "REX": 32,
+              "EXP": 5,
+              "SER": 1
+            },
+            "unique_held_sources": 455,
+            "PSF_with_unique_held": 420,
+            "PSF_with_ten_sigma": 420,
+            "PSF_ten_sigma_unique_held": 386,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 35
+          },
+          "other_or_missing": {
+            "n": 212,
+            "shape_counts": {
+              "PSF": 209,
+              "no_unique_external_position": 1,
+              "DEV": 1,
+              "SER": 1
+            },
+            "unique_held_sources": 164,
+            "PSF_with_unique_held": 162,
+            "PSF_with_ten_sigma": 177,
+            "PSF_ten_sigma_unique_held": 160,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 26
+          },
+          "21": {
+            "n": 159,
+            "shape_counts": {
+              "PSF": 134,
+              "REX": 20,
+              "EXP": 3,
+              "DEV": 2
+            },
+            "unique_held_sources": 129,
+            "PSF_with_unique_held": 109,
+            "PSF_with_ten_sigma": 114,
+            "PSF_ten_sigma_unique_held": 108,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 2
+          },
+          "20": {
+            "n": 114,
+            "shape_counts": {
+              "PSF": 109,
+              "DEV": 1,
+              "REX": 4
+            },
+            "unique_held_sources": 89,
+            "PSF_with_unique_held": 85,
+            "PSF_with_ten_sigma": 92,
+            "PSF_ten_sigma_unique_held": 85,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 6
+          },
+          "22": {
+            "n": 102,
+            "shape_counts": {
+              "PSF": 87,
+              "DEV": 5,
+              "REX": 8,
+              "EXP": 2
+            },
+            "unique_held_sources": 73,
+            "PSF_with_unique_held": 64,
+            "PSF_with_ten_sigma": 37,
+            "PSF_ten_sigma_unique_held": 33,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 1
+          }
+        },
+        "added": {
+          "all": {
+            "n": 509,
+            "shape_counts": {
+              "PSF": 374,
+              "REX": 108,
+              "DEV": 9,
+              "EXP": 17,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 395,
+            "PSF_with_unique_held": 287,
+            "PSF_with_ten_sigma": 70,
+            "PSF_ten_sigma_unique_held": 65,
+            "blend_proxy_count": 10,
+            "mask_flag_count": 14
+          },
+          "22": {
+            "n": 435,
+            "shape_counts": {
+              "PSF": 335,
+              "REX": 80,
+              "DEV": 7,
+              "EXP": 13
+            },
+            "unique_held_sources": 335,
+            "PSF_with_unique_held": 256,
+            "PSF_with_ten_sigma": 47,
+            "PSF_ten_sigma_unique_held": 43,
+            "blend_proxy_count": 6,
+            "mask_flag_count": 12
+          },
+          "21": {
+            "n": 62,
+            "shape_counts": {
+              "PSF": 29,
+              "REX": 28,
+              "EXP": 2,
+              "DEV": 2,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 49,
+            "PSF_with_unique_held": 22,
+            "PSF_with_ten_sigma": 23,
+            "PSF_ten_sigma_unique_held": 22,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 2
+          },
+          "other_or_missing": {
+            "n": 10,
+            "shape_counts": {
+              "PSF": 10
+            },
+            "unique_held_sources": 9,
+            "PSF_with_unique_held": 9,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          },
+          "20": {
+            "n": 2,
+            "shape_counts": {
+              "EXP": 2
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w220_090_08_01",
+      "ticket": {
+        "completion_sha256": "30b0c3014bf7de98b50313efe1a5a50fe45474fd5191cfa9d210e484da2b142e",
+        "morphology_sha256": "17bd8c80d2b04c62c71e5c6306bb011f95337282b42ad2692d8d7a1d4686bc6c",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 485,
+            "shape_counts": {
+              "PSF": 455,
+              "REX": 18,
+              "EXP": 5,
+              "DEV": 5,
+              "no_unique_external_position": 2
+            },
+            "unique_held_sources": 283,
+            "PSF_with_unique_held": 272,
+            "PSF_with_ten_sigma": 223,
+            "PSF_ten_sigma_unique_held": 208,
+            "blend_proxy_count": 7,
+            "mask_flag_count": 41
+          },
+          "21": {
+            "n": 114,
+            "shape_counts": {
+              "PSF": 98,
+              "REX": 10,
+              "EXP": 4,
+              "DEV": 2
+            },
+            "unique_held_sources": 47,
+            "PSF_with_unique_held": 42,
+            "PSF_with_ten_sigma": 7,
+            "PSF_ten_sigma_unique_held": 7,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 3
+          },
+          "other_or_missing": {
+            "n": 234,
+            "shape_counts": {
+              "PSF": 234
+            },
+            "unique_held_sources": 148,
+            "PSF_with_unique_held": 148,
+            "PSF_with_ten_sigma": 162,
+            "PSF_ten_sigma_unique_held": 148,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 32
+          },
+          "20": {
+            "n": 121,
+            "shape_counts": {
+              "PSF": 111,
+              "DEV": 2,
+              "REX": 5,
+              "no_unique_external_position": 2,
+              "EXP": 1
+            },
+            "unique_held_sources": 87,
+            "PSF_with_unique_held": 81,
+            "PSF_with_ten_sigma": 54,
+            "PSF_ten_sigma_unique_held": 53,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 6
+          },
+          "22": {
+            "n": 16,
+            "shape_counts": {
+              "PSF": 12,
+              "REX": 3,
+              "DEV": 1
+            },
+            "unique_held_sources": 1,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          }
+        },
+        "added": {
+          "all": {
+            "n": 875,
+            "shape_counts": {
+              "PSF": 776,
+              "REX": 65,
+              "EXP": 19,
+              "DEV": 13,
+              "SER": 2
+            },
+            "unique_held_sources": 242,
+            "PSF_with_unique_held": 223,
+            "PSF_with_ten_sigma": 60,
+            "PSF_ten_sigma_unique_held": 55,
+            "blend_proxy_count": 33,
+            "mask_flag_count": 28
+          },
+          "21": {
+            "n": 369,
+            "shape_counts": {
+              "PSF": 325,
+              "REX": 32,
+              "EXP": 6,
+              "DEV": 6
+            },
+            "unique_held_sources": 140,
+            "PSF_with_unique_held": 129,
+            "PSF_with_ten_sigma": 30,
+            "PSF_ten_sigma_unique_held": 27,
+            "blend_proxy_count": 12,
+            "mask_flag_count": 10
+          },
+          "20": {
+            "n": 84,
+            "shape_counts": {
+              "PSF": 76,
+              "REX": 5,
+              "SER": 2,
+              "DEV": 1
+            },
+            "unique_held_sources": 47,
+            "PSF_with_unique_held": 43,
+            "PSF_with_ten_sigma": 28,
+            "PSF_ten_sigma_unique_held": 26,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 6
+          },
+          "22": {
+            "n": 416,
+            "shape_counts": {
+              "PSF": 369,
+              "EXP": 13,
+              "REX": 28,
+              "DEV": 6
+            },
+            "unique_held_sources": 52,
+            "PSF_with_unique_held": 48,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 15,
+            "mask_flag_count": 11
+          },
+          "other_or_missing": {
+            "n": 6,
+            "shape_counts": {
+              "PSF": 6
+            },
+            "unique_held_sources": 3,
+            "PSF_with_unique_held": 3,
+            "PSF_with_ten_sigma": 2,
+            "PSF_ten_sigma_unique_held": 2,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 1
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w220_090_42_01",
+      "ticket": {
+        "completion_sha256": "ef2633b6ac3f96ea75b89db128b5007d949417f09381b1417f21c78790eecc8d",
+        "morphology_sha256": "813cb7c21ecaf5f8ba24b3a7c41903e98895eec036673a17434832647958c985",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 789,
+            "shape_counts": {
+              "PSF": 768,
+              "REX": 14,
+              "DEV": 6,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 728,
+            "PSF_with_unique_held": 710,
+            "PSF_with_ten_sigma": 624,
+            "PSF_ten_sigma_unique_held": 610,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 62
+          },
+          "21": {
+            "n": 235,
+            "shape_counts": {
+              "PSF": 222,
+              "REX": 12,
+              "DEV": 1
+            },
+            "unique_held_sources": 215,
+            "PSF_with_unique_held": 202,
+            "PSF_with_ten_sigma": 170,
+            "PSF_ten_sigma_unique_held": 165,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 6
+          },
+          "20": {
+            "n": 151,
+            "shape_counts": {
+              "PSF": 149,
+              "DEV": 1,
+              "REX": 1
+            },
+            "unique_held_sources": 145,
+            "PSF_with_unique_held": 143,
+            "PSF_with_ten_sigma": 143,
+            "PSF_ten_sigma_unique_held": 141,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 9
+          },
+          "other_or_missing": {
+            "n": 297,
+            "shape_counts": {
+              "PSF": 295,
+              "no_unique_external_position": 1,
+              "DEV": 1
+            },
+            "unique_held_sources": 283,
+            "PSF_with_unique_held": 281,
+            "PSF_with_ten_sigma": 277,
+            "PSF_ten_sigma_unique_held": 270,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 43
+          },
+          "22": {
+            "n": 106,
+            "shape_counts": {
+              "DEV": 3,
+              "PSF": 102,
+              "REX": 1
+            },
+            "unique_held_sources": 85,
+            "PSF_with_unique_held": 84,
+            "PSF_with_ten_sigma": 34,
+            "PSF_ten_sigma_unique_held": 34,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 4
+          }
+        },
+        "added": {
+          "all": {
+            "n": 430,
+            "shape_counts": {
+              "PSF": 288,
+              "DEV": 19,
+              "REX": 108,
+              "EXP": 15
+            },
+            "unique_held_sources": 325,
+            "PSF_with_unique_held": 206,
+            "PSF_with_ten_sigma": 79,
+            "PSF_ten_sigma_unique_held": 78,
+            "blend_proxy_count": 11,
+            "mask_flag_count": 15
+          },
+          "22": {
+            "n": 343,
+            "shape_counts": {
+              "PSF": 273,
+              "REX": 44,
+              "EXP": 11,
+              "DEV": 15
+            },
+            "unique_held_sources": 242,
+            "PSF_with_unique_held": 193,
+            "PSF_with_ten_sigma": 71,
+            "PSF_ten_sigma_unique_held": 70,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 11
+          },
+          "20": {
+            "n": 9,
+            "shape_counts": {
+              "PSF": 2,
+              "REX": 6,
+              "DEV": 1
+            },
+            "unique_held_sources": 9,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 2,
+            "PSF_ten_sigma_unique_held": 2,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 1
+          },
+          "21": {
+            "n": 76,
+            "shape_counts": {
+              "DEV": 3,
+              "REX": 57,
+              "PSF": 12,
+              "EXP": 4
+            },
+            "unique_held_sources": 73,
+            "PSF_with_unique_held": 10,
+            "PSF_with_ten_sigma": 6,
+            "PSF_ten_sigma_unique_held": 6,
+            "blend_proxy_count": 6,
+            "mask_flag_count": 3
+          },
+          "other_or_missing": {
+            "n": 2,
+            "shape_counts": {
+              "REX": 1,
+              "PSF": 1
+            },
+            "unique_held_sources": 1,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w220_110_66_00",
+      "ticket": {
+        "completion_sha256": "c69928c604f3a0211e2b9bc6eb686d5391342096f3cfc8945a9d9d35f943eac1",
+        "morphology_sha256": "019e81887c52be5ddebfcf0d5e4d84cef02d5c7b53867adf2d7cd5682e5d2215",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 467,
+            "shape_counts": {
+              "PSF": 431,
+              "no_unique_external_position": 3,
+              "REX": 25,
+              "EXP": 3,
+              "DEV": 5
+            },
+            "unique_held_sources": 19,
+            "PSF_with_unique_held": 19,
+            "PSF_with_ten_sigma": 16,
+            "PSF_ten_sigma_unique_held": 16,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 78
+          },
+          "other_or_missing": {
+            "n": 195,
+            "shape_counts": {
+              "PSF": 192,
+              "no_unique_external_position": 2,
+              "DEV": 1
+            },
+            "unique_held_sources": 9,
+            "PSF_with_unique_held": 9,
+            "PSF_with_ten_sigma": 7,
+            "PSF_ten_sigma_unique_held": 7,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 49
+          },
+          "21": {
+            "n": 120,
+            "shape_counts": {
+              "PSF": 103,
+              "REX": 15,
+              "DEV": 2
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 9
+          },
+          "22": {
+            "n": 43,
+            "shape_counts": {
+              "PSF": 35,
+              "REX": 6,
+              "EXP": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 3
+          },
+          "20": {
+            "n": 109,
+            "shape_counts": {
+              "PSF": 101,
+              "no_unique_external_position": 1,
+              "EXP": 1,
+              "DEV": 2,
+              "REX": 4
+            },
+            "unique_held_sources": 8,
+            "PSF_with_unique_held": 8,
+            "PSF_with_ten_sigma": 8,
+            "PSF_ten_sigma_unique_held": 8,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 17
+          }
+        },
+        "added": {
+          "all": {
+            "n": 263,
+            "shape_counts": {
+              "PSF": 199,
+              "DEV": 5,
+              "REX": 48,
+              "EXP": 11
+            },
+            "unique_held_sources": 5,
+            "PSF_with_unique_held": 3,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 7,
+            "mask_flag_count": 30
+          },
+          "22": {
+            "n": 224,
+            "shape_counts": {
+              "PSF": 180,
+              "DEV": 2,
+              "REX": 33,
+              "EXP": 9
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 25
+          },
+          "20": {
+            "n": 1,
+            "shape_counts": {
+              "PSF": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          },
+          "21": {
+            "n": 37,
+            "shape_counts": {
+              "PSF": 17,
+              "REX": 15,
+              "DEV": 3,
+              "EXP": 2
+            },
+            "unique_held_sources": 3,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 5
+          },
+          "other_or_missing": {
+            "n": 1,
+            "shape_counts": {
+              "PSF": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w220_110_62_10",
+      "ticket": {
+        "completion_sha256": "1733a3811b2a51f621abc7d54d395796886621e8bb60579f3bdfa5d86db410ca",
+        "morphology_sha256": "661b346f98eef15b20df1af3f45252a8e182c0cebb5620f43f3934d7b6c6857f",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 538,
+            "shape_counts": {
+              "PSF": 514,
+              "no_unique_external_position": 2,
+              "REX": 19,
+              "SER": 1,
+              "EXP": 2
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 53
+          },
+          "other_or_missing": {
+            "n": 216,
+            "shape_counts": {
+              "PSF": 213,
+              "no_unique_external_position": 2,
+              "SER": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 38
+          },
+          "20": {
+            "n": 101,
+            "shape_counts": {
+              "PSF": 99,
+              "REX": 2
+            },
+            "unique_held_sources": 1,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 4
+          },
+          "21": {
+            "n": 160,
+            "shape_counts": {
+              "PSF": 147,
+              "REX": 13
+            },
+            "unique_held_sources": 1,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 9
+          },
+          "22": {
+            "n": 61,
+            "shape_counts": {
+              "REX": 4,
+              "PSF": 55,
+              "EXP": 2
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 2
+          }
+        },
+        "added": {
+          "all": {
+            "n": 394,
+            "shape_counts": {
+              "PSF": 291,
+              "REX": 87,
+              "EXP": 5,
+              "DEV": 11
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 6,
+            "mask_flag_count": 22
+          },
+          "20": {
+            "n": 31,
+            "shape_counts": {
+              "PSF": 27,
+              "REX": 4
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 2
+          },
+          "21": {
+            "n": 59,
+            "shape_counts": {
+              "PSF": 26,
+              "REX": 32,
+              "DEV": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 7
+          },
+          "other_or_missing": {
+            "n": 5,
+            "shape_counts": {
+              "PSF": 4,
+              "REX": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 0
+          },
+          "22": {
+            "n": 299,
+            "shape_counts": {
+              "PSF": 234,
+              "REX": 50,
+              "EXP": 5,
+              "DEV": 10
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 13
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w230_090_26_01",
+      "ticket": {
+        "completion_sha256": "bc5e79275e5dc0d105bae487f23ab4520e8252c188e9a81804ba21fd1f94747f",
+        "morphology_sha256": "6d093ea44a430c90698e017778b56542972772ee440af299cdc9153785811269",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 879,
+            "shape_counts": {
+              "PSF": 853,
+              "REX": 17,
+              "DEV": 2,
+              "EXP": 3,
+              "no_unique_external_position": 3,
+              "DUP": 1
+            },
+            "unique_held_sources": 705,
+            "PSF_with_unique_held": 683,
+            "PSF_with_ten_sigma": 630,
+            "PSF_ten_sigma_unique_held": 582,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 68
+          },
+          "21": {
+            "n": 214,
+            "shape_counts": {
+              "PSF": 205,
+              "DEV": 1,
+              "REX": 6,
+              "EXP": 2
+            },
+            "unique_held_sources": 178,
+            "PSF_with_unique_held": 170,
+            "PSF_with_ten_sigma": 182,
+            "PSF_ten_sigma_unique_held": 167,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 6
+          },
+          "other_or_missing": {
+            "n": 359,
+            "shape_counts": {
+              "PSF": 357,
+              "no_unique_external_position": 1,
+              "DUP": 1
+            },
+            "unique_held_sources": 277,
+            "PSF_with_unique_held": 275,
+            "PSF_with_ten_sigma": 295,
+            "PSF_ten_sigma_unique_held": 267,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 54
+          },
+          "22": {
+            "n": 145,
+            "shape_counts": {
+              "PSF": 135,
+              "REX": 8,
+              "DEV": 1,
+              "EXP": 1
+            },
+            "unique_held_sources": 121,
+            "PSF_with_unique_held": 113,
+            "PSF_with_ten_sigma": 27,
+            "PSF_ten_sigma_unique_held": 26,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 5
+          },
+          "20": {
+            "n": 161,
+            "shape_counts": {
+              "PSF": 156,
+              "REX": 3,
+              "no_unique_external_position": 2
+            },
+            "unique_held_sources": 129,
+            "PSF_with_unique_held": 125,
+            "PSF_with_ten_sigma": 126,
+            "PSF_ten_sigma_unique_held": 122,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 3
+          }
+        },
+        "added": {
+          "all": {
+            "n": 420,
+            "shape_counts": {
+              "PSF": 339,
+              "REX": 68,
+              "DEV": 8,
+              "EXP": 4,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 345,
+            "PSF_with_unique_held": 274,
+            "PSF_with_ten_sigma": 40,
+            "PSF_ten_sigma_unique_held": 38,
+            "blend_proxy_count": 14,
+            "mask_flag_count": 15
+          },
+          "22": {
+            "n": 357,
+            "shape_counts": {
+              "PSF": 299,
+              "REX": 49,
+              "DEV": 5,
+              "EXP": 4
+            },
+            "unique_held_sources": 289,
+            "PSF_with_unique_held": 240,
+            "PSF_with_ten_sigma": 14,
+            "PSF_ten_sigma_unique_held": 13,
+            "blend_proxy_count": 8,
+            "mask_flag_count": 6
+          },
+          "21": {
+            "n": 46,
+            "shape_counts": {
+              "PSF": 25,
+              "REX": 18,
+              "DEV": 3
+            },
+            "unique_held_sources": 42,
+            "PSF_with_unique_held": 22,
+            "PSF_with_ten_sigma": 23,
+            "PSF_ten_sigma_unique_held": 22,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 5
+          },
+          "other_or_missing": {
+            "n": 14,
+            "shape_counts": {
+              "PSF": 12,
+              "REX": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 12,
+            "PSF_with_unique_held": 10,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 1
+          },
+          "20": {
+            "n": 3,
+            "shape_counts": {
+              "PSF": 3
+            },
+            "unique_held_sources": 2,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 2,
+            "PSF_ten_sigma_unique_held": 2,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 3
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w230_090_04_00",
+      "ticket": {
+        "completion_sha256": "de8360353fcdee1fdb3c95b813ec8fc9df87fdc8d667f720d844262b1dfdb3a2",
+        "morphology_sha256": "4177412912d544e00ab750c2226e24e7653ff06f106bc172fdce1b8597bdd5ce",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 884,
+            "shape_counts": {
+              "PSF": 867,
+              "REX": 10,
+              "EXP": 1,
+              "SER": 1,
+              "DEV": 4,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 722,
+            "PSF_with_unique_held": 712,
+            "PSF_with_ten_sigma": 680,
+            "PSF_ten_sigma_unique_held": 641,
+            "blend_proxy_count": 6,
+            "mask_flag_count": 63
+          },
+          "other_or_missing": {
+            "n": 360,
+            "shape_counts": {
+              "PSF": 358,
+              "SER": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 288,
+            "PSF_with_unique_held": 287,
+            "PSF_with_ten_sigma": 307,
+            "PSF_ten_sigma_unique_held": 283,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 45
+          },
+          "21": {
+            "n": 247,
+            "shape_counts": {
+              "PSF": 236,
+              "REX": 7,
+              "EXP": 1,
+              "DEV": 3
+            },
+            "unique_held_sources": 209,
+            "PSF_with_unique_held": 201,
+            "PSF_with_ten_sigma": 182,
+            "PSF_ten_sigma_unique_held": 177,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 7
+          },
+          "20": {
+            "n": 154,
+            "shape_counts": {
+              "PSF": 153,
+              "REX": 1
+            },
+            "unique_held_sources": 131,
+            "PSF_with_unique_held": 131,
+            "PSF_with_ten_sigma": 136,
+            "PSF_ten_sigma_unique_held": 129,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 6
+          },
+          "22": {
+            "n": 123,
+            "shape_counts": {
+              "PSF": 120,
+              "REX": 2,
+              "DEV": 1
+            },
+            "unique_held_sources": 94,
+            "PSF_with_unique_held": 93,
+            "PSF_with_ten_sigma": 55,
+            "PSF_ten_sigma_unique_held": 52,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 5
+          }
+        },
+        "added": {
+          "all": {
+            "n": 457,
+            "shape_counts": {
+              "PSF": 337,
+              "REX": 94,
+              "DEV": 14,
+              "SER": 2,
+              "EXP": 10
+            },
+            "unique_held_sources": 327,
+            "PSF_with_unique_held": 237,
+            "PSF_with_ten_sigma": 123,
+            "PSF_ten_sigma_unique_held": 115,
+            "blend_proxy_count": 21,
+            "mask_flag_count": 19
+          },
+          "22": {
+            "n": 400,
+            "shape_counts": {
+              "PSF": 306,
+              "DEV": 10,
+              "REX": 75,
+              "EXP": 9
+            },
+            "unique_held_sources": 282,
+            "PSF_with_unique_held": 216,
+            "PSF_with_ten_sigma": 110,
+            "PSF_ten_sigma_unique_held": 103,
+            "blend_proxy_count": 13,
+            "mask_flag_count": 9
+          },
+          "21": {
+            "n": 33,
+            "shape_counts": {
+              "REX": 16,
+              "PSF": 12,
+              "DEV": 4,
+              "EXP": 1
+            },
+            "unique_held_sources": 29,
+            "PSF_with_unique_held": 9,
+            "PSF_with_ten_sigma": 8,
+            "PSF_ten_sigma_unique_held": 7,
+            "blend_proxy_count": 5,
+            "mask_flag_count": 9
+          },
+          "other_or_missing": {
+            "n": 20,
+            "shape_counts": {
+              "PSF": 18,
+              "SER": 1,
+              "REX": 1
+            },
+            "unique_held_sources": 12,
+            "PSF_with_unique_held": 11,
+            "PSF_with_ten_sigma": 4,
+            "PSF_ten_sigma_unique_held": 4,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 1
+          },
+          "20": {
+            "n": 4,
+            "shape_counts": {
+              "SER": 1,
+              "REX": 2,
+              "PSF": 1
+            },
+            "unique_held_sources": 4,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w230_110_46_10",
+      "ticket": {
+        "completion_sha256": "c4ca18f9cc67c4561653711247ba9f567ef63b1db0ef2e231603eda83ff9b1ae",
+        "morphology_sha256": "5c039e9bf5d3b06839a430ac52f658362b8f2df060440ec3107cac59faf95637",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 534,
+            "shape_counts": {
+              "PSF": 509,
+              "EXP": 1,
+              "REX": 21,
+              "no_unique_external_position": 2,
+              "DEV": 1
+            },
+            "unique_held_sources": 127,
+            "PSF_with_unique_held": 121,
+            "PSF_with_ten_sigma": 122,
+            "PSF_ten_sigma_unique_held": 115,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 53
+          },
+          "22": {
+            "n": 34,
+            "shape_counts": {
+              "PSF": 28,
+              "REX": 5,
+              "DEV": 1
+            },
+            "unique_held_sources": 11,
+            "PSF_with_unique_held": 7,
+            "PSF_with_ten_sigma": 7,
+            "PSF_ten_sigma_unique_held": 7,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 2
+          },
+          "21": {
+            "n": 163,
+            "shape_counts": {
+              "PSF": 147,
+              "EXP": 1,
+              "REX": 14,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 36,
+            "PSF_with_unique_held": 34,
+            "PSF_with_ten_sigma": 31,
+            "PSF_ten_sigma_unique_held": 28,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 9
+          },
+          "other_or_missing": {
+            "n": 231,
+            "shape_counts": {
+              "PSF": 229,
+              "no_unique_external_position": 1,
+              "REX": 1
+            },
+            "unique_held_sources": 51,
+            "PSF_with_unique_held": 51,
+            "PSF_with_ten_sigma": 54,
+            "PSF_ten_sigma_unique_held": 51,
+            "blend_proxy_count": 1,
+            "mask_flag_count": 40
+          },
+          "20": {
+            "n": 106,
+            "shape_counts": {
+              "PSF": 105,
+              "REX": 1
+            },
+            "unique_held_sources": 29,
+            "PSF_with_unique_held": 29,
+            "PSF_with_ten_sigma": 30,
+            "PSF_ten_sigma_unique_held": 29,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 2
+          }
+        },
+        "added": {
+          "all": {
+            "n": 474,
+            "shape_counts": {
+              "PSF": 428,
+              "REX": 31,
+              "EXP": 5,
+              "DEV": 9,
+              "SER": 1
+            },
+            "unique_held_sources": 91,
+            "PSF_with_unique_held": 82,
+            "PSF_with_ten_sigma": 50,
+            "PSF_ten_sigma_unique_held": 46,
+            "blend_proxy_count": 12,
+            "mask_flag_count": 22
+          },
+          "22": {
+            "n": 398,
+            "shape_counts": {
+              "PSF": 372,
+              "REX": 18,
+              "EXP": 5,
+              "DEV": 3
+            },
+            "unique_held_sources": 79,
+            "PSF_with_unique_held": 73,
+            "PSF_with_ten_sigma": 42,
+            "PSF_ten_sigma_unique_held": 39,
+            "blend_proxy_count": 6,
+            "mask_flag_count": 16
+          },
+          "21": {
+            "n": 69,
+            "shape_counts": {
+              "PSF": 51,
+              "DEV": 5,
+              "REX": 13
+            },
+            "unique_held_sources": 12,
+            "PSF_with_unique_held": 9,
+            "PSF_with_ten_sigma": 8,
+            "PSF_ten_sigma_unique_held": 7,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 5
+          },
+          "other_or_missing": {
+            "n": 1,
+            "shape_counts": {
+              "PSF": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          },
+          "20": {
+            "n": 6,
+            "shape_counts": {
+              "PSF": 4,
+              "DEV": 1,
+              "SER": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 1
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    },
+    {
+      "core": "w230_110_86_10",
+      "ticket": {
+        "completion_sha256": "185643fa9417b5b5b2a4e0d7ba99a8cb06e85435032f5754bd235cfbced8b8ef",
+        "morphology_sha256": "c13a2737cb22038da24086c51b4d82f1be0077f5113bcdb9d9bcbaee331676e8",
+        "implementation_sha256": "51d614347caecfd7ea017aa2f14a3d68c9e0f04af3dfb1d405129544e391e748"
+      },
+      "classes": {
+        "original_hash_control": {
+          "all": {
+            "n": 616,
+            "shape_counts": {
+              "PSF": 589,
+              "REX": 18,
+              "EXP": 2,
+              "DEV": 5,
+              "SER": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 207,
+            "PSF_with_unique_held": 202,
+            "PSF_with_ten_sigma": 161,
+            "PSF_ten_sigma_unique_held": 149,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 154
+          },
+          "21": {
+            "n": 182,
+            "shape_counts": {
+              "PSF": 174,
+              "EXP": 1,
+              "DEV": 2,
+              "REX": 5
+            },
+            "unique_held_sources": 54,
+            "PSF_with_unique_held": 51,
+            "PSF_with_ten_sigma": 16,
+            "PSF_ten_sigma_unique_held": 15,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 44
+          },
+          "other_or_missing": {
+            "n": 226,
+            "shape_counts": {
+              "PSF": 223,
+              "REX": 1,
+              "SER": 1,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 88,
+            "PSF_with_unique_held": 87,
+            "PSF_with_ten_sigma": 95,
+            "PSF_ten_sigma_unique_held": 87,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 77
+          },
+          "20": {
+            "n": 125,
+            "shape_counts": {
+              "PSF": 120,
+              "REX": 5
+            },
+            "unique_held_sources": 46,
+            "PSF_with_unique_held": 45,
+            "PSF_with_ten_sigma": 47,
+            "PSF_ten_sigma_unique_held": 44,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 21
+          },
+          "22": {
+            "n": 83,
+            "shape_counts": {
+              "REX": 7,
+              "PSF": 72,
+              "DEV": 3,
+              "EXP": 1
+            },
+            "unique_held_sources": 19,
+            "PSF_with_unique_held": 19,
+            "PSF_with_ten_sigma": 3,
+            "PSF_ten_sigma_unique_held": 3,
+            "blend_proxy_count": 2,
+            "mask_flag_count": 12
+          }
+        },
+        "added": {
+          "all": {
+            "n": 505,
+            "shape_counts": {
+              "PSF": 415,
+              "REX": 71,
+              "DEV": 11,
+              "EXP": 7,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 47,
+            "PSF_with_unique_held": 37,
+            "PSF_with_ten_sigma": 5,
+            "PSF_ten_sigma_unique_held": 4,
+            "blend_proxy_count": 11,
+            "mask_flag_count": 108
+          },
+          "22": {
+            "n": 427,
+            "shape_counts": {
+              "PSF": 359,
+              "REX": 54,
+              "DEV": 7,
+              "EXP": 6,
+              "no_unique_external_position": 1
+            },
+            "unique_held_sources": 43,
+            "PSF_with_unique_held": 34,
+            "PSF_with_ten_sigma": 3,
+            "PSF_ten_sigma_unique_held": 2,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 89
+          },
+          "21": {
+            "n": 56,
+            "shape_counts": {
+              "PSF": 36,
+              "REX": 16,
+              "EXP": 1,
+              "DEV": 3
+            },
+            "unique_held_sources": 3,
+            "PSF_with_unique_held": 2,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 3,
+            "mask_flag_count": 15
+          },
+          "20": {
+            "n": 1,
+            "shape_counts": {
+              "PSF": 1
+            },
+            "unique_held_sources": 0,
+            "PSF_with_unique_held": 0,
+            "PSF_with_ten_sigma": 0,
+            "PSF_ten_sigma_unique_held": 0,
+            "blend_proxy_count": 0,
+            "mask_flag_count": 0
+          },
+          "other_or_missing": {
+            "n": 21,
+            "shape_counts": {
+              "PSF": 19,
+              "REX": 1,
+              "DEV": 1
+            },
+            "unique_held_sources": 1,
+            "PSF_with_unique_held": 1,
+            "PSF_with_ten_sigma": 1,
+            "PSF_ten_sigma_unique_held": 1,
+            "blend_proxy_count": 4,
+            "mask_flag_count": 4
+          }
+        }
+      },
+      "slurm_job": "62017532",
+      "scope": "Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold."
+    }
+  ],
+  "slurm_job": "62017532"
+}

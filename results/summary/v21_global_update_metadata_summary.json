@@ -1,0 +1,57 @@
+{
+  "graphs": [
+    {
+      "label": "v19_w130_110",
+      "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+      "reference_measurement_selection": {
+        "candidate_measurements": 48167232,
+        "conflicting_match_measurements": 0,
+        "multiple_exposure_measurements": 0,
+        "unique_measurements": 39431136
+      },
+      "raw_reference_components": 1,
+      "applied_gauge_group_counts": {
+        "0": 7366
+      },
+      "unsupported_groups": 180,
+      "original_peak_rss_mib": 134763.25390625
+    },
+    {
+      "label": "v19_w150_090",
+      "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+      "reference_measurement_selection": {
+        "candidate_measurements": 127880929,
+        "conflicting_match_measurements": 0,
+        "multiple_exposure_measurements": 0,
+        "unique_measurements": 106402352
+      },
+      "raw_reference_components": 1,
+      "applied_gauge_group_counts": {
+        "0": 20892
+      },
+      "unsupported_groups": 1872,
+      "original_peak_rss_mib": 357387.640625
+    },
+    {
+      "label": "next_w010_100",
+      "graph_sha256": "fadec0537e912d1d3d2c8f3ff0400b361661758e2b0e1f57c81709176ed64e3d",
+      "reference_measurement_selection": {
+        "candidate_measurements": 144698200,
+        "conflicting_match_measurements": 0,
+        "multiple_exposure_measurements": 0,
+        "unique_measurements": 119550955
+      },
+      "raw_reference_components": 1,
+      "applied_gauge_group_counts": {
+        "0": 20760
+      },
+      "unsupported_groups": 1269,
+      "original_peak_rss_mib": 144504.765625
+    }
+  ],
+  "all_core_count": 2875,
+  "all_halo_input_measurements": 1750398729,
+  "all_final_research_sources": 15625958,
+  "slurm_job": "62017532",
+  "scope": "Known existing frozen core summary/graph metadata only; no new full detection scan or science production. Halo input rows count repeated loading, not unique whole-sky detections."
+}

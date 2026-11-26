@@ -1,0 +1,66 @@
+{
+  "photometry_sha256": "2f900c6565b813c51e580ee41ed4cb336f1e9a18cd3692bbef0c35dd48fba341",
+  "fixed_candidates": 415,
+  "bins": {
+    "22.0": {
+      "optical_candidates": 212,
+      "models": {
+        "old": {
+          "SDSS_quality_or_distance": 28,
+          "pointlike_morphology": 85,
+          "recovered": 37,
+          "no_published_SDSS_detection": 35,
+          "quality": 26,
+          "time_baseline": 1
+        },
+        "geometry": {
+          "SDSS_quality_or_distance": 27,
+          "pointlike_morphology": 86,
+          "recovered": 37,
+          "no_published_SDSS_detection": 35,
+          "quality": 26,
+          "time_baseline": 1
+        }
+      },
+      "opportunities": {
+        "geometric": 212,
+        "catalogue_10sigma": 43,
+        "background_limited_5sigma_proxy": 212,
+        "depth_or_band_unknown": 33
+      },
+      "overlap_flags": {
+        "sky_radius_adds_published_detection": 3
+      }
+    },
+    "22.5": {
+      "optical_candidates": 203,
+      "models": {
+        "old": {
+          "no_published_SDSS_detection": 130,
+          "pointlike_morphology": 41,
+          "SDSS_quality_or_distance": 27,
+          "no_published_NSC_detection": 4,
+          "NSC_physical_quality_or_distance": 1
+        },
+        "geometry": {
+          "no_published_SDSS_detection": 130,
+          "pointlike_morphology": 41,
+          "SDSS_quality_or_distance": 27,
+          "no_published_NSC_detection": 4,
+          "NSC_physical_quality_or_distance": 1
+        }
+      },
+      "opportunities": {
+        "geometric": 203,
+        "catalogue_10sigma": 1,
+        "background_limited_5sigma_proxy": 89,
+        "depth_or_band_unknown": 160
+      },
+      "overlap_flags": {
+        "polygon_opportunity_without_retrieved_NSC": 4
+      }
+    }
+  },
+  "slurm_job": "62016945",
+  "scope": "Frozen independent optical CMD:212+203 candidates, not certified cluster members. Same r0 optical denominator and original0.8 shape. Old vs full2D/sky geometry conditional on old C0; unique static optical match0.7arcsec/0.3arcsec. Raw input counts use physical1arcsec. Actual CCD polygon/reference/depth opportunities, brightness from retrieved same-band data: missing bands and internal effective-pixel masks stay unknown. Static footprint proxy cannot certify high motion or subarcsec edges. No image extraction completeness claim."
+}

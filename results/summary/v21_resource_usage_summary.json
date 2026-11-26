@@ -1,0 +1,175 @@
+{
+  "jobs": [
+    {
+      "slurm_job": "62014996",
+      "role": "registration",
+      "state": "COMPLETED",
+      "elapsed_seconds": 40,
+      "billing_tres": 6,
+      "allocated_cpu": 6,
+      "requested_memory": "8G",
+      "estimated_billing_cpu_node_hours": 0.00026041666666666666,
+      "maximum_reported_step_rss_gib": 0.8772697448730469
+    },
+    {
+      "slurm_job": "62015306",
+      "role": "fixed_covariance_pilot",
+      "state": "COMPLETED",
+      "elapsed_seconds": 74,
+      "billing_tres": 10,
+      "allocated_cpu": 10,
+      "requested_memory": "16G",
+      "estimated_billing_cpu_node_hours": 0.0008029513888888889,
+      "maximum_reported_step_rss_gib": 1.2197227478027344
+    },
+    {
+      "slurm_job": "62015531",
+      "role": "fixed_covariance16",
+      "state": "COMPLETED",
+      "elapsed_seconds": 112,
+      "billing_tres": 8,
+      "allocated_cpu": 8,
+      "requested_memory": "12G",
+      "estimated_billing_cpu_node_hours": 0.0009722222222222222,
+      "maximum_reported_step_rss_gib": 4.329929351806641
+    },
+    {
+      "slurm_job": "62015775",
+      "role": "failed_schema_export",
+      "state": "FAILED",
+      "elapsed_seconds": 134,
+      "billing_tres": 8,
+      "allocated_cpu": 8,
+      "requested_memory": "12G",
+      "estimated_billing_cpu_node_hours": 0.0011631944444444443,
+      "maximum_reported_step_rss_gib": 0.10125732421875
+    },
+    {
+      "slurm_job": "62016076",
+      "role": "angular_pilot",
+      "state": "COMPLETED",
+      "elapsed_seconds": 242,
+      "billing_tres": 8,
+      "allocated_cpu": 8,
+      "requested_memory": "12G",
+      "estimated_billing_cpu_node_hours": 0.0021006944444444445,
+      "maximum_reported_step_rss_gib": 1.7638397216796875
+    },
+    {
+      "slurm_job": "62016244",
+      "role": "reference_stars",
+      "state": "COMPLETED",
+      "elapsed_seconds": 166,
+      "billing_tres": 6,
+      "allocated_cpu": 6,
+      "requested_memory": "8G",
+      "estimated_billing_cpu_node_hours": 0.0010807291666666667,
+      "maximum_reported_step_rss_gib": 1.6723289489746094
+    },
+    {
+      "slurm_job": "62016271",
+      "role": "angular16",
+      "state": "COMPLETED",
+      "elapsed_seconds": 772,
+      "billing_tres": 10,
+      "allocated_cpu": 10,
+      "requested_memory": "16G",
+      "estimated_billing_cpu_node_hours": 0.00837673611111111,
+      "maximum_reported_step_rss_gib": 5.0110931396484375
+    },
+    {
+      "slurm_job": "62016379",
+      "role": "candidate_full_competition",
+      "state": "COMPLETED",
+      "elapsed_seconds": 685,
+      "billing_tres": 10,
+      "allocated_cpu": 10,
+      "requested_memory": "16G",
+      "estimated_billing_cpu_node_hours": 0.007432725694444444,
+      "maximum_reported_step_rss_gib": 15.95486068725586
+    },
+    {
+      "slurm_job": "62016945",
+      "role": "stellar_K_NGC_QSO",
+      "state": "COMPLETED",
+      "elapsed_seconds": 234,
+      "billing_tres": 6,
+      "allocated_cpu": 6,
+      "requested_memory": "10G",
+      "estimated_billing_cpu_node_hours": 0.0015234375,
+      "maximum_reported_step_rss_gib": 1.9940681457519531
+    },
+    {
+      "slurm_job": "62017155",
+      "role": "morph_repair_symmetric_QSO",
+      "state": "COMPLETED",
+      "elapsed_seconds": 237,
+      "billing_tres": 8,
+      "allocated_cpu": 8,
+      "requested_memory": "12G",
+      "estimated_billing_cpu_node_hours": 0.0020572916666666665,
+      "maximum_reported_step_rss_gib": 11.954875946044922
+    },
+    {
+      "slurm_job": "62017532",
+      "role": "identity_reference_metadata",
+      "state": "COMPLETED",
+      "elapsed_seconds": 141,
+      "billing_tres": 8,
+      "allocated_cpu": 8,
+      "requested_memory": "12G",
+      "estimated_billing_cpu_node_hours": 0.0012239583333333334,
+      "maximum_reported_step_rss_gib": 11.954925537109375
+    },
+    {
+      "slurm_job": "62017910",
+      "role": "native_colours",
+      "state": "COMPLETED",
+      "elapsed_seconds": 26,
+      "billing_tres": 4,
+      "allocated_cpu": 4,
+      "requested_memory": "4G",
+      "estimated_billing_cpu_node_hours": 0.00011284722222222222,
+      "maximum_reported_step_rss_gib": null
+    },
+    {
+      "slurm_job": "62018123",
+      "role": "continuity_old_gauge_probe",
+      "state": "COMPLETED",
+      "elapsed_seconds": 24,
+      "billing_tres": 4,
+      "allocated_cpu": 4,
+      "requested_memory": "4G",
+      "estimated_billing_cpu_node_hours": 0.00010416666666666667,
+      "maximum_reported_step_rss_gib": null
+    },
+    {
+      "slurm_job": "62018626",
+      "role": "actual_gauge_quality",
+      "state": "COMPLETED",
+      "elapsed_seconds": 81,
+      "billing_tres": 6,
+      "allocated_cpu": 6,
+      "requested_memory": "8G",
+      "estimated_billing_cpu_node_hours": 0.00052734375,
+      "maximum_reported_step_rss_gib": 1.6189918518066406
+    }
+  ],
+  "allocated_jobs": 14,
+  "failed_allocated_jobs": 1,
+  "total_billing_normalized_cpu_node_hours": 0.027738715277777777,
+  "total_budget": 5,
+  "candidate_including_shared_followup_jobs_upper_bound_cpu_node_hours": 0.01081814236111111,
+  "candidate_target": 1,
+  "unallocated_submission_rejections": [
+    "shared_interactive forbids sbatch",
+    "third shared submission rejected by QOSMaxSubmitJobPerUserLimit"
+  ],
+  "scratch_version_snapshot": {
+    "bytes": 1589433635,
+    "files": 6009,
+    "is_peak_measurement": false
+  },
+  "all_jobs_terminal": true,
+  "scope": "Slurm top-level elapsed \u00d7 actual billingTRES /256 /3600; includes failed allocation and invalid morphology/gauge probes. Not independently audited Iris charges. Peak is maximum sampled step RSS, not worker sum; zero/unrecorded short-step RSS kept null. Candidate upper bound includes entire shared followup jobs. No new sky production."
+}

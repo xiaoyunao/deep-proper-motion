@@ -1,0 +1,8 @@
+{
+  "original_readout_sha256": "5bc63f111c0a3f03f8fc920b56a2bb96edc97af552924fc6d3d0b7dfc8644ea2",
+  "extended_readout_sha256": "0e9ef8975eae9076ad686616ab84ce57da5b72c4162c5c32b7e7591c3ff8f232",
+  "all_existing_aggregate_fields_identical": true,
+  "added_source_magnitude_counts_close_to_accepted": true,
+  "slurm_job": "62049478",
+  "scope": "Read-only aggregation of the frozen accepted catalogue. No refitting, selection, source membership or quality changes. Source r bins use actual adopted NSC/SDSS r, distinct from independent spectral r validation bins."
+}

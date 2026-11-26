@@ -1,0 +1,31 @@
+{
+  "registered_cores_checked": 2875,
+  "baseline_retained_solutions": 15625958,
+  "new_retained_solutions": 15858226,
+  "reference_component_models": {
+    "0": "31a90619ed8d470eb7f53ce578ab9d4166ea3b4bd99936c88bcba9ad424f9b5d",
+    "1": "44b9129553676106d470da4acc4007d3133fa1dc6550c7c72fdaf4de453ef233",
+    "2": "f4a38f808cf7e5162e7bce6502dbaa9700d7ba021a1376d47f51fb48902479e2"
+  },
+  "source_implementation_sha256": "f7916c4cbec7f8219035791ef52a66a1224d058147628a7e0aa9aaeee9b40513",
+  "full_target_dispatch_and_final_source_index_bindings_valid": true,
+  "corrected_NGC_output_unchanged": true,
+  "fixed_spectral_identity_status": {
+    "computed": 287864
+  },
+  "scientific_output_sha256": {
+    "catalogue/v22_catalogue_ownership_summary.json": "fed1f95f7e13e134723a4fe454762c0aa5701feb6d0808cf0c1c7c053654d342",
+    "catalogue/v22_catalogue_spatial_support_summary.json": "420fa0c5fde744142c997a07c52c669c07ee792fc22672eec16af34f341c9cb3",
+    "catalogue/v22_production_selection_summary.json": "0e9ef8975eae9076ad686616ab84ce57da5b72c4162c5c32b7e7591c3ff8f232",
+    "catalogue/v22_source_magnitude_readout_validation_summary.json": "8bbafaa92edb41fff7ec1e85864a07d6d969c95db5b18ec81770046bf9b345d9",
+    "continuity/v22_global_member_continuity_summary.json": "d84244030d5b50d1d9ee2a6cd7ba5ca3cdaa9d90b7f11d01cdbc0c310066d0d1",
+    "quality/v22_global_QSO_quality_summary.json": "4db02d4e9028077bdc1634f93e61dd060b8220d6fa49fada9064304b36433c07",
+    "quality/v22_historical_run_quality_summary.json": "a3d685f3821024d26c0ec602364f8e63d5779151d5345027f7c3ab2c55841f57",
+    "ngc/v22_fixed_ngc_bright_dark_summary.json": "a792eff95aac58d67f04d2a4514bb17cdac90b66ad195ee73082715cb251bd3e",
+    "ngc/v22_ngc_readout_integrity_summary.json": "bd41bf93c35e44ff2b60ff95a7e2ddbbcf13bd18eaf11012d4d0402e5ba805b9",
+    "area/v22_native_opportunity_area_summary.json": "fb2b167382469c4d9a375dead815b9be3f70de20f2b0c3bc041fea9a14875bc8",
+    "graph/v22_global_graph_summary.json": "f28add41fdc2d91f821d6e0a36b63edce0d8a296375c663b8f37de945b5fbd0f"
+  },
+  "slurm_job": "62052901",
+  "scope": "All requested scientific stages bound to signed full-target dispatch, common reference versions and final source indices. The original post driver retains its older serialized-NGC failure; the separately successful corrected NGC step is authoritative. Numerical/data completion is not certification of stellar identity, spatial zero or unmodelled night/colour systematics. No source fit, calibration, selection or statistical definition changed in this final check."
+}

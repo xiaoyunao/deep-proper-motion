@@ -1,0 +1,15 @@
+{
+  "exact_members": 15180270,
+  "changed_members_mutual_unique": 354358,
+  "old_retained": 15625958,
+  "new_retained": 15858226,
+  "old_without_exact_or_unique_continuity": 91330,
+  "new_without_exact_or_unique_continuity": 323598,
+  "old_changed_with_multiple_overlap_hypotheses": 128,
+  "new_changed_with_multiple_overlap_hypotheses": 298,
+  "overlap_pairs": 423847,
+  "cross_core_unique_changed_links": 0,
+  "minimum_both_member_fraction": 0.6,
+  "slurm_job": "62049478",
+  "scope": "All changed-member hypotheses compete across origin cores by physical detection IDs after exact global identities and new quarantine are accounted for. Bidirectionally unique maximum shared-member count, >=60% each. Unlinked/changed membership is not a discovered or missing physical star. Split/merge counts describe competing overlaps, not confirmed astrophysical fragmentation."
+}

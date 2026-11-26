@@ -1,0 +1,27 @@
+{
+  "origin_research_solutions": 15858247,
+  "retained_common_epoch_solutions": 15858226,
+  "occupied_nside128_pixels": 15037,
+  "by_class": {
+    "extra_r_anchor": 3574129,
+    "non_r_anchor": 102571,
+    "r_existing": 12181526
+  },
+  "nominal_registered_area_sqdeg": 2751.4464042623695,
+  "exterior_archived": 21,
+  "exact_identical_member_state_clones_collapsed": 0,
+  "competing_source_quarantine": 0,
+  "shared_detection_claims": 0,
+  "exact_physical_members_common": 15180270,
+  "old_retained_solutions": 15625958,
+  "private_input_binding_sha256": "38cf685c41b6ac7ffacc3733d96b0cf86a48401f45a250f11c54cfc463064968",
+  "slurm_job": "62049478",
+  "scope": "Full-source native ICRS/J2015.5 catalogue. Owner remapping leaves state/covariance/members unchanged. Exterior archived; exact-member clones only collapse if reference/state/covariance/owner agree within numerical tolerance, canonical origin-owner then source index. Any remaining shared detection quarantines competing raw solutions pending explicit local audit. Occupied HEALPix pixels are not effective or certified area. Exact membership does not certify a true star; changed-member continuity follows separately.",
+  "origin_scope_r_controls": {
+    "physical_r": 12192322,
+    "legacy_r": 12192462,
+    "all_band": 15858247,
+    "all_band_minus_physical_r": 3665925,
+    "scope": "Same frozen inputs/coordinate model, counts per origin-core before common-epoch transfer and global identity exclusions. This net is an origin-stage comparison; never subtract origin r counts from the final global accepted all-band count."
+  }
+}

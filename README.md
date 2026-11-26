@@ -1,6 +1,6 @@
 # deep-proper-motion
 
-当前科研阶段为 **v2.2 现有覆盖完整坐标一致更新**。原2,751.446平方度、15,625,958个全波段科研解冻结；完整三个参考分量与各48同步draw已完成，全部2875核心的源更新和签名检查已完成，归属与最终科学质量读出仍执行中。新版使用完整二维几何、真实球面距离和实际测量处的原生参考支持；未添加主目录颜色/DCR模型。 [执行中报告](reports/experiment_A_v2.2_full_coordinate.md) · [实际方法](docs/method_status_v22.md) · [运行与恢复](docs/running_v22.md) · [当前计划](PLAN.md)
+当前已完成 **v2.2 现有覆盖的完整坐标一致更新**：2,751.446平方度、2,875核心，保留15,858,226个科研自行解。三完整二维参考图与各48同步draw、球面关联、原生参考支持和标准ICRS4×4全部完成。严格共同QSO21–22/22–23等相对Xiao2025的P68改善15.08%/24.70%，但普通新区单run和绝对零点仍有限制；没有采用新的主目录颜色/DCR项。 [中文科学报告](reports/experiment_A_v2.2_full_coordinate.md) · [精简统计](results/summary/v22_key_science_summary.json) · [实际方法](docs/method_status_v22.md) · [运行与恢复](docs/running_v22.md) · [当前计划](PLAN.md)
 
 
 SDSS+NSC DR2 多历元自行可行性实验 A。**实验性研究代码，尚未达到正式自行星表的验证与发布标准。**

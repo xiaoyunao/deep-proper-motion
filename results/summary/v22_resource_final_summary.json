@@ -1,0 +1,1001 @@
+{
+  "snapshot_utc": "2026-11-26T21:23:48.391854+00:00",
+  "parents": {
+    "62036814": {
+      "state": "CANCELLED by 106645",
+      "elapsed_seconds": 118,
+      "allocated_tres": "billing=12,cpu=12,energy=38314,mem=20G,node=1",
+      "total_cpu": "05:57.695",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 12.0,
+      "cpu_node_hours": 0.0015364583333333335
+    },
+    "62036842": {
+      "state": "FAILED",
+      "elapsed_seconds": 16,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:06.336",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 12.0,
+      "cpu_node_hours": 0.00020833333333333332
+    },
+    "62036857": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 59,
+      "allocated_tres": "billing=12,cpu=12,energy=12791,mem=20G,node=1",
+      "total_cpu": "00:20.255",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 12.0,
+      "cpu_node_hours": 0.0007682291666666667
+    },
+    "62036896": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1928,
+      "allocated_tres": "billing=52,cpu=52,energy=714153,mem=96G,node=1",
+      "total_cpu": "06:16:04",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 52.0,
+      "cpu_node_hours": 0.10878472222222223
+    },
+    "62036919": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 37,
+      "allocated_tres": "billing=10,cpu=10,energy=13093,mem=16G,node=1",
+      "total_cpu": "00:10.077",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 10.0,
+      "cpu_node_hours": 0.00040147569444444443
+    },
+    "62037022": {
+      "state": "FAILED",
+      "elapsed_seconds": 49,
+      "allocated_tres": "billing=10,cpu=10,energy=11344,mem=16G,node=1",
+      "total_cpu": "00:15.817",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 10.0,
+      "cpu_node_hours": 0.0005316840277777777
+    },
+    "62037151": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 183,
+      "allocated_tres": "billing=12,cpu=12,energy=65524,mem=20G,node=1",
+      "total_cpu": "05:46.012",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 12.0,
+      "cpu_node_hours": 0.0023828125
+    },
+    "62037358": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 67,
+      "allocated_tres": "billing=12,cpu=12,energy=21657,mem=20G,node=1",
+      "total_cpu": "00:42.675",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 12.0,
+      "cpu_node_hours": 0.0008723958333333333
+    },
+    "62037412": {
+      "state": "FAILED",
+      "elapsed_seconds": 30,
+      "allocated_tres": "billing=12,cpu=12,energy=10960,mem=20G,node=1",
+      "total_cpu": "00:11.147",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 12.0,
+      "cpu_node_hours": 0.000390625
+    },
+    "62037821": {
+      "state": "FAILED",
+      "elapsed_seconds": 291,
+      "allocated_tres": "billing=36,cpu=36,energy=99131,mem=64G,node=1",
+      "total_cpu": "22:20.624",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 36.0,
+      "cpu_node_hours": 0.011367187499999999
+    },
+    "62037901": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 45,
+      "allocated_tres": "billing=8,cpu=8,energy=11621,mem=12G,node=1",
+      "total_cpu": "00:06.767",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 8.0,
+      "cpu_node_hours": 0.000390625
+    },
+    "62038110": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1901,
+      "allocated_tres": "billing=36,cpu=36,energy=644827,mem=64G,node=1",
+      "total_cpu": "01:33:02",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 36.0,
+      "cpu_node_hours": 0.07425781249999999
+    },
+    "62038508": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 286,
+      "allocated_tres": "billing=12,cpu=12,energy=92697,mem=20G,node=1",
+      "total_cpu": "07:50.600",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 12.0,
+      "cpu_node_hours": 0.0037239583333333335
+    },
+    "62039535": {
+      "state": "FAILED",
+      "elapsed_seconds": 23,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "total_cpu": "00:03.500",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 26.0,
+      "cpu_node_hours": 0.0006488715277777778
+    },
+    "62039600": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 178,
+      "allocated_tres": "billing=26,cpu=26,energy=49428,mem=48G,node=1",
+      "total_cpu": "05:59.309",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 26.0,
+      "cpu_node_hours": 0.005021701388888889
+    },
+    "62039618": {
+      "state": "CANCELLED by 106645",
+      "elapsed_seconds": 368,
+      "allocated_tres": "billing=10,cpu=10,energy=114011,mem=16G,node=1",
+      "total_cpu": "10:43.138",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 10.0,
+      "cpu_node_hours": 0.003993055555555556
+    },
+    "62039698": {
+      "state": "FAILED",
+      "elapsed_seconds": 46,
+      "allocated_tres": "billing=88,cpu=88,energy=9784,mem=160G,node=1",
+      "total_cpu": "00:16.838",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 88.0,
+      "cpu_node_hours": 0.004392361111111112
+    },
+    "62039734": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 4422,
+      "allocated_tres": "billing=88,cpu=88,energy=1300569,mem=160G,node=1",
+      "total_cpu": "02:18:18",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 88.0,
+      "cpu_node_hours": 0.42223958333333333
+    },
+    "62039746": {
+      "state": "CANCELLED by 106645",
+      "elapsed_seconds": 167,
+      "allocated_tres": "billing=104,cpu=104,energy=45646,mem=192G,node=1",
+      "total_cpu": "03:04.873",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 0.01884548611111111
+    },
+    "62039805": {
+      "state": "CANCELLED by 106645",
+      "elapsed_seconds": 1466,
+      "allocated_tres": "billing=104,cpu=104,energy=523661,mem=192G,node=1",
+      "total_cpu": "03:23:39",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 0.16543402777777777
+    },
+    "62040359": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 3626,
+      "allocated_tres": "billing=104,cpu=104,energy=1501320,mem=192G,node=1",
+      "total_cpu": "16:54:46",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 0.4091840277777778
+    },
+    "62041280": {
+      "state": "CANCELLED by 106645",
+      "elapsed_seconds": 8114,
+      "allocated_tres": "billing=104,cpu=104,energy=3291419,mem=192G,node=1",
+      "total_cpu": "14:47:27",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 0.9156423611111112
+    },
+    "62041938": {
+      "state": "CANCELLED by 106645",
+      "elapsed_seconds": 9261,
+      "allocated_tres": "billing=104,cpu=104,energy=3660947,mem=192G,node=1",
+      "total_cpu": "1-01:02:28",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 1.0450781249999999
+    },
+    "62046332": {
+      "state": "CANCELLED by 106645",
+      "elapsed_seconds": 2570,
+      "allocated_tres": "billing=104,cpu=104,energy=1324033,mem=192G,node=1",
+      "total_cpu": "04:35:13",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 0.2900173611111111
+    },
+    "62047827": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1739,
+      "allocated_tres": "billing=104,cpu=104,energy=648895,mem=192G,node=1",
+      "total_cpu": "12:50:04",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 0.19624131944444445
+    },
+    "62048367": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 2923,
+      "allocated_tres": "billing=104,cpu=104,energy=1353511,mem=192G,node=1",
+      "total_cpu": "1-00:24:47",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 104.0,
+      "cpu_node_hours": 0.3298524305555556
+    },
+    "62049478": {
+      "state": "FAILED",
+      "elapsed_seconds": 6879,
+      "allocated_tres": "billing=70,cpu=70,energy=2606291,mem=128G,node=1",
+      "total_cpu": "03:49:03",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 70.0,
+      "cpu_node_hours": 0.5224934895833333
+    },
+    "62052901": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 619,
+      "allocated_tres": "billing=10,cpu=10,energy=235393,mem=16G,node=1",
+      "total_cpu": "02:05.831",
+      "maximum_rss": "",
+      "billing_logical_cpu_equivalent": 10.0,
+      "cpu_node_hours": 0.0067165798611111115
+    }
+  },
+  "steps": {
+    "62036814.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 120,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62036814.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 114,
+      "allocated_tres": "cpu=8,mem=20G,node=1",
+      "total_cpu": "05:57.695",
+      "maximum_rss": "9030868K"
+    },
+    "62036842.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 19,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62036842.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 15,
+      "allocated_tres": "cpu=8,mem=20G,node=1",
+      "total_cpu": "00:06.336",
+      "maximum_rss": "0"
+    },
+    "62036857.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 59,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62036857.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 58,
+      "allocated_tres": "cpu=8,mem=20G,node=1",
+      "total_cpu": "00:20.255",
+      "maximum_rss": "359900K"
+    },
+    "62036896.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1928,
+      "allocated_tres": "billing=52,cpu=52,mem=96G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62036896.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1924,
+      "allocated_tres": "cpu=32,mem=96G,node=1",
+      "total_cpu": "06:16:04",
+      "maximum_rss": "63864704K"
+    },
+    "62036919.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 37,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62036919.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 30,
+      "allocated_tres": "cpu=8,mem=16G,node=1",
+      "total_cpu": "00:10.077",
+      "maximum_rss": "434232K"
+    },
+    "62037022.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 49,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62037022.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 48,
+      "allocated_tres": "cpu=6,mem=16G,node=1",
+      "total_cpu": "00:15.817",
+      "maximum_rss": "1010876K"
+    },
+    "62037151.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 183,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62037151.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 177,
+      "allocated_tres": "cpu=8,mem=20G,node=1",
+      "total_cpu": "05:46.012",
+      "maximum_rss": "2592672K"
+    },
+    "62037358.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 67,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62037358.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 61,
+      "allocated_tres": "cpu=6,mem=20G,node=1",
+      "total_cpu": "00:42.675",
+      "maximum_rss": "3196468K"
+    },
+    "62037412.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 31,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62037412.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 24,
+      "allocated_tres": "cpu=8,mem=20G,node=1",
+      "total_cpu": "00:11.147",
+      "maximum_rss": "0"
+    },
+    "62037821.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 291,
+      "allocated_tres": "billing=36,cpu=36,mem=64G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62037821.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 289,
+      "allocated_tres": "cpu=16,mem=64G,node=1",
+      "total_cpu": "22:20.624",
+      "maximum_rss": "67062088K"
+    },
+    "62037901.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 45,
+      "allocated_tres": "billing=8,cpu=8,mem=12G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62037901.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 37,
+      "allocated_tres": "cpu=6,mem=12G,node=1",
+      "total_cpu": "00:06.767",
+      "maximum_rss": "147880K"
+    },
+    "62038110.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1903,
+      "allocated_tres": "billing=36,cpu=36,mem=64G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62038110.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1899,
+      "allocated_tres": "cpu=16,mem=64G,node=1",
+      "total_cpu": "01:33:02",
+      "maximum_rss": "67063416K"
+    },
+    "62038508.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 286,
+      "allocated_tres": "billing=12,cpu=12,mem=20G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62038508.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 283,
+      "allocated_tres": "cpu=8,mem=20G,node=1",
+      "total_cpu": "07:50.600",
+      "maximum_rss": "7163280K"
+    },
+    "62039535.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 26,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62039535.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 22,
+      "allocated_tres": "cpu=16,mem=48G,node=1",
+      "total_cpu": "00:03.500",
+      "maximum_rss": "0"
+    },
+    "62039600.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 180,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62039600.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 176,
+      "allocated_tres": "cpu=16,mem=48G,node=1",
+      "total_cpu": "05:59.309",
+      "maximum_rss": "27466308K"
+    },
+    "62039618.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 370,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62039618.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 364,
+      "allocated_tres": "cpu=8,mem=16G,node=1",
+      "total_cpu": "10:43.138",
+      "maximum_rss": "388188K"
+    },
+    "62039698.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 50,
+      "allocated_tres": "billing=88,cpu=88,mem=160G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62039698.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 41,
+      "allocated_tres": "cpu=64,mem=160G,node=1",
+      "total_cpu": "00:16.838",
+      "maximum_rss": "339796K"
+    },
+    "62039734.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 4424,
+      "allocated_tres": "billing=88,cpu=88,mem=160G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62039734.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 4417,
+      "allocated_tres": "cpu=32,mem=160G,node=1",
+      "total_cpu": "02:05:18",
+      "maximum_rss": "43639012K"
+    },
+    "62039734.7": {
+      "state": "CANCELLED by 0",
+      "elapsed_seconds": 30,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "total_cpu": "00:06.356",
+      "maximum_rss": "0"
+    },
+    "62039734.12": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 332,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "total_cpu": "04:48.805",
+      "maximum_rss": "12462224K"
+    },
+    "62039734.22": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 424,
+      "allocated_tres": "cpu=4,mem=40G,node=1",
+      "total_cpu": "06:13.006",
+      "maximum_rss": "30045668K"
+    },
+    "62039734.24": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 23,
+      "allocated_tres": "cpu=2,mem=4G,node=1",
+      "total_cpu": "00:03.610",
+      "maximum_rss": "0"
+    },
+    "62039734.37": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 77,
+      "allocated_tres": "cpu=4,mem=24G,node=1",
+      "total_cpu": "00:54.947",
+      "maximum_rss": "3152668K"
+    },
+    "62039734.38": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 21,
+      "allocated_tres": "cpu=2,mem=4G,node=1",
+      "total_cpu": "00:04.365",
+      "maximum_rss": "0"
+    },
+    "62039734.43": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 3,
+      "allocated_tres": "cpu=2,mem=4G,node=1",
+      "total_cpu": "00:00.419",
+      "maximum_rss": "0"
+    },
+    "62039734.50": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 9,
+      "allocated_tres": "cpu=2,mem=4G,node=1",
+      "total_cpu": "00:03.314",
+      "maximum_rss": "0"
+    },
+    "62039734.67": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 317,
+      "allocated_tres": "cpu=8,mem=24G,node=1",
+      "total_cpu": "00:44.556",
+      "maximum_rss": "773368K"
+    },
+    "62039734.74": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 157,
+      "allocated_tres": "cpu=4,mem=12G,node=1",
+      "total_cpu": "00:01.048",
+      "maximum_rss": "85844K"
+    },
+    "62039746.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 168,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62039746.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 163,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "03:04.873",
+      "maximum_rss": "2096016K"
+    },
+    "62039805.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1472,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62039805.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 1464,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "03:23:39",
+      "maximum_rss": "24737308K"
+    },
+    "62040359.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 3629,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62040359.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 3619,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "16:54:46",
+      "maximum_rss": "94645988K"
+    },
+    "62041280.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 8126,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62041280.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 8121,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "13:16:43",
+      "maximum_rss": "63564444K"
+    },
+    "62041280.1": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 248,
+      "allocated_tres": "cpu=4,mem=12G,node=1",
+      "total_cpu": "00:13.810",
+      "maximum_rss": "406576K"
+    },
+    "62041280.2": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 157,
+      "allocated_tres": "cpu=1,mem=2G,node=1",
+      "total_cpu": "00:04.210",
+      "maximum_rss": "123240K"
+    },
+    "62041280.3": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 153,
+      "allocated_tres": "cpu=2,mem=4G,node=1",
+      "total_cpu": "00:05.516",
+      "maximum_rss": "127680K"
+    },
+    "62041280.4": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 235,
+      "allocated_tres": "cpu=8,mem=20G,node=1",
+      "total_cpu": "10:13.484",
+      "maximum_rss": "20970312K"
+    },
+    "62041280.5": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 0,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:00.194",
+      "maximum_rss": "0"
+    },
+    "62041280.6": {
+      "state": "FAILED",
+      "elapsed_seconds": 117,
+      "allocated_tres": "cpu=6,mem=20G,node=1",
+      "total_cpu": "03:27.741",
+      "maximum_rss": "1859940K"
+    },
+    "62041280.7": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 963,
+      "allocated_tres": "cpu=8,mem=16G,node=1",
+      "total_cpu": "01:00:33",
+      "maximum_rss": "2127424K"
+    },
+    "62041280.8": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 487,
+      "allocated_tres": "cpu=6,mem=20G,node=1",
+      "total_cpu": "14:46.474",
+      "maximum_rss": "1618540K"
+    },
+    "62041280.9": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 12,
+      "allocated_tres": "cpu=1,mem=2G,node=1",
+      "total_cpu": "00:04.804",
+      "maximum_rss": "0"
+    },
+    "62041280.10": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 77,
+      "allocated_tres": "cpu=4,mem=12G,node=1",
+      "total_cpu": "00:22.069",
+      "maximum_rss": "263008K"
+    },
+    "62041280.11": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 69,
+      "allocated_tres": "cpu=2,mem=4G,node=1",
+      "total_cpu": "00:10.863",
+      "maximum_rss": "132848K"
+    },
+    "62041280.12": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 41,
+      "allocated_tres": "cpu=2,mem=8G,node=1",
+      "total_cpu": "00:08.393",
+      "maximum_rss": "117084K"
+    },
+    "62041280.13": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 53,
+      "allocated_tres": "cpu=4,mem=8G,node=1",
+      "total_cpu": "00:16.162",
+      "maximum_rss": "119444K"
+    },
+    "62041280.14": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 4,
+      "allocated_tres": "cpu=1,mem=2G,node=1",
+      "total_cpu": "00:01.414",
+      "maximum_rss": "0"
+    },
+    "62041280.15": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 32,
+      "allocated_tres": "cpu=1,mem=4G,node=1",
+      "total_cpu": "00:04.337",
+      "maximum_rss": "142408K"
+    },
+    "62041280.16": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 8,
+      "allocated_tres": "cpu=1,mem=2G,node=1",
+      "total_cpu": "00:02.683",
+      "maximum_rss": "0"
+    },
+    "62041280.17": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 50,
+      "allocated_tres": "cpu=1,mem=2G,node=1",
+      "total_cpu": "00:07.315",
+      "maximum_rss": "119548K"
+    },
+    "62041280.18": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 154,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:01.775",
+      "maximum_rss": "13376K"
+    },
+    "62041938.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 9266,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62041938.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 9262,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "23:36:59",
+      "maximum_rss": "80488692K"
+    },
+    "62041938.1": {
+      "state": "OUT_OF_MEMORY",
+      "elapsed_seconds": 755,
+      "allocated_tres": "cpu=6,mem=16G,node=1",
+      "total_cpu": "09:18.348",
+      "maximum_rss": "16775552K"
+    },
+    "62041938.2": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:00.248",
+      "maximum_rss": "0"
+    },
+    "62041938.3": {
+      "state": "CANCELLED by 0",
+      "elapsed_seconds": 566,
+      "allocated_tres": "cpu=4,mem=48G,node=1",
+      "total_cpu": "08:32.058",
+      "maximum_rss": "10977132K"
+    },
+    "62041938.4": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 6457,
+      "allocated_tres": "cpu=6,mem=32G,node=1",
+      "total_cpu": "01:02:42",
+      "maximum_rss": "10341100K"
+    },
+    "62041938.5": {
+      "state": "FAILED",
+      "elapsed_seconds": 74,
+      "allocated_tres": "cpu=4,mem=8G,node=1",
+      "total_cpu": "00:05.523",
+      "maximum_rss": "118252K"
+    },
+    "62041938.6": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 83,
+      "allocated_tres": "cpu=4,mem=8G,node=1",
+      "total_cpu": "00:11.904",
+      "maximum_rss": "117272K"
+    },
+    "62041938.7": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 426,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:03.246",
+      "maximum_rss": "11976K"
+    },
+    "62041938.8": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 141,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "total_cpu": "04:36.427",
+      "maximum_rss": "2372888K"
+    },
+    "62046332.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 2574,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62046332.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 2567,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "04:35:04",
+      "maximum_rss": "57717792K"
+    },
+    "62046332.1": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1153,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:08.364",
+      "maximum_rss": "13336K"
+    },
+    "62046332.2": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1,
+      "allocated_tres": "cpu=1,mem=512M,node=1",
+      "total_cpu": "00:00.282",
+      "maximum_rss": "0"
+    },
+    "62046332.3": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1,
+      "allocated_tres": "cpu=1,mem=512M,node=1",
+      "total_cpu": "00:00.149",
+      "maximum_rss": "0"
+    },
+    "62047827.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1739,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62047827.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1736,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "12:50:04",
+      "maximum_rss": "86293252K"
+    },
+    "62048367.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 2925,
+      "allocated_tres": "billing=104,cpu=104,mem=192G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62048367.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 2918,
+      "allocated_tres": "cpu=48,mem=192G,node=1",
+      "total_cpu": "1-00:11:47",
+      "maximum_rss": "70438824K"
+    },
+    "62048367.1": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 3,
+      "allocated_tres": "cpu=1,mem=512M,node=1",
+      "total_cpu": "00:00.960",
+      "maximum_rss": "0"
+    },
+    "62048367.2": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 1293,
+      "allocated_tres": "cpu=6,mem=32G,node=1",
+      "total_cpu": "12:59.057",
+      "maximum_rss": "4983256K"
+    },
+    "62049478.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 6880,
+      "allocated_tres": "billing=70,cpu=70,mem=128G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62049478.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 6873,
+      "allocated_tres": "cpu=32,mem=128G,node=1",
+      "total_cpu": "03:46:27",
+      "maximum_rss": "51247156K"
+    },
+    "62049478.1": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:00.221",
+      "maximum_rss": "0"
+    },
+    "62049478.2": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:00.183",
+      "maximum_rss": "0"
+    },
+    "62049478.3": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 34,
+      "allocated_tres": "cpu=8,mem=32G,node=1",
+      "total_cpu": "00:49.008",
+      "maximum_rss": "2797600K"
+    },
+    "62049478.4": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1,
+      "allocated_tres": "cpu=1,mem=1G,node=1",
+      "total_cpu": "00:00.198",
+      "maximum_rss": "0"
+    },
+    "62049478.5": {
+      "state": "FAILED",
+      "elapsed_seconds": 84,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "total_cpu": "00:49.326",
+      "maximum_rss": "1788648K"
+    },
+    "62049478.6": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 113,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "total_cpu": "00:56.538",
+      "maximum_rss": "1358020K"
+    },
+    "62052901.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 623,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "total_cpu": "00:00:00",
+      "maximum_rss": ""
+    },
+    "62052901.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 611,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "total_cpu": "02:05.831",
+      "maximum_rss": "1265292K"
+    }
+  },
+  "estimated_billed_cpu_node_hours": 4.541417100694444,
+  "stellar_conservative_cpu_node_hours_upper_bound": 0.44848524305555554,
+  "total_budget_cpu_node_hours": 48,
+  "stellar_budget_cpu_node_hours": 2,
+  "task_allocated_bytes_snapshot": 175542952960,
+  "task_file_count_snapshot": 79866,
+  "stellar_upper_bound_definition": "Full allocations of all dedicated or mixed old stellar jobs and the whole reference0/1 parent are conservatively charged to B; newer B-only overlap step walltime charged at its full parent allocation rate. B is contained in total, never added twice. This intentionally exceeds actual B CPU consumption.",
+  "accounting": "Terminal sacct parent AllocTRES billing/256 times ElapsedRaw hours, including every failed/cancelled/OOM allocation once; steps are diagnostic only, never double billed. Terminal scheduler accounting replaces the last in-allocation snapshot; Iris remains authoritative.",
+  "storage": "Only new v2.2 PScratch root, current allocated bytes/files; originals and historical caches excluded, not peak or user quota.",
+  "unallocated_submission_rejections": [
+    "shared_interactive sbatch unsupported",
+    "QOSMaxSubmitJobPerUserLimit before final12 allocation; waited for completed predecessor"
+  ],
+  "scope": "Memory is measured per-step MaxRSS and per-process science receipts, not claimed simultaneous node aggregate. No periodic touch or Home data copy.",
+  "terminal_accounting_verified": true,
+  "all_v22_allocations_terminal": true,
+  "storage_snapshot_note": "Storage bytes/file count are from the original final in-allocation snapshot, not a peak/quota or a second filesystem scan.",
+  "terminal_accounting_retrieved_utc": "2026-11-26T21:26:53.655416+00:00",
+  "task_inode_count_metadata_snapshot": 93496,
+  "inode_measurement": "GNU du --inodes -s on the bounded new task root, no symlink target traversal; counts filesystem inodes including directories, distinct from prior regular-file count. Read-only administrative metadata after final Slurm completion; not quota or peak.",
+  "inode_snapshot_recorded_utc": "2026-11-26T21:30:19.017008+00:00"
+}

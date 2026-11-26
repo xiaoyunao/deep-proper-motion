@@ -1,0 +1,596 @@
+{
+  "origin_counts": {
+    "research_solutions": 15858247,
+    "r_control_solutions": 12192462,
+    "physical_r_control_solutions": 12192322,
+    "class__r_existing": 12181542,
+    "class__extra_r_anchor": 3574134,
+    "class__non_r_anchor": 102571
+  },
+  "selection_funnel": {
+    "legacy_r/lt20/initial": 7373402,
+    "legacy_r/lt20/sdss_nearby": 6383167,
+    "legacy_r/lt20/associated": 6366828,
+    "legacy_r/lt20/fit_eligible": 4921118,
+    "legacy_r/lt20/calibrated": 4917531,
+    "legacy_r/lt20/final": 4908577,
+    "legacy_r/lt20/insufficient_time_sampling": 1445710,
+    "legacy_r/lt20/no_sdss_within_fixed_gate": 990235,
+    "legacy_r/lt20/split_or_competing_track": 16339,
+    "legacy_r/20_to_21/initial": 4955136,
+    "legacy_r/20_to_21/sdss_nearby": 3290047,
+    "legacy_r/20_to_21/associated": 3283585,
+    "legacy_r/20_to_21/fit_eligible": 2632166,
+    "legacy_r/20_to_21/calibrated": 2631859,
+    "legacy_r/20_to_21/final": 2616194,
+    "legacy_r/20_to_21/no_sdss_within_fixed_gate": 1665089,
+    "legacy_r/20_to_21/insufficient_time_sampling": 651419,
+    "legacy_r/20_to_21/split_or_competing_track": 6462,
+    "legacy_r/21_to_22/initial": 6017243,
+    "legacy_r/21_to_22/sdss_nearby": 4745349,
+    "legacy_r/21_to_22/associated": 4740837,
+    "legacy_r/21_to_22/fit_eligible": 3770720,
+    "legacy_r/21_to_22/calibrated": 3770708,
+    "legacy_r/21_to_22/final": 3446210,
+    "legacy_r/21_to_22/insufficient_time_sampling": 970117,
+    "legacy_r/21_to_22/no_sdss_within_fixed_gate": 1271894,
+    "legacy_r/21_to_22/split_or_competing_track": 4512,
+    "legacy_r/21_to_22/final_quality_rejection": 324498,
+    "legacy_r/22_to_23/initial": 3193453,
+    "legacy_r/22_to_23/sdss_nearby": 2317048,
+    "legacy_r/22_to_23/associated": 2315195,
+    "legacy_r/22_to_23/fit_eligible": 1792333,
+    "legacy_r/22_to_23/calibrated": 1792333,
+    "legacy_r/22_to_23/final": 1218885,
+    "legacy_r/22_to_23/no_sdss_within_fixed_gate": 876405,
+    "legacy_r/22_to_23/insufficient_time_sampling": 522862,
+    "legacy_r/22_to_23/final_quality_rejection": 573448,
+    "legacy_r/ge23/initial": 308801,
+    "legacy_r/ge23/sdss_nearby": 13527,
+    "legacy_r/ge23/associated": 13481,
+    "legacy_r/ge23/fit_eligible": 7230,
+    "legacy_r/ge23/calibrated": 7230,
+    "legacy_r/ge23/final": 2596,
+    "legacy_r/ge23/no_sdss_within_fixed_gate": 295274,
+    "physical_all_r_anchor/lt20/initial": 7372770,
+    "physical_all_r_anchor/lt20/sdss_nearby": 6382957,
+    "physical_all_r_anchor/lt20/associated": 6366621,
+    "physical_all_r_anchor/lt20/fit_eligible": 6250892,
+    "physical_all_r_anchor/lt20/calibrated": 6250762,
+    "physical_all_r_anchor/lt20/final": 6238054,
+    "physical_all_r_anchor/lt20/final_quality_rejection": 12708,
+    "physical_all_r_anchor/lt20/no_sdss_within_fixed_gate": 989813,
+    "physical_all_r_anchor/lt20/insufficient_time_sampling": 115729,
+    "physical_all_r_anchor/lt20/split_or_competing_track": 16336,
+    "physical_all_r_anchor/20_to_21/initial": 4955136,
+    "physical_all_r_anchor/20_to_21/sdss_nearby": 3290047,
+    "physical_all_r_anchor/20_to_21/associated": 3283585,
+    "physical_all_r_anchor/20_to_21/fit_eligible": 3254766,
+    "physical_all_r_anchor/20_to_21/calibrated": 3254762,
+    "physical_all_r_anchor/20_to_21/final": 3246108,
+    "physical_all_r_anchor/20_to_21/no_sdss_within_fixed_gate": 1665089,
+    "physical_all_r_anchor/20_to_21/split_or_competing_track": 6462,
+    "physical_all_r_anchor/20_to_21/final_quality_rejection": 8654,
+    "physical_all_r_anchor/21_to_22/initial": 6017243,
+    "physical_all_r_anchor/21_to_22/sdss_nearby": 4745349,
+    "physical_all_r_anchor/21_to_22/associated": 4740837,
+    "physical_all_r_anchor/21_to_22/fit_eligible": 4688451,
+    "physical_all_r_anchor/21_to_22/calibrated": 4688451,
+    "physical_all_r_anchor/21_to_22/final": 4460158,
+    "physical_all_r_anchor/21_to_22/no_sdss_within_fixed_gate": 1271894,
+    "physical_all_r_anchor/21_to_22/split_or_competing_track": 4512,
+    "physical_all_r_anchor/21_to_22/insufficient_time_sampling": 52386,
+    "physical_all_r_anchor/21_to_22/final_quality_rejection": 228293,
+    "physical_all_r_anchor/22_to_23/initial": 3193453,
+    "physical_all_r_anchor/22_to_23/sdss_nearby": 2317048,
+    "physical_all_r_anchor/22_to_23/associated": 2315195,
+    "physical_all_r_anchor/22_to_23/fit_eligible": 2271621,
+    "physical_all_r_anchor/22_to_23/calibrated": 2271621,
+    "physical_all_r_anchor/22_to_23/final": 1805972,
+    "physical_all_r_anchor/22_to_23/no_sdss_within_fixed_gate": 876405,
+    "physical_all_r_anchor/22_to_23/final_quality_rejection": 465649,
+    "physical_all_r_anchor/22_to_23/insufficient_time_sampling": 43574,
+    "physical_all_r_anchor/ge23/initial": 308801,
+    "physical_all_r_anchor/ge23/sdss_nearby": 13527,
+    "physical_all_r_anchor/ge23/associated": 13481,
+    "physical_all_r_anchor/ge23/fit_eligible": 11794,
+    "physical_all_r_anchor/ge23/calibrated": 11794,
+    "physical_all_r_anchor/ge23/final": 5384,
+    "physical_all_r_anchor/ge23/no_sdss_within_fixed_gate": 295274,
+    "non_r/all_filter_tracks": 179881029,
+    "non_r/non_r_before_quality": 2134251,
+    "non_r/non_r_time_exit": 1057903,
+    "non_r/non_r_morphology_exit": 921244,
+    "non_r/non_r_missing_survey": 119742620,
+    "non_r/non_r_ownership_exit": 32139,
+    "non_r/non_r_formal_error_exit": 19571,
+    "strict_r_solutions": 12192322,
+    "legacy_r/20_to_21/final_quality_rejection": 15665,
+    "legacy_r/lt20/final_quality_rejection": 8954,
+    "physical_all_r_anchor/20_to_21/insufficient_time_sampling": 28819,
+    "non_r/non_r_shared_detection_rejected": 566,
+    "legacy_r/ge23/insufficient_time_sampling": 6251,
+    "physical_all_r_anchor/ge23/final_quality_rejection": 6410,
+    "legacy_r/ge23/final_quality_rejection": 4634,
+    "legacy_r/22_to_23/split_or_competing_track": 1853,
+    "physical_all_r_anchor/22_to_23/split_or_competing_track": 1853,
+    "physical_all_r_anchor/ge23/insufficient_time_sampling": 1687,
+    "non_r/non_r_residual_exit": 257,
+    "legacy_r/lt20/insufficient_calibration_coverage": 3587,
+    "legacy_r/20_to_21/insufficient_calibration_coverage": 307,
+    "legacy_r/21_to_22/insufficient_calibration_coverage": 12,
+    "physical_all_r_anchor/lt20/insufficient_calibration_coverage": 130,
+    "legacy_r/ge23/split_or_competing_track": 46,
+    "physical_all_r_anchor/ge23/split_or_competing_track": 46,
+    "physical_all_r_anchor/20_to_21/insufficient_calibration_coverage": 4
+  },
+  "component_detection_applications": {
+    "2": {
+      "core_group_present": 182972946,
+      "core_local12mas_supported": 182945890
+    },
+    "1": {
+      "core_group_present": 591844573,
+      "core_local12mas_supported": 587831740
+    },
+    "0": {
+      "core_group_present": 623846053,
+      "core_local12mas_supported": 621279226
+    }
+  },
+  "core_count": 2875,
+  "summed_source_worker_elapsed_seconds": 342044.67878682713,
+  "core_elapsed_seconds_p16_p50_p84": [
+    67.78346376598813,
+    97.25890760903712,
+    150.292458211896
+  ],
+  "maximum_source_worker_elapsed_seconds": 2211.94566463097,
+  "source_workers_elapsed_ge600_seconds": 24,
+  "source_workers_elapsed_ge1800_seconds": 3,
+  "maximum_source_process_rss_mib": 27901.25390625,
+  "core_rss_mib_p16_p50_p84": [
+    958.14796875,
+    1178.0234375,
+    1570.2999999999997
+  ],
+  "source_receipt_set_sha256": "12b420bf4c30068a86413dfef70476b37be3ec310da4dc2497ea3751846dd019",
+  "accepted_observation_flags": {
+    "all_accepted": 15858226,
+    "high_physical_group_leverage": 3232692,
+    "fewer_than_three_nsc_seasons": 1240300,
+    "single_physical_SDSS_run": 7630230,
+    "multiple_physical_SDSS_runs": 8227996,
+    "unknown_or_invalid_morphology": 0,
+    "spatial_zero_uncertified": 15858226,
+    "night_correlation_unqualified": 15858226
+  },
+  "accepted_source_condition_groups": [
+    {
+      "kind": "non_r_anchor",
+      "single_run": false,
+      "source_count": 44954,
+      "independent_E_SE": [
+        2.4758515661514116,
+        3.5503731059813792,
+        5.777986479111209
+      ],
+      "independent_N_SE": [
+        2.506329321265733,
+        3.718634295367484,
+        5.85032877312702
+      ],
+      "reference_E_SE": [
+        0.04647350672847989,
+        0.07143596469106861,
+        0.12143721613858745
+      ],
+      "reference_N_SE": [
+        0.04672533035166421,
+        0.07288431705118686,
+        0.12309068336628065
+      ],
+      "NSC_nights": [
+        2.0,
+        4.0,
+        8.0
+      ],
+      "NSC_seasons": [
+        2.0,
+        2.0,
+        4.0
+      ],
+      "joint_span_years": [
+        12.706665738994872,
+        15.071161821505825,
+        18.03914797795681
+      ]
+    },
+    {
+      "kind": "non_r_anchor",
+      "single_run": true,
+      "source_count": 57617,
+      "independent_E_SE": [
+        3.991082904272118,
+        5.767643282363845,
+        8.114327418136481
+      ],
+      "independent_N_SE": [
+        4.064450082061496,
+        5.861374414186555,
+        8.180838742409366
+      ],
+      "reference_E_SE": [
+        0.04959718733664084,
+        0.08251825053001487,
+        0.14199130486845332
+      ],
+      "reference_N_SE": [
+        0.05038881850869192,
+        0.0847596518040486,
+        0.1439150371224272
+      ],
+      "NSC_nights": [
+        2.0,
+        4.0,
+        8.0
+      ],
+      "NSC_seasons": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "joint_span_years": [
+        9.613156977380074,
+        13.90861069022094,
+        16.82991749220321
+      ]
+    },
+    {
+      "kind": "extra_r_anchor",
+      "single_run": false,
+      "source_count": 1650391,
+      "independent_E_SE": [
+        2.8288910657664514,
+        4.1278786066190545,
+        6.296034189119018
+      ],
+      "independent_N_SE": [
+        2.861382708974519,
+        4.176010375094047,
+        6.300951029575669
+      ],
+      "reference_E_SE": [
+        0.04348634190989602,
+        0.06865342286398292,
+        0.09699709040179938
+      ],
+      "reference_N_SE": [
+        0.04342110800762963,
+        0.06965009704489987,
+        0.10051015517126373
+      ],
+      "NSC_nights": [
+        5.0,
+        7.0,
+        10.0
+      ],
+      "NSC_seasons": [
+        2.0,
+        3.0,
+        5.0
+      ],
+      "joint_span_years": [
+        9.937960612898316,
+        13.845233084568463,
+        16.99388308573716
+      ]
+    },
+    {
+      "kind": "extra_r_anchor",
+      "single_run": true,
+      "source_count": 1923738,
+      "independent_E_SE": [
+        4.263344376229229,
+        6.455889616342899,
+        8.589233800715514
+      ],
+      "independent_N_SE": [
+        4.325418606192209,
+        6.499185655714629,
+        8.565857789852176
+      ],
+      "reference_E_SE": [
+        0.047873677608371204,
+        0.07667676220583097,
+        0.123454990227652
+      ],
+      "reference_N_SE": [
+        0.04855986045847201,
+        0.07687550179217706,
+        0.12473271897661846
+      ],
+      "NSC_nights": [
+        5.0,
+        8.0,
+        11.0
+      ],
+      "NSC_seasons": [
+        2.0,
+        3.0,
+        5.0
+      ],
+      "joint_span_years": [
+        8.977008738593478,
+        10.042299640665533,
+        15.928810670182601
+      ]
+    },
+    {
+      "kind": "r_existing",
+      "single_run": true,
+      "source_count": 5648875,
+      "independent_E_SE": [
+        3.5116444414416566,
+        4.603637840692851,
+        6.332331790716332
+      ],
+      "independent_N_SE": [
+        3.5297000153976983,
+        4.62726717773519,
+        6.351690638351418
+      ],
+      "reference_E_SE": [
+        0.039081939874558345,
+        0.05755393643170352,
+        0.09037060615783872
+      ],
+      "reference_N_SE": [
+        0.03896343266589689,
+        0.058142581406901345,
+        0.09071681893875572
+      ],
+      "NSC_nights": [
+        7.0,
+        10.0,
+        16.0
+      ],
+      "NSC_seasons": [
+        3.0,
+        5.0,
+        6.0
+      ],
+      "joint_span_years": [
+        9.877849727603724,
+        14.73276207005506,
+        17.8808880709823
+      ]
+    },
+    {
+      "kind": "r_existing",
+      "single_run": false,
+      "source_count": 6532651,
+      "independent_E_SE": [
+        2.226664717258961,
+        3.099372755797807,
+        4.659780576085957
+      ],
+      "independent_N_SE": [
+        2.2338652618735937,
+        3.1265473265384616,
+        4.662024007295246
+      ],
+      "reference_E_SE": [
+        0.03349251619529921,
+        0.04876484972257265,
+        0.07708192764054204
+      ],
+      "reference_N_SE": [
+        0.033373894958636546,
+        0.04896777096112402,
+        0.07633968837418378
+      ],
+      "NSC_nights": [
+        7.0,
+        10.0,
+        20.0
+      ],
+      "NSC_seasons": [
+        3.0,
+        5.0,
+        6.0
+      ],
+      "joint_span_years": [
+        13.151752461080605,
+        16.010756232116137,
+        18.997747215405752
+      ]
+    }
+  ],
+  "accepted_source_r_magnitude_groups": [
+    {
+      "magnitude_bin": "r_lt20",
+      "kind": "r_existing",
+      "single_run": true,
+      "source_count": 2300518
+    },
+    {
+      "magnitude_bin": "r_lt20",
+      "kind": "non_r_anchor",
+      "single_run": true,
+      "source_count": 34921
+    },
+    {
+      "magnitude_bin": "r_ge23",
+      "kind": "extra_r_anchor",
+      "single_run": false,
+      "source_count": 458
+    },
+    {
+      "magnitude_bin": "r_21_22",
+      "kind": "extra_r_anchor",
+      "single_run": true,
+      "source_count": 560808
+    },
+    {
+      "magnitude_bin": "r_22_23",
+      "kind": "extra_r_anchor",
+      "single_run": true,
+      "source_count": 372768
+    },
+    {
+      "magnitude_bin": "r_22_23",
+      "kind": "r_existing",
+      "single_run": true,
+      "source_count": 495884
+    },
+    {
+      "magnitude_bin": "r_21_22",
+      "kind": "non_r_anchor",
+      "single_run": true,
+      "source_count": 6271
+    },
+    {
+      "magnitude_bin": "r_20_21",
+      "kind": "non_r_anchor",
+      "single_run": false,
+      "source_count": 2564
+    },
+    {
+      "magnitude_bin": "r_ge23",
+      "kind": "non_r_anchor",
+      "single_run": false,
+      "source_count": 78
+    },
+    {
+      "magnitude_bin": "r_lt20",
+      "kind": "extra_r_anchor",
+      "single_run": true,
+      "source_count": 664459
+    },
+    {
+      "magnitude_bin": "r_20_21",
+      "kind": "extra_r_anchor",
+      "single_run": false,
+      "source_count": 308822
+    },
+    {
+      "magnitude_bin": "r_22_23",
+      "kind": "non_r_anchor",
+      "single_run": true,
+      "source_count": 11548
+    },
+    {
+      "magnitude_bin": "r_ge23",
+      "kind": "r_existing",
+      "single_run": false,
+      "source_count": 1266
+    },
+    {
+      "magnitude_bin": "r_21_22",
+      "kind": "extra_r_anchor",
+      "single_run": false,
+      "source_count": 453694
+    },
+    {
+      "magnitude_bin": "r_22_23",
+      "kind": "r_existing",
+      "single_run": false,
+      "source_count": 722923
+    },
+    {
+      "magnitude_bin": "r_22_23",
+      "kind": "extra_r_anchor",
+      "single_run": false,
+      "source_count": 214394
+    },
+    {
+      "magnitude_bin": "r_21_22",
+      "kind": "non_r_anchor",
+      "single_run": false,
+      "source_count": 4072
+    },
+    {
+      "magnitude_bin": "r_20_21",
+      "kind": "non_r_anchor",
+      "single_run": true,
+      "source_count": 3872
+    },
+    {
+      "magnitude_bin": "r_ge23",
+      "kind": "non_r_anchor",
+      "single_run": true,
+      "source_count": 1005
+    },
+    {
+      "magnitude_bin": "r_20_21",
+      "kind": "r_existing",
+      "single_run": false,
+      "source_count": 1360347
+    },
+    {
+      "magnitude_bin": "r_21_22",
+      "kind": "r_existing",
+      "single_run": false,
+      "source_count": 1848084
+    },
+    {
+      "magnitude_bin": "r_20_21",
+      "kind": "r_existing",
+      "single_run": true,
+      "source_count": 1253552
+    },
+    {
+      "magnitude_bin": "r_21_22",
+      "kind": "r_existing",
+      "single_run": true,
+      "source_count": 1597593
+    },
+    {
+      "magnitude_bin": "r_20_21",
+      "kind": "extra_r_anchor",
+      "single_run": true,
+      "source_count": 323371
+    },
+    {
+      "magnitude_bin": "r_lt20",
+      "kind": "extra_r_anchor",
+      "single_run": false,
+      "source_count": 673023
+    },
+    {
+      "magnitude_bin": "r_22_23",
+      "kind": "non_r_anchor",
+      "single_run": false,
+      "source_count": 5702
+    },
+    {
+      "magnitude_bin": "r_ge23",
+      "kind": "r_existing",
+      "single_run": true,
+      "source_count": 1328
+    },
+    {
+      "magnitude_bin": "r_lt20",
+      "kind": "r_existing",
+      "single_run": false,
+      "source_count": 2600031
+    },
+    {
+      "magnitude_bin": "r_lt20",
+      "kind": "non_r_anchor",
+      "single_run": false,
+      "source_count": 32538
+    },
+    {
+      "magnitude_bin": "r_ge23",
+      "kind": "extra_r_anchor",
+      "single_run": true,
+      "source_count": 2332
+    }
+  ],
+  "source_magnitude_definition": "Actual adopted r magnitude: NSC r median where available, otherwise SDSS r. These source-count bins are not the independent spectroscopic r bins of the QSO comparisons; neither measures a photometric-parent completeness.",
+  "readout_implementation_sha256": "4f3668536ba117daed456e3db04089a507328ec4ea210c1930ca6a94e2625a4b",
+  "denominator_notes": "Origin counts and funnel stages are before common-epoch transfer/global identity exclusions. Component detection applications count normalized core positions, not globally unique measurements; do not pool across disconnected component applications. Anchors enter the r funnel after morphology and core selection, and stage counters overlap; they are not an all-photometric parent. No new selection, fit, DCR or error rescaling. Native support, spherical association and weighting changed together in the full update; these receipt counts do not causally isolate their source gains. The fixed v2.1 controlled experiments and v2.2 fixed-identity comparisons supply the separate tests. Source-worker elapsed is summed worker walltime, not CPU or allocation billing. Independent/reference SEs are conditional mas/yr, not absolute systematic uncertainties. Quality flags overlap and do not certify stellar identity or spatial zero.",
+  "slurm_job": "62049478"
+}

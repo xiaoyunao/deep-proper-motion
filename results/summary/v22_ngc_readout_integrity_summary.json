@@ -1,0 +1,16 @@
+{
+  "checked_fixed_states": 7275,
+  "by_reference_component": {
+    "2": 7275
+  },
+  "all_J2015_5_ICRS_covariances_positive": true,
+  "minimum_state_covariance_eigenvalue": 5.054684237331575,
+  "maximum_synchronous_reference_covariance_difference": 5.185296636511794e-13,
+  "private_fixed_output_sha256": "51010b577a0f06e705a55c21ce4d1b8a5e611b878836b5b9e60faed35a2fd443",
+  "public_readout_sha256": "a792eff95aac58d67f04d2a4514bb17cdac90b66ad195ee73082715cb251bd3e",
+  "ngc_implementation_sha256": "e859644a7cd77337bea1cb08694d22ba39d2a15214337f9058aa2afc5897cd9c",
+  "mean_implementation_sha256": "260128c24f11c51fbae73d5dc0a5e900c4b9408ea04ac9b65b317f80d8107f64",
+  "slurm_job": "62049478",
+  "slurm_step": "6",
+  "scope": "Full real frozen stellar readout after restoring archived JSON covariance arrays. No new target selection, colour correction or source-catalogue changes. Complete four-state conditional covariance and common48-draw response checked; cohort mean reference error remains common, not divided by source-count square root."
+}

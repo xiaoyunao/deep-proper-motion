@@ -1,0 +1,292 @@
+{
+  "baseline_review_commit": "75a7abfa883a13d649719eaefe8d676e713bb3b3",
+  "frozen_science_commit": "6faabde",
+  "source_dispatch_commit": "2d6e6a9",
+  "postprocessing_commit": "8183d6d",
+  "NGC_recovery_commit": "6b0301b",
+  "source_magnitude_readout_commit": "bd71f7d",
+  "historical_cross_readout_commit": "2fcc265",
+  "independent_g_branch_commit": "9a7d7db",
+  "complete_cores": 2875,
+  "retained_science_solutions": 15858226,
+  "all_v22_allocations_terminal": true,
+  "publication_artifacts": {
+    "AGENTS.md": {
+      "sha256": "18da2e61c720cf3caf559346a2bc318e76b2083f4e7c325813b2d2a12d07c45f",
+      "bytes": 12436
+    },
+    "PLAN.md": {
+      "sha256": "948cd96f0323b407746daa99e86feaeca5d6003481bc7639b054a5c2eaf47c0e",
+      "bytes": 15989
+    },
+    "PROJECT_CONTEXT.md": {
+      "sha256": "02d042932dbd0de371a6e584764e1084e0ddaedbff2da57150376dee24cdfc0e",
+      "bytes": 27184
+    },
+    "README.md": {
+      "sha256": "f5d0c6d9c05d6328fb36b9dade3939afec97be2ebcdb62f7c952ff621eb982e6",
+      "bytes": 11853
+    },
+    "WORKLOG.md": {
+      "sha256": "e59a32bb521e1c86e3828e11cd10837146ad10fbf229e7c4719990ffcf68169a",
+      "bytes": 162600
+    },
+    "docs/catalogue_layout_v22.md": {
+      "sha256": "44afab0f76eb5af5235660e3661b9ff658cf3010264b7daeaf4bf1554449de3b",
+      "bytes": 5046
+    },
+    "docs/full_coordinate_v22.md": {
+      "sha256": "c7a5c479f75d32701498f20dbb1559cf0f437256e3f6bd0cd61f6afbdebb51ed",
+      "bytes": 5789
+    },
+    "docs/method_status_v22.md": {
+      "sha256": "209b1bd643746d6abe09ff1a436bff02c9c92008aaca2cec336c2fd50f82b45f",
+      "bytes": 8253
+    },
+    "docs/morphology_annex_v22.md": {
+      "sha256": "b600d08860d698e9662a7916f75875b1795effa586b86f914bb24939893f6f70",
+      "bytes": 1458
+    },
+    "docs/running_v22.md": {
+      "sha256": "330de4610259c2c4d5baa7f4c4c17584977a09653f458799f3191d1fd5d8e2fe",
+      "bytes": 7076
+    },
+    "figures/v22_NGC_early_pixel_information.png": {
+      "sha256": "272fb5c4f1030a6ec0702808e115b141677d38a255ec8b55f8bb0cf38e97440f",
+      "bytes": 139507
+    },
+    "figures/v22_QSO_improvement_aitoff.png": {
+      "sha256": "f7b838226738f65797a564d44c30fdff05d0e2f5b191ce26e0d9f255b9ce6d20",
+      "bytes": 824833
+    },
+    "figures/v22_QSO_zero_coverage_r21.png": {
+      "sha256": "a8a54fd9f656c931499b27e95b85ae8301caf4fff293943c894e975ebe25d554",
+      "bytes": 834622
+    },
+    "figures/v22_QSO_zero_coverage_r22.png": {
+      "sha256": "75a9a7e168bca828b8dc6cb4d3945fd4ccc93e87b9d1d481fdea3869d4751ae7",
+      "bytes": 698330
+    },
+    "figures/v22_fixed_QSO_error_vs_chart_angle.png": {
+      "sha256": "1f4f40c7fe803bd91cab66de08e8f6bd3d06cd352e054be71325fd31644b832c",
+      "bytes": 326536
+    },
+    "figures/v22_fixed_QSO_point_gain_vs_chart_angle.png": {
+      "sha256": "cef75a5fe027e0ba469c9b16b72f3baf4f9dc47ab958a3050e02c7ac1e02a333",
+      "bytes": 153580
+    },
+    "figures/v22_source_support_aitoff.png": {
+      "sha256": "996980c47e3938e4e903d3d0628dcf03b63fe592fc79b4baa7790f71a39f919b",
+      "bytes": 798564
+    },
+    "reports/experiment_A_v2.2_full_coordinate.md": {
+      "sha256": "9661e8ac25e98031d08e4b7a2c695fec8db2bc79c151f24c6013d5c49c233faf",
+      "bytes": 25186
+    },
+    "results/summary/v22_catalogue_ownership_summary.json": {
+      "sha256": "fed1f95f7e13e134723a4fe454762c0aa5701feb6d0808cf0c1c7c053654d342",
+      "bytes": 1595
+    },
+    "results/summary/v22_catalogue_spatial_support_summary.json": {
+      "sha256": "420fa0c5fde744142c997a07c52c669c07ee792fc22672eec16af34f341c9cb3",
+      "bytes": 6837345
+    },
+    "results/summary/v22_complete_component_admission_summary.json": {
+      "sha256": "1d264fdfbc50a9a08275dae41f9802ee4becae7c949ab3150ece6df2c0873a9d",
+      "bytes": 22001
+    },
+    "results/summary/v22_explicit_schur_acceptance_summary.json": {
+      "sha256": "b9cf8c27628127f9e5520d8877804214a81be950c4803e95990cf7828894c763",
+      "bytes": 1407
+    },
+    "results/summary/v22_far_core_year_validation_summary.json": {
+      "sha256": "d75cda4e346742cf2dc4c86c44544ac15b543ad67bf3ca75cbe563d21ffed778",
+      "bytes": 64968
+    },
+    "results/summary/v22_final_stage_binding_summary.json": {
+      "sha256": "11f208fc5d37d0c6881f7a3713d4a4de1b9e3fab2c444c794da00ad5fbc9235d",
+      "bytes": 2561
+    },
+    "results/summary/v22_first_complete_held_reference_summary.json": {
+      "sha256": "a2c9d73d0c65e02417d8c790f9758c92a062b78b3b8db3b3f789b53eebbb601e",
+      "bytes": 3921
+    },
+    "results/summary/v22_first_complete_reference_summary.json": {
+      "sha256": "f6010ce37404e0a0f592132d97f1a527f61e3d26a655ba263cc0d9cd165a6c7c",
+      "bytes": 10310
+    },
+    "results/summary/v22_fixed_ngc_bright_dark_summary.json": {
+      "sha256": "a792eff95aac58d67f04d2a4514bb17cdac90b66ad195ee73082715cb251bd3e",
+      "bytes": 9440
+    },
+    "results/summary/v22_fork_worker_equivalence_summary.json": {
+      "sha256": "f7013b78c47ef0ce32280620a34a297088e34f8dded033ccc304ad571815067f",
+      "bytes": 2137
+    },
+    "results/summary/v22_full_reference_component_0_summary.json": {
+      "sha256": "8c99b792f97ec883a6d2345b8b39bfb7335921a9019e5917a5049fdf4247cef7",
+      "bytes": 10266
+    },
+    "results/summary/v22_full_reference_component_1_summary.json": {
+      "sha256": "c59a7f22033a866edeee43bafa8c49632e9ec754ed875975fb2d2bcb9d1c4c92",
+      "bytes": 10285
+    },
+    "results/summary/v22_global_QSO_quality_full_summary.json.gz": {
+      "sha256": "d530b8ca411a6ef09294f25c4558fe5d9b6294f32240793280b1e8b628d39d1d",
+      "bytes": 14557476
+    },
+    "results/summary/v22_global_QSO_quality_summary.json": {
+      "sha256": "e2c19e3456822bf5b5f54818f5e96c280f14cb1dbd8049fe7b666bb83918d231",
+      "bytes": 28952442
+    },
+    "results/summary/v22_global_graph_summary.json": {
+      "sha256": "f28add41fdc2d91f821d6e0a36b63edce0d8a296375c663b8f37de945b5fbd0f",
+      "bytes": 2185
+    },
+    "results/summary/v22_global_member_continuity_summary.json": {
+      "sha256": "d84244030d5b50d1d9ee2a6cd7ba5ca3cdaa9d90b7f11d01cdbc0c310066d0d1",
+      "bytes": 872
+    },
+    "results/summary/v22_historical_run_quality_summary.json": {
+      "sha256": "a3d685f3821024d26c0ec602364f8e63d5779151d5345027f7c3ab2c55841f57",
+      "bytes": 127439
+    },
+    "results/summary/v22_key_science_summary.json": {
+      "sha256": "b0e4793e40d098a7bf1b6595eb39fea87ea09efc1272c3261e5e4b4c20208a08",
+      "bytes": 275188
+    },
+    "results/summary/v22_memory_scheduler_admission_summary.json": {
+      "sha256": "e961d9b01dbffca8a1a21f0d225e7153fa964a27c333a4a42e9a74627a028fd0",
+      "bytes": 2228
+    },
+    "results/summary/v22_native_opportunity_area_summary.json": {
+      "sha256": "fb2b167382469c4d9a375dead815b9be3f70de20f2b0c3bc041fea9a14875bc8",
+      "bytes": 6556235
+    },
+    "results/summary/v22_ngc_early_opportunity_summary.json": {
+      "sha256": "415809056602f52610b291722982c97b8a13c6dcd42cc8468e481f5c63bb4d06",
+      "bytes": 2247
+    },
+    "results/summary/v22_ngc_masked_pixel_opportunity_summary.json": {
+      "sha256": "626941d437b8dfd61fcea33e9f5f9f32954aec1de37feb52c17084b1ba82742c",
+      "bytes": 3025
+    },
+    "results/summary/v22_ngc_readout_integrity_summary.json": {
+      "sha256": "bd41bf93c35e44ff2b60ff95a7e2ddbbcf13bd18eaf11012d4d0402e5ba805b9",
+      "bytes": 1048
+    },
+    "results/summary/v22_production_selection_summary.json": {
+      "sha256": "0e9ef8975eae9076ad686616ab84ce57da5b72c4162c5c32b7e7591c3ff8f232",
+      "bytes": 18152
+    },
+    "results/summary/v22_reference_held_component_0_summary.json": {
+      "sha256": "7a3e7b2f78fd3400bb4a26fecaf5ad98db92bcca2ed9198f47f659767b1f0a8a",
+      "bytes": 3927
+    },
+    "results/summary/v22_reference_held_component_1_summary.json": {
+      "sha256": "a152b1499a7420cba46829c1bffa8ddb6b1d0369e395444dfe7db3cffaacea1c",
+      "bytes": 3921
+    },
+    "results/summary/v22_reference_input_pilot_summary.json": {
+      "sha256": "f19a384a686bc1a0075848e1659c9b77a07d6afd0f8b609cfd25d215c2e540b5",
+      "bytes": 366
+    },
+    "results/summary/v22_reference_input_summary.json": {
+      "sha256": "2b9449c28b6f21004250cdac68f2c363ee70fae985a3ca0f3530db877a6267ca",
+      "bytes": 389
+    },
+    "results/summary/v22_registration_summary.json": {
+      "sha256": "1dfe73acdb22bdbc5dfbb76444822a35adb6cff04b65cb82ee03a747a0194286",
+      "bytes": 328
+    },
+    "results/summary/v22_resource_final_summary.json": {
+      "sha256": "b793836ec8b0e1db53b7411b41a0cff6b7e05aaf20029f9bda68472c428a78a3",
+      "bytes": 31119
+    },
+    "results/summary/v22_resource_progress_summary.json": {
+      "sha256": "533d7e7c4b61c6dee25787b445f99e9d1007b506f5e0b3b190ddce6d7138d96c",
+      "bytes": 21306
+    },
+    "results/summary/v22_source_magnitude_readout_validation_summary.json": {
+      "sha256": "8bbafaa92edb41fff7ec1e85864a07d6d969c95db5b18ec81770046bf9b345d9",
+      "bytes": 566
+    },
+    "results/summary/v22_source_profile_summary.json": {
+      "sha256": "c6444e72c511ff28256e77b24cd92ee48590e350dd4fb1be4ecffb2578a513f8",
+      "bytes": 26547
+    },
+    "results/summary/v22_spherical_cache_equivalence_summary.json": {
+      "sha256": "ea27a2d3a8ebd8a2e110bade435e50e9eaa998e60bac0ebc10278ec98fc7ebe7",
+      "bytes": 1174
+    },
+    "results/summary/v22_streamed_QSO_equivalence_summary.json": {
+      "sha256": "986897ca22410c619bf5a1742c36a1de25d2efd5572e79aca1d4e36f964a1f13",
+      "bytes": 729
+    },
+    "results/summary/v22_streamed_index_equivalence_summary.json": {
+      "sha256": "ff31dbabb30d7128785eef7d09015908afecad889cde0f222ac62c75cc7af4ff",
+      "bytes": 1041
+    },
+    "results/summary/v22_warm_cache_validation_summary.json": {
+      "sha256": "e1e0ba775273856c350f91cb596eab1f04aa5e9d27867c345617d1ee4ca55b6f",
+      "bytes": 746
+    },
+    "src/deep_pm/cluster_motion.py": {
+      "sha256": "260128c24f11c51fbae73d5dc0a5e900c4b9408ea04ac9b65b317f80d8107f64",
+      "bytes": 7124
+    },
+    "src/deep_pm/coordinate_associate.py": {
+      "sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+      "bytes": 9920
+    },
+    "src/deep_pm/coordinate_metric.py": {
+      "sha256": "4565ddf93372c55e823093b6e2e21a7c4315cd7e80f40a0835b862f0dce46e00",
+      "bytes": 7118
+    },
+    "src/deep_pm/full_coordinate_batch.py": {
+      "sha256": "6193f5d3661d498b8ab550bc90780da2a1fef99c569f8ae31a2c7a13cb9687a8",
+      "bytes": 16073
+    },
+    "src/deep_pm/full_coordinate_conditions.py": {
+      "sha256": "83c278fa6828758dc8d750f4e94f41747d7d80ba85c34e4e94177a270864d6d2",
+      "bytes": 3528
+    },
+    "src/deep_pm/full_coordinate_figures.py": {
+      "sha256": "8af199b6217c7597517ab2f304c199f9fb3595decaf8cc62c2074225554f930f",
+      "bytes": 9753
+    },
+    "src/deep_pm/full_coordinate_ngc.py": {
+      "sha256": "e859644a7cd77337bea1cb08694d22ba39d2a15214337f9058aa2afc5897cd9c",
+      "bytes": 10415
+    },
+    "src/deep_pm/full_coordinate_quality.py": {
+      "sha256": "61afe8ed108b757deae772e65a111c2a9111db9cd8017fc5b5bd099cee5ad315",
+      "bytes": 20024
+    },
+    "src/deep_pm/full_coordinate_sources.py": {
+      "sha256": "f7916c4cbec7f8219035791ef52a66a1224d058147628a7e0aa9aaeee9b40513",
+      "bytes": 22725
+    },
+    "src/deep_pm/full_reference_input.py": {
+      "sha256": "f2a274fe80be0f756d2b50c0d2242666798f0ec2e9d5445e153745935f4d2834",
+      "bytes": 8455
+    },
+    "src/deep_pm/full_reference_run.py": {
+      "sha256": "2e6c273a565b022a11b8272398a6d5f9e575fce91ec5498300ab1fe5dfaf391f",
+      "bytes": 4997
+    },
+    "src/deep_pm/full_reference_solver.py": {
+      "sha256": "138f4e9f63b7e30670de6808845ab6db70786bab4a309ad2da691abee5b06ac0",
+      "bytes": 9270
+    },
+    "src/deep_pm/standard_motion.py": {
+      "sha256": "bd72e9ef7058f04a1bfccca64a14094233ba9e562f63758a16d26fb72af0ded0",
+      "bytes": 3824
+    }
+  },
+  "all_public_aggregates_checked": true,
+  "scientific_scope": "Existing footprint fully coordinate-consistent; no sky expansion, new calibration adoption, stellar identity purity or absolute spatial-zero certification.",
+  "failure_provenance": "Post parent 62049478 remains FAILED after successful full QSO statistics because it called the old serialized NGC routine; corrected step62049478.6 completed and final62052901 bound its unchanged outputs. All failures counted in the terminal resource ledger.",
+  "privacy": "Only code, documents, aggregate statistics and actual-data figures. Raw/source/detection/reference/private validation products remain PScratch. Lossless compressed QSO attachment is aggregate JSON, not a catalogue.",
+  "checksum_scope": "Manifest excludes its own checksum to avoid recursion; final repository commit is identified by git history and remote branch. Runtime scientific source implementation and all completed NERSC receipts are independently SHA-bound."
+}

@@ -2,7 +2,7 @@
 
 全部科学执行在NERSC Slurm计算节点。`WORK`为个人PScratch下的独立v2.2工作根，`FROZEN`为冻结v1.9科学元数据根（含continuation manifest）。旧输入、参考、点值与失败回执不覆盖；本机只取公开允许的聚合。
 
-三个完整图、各48draw及首分量验收已经完成。其余核心可按完成回执恢复：
+全部2875核心、三个完整图/各48draw及科学读出已经完成。以下仅为必要时按签名恢复的入口，不应重启已成功阶段：
 
 ```bash
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
@@ -40,3 +40,18 @@ python -m deep_pm.full_coordinate_ngc "$WORK"
 - 最终公开源/质量图统一NSIDE64；组织与原生机会地图继续NSIDE128。NSIDE64源统计直接从接受源重聚合，不能平均细像素中位数。QSO不足5的已占据像素显示灰色，不当作零改善。
 
 资源账本用`full_coordinate_resources`读取实际父分配AllocTRES billing和Elapsed，失败/取消/OOM全部包含；step只诊断，不重复计费。额外后处理分配用`--job JOBID`登记。48 CPU节点小时总上限包含g支线≤2小时；原始外推不代替实测成本。私有输出位置及重建指针见[目录布局](catalogue_layout_v22.md)。
+
+## 本轮终态与最小恢复
+
+最终62052901已完成2875个派发/索引/参考SHA闭合及八格历史×run读出；没有剩余本轮计算。源科学实现SHA为`f7916c4cbec7f8219035791ef52a66a1224d058147628a7e0aa9aaeee9b40513`。最终派发快照2d6e6a9，主要只读收口8183d6d；NGC数组类型恢复6b0301b；r星等只读分母bd71f7d；交叉分层2fcc265，均未改变主源实现。
+
+```bash
+# 只在需要恢复缺失的八格汇总时使用，已有回执将直接验证复用
+python -m deep_pm.full_coordinate_conditions "$WORK"
+# 本地仅用已经审核的去标识汇总重画实际图
+PYTHONPATH=src python -m deep_pm.full_coordinate_figures "$REPOSITORY"
+```
+
+`cluster_motion.mean`把缓存JSON列表恢复为float64数组，再合成独立与同步参考项。旧主驱动62049478的QSO成功后调用旧NGC而失败，原FAILED状态保留；62049478.6完成修复NGC、最终SHA绑定核验，勿据此重跑全域QSO。原完整QSO聚合约117MB，发布为无损gzip与空间精简主JSON，所有全域/条件数值完整保留；不能误传逐源池或未压缩大聚合。发布布局和原SHA写在publication_layout，完整gzip可解压复核。
+
+最终账本从所有28个父分配终态sacct读取billing/256×elapsed，约4.541417节点小时，包含失败；B保守上界0.448485包含在总额。step列为诊断，不能重复加计或把worker墙时/extern TotalCPU当费用。存储快照163.49GiB/79866文件仅是新工作根当前占用，后续只读`du --inodes -s`有界统计为93496 inode（含目录、不跟随符号链接目标）；快照不代表峰值、历史缓存或inode配额。

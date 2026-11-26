@@ -15,8 +15,22 @@ COLD=LinearSegmentedColormap.from_list('gain_hotcold',['#a51827','#e8977b','#faf
 
 def panel(ax,values,nside,label,norm,cmap=COLD,coverage=None):
     artist=sky_elements(ax,nside,values,cmap,norm,coverage=coverage)
-    for_sky(ax);ax.set_title(label,fontsize=11)
+    for_sky(ax);ax.set_title(label,fontsize=11,pad=12)
+    ax.xaxis.set_zorder(3);ax.yaxis.set_zorder(3)
+    for tick in ax.get_xticklabels():
+        tick.set_bbox(dict(facecolor='white',edgecolor='none',alpha=.8,pad=.35))
     return artist
+
+
+def sky_figure():
+    # Dedicated colourbar rows keep the fixed-aspect sky axes from colliding
+    # with the next row's titles or the overall title during layout.
+    fig=plt.figure(figsize=(14,9.8))
+    grid=fig.add_gridspec(5,2,height_ratios=[1,.055,.08,1,.055],
+        left=.045,right=.975,bottom=.065,top=.88,wspace=.12,hspace=.22)
+    axes=np.array([[fig.add_subplot(grid[r,c],projection='aitoff') for c in range(2)] for r in (0,3)])
+    bars=np.array([[fig.add_subplot(grid[r,c]) for c in range(2)] for r in (1,4)])
+    return fig,axes,bars
 
 
 def save(fig,folder,name):
@@ -73,7 +87,7 @@ def run(repo):
     folder=repo/'results/summary';quality=read(folder/'v22_global_QSO_quality_summary.json');spatial=quality['spatial_nside64'];output=repo/'figures'
     counts_path=folder/'v22_catalogue_spatial_support_summary.json';source_map=read(counts_path) if counts_path.exists() else {}
     covered={r['pixel64']:1 for r in source_map.get('plot_spatial_nside64',[])}
-    fig,axs=plt.subplots(2,2,figsize=(13,8),subplot_kw=dict(projection='aitoff'),constrained_layout=True)
+    fig,axs,bars=sky_figure()
     for row,low in enumerate((21,22)):
         for col,reference in enumerate(('Xiao','NSC')):
             values={};count=0
@@ -85,20 +99,20 @@ def run(repo):
                 values[entry['pixel64']]=1-a/b;count+=comparison['n']
             bounds=(-.4,.6) if reference=='Xiao' else (-.3,.9)
             norm=TwoSlopeNorm(vmin=bounds[0],vcenter=0,vmax=bounds[1]);artist=panel(axs[row,col],values,64,f'{low} ≤ r < {low+1}; vs {reference}; N plotted={count:,}',norm,coverage=covered)
-            bar=fig.colorbar(artist,ax=axs[row,col],orientation='horizontal',fraction=.055,pad=.08,extend='both');bar.ax.xaxis.set_major_formatter(PercentFormatter(1));bar.set_label('Improvement = 1 − P68(new)/P68(reference)',fontsize=9)
-    fig.suptitle('Final blind QSO; NSIDE=64; gray: occupied sources but <5 strict QSO',fontsize=14)
+            bar=fig.colorbar(artist,cax=bars[row,col],orientation='horizontal',extend='both');bar.ax.xaxis.set_major_formatter(PercentFormatter(1));bar.set_label('Improvement = 1 − P68(new)/P68(reference)',fontsize=9)
+    fig.suptitle('Final blind QSO; NSIDE=64; gray: occupied sources but <5 strict QSO',fontsize=14,y=.98)
     save(fig,output,'v22_QSO_improvement_aitoff')
     angle_figures(repo,quality)
     counts_path=folder/'v22_catalogue_spatial_support_summary.json'
     if counts_path.exists():
-        support=source_map['plot_spatial_nside64'];fig,axs=plt.subplots(2,2,figsize=(13,8),subplot_kw=dict(projection='aitoff'),constrained_layout=True)
+        support=source_map['plot_spatial_nside64'];fig,axs,bars=sky_figure()
         specs=[('source_count','Retained source count / occupied pixel',LogNorm(10,100000),'magma'),('median_nsc_nights','Median actual NSC observing nights',plt.Normalize(0,40),'viridis'),('high_leverage_fraction','High physical-group leverage fraction',plt.Normalize(0,1),'inferno'),('median_SE_n','Median conditional North PM error (mas / yr)',plt.Normalize(0,10),'cividis')]
-        for ax,(key,label,norm,cmap) in zip(axs.flat,specs):
-            a=panel(ax,{r['pixel64']:r[key] for r in support},64,label,norm,plt.get_cmap(cmap));fig.colorbar(a,ax=ax,orientation='horizontal',fraction=.055,pad=.08)
-        fig.suptitle('HEALPix NSIDE=64: source support, not certified sky area',fontsize=14)
+        for ax,box,(key,label,norm,cmap) in zip(axs.flat,bars.flat,specs):
+            a=panel(ax,{r['pixel64']:r[key] for r in support},64,label,norm,plt.get_cmap(cmap));fig.colorbar(a,cax=box,orientation='horizontal')
+        fig.suptitle('HEALPix NSIDE=64: source support, not certified sky area',fontsize=14,y=.98)
         save(fig,output,'v22_source_support_aitoff')
     for low in (21,22):
-        fig,axs=plt.subplots(2,2,figsize=(13,8),subplot_kw=dict(projection='aitoff'),constrained_layout=True)
+        fig,axs,bars=sky_figure()
         for axis,label in enumerate(('East','North')):
             zero={};coverage={}
             for r in spatial:
@@ -106,10 +120,10 @@ def run(repo):
                 if r['r_bin']!=low or 'methods' not in c:continue
                 s=c['methods']['new_all'];zero[r['pixel64']]=s['median'][axis];coverage[r['pixel64']]=s['fraction_within_1sigma'][axis]
             a=panel(axs[0,axis],zero,64,label+' median QSO zero',TwoSlopeNorm(vmin=-4,vcenter=0,vmax=4),plt.get_cmap('RdBu_r'))
-            fig.colorbar(a,ax=axs[0,axis],orientation='horizontal',fraction=.055,pad=.08,extend='both',label='mas / yr')
+            fig.colorbar(a,cax=bars[0,axis],orientation='horizontal',extend='both',label='mas / yr')
             a=panel(axs[1,axis],coverage,64,label+' raw 1σ coverage',plt.Normalize(0,1),plt.get_cmap('viridis'))
-            bar=fig.colorbar(a,ax=axs[1,axis],orientation='horizontal',fraction=.055,pad=.08);bar.ax.xaxis.set_major_formatter(PercentFormatter(1))
-        fig.suptitle(f'{low} ≤ r < {low+1}; ≥5 strict-common QSO/pixel; conditional quality, not certified area',fontsize=13)
+            bar=fig.colorbar(a,cax=bars[1,axis],orientation='horizontal');bar.ax.xaxis.set_major_formatter(PercentFormatter(1))
+        fig.suptitle(f'{low} ≤ r < {low+1}; ≥5 strict-common QSO/pixel; conditional quality, not certified area',fontsize=13,y=.98)
         save(fig,output,f'v22_QSO_zero_coverage_r{low}')
 
 

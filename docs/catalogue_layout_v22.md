@@ -1,6 +1,6 @@
 # v2.2 私有科研产物的可追溯布局
 
-本文件是实际代码/阶段产物说明，不声明全域目录已经完成。个人绝对路径只在不提交的配置中。
+本文件说明已完成的2875核心/15858226解及其实际阶段产物。个人绝对路径只在不提交的配置中。
 
 - `registration/private_full_coordinate_plan.json`：原2875核心、签名输入、原生产/参考、冻结物理几何与旧图心。新数据不覆盖旧2751.446deg²生产。
 - `input/<core>/reference.parquet`：球面参考入口，包含真实检测、参考身份hash拆分、物理组和原生角误差。全域去重、剪枝、连通及冲突回执位于`graph/`；halo测量与唯一物理测量分别统计。
@@ -16,3 +16,11 @@
 - `area/`为真实SDSS扫描、NSC CCD、native参考和时间支持的两分辨率等面积积分。源占据HEALPix数、几何机会面积、实际源SNR合格面积及空间零点认证面积不等同。
 
 所有上述逐检测/逐源/验证/参考产品仅留NERSC PScratch。公开仓库只保存审核后的聚合、图、代码与中文判断。源级`spatial_zero_uncertified`、`night_correlation_unqualified`、身份未认证、non-r及高杠杆等标志不因数值计算成功而删除。弱科学质量不阻断其他完整有效区域。
+
+## 完成读出与公共附件
+
+- `quality/private_final_blind_QSO.json.gz`和固定身份池保存最终盲/原固定身份、成员/物理组和完整协方差来源，仍属私有验证文件。
+- `ngc/private_fixed_ngc_readout.json.gz`为修复缓存协方差数组读取后完成的7275固定状态，公共SHA验收回执保存48draw/4×4重建证据。原旧类型错误日志保留。
+- 公共`v22_global_QSO_quality_summary.json`保留全部全域及条件分层，空间单元提供点值/中位/改善区间投影。`v22_global_QSO_quality_full_summary.json.gz`是原完整去标识聚合JSON的无损压缩附件，包含所有空间计数/尾/椭圆区间；不是逐源数据。
+- 公共`v22_historical_run_quality_summary.json`用同一冻结光谱池穷尽历史天空×实际run×暗档八格，SHA绑定完整原聚合；各分母相加复现全域，不重新拟合或调方法。
+- `v22_final_stage_binding_summary.json`绑定全部源派发/参考版本/最终索引与完成科学读出；公共`v22_resource_final_summary.json`用终态父分配计费、保留失败。`v22_publication_manifest_summary.json`只登记公开代码/图/聚合校验，不公开私人路径。

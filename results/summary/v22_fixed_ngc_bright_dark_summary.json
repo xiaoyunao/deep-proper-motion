@@ -1,0 +1,371 @@
+{
+  "frozen_cluster_sha256": "37df148da244255eecc97373e289a068f87342822803b76f3af8f18968745059",
+  "physical_reference_map_sha256": "2f71f144825ef75544fb97bb8711ea49019d5a75e23fb584dc6ac21e0bc953f1",
+  "fixed_original_dark": {
+    "frozen_denominator": 197,
+    "new_computable": 197,
+    "old": {
+      "n": 197,
+      "weighted_mean": [
+        -8.371628457185766,
+        -3.0995621791595087
+      ],
+      "median": [
+        -8.759297415110845,
+        -3.0574680769875555
+      ],
+      "independent_covariance": [
+        [
+          0.07865490906019089,
+          0.007739913339119132
+        ],
+        [
+          0.007739913339119132,
+          0.10825091704685826
+        ]
+      ],
+      "synchronous_reference_covariance": [
+        [
+          0.001036715391914892,
+          3.290244802632345e-05
+        ],
+        [
+          3.290244802632345e-05,
+          0.0018039249160477036
+        ]
+      ],
+      "independent_standard_error": [
+        0.28045482534659816,
+        0.32901507115458745
+      ],
+      "reference_common_standard_error": [
+        0.032198065033708034,
+        0.042472637262686005
+      ],
+      "reference_domains": 1,
+      "effective_independent_weights": 178.64486399141978,
+      "offset_from_bright_reference": [
+        -3.0356284571857657,
+        -2.2905621791595085
+      ]
+    },
+    "new": {
+      "n": 197,
+      "weighted_mean": [
+        -8.5826286408292,
+        -2.9276798859005955
+      ],
+      "median": [
+        -9.029648472305327,
+        -2.8853936173121726
+      ],
+      "independent_covariance": [
+        [
+          0.13851856329648926,
+          1.3454824664788599e-09
+        ],
+        [
+          1.345482466257937e-09,
+          0.14730697359941766
+        ]
+      ],
+      "synchronous_reference_covariance": [
+        [
+          0.0014197559709223603,
+          -0.00016231442953222442
+        ],
+        [
+          -0.00016231442953222442,
+          0.001673543449645489
+        ]
+      ],
+      "independent_standard_error": [
+        0.3721808206994139,
+        0.383805906154944
+      ],
+      "reference_common_standard_error": [
+        0.03767964929404678,
+        0.04090896539446444
+      ],
+      "reference_domains": 1,
+      "effective_independent_weights": 178.64486399141978,
+      "offset_from_bright_reference": [
+        -3.246628640829199,
+        -2.1186798859005953
+      ]
+    }
+  },
+  "fixed_optical_target_bright": {
+    "frozen_denominator": 868,
+    "new_computable": 868,
+    "old": {
+      "n": 868,
+      "weighted_mean": [
+        -7.748432703825256,
+        -4.663501504147619
+      ],
+      "median": [
+        -7.829954801616033,
+        -4.784431536638551
+      ],
+      "independent_covariance": [
+        [
+          0.012142614816193534,
+          0.0011490362314531335
+        ],
+        [
+          0.0011490362314531333,
+          0.01658362856087405
+        ]
+      ],
+      "synchronous_reference_covariance": [
+        [
+          0.0013156582270946887,
+          8.3906371720264e-05
+        ],
+        [
+          8.3906371720264e-05,
+          0.0021936167156715574
+        ]
+      ],
+      "independent_standard_error": [
+        0.11019353345906253,
+        0.12877743808941863
+      ],
+      "reference_common_standard_error": [
+        0.036272003350996326,
+        0.046836062128146054
+      ],
+      "reference_domains": 1,
+      "effective_independent_weights": 792.2627012982912,
+      "offset_from_bright_reference": [
+        -2.4124327038252558,
+        -3.8545015041476187
+      ]
+    },
+    "new": {
+      "n": 868,
+      "weighted_mean": [
+        -7.946801342249832,
+        -4.561053989401976
+      ],
+      "median": [
+        -7.983609811486686,
+        -4.686269579117269
+      ],
+      "independent_covariance": [
+        [
+          0.021556580139055367,
+          1.1433437897367076e-09
+        ],
+        [
+          1.1433437897372676e-09,
+          0.022702606916188733
+        ]
+      ],
+      "synchronous_reference_covariance": [
+        [
+          0.0015654695398921818,
+          -0.00026441218506708346
+        ],
+        [
+          -0.00026441218506708346,
+          0.0018971193818273994
+        ]
+      ],
+      "independent_standard_error": [
+        0.14682159289101643,
+        0.15067384284005214
+      ],
+      "reference_common_standard_error": [
+        0.039566014960976066,
+        0.04355593394507113
+      ],
+      "reference_domains": 1,
+      "effective_independent_weights": 792.2627012982912,
+      "offset_from_bright_reference": [
+        -2.6108013422498315,
+        -3.7520539894019755
+      ]
+    }
+  },
+  "fixed_optical_target_bright_and_dark": {
+    "frozen_denominator": 1065,
+    "new_computable": 1065,
+    "old": {
+      "n": 1065,
+      "weighted_mean": [
+        -7.831459457201136,
+        -4.455141925427095
+      ],
+      "median": [
+        -7.883998703445691,
+        -4.539069985936288
+      ],
+      "independent_covariance": [
+        [
+          0.010518771105358912,
+          0.0010006447795454843
+        ],
+        [
+          0.0010006447795454846,
+          0.014380596904415965
+        ]
+      ],
+      "synchronous_reference_covariance": [
+        [
+          0.0012705330020901676,
+          7.661073972182775e-05
+        ],
+        [
+          7.661073972182775e-05,
+          0.002133093091091165
+        ]
+      ],
+      "independent_standard_error": [
+        0.10256106037555829,
+        0.11991912651623161
+      ],
+      "reference_common_standard_error": [
+        0.03564453677760685,
+        0.04618542076338771
+      ],
+      "reference_domains": 1,
+      "effective_independent_weights": 954.5204511613399,
+      "offset_from_bright_reference": [
+        -2.495459457201136,
+        -3.646141925427095
+      ]
+    },
+    "new": {
+      "n": 1065,
+      "weighted_mean": [
+        -8.03151096362341,
+        -4.343443795284536
+      ],
+      "median": [
+        -8.057707819528378,
+        -4.461570459798627
+      ],
+      "independent_covariance": [
+        [
+          0.018653986066004855,
+          8.828698613486992e-10
+        ],
+        [
+          8.828698613451987e-10,
+          0.019670980198846628
+        ]
+      ],
+      "synchronous_reference_covariance": [
+        [
+          0.0015406672635870694,
+          -0.00025077858501910977
+        ],
+        [
+          -0.00025077858501910977,
+          0.00185690033608262
+        ]
+      ],
+      "independent_standard_error": [
+        0.13657959608230233,
+        0.14025327161548365
+      ],
+      "reference_common_standard_error": [
+        0.0392513345453001,
+        0.04309176645349573
+      ],
+      "reference_domains": 1,
+      "effective_independent_weights": 954.5204511613399,
+      "offset_from_bright_reference": [
+        -2.695510963623409,
+        -3.5344437952845356
+      ]
+    }
+  },
+  "exits": {
+    "fixed_new_native_support_exit": 0,
+    "fixed_new_formal_error_exit": 0
+  },
+  "bright_same_physical_members": {
+    "n": 6471,
+    "old_residual_to_same_estimator_apparent_five_parameter_prediction": {
+      "n": 6471,
+      "median": [
+        -0.1317888113097503,
+        -0.7523601893245893
+      ],
+      "nmad": [
+        3.2029672922483603,
+        3.4055106373623776
+      ],
+      "absolute_radial_p68": 5.0004445737062895,
+      "equal_mean": [
+        -0.27810887822317726,
+        -0.6967553799404502
+      ],
+      "median_object_interval95": [
+        [
+          -0.2263539192561236,
+          -0.03176502391693381
+        ],
+        [
+          -0.8583542584321486,
+          -0.6564022430318501
+        ]
+      ]
+    },
+    "new_residual_to_same_estimator_apparent_five_parameter_prediction": {
+      "n": 6471,
+      "median": [
+        -0.21306166342996757,
+        -0.5979051839183462
+      ],
+      "nmad": [
+        3.234043336381634,
+        3.396529244800929
+      ],
+      "absolute_radial_p68": 5.003167072603438,
+      "equal_mean": [
+        -0.37157189907749916,
+        -0.536510898977947
+      ],
+      "median_object_interval95": [
+        [
+          -0.3132002233758504,
+          -0.10197684914371563
+        ],
+        [
+          -0.70251901895974,
+          -0.5022599304305543
+        ]
+      ],
+      "within_1sigma": [
+        0.7851954875598826,
+        0.7479524030288982
+      ],
+      "within_2sigma": [
+        0.9868644722608562,
+        0.9741925513830938
+      ]
+    },
+    "scope": "Saved Gaia5-parameter apparent positions include known annual parallax; evaluated only after fits. Old and new estimators each applied to the same frozen apparent5-parameter predicted positions. New axis coverage conditions on Gaia prediction, excludes correlated Gaia truth uncertainty; no faint-Gaia acceptance."
+  },
+  "frozen_optical415": {
+    "denominator": 415,
+    "final_unique_known_position_matches": 37,
+    "known_position_gate_mas": 700,
+    "by_half_mag": {
+      "22": {
+        "optical": 212,
+        "matched": 37
+      },
+      "22.5": {
+        "optical": 203,
+        "matched": 0
+      }
+    }
+  },
+  "slurm_job": "62049478",
+  "scope": "Fixed original optical/bright identities, original per-source inverse-variance weights held identical for old/new cohort means; quality failures retained with explicit counts. Common reference perturbations combined before covariance, not divided bysqrtN. Photometric candidates include foreground/background, not cluster-member truth. New blind optical matching is known-position conditional recovery; main frozen catalogue unchanged."
+}

@@ -1,6 +1,6 @@
 # v2.2 实际方法与误差定义
 
-本文件描述实际执行的代码，不把尚待全域读出的科学结果写成已通过。旧6faabde目录与75a7abf审阅保持只读；[运行与恢复](running_v22.md)、[私有目录布局](catalogue_layout_v22.md)和[逐项验收](full_coordinate_v22.md)分别登记状态。
+本文件描述实际执行的代码，完整全域科学读出已完成，数值闭合不等于高精度星表认证。旧6faabde目录与75a7abf审阅保持只读；[运行与恢复](running_v22.md)、[私有目录布局](catalogue_layout_v22.md)和[逐项验收](full_coordinate_v22.md)分别登记状态。
 
 ## 数据、关联与选择
 

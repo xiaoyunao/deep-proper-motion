@@ -75,7 +75,19 @@ def run(root):
         quantile_cont(nsc_seasons,[.16,.5,.84]) NSC_seasons,
         quantile_cont(joint_span,[.16,.5,.84]) joint_span_years
         FROM accepted GROUP BY kind,single_run'''
-    report['accepted_source_condition_groups']=db.execute(query).fetchdf().to_dict('records');db.close()
+    report['accepted_source_condition_groups']=db.execute(query).fetchdf().to_dict('records')
+    report['accepted_source_r_magnitude_groups']=db.execute('''SELECT
+        CASE WHEN magnitude IS NULL OR NOT isfinite(magnitude) THEN 'missing'
+             WHEN magnitude<20 THEN 'r_lt20' WHEN magnitude<21 THEN 'r_20_21'
+             WHEN magnitude<22 THEN 'r_21_22' WHEN magnitude<23 THEN 'r_22_23'
+             ELSE 'r_ge23' END magnitude_bin,
+        kind,sdss_runs=1 single_run,count(*) source_count
+        FROM accepted GROUP BY magnitude_bin,kind,single_run''').fetchdf().to_dict('records')
+    if sum(r['source_count'] for r in report['accepted_source_r_magnitude_groups'])!=report['accepted_observation_flags']['all_accepted']:
+        raise ValueError('Source magnitude groups do not close the accepted catalogue')
+    report['source_magnitude_definition']='Actual adopted r magnitude: NSC r median where available, otherwise SDSS r. These source-count bins are not the independent spectroscopic r bins of the QSO comparisons; neither measures a photometric-parent completeness.'
+    report['readout_implementation_sha256']=digest(Path(__file__))
+    db.close()
     report['denominator_notes']=(
         'Origin counts and funnel stages are before common-epoch transfer/global identity exclusions. '
         'Component detection applications count normalized core positions, not globally unique measurements; '

@@ -106,7 +106,7 @@ def memory_queue(root,plan,indices,mode):
     return pending,legacy,audit
 
 
-def run(root,components,workers,memory_gib,hours,memory_model='reference-input-conservative'):
+def run(root,components,workers,memory_gib,hours,memory_model='reference-input-conservative',worker_start='subprocess'):
     if not read(root/'admission/v22_complete_component_admission_summary.json')['numerical_admission_passed']:raise ValueError('Complete-component admission missing')
     plan=read(root/'registration/private_full_coordinate_plan.json');indices=selected_cores(root,components)
     key='-'.join(map(str,components));job=os.environ['SLURM_JOB_ID'];dest=root/'batch'/f'component-{key}'/job;dest.mkdir(parents=True,exist_ok=True)
@@ -142,11 +142,18 @@ def run(root,components,workers,memory_gib,hours,memory_model='reference-input-c
                 i,memory,size=pending.pop(slot);e=plan['cores'][i];log=(dest/(e['core']+'.log')).open('w')
                 cmd=[sys.executable,'-um','deep_pm.full_coordinate_batch',str(root),'--single-index',str(i)]
                 for c in components:cmd+=['--component',str(c)]
-                process=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
+                if worker_start=='fork':
+                    from multiprocessing import get_context
+                    from deep_pm.full_coordinate_batch import isolated_fork_core as stable_fork_core
+                    process=get_context('fork').Process(target=stable_fork_core,args=(str(root),i,log.fileno()))
+                    process.start()
+                else:process=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
                 running.append(dict(index=i,core=e['core'],memory=memory,process=process,log=log))
                 print('SOURCE_DISPATCH',e['core'],'estimated_GiB',round(memory,2),flush=True)
         for item in list(running):
-            code=item['process'].poll()
+            process=item['process']
+            code=process.poll() if hasattr(process,'poll') else process.exitcode
+            if code is not None and not hasattr(process,'poll'):process.join();process.close()
             if code is None:continue
             item['log'].close();running.remove(item)
             (done if code==0 else failed).append(item['core'])
@@ -163,7 +170,7 @@ def run(root,components,workers,memory_gib,hours,memory_model='reference-input-c
         sleep(2)
     result=dict(components=components,registered_cores=len(indices),completed_core_checks=len(done),failed_cores=failed,
         undispatched_cores=len(pending),maximum_workers=workers,memory_budget_gib=memory_gib,elapsed_seconds=monotonic()-start,
-        memory_reservation_audit=audit,memory_reservation_fallbacks=fallbacks,
+        memory_reservation_audit=audit,memory_reservation_fallbacks=fallbacks,worker_start_method=worker_start,
         warm_cache_checks=len(cache_checks),warm_cache_reused=sum(v['reused'] for v in cache_checks),
         warm_cache_elapsed_seconds=cache_elapsed,
         implementation_sha256=digest(Path(__file__)),slurm_job=job,
@@ -172,30 +179,40 @@ def run(root,components,workers,memory_gib,hours,memory_model='reference-input-c
     if failed:raise RuntimeError('Affected source cores failed; inspect per-core logs before retry')
 
 
+def single_core(root,index):
+    entry=read(root/'registration/private_full_coordinate_plan.json')['cores'][index]
+    # Scheduling domains never define a star's available calibration.
+    # Inspect all actual target physical groups, including exposures with
+    # no local selected reference galaxies. This also closes previously
+    # accepted single-component preliminary replay after all graphs exist.
+    mapping,mapping_sha=component_map(str(root))
+    actual,dispatch,reused=physical_dispatch(entry,root,mapping,mapping_sha)
+    if reused:print('REUSED_SIGNED_PHYSICAL_DISPATCH',entry['core'],flush=True)
+    available=[c for c in actual if (root/'reference'/f'component-{c:04d}'/'private_c0_unfiltered.npz').exists()]
+    if available!=actual:
+        print('SOURCE_DEFERRED_UNSOLVED_PHYSICAL_COMPONENT',entry['core'],actual,flush=True)
+        raise SystemExit(3)
+    folder=root/'sources'/entry['core'];prior=folder/'v22_source_core_summary.json'
+    if prior.exists() and set(read(prior)['ticket']['graphs'])!=set(map(str,actual)):
+        archive=root/'partial-source-archives'/entry['core'];archive.parent.mkdir(exist_ok=True)
+        if archive.exists():raise ValueError('Repeated partial component archive requires inspection')
+        folder.rename(archive);print('PRESERVED_PRELIMINARY_COMPONENT_SOURCE',entry['core'],flush=True)
+    folder.mkdir(parents=True,exist_ok=True)
+    if not reused or not (folder/'private_dispatch.json').exists():save_json(folder/'private_dispatch.json',dispatch)
+    one((entry,str(root),None))
+
+
+def isolated_fork_core(root,index,log_descriptor):
+    # Fresh child of the thin dispatcher; it never processes a second core.
+    # Inherited modules avoid repeated shared-filesystem import startup.
+    os.dup2(log_descriptor,1);os.dup2(log_descriptor,2)
+    single_core(Path(root),index)
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--component',action='append',type=int,required=True)
     p.add_argument('--single-index',type=int);p.add_argument('--workers',type=int,default=12);p.add_argument('--memory-gib',type=float,default=160);p.add_argument('--hours',type=float,default=3.5)
-    p.add_argument('--memory-model',choices=['reference-input-conservative','receipt-validated'],default='reference-input-conservative');a=p.parse_args()
+    p.add_argument('--memory-model',choices=['reference-input-conservative','receipt-validated'],default='reference-input-conservative');p.add_argument('--worker-start',choices=['subprocess','fork'],default='subprocess');a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
-    if a.single_index is not None:
-        entry=read(a.root/'registration/private_full_coordinate_plan.json')['cores'][a.single_index]
-        # Scheduling domains never define a star's available calibration.
-        # Inspect all actual target physical groups, including exposures with
-        # no local selected reference galaxies. This also closes previously
-        # accepted single-component preliminary replay after all graphs exist.
-        mapping,mapping_sha=component_map(str(a.root))
-        actual,dispatch,reused=physical_dispatch(entry,a.root,mapping,mapping_sha)
-        if reused:print('REUSED_SIGNED_PHYSICAL_DISPATCH',entry['core'],flush=True)
-        available=[c for c in actual if (a.root/'reference'/f'component-{c:04d}'/'private_c0_unfiltered.npz').exists()]
-        if available!=actual:
-            print('SOURCE_DEFERRED_UNSOLVED_PHYSICAL_COMPONENT',entry['core'],actual,flush=True)
-            raise SystemExit(3)
-        folder=a.root/'sources'/entry['core'];prior=folder/'v22_source_core_summary.json'
-        if prior.exists() and set(read(prior)['ticket']['graphs'])!=set(map(str,actual)):
-            archive=a.root/'partial-source-archives'/entry['core'];archive.parent.mkdir(exist_ok=True)
-            if archive.exists():raise ValueError('Repeated partial component archive requires inspection')
-            folder.rename(archive);print('PRESERVED_PRELIMINARY_COMPONENT_SOURCE',entry['core'],flush=True)
-        folder.mkdir(parents=True,exist_ok=True)
-        if not reused or not (folder/'private_dispatch.json').exists():save_json(folder/'private_dispatch.json',dispatch)
-        one((entry,str(a.root),None))
-    else:run(a.root,a.component,a.workers,a.memory_gib,a.hours,a.memory_model)
+    if a.single_index is not None:single_core(a.root,a.single_index)
+    else:run(a.root,a.component,a.workers,a.memory_gib,a.hours,a.memory_model,a.worker_start)

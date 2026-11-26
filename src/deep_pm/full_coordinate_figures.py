@@ -92,7 +92,7 @@ def run(repo):
     counts_path=folder/'v22_catalogue_spatial_support_summary.json'
     if counts_path.exists():
         support=source_map['plot_spatial_nside64'];fig,axs=plt.subplots(2,2,figsize=(13,8),subplot_kw=dict(projection='aitoff'),constrained_layout=True)
-        specs=[('source_count','Retained source count / occupied pixel',LogNorm(10,100000),'magma'),('median_nsc_nights','Median actual NSC observing nights',plt.Normalize(0,40),'viridis'),('high_leverage_fraction','High physical-group leverage fraction',plt.Normalize(0,1),'inferno'),('median_SE_n','Median conditional North PM error',plt.Normalize(0,10),'cividis')]
+        specs=[('source_count','Retained source count / occupied pixel',LogNorm(10,100000),'magma'),('median_nsc_nights','Median actual NSC observing nights',plt.Normalize(0,40),'viridis'),('high_leverage_fraction','High physical-group leverage fraction',plt.Normalize(0,1),'inferno'),('median_SE_n','Median conditional North PM error (mas / yr)',plt.Normalize(0,10),'cividis')]
         for ax,(key,label,norm,cmap) in zip(axs.flat,specs):
             a=panel(ax,{r['pixel64']:r[key] for r in support},64,label,norm,plt.get_cmap(cmap));fig.colorbar(a,ax=ax,orientation='horizontal',fraction=.055,pad=.08)
         fig.suptitle('HEALPix NSIDE=64: source support, not certified sky area',fontsize=14)

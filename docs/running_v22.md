@@ -18,6 +18,7 @@ python -m deep_pm.full_coordinate_batch "$WORK" \
 ```bash
 python -m deep_pm.full_coordinate_catalogue index "$WORK" --workers 8
 python -m deep_pm.full_coordinate_catalogue close "$WORK"
+python -m deep_pm.full_coordinate_production_readout "$WORK"
 python -m deep_pm.full_coordinate_continuity "$WORK"
 python -m deep_pm.full_coordinate_quality "$WORK" --workers 8 --frozen "$FROZEN"
 python -m deep_pm.full_coordinate_ngc "$WORK"
@@ -27,6 +28,7 @@ python -m deep_pm.full_coordinate_ngc "$WORK"
 
 - `index`先验证每核心签名；若主源版本改变，停止受影响索引，不默默复用。小工程测试可显式指定`--frozen`，不能误用工程根的相对历史路径。
 - `close`将一致的精确成员副本归为单一代表，其余共享检测保留冲突；原始点值始终可追溯。完整2875核心时断言原冻结15,625,958分母复现。新R控制的origin计数与全球accepted计数分别报告，不交叉相减。
+- `production_readout`只读同版本回执和最终索引，汇总选择漏斗、逐分量检测应用、源级误差来源和实际worker成本；它不重做拟合。三项改动共同实施后的净数不能单凭漏斗拆成独立因果增益；对照原v2.1固定实验、B1协方差和本轮固定身份读出分别解释。
 - 不能把原/新规范输入混进旧缓存。有效键包含数据/参考/实现/坐标及支持定义；失败步骤的未完成输出没有有效回执，使用独立恢复版本或保存原尝试后重算。
 - 留出年读出从测试年前移除全部目标band；`full_coordinate_year_readout`只重读归档验证记录，按物理源整体重采样，不重新关联或拟合。
 - 最终公开源/质量图统一NSIDE64；组织与原生机会地图继续NSIDE128。NSIDE64源统计直接从接受源重聚合，不能平均细像素中位数。QSO不足5的已占据像素显示灰色，不当作零改善。

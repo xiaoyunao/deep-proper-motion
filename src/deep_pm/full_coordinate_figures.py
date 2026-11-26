@@ -23,6 +23,19 @@ def save(fig,folder,name):
     folder.mkdir(exist_ok=True,parents=True);fig.savefig(folder/(name+'.png'),dpi=200,bbox_inches='tight');fig.savefig(folder/(name+'.pdf'),bbox_inches='tight');plt.close(fig)
 
 
+def pixel_figure(repo):
+    p=read(repo/'results/summary/v22_ngc_masked_pixel_opportunity_summary.json')
+    names=['no_cached_SDSS','SDSS_quality_distance','positive_early_control'];labels=['No cached SDSS\nN=20','Quality / distance\nexit; N=10','Early-position\ncontrol; N=10']
+    fig,axs=plt.subplots(1,2,figsize=(11,4),constrained_layout=True)
+    for offset,key,color,label in [(-.12,'per_exposure_SNR_proxy_p16_p50_p84','#b94949','Single exposure'),(.12,'one_per_run_joint_SNR_proxy_p16_p50_p84','#21557f','One field per independent run, combined')]:
+        values=np.array([p['categories'][n][key] for n in names]);x=np.arange(3)+offset
+        axs[0].errorbar(x,values[:,1],yerr=[values[:,1]-values[:,0],values[:,2]-values[:,1]],fmt='o',capsize=4,label=label,color=color)
+    axs[0].set_xticks(range(3),labels);axs[0].set_ylabel('Aperture SNR proxy; median and 16–84% range',fontsize=10);axs[0].legend(fontsize=8);axs[0].axhline(5,color='0.6',ls=':',lw=1)
+    x=np.arange(3);axs[1].bar(x-.18,[p['categories'][n]['targets'] for n in names],.36,label='Frozen targets',color='#8cbed9');axs[1].bar(x+.18,[p['categories'][n]['multiple_conditionally_usable_runs'] for n in names],.36,label='≥2 conditionally usable runs',color='#173e66');axs[1].set_xticks(range(3),labels,fontsize=10);axs[1].set_ylabel('Target count');axs[1].legend(fontsize=8)
+    fig.suptitle('Frozen forty: real SDSS masks and early information, not certified centroids',fontsize=12)
+    save(fig,repo/'figures','v22_NGC_early_pixel_information')
+
+
 def run(repo):
     folder=repo/'results/summary';quality=read(folder/'v22_global_QSO_quality_summary.json');spatial=quality['spatial_nside64'];output=repo/'figures'
     fig,axs=plt.subplots(2,2,figsize=(13,8),subplot_kw=dict(projection='aitoff'),constrained_layout=True)
@@ -65,4 +78,4 @@ def run(repo):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('repo',type=Path);a=p.parse_args();run(a.repo)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('repo',type=Path);p.add_argument('--pixels-only',action='store_true');a=p.parse_args();pixel_figure(a.repo) if a.pixels_only else run(a.repo)

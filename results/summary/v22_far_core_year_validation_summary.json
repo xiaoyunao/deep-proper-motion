@@ -1,0 +1,1729 @@
+{
+  "cores": [
+    {
+      "core": "w230_110_64_00",
+      "status": "completed",
+      "held_year": 2018,
+      "old_training": 5874,
+      "new_training": 6156,
+      "entities": {
+        "common_training_identity": 5809,
+        "old_only_training": 65,
+        "new_only_training": 347
+      },
+      "old_funnel": {
+        "legacy_r": {
+          "21_to_22": {
+            "initial": 2007,
+            "sdss_nearby": 1813,
+            "associated": 1789,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 1789,
+            "no_sdss_within_fixed_gate": 194,
+            "split_or_competing_track": 24
+          },
+          "20_to_21": {
+            "initial": 1549,
+            "sdss_nearby": 1230,
+            "associated": 1212,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 1212,
+            "no_sdss_within_fixed_gate": 319,
+            "split_or_competing_track": 18
+          },
+          "lt20": {
+            "initial": 2495,
+            "sdss_nearby": 2243,
+            "associated": 2204,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 2204,
+            "no_sdss_within_fixed_gate": 252,
+            "split_or_competing_track": 39
+          },
+          "22_to_23": {
+            "initial": 908,
+            "sdss_nearby": 825,
+            "associated": 816,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 816,
+            "no_sdss_within_fixed_gate": 83,
+            "split_or_competing_track": 9
+          },
+          "ge23": {
+            "initial": 30,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 28,
+            "insufficient_time_sampling": 2
+          }
+        },
+        "physical_all_r_anchor": {
+          "21_to_22": {
+            "initial": 2007,
+            "sdss_nearby": 1813,
+            "associated": 1789,
+            "fit_eligible": 1757,
+            "calibrated": 1757,
+            "final": 1739,
+            "insufficient_time_sampling": 32,
+            "no_sdss_within_fixed_gate": 194,
+            "split_or_competing_track": 24,
+            "final_quality_rejection": 18
+          },
+          "20_to_21": {
+            "initial": 1549,
+            "sdss_nearby": 1230,
+            "associated": 1212,
+            "fit_eligible": 1192,
+            "calibrated": 1192,
+            "final": 1180,
+            "no_sdss_within_fixed_gate": 319,
+            "insufficient_time_sampling": 20,
+            "split_or_competing_track": 18,
+            "final_quality_rejection": 12
+          },
+          "lt20": {
+            "initial": 2495,
+            "sdss_nearby": 2243,
+            "associated": 2204,
+            "fit_eligible": 2078,
+            "calibrated": 2078,
+            "final": 2067,
+            "insufficient_time_sampling": 126,
+            "no_sdss_within_fixed_gate": 252,
+            "split_or_competing_track": 39,
+            "final_quality_rejection": 11
+          },
+          "22_to_23": {
+            "initial": 908,
+            "sdss_nearby": 825,
+            "associated": 816,
+            "fit_eligible": 734,
+            "calibrated": 734,
+            "final": 721,
+            "no_sdss_within_fixed_gate": 83,
+            "insufficient_time_sampling": 82,
+            "final_quality_rejection": 13,
+            "split_or_competing_track": 9
+          },
+          "ge23": {
+            "initial": 30,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 1,
+            "no_sdss_within_fixed_gate": 28,
+            "insufficient_time_sampling": 1
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 49250,
+          "non_r_before_quality": 2572,
+          "non_r_morphology_exit": 614,
+          "non_r_missing_survey": 24369,
+          "non_r_time_exit": 1716,
+          "non_r_ownership_exit": 72,
+          "non_r_residual_exit": 4
+        },
+        "strict_r_solutions": 0
+      },
+      "new_funnel": {
+        "legacy_r": {
+          "20_to_21": {
+            "initial": 1545,
+            "sdss_nearby": 1271,
+            "associated": 1269,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 1269,
+            "no_sdss_within_fixed_gate": 274,
+            "split_or_competing_track": 2
+          },
+          "lt20": {
+            "initial": 2493,
+            "sdss_nearby": 2360,
+            "associated": 2357,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 2357,
+            "no_sdss_within_fixed_gate": 133,
+            "split_or_competing_track": 3
+          },
+          "21_to_22": {
+            "initial": 2004,
+            "sdss_nearby": 1859,
+            "associated": 1858,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 1858,
+            "no_sdss_within_fixed_gate": 145,
+            "split_or_competing_track": 1
+          },
+          "22_to_23": {
+            "initial": 907,
+            "sdss_nearby": 849,
+            "associated": 847,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 847,
+            "no_sdss_within_fixed_gate": 58,
+            "split_or_competing_track": 2
+          },
+          "ge23": {
+            "initial": 30,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 28,
+            "insufficient_time_sampling": 2
+          }
+        },
+        "physical_all_r_anchor": {
+          "20_to_21": {
+            "initial": 1545,
+            "sdss_nearby": 1271,
+            "associated": 1269,
+            "fit_eligible": 1251,
+            "calibrated": 1251,
+            "final": 1250,
+            "no_sdss_within_fixed_gate": 274,
+            "insufficient_time_sampling": 18,
+            "final_quality_rejection": 1,
+            "split_or_competing_track": 2
+          },
+          "lt20": {
+            "initial": 2493,
+            "sdss_nearby": 2360,
+            "associated": 2357,
+            "fit_eligible": 2215,
+            "calibrated": 2215,
+            "final": 2213,
+            "insufficient_time_sampling": 142,
+            "no_sdss_within_fixed_gate": 133,
+            "final_quality_rejection": 2,
+            "split_or_competing_track": 3
+          },
+          "21_to_22": {
+            "initial": 2004,
+            "sdss_nearby": 1859,
+            "associated": 1858,
+            "fit_eligible": 1831,
+            "calibrated": 1831,
+            "final": 1826,
+            "no_sdss_within_fixed_gate": 145,
+            "final_quality_rejection": 5,
+            "insufficient_time_sampling": 27,
+            "split_or_competing_track": 1
+          },
+          "22_to_23": {
+            "initial": 907,
+            "sdss_nearby": 849,
+            "associated": 847,
+            "fit_eligible": 769,
+            "calibrated": 769,
+            "final": 721,
+            "no_sdss_within_fixed_gate": 58,
+            "final_quality_rejection": 48,
+            "insufficient_time_sampling": 78,
+            "split_or_competing_track": 2
+          },
+          "ge23": {
+            "initial": 30,
+            "sdss_nearby": 2,
+            "associated": 2,
+            "fit_eligible": 1,
+            "calibrated": 1,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 28,
+            "final_quality_rejection": 1,
+            "insufficient_time_sampling": 1
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 44756,
+          "non_r_before_quality": 2214,
+          "non_r_morphology_exit": 614,
+          "non_r_missing_survey": 19231,
+          "non_r_time_exit": 1374,
+          "non_r_ownership_exit": 77,
+          "non_r_formal_error_exit": 3
+        },
+        "strict_r_solutions": 0
+      },
+      "methods": {
+        "old": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 5809,
+              "unique_reproductions": {
+                "n": 5176,
+                "denominator": 5809,
+                "value": 0.8910311585470821,
+                "wilson95": [
+                  0.8827582260659196,
+                  0.898787259422288
+                ]
+              },
+              "displaced_sources": [
+                44,
+                51,
+                45,
+                50
+              ],
+              "position": {
+                "n": 18352,
+                "median": [
+                  2.285048284854655,
+                  4.930511425364668
+                ],
+                "nmad": [
+                  28.26657118378288,
+                  37.41924996388612
+                ],
+                "absolute_radial_p68": 54.865730471213766,
+                "equal_mean": [
+                  4.354395034241571,
+                  6.437747375840149
+                ],
+                "median_object_interval95": [
+                  [
+                    1.8280810605556916,
+                    2.6702036502958464
+                  ],
+                  [
+                    4.275501659249142,
+                    5.537660348093864
+                  ]
+                ],
+                "within_1sigma": [
+                  0.958151700087184,
+                  0.9375
+                ],
+                "within_2sigma": [
+                  0.9962401918047079,
+                  0.9968395815170009
+                ]
+              }
+            },
+            "old_only_training": {
+              "training_sources": 65,
+              "unique_reproductions": {
+                "n": 49,
+                "denominator": 65,
+                "value": 0.7538461538461538,
+                "wilson95": [
+                  0.6369421680412217,
+                  0.8424201314410202
+                ]
+              },
+              "displaced_sources": [
+                0,
+                1,
+                1,
+                1
+              ],
+              "position": {
+                "n": 125,
+                "median": [
+                  11.843216005500018,
+                  2.6804849382921114
+                ],
+                "nmad": [
+                  81.04186756793361,
+                  79.44113360823393
+                ],
+                "absolute_radial_p68": 125.89845294510617,
+                "equal_mean": [
+                  9.915982495301783,
+                  9.741353313263128
+                ],
+                "median_object_interval95": [
+                  [
+                    -3.5555755610332067,
+                    25.272747591120496
+                  ],
+                  [
+                    -14.019285491218232,
+                    19.349009859074847
+                  ]
+                ],
+                "within_1sigma": [
+                  0.872,
+                  0.88
+                ],
+                "within_2sigma": [
+                  0.976,
+                  0.96
+                ]
+              }
+            },
+            "new_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            }
+          },
+          "competing_claims_rejected": 36,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        },
+        "new": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 5809,
+              "unique_reproductions": {
+                "n": 5176,
+                "denominator": 5809,
+                "value": 0.8910311585470821,
+                "wilson95": [
+                  0.8827582260659196,
+                  0.898787259422288
+                ]
+              },
+              "displaced_sources": [
+                44,
+                50,
+                45,
+                50
+              ],
+              "position": {
+                "n": 18352,
+                "median": [
+                  2.7753209455489847,
+                  4.370137594483064
+                ],
+                "nmad": [
+                  28.488227649476883,
+                  37.32831549541793
+                ],
+                "absolute_radial_p68": 55.03379754972671,
+                "equal_mean": [
+                  5.048832562856515,
+                  5.957646003652876
+                ],
+                "median_object_interval95": [
+                  [
+                    2.3394107767331067,
+                    3.2022240280979406
+                  ],
+                  [
+                    3.7057326884091513,
+                    4.961108004887477
+                  ]
+                ],
+                "within_1sigma": [
+                  0.970357454228422,
+                  0.9522667829119442
+                ],
+                "within_2sigma": [
+                  0.9970030514385353,
+                  0.9978204010462075
+                ]
+              }
+            },
+            "old_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            },
+            "new_only_training": {
+              "training_sources": 347,
+              "unique_reproductions": {
+                "n": 306,
+                "denominator": 347,
+                "value": 0.8818443804034583,
+                "wilson95": [
+                  0.8436290954207727,
+                  0.911697828856539
+                ]
+              },
+              "displaced_sources": [
+                5,
+                2,
+                2,
+                2
+              ],
+              "position": {
+                "n": 1053,
+                "median": [
+                  10.869389939994253,
+                  7.127073314629599
+                ],
+                "nmad": [
+                  32.36491997375254,
+                  44.17578387059468
+                ],
+                "absolute_radial_p68": 67.35278165196755,
+                "equal_mean": [
+                  8.820365155614192,
+                  12.32114543987899
+                ],
+                "median_object_interval95": [
+                  [
+                    8.27733729121526,
+                    12.408334051458791
+                  ],
+                  [
+                    3.8744813038982615,
+                    9.564135033053061
+                  ]
+                ],
+                "within_1sigma": [
+                  0.9145299145299145,
+                  0.9088319088319088
+                ],
+                "within_2sigma": [
+                  0.9829059829059829,
+                  0.9829059829059829
+                ]
+              }
+            }
+          },
+          "competing_claims_rejected": 36,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        }
+      },
+      "opportunity": {
+        "new_sources": 6156,
+        "geometry": 5725,
+        "catalogue_10sigma": 5542,
+        "metadata": {
+          "independent_chip_center_entries": 1292,
+          "independent_exposures": 65,
+          "returned_CCD_entries": 3949,
+          "input_chip_sha256": "d1f9c277946b4e975e0c0a69bedb4186823a0c9f5950cc8fb1931c91676bfef7",
+          "internal_exposure_bad_pixel_masks_available": false,
+          "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+          "invalid_polygon_CCDs": 0
+        },
+        "by_class": {
+          "common_training_identity": {
+            "geometric": {
+              "candidates": 5407,
+              "uniquely_reproduced": 5176
+            },
+            "catalogue_10sigma": {
+              "candidates": 5232,
+              "uniquely_reproduced": 5009
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 5402,
+              "uniquely_reproduced": 5172
+            },
+            "depth_or_band_unknown": {
+              "candidates": 380,
+              "uniquely_reproduced": 374
+            }
+          },
+          "new_only_training": {
+            "geometric": {
+              "candidates": 318,
+              "uniquely_reproduced": 306
+            },
+            "catalogue_10sigma": {
+              "candidates": 310,
+              "uniquely_reproduced": 298
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 318,
+              "uniquely_reproduced": 306
+            },
+            "depth_or_band_unknown": {
+              "candidates": 31,
+              "uniquely_reproduced": 29
+            }
+          }
+        },
+        "scope": "Actual CCD footprint, exposure epoch and train-band magnitude/depth. Native12mas group support checked at each predicted published sky position. Internal bad pixels and true target extraction completeness not certified."
+      },
+      "training_before_all_held_target_association": true,
+      "slurm_job": "62041280",
+      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate."
+    },
+    {
+      "core": "w020_110_20_11",
+      "status": "completed",
+      "held_year": 2017,
+      "old_training": 2344,
+      "new_training": 2091,
+      "entities": {
+        "common_training_identity": 2087,
+        "old_only_training": 257,
+        "new_only_training": 4
+      },
+      "old_funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1640,
+            "associated": 1640,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 135,
+            "insufficient_time_sampling": 1640
+          },
+          "20_to_21": {
+            "initial": 996,
+            "sdss_nearby": 748,
+            "associated": 748,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 748,
+            "no_sdss_within_fixed_gate": 248
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "insufficient_time_sampling": 107
+          },
+          "21_to_22": {
+            "initial": 1206,
+            "sdss_nearby": 889,
+            "associated": 889,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 889,
+            "no_sdss_within_fixed_gate": 317
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1640,
+            "associated": 1640,
+            "fit_eligible": 1294,
+            "calibrated": 1294,
+            "final": 1288,
+            "no_sdss_within_fixed_gate": 135,
+            "insufficient_time_sampling": 346,
+            "final_quality_rejection": 6
+          },
+          "20_to_21": {
+            "initial": 996,
+            "sdss_nearby": 748,
+            "associated": 748,
+            "fit_eligible": 675,
+            "calibrated": 675,
+            "final": 649,
+            "no_sdss_within_fixed_gate": 248,
+            "insufficient_time_sampling": 73,
+            "final_quality_rejection": 26
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 90,
+            "calibrated": 90,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "final_quality_rejection": 90,
+            "insufficient_time_sampling": 17
+          },
+          "21_to_22": {
+            "initial": 1206,
+            "sdss_nearby": 889,
+            "associated": 889,
+            "fit_eligible": 802,
+            "calibrated": 802,
+            "final": 338,
+            "final_quality_rejection": 464,
+            "no_sdss_within_fixed_gate": 317,
+            "insufficient_time_sampling": 87
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 32685,
+          "non_r_before_quality": 1003,
+          "non_r_time_exit": 763,
+          "non_r_ownership_exit": 15,
+          "non_r_morphology_exit": 127,
+          "non_r_missing_survey": 23800,
+          "non_r_formal_error_exit": 29
+        },
+        "strict_r_solutions": 0
+      },
+      "new_funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1641,
+            "associated": 1641,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 134,
+            "insufficient_time_sampling": 1641
+          },
+          "20_to_21": {
+            "initial": 995,
+            "sdss_nearby": 750,
+            "associated": 749,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 749,
+            "no_sdss_within_fixed_gate": 245,
+            "split_or_competing_track": 1
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "insufficient_time_sampling": 107
+          },
+          "21_to_22": {
+            "initial": 1205,
+            "sdss_nearby": 888,
+            "associated": 888,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 888,
+            "no_sdss_within_fixed_gate": 317
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1641,
+            "associated": 1641,
+            "fit_eligible": 1295,
+            "calibrated": 1295,
+            "final": 1286,
+            "no_sdss_within_fixed_gate": 134,
+            "insufficient_time_sampling": 346,
+            "final_quality_rejection": 9
+          },
+          "20_to_21": {
+            "initial": 995,
+            "sdss_nearby": 750,
+            "associated": 749,
+            "fit_eligible": 676,
+            "calibrated": 676,
+            "final": 602,
+            "no_sdss_within_fixed_gate": 245,
+            "final_quality_rejection": 74,
+            "insufficient_time_sampling": 73,
+            "split_or_competing_track": 1
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 90,
+            "calibrated": 90,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "final_quality_rejection": 90,
+            "insufficient_time_sampling": 17
+          },
+          "21_to_22": {
+            "initial": 1205,
+            "sdss_nearby": 888,
+            "associated": 888,
+            "fit_eligible": 801,
+            "calibrated": 801,
+            "final": 140,
+            "final_quality_rejection": 661,
+            "no_sdss_within_fixed_gate": 317,
+            "insufficient_time_sampling": 87
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 32597,
+          "non_r_before_quality": 1004,
+          "non_r_time_exit": 765,
+          "non_r_ownership_exit": 15,
+          "non_r_morphology_exit": 126,
+          "non_r_missing_survey": 23699,
+          "non_r_formal_error_exit": 35
+        },
+        "strict_r_solutions": 0
+      },
+      "methods": {
+        "old": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 2087,
+              "unique_reproductions": {
+                "n": 2059,
+                "denominator": 2087,
+                "value": 0.9865836128413992,
+                "wilson95": [
+                  0.9806778216685301,
+                  0.9907014244391845
+                ]
+              },
+              "displaced_sources": [
+                13,
+                11,
+                13,
+                7
+              ],
+              "position": {
+                "n": 6890,
+                "median": [
+                  -2.317565225448339,
+                  -4.147313839967101
+                ],
+                "nmad": [
+                  21.604378170679112,
+                  28.60794140764015
+                ],
+                "absolute_radial_p68": 41.002335182857195,
+                "equal_mean": [
+                  -2.432313147088313,
+                  -2.1666403769913813
+                ],
+                "median_object_interval95": [
+                  [
+                    -2.9313573559089123,
+                    -1.5756524479744134
+                  ],
+                  [
+                    -4.917837501472468,
+                    -3.2465126018770847
+                  ]
+                ],
+                "within_1sigma": [
+                  0.9683599419448476,
+                  0.9579100145137881
+                ],
+                "within_2sigma": [
+                  0.9937590711175617,
+                  0.9936139332365748
+                ]
+              }
+            },
+            "old_only_training": {
+              "training_sources": 257,
+              "unique_reproductions": {
+                "n": 256,
+                "denominator": 257,
+                "value": 0.9961089494163424,
+                "wilson95": [
+                  0.9782925248669571,
+                  0.9993128034918698
+                ]
+              },
+              "displaced_sources": [
+                2,
+                2,
+                4,
+                1
+              ],
+              "position": {
+                "n": 867,
+                "median": [
+                  -1.4340950719202437,
+                  1.9868060148585454
+                ],
+                "nmad": [
+                  41.76810052354333,
+                  44.692405252546706
+                ],
+                "absolute_radial_p68": 65.9530910936335,
+                "equal_mean": [
+                  -1.443176811521276,
+                  4.446084138812194
+                ],
+                "median_object_interval95": [
+                  [
+                    -4.330591366468809,
+                    1.4460769387600843
+                  ],
+                  [
+                    -1.0386987877174083,
+                    4.359931967091215
+                  ]
+                ],
+                "within_1sigma": [
+                  0.9596309111880046,
+                  0.9469434832756632
+                ],
+                "within_2sigma": [
+                  0.9976931949250288,
+                  0.9953863898500577
+                ]
+              }
+            },
+            "new_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            }
+          },
+          "competing_claims_rejected": 0,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        },
+        "new": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 2087,
+              "unique_reproductions": {
+                "n": 2059,
+                "denominator": 2087,
+                "value": 0.9865836128413992,
+                "wilson95": [
+                  0.9806778216685301,
+                  0.9907014244391845
+                ]
+              },
+              "displaced_sources": [
+                13,
+                11,
+                13,
+                7
+              ],
+              "position": {
+                "n": 6890,
+                "median": [
+                  -2.279564685832942,
+                  -4.13525110410993
+                ],
+                "nmad": [
+                  21.59342701662254,
+                  28.652774644815462
+                ],
+                "absolute_radial_p68": 41.00160264213598,
+                "equal_mean": [
+                  -2.394636924689359,
+                  -2.173822219111534
+                ],
+                "median_object_interval95": [
+                  [
+                    -2.9007669804096667,
+                    -1.516457233685619
+                  ],
+                  [
+                    -4.858927398262075,
+                    -3.256266312284396
+                  ]
+                ],
+                "within_1sigma": [
+                  0.9706821480406386,
+                  0.9613933236574747
+                ],
+                "within_2sigma": [
+                  0.9941944847605225,
+                  0.9937590711175617
+                ]
+              }
+            },
+            "old_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            },
+            "new_only_training": {
+              "training_sources": 4,
+              "unique_reproductions": {
+                "n": 4,
+                "denominator": 4,
+                "value": 1.0,
+                "wilson95": [
+                  0.5101091635454027,
+                  1.0
+                ]
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 13,
+                "median": [
+                  9.103572046128003,
+                  7.460821657200031
+                ],
+                "nmad": [
+                  74.83881250464812,
+                  42.28311642161786
+                ],
+                "absolute_radial_p68": 114.72918607462864,
+                "equal_mean": [
+                  21.094208180110414,
+                  -12.371888272047777
+                ],
+                "median_object_interval95": [
+                  [
+                    -11.790378347154384,
+                    91.81676947854787
+                  ],
+                  [
+                    -15.674928827334858,
+                    35.98039296545436
+                  ]
+                ],
+                "within_1sigma": [
+                  0.6153846153846154,
+                  0.6923076923076923
+                ],
+                "within_2sigma": [
+                  1.0,
+                  0.8461538461538461
+                ]
+              }
+            }
+          },
+          "competing_claims_rejected": 0,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        }
+      },
+      "opportunity": {
+        "new_sources": 2091,
+        "geometry": 2086,
+        "catalogue_10sigma": 2083,
+        "metadata": {
+          "independent_chip_center_entries": 1468,
+          "independent_exposures": 79,
+          "returned_CCD_entries": 4809,
+          "input_chip_sha256": "abc34ab844e60ec4a54974e144617371527eb29a4fe3e4f2b8f8be20a08893d6",
+          "internal_exposure_bad_pixel_masks_available": false,
+          "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+          "invalid_polygon_CCDs": 0
+        },
+        "by_class": {
+          "common_training_identity": {
+            "geometric": {
+              "candidates": 2082,
+              "uniquely_reproduced": 2059
+            },
+            "catalogue_10sigma": {
+              "candidates": 2079,
+              "uniquely_reproduced": 2056
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 2079,
+              "uniquely_reproduced": 2056
+            },
+            "depth_or_band_unknown": {
+              "candidates": 73,
+              "uniquely_reproduced": 73
+            }
+          },
+          "new_only_training": {
+            "geometric": {
+              "candidates": 4,
+              "uniquely_reproduced": 4
+            },
+            "catalogue_10sigma": {
+              "candidates": 4,
+              "uniquely_reproduced": 4
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 4,
+              "uniquely_reproduced": 4
+            },
+            "depth_or_band_unknown": {
+              "candidates": 1,
+              "uniquely_reproduced": 1
+            }
+          }
+        },
+        "scope": "Actual CCD footprint, exposure epoch and train-band magnitude/depth. Native12mas group support checked at each predicted published sky position. Internal bad pixels and true target extraction completeness not certified."
+      },
+      "training_before_all_held_target_association": true,
+      "slurm_job": "62041280",
+      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate."
+    },
+    {
+      "core": "w230_090_60_11",
+      "status": "completed",
+      "held_year": 2015,
+      "old_training": 8537,
+      "new_training": 9641,
+      "entities": {
+        "common_training_identity": 8210,
+        "old_only_training": 327,
+        "new_only_training": 1431
+      },
+      "old_funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 4230,
+            "sdss_nearby": 2954,
+            "associated": 2892,
+            "fit_eligible": 373,
+            "calibrated": 373,
+            "final": 370,
+            "insufficient_time_sampling": 2519,
+            "no_sdss_within_fixed_gate": 1276,
+            "split_or_competing_track": 62,
+            "final_quality_rejection": 3
+          },
+          "21_to_22": {
+            "initial": 2798,
+            "sdss_nearby": 1921,
+            "associated": 1847,
+            "fit_eligible": 243,
+            "calibrated": 243,
+            "final": 237,
+            "no_sdss_within_fixed_gate": 877,
+            "insufficient_time_sampling": 1604,
+            "split_or_competing_track": 74,
+            "final_quality_rejection": 6
+          },
+          "22_to_23": {
+            "initial": 1542,
+            "sdss_nearby": 864,
+            "associated": 836,
+            "fit_eligible": 13,
+            "calibrated": 13,
+            "final": 12,
+            "insufficient_time_sampling": 823,
+            "no_sdss_within_fixed_gate": 678,
+            "split_or_competing_track": 28,
+            "final_quality_rejection": 1
+          },
+          "20_to_21": {
+            "initial": 2274,
+            "sdss_nearby": 1503,
+            "associated": 1464,
+            "fit_eligible": 196,
+            "calibrated": 196,
+            "final": 194,
+            "no_sdss_within_fixed_gate": 771,
+            "insufficient_time_sampling": 1268,
+            "split_or_competing_track": 39,
+            "final_quality_rejection": 2
+          },
+          "ge23": {
+            "initial": 13,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 13
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 4230,
+            "sdss_nearby": 2954,
+            "associated": 2892,
+            "fit_eligible": 2819,
+            "calibrated": 2819,
+            "final": 2779,
+            "no_sdss_within_fixed_gate": 1276,
+            "final_quality_rejection": 40,
+            "split_or_competing_track": 62,
+            "insufficient_time_sampling": 73
+          },
+          "21_to_22": {
+            "initial": 2798,
+            "sdss_nearby": 1921,
+            "associated": 1847,
+            "fit_eligible": 1840,
+            "calibrated": 1840,
+            "final": 1767,
+            "no_sdss_within_fixed_gate": 877,
+            "split_or_competing_track": 74,
+            "final_quality_rejection": 73,
+            "insufficient_time_sampling": 7
+          },
+          "22_to_23": {
+            "initial": 1542,
+            "sdss_nearby": 864,
+            "associated": 836,
+            "fit_eligible": 826,
+            "calibrated": 826,
+            "final": 784,
+            "no_sdss_within_fixed_gate": 678,
+            "insufficient_time_sampling": 10,
+            "split_or_competing_track": 28,
+            "final_quality_rejection": 42
+          },
+          "20_to_21": {
+            "initial": 2274,
+            "sdss_nearby": 1503,
+            "associated": 1464,
+            "fit_eligible": 1460,
+            "calibrated": 1460,
+            "final": 1421,
+            "no_sdss_within_fixed_gate": 771,
+            "split_or_competing_track": 39,
+            "final_quality_rejection": 39,
+            "insufficient_time_sampling": 4
+          },
+          "ge23": {
+            "initial": 13,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 13
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 80779,
+          "non_r_missing_survey": 58144,
+          "non_r_before_quality": 6603,
+          "non_r_morphology_exit": 2580,
+          "non_r_ownership_exit": 735,
+          "non_r_time_exit": 1457,
+          "non_r_residual_exit": 40,
+          "non_r_shared_detection_rejected": 5
+        },
+        "strict_r_solutions": 813
+      },
+      "new_funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 4222,
+            "sdss_nearby": 3417,
+            "associated": 3415,
+            "fit_eligible": 452,
+            "calibrated": 452,
+            "final": 452,
+            "insufficient_time_sampling": 2963,
+            "no_sdss_within_fixed_gate": 805,
+            "split_or_competing_track": 2
+          },
+          "21_to_22": {
+            "initial": 2795,
+            "sdss_nearby": 2159,
+            "associated": 2157,
+            "fit_eligible": 318,
+            "calibrated": 318,
+            "final": 318,
+            "insufficient_time_sampling": 1839,
+            "no_sdss_within_fixed_gate": 636,
+            "split_or_competing_track": 2
+          },
+          "22_to_23": {
+            "initial": 1535,
+            "sdss_nearby": 994,
+            "associated": 994,
+            "fit_eligible": 17,
+            "calibrated": 17,
+            "final": 17,
+            "insufficient_time_sampling": 977,
+            "no_sdss_within_fixed_gate": 541
+          },
+          "20_to_21": {
+            "initial": 2270,
+            "sdss_nearby": 1695,
+            "associated": 1695,
+            "fit_eligible": 253,
+            "calibrated": 253,
+            "final": 253,
+            "insufficient_time_sampling": 1442,
+            "no_sdss_within_fixed_gate": 575
+          },
+          "ge23": {
+            "initial": 13,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 13
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 4222,
+            "sdss_nearby": 3417,
+            "associated": 3415,
+            "fit_eligible": 3317,
+            "calibrated": 3317,
+            "final": 3310,
+            "no_sdss_within_fixed_gate": 805,
+            "final_quality_rejection": 7,
+            "insufficient_time_sampling": 98,
+            "split_or_competing_track": 2
+          },
+          "21_to_22": {
+            "initial": 2795,
+            "sdss_nearby": 2159,
+            "associated": 2157,
+            "fit_eligible": 2157,
+            "calibrated": 2157,
+            "final": 2150,
+            "no_sdss_within_fixed_gate": 636,
+            "final_quality_rejection": 7,
+            "split_or_competing_track": 2
+          },
+          "22_to_23": {
+            "initial": 1535,
+            "sdss_nearby": 994,
+            "associated": 994,
+            "fit_eligible": 989,
+            "calibrated": 989,
+            "final": 942,
+            "no_sdss_within_fixed_gate": 541,
+            "final_quality_rejection": 47,
+            "insufficient_time_sampling": 5
+          },
+          "20_to_21": {
+            "initial": 2270,
+            "sdss_nearby": 1695,
+            "associated": 1695,
+            "fit_eligible": 1693,
+            "calibrated": 1693,
+            "final": 1693,
+            "no_sdss_within_fixed_gate": 575,
+            "insufficient_time_sampling": 2
+          },
+          "ge23": {
+            "initial": 13,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 13
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 70258,
+          "non_r_missing_survey": 46145,
+          "non_r_before_quality": 5359,
+          "non_r_morphology_exit": 2506,
+          "non_r_ownership_exit": 692,
+          "non_r_time_exit": 559,
+          "non_r_formal_error_exit": 56
+        },
+        "strict_r_solutions": 1040
+      },
+      "methods": {
+        "old": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 8210,
+              "unique_reproductions": {
+                "n": 8204,
+                "denominator": 8210,
+                "value": 0.9992691839220463,
+                "wilson95": [
+                  0.9984063515182933,
+                  0.999665018753447
+                ]
+              },
+              "displaced_sources": [
+                102,
+                88,
+                91,
+                94
+              ],
+              "position": {
+                "n": 36168,
+                "median": [
+                  -0.4072556939507096,
+                  -1.1212409869970976
+                ],
+                "nmad": [
+                  22.792885233917218,
+                  25.800288895298834
+                ],
+                "absolute_radial_p68": 43.17546870707004,
+                "equal_mean": [
+                  -0.24447834969450016,
+                  0.29190287842451884
+                ],
+                "median_object_interval95": [
+                  [
+                    -0.6738370140621294,
+                    -0.12767701949113597
+                  ],
+                  [
+                    -1.4368402221858576,
+                    -0.7892982324934528
+                  ]
+                ],
+                "within_1sigma": [
+                  0.9609323158593231,
+                  0.9575038708250387
+                ],
+                "within_2sigma": [
+                  0.9945255474452555,
+                  0.9938343286883433
+                ]
+              }
+            },
+            "old_only_training": {
+              "training_sources": 327,
+              "unique_reproductions": {
+                "n": 214,
+                "denominator": 327,
+                "value": 0.654434250764526,
+                "wilson95": [
+                  0.6013664942511255,
+                  0.7039156803590972
+                ]
+              },
+              "displaced_sources": [
+                0,
+                2,
+                2,
+                3
+              ],
+              "position": {
+                "n": 708,
+                "median": [
+                  -3.3759926095641877,
+                  3.1103574434812815
+                ],
+                "nmad": [
+                  59.8585839211241,
+                  61.64293590695967
+                ],
+                "absolute_radial_p68": 101.02405382171374,
+                "equal_mean": [
+                  0.3668778859828869,
+                  -1.4552483809198933
+                ],
+                "median_object_interval95": [
+                  [
+                    -8.024615149370284,
+                    1.9906823149556838
+                  ],
+                  [
+                    -0.6518859225948668,
+                    8.600684550355407
+                  ]
+                ],
+                "within_1sigma": [
+                  0.8757062146892656,
+                  0.8502824858757062
+                ],
+                "within_2sigma": [
+                  0.9675141242937854,
+                  0.943502824858757
+                ]
+              }
+            },
+            "new_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            }
+          },
+          "competing_claims_rejected": 1127,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        },
+        "new": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 8210,
+              "unique_reproductions": {
+                "n": 8204,
+                "denominator": 8210,
+                "value": 0.9992691839220463,
+                "wilson95": [
+                  0.9984063515182933,
+                  0.999665018753447
+                ]
+              },
+              "displaced_sources": [
+                101,
+                86,
+                91,
+                95
+              ],
+              "position": {
+                "n": 36168,
+                "median": [
+                  -0.06783703806407965,
+                  -1.0041341291987322
+                ],
+                "nmad": [
+                  22.770573588051835,
+                  25.92139859938525
+                ],
+                "absolute_radial_p68": 42.81429224728434,
+                "equal_mean": [
+                  0.24633332761239177,
+                  0.39714384905782796
+                ],
+                "median_object_interval95": [
+                  [
+                    -0.36367107786402403,
+                    0.19211626296451628
+                  ],
+                  [
+                    -1.2987877565092725,
+                    -0.7088220592086758
+                  ]
+                ],
+                "within_1sigma": [
+                  0.9696693209466932,
+                  0.9647754921477549
+                ],
+                "within_2sigma": [
+                  0.995742092457421,
+                  0.9949402786994028
+                ]
+              }
+            },
+            "old_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            },
+            "new_only_training": {
+              "training_sources": 1431,
+              "unique_reproductions": {
+                "n": 1317,
+                "denominator": 1431,
+                "value": 0.9203354297693921,
+                "wilson95": [
+                  0.905154514096148,
+                  0.9332656420852562
+                ]
+              },
+              "displaced_sources": [
+                17,
+                16,
+                16,
+                8
+              ],
+              "position": {
+                "n": 5604,
+                "median": [
+                  3.3277888877599855,
+                  0.5753569060190636
+                ],
+                "nmad": [
+                  26.81833907580787,
+                  29.031974166235578
+                ],
+                "absolute_radial_p68": 52.18261261209783,
+                "equal_mean": [
+                  4.156090781473765,
+                  3.2495353895951973
+                ],
+                "median_object_interval95": [
+                  [
+                    2.3855953883950205,
+                    4.163210449492766
+                  ],
+                  [
+                    -0.22599715940741924,
+                    1.3189053295995299
+                  ]
+                ],
+                "within_1sigma": [
+                  0.9336188436830836,
+                  0.9373661670235546
+                ],
+                "within_2sigma": [
+                  0.9867951463240543,
+                  0.9834047109207709
+                ]
+              }
+            }
+          },
+          "competing_claims_rejected": 1127,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        }
+      },
+      "opportunity": {
+        "new_sources": 9641,
+        "geometry": 9641,
+        "catalogue_10sigma": 8745,
+        "metadata": {
+          "independent_chip_center_entries": 2599,
+          "independent_exposures": 233,
+          "returned_CCD_entries": 14159,
+          "input_chip_sha256": "b53ce3fe14573c3ac1f2f0e5b3120713d301af3f62760c5d3439cdcac827be73",
+          "internal_exposure_bad_pixel_masks_available": false,
+          "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+          "invalid_polygon_CCDs": 0
+        },
+        "by_class": {
+          "common_training_identity": {
+            "geometric": {
+              "candidates": 8210,
+              "uniquely_reproduced": 8204
+            },
+            "catalogue_10sigma": {
+              "candidates": 7431,
+              "uniquely_reproduced": 7428
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 7609,
+              "uniquely_reproduced": 7605
+            },
+            "depth_or_band_unknown": {
+              "candidates": 2128,
+              "uniquely_reproduced": 2123
+            }
+          },
+          "new_only_training": {
+            "geometric": {
+              "candidates": 1431,
+              "uniquely_reproduced": 1317
+            },
+            "catalogue_10sigma": {
+              "candidates": 1314,
+              "uniquely_reproduced": 1204
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 1341,
+              "uniquely_reproduced": 1229
+            },
+            "depth_or_band_unknown": {
+              "candidates": 424,
+              "uniquely_reproduced": 408
+            }
+          }
+        },
+        "scope": "Actual CCD footprint, exposure epoch and train-band magnitude/depth. Native12mas group support checked at each predicted published sky position. Internal bad pixels and true target extraction completeness not certified."
+      },
+      "training_before_all_held_target_association": true,
+      "slurm_job": "62041280",
+      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate."
+    }
+  ],
+  "scope": "Metadata-first representative far-core whole-year target isolation; original and new compete before evaluation. Conditional unique-position and real CCD/depth support, not stellar purity."
+}

@@ -184,6 +184,38 @@ def identity_control(task):
     check_aggregate(r);save_json(reportfile,r);print('CANDIDATE_IDENTITY_CONTROL',row['core'],len(original),len(added),flush=True);return r
 
 
+def member_continuity(registration,archive,completed,output):
+    """Map full-epoch additions to the fixed, actually tested training universe."""
+    plan=read(registration);cores=[]
+    for row in plan['selected']:
+        core=row['core'];train=read(completed/core/'private_training_competitors.json.gz');nold=train['original'];members=list(map(set,train['members']))
+        full=[set(r['detection_ids']) for r in read(archive/core/'private_full_candidate_members.json.gz')]
+        tested=read(completed/core/'private_candidate_completion.json.gz');held={r['training_slot'] for r in tested['matches']}
+        owners=defaultdict(list)
+        for j,member in enumerate(members):
+            for detection in member:owners[detection].append(j)
+        edges=[];claims=Counter()
+        for f in full:
+            votes=Counter(j for detection in f for j in owners.get(detection,[]))
+            if not votes:edges.append(None);continue
+            best=max(votes.values());winners=[j for j,n in votes.items() if n==best]
+            if len(winners)!=1:edges.append('ambiguous');continue
+            j=winners[0];edges.append(j);claims[j]+=1
+        counts=Counter();overlap=[]
+        for f,j in zip(full,edges):
+            if j is None:counts['no_shared_training_detection']+=1;continue
+            if j=='ambiguous' or claims[j]>1:counts['competing_training_correspondence']+=1;continue
+            counts['unique_original_training' if j<nold else 'unique_added_training']+=1
+            if j in held:counts['unique_correspondence_with_held_position']+=1
+            if members[j]<=f:counts['training_members_subset_of_full']+=1
+            overlap.append(len(f&members[j])/len(members[j]))
+        cores.append(dict(core=core,full_epoch_additions=len(full),training_additions=len(members)-nold,
+            correspondence_counts=dict(counts),training_member_recovery_p16_p50_p84=np.quantile(overlap,[.16,.5,.84]) if overlap else None))
+    result=dict(cores=cores,slurm_job=os.environ['SLURM_JOB_ID'],
+        scope='Correspondence by unique strongest shared physical detection identity; ties and many-to-one claims ambiguous. No new selection gate. Full-epoch7479 and training7254 are different member universes, not identical denominators. Held reproduction only attaches through explicit unique correspondence; cannot certify the remaining full-epoch sources.')
+    check_aggregate(result);save_json(output,result)
+
+
 def one(task):
     row,archive,output,cache,lsroot=task;archive=Path(archive)/row['core'];dest=Path(output)/row['core'];dest.mkdir(parents=True,exist_ok=True)
     reportfile=dest/'v21_candidate_completion_core_summary.json';source=Path(row['source'])

@@ -1,0 +1,151 @@
+{
+  "component": 1,
+  "reference_model_sha256": "44b9129553676106d470da4acc4007d3133fa1dc6550c7c72fdaf4de453ef233",
+  "old_reference_model_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+  "validation_physical_sources": 18304,
+  "validation_measurements": 501184,
+  "native12mas_supported_measurements": 500747,
+  "old_archived_group_measurements": 500324,
+  "sample": "Physical holdout identity sha256(v22-held-readout:ID) first byte<04,1/64; reference training/holdout split unchanged",
+  "position_mas": {
+    "raw_new_support": {
+      "n": 18304,
+      "median": [
+        -4.656656304099965,
+        -14.192787777621753
+      ],
+      "nmad": [
+        86.96361743210193,
+        85.40138211310078
+      ],
+      "absolute_radial_p68": 139.95738735533848,
+      "equal_mean": [
+        -5.3804441897325335,
+        -13.485311463577379
+      ],
+      "median_object_interval95": [
+        [
+          -6.103929996605986,
+          -2.9911045886242906
+        ],
+        [
+          -15.60815941165494,
+          -12.59581985742339
+        ]
+      ]
+    },
+    "new_all_supported": {
+      "n": 18304,
+      "median": [
+        -0.9860494889704536,
+        -1.003971594673995
+      ],
+      "nmad": [
+        84.52356208475408,
+        82.8091156216972
+      ],
+      "absolute_radial_p68": 136.258536514513,
+      "equal_mean": [
+        -1.4877180710862763,
+        -0.9598231947278987
+      ],
+      "median_object_interval95": [
+        [
+          -2.4352810878780344,
+          0.46773507928182373
+        ],
+        [
+          -2.3711777321035994,
+          0.25685199835095024
+        ]
+      ]
+    },
+    "old_strict_common": {
+      "n": 18304,
+      "median": [
+        -1.004817260436934,
+        -0.9092277275354343
+      ],
+      "nmad": [
+        84.78392177802303,
+        82.99476528024873
+      ],
+      "absolute_radial_p68": 136.50105568116422,
+      "equal_mean": [
+        -1.536622536187191,
+        -0.8900452620932968
+      ],
+      "median_object_interval95": [
+        [
+          -2.4471753713613777,
+          0.2889929601074864
+        ],
+        [
+          -2.141121238505183,
+          0.1907255817123787
+        ]
+      ]
+    },
+    "new_strict_common": {
+      "n": 18304,
+      "median": [
+        -0.9751668959215316,
+        -0.9803395294262247
+      ],
+      "nmad": [
+        84.54256224227817,
+        82.79102857226285
+      ],
+      "absolute_radial_p68": 136.27828987055142,
+      "equal_mean": [
+        -1.484176802655843,
+        -0.9522714817864889
+      ],
+      "median_object_interval95": [
+        [
+          -2.4258198333513152,
+          0.4752289146697255
+        ],
+        [
+          -2.3746427830199868,
+          0.28883957764955404
+        ]
+      ]
+    },
+    "old_archived_support": {
+      "n": 18304,
+      "median": [
+        -1.004817260436934,
+        -0.9092277275354343
+      ],
+      "nmad": [
+        84.76724976493328,
+        82.99476528024873
+      ],
+      "absolute_radial_p68": 136.50105568116422,
+      "equal_mean": [
+        -1.5364018276469131,
+        -0.8898456364303741
+      ],
+      "median_object_interval95": [
+        [
+          -2.4471753713613777,
+          0.2889929601074864
+        ],
+        [
+          -2.141121238505183,
+          0.1907255817123787
+        ]
+      ]
+    }
+  },
+  "exits": {},
+  "strict_same_physical_detections_and_objects": {
+    "n": 18304,
+    "radial_p68_new_over_old": 0.9983680286610154
+  },
+  "elapsed_seconds": 99.35920447006356,
+  "peak_rss_mib": 12398.09375,
+  "slurm_job": "62041280",
+  "scope": "Complete new graph, reference-source heldout sample, native E/N cross-survey median position difference. Strict old/new entries use identical detections (new native support AND old group presence). New-all and old-archived supports separate; no Gaia or QSO fitted. Object intervals condition on shared physical observations; not independent sky confidence."
+}

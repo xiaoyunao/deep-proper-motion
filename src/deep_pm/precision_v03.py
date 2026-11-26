@@ -62,7 +62,7 @@ def calibration_support(groups, offsets):
     return pd.Series(groups,copy=False).isin(list(offsets)).to_numpy()
 
 
-def reference_rows(frame, xy, object_ids, gaia_xy, settings, seed):
+def reference_rows(frame, xy, object_ids, gaia_xy, settings, seed, sky_center=None):
     nsc = frame.survey.eq("NSC")
     nsc_good = nsc & object_ids.notna() & frame.magnitude.between(15, 23)
     nsc_data = pd.DataFrame(dict(ref=object_ids[nsc_good], x=xy[nsc_good, 0], y=xy[nsc_good, 1],
@@ -72,10 +72,14 @@ def reference_rows(frame, xy, object_ids, gaia_xy, settings, seed):
     if len(objects) < 2:
         return frame.iloc[:0].assign(reference=pd.Series(dtype=str), is_holdout=pd.Series(dtype=bool))
     points = objects.to_numpy()
-    tree = cKDTree(points)
+    if sky_center is None:tree_type=cKDTree
+    else:
+        from .coordinate_metric import AngularTree
+        tree_type=lambda points:AngularTree(points,sky_center)
+    tree = tree_type(points)
     isolated = tree.query(points, k=2)[0][:, 1] >= settings["reference_neighbour_mas"]
     extended = r_shape.reindex(objects.index).le(settings["nsc_extended_max"]).to_numpy()
-    no_gaia = (cKDTree(gaia_xy).query(points)[0] > settings["gaia_veto_mas"]
+    no_gaia = (tree_type(gaia_xy).query(points)[0] > settings["gaia_veto_mas"]
                if len(gaia_xy) else np.ones(len(points), dtype=bool))
     eligible = isolated & extended & no_gaia
     sdss = frame.index[~nsc & frame.morphology.eq(3) & frame.nchild.eq(0)

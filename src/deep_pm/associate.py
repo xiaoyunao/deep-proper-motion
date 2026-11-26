@@ -27,9 +27,17 @@ def one_per_exposure(indices, distance, exposure):
     return tuple(sorted(kept.values()))
 
 
-def static_tracks(xy, exposure, radius, eps=None):
+def static_tracks(xy, exposure, radius, eps=None, sky_center=None):
     if not len(xy):
         return []
+    if sky_center is not None and eps is not None:raise ValueError('Spherical fixed-radius route does not silently reinterpret planar DBSCAN epsilon')
+    if sky_center is None:
+        distance=lambda points,center:np.linalg.norm(points-center,axis=-1)
+        tree_type=cKDTree
+    else:
+        from .coordinate_metric import AngularTree,angular_distance
+        distance=lambda points,center:angular_distance(points,center,sky_center)
+        tree_type=lambda points:AngularTree(points,sky_center)
     if eps is None:
         labels = np.full(len(xy), -1)
     else:
@@ -43,13 +51,13 @@ def static_tracks(xy, exposure, radius, eps=None):
         group = np.flatnonzero(labels == label)
         groups.append(list(group))
     used = labels >= 0
-    tree = cKDTree(xy)
+    tree = tree_type(xy)
     centers = [np.median(xy[group], axis=0) for group in groups]
     if centers:
-        center_tree = cKDTree(centers)
+        center_tree = tree_type(centers)
         for index in np.flatnonzero(~used):
             possibilities = center_tree.query_ball_point(xy[index], radius)
-            for label in sorted(possibilities, key=lambda j: np.linalg.norm(xy[index] - centers[j])):
+            for label in sorted(possibilities, key=lambda j: float(distance(xy[index],centers[j])[0]) if sky_center is not None else float(distance(xy[index],centers[j]))):
                 if exposure[index] not in exposure[groups[label]]:
                     groups[label].append(index)
                     used[index] = True
@@ -59,7 +67,7 @@ def static_tracks(xy, exposure, radius, eps=None):
             continue
         candidates = np.array(tree.query_ball_point(xy[index], radius), dtype=int)
         candidates = candidates[~used[candidates]]
-        chosen = one_per_exposure(candidates, np.linalg.norm(xy[candidates] - xy[index], axis=1),
+        chosen = one_per_exposure(candidates, distance(xy[candidates],xy[index]),
                                   exposure)
         used[list(chosen)] = True
         groups.append(chosen)

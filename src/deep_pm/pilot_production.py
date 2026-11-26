@@ -35,9 +35,9 @@ def quality_detections(work, center, config, production):
     return data, xy, t, sigma, keep.to_numpy()
 
 
-def make_tracks(xy, exp, keep, radius):
+def make_tracks(xy, exp, keep, radius, sky_center=None):
     selected = np.flatnonzero(keep)
-    return [selected[list(item)] for item in static_tracks(xy[selected], exp[selected], radius)]
+    return [selected[list(item)] for item in static_tracks(xy[selected], exp[selected], radius, sky_center=sky_center)]
 
 
 def valid_epochs(index, nsc, time, settings):
@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None, audit_records=None, morphology_accept=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None, audit_records=None, morphology_accept=None, sky_center=None, quality_distance=None):
     prod = settings["production"]
     group = calibration_groups(data) if observation_groups is None else observation_groups
     nsc = data.survey.eq("NSC").to_numpy()
@@ -67,10 +67,13 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
     owner = np.full(len(xy), -1, dtype=int)
     for j, members in enumerate(tracks):
         owner[members] = j
-    sdss_tree = cKDTree(xy[keep & ~nsc])
+    if sky_center is None:sdss_tree = cKDTree(xy[keep & ~nsc])
+    else:
+        from .coordinate_metric import AngularTree
+        sdss_tree=AngularTree(xy[keep & ~nsc],sky_center)
     reference_keep = keep if reference_keep is None else reference_keep
     if initial is None:
-        initial = make_tracks(xy, exposure, reference_keep & nsc, prod["match_radius_mas"])
+        initial = make_tracks(xy, exposure, reference_keep & nsc, prod["match_radius_mas"],sky_center=sky_center)
     support = calibration_support(group,offsets)
     morphology, mag = data.morphology.to_numpy(), data.magnitude.to_numpy()
     p = {}
@@ -152,7 +155,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
                                                 [offsets[k] for k in group[use]])
             if model_cache is not None:
                 model_cache[j] = (use, model, error)
-        residual = np.quantile(np.linalg.norm(model.residual/sigma[use],axis=1),.68)
+        residual = np.quantile(np.linalg.norm(model.residual/sigma[use],axis=1) if quality_distance is None else quality_distance(use,model),.68)
         finite = np.isfinite(error).all()
         formal = not finite or error.max()>prod["max_axis_pm_error_masyr"]
         scatter = residual>3

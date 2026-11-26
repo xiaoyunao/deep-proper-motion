@@ -129,11 +129,14 @@ def calibrate_errors(data, xy, raw, corrected, refs, features, groups, support, 
     return errors, shared, summary
 
 
-def augment_tracks(tracks, data, xy, eligible, r_keep, prod):
+def augment_tracks(tracks, data, xy, eligible, r_keep, prod, sky_center=None):
     if not tracks:
         return []
     anchors = np.array([np.median(xy[index],axis=0) for index in tracks])
-    tree = cKDTree(anchors)
+    if sky_center is None:tree=cKDTree(anchors)
+    else:
+        from .coordinate_metric import AngularTree
+        tree=AngularTree(anchors,sky_center)
     extra = defaultdict(list)
     for _, frame in data.loc[eligible & ~r_keep].groupby("exposure_id",sort=False):
         j = frame.index.to_numpy()

@@ -173,6 +173,7 @@ def run(registration,old_cluster,output,cache):
                     survey=str(det.survey),instrument=str(det.get('instrument','unknown')),band=str(det.band),time=float(t[index]),
                     color=gi if gi is not None else np.nan,ri=ri,rmag=rmag,crowding_mas=crowd,split=split,
                     ra_deg=float(det.ra_deg),dec_deg=float(det.dec_deg),raw_graph=rawres,c0_graph=c0res,
+                    k_icrs=k[:,j,:],
                     airmass=float(det.get('airmass',np.nan)),sigma_graph=cp[index],gaia_graph_covariance=gcov[j] if gcov is not None else None))
         print('STELLAR_POSITION_CORE',row['core'],len(chosen),flush=True)
     measurements=pd.DataFrame(allmeasure);matched=[]
@@ -185,7 +186,28 @@ def run(registration,old_cluster,output,cache):
         sky=project(g.ra_deg,g.dec_deg,(float(g.ra_deg.median()),float(g.dec_deg.median())))
         measurements.loc[ind,['raw_e','raw_n']]=raw;measurements.loc[ind,['c0_e','c0_n']]=c0
         measurements.loc[ind,['sky_e','sky_n']]=sky
+        for j in ind:allmeasure[j]['group_to_graph']=pivot
     pairs,ngroups=colour_pairs(measurements);cancellation=max((np.max(abs(r['raw_difference']-r['c0_difference'])) for r in pairs),default=0.)
+    # The position-to-PM test is a diagnostic prediction on held identities;
+    # never applied to the science catalogue. Both pair members must be train.
+    trainpairs,_=colour_pairs(measurements.loc[measurements.split.lt(3)])
+    bygroup=defaultdict(list)
+    for r in trainpairs:bygroup[r['physical_group']].append(r['raw_difference']/r['delta_color'])
+    coefficients={g:np.median(v,axis=0) for g,v in bygroup.items() if len(v)>=3}
+    predictions=defaultdict(lambda:np.zeros(2));support_k=Counter();total_k=Counter()
+    for m in allmeasure:
+        key=tuple(m['source_key']);amplitude=float(np.linalg.norm(m['k_icrs']));total_k[key]+=amplitude
+        if m['physical_group'] in coefficients and np.isfinite(m['color']):
+            predictions[key]+=np.asarray(m['k_icrs'])@m['group_to_graph']@coefficients[m['physical_group']]*(m['color']-1.)
+            support_k[key]+=amplitude
+    held_prediction={}
+    for split,name in [(3,'validation'),(4,'confirmation')]:
+        heldids={tuple(m['source_key']) for m in allmeasure if m['split']==split}
+        use=[r for r in states if tuple(r['source_key']) in heldids and 'c0_residual' in r and support_k[tuple(r['source_key'])]>=.5*total_k[tuple(r['source_key'])]]
+        held_prediction[name]=dict(n=len(use),minimum_K_amplitude_support_fraction=.5,
+            before=summarize([r['c0_residual'] for r in use]),
+            predicted_partial_color_pm=summarize([predictions[tuple(r['source_key'])] for r in use]),
+            diagnostic_residual_after_partial_prediction=summarize([np.asarray(r['c0_residual'])-predictions[tuple(r['source_key'])] for r in use]))
     selected=[r for r in states if 'c0_residual' in r];summary={}
     for lo,hi in [(15,19),(19,21)]:
         summary[f'{lo}_{hi}']={}
@@ -203,6 +225,7 @@ def run(registration,old_cluster,output,cache):
     report=dict(frozen_bright_identities=len(bright),bright_processed=len(selected),all_fixed_processed=len(states),
         missing=dict(missing),maximum_C0_K_identity_error_masyr=maximum_k,maximum_common_group_color_cancellation_mas=cancellation,
         bright_motion=summary,matched_within_group_positions=pair_summary,metadata_matched_pairs=len(pairs),physical_color_groups=ngroups,
+        training_color_groups_with_three_pairs=len(coefficients),held_identity_partial_K_prediction=held_prediction,
         gaia_queries=queries,full_gaia_covariance_sources=sum(r.get('full_gaia_position_covariance',False) for r in states),
         negative_parallax_sources=sum(r.get('negative_parallax_clamped',False) for r in states),missing_RV_sources=sum(r.get('radial_velocity_missing',False) for r in states),
         elapsed_seconds=monotonic()-start,slurm_job=os.environ['SLURM_JOB_ID'],

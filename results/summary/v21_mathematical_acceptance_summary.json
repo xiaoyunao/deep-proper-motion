@@ -1,0 +1,191 @@
+{
+  "synthetic_checks": [
+    {
+      "point_deg": [
+        175.0,
+        5.0
+      ],
+      "graph_center_deg": [
+        170.0,
+        3.0
+      ],
+      "jacobian_relative_difference": 6.671988939061582e-10,
+      "inverse_forward_max_error": 2.220446049250313e-16,
+      "exact_state_reexpression_pm_error": 7.105427357601002e-15,
+      "different_plane_model_curvature": [
+        {
+          "total_component_rate_masyr": 30.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -4.29482717834162e-06,
+            1.7171441708541124e-06
+          ]
+        },
+        {
+          "total_component_rate_masyr": 2000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -0.01908079093050219,
+            0.007632265813413142
+          ]
+        },
+        {
+          "total_component_rate_masyr": 10000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -0.4770126066996454,
+            0.19079867444406773
+          ]
+        }
+      ]
+    },
+    {
+      "point_deg": [
+        210.0,
+        5.0
+      ],
+      "graph_center_deg": [
+        180.0,
+        25.0
+      ],
+      "jacobian_relative_difference": 3.848437299063399e-09,
+      "inverse_forward_max_error": 3.3306690738754696e-16,
+      "exact_state_reexpression_pm_error": 7.105427357601002e-15,
+      "different_plane_model_curvature": [
+        {
+          "total_component_rate_masyr": 30.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -4.237374212223699e-05,
+            1.6948633941638036e-05
+          ]
+        },
+        {
+          "total_component_rate_masyr": 2000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -0.1883160718336967,
+            0.07532703607955682
+          ]
+        },
+        {
+          "total_component_rate_masyr": 10000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -4.7070145084053365,
+            1.8828816907107466
+          ]
+        }
+      ]
+    },
+    {
+      "point_deg": [
+        235.0,
+        5.0
+      ],
+      "graph_center_deg": [
+        177.0,
+        0.0
+      ],
+      "jacobian_relative_difference": 3.9788662150464716e-09,
+      "inverse_forward_max_error": 1.1102230246251565e-16,
+      "exact_state_reexpression_pm_error": 3.552713678800501e-15,
+      "different_plane_model_curvature": [
+        {
+          "total_component_rate_masyr": 30.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -9.175067242495061e-05,
+            3.669996748456583e-05
+          ]
+        },
+        {
+          "total_component_rate_masyr": 2000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -0.4077380543340041,
+            0.16308844545403645
+          ]
+        },
+        {
+          "total_component_rate_masyr": 10000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            -10.189621015026205,
+            4.075003163186011
+          ]
+        }
+      ]
+    },
+    {
+      "point_deg": [
+        1e-05,
+        65.0
+      ],
+      "graph_center_deg": [
+        355.0,
+        30.0
+      ],
+      "jacobian_relative_difference": 8.812843675673783e-10,
+      "inverse_forward_max_error": 1.1102230246251565e-16,
+      "exact_state_reexpression_pm_error": 0.0,
+      "different_plane_model_curvature": [
+        {
+          "total_component_rate_masyr": 30.0,
+          "different_plane_linear_refit_delta_masyr": [
+            1.0905568530006349e-05,
+            -4.360065844366545e-06
+          ]
+        },
+        {
+          "total_component_rate_masyr": 2000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            0.04847382385810306,
+            -0.01938735489636656
+          ]
+        },
+        {
+          "total_component_rate_masyr": 10000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            1.211977651289999,
+            -0.4845192044481337
+          ]
+        }
+      ]
+    },
+    {
+      "point_deg": [
+        123.0,
+        87.0
+      ],
+      "graph_center_deg": [
+        118.0,
+        40.0
+      ],
+      "jacobian_relative_difference": 2.045909852556789e-09,
+      "inverse_forward_max_error": 4.440892098500626e-16,
+      "exact_state_reexpression_pm_error": 1.4210854715202004e-14,
+      "different_plane_model_curvature": [
+        {
+          "total_component_rate_masyr": 30.0,
+          "different_plane_linear_refit_delta_masyr": [
+            1.923332258257915e-05,
+            -7.69103758102574e-06
+          ]
+        },
+        {
+          "total_component_rate_masyr": 2000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            0.08549073181757194,
+            -0.03417198581246339
+          ]
+        },
+        {
+          "total_component_rate_masyr": 10000.0,
+          "different_plane_linear_refit_delta_masyr": [
+            2.1382845521784475,
+            -0.8522742164786905
+          ]
+        }
+      ]
+    }
+  ],
+  "synchronous_common_mode_mean_covariance_max_error": 8.881784197001252e-16,
+  "tests": "Analytic forward/inverse,10mas symmetric difference,exact physical state reexpression; RA wrap/high declination/full correlated covariance covered by11 focused pytest cases. Different-plane straight-line refit is a different approximate model; its curvature is reported separately, not mistaken for coordinate failure.",
+  "tolerances": {
+    "jacobian_relative": 1e-05,
+    "exact_motion_masyr": 0.001,
+    "exact_covariance_relative": 0.001
+  }
+}

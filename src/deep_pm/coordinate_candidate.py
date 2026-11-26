@@ -4,7 +4,7 @@ No new selection threshold: recover original training sources, append frozen new
 members, then expose the held year to the complete competing prediction set.
 """
 import argparse
-from collections import Counter
+from collections import Counter,defaultdict
 from concurrent.futures import ProcessPoolExecutor
 from functools import lru_cache
 import gzip
@@ -137,6 +137,51 @@ def repair_morphology(task):
         metadata=meta,elapsed_seconds=monotonic()-start,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth.')
     check_aggregate(r);save_json(result,r);print('EXTERNAL_MORPHOLOGY_AUDITED',row['core'],r['external_morphology_counts'],flush=True);return r
+
+
+def identity_control(task):
+    """Metadata-hash original control; joint shape/held-position/depth evidence."""
+    from hashlib import sha256
+    from .allband_blind_year import r_magnitude
+    row,completed,morphology,output,lsroot=task;prior=Path(completed)/row['core'];dest=Path(output)/row['core'];dest.mkdir(parents=True,exist_ok=True)
+    reportfile=dest/'v21_candidate_identity_core_summary.json'
+    ticket=dict(completion_sha256=digest(prior/'private_candidate_completion.json.gz'),morphology_sha256=digest(Path(morphology)/row['core']/'private_external_morphology.json.gz'),implementation_sha256=digest(Path(__file__)))
+    if reportfile.exists():
+        previous=read(reportfile)
+        if previous['ticket']!=ticket:raise ValueError('Candidate identity signature changed')
+        return previous
+    frozen=read(prior/'private_candidate_completion.json.gz');nold=frozen['nold'];members=frozen['training_keys'];matched={r['training_slot'] for r in frozen['matches']}
+    original=[i for i in range(nold) if int(sha256('|'.join(members[i]).encode()).hexdigest()[:16],16)%10==0]
+    config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text());graph=Path(row['graph'])/'private_c0.npz';center=reference_frame(graph)
+    data,xy,t,sigma,keep=quality_detections(Path(row['source']),center,config,settings['production']);keys=calibration_groups(data);lookup=pd.Index(data.detection_id);nsc=data.survey.eq('NSC').to_numpy();solution=read_offsets(graph)
+    points=[]
+    for i in original:
+        ix=lookup.get_indexer(members[i])
+        if (ix<0).any():raise ValueError('Original control member absent')
+        m,_=fit_with_calibration(xy[ix],t[ix],sigma[ix],config['reference_epoch'],[solution[g] for g in keys[ix]])
+        points.append(m.coeff[0])
+    control,_=independent_morphology(np.asarray(points).reshape(-1,2),Path(lsroot),center)
+    added=read(Path(morphology)/row['core']/'private_external_morphology.json.gz');shapes={i:m for i,m in zip(original,control)}
+    shapes.update({nold+i:m for i,m in enumerate(added)});classes={}
+    for name,indices in [('original_hash_control',original),('added',list(range(nold,len(members))))]:
+        groups=defaultdict(list)
+        for i in indices:
+            ix=lookup.get_indexer(members[i]);mag,origin=r_magnitude(ix,data,nsc);m=shapes[i]
+            band=str(int(mag)) if np.isfinite(mag) and 20<=mag<23 else 'other_or_missing'
+            record=dict(shape=m.get('shape',m['status']),held_unique=i in matched,
+                ten_sigma=bool(frozen['opportunities']['catalogue_10sigma'][i]),geometry=bool(frozen['opportunities']['geometric'][i]),
+                blend_proxy=m.get('blend_proxy',False),masked=m.get('masked',False))
+            groups['all'].append(record);groups[band].append(record)
+        classes[name]={}
+        for low,values in groups.items():
+            psf=[r for r in values if r['shape']=='PSF'];supported=[r for r in psf if r['ten_sigma']]
+            classes[name][low]=dict(n=len(values),shape_counts=dict(Counter(r['shape'] for r in values)),
+                unique_held_sources=sum(r['held_unique'] for r in values),PSF_with_unique_held=sum(r['held_unique'] for r in psf),
+                PSF_with_ten_sigma=len(supported),PSF_ten_sigma_unique_held=sum(r['held_unique'] for r in supported),
+                blend_proxy_count=sum(r['blend_proxy'] for r in values),mask_flag_count=sum(r['masked'] for r in values))
+    r=dict(core=row['core'],ticket=ticket,classes=classes,slurm_job=os.environ['SLURM_JOB_ID'],
+        scope='Original training control sampled by physical member SHA modulo10 before external morphology, not PM. Added sample complete. NSC r preferred, otherwise SDSS r for magnitude; fixed training identities and joint held matching. LS PSF/extended classifications are independent-processing proxies with shared imaging, not a stellar-purity gold sample; no new production threshold.')
+    check_aggregate(r);save_json(reportfile,r);print('CANDIDATE_IDENTITY_CONTROL',row['core'],len(original),len(added),flush=True);return r
 
 
 def one(task):

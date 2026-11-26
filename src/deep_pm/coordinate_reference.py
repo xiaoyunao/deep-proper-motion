@@ -40,6 +40,7 @@ def bounded_fit(frame,covariance,free,draws=48):
             ok=groups>=0
             rr.extend((2*np.flatnonzero(ok)+a).tolist());cc.extend((2*nr+2*groups[ok]+b).tolist());vv.extend(white[ok,a,b].tolist())
     design=coo_matrix((vv,(rr,cc)),shape=(2*len(frame),2*(nr+nf))).tocsr()
+    design.eliminate_zeros()
     rhs=np.einsum('nij,nj->ni',white,y).ravel()
     def solve(weight):
         root=np.repeat(np.sqrt(weight),2);m=design.multiply(root[:,None]).tocsr()
@@ -58,11 +59,13 @@ def bounded_fit(frame,covariance,free,draws=48):
         fixed_boundary_groups=frame.loc[groups<0,'group'].nunique(),minimum_robust_weight=float(weight.min()))
 
 
-def one(row,dest):
+def one(row,dest,fixed=None):
     dest.mkdir(parents=True,exist_ok=True);start=monotonic()
     shard=(Path(row['graph']).parent/(row['core']+'_reference_receipt.json')).resolve().parent/'reference.csv.gz'
     frame=pd.read_csv(shard,dtype={'reference':str})
-    offsets=read_offsets(Path(row['graph']));frame=frame.loc[frame.group.isin(offsets)].copy()
+    offsets,gauges=read_offsets(Path(row['graph']),with_gauge=True)
+    offsets={g:v for g,v in offsets.items() if gauges[g]==row['reference_gauge']}
+    frame=frame.loc[frame.group.isin(offsets)].copy()
     train=frame.loc[~frame.is_holdout].copy()
     counts=train.groupby('group').reference.nunique().sort_values(ascending=False,kind='stable')
     # Metadata-only selection. Other NSC groups are the unchanged external gauge.
@@ -80,6 +83,7 @@ def one(row,dest):
     covariances=dict(old_diagonal=native,full2d=projected_covariance(train.ra_deg,train.dec_deg,row['graph_center'],native))
     solutions={};private={};summary={}
     for name,cov in covariances.items():
+        mode_start=monotonic()
         p,draw,meta=bounded_fit(train,cov,free);solutions[name]=dict(zip(free,p));private[name]=dict(point=p,draws=draw)
         held=frame.loc[frame.is_holdout].copy();held[['corrected_e','corrected_n']]-=np.asarray([solutions[name].get(g,np.zeros(2)) for g in held.group])
         residual=[]
@@ -93,12 +97,42 @@ def one(row,dest):
         for j,g in enumerate(free):
             part=train.loc[train.group.eq(g)];a=forward_jacobian(float(part.ra_deg.median()),float(part.dec_deg.median()),row['graph_center'])
             native_delta.append(np.linalg.solve(a,p[j]));native_se.append(np.sqrt(np.diag(np.linalg.inv(a)@np.cov(draw[:,j,:],rowvar=False)@np.linalg.inv(a).T)))
-        summary[name]=dict(**meta,holdout_boundary_position_mas=summarize(residual),
+        summary[name]=dict(**meta,elapsed_seconds=monotonic()-mode_start,holdout_boundary_position_mas=summarize(residual),
             group_delta_native_mas_p16_p50_p84=np.quantile(native_delta,[.16,.5,.84],axis=0),
             conditional_group_error_native_mas_p16_p50_p84=np.quantile(native_se,[.16,.5,.84],axis=0))
     np.savez_compressed(dest/'private_bounded_offsets.npz',names=np.asarray(free),**{f'{k}_{n}':v for k,r in private.items() for n,v in r.items()})
+    source_trial={}
+    if fixed is not None:
+        from .__main__ import tomllib
+        from .continuous_reference import PRECISION,SPATIAL
+        from .coordinate_metric import fit_vector_motion
+        from .pilot_production import quality_detections
+        from .precision_v03 import calibration_groups
+        from .standard_motion import icrs_motion
+        config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text())
+        data,xy,t,sigma,keep=quality_detections(Path(row['source']),row['graph_center'],config,settings['production'])
+        index=pd.Index(data.detection_id);groups=calibration_groups(data)
+        states=read(fixed/row['core']/'private_coordinate_states.json.gz');qso=read(fixed/row['core']/'private_coordinate_qso.json')
+        values=[]
+        for target in qso:
+            s=states[target['fixed_source_slot']];ix=index.get_indexer(s['detection_ids'])
+            cov=projected_covariance(data.ra_deg.iloc[ix],data.dec_deg.iloc[ix],row['graph_center'],native_covariance(sigma[ix]))
+            corrected=xy[ix]-np.asarray([offsets[g][0] for g in groups[ix]])
+            m=fit_vector_motion(corrected,t[ix],cov,config['reference_epoch'],frozen_weight=s['b2_weight'])
+            points={}
+            for name in solutions:
+                z=np.asarray([solutions[name].get(g,np.zeros(2)) for g in groups[ix]])
+                delta=-np.einsum('pni,ni->p',m.influence,z)
+                state=m.coeff.T.ravel()+delta
+                points[name]=icrs_motion(state[[0,2]],state[[1,3]],row['graph_center'])['pm_icrs_masyr']
+            values.append(dict(magnitude=target['magnitude'],**points))
+        for low in (21,22):
+            use=[r for r in values if low<=r['magnitude']<low+1]
+            source_trial[str(low)]=dict(n=len(use),old_bounded=summarize([r['old_diagonal'] for r in use]),
+                full2d_bounded=summarize([r['full2d'] for r in use]),
+                full_minus_old=summarize([r['full2d']-r['old_diagonal'] for r in use]))
     report=dict(core=row['core'],reference_shard_sha256=digest(shard),graph_sha256=digest(Path(row['graph'])),
-        models=summary,elapsed_seconds=monotonic()-start,slurm_job=os.environ['SLURM_JOB_ID'],
+        models=summary,fixed_QSO_reference_only_point_trial=source_trial,elapsed_seconds=monotonic()-start,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Same fixed train/holdout identities, same free groups and fixed old C0 external boundary. Six shared IRLS updates plus final solve; 48 paired reference-object exponential draws. Every reference ties to a fixed group. Errors conditional on boundary; never added as independent global reference errors.')
     check_aggregate(report);save_json(dest/'v21_bounded_reference_core_summary.json',report)
     print('BOUNDED_REFERENCE_DONE',row['core'],report['elapsed_seconds'],flush=True);return report
@@ -109,12 +143,12 @@ def digest_text(value):
     return sha256(str(value).encode()).hexdigest()
 
 
-def run(registration,output):
-    p=read(registration);results=[one(r,output/r['core']) for r in p['selected'] if r['core'] in p['pilot']]
+def run(registration,output,fixed=None):
+    p=read(registration);results=[one(r,output/r['core'],fixed) for r in p['selected'] if r['core'] in p['pilot']]
     save_json(output/'v21_bounded_reference_summary.json',dict(cores=results,slurm_job=os.environ['SLURM_JOB_ID']))
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('registration',type=Path);p.add_argument('output',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('registration',type=Path);p.add_argument('output',type=Path);p.add_argument('--fixed',type=Path);a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm resources')
     run(**vars(a))

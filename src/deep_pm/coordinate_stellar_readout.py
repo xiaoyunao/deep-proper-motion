@@ -66,6 +66,27 @@ def run(input,output):
     check_aggregate(result);save_json(output,result)
 
 
+def color_coordinates(input,output):
+    """Compare native SDSS r-i and frozen g-i on identical position pairs."""
+    from scipy.stats import spearmanr
+    p=read(input);states=[r for r in p['states'] if r.get('bright')]
+    valid=[r for r in states if r.get('ri') is not None and r.get('color') is not None and -1<r['ri']<3 and -1<r['color']<4]
+    groups=defaultdict(list)
+    for r in p['pairs']:
+        if r['delta_ri'] is not None and np.isfinite(r['delta_ri']) and .1<abs(r['delta_ri'])<4:
+            groups[r['survey']+':'+r['band']].append(r)
+    stats={}
+    for key,rows in groups.items():
+        stats[key]=dict(common_pairs=len(rows),delta_gi_p16_p50_p84=np.quantile([r['delta_color'] for r in rows],[.16,.5,.84]),
+            delta_ri_p16_p50_p84=np.quantile([r['delta_ri'] for r in rows],[.16,.5,.84]),
+            descriptive_mas_per_gi=summarize([np.asarray(r['raw_difference'])/r['delta_color'] for r in rows]),
+            descriptive_mas_per_ri=summarize([np.asarray(r['raw_difference'])/r['delta_ri'] for r in rows]))
+    result=dict(fixed_bright=len(states),valid_native_colors=len(valid),native_color_rank_correlation=float(spearmanr([r['ri'] for r in valid],[r['color'] for r in valid]).correlation),
+        position_pair_color_coordinates=stats,slurm_job=os.environ['SLURM_JOB_ID'],
+        scope='Same physical position pairs; native single-scan r-i from raw psfMag_r/psfMag_i, frozen g-i retained. Sentinels excluded from colour diagnostic, not from source membership. Continuous contrast ratios, no new colour/shape threshold or production model. Cached g/i photometric error/covariance absent: not an errors-in-variables DCR coefficient determination. Colours correlated; this does not identify independent causal terms.')
+    check_aggregate(result);save_json(output,result)
+
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('input',type=Path);p.add_argument('output',type=Path);a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm resources')

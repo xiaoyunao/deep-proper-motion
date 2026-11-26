@@ -36,6 +36,39 @@ def pixel_figure(repo):
     save(fig,repo/'figures','v22_NGC_early_pixel_information')
 
 
+def angle_figures(repo,quality):
+    fig,axs=plt.subplots(2,2,figsize=(11,7),constrained_layout=True)
+    for row,low in enumerate((21,22)):
+        bins=quality['fixed_old_QSO'][str(low)]['by_chart_angle']
+        for axis in range(2):
+            ax=axs[row,axis]
+            for offset,key,color,label in [(-.5,'B1_over_old','#295b92','Covariance only / old'),(.5,'new_over_old','#d18c2e','Full refit / old')]:
+                x=[];y=[];errors=[]
+                for lower,entry in bins.items():
+                    if 'error_ratio' not in entry:continue
+                    r=entry['error_ratio'][key];x.append(float(lower)+5+offset);y.append(r['median'][axis]);errors.append(r['median_source_sampling95'][axis])
+                    if key=='new_over_old':ax.annotate(f"{entry['computed']}/{entry['frozen_denominator']}",(x[-1],y[-1]),xytext=(0,7),textcoords='offset points',fontsize=6,ha='center')
+                if x:
+                    y=np.array(y);bound=np.array(errors);ax.errorbar(x,y,yerr=[np.maximum(y-bound[:,0],0),np.maximum(bound[:,1]-y,0)],fmt='o-',capsize=3,color=color,label=label)
+            ax.axhline(1,color='.5',ls=':',lw=1);ax.set(xlim=(0,70),xlabel='Actual reference-chart angle (deg)',ylabel='Median reported PM error ratio',title=f'{low} ≤ r < {low+1}; '+['East','North'][axis]);ax.grid(alpha=.2)
+            if row==0 and axis==0:ax.legend(fontsize=8)
+    fig.suptitle('Fixed old QSO identities; 95% conditional source-sampling intervals; N computed/original',fontsize=11)
+    save(fig,repo/'figures','v22_fixed_QSO_error_vs_chart_angle')
+    fig,axs=plt.subplots(1,2,figsize=(11,4),constrained_layout=True)
+    for ax,low in zip(axs,(21,22)):
+        x=[];y=[];bounds=[]
+        for lower,entry in quality['fixed_old_QSO'][str(low)]['by_chart_angle'].items():
+            m=entry.get('same_identity_quality',{});p=m.get('paired',{}).get('new_vs_old')
+            if p is None:continue
+            x.append(float(lower)+5);y.append(p['fraction_improved'][2]);bounds.append(p['fraction95'][2])
+            ax.annotate(str(entry['computed']),(x[-1],y[-1]),xytext=(0,7),textcoords='offset points',fontsize=7,ha='center')
+        if x:
+            y=np.array(y);b=np.array(bounds);ax.errorbar(x,y,yerr=[np.maximum(y-b[:,0],0),np.maximum(b[:,1]-y,0)],fmt='o-',capsize=3,color='#173e66')
+        ax.axhline(0,color='.5',ls=':',lw=1);ax.yaxis.set_major_formatter(PercentFormatter(1));ax.set(xlim=(0,70),xlabel='Actual reference-chart angle (deg)',ylabel='1 − P68(new)/P68(old)',title=f'{low} ≤ r < {low+1}');ax.grid(alpha=.2)
+    fig.suptitle('Point-estimate change on the same computable identities; new quality failures remain',fontsize=12)
+    save(fig,repo/'figures','v22_fixed_QSO_point_gain_vs_chart_angle')
+
+
 def run(repo):
     folder=repo/'results/summary';quality=read(folder/'v22_global_QSO_quality_summary.json');spatial=quality['spatial_nside64'];output=repo/'figures'
     counts_path=folder/'v22_catalogue_spatial_support_summary.json';source_map=read(counts_path) if counts_path.exists() else {}
@@ -51,10 +84,11 @@ def run(repo):
                 if b<=0:continue
                 values[entry['pixel64']]=1-a/b;count+=comparison['n']
             bounds=(-.4,.6) if reference=='Xiao' else (-.3,.9)
-            norm=TwoSlopeNorm(vmin=bounds[0],vcenter=0,vmax=bounds[1]);artist=panel(axs[row,col],values,64,f'{low} ≤ r < {low+1}; vs {reference}; N={count:,}',norm,coverage=covered)
+            norm=TwoSlopeNorm(vmin=bounds[0],vcenter=0,vmax=bounds[1]);artist=panel(axs[row,col],values,64,f'{low} ≤ r < {low+1}; vs {reference}; N plotted={count:,}',norm,coverage=covered)
             bar=fig.colorbar(artist,ax=axs[row,col],orientation='horizontal',fraction=.055,pad=.08,extend='both');bar.ax.xaxis.set_major_formatter(PercentFormatter(1));bar.set_label('Improvement = 1 − P68(new)/P68(reference)',fontsize=9)
     fig.suptitle('Final blind QSO; NSIDE=64; gray: occupied sources but <5 strict QSO',fontsize=14)
     save(fig,output,'v22_QSO_improvement_aitoff')
+    angle_figures(repo,quality)
     counts_path=folder/'v22_catalogue_spatial_support_summary.json'
     if counts_path.exists():
         support=source_map['plot_spatial_nside64'];fig,axs=plt.subplots(2,2,figsize=(13,8),subplot_kw=dict(projection='aitoff'),constrained_layout=True)

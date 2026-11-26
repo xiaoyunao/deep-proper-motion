@@ -1,0 +1,23 @@
+{
+  "cores": [
+    {
+      "core": "w220_110_28_11",
+      "fixed_identities": 78,
+      "blind_identities": 78,
+      "all_private_spectral_scientific_fields_identical": true
+    },
+    {
+      "core": "w170_090_88_00",
+      "fixed_identities": 114,
+      "blind_identities": 114,
+      "all_private_spectral_scientific_fields_identical": true
+    },
+    {
+      "core": "w010_100_02_00",
+      "fixed_identities": 90,
+      "blind_identities": 90,
+      "all_private_spectral_scientific_fields_identical": true
+    }
+  ],
+  "scope": "Same real3 complete engineering pools, every original fixed identity and final blind spectral scientific value exactly identical under record-streamed and materialized input; no fit rerun."
+}

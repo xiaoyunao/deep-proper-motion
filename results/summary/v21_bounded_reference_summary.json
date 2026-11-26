@@ -1,0 +1,401 @@
+{
+  "cores": [
+    {
+      "core": "north_one_01_00",
+      "reference_shard_sha256": "ae214c3a7a858ae73536ee9d6c83571d960a08ac0ca4a429211a5704157c6277",
+      "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+      "models": {
+        "old_diagonal": {
+          "references": 1200,
+          "measurements": 14517,
+          "free_groups": 6,
+          "fixed_boundary_groups": 43,
+          "minimum_robust_weight": 0.06714046599943779,
+          "holdout_boundary_position_mas": {
+            "n": 1122,
+            "median": [
+              5.313454433270787,
+              0.8302834718397479
+            ],
+            "nmad": [
+              37.93652497310178,
+              40.42333234887229
+            ],
+            "absolute_radial_p68": 66.98571942017155,
+            "equal_mean": [
+              7.456655549172591,
+              0.6317149412080952
+            ],
+            "median_object_interval95": [
+              [
+                2.59289941137132,
+                7.082324580389306
+              ],
+              [
+                -2.2790471774742302,
+                4.026582892870714
+              ]
+            ]
+          },
+          "group_delta_native_mas_p16_p50_p84": [
+            [
+              -40.31885799672071,
+              -25.25548164743062
+            ],
+            [
+              -1.8225902226310962,
+              0.3171039973991478
+            ],
+            [
+              2.4751218892376454,
+              2.2644802447575803
+            ]
+          ],
+          "conditional_group_error_native_mas_p16_p50_p84": [
+            [
+              1.2076874319867696,
+              1.417531739277429
+            ],
+            [
+              1.6652437843559218,
+              1.749371857205495
+            ],
+            [
+              4.362490069018038,
+              4.175156768429182
+            ]
+          ]
+        },
+        "full2d": {
+          "references": 1200,
+          "measurements": 14517,
+          "free_groups": 6,
+          "fixed_boundary_groups": 43,
+          "minimum_robust_weight": 0.06727215646042917,
+          "holdout_boundary_position_mas": {
+            "n": 1122,
+            "median": [
+              5.308869998219652,
+              0.8205351792291624
+            ],
+            "nmad": [
+              37.93467637090424,
+              40.41999673155637
+            ],
+            "absolute_radial_p68": 66.98294841939901,
+            "equal_mean": [
+              7.465088410019544,
+              0.6310332732662403
+            ],
+            "median_object_interval95": [
+              [
+                2.621296467788553,
+                7.085016071330623
+              ],
+              [
+                -2.2829858866943264,
+                4.030187597914946
+              ]
+            ]
+          },
+          "group_delta_native_mas_p16_p50_p84": [
+            [
+              -40.38109835412225,
+              -25.233854275255947
+            ],
+            [
+              -1.8281540893555956,
+              0.3131653476325493
+            ],
+            [
+              2.4754271089469673,
+              2.262482802918752
+            ]
+          ],
+          "conditional_group_error_native_mas_p16_p50_p84": [
+            [
+              1.2075633158340366,
+              1.4177093629940305
+            ],
+            [
+              1.6659662317161694,
+              1.7499702889230466
+            ],
+            [
+              4.366812402371267,
+              4.176412584783594
+            ]
+          ]
+        }
+      },
+      "elapsed_seconds": 5.3103782730177045,
+      "slurm_job": "62016244",
+      "scope": "Same fixed train/holdout identities, same free groups and fixed old C0 external boundary. Six shared IRLS updates plus final solve; 48 paired reference-object exponential draws. Every reference ties to a fixed group. Errors conditional on boundary; never added as independent global reference errors."
+    },
+    {
+      "core": "north_two_04_01",
+      "reference_shard_sha256": "44d0bd2b4cff2335eea8788a3924917a46e6baf5ad85e3ecdc300843e08a5437",
+      "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+      "models": {
+        "old_diagonal": {
+          "references": 1200,
+          "measurements": 8748,
+          "free_groups": 6,
+          "fixed_boundary_groups": 50,
+          "minimum_robust_weight": 0.059599485945004284,
+          "holdout_boundary_position_mas": {
+            "n": 791,
+            "median": [
+              -1.7772442513677378,
+              2.2204165877681428
+            ],
+            "nmad": [
+              45.602262960519454,
+              48.64571025604568
+            ],
+            "absolute_radial_p68": 74.6685307762846,
+            "equal_mean": [
+              -3.855372254286762,
+              2.577788857070412
+            ],
+            "median_object_interval95": [
+              [
+                -6.0084974302510625,
+                3.1963691019075364
+              ],
+              [
+                -2.2584569179647964,
+                5.757403807649879
+              ]
+            ]
+          },
+          "group_delta_native_mas_p16_p50_p84": [
+            [
+              -0.8204769661369438,
+              -1.8045574036869612
+            ],
+            [
+              0.45175310817408376,
+              0.2615073721300619
+            ],
+            [
+              1.630012001856091,
+              7.0699874629249155
+            ]
+          ],
+          "conditional_group_error_native_mas_p16_p50_p84": [
+            [
+              1.8770671189614487,
+              2.2736487048175733
+            ],
+            [
+              2.245317074029508,
+              3.0114303006888488
+            ],
+            [
+              3.8940383135375214,
+              4.016624395952533
+            ]
+          ]
+        },
+        "full2d": {
+          "references": 1200,
+          "measurements": 8748,
+          "free_groups": 6,
+          "fixed_boundary_groups": 50,
+          "minimum_robust_weight": 0.08836736365165204,
+          "holdout_boundary_position_mas": {
+            "n": 791,
+            "median": [
+              -1.8554730065234273,
+              2.333966107652172
+            ],
+            "nmad": [
+              45.752802741087365,
+              48.336551609572886
+            ],
+            "absolute_radial_p68": 74.69152254636441,
+            "equal_mean": [
+              -3.647339712783432,
+              2.7298027382951386
+            ],
+            "median_object_interval95": [
+              [
+                -5.866983336672069,
+                3.397274485502008
+              ],
+              [
+                -2.013983133255652,
+                5.901166912665814
+              ]
+            ]
+          },
+          "group_delta_native_mas_p16_p50_p84": [
+            [
+              -1.2540547703418603,
+              -1.7516729019409092
+            ],
+            [
+              0.4122694697973428,
+              0.11103601159018636
+            ],
+            [
+              1.4127467615220861,
+              6.892402162908741
+            ]
+          ],
+          "conditional_group_error_native_mas_p16_p50_p84": [
+            [
+              1.969188364035996,
+              2.3665004578400026
+            ],
+            [
+              2.2703005456782908,
+              3.1045225489190686
+            ],
+            [
+              4.160090849938454,
+              4.200292845774207
+            ]
+          ]
+        }
+      },
+      "elapsed_seconds": 3.6993803590303287,
+      "slurm_job": "62016244",
+      "scope": "Same fixed train/holdout identities, same free groups and fixed old C0 external boundary. Six shared IRLS updates plus final solve; 48 paired reference-object exponential draws. Every reference ties to a fixed group. Errors conditional on boundary; never added as independent global reference errors."
+    },
+    {
+      "core": "w230_090_60_11",
+      "reference_shard_sha256": "a310fab3cd4272caec7300de61de9bbc131c4fd3ad9a1b8d6fa9cb18841a60f0",
+      "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+      "models": {
+        "old_diagonal": {
+          "references": 1200,
+          "measurements": 13930,
+          "free_groups": 6,
+          "fixed_boundary_groups": 50,
+          "minimum_robust_weight": 0.008984023440091608,
+          "holdout_boundary_position_mas": {
+            "n": 1145,
+            "median": [
+              0.9861198489108505,
+              -1.7999741291088638
+            ],
+            "nmad": [
+              35.439587493238264,
+              36.75810903309373
+            ],
+            "absolute_radial_p68": 57.60440875354045,
+            "equal_mean": [
+              2.292152737206583,
+              -2.1490028273520285
+            ],
+            "median_object_interval95": [
+              [
+                -1.9681924774021327,
+                3.1897598374449125
+              ],
+              [
+                -4.169943264117791,
+                0.8144958590638302
+              ]
+            ]
+          },
+          "group_delta_native_mas_p16_p50_p84": [
+            [
+              -2.624472037141613,
+              -4.566922255347345
+            ],
+            [
+              -0.24938489617226445,
+              -1.4289630390828605
+            ],
+            [
+              2.786919413414486,
+              2.192912339694994
+            ]
+          ],
+          "conditional_group_error_native_mas_p16_p50_p84": [
+            [
+              0.7562319945728461,
+              1.0181751948801452
+            ],
+            [
+              1.0720878339474686,
+              1.4861492316775777
+            ],
+            [
+              2.4306742620184263,
+              3.660185325884013
+            ]
+          ]
+        },
+        "full2d": {
+          "references": 1200,
+          "measurements": 13930,
+          "free_groups": 6,
+          "fixed_boundary_groups": 50,
+          "minimum_robust_weight": 0.11021839228445564,
+          "holdout_boundary_position_mas": {
+            "n": 1145,
+            "median": [
+              2.33664368638352,
+              -1.7370711240019752
+            ],
+            "nmad": [
+              35.49152865567609,
+              36.52724482664094
+            ],
+            "absolute_radial_p68": 57.877269159124644,
+            "equal_mean": [
+              3.6410445694939306,
+              -2.195484513316423
+            ],
+            "median_object_interval95": [
+              [
+                -0.6879488516771601,
+                4.420523935693355
+              ],
+              [
+                -4.145028667646835,
+                0.7954291671537017
+              ]
+            ]
+          },
+          "group_delta_native_mas_p16_p50_p84": [
+            [
+              -4.392859571716939,
+              -6.022202936679205
+            ],
+            [
+              -2.1313289330338154,
+              -0.5609426994319932
+            ],
+            [
+              1.8852933473384335,
+              1.2355039783606796
+            ]
+          ],
+          "conditional_group_error_native_mas_p16_p50_p84": [
+            [
+              1.1301394156745055,
+              1.249675358101333
+            ],
+            [
+              1.7153155709338557,
+              1.7977068662511952
+            ],
+            [
+              4.440296434231901,
+              4.501474867674867
+            ]
+          ]
+        }
+      },
+      "elapsed_seconds": 5.183134604012594,
+      "slurm_job": "62016244",
+      "scope": "Same fixed train/holdout identities, same free groups and fixed old C0 external boundary. Six shared IRLS updates plus final solve; 48 paired reference-object exponential draws. Every reference ties to a fixed group. Errors conditional on boundary; never added as independent global reference errors."
+    }
+  ],
+  "slurm_job": "62016244"
+}

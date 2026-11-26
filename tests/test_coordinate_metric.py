@@ -89,3 +89,20 @@ def test_bounded_reference_has_explicit_fixed_boundary_and_paired_draws():
     assert meta['fixed_boundary_groups']==1
     with pytest.raises(ValueError,match='fixed boundary'):
         bounded_fit(frame,cov,['fixed','freeA','freeB'],draws=1)
+
+
+def test_actual_chip_opportunity_keeps_band_and_depth_unknown_separate():
+    import pandas as pd
+    from types import SimpleNamespace
+    from astropy.time import Time
+    from deep_pm.coordinate_candidate import opportunities
+    center=(210.,20.)
+    data=pd.DataFrame(dict(survey=['NSC','NSC','NSC'],band=['r','r','g'],magnitude=[20.,22.,20.]))
+    models=[SimpleNamespace(coeff=np.array([[0.,0.],[0.,0.]]),epoch=2015.5) for _ in range(3)]
+    chip=dict(exposure='test',mjd=float(Time('2020-04-01',scale='utc').mjd),filter='r',depth10sig=21.)
+    for i,(da,dd) in enumerate([(-.01,-.01),(.01,-.01),(.01,.01),(-.01,.01)],1):
+        chip[f'vertex_ra{i}']=center[0]+da;chip[f'vertex_dec{i}']=center[1]+dd
+    result,_=opportunities(data,models,[np.array([i]) for i in range(3)],pd.DataFrame([chip]),center,{'NSC:test':(np.zeros(2),None,None)},2020)
+    np.testing.assert_array_equal(result['geometric'],[True,True,True])
+    np.testing.assert_array_equal(result['catalogue_10sigma'],[True,False,False])
+    np.testing.assert_array_equal(result['depth_or_band_unknown'],[False,False,True])

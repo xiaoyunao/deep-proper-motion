@@ -1,0 +1,60 @@
+{
+  "schema_fields": [
+    {
+      "table_name": "nsc_dr2.chip",
+      "column_name": "mjd",
+      "unit": "Days",
+      "description": "Observation Modified Julian Date"
+    },
+    {
+      "table_name": "nsc_dr2.chip",
+      "column_name": "airmass",
+      "unit": "Magnitude",
+      "description": "Airmass"
+    },
+    {
+      "table_name": "nsc_dr2.chip",
+      "column_name": "depth95",
+      "unit": "Magnitude",
+      "description": "95th percentile magnitude depth"
+    },
+    {
+      "table_name": "nsc_dr2.chip",
+      "column_name": "depth10sig",
+      "unit": "Magnitude",
+      "description": "10 sigma magnitude depth"
+    },
+    {
+      "table_name": "nsc_dr2.meas",
+      "column_name": "mjd",
+      "unit": "Days",
+      "description": "Observation Modified Julian Date"
+    },
+    {
+      "table_name": "nsc_dr2.meas",
+      "column_name": "x",
+      "unit": "Pixels",
+      "description": "Centroid in X-dimension (1st moment), in pixels"
+    },
+    {
+      "table_name": "nsc_dr2.meas",
+      "column_name": "y",
+      "unit": "Pixels",
+      "description": "Centroid in Y-dimension (1st moment), in pixels"
+    },
+    {
+      "table_name": "nsc_dr2.meas",
+      "column_name": "raerr",
+      "unit": "Arcseconds",
+      "description": "Uncertainty of RA"
+    },
+    {
+      "table_name": "nsc_dr2.meas",
+      "column_name": "decerr",
+      "unit": "Arcseconds",
+      "description": "Uncertainty in DEC"
+    }
+  ],
+  "invalid_native_schema_rejected": true,
+  "note": "Cached native_schema.csv contains a failed query string and is not a usable schema. Valid nsc_schema.csv metadata retained."
+}

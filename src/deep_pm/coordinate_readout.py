@@ -6,11 +6,13 @@ from pathlib import Path
 
 import healpy as hp
 import numpy as np
+import pandas as pd
 
 from .blind_catalogue_quality import read
 from .io import digest,save_json
 from .public_summary import check_aggregate
 from .usability_quality import split_identity
+from .allband_blind_year import r_magnitude
 
 
 def interval(success,total):
@@ -73,7 +75,29 @@ def run(registration,fixed,association,output):
     for row in plan['selected']:
         core=row['core'];f=read(fixed/core/'private_coordinate_qso.json');g=read(association/core/'private_geometry_qso.json')
         summary=read(fixed/core/'v21_coordinate_core_summary.json');asc=read(association/core/'v21_coordinate_association_core_summary.json')
-        fixedrows.extend(f);corestats.append(dict(core=core,theta_deg=row['center_theta_deg'],fixed=summary,association=asc))
+        numerical={}
+        data=pd.read_csv(Path(row['source'])/'detections.csv',usecols=['detection_id','survey','band','magnitude'])
+        member_index=pd.Index(data.detection_id);nsc=data.survey.eq('NSC').to_numpy()
+        for method in ('B2_selected','B3_spherical'):
+            catalogue=read(association/core/f'private_{method}_catalogue.json.gz');seen=set();maximum_symmetry=0.;minimum_eigenvalue=np.inf
+            magnitude_bins=defaultdict(lambda:defaultdict(int));magnitude_origins=defaultdict(int)
+            for source in catalogue:
+                members=source['detection_ids']
+                if len(members)!=len(set(members)) or seen.intersection(members):raise ValueError('Duplicate physical source claim in geometry catalogue')
+                seen.update(members);cov=np.asarray(source['covariance'])
+                if cov.shape!=(4,4) or not np.isfinite(cov).all():raise ValueError('Invalid geometry covariance')
+                maximum_symmetry=max(maximum_symmetry,float(np.max(abs(cov-cov.T))))
+                minimum_eigenvalue=min(minimum_eigenvalue,float(np.linalg.eigvalsh(cov).min()))
+                if source.get('reference_epoch',2015.5)!=2015.5:raise ValueError('Wrong output epoch')
+                ix=member_index.get_indexer(members)
+                if (ix<0).any():raise ValueError('Geometry output member absent from signed input')
+                mag,origin=r_magnitude(ix,data,nsc);magnitude_origins[origin]+=1
+                if np.isfinite(mag) and 20<=mag<23:magnitude_bins[str(int(mag))][source['kind']]+=1
+            if minimum_eigenvalue<=0:raise ValueError('Nonpositive geometry state covariance')
+            numerical[method]=dict(source_count=len(catalogue),unique_member_detections=len(seen),duplicate_claims=0,
+                minimum_state_covariance_eigenvalue=minimum_eigenvalue if catalogue else None,maximum_covariance_asymmetry=maximum_symmetry)
+            numerical[method].update(magnitude_bins={k:dict(v) for k,v in magnitude_bins.items()},magnitude_origin=dict(magnitude_origins))
+        fixedrows.extend(f);corestats.append(dict(core=core,theta_deg=row['center_theta_deg'],fixed=summary,association=asc,numerical=numerical))
         index={tuple(r['identity']):r for r in f}
         for r in g:
             old=index.get(tuple(r['identity']))

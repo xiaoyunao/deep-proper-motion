@@ -63,6 +63,7 @@ def source_pool(task):
         assert float(qso.reference_r)==mag
         r.update(identity=(str(qso.origin),float(qso.ra),float(qso.dec)),window=entry['window'],**information(dict(old,projection_center_deg=entry['center'])))
         r['information_epoch_definition']='Original fixed physical members and archived source conditions; new local support/formal exits retained.'
+        if r['status']=='computed':r['pm_covariance']=np.asarray(r['new_fit']['covariance'])[np.ix_([1,3],[1,3])]
         fixed.append(r)
     compact=pd.read_parquet(root/'catalogue/index'/core/'science.parquet',columns=['slot','owner'])
     retained=set(compact.loc[compact.owner.notna(),'slot'])
@@ -107,6 +108,16 @@ def reference_common(rows):
         scope='48 common draw labels aligned WITHIN a reference solution. Mean covariance summed across independent reference components with squared number weights, no source-count sqrt. Component median sensitivity recomputes median after each synchronous perturbation. Different-component draw labels are not treated as correlated.')
 
 
+def ellipse_coverage(points,covariances):
+    points=np.asarray(points);covariances=np.asarray(covariances);precision=np.linalg.inv(covariances)
+    center=np.median(points,axis=0);out={}
+    for name,residual in [('raw',points),('centered_diagnostic',points-center)]:
+        q=np.einsum('ni,nij,nj->n',residual,precision,residual)
+        out[name]=dict(median_squared_mahalanobis=float(np.median(q)),coverage={str(p):ratio(int((q<=threshold).sum()),len(q)) for p,threshold in [(0.68,2.27886856637673),(.95,5.99146454710798)]})
+    out['scope']='Full correlated ICRS PM covariance, nominal chi-square2 ellipses; conditional W0 plus reference, no certification of missing systematic terms. Centering is diagnostic, not a correction.'
+    return out
+
+
 def metrics(rows,methods):
     selected=[r for r in rows if set(methods)<=set(r['values'])]
     pairs=tuple((methods[0],other) for other in methods[1:])
@@ -115,6 +126,7 @@ def metrics(rows,methods):
     points=np.array([r['values'][methods[0]][0] for r in selected]);errors=np.array([r['values'][methods[0]][1] for r in selected]);center=np.median(points,axis=0)
     out['primary_centered_coverage_diagnostic']={str(k):[ratio(int(n),len(selected)) for n in (abs(points-center)<=k*errors).sum(axis=0)] for k in (1,2)}
     out['primary_raw_coverage_count_intervals']={str(k):[ratio(int(n),len(selected)) for n in (abs(points)<=k*errors).sum(axis=0)] for k in (1,2)}
+    if all('pm_covariance' in r for r in selected):out['primary_2D_error_ellipse']=ellipse_coverage(points,[r['pm_covariance'] for r in selected])
     out['coverage_scope']='Axis intervals condition on these objects and measured shared groups; not independent-sky intervals. Centering is diagnostic only, not a catalogue correction.'
     return out
 

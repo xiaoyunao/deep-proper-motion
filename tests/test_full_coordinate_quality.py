@@ -16,3 +16,14 @@ def test_micro_identity_tolerance_handles_wrap_without_science_radius_merging():
     rows=[dict(identity=['Q',359.999999999,0]),dict(identity=['Q',0.,0]),dict(identity=['Q',.00001,0]),dict(identity=['OTHER',0.,0])]
     out,n=unique_positions(rows)
     assert n==2 and len(out)==2
+
+
+def test_correlated_motion_ellipse_is_not_diagonal_axis_scaling():
+    import numpy as np
+    from deep_pm.full_coordinate_quality import ellipse_coverage
+    points=np.array([[1.4,1.4]]*5+[[-1.4,1.4]]*5)
+    covariance=np.repeat(np.array([[[1.,.9],[.9,1.]]]),10,axis=0)
+    out=ellipse_coverage(points,covariance)
+    assert out['raw']['coverage']['0.68']['n']==5
+    diagonal=ellipse_coverage(points,np.repeat(np.eye(2)[None],10,axis=0))
+    assert diagonal['raw']['coverage']['0.68']['n']==0

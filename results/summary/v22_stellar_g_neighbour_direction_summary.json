@@ -1,0 +1,2563 @@
+{
+  "input_sha256": "5d238767435078e5d494d028fbebd1bf776534dcc1c58cc71f501cef8c627cc9",
+  "groups": {
+    "c4d__gSNR20_40__color-1_0.5__all": {
+      "measurements": 1
+    },
+    "c4d__gSNR20_40__color-1_0.5__neighbor_lt3arcsec": {
+      "measurements": 0
+    },
+    "c4d__gSNR20_40__color-1_0.5__neighbor_ge3arcsec": {
+      "measurements": 1
+    },
+    "c4d__gSNR20_40__color-1_0.5__seeing_lt1p2": {
+      "measurements": 0
+    },
+    "c4d__gSNR20_40__color-1_0.5__seeing_ge1p2": {
+      "measurements": 1
+    },
+    "c4d__gSNR20_40__color0.5_1__all": {
+      "measurements": 4
+    },
+    "c4d__gSNR20_40__color0.5_1__neighbor_lt3arcsec": {
+      "measurements": 1
+    },
+    "c4d__gSNR20_40__color0.5_1__neighbor_ge3arcsec": {
+      "measurements": 3
+    },
+    "c4d__gSNR20_40__color0.5_1__seeing_lt1p2": {
+      "measurements": 2
+    },
+    "c4d__gSNR20_40__color0.5_1__seeing_ge1p2": {
+      "measurements": 2
+    },
+    "c4d__gSNR20_40__color1_1.5__all": {
+      "measurements": 19,
+      "physical_stars": 14,
+      "color_p16_p50_p84": [
+        1.2762716674804688,
+        1.3132381439208984,
+        1.4700307464599578
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        33.17362079930208,
+        36.977597055995155,
+        39.34612484813774
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 0.7931032340727198,
+          "zenith_perpendicular_median_mas": -14.956712185037949,
+          "absolute_radial_P68_mas": 60.43589925881654,
+          "deep_neighbor_measurements": 16,
+          "neighbor_parallel_median_mas": 2.6217760292281493,
+          "neighbor_perpendicular_median_mas": -4.29647471135174
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 4.637202074268595,
+          "zenith_perpendicular_median_mas": -14.956712185037947,
+          "absolute_radial_P68_mas": 63.650155360425245,
+          "deep_neighbor_measurements": 16,
+          "neighbor_parallel_median_mas": -0.24106058008940656,
+          "neighbor_perpendicular_median_mas": -6.4694268332904725
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 3.9680139640226324,
+          "zenith_perpendicular_median_mas": -14.956712185037947,
+          "absolute_radial_P68_mas": 63.23408861740524,
+          "deep_neighbor_measurements": 16,
+          "neighbor_parallel_median_mas": 0.7492134460046533,
+          "neighbor_perpendicular_median_mas": -6.205525591482863
+        }
+      }
+    },
+    "c4d__gSNR20_40__color1_1.5__neighbor_lt3arcsec": {
+      "measurements": 3
+    },
+    "c4d__gSNR20_40__color1_1.5__neighbor_ge3arcsec": {
+      "measurements": 16,
+      "physical_stars": 12,
+      "color_p16_p50_p84": [
+        1.2761947631835937,
+        1.3517427444458008,
+        1.4667957305908181
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        32.23945253816199,
+        37.77548052735761,
+        39.463022609962
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -10.127824754696366,
+          "zenith_perpendicular_median_mas": -13.519421958696928,
+          "absolute_radial_P68_mas": 64.16251352163255,
+          "deep_neighbor_measurements": 13,
+          "neighbor_parallel_median_mas": 1.6839079649487037,
+          "neighbor_perpendicular_median_mas": 6.835906661295365
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -0.6590455204560106,
+          "zenith_perpendicular_median_mas": -13.519421958696928,
+          "absolute_radial_P68_mas": 63.56671548426417,
+          "deep_neighbor_measurements": 13,
+          "neighbor_parallel_median_mas": -0.25291752753659713,
+          "neighbor_perpendicular_median_mas": 7.632440770511083
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -2.3073887981680508,
+          "zenith_perpendicular_median_mas": -13.519421958696926,
+          "absolute_radial_P68_mas": 63.86303600687737,
+          "deep_neighbor_measurements": 13,
+          "neighbor_parallel_median_mas": 0.4107805230194712,
+          "neighbor_perpendicular_median_mas": 8.136746400938254
+        }
+      }
+    },
+    "c4d__gSNR20_40__color1_1.5__seeing_lt1p2": {
+      "measurements": 1
+    },
+    "c4d__gSNR20_40__color1_1.5__seeing_ge1p2": {
+      "measurements": 18,
+      "physical_stars": 14,
+      "color_p16_p50_p84": [
+        1.2762460327148437,
+        1.3517427444458008,
+        1.4734194183349583
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        32.61401764234307,
+        37.2323023908248,
+        39.38509076874583
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -10.127824754696366,
+          "zenith_perpendicular_median_mas": -13.519421958696928,
+          "absolute_radial_P68_mas": 61.096378490372786,
+          "deep_neighbor_measurements": 15,
+          "neighbor_parallel_median_mas": 3.5596440935075955,
+          "neighbor_perpendicular_median_mas": -5.905716424490748
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -0.6590455204560106,
+          "zenith_perpendicular_median_mas": -13.519421958696928,
+          "absolute_radial_P68_mas": 64.31767436971383,
+          "deep_neighbor_measurements": 15,
+          "neighbor_parallel_median_mas": -0.229203632642216,
+          "neighbor_perpendicular_median_mas": -7.6057309271612095
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -2.3073887981680508,
+          "zenith_perpendicular_median_mas": -13.519421958696926,
+          "absolute_radial_P68_mas": 63.61282520854058,
+          "deep_neighbor_measurements": 15,
+          "neighbor_parallel_median_mas": 1.0876463689898355,
+          "neighbor_perpendicular_median_mas": -7.5385300121953716
+        }
+      }
+    },
+    "c4d__gSNR20_40__color1.5_2__all": {
+      "measurements": 197,
+      "physical_stars": 116,
+      "color_p16_p50_p84": [
+        1.5943679809570312,
+        1.81553363800049,
+        1.941496047973634
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        31.197845991300202,
+        36.239526193529024,
+        38.962645899867205
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -39.3457619666314,
+          "zenith_perpendicular_median_mas": -8.617914861276924,
+          "absolute_radial_P68_mas": 70.21158144507562,
+          "deep_neighbor_measurements": 174,
+          "neighbor_parallel_median_mas": 8.284852872412966,
+          "neighbor_perpendicular_median_mas": 3.9872453759751076
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -12.414450147330975,
+          "zenith_perpendicular_median_mas": -8.617914861276924,
+          "absolute_radial_P68_mas": 50.09989260853885,
+          "deep_neighbor_measurements": 174,
+          "neighbor_parallel_median_mas": 4.093539376129889,
+          "neighbor_perpendicular_median_mas": 6.30844326577021
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -17.154994131673767,
+          "zenith_perpendicular_median_mas": -8.617914861276924,
+          "absolute_radial_P68_mas": 53.43044443929877,
+          "deep_neighbor_measurements": 174,
+          "neighbor_parallel_median_mas": 5.247432288964181,
+          "neighbor_perpendicular_median_mas": 6.541829302148461
+        }
+      }
+    },
+    "c4d__gSNR20_40__color1.5_2__neighbor_lt3arcsec": {
+      "measurements": 24,
+      "physical_stars": 15,
+      "color_p16_p50_p84": [
+        1.6217937469482422,
+        1.7975063323974574,
+        1.890151901245117
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        32.87737092173992,
+        37.02203858246354,
+        38.91861134808571
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -37.810810280014095,
+          "zenith_perpendicular_median_mas": -18.797995289258072,
+          "absolute_radial_P68_mas": 73.82642787097792,
+          "deep_neighbor_measurements": 24,
+          "neighbor_parallel_median_mas": 23.06050045042868,
+          "neighbor_perpendicular_median_mas": 4.7998401751065
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -15.223568195910637,
+          "zenith_perpendicular_median_mas": -18.797995289258072,
+          "absolute_radial_P68_mas": 64.05667387758466,
+          "deep_neighbor_measurements": 24,
+          "neighbor_parallel_median_mas": 21.759589840004992,
+          "neighbor_perpendicular_median_mas": 14.871397418811712
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -19.526187155937023,
+          "zenith_perpendicular_median_mas": -18.797995289258076,
+          "absolute_radial_P68_mas": 66.5099631490643,
+          "deep_neighbor_measurements": 24,
+          "neighbor_parallel_median_mas": 21.278826331258667,
+          "neighbor_perpendicular_median_mas": 11.078287631280698
+        }
+      }
+    },
+    "c4d__gSNR20_40__color1.5_2__neighbor_ge3arcsec": {
+      "measurements": 173,
+      "physical_stars": 101,
+      "color_p16_p50_p84": [
+        1.588620452880863,
+        1.8191375732421875,
+        1.942300796508789
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        30.896415941028675,
+        36.22501684098925,
+        38.961974779053286
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -39.646134860634774,
+          "zenith_perpendicular_median_mas": -8.485721274221476,
+          "absolute_radial_P68_mas": 70.12131567951602,
+          "deep_neighbor_measurements": 150,
+          "neighbor_parallel_median_mas": 6.075879154749691,
+          "neighbor_perpendicular_median_mas": 3.609603282561947
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -12.357844608443802,
+          "zenith_perpendicular_median_mas": -8.48572127422148,
+          "absolute_radial_P68_mas": 49.73465421933718,
+          "deep_neighbor_measurements": 150,
+          "neighbor_parallel_median_mas": 3.8805270479182052,
+          "neighbor_perpendicular_median_mas": 6.089882041869112
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -16.237915169804605,
+          "zenith_perpendicular_median_mas": -8.485721274221477,
+          "absolute_radial_P68_mas": 52.91142081527643,
+          "deep_neighbor_measurements": 150,
+          "neighbor_parallel_median_mas": 4.570651393892639,
+          "neighbor_perpendicular_median_mas": 5.380159115266569
+        }
+      }
+    },
+    "c4d__gSNR20_40__color1.5_2__seeing_lt1p2": {
+      "measurements": 28,
+      "physical_stars": 24,
+      "color_p16_p50_p84": [
+        1.6689285278320336,
+        1.8167295455932617,
+        1.9532514953613307
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        34.558978677660555,
+        37.51443365592576,
+        39.49326459194705
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -39.486826067315604,
+          "zenith_perpendicular_median_mas": -7.316724989652565,
+          "absolute_radial_P68_mas": 57.53149984051398,
+          "deep_neighbor_measurements": 25,
+          "neighbor_parallel_median_mas": 17.578490886387144,
+          "neighbor_perpendicular_median_mas": 3.545543123761765
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -10.066013254484432,
+          "zenith_perpendicular_median_mas": -7.316724989652564,
+          "absolute_radial_P68_mas": 36.683341382764176,
+          "deep_neighbor_measurements": 25,
+          "neighbor_parallel_median_mas": 4.141243852077541,
+          "neighbor_perpendicular_median_mas": 5.410363482013933
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -15.374931146112843,
+          "zenith_perpendicular_median_mas": -7.316724989652564,
+          "absolute_radial_P68_mas": 40.006804571300805,
+          "deep_neighbor_measurements": 25,
+          "neighbor_parallel_median_mas": 7.11446817720358,
+          "neighbor_perpendicular_median_mas": 5.248616492434938
+        }
+      }
+    },
+    "c4d__gSNR20_40__color1.5_2__seeing_ge1p2": {
+      "measurements": 169,
+      "physical_stars": 105,
+      "color_p16_p50_p84": [
+        1.5904792022705114,
+        1.81553363800049,
+        1.9400653839111364
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        30.63844620819404,
+        36.173120265138415,
+        38.76594804058075
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -39.3457619666314,
+          "zenith_perpendicular_median_mas": -8.636797757145466,
+          "absolute_radial_P68_mas": 72.3931868943808,
+          "deep_neighbor_measurements": 149,
+          "neighbor_parallel_median_mas": 5.951851173356019,
+          "neighbor_perpendicular_median_mas": 4.300827310588087
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -13.368220043395548,
+          "zenith_perpendicular_median_mas": -8.63679775714546,
+          "absolute_radial_P68_mas": 53.833510510678245,
+          "deep_neighbor_measurements": 149,
+          "neighbor_parallel_median_mas": 3.790372884746254,
+          "neighbor_perpendicular_median_mas": 6.505536998115317
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -17.672146413589825,
+          "zenith_perpendicular_median_mas": -8.636797757145462,
+          "absolute_radial_P68_mas": 55.091862891627144,
+          "deep_neighbor_measurements": 149,
+          "neighbor_parallel_median_mas": 4.962617343755015,
+          "neighbor_perpendicular_median_mas": 7.37826771308346
+        }
+      }
+    },
+    "c4d__gSNR20_40__color2_4__all": {
+      "measurements": 2037,
+      "physical_stars": 835,
+      "color_p16_p50_p84": [
+        2.3263053894042995,
+        2.620687484741211,
+        2.8778088378906186
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        24.460834359077626,
+        30.709551824582935,
+        36.55239347874167
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -81.42462016376284,
+          "zenith_perpendicular_median_mas": -6.699700024619001,
+          "absolute_radial_P68_mas": 107.7149210467539,
+          "deep_neighbor_measurements": 1771,
+          "neighbor_parallel_median_mas": 15.287684829764864,
+          "neighbor_perpendicular_median_mas": 7.1014552153968875
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -14.204052816597796,
+          "zenith_perpendicular_median_mas": -6.699700024619002,
+          "absolute_radial_P68_mas": 56.99219721013486,
+          "deep_neighbor_measurements": 1771,
+          "neighbor_parallel_median_mas": 6.572903401622584,
+          "neighbor_perpendicular_median_mas": -0.3257041333926285
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -25.878840986856208,
+          "zenith_perpendicular_median_mas": -6.699700024619002,
+          "absolute_radial_P68_mas": 62.21383985998155,
+          "deep_neighbor_measurements": 1771,
+          "neighbor_parallel_median_mas": 7.485734402802176,
+          "neighbor_perpendicular_median_mas": -0.2092020378611299
+        }
+      }
+    },
+    "c4d__gSNR20_40__color2_4__neighbor_lt3arcsec": {
+      "measurements": 238,
+      "physical_stars": 92,
+      "color_p16_p50_p84": [
+        2.3057612609863285,
+        2.645339012145998,
+        2.9243773651123046
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        24.951142924969172,
+        31.138024741458313,
+        36.42984769739951
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -81.8262873110325,
+          "zenith_perpendicular_median_mas": -6.141617707999288,
+          "absolute_radial_P68_mas": 135.407904856949,
+          "deep_neighbor_measurements": 238,
+          "neighbor_parallel_median_mas": 66.19730974392763,
+          "neighbor_perpendicular_median_mas": 8.577505832700101
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -12.064553946227754,
+          "zenith_perpendicular_median_mas": -6.141617707999288,
+          "absolute_radial_P68_mas": 88.74244287534808,
+          "deep_neighbor_measurements": 238,
+          "neighbor_parallel_median_mas": 44.897738577493904,
+          "neighbor_perpendicular_median_mas": 1.7274930350488065
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -23.952014977019815,
+          "zenith_perpendicular_median_mas": -6.141617707999288,
+          "absolute_radial_P68_mas": 95.62142287845094,
+          "deep_neighbor_measurements": 238,
+          "neighbor_parallel_median_mas": 46.935722248322804,
+          "neighbor_perpendicular_median_mas": 0.3133789656149064
+        }
+      }
+    },
+    "c4d__gSNR20_40__color2_4__neighbor_ge3arcsec": {
+      "measurements": 1798,
+      "physical_stars": 742,
+      "color_p16_p50_p84": [
+        2.326786041259769,
+        2.620687484741211,
+        2.875883102416992
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        24.38077117858204,
+        30.621210115782006,
+        36.56352098183328
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -81.32512219006915,
+          "zenith_perpendicular_median_mas": -6.776048952770676,
+          "absolute_radial_P68_mas": 106.1701914194032,
+          "deep_neighbor_measurements": 1533,
+          "neighbor_parallel_median_mas": 6.667377009088696,
+          "neighbor_perpendicular_median_mas": 6.849322984927976
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -14.245984957294962,
+          "zenith_perpendicular_median_mas": -6.776048952770676,
+          "absolute_radial_P68_mas": 54.52013152190416,
+          "deep_neighbor_measurements": 1533,
+          "neighbor_parallel_median_mas": 2.4659407998226586,
+          "neighbor_perpendicular_median_mas": -0.7721004587277509
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -25.966712768601894,
+          "zenith_perpendicular_median_mas": -6.776048952770675,
+          "absolute_radial_P68_mas": 59.42814415347369,
+          "deep_neighbor_measurements": 1533,
+          "neighbor_parallel_median_mas": 2.7090674240121477,
+          "neighbor_perpendicular_median_mas": -0.3545302938954058
+        }
+      }
+    },
+    "c4d__gSNR20_40__color2_4__seeing_lt1p2": {
+      "measurements": 220,
+      "physical_stars": 181,
+      "color_p16_p50_p84": [
+        2.292982482910158,
+        2.6470074653625515,
+        2.905691146850586
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        26.736977838144465,
+        32.36574275228553,
+        37.37747173788799
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -82.05435086482645,
+          "zenith_perpendicular_median_mas": -8.344035050656784,
+          "absolute_radial_P68_mas": 105.08598329227443,
+          "deep_neighbor_measurements": 182,
+          "neighbor_parallel_median_mas": 25.46497767156742,
+          "neighbor_perpendicular_median_mas": 21.567188877541298
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -15.55025248854221,
+          "zenith_perpendicular_median_mas": -8.344035050656784,
+          "absolute_radial_P68_mas": 53.478381594720005,
+          "deep_neighbor_measurements": 182,
+          "neighbor_parallel_median_mas": 3.0158016635660654,
+          "neighbor_perpendicular_median_mas": 3.9097761053691458
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -27.412096002232886,
+          "zenith_perpendicular_median_mas": -8.344035050656784,
+          "absolute_radial_P68_mas": 56.993563383313564,
+          "deep_neighbor_measurements": 182,
+          "neighbor_parallel_median_mas": -0.08159991916672477,
+          "neighbor_perpendicular_median_mas": 7.793760911503631
+        }
+      }
+    },
+    "c4d__gSNR20_40__color2_4__seeing_ge1p2": {
+      "measurements": 1817,
+      "physical_stars": 804,
+      "color_p16_p50_p84": [
+        2.3274792480468767,
+        2.617092132568361,
+        2.875883102416992
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        24.330114108543583,
+        30.450308636923086,
+        36.45391831458112
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -81.3598734824179,
+          "zenith_perpendicular_median_mas": -6.5507770814227575,
+          "absolute_radial_P68_mas": 107.95863334297323,
+          "deep_neighbor_measurements": 1589,
+          "neighbor_parallel_median_mas": 14.548781638278463,
+          "neighbor_perpendicular_median_mas": 4.773131037611539
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -14.058375324891504,
+          "zenith_perpendicular_median_mas": -6.5507770814227575,
+          "absolute_radial_P68_mas": 57.12835362030445,
+          "deep_neighbor_measurements": 1589,
+          "neighbor_parallel_median_mas": 7.14506555570139,
+          "neighbor_perpendicular_median_mas": -0.8764364983987216
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -25.63627988162856,
+          "zenith_perpendicular_median_mas": -6.550777081422758,
+          "absolute_radial_P68_mas": 62.44339847847747,
+          "deep_neighbor_measurements": 1589,
+          "neighbor_parallel_median_mas": 7.732212615415403,
+          "neighbor_perpendicular_median_mas": -1.1518397936733074
+        }
+      }
+    },
+    "c4d__gSNR40_100__color-1_0.5__all": {
+      "measurements": 1357,
+      "physical_stars": 625,
+      "color_p16_p50_p84": [
+        0.2815056610107456,
+        0.3573684692382812,
+        0.4442572784423829
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        65.76106426419702,
+        79.98645975822379,
+        92.68136324663784
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 56.59334603159573,
+          "zenith_perpendicular_median_mas": -5.843325615574255,
+          "absolute_radial_P68_mas": 73.93773022543088,
+          "deep_neighbor_measurements": 1092,
+          "neighbor_parallel_median_mas": -1.049261728117341,
+          "neighbor_perpendicular_median_mas": 5.165164715237774
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 16.153401979505304,
+          "zenith_perpendicular_median_mas": -5.843325615574255,
+          "absolute_radial_P68_mas": 41.85397279826663,
+          "deep_neighbor_measurements": 1092,
+          "neighbor_parallel_median_mas": 2.896521179504656,
+          "neighbor_perpendicular_median_mas": 1.5118865593962494
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 22.874104266145935,
+          "zenith_perpendicular_median_mas": -5.843325615574255,
+          "absolute_radial_P68_mas": 45.89180744832138,
+          "deep_neighbor_measurements": 1092,
+          "neighbor_parallel_median_mas": 2.0230126174338903,
+          "neighbor_perpendicular_median_mas": 1.6169592123911145
+        }
+      }
+    },
+    "c4d__gSNR40_100__color-1_0.5__neighbor_lt3arcsec": {
+      "measurements": 109,
+      "physical_stars": 49,
+      "color_p16_p50_p84": [
+        0.2415411376953125,
+        0.3474044799804723,
+        0.44754539489746187
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        68.53339137861381,
+        80.78995496377183,
+        90.96346502682586
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 52.32016543769862,
+          "zenith_perpendicular_median_mas": -3.3883786406374643,
+          "absolute_radial_P68_mas": 81.51364601331545,
+          "deep_neighbor_measurements": 109,
+          "neighbor_parallel_median_mas": 20.697231044643644,
+          "neighbor_perpendicular_median_mas": -3.6088897497084176
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 13.37559338651564,
+          "zenith_perpendicular_median_mas": -3.388378640637463,
+          "absolute_radial_P68_mas": 63.19208545647954,
+          "deep_neighbor_measurements": 109,
+          "neighbor_parallel_median_mas": 26.294403319774837,
+          "neighbor_perpendicular_median_mas": 2.231182665508244
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 19.402724465731136,
+          "zenith_perpendicular_median_mas": -3.3883786406374625,
+          "absolute_radial_P68_mas": 65.14147315250945,
+          "deep_neighbor_measurements": 109,
+          "neighbor_parallel_median_mas": 25.6771500044618,
+          "neighbor_perpendicular_median_mas": 2.8740618240937046
+        }
+      }
+    },
+    "c4d__gSNR40_100__color-1_0.5__neighbor_ge3arcsec": {
+      "measurements": 1248,
+      "physical_stars": 576,
+      "color_p16_p50_p84": [
+        0.28222564697265795,
+        0.3573684692382812,
+        0.4431037902832031
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        65.69233292029458,
+        79.84529030774351,
+        92.912639413052
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 56.70141998220579,
+          "zenith_perpendicular_median_mas": -5.940006620123424,
+          "absolute_radial_P68_mas": 73.12522461928104,
+          "deep_neighbor_measurements": 983,
+          "neighbor_parallel_median_mas": -3.7641810996633014,
+          "neighbor_perpendicular_median_mas": 5.701533935083198
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 16.16038944672988,
+          "zenith_perpendicular_median_mas": -5.940006620123424,
+          "absolute_radial_P68_mas": 40.947723983434486,
+          "deep_neighbor_measurements": 983,
+          "neighbor_parallel_median_mas": 1.0792745570434175,
+          "neighbor_perpendicular_median_mas": 1.4619387110605988
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 23.040000712487135,
+          "zenith_perpendicular_median_mas": -5.940006620123425,
+          "absolute_radial_P68_mas": 44.24947669661696,
+          "deep_neighbor_measurements": 983,
+          "neighbor_parallel_median_mas": 0.28203399256093853,
+          "neighbor_perpendicular_median_mas": 1.482625351786595
+        }
+      }
+    },
+    "c4d__gSNR40_100__color-1_0.5__seeing_lt1p2": {
+      "measurements": 79,
+      "physical_stars": 61,
+      "color_p16_p50_p84": [
+        0.301412467956543,
+        0.4020366668701207,
+        0.47448768615722925
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        68.3543410631416,
+        79.03160611137936,
+        92.45240829694626
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 40.462896033919606,
+          "zenith_perpendicular_median_mas": -5.762183553372743,
+          "absolute_radial_P68_mas": 54.22648148046494,
+          "deep_neighbor_measurements": 67,
+          "neighbor_parallel_median_mas": -8.258865392156196,
+          "neighbor_perpendicular_median_mas": 17.434062641326555
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 1.440342578642845,
+          "zenith_perpendicular_median_mas": -5.7621835533727435,
+          "absolute_radial_P68_mas": 26.762854142758428,
+          "deep_neighbor_measurements": 67,
+          "neighbor_parallel_median_mas": 1.4801134112751702,
+          "neighbor_perpendicular_median_mas": -0.832619299461216
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 9.020413169596177,
+          "zenith_perpendicular_median_mas": -5.762183553372743,
+          "absolute_radial_P68_mas": 30.326448742221718,
+          "deep_neighbor_measurements": 67,
+          "neighbor_parallel_median_mas": 0.46952316673795913,
+          "neighbor_perpendicular_median_mas": 1.6793892528251184
+        }
+      }
+    },
+    "c4d__gSNR40_100__color-1_0.5__seeing_ge1p2": {
+      "measurements": 1278,
+      "physical_stars": 606,
+      "color_p16_p50_p84": [
+        0.2809123992919922,
+        0.3553066253662109,
+        0.4409980773925817
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        65.65735144045024,
+        80.09266780452417,
+        92.71682639812936
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 57.634842754273706,
+          "zenith_perpendicular_median_mas": -5.84634668803555,
+          "absolute_radial_P68_mas": 74.42438268441936,
+          "deep_neighbor_measurements": 1025,
+          "neighbor_parallel_median_mas": -0.6212595161876724,
+          "neighbor_perpendicular_median_mas": 3.1762761643412034
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 16.91465053881706,
+          "zenith_perpendicular_median_mas": -5.846346688035551,
+          "absolute_radial_P68_mas": 42.492979076003195,
+          "deep_neighbor_measurements": 1025,
+          "neighbor_parallel_median_mas": 2.9207477477968204,
+          "neighbor_perpendicular_median_mas": 1.8715138339603428
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 24.10780468482607,
+          "zenith_perpendicular_median_mas": -5.846346688035551,
+          "absolute_radial_P68_mas": 46.971560383121016,
+          "deep_neighbor_measurements": 1025,
+          "neighbor_parallel_median_mas": 2.0771345611266208,
+          "neighbor_perpendicular_median_mas": 1.5843727575025879
+        }
+      }
+    },
+    "c4d__gSNR40_100__color0.5_1__all": {
+      "measurements": 1167,
+      "physical_stars": 550,
+      "color_p16_p50_p84": [
+        0.5564899444580096,
+        0.6884346008300817,
+        0.8986892700195277
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        62.07086992681951,
+        78.2399801656071,
+        93.35811916026309
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 31.22644496754197,
+          "zenith_perpendicular_median_mas": -6.34375126595094,
+          "absolute_radial_P68_mas": 52.21064786517482,
+          "deep_neighbor_measurements": 984,
+          "neighbor_parallel_median_mas": 6.700653412431569,
+          "neighbor_perpendicular_median_mas": 0.5913258775560342
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 7.666301135831052,
+          "zenith_perpendicular_median_mas": -6.34375126595094,
+          "absolute_radial_P68_mas": 37.35816675572039,
+          "deep_neighbor_measurements": 984,
+          "neighbor_parallel_median_mas": 4.528941044476873,
+          "neighbor_perpendicular_median_mas": -0.2548543321560297
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 11.601417536784595,
+          "zenith_perpendicular_median_mas": -6.34375126595094,
+          "absolute_radial_P68_mas": 39.20808815861435,
+          "deep_neighbor_measurements": 984,
+          "neighbor_parallel_median_mas": 4.764631088952546,
+          "neighbor_perpendicular_median_mas": -0.3565940606266571
+        }
+      }
+    },
+    "c4d__gSNR40_100__color0.5_1__neighbor_lt3arcsec": {
+      "measurements": 143,
+      "physical_stars": 63,
+      "color_p16_p50_p84": [
+        0.5536670684814453,
+        0.7393112182617188,
+        0.9192743301391584
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        62.13796443432114,
+        77.05174968122417,
+        93.23660349605822
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 30.1425906773825,
+          "zenith_perpendicular_median_mas": -6.350278491902159,
+          "absolute_radial_P68_mas": 69.49759002678694,
+          "deep_neighbor_measurements": 143,
+          "neighbor_parallel_median_mas": 33.777134705382714,
+          "neighbor_perpendicular_median_mas": 7.560245285138379
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 6.3826777240396755,
+          "zenith_perpendicular_median_mas": -6.350278491902159,
+          "absolute_radial_P68_mas": 58.76000900514364,
+          "deep_neighbor_measurements": 143,
+          "neighbor_parallel_median_mas": 27.76396442910581,
+          "neighbor_perpendicular_median_mas": 6.872223591032656
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 11.050038509386415,
+          "zenith_perpendicular_median_mas": -6.35027849190216,
+          "absolute_radial_P68_mas": 59.328664750307105,
+          "deep_neighbor_measurements": 143,
+          "neighbor_parallel_median_mas": 28.83395042100254,
+          "neighbor_perpendicular_median_mas": 7.036396559248612
+        }
+      }
+    },
+    "c4d__gSNR40_100__color0.5_1__neighbor_ge3arcsec": {
+      "measurements": 1024,
+      "physical_stars": 487,
+      "color_p16_p50_p84": [
+        0.5577127456665039,
+        0.6868495941162109,
+        0.8965511322021484
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        62.06235507310772,
+        78.49168800072414,
+        93.35330241693627
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 31.349759651349405,
+          "zenith_perpendicular_median_mas": -6.296410563845788,
+          "absolute_radial_P68_mas": 50.553561871173194,
+          "deep_neighbor_measurements": 841,
+          "neighbor_parallel_median_mas": 3.926068856945843,
+          "neighbor_perpendicular_median_mas": -0.22584650225064706
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 7.724863348307487,
+          "zenith_perpendicular_median_mas": -6.296410563845788,
+          "absolute_radial_P68_mas": 35.311302562484414,
+          "deep_neighbor_measurements": 841,
+          "neighbor_parallel_median_mas": 2.2178615752948385,
+          "neighbor_perpendicular_median_mas": -1.0093897939864966
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 11.651157003009038,
+          "zenith_perpendicular_median_mas": -6.296410563845788,
+          "absolute_radial_P68_mas": 37.11192311421884,
+          "deep_neighbor_measurements": 841,
+          "neighbor_parallel_median_mas": 2.32864688376761,
+          "neighbor_perpendicular_median_mas": -1.295411163579229
+        }
+      }
+    },
+    "c4d__gSNR40_100__color0.5_1__seeing_lt1p2": {
+      "measurements": 109,
+      "physical_stars": 92,
+      "color_p16_p50_p84": [
+        0.5563259124755859,
+        0.6975669860839844,
+        0.8833399200439453
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        60.67503693391656,
+        75.56101362364323,
+        88.57877706930431
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 26.729540782174958,
+          "zenith_perpendicular_median_mas": -1.3715763065099804,
+          "absolute_radial_P68_mas": 42.96131792946566,
+          "deep_neighbor_measurements": 79,
+          "neighbor_parallel_median_mas": 2.244842762744342,
+          "neighbor_perpendicular_median_mas": -2.228367829481985
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 3.241291923854271,
+          "zenith_perpendicular_median_mas": -1.3715763065099802,
+          "absolute_radial_P68_mas": 28.864002702650954,
+          "deep_neighbor_measurements": 79,
+          "neighbor_parallel_median_mas": 2.184540988530399,
+          "neighbor_perpendicular_median_mas": -2.1230127196367934
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 6.090467697038017,
+          "zenith_perpendicular_median_mas": -1.37157630650998,
+          "absolute_radial_P68_mas": 30.881651883179032,
+          "deep_neighbor_measurements": 79,
+          "neighbor_parallel_median_mas": 1.9764302664818985,
+          "neighbor_perpendicular_median_mas": -3.7976227199261667
+        }
+      }
+    },
+    "c4d__gSNR40_100__color0.5_1__seeing_ge1p2": {
+      "measurements": 1058,
+      "physical_stars": 510,
+      "color_p16_p50_p84": [
+        0.5575485992431672,
+        0.6868495941162109,
+        0.8986892700195277
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        62.12215680486412,
+        78.52291959214092,
+        93.43202812052192
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 31.655053054013457,
+          "zenith_perpendicular_median_mas": -6.799614681646853,
+          "absolute_radial_P68_mas": 53.51848656202208,
+          "deep_neighbor_measurements": 905,
+          "neighbor_parallel_median_mas": 7.604423443439834,
+          "neighbor_perpendicular_median_mas": 0.8091848353477467
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 8.284771440258229,
+          "zenith_perpendicular_median_mas": -6.799614681646853,
+          "absolute_radial_P68_mas": 38.182771076989965,
+          "deep_neighbor_measurements": 905,
+          "neighbor_parallel_median_mas": 5.214229134791633,
+          "neighbor_perpendicular_median_mas": -0.051984767785810515
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 12.170019757775293,
+          "zenith_perpendicular_median_mas": -6.799614681646853,
+          "absolute_radial_P68_mas": 40.15411597257062,
+          "deep_neighbor_measurements": 905,
+          "neighbor_parallel_median_mas": 5.309006998477717,
+          "neighbor_perpendicular_median_mas": -0.16269302254042994
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1_1.5__all": {
+      "measurements": 921,
+      "physical_stars": 381,
+      "color_p16_p50_p84": [
+        1.0859088897705045,
+        1.2419424057006854,
+        1.4117279052734375
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        53.59543390480829,
+        70.45202808111931,
+        89.86403527680989
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -4.136425658603922,
+          "zenith_perpendicular_median_mas": -7.094223589942754,
+          "absolute_radial_P68_mas": 41.866581059128464,
+          "deep_neighbor_measurements": 773,
+          "neighbor_parallel_median_mas": 6.783096301693574,
+          "neighbor_perpendicular_median_mas": 1.5000524336799494
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -0.9168497555262076,
+          "zenith_perpendicular_median_mas": -7.094223589942753,
+          "absolute_radial_P68_mas": 39.62432300151743,
+          "deep_neighbor_measurements": 773,
+          "neighbor_parallel_median_mas": 6.583536741316362,
+          "neighbor_perpendicular_median_mas": 1.6943493656607682
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -1.7112455592903895,
+          "zenith_perpendicular_median_mas": -7.094223589942753,
+          "absolute_radial_P68_mas": 39.56354206341417,
+          "deep_neighbor_measurements": 773,
+          "neighbor_parallel_median_mas": 6.924407944725416,
+          "neighbor_perpendicular_median_mas": 1.9305496925211507
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1_1.5__neighbor_lt3arcsec": {
+      "measurements": 122,
+      "physical_stars": 50,
+      "color_p16_p50_p84": [
+        1.1056365966796875,
+        1.2678289413452113,
+        1.4294884490966775
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        53.47661841267449,
+        69.39857763177889,
+        89.3618922444844
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -0.7959559999748442,
+          "zenith_perpendicular_median_mas": -10.991870734417455,
+          "absolute_radial_P68_mas": 72.94227888925177,
+          "deep_neighbor_measurements": 122,
+          "neighbor_parallel_median_mas": 29.860363582034246,
+          "neighbor_perpendicular_median_mas": 2.6236198428950006
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 1.5090475249130901,
+          "zenith_perpendicular_median_mas": -10.991870734417457,
+          "absolute_radial_P68_mas": 69.71753793597003,
+          "deep_neighbor_measurements": 122,
+          "neighbor_parallel_median_mas": 29.445557292840384,
+          "neighbor_perpendicular_median_mas": 0.2044064205724545
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 0.4050332785145559,
+          "zenith_perpendicular_median_mas": -10.991870734417455,
+          "absolute_radial_P68_mas": 69.61553004894492,
+          "deep_neighbor_measurements": 122,
+          "neighbor_parallel_median_mas": 29.549320495177255,
+          "neighbor_perpendicular_median_mas": 0.5029636140963404
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1_1.5__neighbor_ge3arcsec": {
+      "measurements": 799,
+      "physical_stars": 331,
+      "color_p16_p50_p84": [
+        1.0855963897705057,
+        1.2419424057006854,
+        1.4091300201416062
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        53.61449100017669,
+        70.69515592903565,
+        89.92289790278636
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -4.534045152725938,
+          "zenith_perpendicular_median_mas": -6.789029533225714,
+          "absolute_radial_P68_mas": 38.845769797164834,
+          "deep_neighbor_measurements": 651,
+          "neighbor_parallel_median_mas": 3.801378212563241,
+          "neighbor_perpendicular_median_mas": 1.4354810252447887
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -1.1869843264633333,
+          "zenith_perpendicular_median_mas": -6.789029533225714,
+          "absolute_radial_P68_mas": 37.24151948244734,
+          "deep_neighbor_measurements": 651,
+          "neighbor_parallel_median_mas": 3.964682015498223,
+          "neighbor_perpendicular_median_mas": 2.105866091999319
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -2.109023148353302,
+          "zenith_perpendicular_median_mas": -6.789029533225714,
+          "absolute_radial_P68_mas": 37.45772362183833,
+          "deep_neighbor_measurements": 651,
+          "neighbor_parallel_median_mas": 3.694244253593812,
+          "neighbor_perpendicular_median_mas": 2.0379084705826127
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1_1.5__seeing_lt1p2": {
+      "measurements": 116,
+      "physical_stars": 95,
+      "color_p16_p50_p84": [
+        1.0866115570068358,
+        1.2584266662597638,
+        1.383841323852539
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        53.43335112604922,
+        70.41776182540775,
+        89.25815922245008
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -7.029988589049359,
+          "zenith_perpendicular_median_mas": -3.7652418226138793,
+          "absolute_radial_P68_mas": 33.19100171750293,
+          "deep_neighbor_measurements": 87,
+          "neighbor_parallel_median_mas": 3.4440569110419226,
+          "neighbor_perpendicular_median_mas": -0.09161518500190713
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -1.0186137734748821,
+          "zenith_perpendicular_median_mas": -3.765241822613879,
+          "absolute_radial_P68_mas": 34.626289873832064,
+          "deep_neighbor_measurements": 87,
+          "neighbor_parallel_median_mas": 3.080725530094825,
+          "neighbor_perpendicular_median_mas": 0.5559358382001589
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -1.7394158394890729,
+          "zenith_perpendicular_median_mas": -3.765241822613879,
+          "absolute_radial_P68_mas": 34.64747110205468,
+          "deep_neighbor_measurements": 87,
+          "neighbor_parallel_median_mas": 3.025133700293798,
+          "neighbor_perpendicular_median_mas": 0.6912962216233931
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1_1.5__seeing_ge1p2": {
+      "measurements": 805,
+      "physical_stars": 351,
+      "color_p16_p50_p84": [
+        1.0859088897705045,
+        1.2419424057006854,
+        1.4207044982910133
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        53.61290290889599,
+        70.46117235110192,
+        89.96134038636042
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -3.725156135240517,
+          "zenith_perpendicular_median_mas": -7.565879597023098,
+          "absolute_radial_P68_mas": 43.398673132028335,
+          "deep_neighbor_measurements": 686,
+          "neighbor_parallel_median_mas": 7.769653746005233,
+          "neighbor_perpendicular_median_mas": 2.1830645054155786
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -0.8496308637997904,
+          "zenith_perpendicular_median_mas": -7.565879597023098,
+          "absolute_radial_P68_mas": 41.18993389138833,
+          "deep_neighbor_measurements": 686,
+          "neighbor_parallel_median_mas": 7.36445820022665,
+          "neighbor_perpendicular_median_mas": 1.8446508565421706
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -1.6220444083104721,
+          "zenith_perpendicular_median_mas": -7.565879597023098,
+          "absolute_radial_P68_mas": 40.75458712390334,
+          "deep_neighbor_measurements": 686,
+          "neighbor_parallel_median_mas": 7.72181998485579,
+          "neighbor_perpendicular_median_mas": 2.0391500179892246
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1.5_2__all": {
+      "measurements": 1067,
+      "physical_stars": 450,
+      "color_p16_p50_p84": [
+        1.6012319946289042,
+        1.782100677490238,
+        1.930641174316408
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        46.200365681750384,
+        64.44685728961414,
+        86.82836359834965
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -33.85694610548058,
+          "zenith_perpendicular_median_mas": -7.717015181046192,
+          "absolute_radial_P68_mas": 56.11054037884289,
+          "deep_neighbor_measurements": 922,
+          "neighbor_parallel_median_mas": 6.908501357556787,
+          "neighbor_perpendicular_median_mas": 2.5301838466853646
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -6.817349204811976,
+          "zenith_perpendicular_median_mas": -7.717015181046191,
+          "absolute_radial_P68_mas": 40.43850942482052,
+          "deep_neighbor_measurements": 922,
+          "neighbor_parallel_median_mas": 4.910300526618679,
+          "neighbor_perpendicular_median_mas": 0.3874957940340139
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -11.511790539044311,
+          "zenith_perpendicular_median_mas": -7.717015181046193,
+          "absolute_radial_P68_mas": 41.20180826194127,
+          "deep_neighbor_measurements": 922,
+          "neighbor_parallel_median_mas": 4.447527281863602,
+          "neighbor_perpendicular_median_mas": 0.5652800910953577
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1.5_2__neighbor_lt3arcsec": {
+      "measurements": 136,
+      "physical_stars": 53,
+      "color_p16_p50_p84": [
+        1.5768020629882848,
+        1.7785024642944363,
+        1.930641174316408
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        44.70111848601086,
+        54.14106793115962,
+        76.62449100122349
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -35.49756571614506,
+          "zenith_perpendicular_median_mas": -7.190211615645223,
+          "absolute_radial_P68_mas": 89.82525953724614,
+          "deep_neighbor_measurements": 136,
+          "neighbor_parallel_median_mas": 42.51532574713221,
+          "neighbor_perpendicular_median_mas": 8.130132580810383
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -9.875017864406495,
+          "zenith_perpendicular_median_mas": -7.190211615645225,
+          "absolute_radial_P68_mas": 79.60525474610719,
+          "deep_neighbor_measurements": 136,
+          "neighbor_parallel_median_mas": 36.177404270331905,
+          "neighbor_perpendicular_median_mas": -0.4519229837027323
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -14.479195755202646,
+          "zenith_perpendicular_median_mas": -7.190211615645224,
+          "absolute_radial_P68_mas": 79.74542279525156,
+          "deep_neighbor_measurements": 136,
+          "neighbor_parallel_median_mas": 36.54503018018283,
+          "neighbor_perpendicular_median_mas": 0.4572828682042882
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1.5_2__neighbor_ge3arcsec": {
+      "measurements": 931,
+      "physical_stars": 397,
+      "color_p16_p50_p84": [
+        1.6019592285156286,
+        1.782100677490238,
+        1.9313507080078152
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        46.52823672691351,
+        66.45872588346266,
+        87.70649338400042
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -33.508531521920624,
+          "zenith_perpendicular_median_mas": -7.775547909385659,
+          "absolute_radial_P68_mas": 52.55257503452639,
+          "deep_neighbor_measurements": 786,
+          "neighbor_parallel_median_mas": 3.57329880502936,
+          "neighbor_perpendicular_median_mas": 1.2627441168639528
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -6.541605990820071,
+          "zenith_perpendicular_median_mas": -7.775547909385659,
+          "absolute_radial_P68_mas": 37.69747642533775,
+          "deep_neighbor_measurements": 786,
+          "neighbor_parallel_median_mas": 1.8404776383999084,
+          "neighbor_perpendicular_median_mas": 0.40717312329653077
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -11.392527596553109,
+          "zenith_perpendicular_median_mas": -7.775547909385658,
+          "absolute_radial_P68_mas": 38.879830165908565,
+          "deep_neighbor_measurements": 786,
+          "neighbor_parallel_median_mas": 2.340571952563508,
+          "neighbor_perpendicular_median_mas": 0.5652800910953577
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1.5_2__seeing_lt1p2": {
+      "measurements": 192,
+      "physical_stars": 151,
+      "color_p16_p50_p84": [
+        1.6235926818847672,
+        1.8232336044311541,
+        1.953142166137692
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        47.66713877011122,
+        67.14518885554699,
+        89.39031172025061
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -34.55954087490684,
+          "zenith_perpendicular_median_mas": -7.204011216814556,
+          "absolute_radial_P68_mas": 52.172668834414374,
+          "deep_neighbor_measurements": 161,
+          "neighbor_parallel_median_mas": 1.2522762695598835,
+          "neighbor_perpendicular_median_mas": -0.8575087966720365
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -6.048074822921208,
+          "zenith_perpendicular_median_mas": -7.204011216814556,
+          "absolute_radial_P68_mas": 35.47190727115975,
+          "deep_neighbor_measurements": 161,
+          "neighbor_parallel_median_mas": 1.6664103081344033,
+          "neighbor_perpendicular_median_mas": -3.14003669529974
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -11.456111740557997,
+          "zenith_perpendicular_median_mas": -7.204011216814555,
+          "absolute_radial_P68_mas": 35.58283120442116,
+          "deep_neighbor_measurements": 161,
+          "neighbor_parallel_median_mas": 2.479308855784475,
+          "neighbor_perpendicular_median_mas": -2.6955889777432525
+        }
+      }
+    },
+    "c4d__gSNR40_100__color1.5_2__seeing_ge1p2": {
+      "measurements": 875,
+      "physical_stars": 417,
+      "color_p16_p50_p84": [
+        1.595952987670902,
+        1.7736282348632848,
+        1.926947937011722
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        46.02043562683617,
+        63.91571229517453,
+        86.45194983639858
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -33.77167586412095,
+          "zenith_perpendicular_median_mas": -7.982769778479351,
+          "absolute_radial_P68_mas": 56.92694024057141,
+          "deep_neighbor_measurements": 761,
+          "neighbor_parallel_median_mas": 7.870426993789101,
+          "neighbor_perpendicular_median_mas": 2.916834209876094
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -6.964976629532467,
+          "zenith_perpendicular_median_mas": -7.982769778479353,
+          "absolute_radial_P68_mas": 41.899492285226216,
+          "deep_neighbor_measurements": 761,
+          "neighbor_parallel_median_mas": 6.145218937791471,
+          "neighbor_perpendicular_median_mas": 1.0978577545601604
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -11.527657008147974,
+          "zenith_perpendicular_median_mas": -7.9827697784793505,
+          "absolute_radial_P68_mas": 43.12881127088504,
+          "deep_neighbor_measurements": 761,
+          "neighbor_parallel_median_mas": 5.646712744358636,
+          "neighbor_perpendicular_median_mas": 1.6946323327178998
+        }
+      }
+    },
+    "c4d__gSNR40_100__color2_4__all": {
+      "measurements": 2588,
+      "physical_stars": 1095,
+      "color_p16_p50_p84": [
+        2.1581535339355504,
+        2.451780319213867,
+        2.738658905029297
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        44.79102459119699,
+        59.302302867302686,
+        82.00721938380914
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -60.67900881496301,
+          "zenith_perpendicular_median_mas": -7.591926728078004,
+          "absolute_radial_P68_mas": 82.96736493495044,
+          "deep_neighbor_measurements": 2226,
+          "neighbor_parallel_median_mas": 7.934709534781698,
+          "neighbor_perpendicular_median_mas": 0.8530012895855792
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -2.182340311818069,
+          "zenith_perpendicular_median_mas": -7.591926728078004,
+          "absolute_radial_P68_mas": 42.30809451015605,
+          "deep_neighbor_measurements": 2226,
+          "neighbor_parallel_median_mas": 5.275981625498551,
+          "neighbor_perpendicular_median_mas": -0.6745934628939709
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -12.54845207399272,
+          "zenith_perpendicular_median_mas": -7.591926728078004,
+          "absolute_radial_P68_mas": 44.60187267153978,
+          "deep_neighbor_measurements": 2226,
+          "neighbor_parallel_median_mas": 5.501080208301506,
+          "neighbor_perpendicular_median_mas": -0.17871064365863099
+        }
+      }
+    },
+    "c4d__gSNR40_100__color2_4__neighbor_lt3arcsec": {
+      "measurements": 291,
+      "physical_stars": 115,
+      "color_p16_p50_p84": [
+        2.103384017944336,
+        2.406967163085937,
+        2.7420223236083983
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        46.052032558700255,
+        59.80370172173669,
+        77.64695728254077
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -51.75353331248787,
+          "zenith_perpendicular_median_mas": -6.629291445641402,
+          "absolute_radial_P68_mas": 102.11145493431152,
+          "deep_neighbor_measurements": 291,
+          "neighbor_parallel_median_mas": 37.8838998256877,
+          "neighbor_perpendicular_median_mas": -7.45036689813911
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 2.0251958849501785,
+          "zenith_perpendicular_median_mas": -6.629291445641402,
+          "absolute_radial_P68_mas": 84.78949135949406,
+          "deep_neighbor_measurements": 291,
+          "neighbor_parallel_median_mas": 37.52279562604749,
+          "neighbor_perpendicular_median_mas": -0.15827001166911003
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -6.354674997619304,
+          "zenith_perpendicular_median_mas": -6.629291445641403,
+          "absolute_radial_P68_mas": 84.61636731992763,
+          "deep_neighbor_measurements": 291,
+          "neighbor_parallel_median_mas": 39.03025622234597,
+          "neighbor_perpendicular_median_mas": -1.0739617698221124
+        }
+      }
+    },
+    "c4d__gSNR40_100__color2_4__neighbor_ge3arcsec": {
+      "measurements": 2282,
+      "physical_stars": 974,
+      "color_p16_p50_p84": [
+        2.1703662872314453,
+        2.454818725585937,
+        2.738658905029297
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        44.74465471857197,
+        59.198833486822664,
+        82.35331381333701
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -61.30016561167862,
+          "zenith_perpendicular_median_mas": -7.577135362722581,
+          "absolute_radial_P68_mas": 80.97468042382059,
+          "deep_neighbor_measurements": 1935,
+          "neighbor_parallel_median_mas": 3.56125467640798,
+          "neighbor_perpendicular_median_mas": 1.6935108108471528
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -2.3027257686044633,
+          "zenith_perpendicular_median_mas": -7.577135362722581,
+          "absolute_radial_P68_mas": 39.54591193308868,
+          "deep_neighbor_measurements": 1935,
+          "neighbor_parallel_median_mas": 3.135469297804993,
+          "neighbor_perpendicular_median_mas": -0.855171465885805
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -12.786418926739938,
+          "zenith_perpendicular_median_mas": -7.577135362722581,
+          "absolute_radial_P68_mas": 42.0656181835232,
+          "deep_neighbor_measurements": 1935,
+          "neighbor_parallel_median_mas": 3.050903544129625,
+          "neighbor_perpendicular_median_mas": -0.030077105045783453
+        }
+      }
+    },
+    "c4d__gSNR40_100__color2_4__seeing_lt1p2": {
+      "measurements": 488,
+      "physical_stars": 418,
+      "color_p16_p50_p84": [
+        2.1804586029052704,
+        2.4732623100280744,
+        2.764855575561523
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        46.6402376215783,
+        59.85678958395673,
+        83.65873560720425
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -66.03093537700047,
+          "zenith_perpendicular_median_mas": -6.046196398187415,
+          "absolute_radial_P68_mas": 83.0435517157595,
+          "deep_neighbor_measurements": 413,
+          "neighbor_parallel_median_mas": 6.504372399015173,
+          "neighbor_perpendicular_median_mas": -0.37165634529363123
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -4.464524003468018,
+          "zenith_perpendicular_median_mas": -6.046196398187416,
+          "absolute_radial_P68_mas": 36.75050361026787,
+          "deep_neighbor_measurements": 413,
+          "neighbor_parallel_median_mas": 3.241617831179539,
+          "neighbor_perpendicular_median_mas": -1.0062056479202974
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -14.86674152743331,
+          "zenith_perpendicular_median_mas": -6.046196398187416,
+          "absolute_radial_P68_mas": 39.305181302630515,
+          "deep_neighbor_measurements": 413,
+          "neighbor_parallel_median_mas": 3.5857989845602507,
+          "neighbor_perpendicular_median_mas": -0.030077105045783453
+        }
+      }
+    },
+    "c4d__gSNR40_100__color2_4__seeing_ge1p2": {
+      "measurements": 2100,
+      "physical_stars": 1019,
+      "color_p16_p50_p84": [
+        2.1565103149414058,
+        2.445905685424808,
+        2.734640960693357
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        44.51811206705055,
+        59.19076671210282,
+        81.19669391003401
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -59.46387202873583,
+          "zenith_perpendicular_median_mas": -8.128236863899765,
+          "absolute_radial_P68_mas": 82.95158045133161,
+          "deep_neighbor_measurements": 1813,
+          "neighbor_parallel_median_mas": 8.295534604559107,
+          "neighbor_perpendicular_median_mas": 0.9010934681326965
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": -1.6408355172686235,
+          "zenith_perpendicular_median_mas": -8.128236863899765,
+          "absolute_radial_P68_mas": 43.813886219775476,
+          "deep_neighbor_measurements": 1813,
+          "neighbor_parallel_median_mas": 5.515266430340457,
+          "neighbor_perpendicular_median_mas": -0.6103450610515129
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -12.00511280614929,
+          "zenith_perpendicular_median_mas": -8.128236863899765,
+          "absolute_radial_P68_mas": 46.110507404161915,
+          "deep_neighbor_measurements": 1813,
+          "neighbor_parallel_median_mas": 5.748013608925245,
+          "neighbor_perpendicular_median_mas": -0.33062674243120505
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color-1_0.5__all": {
+      "measurements": 2031,
+      "physical_stars": 809,
+      "color_p16_p50_p84": [
+        0.3087505340576207,
+        0.3978919982910156,
+        0.4683513641357422
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        113.57787077289645,
+        144.6491080146722,
+        209.78789333185608
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 62.38179174265187,
+          "zenith_perpendicular_median_mas": -6.3052538873965105,
+          "absolute_radial_P68_mas": 81.02479435049898,
+          "deep_neighbor_measurements": 1636,
+          "neighbor_parallel_median_mas": 4.241101646895805,
+          "neighbor_perpendicular_median_mas": 2.129714066011082
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 23.724047675680666,
+          "zenith_perpendicular_median_mas": -6.30525388739651,
+          "absolute_radial_P68_mas": 44.74803532290346,
+          "deep_neighbor_measurements": 1636,
+          "neighbor_parallel_median_mas": 2.8851526053560184,
+          "neighbor_perpendicular_median_mas": 0.8282511417722702
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 30.42344325643152,
+          "zenith_perpendicular_median_mas": -6.30525388739651,
+          "absolute_radial_P68_mas": 50.624047816254,
+          "deep_neighbor_measurements": 1636,
+          "neighbor_parallel_median_mas": 3.4941079619025026,
+          "neighbor_perpendicular_median_mas": 1.4160496496873014
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color-1_0.5__neighbor_lt3arcsec": {
+      "measurements": 137,
+      "physical_stars": 60,
+      "color_p16_p50_p84": [
+        -0.004617691040039,
+        0.3939294815063476,
+        0.4642852783203098
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        109.28887926658521,
+        142.48506624122436,
+        198.46737794535989
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 61.77513306261447,
+          "zenith_perpendicular_median_mas": -3.8478506051026473,
+          "absolute_radial_P68_mas": 101.06328387685484,
+          "deep_neighbor_measurements": 137,
+          "neighbor_parallel_median_mas": 37.35004074754717,
+          "neighbor_perpendicular_median_mas": -18.522394596150946
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 16.03606925744089,
+          "zenith_perpendicular_median_mas": -3.8478506051026473,
+          "absolute_radial_P68_mas": 75.20853405365699,
+          "deep_neighbor_measurements": 137,
+          "neighbor_parallel_median_mas": 23.391216522427232,
+          "neighbor_perpendicular_median_mas": -3.7991816572596218
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 22.61274481835763,
+          "zenith_perpendicular_median_mas": -3.8478506051026478,
+          "absolute_radial_P68_mas": 80.46140465947484,
+          "deep_neighbor_measurements": 137,
+          "neighbor_parallel_median_mas": 25.772410901738283,
+          "neighbor_perpendicular_median_mas": -6.164926698654304
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color-1_0.5__neighbor_ge3arcsec": {
+      "measurements": 1891,
+      "physical_stars": 748,
+      "color_p16_p50_p84": [
+        0.3137149810791086,
+        0.39791011810302734,
+        0.46950082778930596
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        113.78497220269645,
+        144.99682221663056,
+        210.65899300505123
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 62.35170412804368,
+          "zenith_perpendicular_median_mas": -6.567484907171478,
+          "absolute_radial_P68_mas": 79.69980018069016,
+          "deep_neighbor_measurements": 1499,
+          "neighbor_parallel_median_mas": 0.10864811213841064,
+          "neighbor_perpendicular_median_mas": 5.167517586231076
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 23.87612597936345,
+          "zenith_perpendicular_median_mas": -6.567484907171477,
+          "absolute_radial_P68_mas": 43.60919090554859,
+          "deep_neighbor_measurements": 1499,
+          "neighbor_parallel_median_mas": 1.6273982349602951,
+          "neighbor_perpendicular_median_mas": 1.5531101462193702
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 30.495587612846382,
+          "zenith_perpendicular_median_mas": -6.567484907171478,
+          "absolute_radial_P68_mas": 49.12469876482598,
+          "deep_neighbor_measurements": 1499,
+          "neighbor_parallel_median_mas": 1.6252112767740146,
+          "neighbor_perpendicular_median_mas": 2.249103948062924
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color-1_0.5__seeing_lt1p2": {
+      "measurements": 109,
+      "physical_stars": 86,
+      "color_p16_p50_p84": [
+        0.3232959747314427,
+        0.3955173492431676,
+        0.4725954055786145
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        111.28543216749011,
+        126.80871347326905,
+        142.50332983167684
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 52.93353903555944,
+          "zenith_perpendicular_median_mas": -1.9716910613349752,
+          "absolute_radial_P68_mas": 63.351760940597245,
+          "deep_neighbor_measurements": 88,
+          "neighbor_parallel_median_mas": -6.812309867271869,
+          "neighbor_perpendicular_median_mas": 20.551301723883704
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 15.312391987930841,
+          "zenith_perpendicular_median_mas": -1.9716910613349754,
+          "absolute_radial_P68_mas": 28.337543589859127,
+          "deep_neighbor_measurements": 88,
+          "neighbor_parallel_median_mas": 1.958637008162877,
+          "neighbor_perpendicular_median_mas": 4.879165925208069
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 21.373673923519437,
+          "zenith_perpendicular_median_mas": -1.9716910613349752,
+          "absolute_radial_P68_mas": 33.895356228928726,
+          "deep_neighbor_measurements": 88,
+          "neighbor_parallel_median_mas": 2.4205944100016796,
+          "neighbor_perpendicular_median_mas": 5.989469116666131
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color-1_0.5__seeing_ge1p2": {
+      "measurements": 1922,
+      "physical_stars": 802,
+      "color_p16_p50_p84": [
+        0.30845695495605596,
+        0.39791011810302734,
+        0.4683513641357422
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        113.90864609989725,
+        146.17788080488555,
+        213.13031682065017
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 62.900820672492685,
+          "zenith_perpendicular_median_mas": -6.6073039384451215,
+          "absolute_radial_P68_mas": 81.72981887191017,
+          "deep_neighbor_measurements": 1548,
+          "neighbor_parallel_median_mas": 4.803824055290675,
+          "neighbor_perpendicular_median_mas": 1.1183590037727473
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 24.08753596923117,
+          "zenith_perpendicular_median_mas": -6.607303938445121,
+          "absolute_radial_P68_mas": 45.39211826099342,
+          "deep_neighbor_measurements": 1548,
+          "neighbor_parallel_median_mas": 2.9669030192632277,
+          "neighbor_perpendicular_median_mas": 0.7499144882235711
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 30.73280210310008,
+          "zenith_perpendicular_median_mas": -6.60730393844512,
+          "absolute_radial_P68_mas": 51.32724023994271,
+          "deep_neighbor_measurements": 1548,
+          "neighbor_parallel_median_mas": 3.6076046174123846,
+          "neighbor_perpendicular_median_mas": 0.8052422826387402
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color0.5_1__all": {
+      "measurements": 4329,
+      "physical_stars": 1594,
+      "color_p16_p50_p84": [
+        0.5555696487426758,
+        0.6871795654296875,
+        0.8735448455810547
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        122.4877390619452,
+        163.73642056373544,
+        228.53182054304963
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 37.39395114917075,
+          "zenith_perpendicular_median_mas": -6.191465313466317,
+          "absolute_radial_P68_mas": 55.57100330030664,
+          "deep_neighbor_measurements": 3435,
+          "neighbor_parallel_median_mas": 2.309295514358536,
+          "neighbor_perpendicular_median_mas": 0.7280514068579387
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 14.49249182430891,
+          "zenith_perpendicular_median_mas": -6.191465313466319,
+          "absolute_radial_P68_mas": 36.78491573384935,
+          "deep_neighbor_measurements": 3435,
+          "neighbor_parallel_median_mas": 2.523608423054487,
+          "neighbor_perpendicular_median_mas": 0.7030276882211592
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 18.39575443214164,
+          "zenith_perpendicular_median_mas": -6.191465313466318,
+          "absolute_radial_P68_mas": 39.12785164837234,
+          "deep_neighbor_measurements": 3435,
+          "neighbor_parallel_median_mas": 2.36970666132334,
+          "neighbor_perpendicular_median_mas": 0.8417396164461248
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color0.5_1__neighbor_lt3arcsec": {
+      "measurements": 314,
+      "physical_stars": 119,
+      "color_p16_p50_p84": [
+        0.5340961456298828,
+        0.6999330520629883,
+        0.8937060546875003
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        115.08808142860906,
+        156.8870588140559,
+        216.88351123958117
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 39.431635019025705,
+          "zenith_perpendicular_median_mas": -7.188390403266137,
+          "absolute_radial_P68_mas": 78.19902627132797,
+          "deep_neighbor_measurements": 314,
+          "neighbor_parallel_median_mas": 29.542221127282627,
+          "neighbor_perpendicular_median_mas": 1.1017266227784654
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 16.549653071415936,
+          "zenith_perpendicular_median_mas": -7.188390403266138,
+          "absolute_radial_P68_mas": 67.60935705543669,
+          "deep_neighbor_measurements": 314,
+          "neighbor_parallel_median_mas": 25.263946116441787,
+          "neighbor_perpendicular_median_mas": 1.0531288544826611
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 20.81833954155025,
+          "zenith_perpendicular_median_mas": -7.188390403266137,
+          "absolute_radial_P68_mas": 69.63514076604157,
+          "deep_neighbor_measurements": 314,
+          "neighbor_parallel_median_mas": 26.385016852896424,
+          "neighbor_perpendicular_median_mas": 1.2479085873047815
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color0.5_1__neighbor_ge3arcsec": {
+      "measurements": 4012,
+      "physical_stars": 1472,
+      "color_p16_p50_p84": [
+        0.5567808151245135,
+        0.6870021820068359,
+        0.8726577758789062
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        123.14122771443003,
+        164.34363293379892,
+        228.92497481703342
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 37.26002192230177,
+          "zenith_perpendicular_median_mas": -6.154736764680184,
+          "absolute_radial_P68_mas": 54.57154784042144,
+          "deep_neighbor_measurements": 3121,
+          "neighbor_parallel_median_mas": 1.1922762454517635,
+          "neighbor_perpendicular_median_mas": 0.6782067497387793
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 14.305113851904007,
+          "zenith_perpendicular_median_mas": -6.154736764680184,
+          "absolute_radial_P68_mas": 34.889189952455055,
+          "deep_neighbor_measurements": 3121,
+          "neighbor_parallel_median_mas": 1.4971358578191056,
+          "neighbor_perpendicular_median_mas": 0.6782538315742401
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 18.260022338411844,
+          "zenith_perpendicular_median_mas": -6.154736764680184,
+          "absolute_radial_P68_mas": 37.499950432942825,
+          "deep_neighbor_measurements": 3121,
+          "neighbor_parallel_median_mas": 1.2365969835327872,
+          "neighbor_perpendicular_median_mas": 0.790788187478396
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color0.5_1__seeing_lt1p2": {
+      "measurements": 275,
+      "physical_stars": 222,
+      "color_p16_p50_p84": [
+        0.5866588592529297,
+        0.7052421569824237,
+        0.87298583984375
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        115.27526596933295,
+        129.2235425801154,
+        147.051016155401
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 33.528167095080015,
+          "zenith_perpendicular_median_mas": -4.228386153732602,
+          "absolute_radial_P68_mas": 45.28689682576629,
+          "deep_neighbor_measurements": 221,
+          "neighbor_parallel_median_mas": 0.30171515223246104,
+          "neighbor_perpendicular_median_mas": 5.15915885610103
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 12.220850453640105,
+          "zenith_perpendicular_median_mas": -4.228386153732602,
+          "absolute_radial_P68_mas": 26.00205965025134,
+          "deep_neighbor_measurements": 221,
+          "neighbor_parallel_median_mas": 1.9265076292545413,
+          "neighbor_perpendicular_median_mas": 3.436688355560417
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 16.037478968325512,
+          "zenith_perpendicular_median_mas": -4.228386153732602,
+          "absolute_radial_P68_mas": 28.3670759498246,
+          "deep_neighbor_measurements": 221,
+          "neighbor_parallel_median_mas": 0.9399599110379537,
+          "neighbor_perpendicular_median_mas": 4.275212297311727
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color0.5_1__seeing_ge1p2": {
+      "measurements": 4054,
+      "physical_stars": 1567,
+      "color_p16_p50_p84": [
+        0.5542478561401349,
+        0.6866703033447266,
+        0.8735448455810547
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        124.026874323575,
+        169.05195972574347,
+        230.12636811321102
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 37.65446221946204,
+          "zenith_perpendicular_median_mas": -6.352881442091203,
+          "absolute_radial_P68_mas": 56.33236865538093,
+          "deep_neighbor_measurements": 3214,
+          "neighbor_parallel_median_mas": 2.618951398411386,
+          "neighbor_perpendicular_median_mas": 0.518203444352646
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 14.747691490627657,
+          "zenith_perpendicular_median_mas": -6.352881442091203,
+          "absolute_radial_P68_mas": 37.52171486626135,
+          "deep_neighbor_measurements": 3214,
+          "neighbor_parallel_median_mas": 2.5913669276816877,
+          "neighbor_perpendicular_median_mas": 0.5480864108400636
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 18.729379725960634,
+          "zenith_perpendicular_median_mas": -6.352881442091203,
+          "absolute_radial_P68_mas": 40.06982437971255,
+          "deep_neighbor_measurements": 3214,
+          "neighbor_parallel_median_mas": 2.4906147825027447,
+          "neighbor_perpendicular_median_mas": 0.5914532917069514
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1_1.5__all": {
+      "measurements": 1652,
+      "physical_stars": 591,
+      "color_p16_p50_p84": [
+        1.0584964752197266,
+        1.224581718444826,
+        1.379312515258789
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        117.5843446605353,
+        149.41672347716946,
+        216.09615388232928
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 9.696120208065398,
+          "zenith_perpendicular_median_mas": -6.312912431423866,
+          "absolute_radial_P68_mas": 34.419837288328836,
+          "deep_neighbor_measurements": 1334,
+          "neighbor_parallel_median_mas": 2.3078655600595113,
+          "neighbor_perpendicular_median_mas": 0.11393429689831053
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 10.739956403328126,
+          "zenith_perpendicular_median_mas": -6.312912431423866,
+          "absolute_radial_P68_mas": 33.92734914246774,
+          "deep_neighbor_measurements": 1334,
+          "neighbor_parallel_median_mas": 1.922002022628659,
+          "neighbor_perpendicular_median_mas": 0.2366991983581629
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 10.594059211341559,
+          "zenith_perpendicular_median_mas": -6.312912431423866,
+          "absolute_radial_P68_mas": 34.04254679925706,
+          "deep_neighbor_measurements": 1334,
+          "neighbor_parallel_median_mas": 2.0792403120863083,
+          "neighbor_perpendicular_median_mas": 0.2532372441777748
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1_1.5__neighbor_lt3arcsec": {
+      "measurements": 130,
+      "physical_stars": 47,
+      "color_p16_p50_p84": [
+        1.0416738891601554,
+        1.2168865203857422,
+        1.354461669921875
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        114.53939629660216,
+        141.8720609829284,
+        208.48910715463137
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 19.152415962104307,
+          "zenith_perpendicular_median_mas": -4.248934948326473,
+          "absolute_radial_P68_mas": 67.70491147148319,
+          "deep_neighbor_measurements": 130,
+          "neighbor_parallel_median_mas": 26.699122288682062,
+          "neighbor_perpendicular_median_mas": -3.0092373229275573
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 17.872933856975322,
+          "zenith_perpendicular_median_mas": -4.248934948326472,
+          "absolute_radial_P68_mas": 66.5448673103135,
+          "deep_neighbor_measurements": 130,
+          "neighbor_parallel_median_mas": 25.447707352021418,
+          "neighbor_perpendicular_median_mas": -5.911192145186403
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 17.954188669504333,
+          "zenith_perpendicular_median_mas": -4.248934948326472,
+          "absolute_radial_P68_mas": 66.36529802515658,
+          "deep_neighbor_measurements": 130,
+          "neighbor_parallel_median_mas": 24.716714543276296,
+          "neighbor_perpendicular_median_mas": -5.579044889254172
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1_1.5__neighbor_ge3arcsec": {
+      "measurements": 1519,
+      "physical_stars": 542,
+      "color_p16_p50_p84": [
+        1.0621382904052734,
+        1.2253456115722656,
+        1.3892817687988284
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        118.01433425144155,
+        150.00500203897894,
+        216.18395799251533
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 9.094335482143563,
+          "zenith_perpendicular_median_mas": -6.382417011111119,
+          "absolute_radial_P68_mas": 32.370431224608026,
+          "deep_neighbor_measurements": 1204,
+          "neighbor_parallel_median_mas": 1.7091851481693818,
+          "neighbor_perpendicular_median_mas": 0.5077322515809781
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 10.194549129779944,
+          "zenith_perpendicular_median_mas": -6.38241701111112,
+          "absolute_radial_P68_mas": 32.370720940955046,
+          "deep_neighbor_measurements": 1204,
+          "neighbor_parallel_median_mas": 1.370313472506453,
+          "neighbor_perpendicular_median_mas": 0.7090007415520856
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 10.082664090246903,
+          "zenith_perpendicular_median_mas": -6.38241701111112,
+          "absolute_radial_P68_mas": 32.211857878062936,
+          "deep_neighbor_measurements": 1204,
+          "neighbor_parallel_median_mas": 1.4690181347440112,
+          "neighbor_perpendicular_median_mas": 0.8358201560996783
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1_1.5__seeing_lt1p2": {
+      "measurements": 158,
+      "physical_stars": 126,
+      "color_p16_p50_p84": [
+        1.0610742950439453,
+        1.2353038787841797,
+        1.4262924194335938
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        112.85599856931633,
+        128.22461918402865,
+        147.56688390625519
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 4.191705625803925,
+          "zenith_perpendicular_median_mas": -4.26974284084673,
+          "absolute_radial_P68_mas": 25.51557065782729,
+          "deep_neighbor_measurements": 126,
+          "neighbor_parallel_median_mas": 0.784846201810472,
+          "neighbor_perpendicular_median_mas": -2.743382003984998
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 7.586020900342348,
+          "zenith_perpendicular_median_mas": -4.26974284084673,
+          "absolute_radial_P68_mas": 24.5658780179934,
+          "deep_neighbor_measurements": 126,
+          "neighbor_parallel_median_mas": -0.17181601261525836,
+          "neighbor_perpendicular_median_mas": -1.7270441733915984
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 7.510004275153031,
+          "zenith_perpendicular_median_mas": -4.269742840846731,
+          "absolute_radial_P68_mas": 24.02991317284696,
+          "deep_neighbor_measurements": 126,
+          "neighbor_parallel_median_mas": 0.8350879443440679,
+          "neighbor_perpendicular_median_mas": -2.3109322572954127
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1_1.5__seeing_ge1p2": {
+      "measurements": 1494,
+      "physical_stars": 581,
+      "color_p16_p50_p84": [
+        1.0584830856323244,
+        1.2223386764526367,
+        1.3725509643554688
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        118.47686478606228,
+        155.09410107938638,
+        219.12993231659772
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": 10.187248904743559,
+          "zenith_perpendicular_median_mas": -6.690054108749055,
+          "absolute_radial_P68_mas": 35.83357966986847,
+          "deep_neighbor_measurements": 1208,
+          "neighbor_parallel_median_mas": 2.654962605366765,
+          "neighbor_perpendicular_median_mas": 0.3892546359816293
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 11.246383529104577,
+          "zenith_perpendicular_median_mas": -6.690054108749055,
+          "absolute_radial_P68_mas": 34.915707221195966,
+          "deep_neighbor_measurements": 1208,
+          "neighbor_parallel_median_mas": 2.274445966328239,
+          "neighbor_perpendicular_median_mas": 0.4631885363976431
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 11.224299761652984,
+          "zenith_perpendicular_median_mas": -6.690054108749056,
+          "absolute_radial_P68_mas": 34.94581593676249,
+          "deep_neighbor_measurements": 1208,
+          "neighbor_parallel_median_mas": 2.4247189986181894,
+          "neighbor_perpendicular_median_mas": 0.6191535958923398
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1.5_2__all": {
+      "measurements": 1063,
+      "physical_stars": 402,
+      "color_p16_p50_p84": [
+        1.5749835968017578,
+        1.7376222610473633,
+        1.916041374206543
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        112.15868530079958,
+        144.054160111202,
+        201.28149496871782
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -18.315984080481687,
+          "zenith_perpendicular_median_mas": -7.871908121376178,
+          "absolute_radial_P68_mas": 39.94732701853434,
+          "deep_neighbor_measurements": 857,
+          "neighbor_parallel_median_mas": 3.8480850271341698,
+          "neighbor_perpendicular_median_mas": -1.0813349813358348
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 7.23067655113093,
+          "zenith_perpendicular_median_mas": -7.871908121376178,
+          "absolute_radial_P68_mas": 34.14614278340552,
+          "deep_neighbor_measurements": 857,
+          "neighbor_parallel_median_mas": 5.963763618654513,
+          "neighbor_perpendicular_median_mas": 0.22833779871568005
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 2.6801196659674313,
+          "zenith_perpendicular_median_mas": -7.871908121376178,
+          "absolute_radial_P68_mas": 33.380709631526564,
+          "deep_neighbor_measurements": 857,
+          "neighbor_parallel_median_mas": 5.595293081691506,
+          "neighbor_perpendicular_median_mas": -0.5089199131958253
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1.5_2__neighbor_lt3arcsec": {
+      "measurements": 64,
+      "physical_stars": 27,
+      "color_p16_p50_p84": [
+        1.52825927734375,
+        1.727250099182129,
+        1.8640213012695312
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        106.80661561840068,
+        157.77619680558985,
+        226.5966474948969
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -14.97187197096368,
+          "zenith_perpendicular_median_mas": -6.56538609492409,
+          "absolute_radial_P68_mas": 63.242408956374604,
+          "deep_neighbor_measurements": 64,
+          "neighbor_parallel_median_mas": 22.098106919170583,
+          "neighbor_perpendicular_median_mas": 2.460786926249059
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 9.58778868687672,
+          "zenith_perpendicular_median_mas": -6.565386094924089,
+          "absolute_radial_P68_mas": 55.0311741032145,
+          "deep_neighbor_measurements": 64,
+          "neighbor_parallel_median_mas": 23.692152050774745,
+          "neighbor_perpendicular_median_mas": 2.763556597456133
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 4.744258325896791,
+          "zenith_perpendicular_median_mas": -6.565386094924088,
+          "absolute_radial_P68_mas": 55.06801886370716,
+          "deep_neighbor_measurements": 64,
+          "neighbor_parallel_median_mas": 22.757594929657287,
+          "neighbor_perpendicular_median_mas": 1.5974140169385214
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1.5_2__neighbor_ge3arcsec": {
+      "measurements": 996,
+      "physical_stars": 374,
+      "color_p16_p50_p84": [
+        1.582447052001957,
+        1.7380676269531286,
+        1.9158626556396483
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        112.4486009416251,
+        143.87284679023003,
+        199.64258389364878
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -18.292439049210635,
+          "zenith_perpendicular_median_mas": -7.888712929801107,
+          "absolute_radial_P68_mas": 39.36094959116602,
+          "deep_neighbor_measurements": 793,
+          "neighbor_parallel_median_mas": 2.961482673624369,
+          "neighbor_perpendicular_median_mas": -1.198247892611911
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 7.220745069763575,
+          "zenith_perpendicular_median_mas": -7.888712929801107,
+          "absolute_radial_P68_mas": 33.10244616931693,
+          "deep_neighbor_measurements": 793,
+          "neighbor_parallel_median_mas": 5.096318597219337,
+          "neighbor_perpendicular_median_mas": -0.0883413075379238
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 2.6790205837827803,
+          "zenith_perpendicular_median_mas": -7.888712929801107,
+          "absolute_radial_P68_mas": 32.49064320522612,
+          "deep_neighbor_measurements": 793,
+          "neighbor_parallel_median_mas": 4.400436863010656,
+          "neighbor_perpendicular_median_mas": -0.7407010415761328
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1.5_2__seeing_lt1p2": {
+      "measurements": 164,
+      "physical_stars": 137,
+      "color_p16_p50_p84": [
+        1.5828762817382847,
+        1.7632999420166016,
+        1.9149284362792969
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        107.58458567813135,
+        125.80316953527243,
+        147.29196782637746
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -25.389875825819566,
+          "zenith_perpendicular_median_mas": -7.311016643407939,
+          "absolute_radial_P68_mas": 38.20247929777457,
+          "deep_neighbor_measurements": 134,
+          "neighbor_parallel_median_mas": 2.7417113428227453,
+          "neighbor_perpendicular_median_mas": -0.8252255879580596
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 2.15768635812444,
+          "zenith_perpendicular_median_mas": -7.311016643407938,
+          "absolute_radial_P68_mas": 27.065075783494958,
+          "deep_neighbor_measurements": 134,
+          "neighbor_parallel_median_mas": 2.7163015211776447,
+          "neighbor_perpendicular_median_mas": 1.7793026182966187
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": -2.5560846558154147,
+          "zenith_perpendicular_median_mas": -7.311016643407938,
+          "absolute_radial_P68_mas": 26.60156643116491,
+          "deep_neighbor_measurements": 134,
+          "neighbor_parallel_median_mas": 3.2818791290665064,
+          "neighbor_perpendicular_median_mas": 1.4634603716484398
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color1.5_2__seeing_ge1p2": {
+      "measurements": 899,
+      "physical_stars": 397,
+      "color_p16_p50_p84": [
+        1.5749015808105469,
+        1.733137130737305,
+        1.9164390182495128
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        113.90864690222571,
+        152.00002866556483,
+        204.87912124852272
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -15.960545786578514,
+          "zenith_perpendicular_median_mas": -7.94312632153785,
+          "absolute_radial_P68_mas": 40.23275287256304,
+          "deep_neighbor_measurements": 723,
+          "neighbor_parallel_median_mas": 3.9423580897315453,
+          "neighbor_perpendicular_median_mas": -1.198247892611911
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 8.298459384718237,
+          "zenith_perpendicular_median_mas": -7.943126321537851,
+          "absolute_radial_P68_mas": 35.378030381341,
+          "deep_neighbor_measurements": 723,
+          "neighbor_parallel_median_mas": 6.263069135872483,
+          "neighbor_perpendicular_median_mas": -0.4870856276665769
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 4.339668899224652,
+          "zenith_perpendicular_median_mas": -7.943126321537849,
+          "absolute_radial_P68_mas": 34.89958470042762,
+          "deep_neighbor_measurements": 723,
+          "neighbor_parallel_median_mas": 6.167032512390126,
+          "neighbor_perpendicular_median_mas": -1.033805769925652
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color2_4__all": {
+      "measurements": 1083,
+      "physical_stars": 428,
+      "color_p16_p50_p84": [
+        2.1065030670166016,
+        2.334894180297852,
+        2.621790885925291
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        108.57972033797444,
+        131.5406111894996,
+        180.83547714159388
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -45.40910611013078,
+          "zenith_perpendicular_median_mas": -7.90606606870373,
+          "absolute_radial_P68_mas": 63.87272707005002,
+          "deep_neighbor_measurements": 895,
+          "neighbor_parallel_median_mas": 2.4506996807089703,
+          "neighbor_perpendicular_median_mas": -1.2999381402904193
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 9.677442684738896,
+          "zenith_perpendicular_median_mas": -7.906066068703731,
+          "absolute_radial_P68_mas": 37.441726231022635,
+          "deep_neighbor_measurements": 895,
+          "neighbor_parallel_median_mas": 3.4211622857752637,
+          "neighbor_perpendicular_median_mas": -1.872234331710306
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 0.731633697438436,
+          "zenith_perpendicular_median_mas": -7.906066068703732,
+          "absolute_radial_P68_mas": 37.128064052475,
+          "deep_neighbor_measurements": 895,
+          "neighbor_parallel_median_mas": 3.076464439463652,
+          "neighbor_perpendicular_median_mas": -1.1604760470514064
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color2_4__neighbor_lt3arcsec": {
+      "measurements": 77,
+      "physical_stars": 31,
+      "color_p16_p50_p84": [
+        2.0379323959350586,
+        2.1804428100585938,
+        2.392481803894041
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        113.59035972429493,
+        138.55745338924575,
+        179.60196553835516
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -18.491644771542354,
+          "zenith_perpendicular_median_mas": 0.48623948605869316,
+          "absolute_radial_P68_mas": 97.64825823346577,
+          "deep_neighbor_measurements": 77,
+          "neighbor_parallel_median_mas": 30.911550479540807,
+          "neighbor_perpendicular_median_mas": 3.844156945872257
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 21.999530575348118,
+          "zenith_perpendicular_median_mas": 0.4862394860586945,
+          "absolute_radial_P68_mas": 84.19683039684088,
+          "deep_neighbor_measurements": 77,
+          "neighbor_parallel_median_mas": 38.10122737701714,
+          "neighbor_perpendicular_median_mas": 2.8806414702589613
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 13.833227145343614,
+          "zenith_perpendicular_median_mas": 0.48623948605869405,
+          "absolute_radial_P68_mas": 80.57350022097819,
+          "deep_neighbor_measurements": 77,
+          "neighbor_parallel_median_mas": 38.57402748918747,
+          "neighbor_perpendicular_median_mas": 0.7297340157801635
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color2_4__neighbor_ge3arcsec": {
+      "measurements": 989,
+      "physical_stars": 389,
+      "color_p16_p50_p84": [
+        2.128751754760742,
+        2.343278884887699,
+        2.6388063430786133
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        108.27305519000058,
+        131.25437678410657,
+        180.70786531040116
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -45.657504800823666,
+          "zenith_perpendicular_median_mas": -8.215915278911298,
+          "absolute_radial_P68_mas": 62.25976168363972,
+          "deep_neighbor_measurements": 818,
+          "neighbor_parallel_median_mas": 0.2109780664085137,
+          "neighbor_perpendicular_median_mas": -1.8521930795990784
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 9.530968146592722,
+          "zenith_perpendicular_median_mas": -8.215915278911298,
+          "absolute_radial_P68_mas": 35.106376391145666,
+          "deep_neighbor_measurements": 818,
+          "neighbor_parallel_median_mas": 2.2585422501934147,
+          "neighbor_perpendicular_median_mas": -2.165812457018313
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 0.4534105814285253,
+          "zenith_perpendicular_median_mas": -8.215915278911298,
+          "absolute_radial_P68_mas": 33.76487659942027,
+          "deep_neighbor_measurements": 818,
+          "neighbor_parallel_median_mas": 1.5227604361451104,
+          "neighbor_perpendicular_median_mas": -1.4124820516379701
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color2_4__seeing_lt1p2": {
+      "measurements": 184,
+      "physical_stars": 168,
+      "color_p16_p50_p84": [
+        2.1209873199462925,
+        2.366140842437744,
+        2.671150436401366
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        106.04685638343146,
+        121.55603500756686,
+        142.26440102080701
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -46.735300415845046,
+          "zenith_perpendicular_median_mas": -7.424242901406934,
+          "absolute_radial_P68_mas": 58.45987609738281,
+          "deep_neighbor_measurements": 154,
+          "neighbor_parallel_median_mas": -2.8047304547993175,
+          "neighbor_perpendicular_median_mas": 1.7941535402033666
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 11.075517325483254,
+          "zenith_perpendicular_median_mas": -7.424242901406935,
+          "absolute_radial_P68_mas": 31.100393096961998,
+          "deep_neighbor_measurements": 154,
+          "neighbor_parallel_median_mas": -0.8248837451535311,
+          "neighbor_perpendicular_median_mas": -3.184833864399775
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 1.3162107805909653,
+          "zenith_perpendicular_median_mas": -7.424242901406935,
+          "absolute_radial_P68_mas": 28.47693846464109,
+          "deep_neighbor_measurements": 154,
+          "neighbor_parallel_median_mas": -2.2719969038793133,
+          "neighbor_perpendicular_median_mas": -2.1770179866461072
+        }
+      }
+    },
+    "c4d__gSNR100_100000__color2_4__seeing_ge1p2": {
+      "measurements": 899,
+      "physical_stars": 421,
+      "color_p16_p50_p84": [
+        2.106266975402832,
+        2.332162857055664,
+        2.611270904541016
+      ],
+      "actual_g_SNR_p16_p50_p84": [
+        109.57867997842281,
+        136.4161584066,
+        185.93043278986474
+      ],
+      "frozen_models": {
+        "0.0": {
+          "zenith_parallel_median_mas": -45.33631416259575,
+          "zenith_perpendicular_median_mas": -7.915860087892166,
+          "absolute_radial_P68_mas": 64.47396891864831,
+          "deep_neighbor_measurements": 741,
+          "neighbor_parallel_median_mas": 3.9160851626512088,
+          "neighbor_perpendicular_median_mas": -1.7689519657454529
+        },
+        "-28.32": {
+          "zenith_parallel_median_mas": 9.36672780664237,
+          "zenith_perpendicular_median_mas": -7.915860087892166,
+          "absolute_radial_P68_mas": 38.65151611886263,
+          "deep_neighbor_measurements": 741,
+          "neighbor_parallel_median_mas": 4.441108025454949,
+          "neighbor_perpendicular_median_mas": -1.6090375842906113
+        },
+        "-23.39": {
+          "zenith_parallel_median_mas": 0.47837019056803265,
+          "zenith_perpendicular_median_mas": -7.915860087892166,
+          "absolute_radial_P68_mas": 38.60480895742375,
+          "deep_neighbor_measurements": 741,
+          "neighbor_parallel_median_mas": 3.9381072816660705,
+          "neighbor_perpendicular_median_mas": -0.8894187055648981
+        }
+      }
+    }
+  },
+  "slurm_job": "62041280",
+  "scope": "Fixed historical coefficients only; bright Gaia validation never used to train the new repeated-star coefficient. Same actual g SNR and colour intervals; neighbor direction from deep LS within10arcsec. Seeing is native published arcsec. Conditional measurement medians, no independent-object/night intervals or faint-star certification. Sparse neighbor strata cannot establish blending causality; partially shared LS images are not external stellar truth."
+}

@@ -117,7 +117,9 @@ class SchurProblem:
             x=x.reshape(-1,2)
             return np.column_stack((pre[:,0]*x[:,0]+pre[:,1]*x[:,1],pre[:,1]*x[:,0]+pre[:,2]*x[:,1])).ravel()
         count=[0];start=monotonic()
-        def callback(x):count[0]+=1
+        def callback(x):
+            count[0]+=1
+            if count[0]%50==0:print('SCHUR_CG_PROGRESS',count[0],round(monotonic()-start,2),flush=True)
         tolerance={'rtol':rtol} if 'rtol' in inspect.signature(cg).parameters else {'tol':rtol}
         x,info=cg(LinearOperator((n,n),matvec=product,dtype=float),rhs[:-1].ravel(),
             M=LinearOperator((n,n),matvec=precondition,dtype=float),x0=None if x0 is None else np.asarray(x0)[:-1].ravel(),
@@ -143,10 +145,21 @@ def fit_component(ptr,groups,precision,values,names,draws=48,seed=45116,checkpoi
         weight=np.ones(len(groups));z=None
         for iteration in range(iterations+1):
             problem=SchurProblem(ptr,groups,precision,values,weight,ng)
-            z,meta=problem.solve(x0=z)
+            step_path=None if checkpoint is None else checkpoint/f'irls-{iteration:03d}.npz'
+            step=None if step_path is None else read_checkpoint(step_path)
+            if step is None:
+                z,meta=problem.solve(x0=z)
+            else:
+                np.testing.assert_array_equal(weight,step['weight'])
+                z=step['point']
+                meta=dict(iterations=int(step['iterations']),relative_normal_residual=float(step['relative_normal_residual']),
+                    elapsed_seconds=float(step['elapsed_seconds']),reused=True)
             distance,_=problem.distances(z)
             trace.append(dict(iteration=iteration,robust_objective=float(np.sum(np.where(distance<=2,distance,2+6*np.log((4+distance)/6)))),
                 mahalanobis_sum=float(distance.sum()),**meta))
+            if step is None and step_path is not None:
+                write_checkpoint(step_path,weight=weight,point=z,iterations=np.array(meta['iterations']),
+                    relative_normal_residual=np.array(meta['relative_normal_residual']),elapsed_seconds=np.array(meta['elapsed_seconds']))
             print('SCHUR_IRLS',trace[-1],flush=True)
             if iteration<iterations:weight=np.minimum(1,6/(4+distance))
         if checkpoint is not None:write_checkpoint(checkpoint/'robust.npz',weight=weight,point=z)

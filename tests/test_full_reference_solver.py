@@ -48,3 +48,15 @@ def test_native_application_support_changes_along_one_scan():
     keep,se=local_support([0.,60.],[0.,0.],(0.,0.),['SDSS:1','SDSS:1'],['SDSS:1'],draws)
     assert not keep[0] and keep[1]
     np.testing.assert_allclose(se[1]/se[0],[.25,.5],rtol=1e-12)
+
+
+def test_partial_irls_steps_restore_the_same_final_point(tmp_path):
+    ptr,g,p,y,w,inv,r,ng,nr=example();names=['NSC:'+str(i) for i in range(ng-1)]+['SDSS:1']
+    before=fit_component(ptr,g,p,y,names,draws=2,checkpoint=tmp_path)
+    # Simulate loss of the final envelope and all draws, retaining signed IRLS
+    # steps. Resume must use those same weights, not mix a later point/weight.
+    for path in tmp_path.glob('robust.*'):path.unlink()
+    for path in tmp_path.glob('draw-*'):path.unlink()
+    after=fit_component(ptr,g,p,y,names,draws=2,checkpoint=tmp_path)
+    np.testing.assert_array_equal(before[0],after[0]);np.testing.assert_array_equal(before[1],after[1])
+    assert all(step.get('reused') for step in after[3]['irls'])

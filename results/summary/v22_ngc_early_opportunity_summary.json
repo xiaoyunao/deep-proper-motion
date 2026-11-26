@@ -1,0 +1,69 @@
+{
+  "frozen_forty_sha256": "644b8657f3dbdf4366b173134353fa0a655db6a710b3fd21e279086896b7d7d6",
+  "categories": {
+    "no_cached_SDSS": {
+      "targets": 20,
+      "r0_p16_p50_p84": [
+        22.466827419834267,
+        22.754176124333075,
+        22.845516405986636
+      ],
+      "with_native_footprint": 20,
+      "with_complete_catalogue": 20,
+      "with_published_within_one_arcsec": 0,
+      "with_multiple_physical_runs": 16,
+      "with_frame": 20,
+      "per_exposure_snr_p16_p50_p84": [
+        1.9483754170040288,
+        3.3096667272873153,
+        5.376401741944582
+      ],
+      "catalogue_failures": {},
+      "frame_failures": {}
+    },
+    "SDSS_quality_distance": {
+      "targets": 10,
+      "r0_p16_p50_p84": [
+        22.26093849019183,
+        22.518400797703613,
+        22.825277950637837
+      ],
+      "with_native_footprint": 10,
+      "with_complete_catalogue": 10,
+      "with_published_within_one_arcsec": 9,
+      "with_multiple_physical_runs": 7,
+      "with_frame": 10,
+      "per_exposure_snr_p16_p50_p84": [
+        3.203881891955579,
+        4.486293891430118,
+        6.317710188362181
+      ],
+      "catalogue_failures": {},
+      "frame_failures": {}
+    },
+    "positive_early_control": {
+      "targets": 10,
+      "r0_p16_p50_p84": [
+        22.01107014839922,
+        22.08211308497866,
+        22.143443405023127
+      ],
+      "with_native_footprint": 10,
+      "with_complete_catalogue": 10,
+      "with_published_within_one_arcsec": 10,
+      "with_multiple_physical_runs": 9,
+      "with_frame": 10,
+      "per_exposure_snr_p16_p50_p84": [
+        6.837915733000988,
+        8.014054929140983,
+        8.845311947002509
+      ],
+      "catalogue_failures": {},
+      "frame_failures": {}
+    }
+  },
+  "unique_catalogue_files": 13,
+  "unique_frame_files": 13,
+  "slurm_job": "62037151",
+  "scope": "Frozen optical identities hash-selected within cache-exit categories; full single-scan photoObj includes all resolve statuses, native great-circle footprints; no Gaia PM or new PM used for sample selection. Pixel aperture diagnostics conditional; bad-pixel mask and forced-position bias require explicit further verification. Positive-control magnitude distribution supplied, not assumed equal."
+}

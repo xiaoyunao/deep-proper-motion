@@ -86,12 +86,44 @@ def external_values(source,oldfit,spectra,center):
     return result
 
 
+@lru_cache(maxsize=8)
+def reference_context(graph):
+    graph=Path(graph);sha=digest(graph)
+    center=reference_frame(graph);solution=read_offsets(graph);names=np.asarray(sorted(solution))
+    draws=np.stack([solution[k][1] for k in names])
+    return center,solution,names,draws,sha
+
+
+@lru_cache(maxsize=4)
+def component_map(root):
+    path=Path(root)/'graph/private_group_components.parquet'
+    frame=pd.read_parquet(path)
+    return frame.set_index('group').component,digest(path)
+
+
 def one(task):
     entry,root,components=task;root=Path(root);dest=root/'sources'/entry['core'];dest.mkdir(parents=True,exist_ok=True)
     source=Path(entry['source']);oldfit=Path(entry['fit']);config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text())
-    ticket=dict(source_receipt_sha256=digest(source/'run_manifest.json'),graphs={str(c):digest(root/'reference'/f'component-{c:04d}'/'private_c0_unfiltered.npz') for c in components},
+    loaded=None
+    if components is None:
+        mapping,mapping_sha=component_map(str(root));source_sha=digest(source/'run_manifest.json')
+        dispatch=dest/'private_dispatch.json'
+        if dispatch.exists():
+            registered=read(dispatch)
+            if registered['source_sha256']!=source_sha or registered['group_map_sha256']!=mapping_sha:raise ValueError('Changed component dispatch inputs')
+            components=registered['components']
+        else:
+            loaded=quality_detections(source,entry['center'],config,settings['production'])
+            target_groups=calibration_groups(loaded[0])
+            components=sorted(set(mapping.reindex(pd.unique(target_groups)).dropna().astype(int)))
+            save_json(dispatch,dict(source_sha256=source_sha,group_map_sha256=mapping_sha,components=components,
+                definition='Actual target physical groups, including those with no local reference galaxies. Not restricted to local reference entry.'))
+    ticket=dict(source_receipt_sha256=digest(source/'run_manifest.json'),graphs={str(c):reference_context(str(root/'reference'/f'component-{c:04d}'/'private_c0_unfiltered.npz'))[4] for c in components},
         implementation_sha256=digest(Path(__file__)),metric_sha256=digest(Path(__file__).with_name('coordinate_metric.py')),
-        selection_sha256=digest(Path(__file__).with_name('nsc_science_catalogue.py')),funnel_sha256=digest(Path(__file__).with_name('pilot_production.py')))
+        selection_sha256=digest(Path(__file__).with_name('nsc_science_catalogue.py')),funnel_sha256=digest(Path(__file__).with_name('pilot_production.py')),
+        support_sha256=digest(Path(__file__).with_name('full_reference_run.py')),
+        standard_output_sha256=digest(Path(__file__).with_name('standard_motion.py')),
+        precision_sha256=digest(PRECISION),spatial_sha256=digest(SPATIAL),method='full-coordinate-v22-native50mas-full2D-sphere-nativeSE12')
     path=dest/'v22_source_core_summary.json'
     if path.exists():
         result=read(path)
@@ -102,18 +134,39 @@ def one(task):
     start=monotonic();verify_directory(source,('detections.csv','spectra_union.csv'))
     records=[];controls=[];fixed=[];support_counts={};funnels={};used=set()
     oldrows=read(oldfit/'private_standard_motion.json.gz');oldblind=read(oldfit/'private_blind_qso.json')
+    if not components:
+        fixed=[dict(core=entry['core'],source_slot=int(r['source_slot']),qso_local_index=int(r['qso_local_index']),magnitude=r['magnitude'],old_values=r['values'],status='no_solved_reference_component') for r in oldblind]
+    b1_by_slot={}
+    if oldblind:
+        if loaded is None:loaded=quality_detections(source,entry['center'],config,settings['production'])
+        original_data,_,original_time,original_sigma,_=loaded
+        original_lookup=pd.Index(original_data.detection_id)
+        for target in oldblind:
+            slot=int(target['source_slot']);old=oldrows[slot];ix=original_lookup.get_indexer(old['detection_ids'])
+            if (ix<0).any():continue
+            h=old_influence(old,original_time[ix],original_sigma[ix])
+            weight=np.asarray(old['robust_weight'])
+            reproduced=covariance_of_estimator(h,native_covariance(original_sigma[ix]),weight)
+            np.testing.assert_allclose(reproduced,old['independent_tangent_covariance'],rtol=2e-8,atol=2e-6)
+            cp_old=projected_covariance(original_data.ra_deg.iloc[ix],original_data.dec_deg.iloc[ix],entry['center'],native_covariance(original_sigma[ix]))
+            independent=covariance_of_estimator(h,cp_old,weight);j=np.asarray(old['state_jacobian'])
+            covariance=j@(independent+np.asarray(old['reference_tangent_covariance']))@j.T
+            b1_by_slot[slot]=dict(B1_values=(old['pm_icrs_masyr'],np.sqrt(np.diag(covariance)[[1,3]])),B1_covariance=covariance,
+                B1_definition='Frozen old point/members/IRLS/H/J and archived old reference common term; native covariance including floor projected in original plane; C/w conditional noise')
+    for item in fixed:item.update(b1_by_slot.get(item['source_slot'],{}))
     # Recompute every original blind identity, even if the new quality gate fails.
     # Final old-owner/exterior restrictions are applied to its frozen identity
     # pool in the global scientific readout, never by new quality selection.
     for component in components:
-        graph=root/'reference'/f'component-{component:04d}'/'private_c0_unfiltered.npz';center=reference_frame(graph)
-        solution=read_offsets(graph);names=np.asarray(sorted(solution))
-        draws=np.stack([solution[k][1] for k in names])
-        data,xy,t,sigma,keep=quality_detections(source,center,config,settings['production'])
+        graph=root/'reference'/f'component-{component:04d}'/'private_c0_unfiltered.npz'
+        center,solution,names,draws,graph_sha=reference_context(str(graph))
+        if loaded is None:loaded=quality_detections(source,entry['center'],config,settings['production'])
+        data,_,t,sigma,keep=loaded
+        xy=project(data.ra_deg,data.dec_deg,center)
         keys=calibration_groups(data);nsc=data.survey.eq('NSC').to_numpy();night=night_labels(data);year=utc_year(data.observation_time.to_numpy())
         cp=projected_covariance(data.ra_deg,data.dec_deg,center,native_covariance(sigma));inverse=np.linalg.inv(cp)
         support,se=local_support(data.ra_deg,data.dec_deg,center,keys,names,draws)
-        core=inside(data.ra_deg,data.dec_deg,entry['spec']);on=core&np.isin(keys,names)
+        core=inside(data.ra_deg,data.dec_deg,entry['spec']);on=core&pd.Series(keys).isin(names).to_numpy()
         support_counts[str(component)]=dict(core_group_present=int(on.sum()),core_local12mas_supported=int((core&support).sum()),
             core_native_se_p16_p50_p84=np.quantile(se[on],[.16,.5,.84],axis=0) if on.any() else None)
         @lru_cache(maxsize=32768)
@@ -133,7 +186,7 @@ def one(task):
         control_maps={}
         baseline,candidates,funnel,_=select_catalogue(data,xy,t,sigma,keep,solution,keys,center,entry['spec'],config,settings,
             fit_source,output_fit,sky_center=center,quality_distance=distance,calibration_keep=support,control_maps=control_maps)
-        funnels[str(component)]=funnel;graph_sha=digest(graph)
+        funnels[str(component)]=funnel
         for candidate in candidates:
             ix=candidate['index'];ids=data.detection_id.iloc[ix].astype(str).tolist()
             if used.intersection(ids):raise ValueError('Cross-component detection reuse')
@@ -147,6 +200,10 @@ def one(task):
             records.append(dict(kind=candidate['kind'],magnitude=float(mag) if np.isfinite(mag) else None,magnitude_source=origin,
                 reference_component=str(component),reference_model_sha256=graph_sha,projection_center_deg=center,
                 physical_groups=keys[ix].tolist(),exposures=data.exposure_id.iloc[ix].tolist(),nights_utc18=night[ix],
+                detector_ids=data.detector_id.iloc[ix].astype(str).tolist(),
+                observation_mjd_tt=data.observation_time.iloc[ix].tolist(),time_scale='tt',
+                bands_per_detection=data.band.iloc[ix].astype(str).tolist(),instruments_per_detection=data.instrument.iloc[ix].fillna('unknown').astype(str).tolist(),
+                field_ids=[str(v) if pd.notna(v) else None for v in data.field_id.iloc[ix]] if 'field_id' in data else [None]*len(ix),
                 bands=sorted(set(local.band[local.survey.eq('NSC')])),instruments=sorted(set(local.instrument[local.survey.eq('NSC')].fillna('unknown'))),
                 detection_ids=ids,information=info,quality_flags=flags,native_reference_se_mas=se[ix],**fit))
         for control_kind,table in control_maps.items():
@@ -156,7 +213,7 @@ def one(task):
         for target in oldblind:
             slot=int(target['source_slot']);before=oldrows[slot];ix=lookup.get_indexer(before['detection_ids'])
             result=dict(core=entry['core'],source_slot=slot,qso_local_index=int(target['qso_local_index']),magnitude=target['magnitude'],
-                old_values=target['values'],component=str(component),old_detection_ids=before['detection_ids'])
+                old_values=target['values'],component=str(component),old_detection_ids=before['detection_ids'],**b1_by_slot.get(slot,{}))
             if (ix<0).any():result['status']='missing_normalised_member'
             elif any(g not in solution for g in keys[ix]):result['status']='unsolved_reference_group'
             else:
@@ -208,14 +265,10 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--core',action='append');p.add_argument('--workers',type=int,default=2)
     args=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
-    plan=read(args.root/'registration/private_full_coordinate_plan.json');mapping=pd.read_parquet(args.root/'graph/private_group_components.parquet')
-    # Domain intersection is a dispatch superset. Per-detection membership and
-    # native-SE checks in each complete graph decide actual application support.
+    plan=read(args.root/'registration/private_full_coordinate_plan.json')
+    # Dispatch from actual target groups, including restored regions without
+    # local reference galaxies. Local12mas support remains per measurement.
     selected=[r for r in plan['cores'] if args.core is None or r['core'] in args.core]
-    tasks=[]
-    for entry in selected:
-        shard=pd.read_parquet(args.root/'input'/entry['core']/'reference.parquet',columns=['group'])
-        components=sorted(set(mapping.loc[mapping['group'].isin(shard['group']),'component'].astype(int)))
-        tasks.append((entry,str(args.root),components))
+    tasks=[(entry,str(args.root),None) for entry in selected]
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
         for result in pool.map(one,tasks,chunksize=1):print('SOURCE_CHECKPOINT',result['core'],flush=True)

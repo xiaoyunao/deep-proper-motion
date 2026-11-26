@@ -106,9 +106,9 @@ def mean(values,weights=None,reference_motion=None):
     error=np.asarray([r['row']['pm_error_masyr'] for r in values])
     if weights is None:weights=1/np.mean(error**2,axis=1)
     weights=np.asarray(weights,float);weights/=weights.sum()
-    independent=sum(a*a*r['independent_icrs'] for a,r in zip(weights,values))
+    independent=sum(a*a*np.asarray(r['independent_icrs'],float) for a,r in zip(weights,values))
     graphs=defaultdict(list)
-    for a,r in zip(weights,values):graphs[r['graph_sha256']].append(a*r['reference_draws'])
+    for a,r in zip(weights,values):graphs[r['graph_sha256']].append(a*np.asarray(r['reference_draws'],float))
     common=sum(np.cov(np.sum(v,axis=0),rowvar=False) for v in graphs.values())
     out.update(weighted_mean=weights@motion,median=np.median(motion,axis=0),
         independent_covariance=independent,synchronous_reference_covariance=common,

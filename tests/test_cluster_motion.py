@@ -21,3 +21,17 @@ def test_reference_draws_remain_common_in_population_mean():
     np.testing.assert_array_equal(result['weighted_mean'],[1.,2.])
     np.testing.assert_allclose(result['independent_covariance'],np.eye(2)/4)
     np.testing.assert_allclose(result['synchronous_reference_covariance'],np.cov(draws,rowvar=False))
+
+
+def test_cached_json_covariances_preserve_population_mean_and_shared_error():
+    import json
+    from deep_pm.io import json_default
+    draws=np.random.default_rng(31).normal(size=(48,2))*3
+    values=[dict(row=dict(pm_icrs_masyr=[float(i),2.],pm_error_masyr=[3.,3.]),
+        independent_icrs=np.eye(2),graph_sha256='same',reference_draws=draws) for i in range(4)]
+    weights=[1.,2.,3.,4.]
+    expected=mean(values,weights)
+    restored=mean(json.loads(json.dumps(values,default=json_default)),weights)
+    for key in expected:np.testing.assert_array_equal(restored[key],expected[key])
+    np.testing.assert_allclose(restored['independent_covariance'],np.eye(2)*.3)
+    np.testing.assert_allclose(restored['synchronous_reference_covariance'],np.cov(draws,rowvar=False))

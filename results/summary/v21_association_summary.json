@@ -1,0 +1,5123 @@
+{
+  "plan_sha256": "628036ca47d3a58df73350fe3fac3943e4434d2ff4b1bbc7019d4a1751d8c9fc",
+  "pilot": false,
+  "cores": [
+    {
+      "ticket": {
+        "source_sha256": "33c8fa06bae7fe47a214d15b4efe815beda5cadfba94dde025ec5113c490f632",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "north_one_01_00",
+      "center_theta_deg": 2.119103306965276,
+      "members": {
+        "old": {
+          "sources": 2934,
+          "same_physical_members_as_old": 2934,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 2934,
+          "same_physical_members_as_old": 2934,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B3_spherical": {
+          "sources": 2934,
+          "same_physical_members_as_old": 2934,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1204,
+              "sdss_nearby": 990,
+              "associated": 990,
+              "fit_eligible": 944,
+              "calibrated": 944,
+              "final": 942,
+              "no_sdss_within_fixed_gate": 214,
+              "final_quality_rejection": 2,
+              "insufficient_time_sampling": 46
+            },
+            "20_to_21": {
+              "initial": 1058,
+              "sdss_nearby": 640,
+              "associated": 637,
+              "fit_eligible": 627,
+              "calibrated": 627,
+              "final": 627,
+              "no_sdss_within_fixed_gate": 418,
+              "split_or_competing_track": 3,
+              "insufficient_time_sampling": 10
+            },
+            "21_to_22": {
+              "initial": 1399,
+              "sdss_nearby": 1084,
+              "associated": 1084,
+              "fit_eligible": 893,
+              "calibrated": 893,
+              "final": 880,
+              "no_sdss_within_fixed_gate": 315,
+              "final_quality_rejection": 13,
+              "insufficient_time_sampling": 191
+            },
+            "22_to_23": {
+              "initial": 436,
+              "sdss_nearby": 308,
+              "associated": 308,
+              "fit_eligible": 133,
+              "calibrated": 133,
+              "final": 115,
+              "no_sdss_within_fixed_gate": 128,
+              "final_quality_rejection": 18,
+              "insufficient_time_sampling": 175
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 73
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1204,
+              "sdss_nearby": 990,
+              "associated": 990,
+              "fit_eligible": 987,
+              "calibrated": 987,
+              "final": 986,
+              "no_sdss_within_fixed_gate": 214,
+              "final_quality_rejection": 1,
+              "insufficient_time_sampling": 3
+            },
+            "20_to_21": {
+              "initial": 1058,
+              "sdss_nearby": 640,
+              "associated": 637,
+              "fit_eligible": 637,
+              "calibrated": 637,
+              "final": 637,
+              "no_sdss_within_fixed_gate": 418,
+              "split_or_competing_track": 3
+            },
+            "21_to_22": {
+              "initial": 1399,
+              "sdss_nearby": 1084,
+              "associated": 1084,
+              "fit_eligible": 1082,
+              "calibrated": 1082,
+              "final": 1065,
+              "no_sdss_within_fixed_gate": 315,
+              "final_quality_rejection": 17,
+              "insufficient_time_sampling": 2
+            },
+            "22_to_23": {
+              "initial": 436,
+              "sdss_nearby": 308,
+              "associated": 308,
+              "fit_eligible": 293,
+              "calibrated": 293,
+              "final": 239,
+              "no_sdss_within_fixed_gate": 128,
+              "final_quality_rejection": 54,
+              "insufficient_time_sampling": 15
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 73
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 39619,
+            "non_r_missing_survey": 23841,
+            "non_r_before_quality": 426,
+            "non_r_time_exit": 181,
+            "non_r_morphology_exit": 230,
+            "non_r_ownership_exit": 4,
+            "non_r_formal_error_exit": 4
+          },
+          "strict_r_solutions": 2564
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1204,
+              "sdss_nearby": 990,
+              "associated": 990,
+              "fit_eligible": 944,
+              "calibrated": 944,
+              "final": 942,
+              "no_sdss_within_fixed_gate": 214,
+              "final_quality_rejection": 2,
+              "insufficient_time_sampling": 46
+            },
+            "20_to_21": {
+              "initial": 1058,
+              "sdss_nearby": 640,
+              "associated": 637,
+              "fit_eligible": 627,
+              "calibrated": 627,
+              "final": 627,
+              "no_sdss_within_fixed_gate": 418,
+              "split_or_competing_track": 3,
+              "insufficient_time_sampling": 10
+            },
+            "21_to_22": {
+              "initial": 1399,
+              "sdss_nearby": 1084,
+              "associated": 1084,
+              "fit_eligible": 893,
+              "calibrated": 893,
+              "final": 880,
+              "no_sdss_within_fixed_gate": 315,
+              "final_quality_rejection": 13,
+              "insufficient_time_sampling": 191
+            },
+            "22_to_23": {
+              "initial": 436,
+              "sdss_nearby": 308,
+              "associated": 308,
+              "fit_eligible": 133,
+              "calibrated": 133,
+              "final": 115,
+              "no_sdss_within_fixed_gate": 128,
+              "final_quality_rejection": 18,
+              "insufficient_time_sampling": 175
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 73
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1204,
+              "sdss_nearby": 990,
+              "associated": 990,
+              "fit_eligible": 987,
+              "calibrated": 987,
+              "final": 986,
+              "no_sdss_within_fixed_gate": 214,
+              "final_quality_rejection": 1,
+              "insufficient_time_sampling": 3
+            },
+            "20_to_21": {
+              "initial": 1058,
+              "sdss_nearby": 640,
+              "associated": 637,
+              "fit_eligible": 637,
+              "calibrated": 637,
+              "final": 637,
+              "no_sdss_within_fixed_gate": 418,
+              "split_or_competing_track": 3
+            },
+            "21_to_22": {
+              "initial": 1399,
+              "sdss_nearby": 1084,
+              "associated": 1084,
+              "fit_eligible": 1082,
+              "calibrated": 1082,
+              "final": 1065,
+              "no_sdss_within_fixed_gate": 315,
+              "final_quality_rejection": 17,
+              "insufficient_time_sampling": 2
+            },
+            "22_to_23": {
+              "initial": 436,
+              "sdss_nearby": 308,
+              "associated": 308,
+              "fit_eligible": 293,
+              "calibrated": 293,
+              "final": 239,
+              "no_sdss_within_fixed_gate": 128,
+              "final_quality_rejection": 54,
+              "insufficient_time_sampling": 15
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 73
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 39616,
+            "non_r_missing_survey": 23838,
+            "non_r_before_quality": 426,
+            "non_r_time_exit": 181,
+            "non_r_morphology_exit": 230,
+            "non_r_ownership_exit": 4,
+            "non_r_formal_error_exit": 4
+          },
+          "strict_r_solutions": 2564
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 59957,
+        "sky_sdss_nsc_r_edges": 59959,
+        "new_edges": 2,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 45917,
+          "reference_sources": 3893,
+          "training_sources": 2687,
+          "holdout_sources": 1206
+        },
+        "spherical": {
+          "measurements": 45905,
+          "reference_sources": 3892,
+          "training_sources": 2686,
+          "holdout_sources": 1206
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 17,
+          "22": 0
+        },
+        "B2_selected": {
+          "21": 17,
+          "22": 0
+        },
+        "B3_spherical": {
+          "21": 17,
+          "22": 0
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 111.97662143502384,
+      "peak_rss_mib": 657.78515625,
+      "slurm_job": "62016076",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "72c6d0c79d4254444291c5fddb92f8fe4dca9647a97a004841cb95220a45274a",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "north_two_04_01",
+      "center_theta_deg": 26.32004553467575,
+      "members": {
+        "old": {
+          "sources": 2627,
+          "same_physical_members_as_old": 2627,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 2558,
+          "same_physical_members_as_old": 2556,
+          "new_member_sets": 2,
+          "missing_old_member_sets": 71
+        },
+        "B3_spherical": {
+          "sources": 2573,
+          "same_physical_members_as_old": 2552,
+          "new_member_sets": 21,
+          "missing_old_member_sets": 75
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1173,
+              "sdss_nearby": 1126,
+              "associated": 1126,
+              "fit_eligible": 848,
+              "calibrated": 848,
+              "final": 848,
+              "no_sdss_within_fixed_gate": 47,
+              "insufficient_time_sampling": 278
+            },
+            "20_to_21": {
+              "initial": 618,
+              "sdss_nearby": 561,
+              "associated": 558,
+              "fit_eligible": 453,
+              "calibrated": 453,
+              "final": 453,
+              "insufficient_time_sampling": 105,
+              "no_sdss_within_fixed_gate": 57,
+              "split_or_competing_track": 3
+            },
+            "21_to_22": {
+              "initial": 867,
+              "sdss_nearby": 727,
+              "associated": 727,
+              "fit_eligible": 282,
+              "calibrated": 282,
+              "final": 256,
+              "insufficient_time_sampling": 445,
+              "no_sdss_within_fixed_gate": 140,
+              "final_quality_rejection": 26
+            },
+            "22_to_23": {
+              "initial": 22,
+              "sdss_nearby": 17,
+              "associated": 17,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "insufficient_time_sampling": 17,
+              "no_sdss_within_fixed_gate": 5
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1173,
+              "sdss_nearby": 1126,
+              "associated": 1126,
+              "fit_eligible": 1122,
+              "calibrated": 1122,
+              "final": 1120,
+              "no_sdss_within_fixed_gate": 47,
+              "insufficient_time_sampling": 4,
+              "final_quality_rejection": 2
+            },
+            "20_to_21": {
+              "initial": 618,
+              "sdss_nearby": 561,
+              "associated": 558,
+              "fit_eligible": 555,
+              "calibrated": 555,
+              "final": 553,
+              "no_sdss_within_fixed_gate": 57,
+              "split_or_competing_track": 3,
+              "insufficient_time_sampling": 3,
+              "final_quality_rejection": 2
+            },
+            "21_to_22": {
+              "initial": 867,
+              "sdss_nearby": 727,
+              "associated": 727,
+              "fit_eligible": 652,
+              "calibrated": 652,
+              "final": 609,
+              "no_sdss_within_fixed_gate": 140,
+              "insufficient_time_sampling": 75,
+              "final_quality_rejection": 43
+            },
+            "22_to_23": {
+              "initial": 22,
+              "sdss_nearby": 17,
+              "associated": 17,
+              "fit_eligible": 12,
+              "calibrated": 12,
+              "final": 8,
+              "insufficient_time_sampling": 5,
+              "no_sdss_within_fixed_gate": 5,
+              "final_quality_rejection": 4
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 30860,
+            "non_r_before_quality": 5503,
+            "non_r_time_exit": 3009,
+            "non_r_missing_survey": 18857,
+            "non_r_morphology_exit": 2062,
+            "non_r_formal_error_exit": 109,
+            "non_r_ownership_exit": 54,
+            "non_r_shared_detection_rejected": 1
+          },
+          "strict_r_solutions": 1557
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1173,
+              "sdss_nearby": 1130,
+              "associated": 1130,
+              "fit_eligible": 856,
+              "calibrated": 856,
+              "final": 856,
+              "no_sdss_within_fixed_gate": 43,
+              "insufficient_time_sampling": 274
+            },
+            "20_to_21": {
+              "initial": 618,
+              "sdss_nearby": 564,
+              "associated": 564,
+              "fit_eligible": 459,
+              "calibrated": 459,
+              "final": 459,
+              "insufficient_time_sampling": 105,
+              "no_sdss_within_fixed_gate": 54
+            },
+            "21_to_22": {
+              "initial": 867,
+              "sdss_nearby": 727,
+              "associated": 727,
+              "fit_eligible": 283,
+              "calibrated": 283,
+              "final": 257,
+              "insufficient_time_sampling": 444,
+              "no_sdss_within_fixed_gate": 140,
+              "final_quality_rejection": 26
+            },
+            "22_to_23": {
+              "initial": 22,
+              "sdss_nearby": 17,
+              "associated": 17,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "insufficient_time_sampling": 17,
+              "no_sdss_within_fixed_gate": 5
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1173,
+              "sdss_nearby": 1130,
+              "associated": 1130,
+              "fit_eligible": 1129,
+              "calibrated": 1129,
+              "final": 1127,
+              "no_sdss_within_fixed_gate": 43,
+              "final_quality_rejection": 2,
+              "insufficient_time_sampling": 1
+            },
+            "20_to_21": {
+              "initial": 618,
+              "sdss_nearby": 564,
+              "associated": 564,
+              "fit_eligible": 562,
+              "calibrated": 562,
+              "final": 560,
+              "no_sdss_within_fixed_gate": 54,
+              "final_quality_rejection": 2,
+              "insufficient_time_sampling": 2
+            },
+            "21_to_22": {
+              "initial": 867,
+              "sdss_nearby": 727,
+              "associated": 727,
+              "fit_eligible": 653,
+              "calibrated": 653,
+              "final": 610,
+              "no_sdss_within_fixed_gate": 140,
+              "insufficient_time_sampling": 74,
+              "final_quality_rejection": 43
+            },
+            "22_to_23": {
+              "initial": 22,
+              "sdss_nearby": 17,
+              "associated": 17,
+              "fit_eligible": 12,
+              "calibrated": 12,
+              "final": 8,
+              "insufficient_time_sampling": 5,
+              "no_sdss_within_fixed_gate": 5,
+              "final_quality_rejection": 4
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 30772,
+            "non_r_before_quality": 5521,
+            "non_r_time_exit": 3023,
+            "non_r_missing_survey": 18737,
+            "non_r_morphology_exit": 2067,
+            "non_r_formal_error_exit": 108,
+            "non_r_ownership_exit": 54,
+            "non_r_shared_detection_rejected": 1
+          },
+          "strict_r_solutions": 1572
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 20904,
+        "sky_sdss_nsc_r_edges": 20975,
+        "new_edges": 71,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 20199,
+          "reference_sources": 2794,
+          "training_sources": 1960,
+          "holdout_sources": 834
+        },
+        "spherical": {
+          "measurements": 20302,
+          "reference_sources": 2809,
+          "training_sources": 1970,
+          "holdout_sources": 839
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 21,
+          "22": 1
+        },
+        "B2_selected": {
+          "21": 21,
+          "22": 1
+        },
+        "B3_spherical": {
+          "21": 21,
+          "22": 1
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 53.26694989902899,
+      "peak_rss_mib": 390.98828125,
+      "slurm_job": "62016076",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "2b7317535bebe975c1dc8ffff3c6b6c2d73a33549b802edb89560685a028219a",
+        "graph_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w230_090_60_11",
+      "center_theta_deg": 60.511107678945095,
+      "members": {
+        "old": {
+          "sources": 8460,
+          "same_physical_members_as_old": 8460,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 8687,
+          "same_physical_members_as_old": 8442,
+          "new_member_sets": 245,
+          "missing_old_member_sets": 18
+        },
+        "B3_spherical": {
+          "sources": 9838,
+          "same_physical_members_as_old": 7693,
+          "new_member_sets": 2145,
+          "missing_old_member_sets": 767
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "20_to_21": {
+              "initial": 2985,
+              "sdss_nearby": 1798,
+              "associated": 1765,
+              "fit_eligible": 1453,
+              "calibrated": 1453,
+              "final": 1453,
+              "no_sdss_within_fixed_gate": 1187,
+              "insufficient_time_sampling": 312,
+              "split_or_competing_track": 33
+            },
+            "lt20": {
+              "initial": 5106,
+              "sdss_nearby": 3560,
+              "associated": 3478,
+              "fit_eligible": 2794,
+              "calibrated": 2794,
+              "final": 2793,
+              "insufficient_time_sampling": 684,
+              "no_sdss_within_fixed_gate": 1546,
+              "split_or_competing_track": 82,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 3727,
+              "sdss_nearby": 2426,
+              "associated": 2345,
+              "fit_eligible": 1912,
+              "calibrated": 1912,
+              "final": 1905,
+              "no_sdss_within_fixed_gate": 1301,
+              "insufficient_time_sampling": 433,
+              "split_or_competing_track": 81,
+              "final_quality_rejection": 7
+            },
+            "22_to_23": {
+              "initial": 1943,
+              "sdss_nearby": 1069,
+              "associated": 1007,
+              "fit_eligible": 737,
+              "calibrated": 737,
+              "final": 684,
+              "insufficient_time_sampling": 270,
+              "no_sdss_within_fixed_gate": 874,
+              "split_or_competing_track": 62,
+              "final_quality_rejection": 53
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 4,
+              "associated": 4,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 69,
+              "insufficient_time_sampling": 4
+            }
+          },
+          "physical_all_r_anchor": {
+            "20_to_21": {
+              "initial": 2985,
+              "sdss_nearby": 1798,
+              "associated": 1765,
+              "fit_eligible": 1748,
+              "calibrated": 1748,
+              "final": 1747,
+              "no_sdss_within_fixed_gate": 1187,
+              "split_or_competing_track": 33,
+              "insufficient_time_sampling": 17,
+              "final_quality_rejection": 1
+            },
+            "lt20": {
+              "initial": 5106,
+              "sdss_nearby": 3560,
+              "associated": 3478,
+              "fit_eligible": 3432,
+              "calibrated": 3432,
+              "final": 3431,
+              "no_sdss_within_fixed_gate": 1546,
+              "split_or_competing_track": 82,
+              "insufficient_time_sampling": 46,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 3727,
+              "sdss_nearby": 2426,
+              "associated": 2345,
+              "fit_eligible": 2327,
+              "calibrated": 2327,
+              "final": 2322,
+              "no_sdss_within_fixed_gate": 1301,
+              "split_or_competing_track": 81,
+              "insufficient_time_sampling": 18,
+              "final_quality_rejection": 5
+            },
+            "22_to_23": {
+              "initial": 1943,
+              "sdss_nearby": 1069,
+              "associated": 1007,
+              "fit_eligible": 996,
+              "calibrated": 996,
+              "final": 952,
+              "no_sdss_within_fixed_gate": 874,
+              "split_or_competing_track": 62,
+              "insufficient_time_sampling": 11,
+              "final_quality_rejection": 44
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 4,
+              "associated": 4,
+              "fit_eligible": 4,
+              "calibrated": 4,
+              "final": 3,
+              "no_sdss_within_fixed_gate": 69,
+              "final_quality_rejection": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 91973,
+            "non_r_missing_survey": 68769,
+            "non_r_before_quality": 1730,
+            "non_r_morphology_exit": 610,
+            "non_r_time_exit": 786,
+            "non_r_ownership_exit": 72,
+            "non_r_shared_detection_rejected": 12,
+            "non_r_formal_error_exit": 18
+          },
+          "strict_r_solutions": 6835
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "20_to_21": {
+              "initial": 2956,
+              "sdss_nearby": 1981,
+              "associated": 1979,
+              "fit_eligible": 1665,
+              "calibrated": 1665,
+              "final": 1664,
+              "no_sdss_within_fixed_gate": 975,
+              "insufficient_time_sampling": 314,
+              "split_or_competing_track": 2,
+              "final_quality_rejection": 1
+            },
+            "lt20": {
+              "initial": 5064,
+              "sdss_nearby": 4029,
+              "associated": 4023,
+              "fit_eligible": 3281,
+              "calibrated": 3281,
+              "final": 3279,
+              "insufficient_time_sampling": 742,
+              "no_sdss_within_fixed_gate": 1035,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 6
+            },
+            "21_to_22": {
+              "initial": 3708,
+              "sdss_nearby": 2662,
+              "associated": 2658,
+              "fit_eligible": 2237,
+              "calibrated": 2237,
+              "final": 2228,
+              "no_sdss_within_fixed_gate": 1046,
+              "insufficient_time_sampling": 421,
+              "split_or_competing_track": 4,
+              "final_quality_rejection": 9
+            },
+            "22_to_23": {
+              "initial": 1906,
+              "sdss_nearby": 1218,
+              "associated": 1218,
+              "fit_eligible": 918,
+              "calibrated": 918,
+              "final": 842,
+              "insufficient_time_sampling": 300,
+              "final_quality_rejection": 76,
+              "no_sdss_within_fixed_gate": 688
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 4,
+              "associated": 4,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 69,
+              "insufficient_time_sampling": 4
+            }
+          },
+          "physical_all_r_anchor": {
+            "20_to_21": {
+              "initial": 2956,
+              "sdss_nearby": 1981,
+              "associated": 1979,
+              "fit_eligible": 1976,
+              "calibrated": 1976,
+              "final": 1971,
+              "no_sdss_within_fixed_gate": 975,
+              "final_quality_rejection": 5,
+              "insufficient_time_sampling": 3,
+              "split_or_competing_track": 2
+            },
+            "lt20": {
+              "initial": 5064,
+              "sdss_nearby": 4029,
+              "associated": 4023,
+              "fit_eligible": 3999,
+              "calibrated": 3999,
+              "final": 3987,
+              "no_sdss_within_fixed_gate": 1035,
+              "insufficient_time_sampling": 24,
+              "final_quality_rejection": 12,
+              "split_or_competing_track": 6
+            },
+            "21_to_22": {
+              "initial": 3708,
+              "sdss_nearby": 2662,
+              "associated": 2658,
+              "fit_eligible": 2657,
+              "calibrated": 2657,
+              "final": 2654,
+              "no_sdss_within_fixed_gate": 1046,
+              "split_or_competing_track": 4,
+              "final_quality_rejection": 3,
+              "insufficient_time_sampling": 1
+            },
+            "22_to_23": {
+              "initial": 1906,
+              "sdss_nearby": 1218,
+              "associated": 1218,
+              "fit_eligible": 1214,
+              "calibrated": 1214,
+              "final": 1156,
+              "no_sdss_within_fixed_gate": 688,
+              "final_quality_rejection": 58,
+              "insufficient_time_sampling": 4
+            },
+            "ge23": {
+              "initial": 73,
+              "sdss_nearby": 4,
+              "associated": 4,
+              "fit_eligible": 4,
+              "calibrated": 4,
+              "final": 3,
+              "no_sdss_within_fixed_gate": 69,
+              "final_quality_rejection": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 77021,
+            "non_r_missing_survey": 52679,
+            "non_r_before_quality": 557,
+            "non_r_time_exit": 166,
+            "non_r_morphology_exit": 292,
+            "non_r_ownership_exit": 25,
+            "non_r_formal_error_exit": 7
+          },
+          "strict_r_solutions": 8013
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 85359,
+        "sky_sdss_nsc_r_edges": 99677,
+        "new_edges": 14318,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 36751,
+          "reference_sources": 3173,
+          "training_sources": 2237,
+          "holdout_sources": 936
+        },
+        "spherical": {
+          "measurements": 46226,
+          "reference_sources": 3973,
+          "training_sources": 2811,
+          "holdout_sources": 1162
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 39,
+          "22": 3
+        },
+        "B2_selected": {
+          "21": 40,
+          "22": 3
+        },
+        "B3_spherical": {
+          "21": 40,
+          "22": 3
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 222.37178096408024,
+      "peak_rss_mib": 1200.53515625,
+      "slurm_job": "62016076",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "8d7a3dc3a8c00c6c7c415dd6f42fa7c1f1701e4296645df4ca34a31335343e00",
+        "graph_sha256": "fadec0537e912d1d3d2c8f3ff0400b361661758e2b0e1f57c81709176ed64e3d",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w020_110_20_11",
+      "center_theta_deg": 26.165944747003188,
+      "members": {
+        "old": {
+          "sources": 2719,
+          "same_physical_members_as_old": 2719,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 2726,
+          "same_physical_members_as_old": 2719,
+          "new_member_sets": 7,
+          "missing_old_member_sets": 0
+        },
+        "B3_spherical": {
+          "sources": 2730,
+          "same_physical_members_as_old": 2716,
+          "new_member_sets": 14,
+          "missing_old_member_sets": 3
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 2081,
+              "sdss_nearby": 1898,
+              "associated": 1898,
+              "fit_eligible": 1503,
+              "calibrated": 1503,
+              "final": 1491,
+              "insufficient_time_sampling": 395,
+              "no_sdss_within_fixed_gate": 183,
+              "final_quality_rejection": 12
+            },
+            "21_to_22": {
+              "initial": 1342,
+              "sdss_nearby": 915,
+              "associated": 915,
+              "fit_eligible": 790,
+              "calibrated": 790,
+              "final": 40,
+              "final_quality_rejection": 750,
+              "no_sdss_within_fixed_gate": 427,
+              "insufficient_time_sampling": 125
+            },
+            "20_to_21": {
+              "initial": 1227,
+              "sdss_nearby": 812,
+              "associated": 812,
+              "fit_eligible": 684,
+              "calibrated": 684,
+              "final": 537,
+              "final_quality_rejection": 147,
+              "insufficient_time_sampling": 128,
+              "no_sdss_within_fixed_gate": 415
+            },
+            "22_to_23": {
+              "initial": 382,
+              "sdss_nearby": 101,
+              "associated": 101,
+              "fit_eligible": 81,
+              "calibrated": 81,
+              "final": 0,
+              "final_quality_rejection": 81,
+              "no_sdss_within_fixed_gate": 281,
+              "insufficient_time_sampling": 20
+            },
+            "ge23": {
+              "initial": 39,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 39
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 2081,
+              "sdss_nearby": 1898,
+              "associated": 1898,
+              "fit_eligible": 1836,
+              "calibrated": 1836,
+              "final": 1824,
+              "no_sdss_within_fixed_gate": 183,
+              "insufficient_time_sampling": 62,
+              "final_quality_rejection": 12
+            },
+            "21_to_22": {
+              "initial": 1342,
+              "sdss_nearby": 915,
+              "associated": 915,
+              "fit_eligible": 903,
+              "calibrated": 903,
+              "final": 173,
+              "final_quality_rejection": 730,
+              "no_sdss_within_fixed_gate": 427,
+              "insufficient_time_sampling": 12
+            },
+            "20_to_21": {
+              "initial": 1227,
+              "sdss_nearby": 812,
+              "associated": 812,
+              "fit_eligible": 798,
+              "calibrated": 798,
+              "final": 724,
+              "final_quality_rejection": 74,
+              "no_sdss_within_fixed_gate": 415,
+              "insufficient_time_sampling": 14
+            },
+            "22_to_23": {
+              "initial": 382,
+              "sdss_nearby": 101,
+              "associated": 101,
+              "fit_eligible": 99,
+              "calibrated": 99,
+              "final": 0,
+              "final_quality_rejection": 99,
+              "no_sdss_within_fixed_gate": 281,
+              "insufficient_time_sampling": 2
+            },
+            "ge23": {
+              "initial": 39,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 39
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 41856,
+            "non_r_before_quality": 87,
+            "non_r_time_exit": 44,
+            "non_r_missing_survey": 32798,
+            "non_r_morphology_exit": 34,
+            "non_r_formal_error_exit": 4
+          },
+          "strict_r_solutions": 2068
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 2080,
+              "sdss_nearby": 1902,
+              "associated": 1902,
+              "fit_eligible": 1504,
+              "calibrated": 1504,
+              "final": 1492,
+              "insufficient_time_sampling": 398,
+              "no_sdss_within_fixed_gate": 178,
+              "final_quality_rejection": 12
+            },
+            "21_to_22": {
+              "initial": 1342,
+              "sdss_nearby": 915,
+              "associated": 915,
+              "fit_eligible": 790,
+              "calibrated": 790,
+              "final": 40,
+              "final_quality_rejection": 750,
+              "no_sdss_within_fixed_gate": 427,
+              "insufficient_time_sampling": 125
+            },
+            "20_to_21": {
+              "initial": 1224,
+              "sdss_nearby": 812,
+              "associated": 812,
+              "fit_eligible": 685,
+              "calibrated": 685,
+              "final": 538,
+              "final_quality_rejection": 147,
+              "insufficient_time_sampling": 127,
+              "no_sdss_within_fixed_gate": 412
+            },
+            "22_to_23": {
+              "initial": 382,
+              "sdss_nearby": 101,
+              "associated": 101,
+              "fit_eligible": 81,
+              "calibrated": 81,
+              "final": 0,
+              "final_quality_rejection": 81,
+              "no_sdss_within_fixed_gate": 281,
+              "insufficient_time_sampling": 20
+            },
+            "ge23": {
+              "initial": 39,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 39
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 2080,
+              "sdss_nearby": 1902,
+              "associated": 1902,
+              "fit_eligible": 1839,
+              "calibrated": 1839,
+              "final": 1827,
+              "no_sdss_within_fixed_gate": 178,
+              "insufficient_time_sampling": 63,
+              "final_quality_rejection": 12
+            },
+            "21_to_22": {
+              "initial": 1342,
+              "sdss_nearby": 915,
+              "associated": 915,
+              "fit_eligible": 903,
+              "calibrated": 903,
+              "final": 173,
+              "final_quality_rejection": 730,
+              "no_sdss_within_fixed_gate": 427,
+              "insufficient_time_sampling": 12
+            },
+            "20_to_21": {
+              "initial": 1224,
+              "sdss_nearby": 812,
+              "associated": 812,
+              "fit_eligible": 798,
+              "calibrated": 798,
+              "final": 725,
+              "final_quality_rejection": 73,
+              "no_sdss_within_fixed_gate": 412,
+              "insufficient_time_sampling": 14
+            },
+            "22_to_23": {
+              "initial": 382,
+              "sdss_nearby": 101,
+              "associated": 101,
+              "fit_eligible": 99,
+              "calibrated": 99,
+              "final": 0,
+              "final_quality_rejection": 99,
+              "no_sdss_within_fixed_gate": 281,
+              "insufficient_time_sampling": 2
+            },
+            "ge23": {
+              "initial": 39,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 39
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 41684,
+            "non_r_before_quality": 81,
+            "non_r_ownership_exit": 1,
+            "non_r_missing_survey": 32616,
+            "non_r_time_exit": 38,
+            "non_r_morphology_exit": 33,
+            "non_r_formal_error_exit": 4
+          },
+          "strict_r_solutions": 2070
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 24753,
+        "sky_sdss_nsc_r_edges": 24801,
+        "new_edges": 48,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 22629,
+          "reference_sources": 2763,
+          "training_sources": 1902,
+          "holdout_sources": 861
+        },
+        "spherical": {
+          "measurements": 23083,
+          "reference_sources": 2822,
+          "training_sources": 1936,
+          "holdout_sources": 886
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 7,
+          "22": 0
+        },
+        "B2_selected": {
+          "21": 7,
+          "22": 0
+        },
+        "B3_spherical": {
+          "21": 7,
+          "22": 0
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 121.00748242996633,
+      "peak_rss_mib": 577.5859375,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "9498e17819e0225d138ec2bc05afebcfdd6835078d8c72957e20c41f809805f8",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_08_00",
+      "center_theta_deg": 29.90715479763204,
+      "members": {
+        "old": {
+          "sources": 3510,
+          "same_physical_members_as_old": 3510,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3513,
+          "same_physical_members_as_old": 3508,
+          "new_member_sets": 5,
+          "missing_old_member_sets": 2
+        },
+        "B3_spherical": {
+          "sources": 3536,
+          "same_physical_members_as_old": 3494,
+          "new_member_sets": 42,
+          "missing_old_member_sets": 16
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1609,
+              "sdss_nearby": 1369,
+              "associated": 1369,
+              "fit_eligible": 1098,
+              "calibrated": 1098,
+              "final": 1098,
+              "insufficient_time_sampling": 271,
+              "no_sdss_within_fixed_gate": 240
+            },
+            "21_to_22": {
+              "initial": 1417,
+              "sdss_nearby": 1197,
+              "associated": 1196,
+              "fit_eligible": 994,
+              "calibrated": 994,
+              "final": 926,
+              "insufficient_time_sampling": 202,
+              "final_quality_rejection": 68,
+              "no_sdss_within_fixed_gate": 220,
+              "split_or_competing_track": 1
+            },
+            "22_to_23": {
+              "initial": 532,
+              "sdss_nearby": 398,
+              "associated": 398,
+              "fit_eligible": 304,
+              "calibrated": 304,
+              "final": 164,
+              "no_sdss_within_fixed_gate": 134,
+              "final_quality_rejection": 140,
+              "insufficient_time_sampling": 94
+            },
+            "20_to_21": {
+              "initial": 1229,
+              "sdss_nearby": 774,
+              "associated": 774,
+              "fit_eligible": 611,
+              "calibrated": 611,
+              "final": 611,
+              "insufficient_time_sampling": 163,
+              "no_sdss_within_fixed_gate": 455
+            },
+            "ge23": {
+              "initial": 32,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 32
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1609,
+              "sdss_nearby": 1369,
+              "associated": 1369,
+              "fit_eligible": 1365,
+              "calibrated": 1365,
+              "final": 1362,
+              "no_sdss_within_fixed_gate": 240,
+              "insufficient_time_sampling": 4,
+              "final_quality_rejection": 3
+            },
+            "21_to_22": {
+              "initial": 1417,
+              "sdss_nearby": 1197,
+              "associated": 1196,
+              "fit_eligible": 1195,
+              "calibrated": 1195,
+              "final": 1132,
+              "final_quality_rejection": 63,
+              "no_sdss_within_fixed_gate": 220,
+              "split_or_competing_track": 1,
+              "insufficient_time_sampling": 1
+            },
+            "22_to_23": {
+              "initial": 532,
+              "sdss_nearby": 398,
+              "associated": 398,
+              "fit_eligible": 393,
+              "calibrated": 393,
+              "final": 232,
+              "no_sdss_within_fixed_gate": 134,
+              "final_quality_rejection": 161,
+              "insufficient_time_sampling": 5
+            },
+            "20_to_21": {
+              "initial": 1229,
+              "sdss_nearby": 774,
+              "associated": 774,
+              "fit_eligible": 769,
+              "calibrated": 769,
+              "final": 769,
+              "insufficient_time_sampling": 5,
+              "no_sdss_within_fixed_gate": 455
+            },
+            "ge23": {
+              "initial": 32,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 32
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43251,
+            "non_r_missing_survey": 25716,
+            "non_r_before_quality": 592,
+            "non_r_morphology_exit": 258,
+            "non_r_time_exit": 311,
+            "non_r_formal_error_exit": 3,
+            "non_r_ownership_exit": 2
+          },
+          "strict_r_solutions": 2799
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1605,
+              "sdss_nearby": 1386,
+              "associated": 1386,
+              "fit_eligible": 1111,
+              "calibrated": 1111,
+              "final": 1111,
+              "insufficient_time_sampling": 275,
+              "no_sdss_within_fixed_gate": 219
+            },
+            "21_to_22": {
+              "initial": 1416,
+              "sdss_nearby": 1198,
+              "associated": 1198,
+              "fit_eligible": 995,
+              "calibrated": 995,
+              "final": 927,
+              "insufficient_time_sampling": 203,
+              "final_quality_rejection": 68,
+              "no_sdss_within_fixed_gate": 218
+            },
+            "22_to_23": {
+              "initial": 532,
+              "sdss_nearby": 398,
+              "associated": 398,
+              "fit_eligible": 304,
+              "calibrated": 304,
+              "final": 164,
+              "no_sdss_within_fixed_gate": 134,
+              "final_quality_rejection": 140,
+              "insufficient_time_sampling": 94
+            },
+            "20_to_21": {
+              "initial": 1227,
+              "sdss_nearby": 778,
+              "associated": 778,
+              "fit_eligible": 617,
+              "calibrated": 617,
+              "final": 617,
+              "insufficient_time_sampling": 161,
+              "no_sdss_within_fixed_gate": 449
+            },
+            "ge23": {
+              "initial": 32,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 32
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1605,
+              "sdss_nearby": 1386,
+              "associated": 1386,
+              "fit_eligible": 1379,
+              "calibrated": 1379,
+              "final": 1376,
+              "no_sdss_within_fixed_gate": 219,
+              "insufficient_time_sampling": 7,
+              "final_quality_rejection": 3
+            },
+            "21_to_22": {
+              "initial": 1416,
+              "sdss_nearby": 1198,
+              "associated": 1198,
+              "fit_eligible": 1197,
+              "calibrated": 1197,
+              "final": 1134,
+              "final_quality_rejection": 63,
+              "no_sdss_within_fixed_gate": 218,
+              "insufficient_time_sampling": 1
+            },
+            "22_to_23": {
+              "initial": 532,
+              "sdss_nearby": 398,
+              "associated": 398,
+              "fit_eligible": 393,
+              "calibrated": 393,
+              "final": 233,
+              "no_sdss_within_fixed_gate": 134,
+              "final_quality_rejection": 160,
+              "insufficient_time_sampling": 5
+            },
+            "20_to_21": {
+              "initial": 1227,
+              "sdss_nearby": 778,
+              "associated": 778,
+              "fit_eligible": 776,
+              "calibrated": 776,
+              "final": 776,
+              "insufficient_time_sampling": 2,
+              "no_sdss_within_fixed_gate": 449
+            },
+            "ge23": {
+              "initial": 32,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 32
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 42889,
+            "non_r_missing_survey": 25320,
+            "non_r_before_quality": 571,
+            "non_r_morphology_exit": 256,
+            "non_r_time_exit": 293,
+            "non_r_formal_error_exit": 3,
+            "non_r_ownership_exit": 2
+          },
+          "strict_r_solutions": 2819
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 59455,
+        "sky_sdss_nsc_r_edges": 59681,
+        "new_edges": 226,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 59130,
+          "reference_sources": 5758,
+          "training_sources": 4111,
+          "holdout_sources": 1647
+        },
+        "spherical": {
+          "measurements": 59576,
+          "reference_sources": 5810,
+          "training_sources": 4148,
+          "holdout_sources": 1662
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 29,
+          "22": 3
+        },
+        "B2_selected": {
+          "21": 29,
+          "22": 3
+        },
+        "B3_spherical": {
+          "21": 29,
+          "22": 3
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 145.09662681806367,
+      "peak_rss_mib": 710.51171875,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "ed3df10a928946df6042501252de7581102ad981911c0a08aeaff9d7eed5c2c3",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_08_01",
+      "center_theta_deg": 29.6981611808954,
+      "members": {
+        "old": {
+          "sources": 3215,
+          "same_physical_members_as_old": 3215,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3215,
+          "same_physical_members_as_old": 3212,
+          "new_member_sets": 3,
+          "missing_old_member_sets": 3
+        },
+        "B3_spherical": {
+          "sources": 3245,
+          "same_physical_members_as_old": 3209,
+          "new_member_sets": 36,
+          "missing_old_member_sets": 6
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1457,
+              "sdss_nearby": 1281,
+              "associated": 1275,
+              "fit_eligible": 1027,
+              "calibrated": 1027,
+              "final": 1025,
+              "insufficient_time_sampling": 248,
+              "no_sdss_within_fixed_gate": 176,
+              "split_or_competing_track": 6,
+              "final_quality_rejection": 2
+            },
+            "21_to_22": {
+              "initial": 1220,
+              "sdss_nearby": 1084,
+              "associated": 1083,
+              "fit_eligible": 897,
+              "calibrated": 897,
+              "final": 856,
+              "insufficient_time_sampling": 186,
+              "no_sdss_within_fixed_gate": 136,
+              "final_quality_rejection": 41,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 36,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 36
+            },
+            "20_to_21": {
+              "initial": 1026,
+              "sdss_nearby": 771,
+              "associated": 767,
+              "fit_eligible": 645,
+              "calibrated": 645,
+              "final": 644,
+              "insufficient_time_sampling": 122,
+              "no_sdss_within_fixed_gate": 255,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 4
+            },
+            "22_to_23": {
+              "initial": 305,
+              "sdss_nearby": 198,
+              "associated": 198,
+              "fit_eligible": 87,
+              "calibrated": 87,
+              "final": 64,
+              "no_sdss_within_fixed_gate": 107,
+              "final_quality_rejection": 23,
+              "insufficient_time_sampling": 111
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1457,
+              "sdss_nearby": 1281,
+              "associated": 1275,
+              "fit_eligible": 1265,
+              "calibrated": 1265,
+              "final": 1263,
+              "no_sdss_within_fixed_gate": 176,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 6,
+              "insufficient_time_sampling": 10
+            },
+            "21_to_22": {
+              "initial": 1220,
+              "sdss_nearby": 1084,
+              "associated": 1083,
+              "fit_eligible": 1082,
+              "calibrated": 1082,
+              "final": 1050,
+              "no_sdss_within_fixed_gate": 136,
+              "final_quality_rejection": 32,
+              "split_or_competing_track": 1,
+              "insufficient_time_sampling": 1
+            },
+            "ge23": {
+              "initial": 36,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 36
+            },
+            "20_to_21": {
+              "initial": 1026,
+              "sdss_nearby": 771,
+              "associated": 767,
+              "fit_eligible": 767,
+              "calibrated": 767,
+              "final": 766,
+              "no_sdss_within_fixed_gate": 255,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 4
+            },
+            "22_to_23": {
+              "initial": 305,
+              "sdss_nearby": 198,
+              "associated": 198,
+              "fit_eligible": 189,
+              "calibrated": 189,
+              "final": 116,
+              "no_sdss_within_fixed_gate": 107,
+              "final_quality_rejection": 73,
+              "insufficient_time_sampling": 9
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43413,
+            "non_r_missing_survey": 25308,
+            "non_r_before_quality": 1089,
+            "non_r_morphology_exit": 521,
+            "non_r_time_exit": 533,
+            "non_r_ownership_exit": 7,
+            "non_r_formal_error_exit": 8
+          },
+          "strict_r_solutions": 2589
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1455,
+              "sdss_nearby": 1296,
+              "associated": 1295,
+              "fit_eligible": 1041,
+              "calibrated": 1041,
+              "final": 1039,
+              "insufficient_time_sampling": 254,
+              "no_sdss_within_fixed_gate": 159,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 1220,
+              "sdss_nearby": 1087,
+              "associated": 1087,
+              "fit_eligible": 900,
+              "calibrated": 900,
+              "final": 859,
+              "insufficient_time_sampling": 187,
+              "no_sdss_within_fixed_gate": 133,
+              "final_quality_rejection": 41
+            },
+            "ge23": {
+              "initial": 36,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 36
+            },
+            "20_to_21": {
+              "initial": 1026,
+              "sdss_nearby": 775,
+              "associated": 771,
+              "fit_eligible": 649,
+              "calibrated": 649,
+              "final": 648,
+              "insufficient_time_sampling": 122,
+              "no_sdss_within_fixed_gate": 251,
+              "split_or_competing_track": 4,
+              "final_quality_rejection": 1
+            },
+            "22_to_23": {
+              "initial": 305,
+              "sdss_nearby": 199,
+              "associated": 199,
+              "fit_eligible": 87,
+              "calibrated": 87,
+              "final": 64,
+              "no_sdss_within_fixed_gate": 106,
+              "final_quality_rejection": 23,
+              "insufficient_time_sampling": 112
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1455,
+              "sdss_nearby": 1296,
+              "associated": 1295,
+              "fit_eligible": 1284,
+              "calibrated": 1284,
+              "final": 1282,
+              "no_sdss_within_fixed_gate": 159,
+              "final_quality_rejection": 2,
+              "insufficient_time_sampling": 11,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 1220,
+              "sdss_nearby": 1087,
+              "associated": 1087,
+              "fit_eligible": 1086,
+              "calibrated": 1086,
+              "final": 1054,
+              "no_sdss_within_fixed_gate": 133,
+              "final_quality_rejection": 32,
+              "insufficient_time_sampling": 1
+            },
+            "ge23": {
+              "initial": 36,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 36
+            },
+            "20_to_21": {
+              "initial": 1026,
+              "sdss_nearby": 775,
+              "associated": 771,
+              "fit_eligible": 771,
+              "calibrated": 771,
+              "final": 770,
+              "no_sdss_within_fixed_gate": 251,
+              "split_or_competing_track": 4,
+              "final_quality_rejection": 1
+            },
+            "22_to_23": {
+              "initial": 305,
+              "sdss_nearby": 199,
+              "associated": 199,
+              "fit_eligible": 190,
+              "calibrated": 190,
+              "final": 116,
+              "no_sdss_within_fixed_gate": 106,
+              "final_quality_rejection": 74,
+              "insufficient_time_sampling": 9
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43021,
+            "non_r_missing_survey": 24868,
+            "non_r_before_quality": 1080,
+            "non_r_morphology_exit": 522,
+            "non_r_time_exit": 521,
+            "non_r_ownership_exit": 7,
+            "non_r_formal_error_exit": 7
+          },
+          "strict_r_solutions": 2610
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 55152,
+        "sky_sdss_nsc_r_edges": 55396,
+        "new_edges": 244,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 57153,
+          "reference_sources": 5753,
+          "training_sources": 4024,
+          "holdout_sources": 1729
+        },
+        "spherical": {
+          "measurements": 57561,
+          "reference_sources": 5798,
+          "training_sources": 4051,
+          "holdout_sources": 1747
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 45,
+          "22": 3
+        },
+        "B2_selected": {
+          "21": 45,
+          "22": 3
+        },
+        "B3_spherical": {
+          "21": 45,
+          "22": 3
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 133.63119562191423,
+      "peak_rss_mib": 667.9140625,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "a7c7d8bdc6e5094e0b989ccff1f4db082a6a4b84debf62c649f61067a2ea1a3c",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_08_11",
+      "center_theta_deg": 30.551624237814753,
+      "members": {
+        "old": {
+          "sources": 3204,
+          "same_physical_members_as_old": 3204,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3204,
+          "same_physical_members_as_old": 3203,
+          "new_member_sets": 1,
+          "missing_old_member_sets": 1
+        },
+        "B3_spherical": {
+          "sources": 3224,
+          "same_physical_members_as_old": 3193,
+          "new_member_sets": 31,
+          "missing_old_member_sets": 11
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1576,
+              "sdss_nearby": 1353,
+              "associated": 1352,
+              "fit_eligible": 1112,
+              "calibrated": 1112,
+              "final": 1111,
+              "no_sdss_within_fixed_gate": 223,
+              "insufficient_time_sampling": 240,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 1229,
+              "sdss_nearby": 1054,
+              "associated": 1053,
+              "fit_eligible": 904,
+              "calibrated": 904,
+              "final": 846,
+              "insufficient_time_sampling": 149,
+              "final_quality_rejection": 58,
+              "no_sdss_within_fixed_gate": 175,
+              "split_or_competing_track": 1
+            },
+            "20_to_21": {
+              "initial": 1044,
+              "sdss_nearby": 725,
+              "associated": 724,
+              "fit_eligible": 612,
+              "calibrated": 612,
+              "final": 612,
+              "no_sdss_within_fixed_gate": 319,
+              "insufficient_time_sampling": 112,
+              "split_or_competing_track": 1
+            },
+            "22_to_23": {
+              "initial": 287,
+              "sdss_nearby": 178,
+              "associated": 178,
+              "fit_eligible": 130,
+              "calibrated": 130,
+              "final": 84,
+              "final_quality_rejection": 46,
+              "no_sdss_within_fixed_gate": 109,
+              "insufficient_time_sampling": 48
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 30
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1576,
+              "sdss_nearby": 1353,
+              "associated": 1352,
+              "fit_eligible": 1341,
+              "calibrated": 1341,
+              "final": 1338,
+              "no_sdss_within_fixed_gate": 223,
+              "final_quality_rejection": 3,
+              "insufficient_time_sampling": 11,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 1229,
+              "sdss_nearby": 1054,
+              "associated": 1053,
+              "fit_eligible": 1049,
+              "calibrated": 1049,
+              "final": 1006,
+              "no_sdss_within_fixed_gate": 175,
+              "final_quality_rejection": 43,
+              "split_or_competing_track": 1,
+              "insufficient_time_sampling": 4
+            },
+            "20_to_21": {
+              "initial": 1044,
+              "sdss_nearby": 725,
+              "associated": 724,
+              "fit_eligible": 723,
+              "calibrated": 723,
+              "final": 723,
+              "no_sdss_within_fixed_gate": 319,
+              "split_or_competing_track": 1,
+              "insufficient_time_sampling": 1
+            },
+            "22_to_23": {
+              "initial": 287,
+              "sdss_nearby": 178,
+              "associated": 178,
+              "fit_eligible": 171,
+              "calibrated": 171,
+              "final": 122,
+              "final_quality_rejection": 49,
+              "no_sdss_within_fixed_gate": 109,
+              "insufficient_time_sampling": 7
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 30
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43457,
+            "non_r_before_quality": 636,
+            "non_r_time_exit": 303,
+            "non_r_missing_survey": 27616,
+            "non_r_morphology_exit": 306,
+            "non_r_ownership_exit": 8,
+            "non_r_formal_error_exit": 4
+          },
+          "strict_r_solutions": 2653
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1574,
+              "sdss_nearby": 1368,
+              "associated": 1365,
+              "fit_eligible": 1124,
+              "calibrated": 1124,
+              "final": 1123,
+              "no_sdss_within_fixed_gate": 206,
+              "insufficient_time_sampling": 241,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 3
+            },
+            "21_to_22": {
+              "initial": 1229,
+              "sdss_nearby": 1057,
+              "associated": 1057,
+              "fit_eligible": 909,
+              "calibrated": 909,
+              "final": 851,
+              "insufficient_time_sampling": 148,
+              "final_quality_rejection": 58,
+              "no_sdss_within_fixed_gate": 172
+            },
+            "20_to_21": {
+              "initial": 1045,
+              "sdss_nearby": 725,
+              "associated": 725,
+              "fit_eligible": 614,
+              "calibrated": 614,
+              "final": 614,
+              "no_sdss_within_fixed_gate": 320,
+              "insufficient_time_sampling": 111
+            },
+            "22_to_23": {
+              "initial": 288,
+              "sdss_nearby": 178,
+              "associated": 177,
+              "fit_eligible": 131,
+              "calibrated": 131,
+              "final": 85,
+              "final_quality_rejection": 46,
+              "no_sdss_within_fixed_gate": 110,
+              "insufficient_time_sampling": 46,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 30
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1574,
+              "sdss_nearby": 1368,
+              "associated": 1365,
+              "fit_eligible": 1356,
+              "calibrated": 1356,
+              "final": 1353,
+              "no_sdss_within_fixed_gate": 206,
+              "final_quality_rejection": 3,
+              "insufficient_time_sampling": 9,
+              "split_or_competing_track": 3
+            },
+            "21_to_22": {
+              "initial": 1229,
+              "sdss_nearby": 1057,
+              "associated": 1057,
+              "fit_eligible": 1054,
+              "calibrated": 1054,
+              "final": 1011,
+              "no_sdss_within_fixed_gate": 172,
+              "final_quality_rejection": 43,
+              "insufficient_time_sampling": 3
+            },
+            "20_to_21": {
+              "initial": 1045,
+              "sdss_nearby": 725,
+              "associated": 725,
+              "fit_eligible": 724,
+              "calibrated": 724,
+              "final": 724,
+              "no_sdss_within_fixed_gate": 320,
+              "insufficient_time_sampling": 1
+            },
+            "22_to_23": {
+              "initial": 288,
+              "sdss_nearby": 178,
+              "associated": 177,
+              "fit_eligible": 171,
+              "calibrated": 171,
+              "final": 122,
+              "final_quality_rejection": 49,
+              "no_sdss_within_fixed_gate": 110,
+              "insufficient_time_sampling": 6,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 30
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43080,
+            "non_r_before_quality": 630,
+            "non_r_time_exit": 291,
+            "non_r_missing_survey": 27196,
+            "non_r_morphology_exit": 311,
+            "non_r_ownership_exit": 9,
+            "non_r_formal_error_exit": 4,
+            "non_r_shared_detection_rejected": 1
+          },
+          "strict_r_solutions": 2673
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 45065,
+        "sky_sdss_nsc_r_edges": 45267,
+        "new_edges": 202,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 53896,
+          "reference_sources": 4993,
+          "training_sources": 3445,
+          "holdout_sources": 1548
+        },
+        "spherical": {
+          "measurements": 54370,
+          "reference_sources": 5043,
+          "training_sources": 3474,
+          "holdout_sources": 1569
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 22,
+          "22": 1
+        },
+        "B2_selected": {
+          "21": 22,
+          "22": 1
+        },
+        "B3_spherical": {
+          "21": 22,
+          "22": 1
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 127.7485317629762,
+      "peak_rss_mib": 674.67578125,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "bb7451870fffa1b40546bd8d4b58a76ffb2efb9cdc22ecc67c30f9190ec90aed",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_06_01",
+      "center_theta_deg": 30.144970570213612,
+      "members": {
+        "old": {
+          "sources": 3532,
+          "same_physical_members_as_old": 3532,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3534,
+          "same_physical_members_as_old": 3530,
+          "new_member_sets": 4,
+          "missing_old_member_sets": 2
+        },
+        "B3_spherical": {
+          "sources": 3554,
+          "same_physical_members_as_old": 3525,
+          "new_member_sets": 29,
+          "missing_old_member_sets": 7
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "21_to_22": {
+              "initial": 1354,
+              "sdss_nearby": 1106,
+              "associated": 1106,
+              "fit_eligible": 973,
+              "calibrated": 973,
+              "final": 943,
+              "no_sdss_within_fixed_gate": 248,
+              "insufficient_time_sampling": 133,
+              "final_quality_rejection": 30
+            },
+            "lt20": {
+              "initial": 1554,
+              "sdss_nearby": 1319,
+              "associated": 1319,
+              "fit_eligible": 1104,
+              "calibrated": 1104,
+              "final": 1103,
+              "insufficient_time_sampling": 215,
+              "no_sdss_within_fixed_gate": 235,
+              "final_quality_rejection": 1
+            },
+            "20_to_21": {
+              "initial": 1276,
+              "sdss_nearby": 809,
+              "associated": 808,
+              "fit_eligible": 701,
+              "calibrated": 701,
+              "final": 701,
+              "no_sdss_within_fixed_gate": 467,
+              "insufficient_time_sampling": 107,
+              "split_or_competing_track": 1
+            },
+            "22_to_23": {
+              "initial": 646,
+              "sdss_nearby": 471,
+              "associated": 471,
+              "fit_eligible": 382,
+              "calibrated": 382,
+              "final": 263,
+              "no_sdss_within_fixed_gate": 175,
+              "final_quality_rejection": 119,
+              "insufficient_time_sampling": 89
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 29,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "21_to_22": {
+              "initial": 1354,
+              "sdss_nearby": 1106,
+              "associated": 1106,
+              "fit_eligible": 1103,
+              "calibrated": 1103,
+              "final": 1076,
+              "no_sdss_within_fixed_gate": 248,
+              "final_quality_rejection": 27,
+              "insufficient_time_sampling": 3
+            },
+            "lt20": {
+              "initial": 1554,
+              "sdss_nearby": 1319,
+              "associated": 1319,
+              "fit_eligible": 1296,
+              "calibrated": 1296,
+              "final": 1293,
+              "insufficient_time_sampling": 23,
+              "no_sdss_within_fixed_gate": 235,
+              "final_quality_rejection": 3
+            },
+            "20_to_21": {
+              "initial": 1276,
+              "sdss_nearby": 809,
+              "associated": 808,
+              "fit_eligible": 808,
+              "calibrated": 808,
+              "final": 808,
+              "no_sdss_within_fixed_gate": 467,
+              "split_or_competing_track": 1
+            },
+            "22_to_23": {
+              "initial": 646,
+              "sdss_nearby": 471,
+              "associated": 471,
+              "fit_eligible": 465,
+              "calibrated": 465,
+              "final": 343,
+              "no_sdss_within_fixed_gate": 175,
+              "final_quality_rejection": 122,
+              "insufficient_time_sampling": 6
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 1,
+              "calibrated": 1,
+              "final": 1,
+              "no_sdss_within_fixed_gate": 29
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43963,
+            "non_r_missing_survey": 26563,
+            "non_r_before_quality": 404,
+            "non_r_time_exit": 242,
+            "non_r_morphology_exit": 146,
+            "non_r_formal_error_exit": 2,
+            "non_r_ownership_exit": 1
+          },
+          "strict_r_solutions": 3010
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "21_to_22": {
+              "initial": 1352,
+              "sdss_nearby": 1107,
+              "associated": 1107,
+              "fit_eligible": 975,
+              "calibrated": 975,
+              "final": 945,
+              "no_sdss_within_fixed_gate": 245,
+              "insufficient_time_sampling": 132,
+              "final_quality_rejection": 30
+            },
+            "lt20": {
+              "initial": 1552,
+              "sdss_nearby": 1333,
+              "associated": 1332,
+              "fit_eligible": 1116,
+              "calibrated": 1116,
+              "final": 1115,
+              "insufficient_time_sampling": 216,
+              "no_sdss_within_fixed_gate": 219,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 1
+            },
+            "20_to_21": {
+              "initial": 1275,
+              "sdss_nearby": 810,
+              "associated": 810,
+              "fit_eligible": 703,
+              "calibrated": 703,
+              "final": 702,
+              "no_sdss_within_fixed_gate": 465,
+              "insufficient_time_sampling": 107,
+              "final_quality_rejection": 1
+            },
+            "22_to_23": {
+              "initial": 646,
+              "sdss_nearby": 472,
+              "associated": 472,
+              "fit_eligible": 383,
+              "calibrated": 383,
+              "final": 264,
+              "no_sdss_within_fixed_gate": 174,
+              "final_quality_rejection": 119,
+              "insufficient_time_sampling": 89
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 29,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "21_to_22": {
+              "initial": 1352,
+              "sdss_nearby": 1107,
+              "associated": 1107,
+              "fit_eligible": 1105,
+              "calibrated": 1105,
+              "final": 1078,
+              "no_sdss_within_fixed_gate": 245,
+              "final_quality_rejection": 27,
+              "insufficient_time_sampling": 2
+            },
+            "lt20": {
+              "initial": 1552,
+              "sdss_nearby": 1333,
+              "associated": 1332,
+              "fit_eligible": 1311,
+              "calibrated": 1311,
+              "final": 1308,
+              "insufficient_time_sampling": 21,
+              "no_sdss_within_fixed_gate": 219,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 3
+            },
+            "20_to_21": {
+              "initial": 1275,
+              "sdss_nearby": 810,
+              "associated": 810,
+              "fit_eligible": 810,
+              "calibrated": 810,
+              "final": 810,
+              "no_sdss_within_fixed_gate": 465
+            },
+            "22_to_23": {
+              "initial": 646,
+              "sdss_nearby": 472,
+              "associated": 472,
+              "fit_eligible": 466,
+              "calibrated": 466,
+              "final": 344,
+              "no_sdss_within_fixed_gate": 174,
+              "final_quality_rejection": 122,
+              "insufficient_time_sampling": 6
+            },
+            "ge23": {
+              "initial": 30,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 1,
+              "calibrated": 1,
+              "final": 1,
+              "no_sdss_within_fixed_gate": 29
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43581,
+            "non_r_missing_survey": 26148,
+            "non_r_before_quality": 388,
+            "non_r_time_exit": 225,
+            "non_r_morphology_exit": 146,
+            "non_r_ownership_exit": 2,
+            "non_r_formal_error_exit": 2
+          },
+          "strict_r_solutions": 3026
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 54771,
+        "sky_sdss_nsc_r_edges": 54990,
+        "new_edges": 219,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 51894,
+          "reference_sources": 5017,
+          "training_sources": 3509,
+          "holdout_sources": 1508
+        },
+        "spherical": {
+          "measurements": 52422,
+          "reference_sources": 5073,
+          "training_sources": 3549,
+          "holdout_sources": 1524
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 28,
+          "22": 2
+        },
+        "B2_selected": {
+          "21": 28,
+          "22": 2
+        },
+        "B3_spherical": {
+          "21": 28,
+          "22": 2
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 150.48181643802673,
+      "peak_rss_mib": 723.59765625,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "4aed3ec0ce2e1f02e7f155af07345f8952cc3bce519f1abcc8501dc029748297",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_06_11",
+      "center_theta_deg": 31.00319665215229,
+      "members": {
+        "old": {
+          "sources": 3878,
+          "same_physical_members_as_old": 3878,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3884,
+          "same_physical_members_as_old": 3878,
+          "new_member_sets": 6,
+          "missing_old_member_sets": 0
+        },
+        "B3_spherical": {
+          "sources": 3901,
+          "same_physical_members_as_old": 3871,
+          "new_member_sets": 30,
+          "missing_old_member_sets": 7
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "22_to_23": {
+              "initial": 593,
+              "sdss_nearby": 479,
+              "associated": 478,
+              "fit_eligible": 392,
+              "calibrated": 392,
+              "final": 222,
+              "insufficient_time_sampling": 86,
+              "final_quality_rejection": 170,
+              "no_sdss_within_fixed_gate": 114,
+              "split_or_competing_track": 1
+            },
+            "20_to_21": {
+              "initial": 1259,
+              "sdss_nearby": 903,
+              "associated": 902,
+              "fit_eligible": 698,
+              "calibrated": 698,
+              "final": 696,
+              "insufficient_time_sampling": 204,
+              "no_sdss_within_fixed_gate": 356,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 1
+            },
+            "lt20": {
+              "initial": 1545,
+              "sdss_nearby": 1364,
+              "associated": 1364,
+              "fit_eligible": 1029,
+              "calibrated": 1029,
+              "final": 1028,
+              "insufficient_time_sampling": 335,
+              "no_sdss_within_fixed_gate": 181,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1597,
+              "sdss_nearby": 1421,
+              "associated": 1420,
+              "fit_eligible": 1131,
+              "calibrated": 1131,
+              "final": 1070,
+              "insufficient_time_sampling": 289,
+              "no_sdss_within_fixed_gate": 176,
+              "final_quality_rejection": 61,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "physical_all_r_anchor": {
+            "22_to_23": {
+              "initial": 593,
+              "sdss_nearby": 479,
+              "associated": 478,
+              "fit_eligible": 471,
+              "calibrated": 471,
+              "final": 305,
+              "final_quality_rejection": 166,
+              "no_sdss_within_fixed_gate": 114,
+              "insufficient_time_sampling": 7,
+              "split_or_competing_track": 1
+            },
+            "20_to_21": {
+              "initial": 1259,
+              "sdss_nearby": 903,
+              "associated": 902,
+              "fit_eligible": 901,
+              "calibrated": 901,
+              "final": 900,
+              "no_sdss_within_fixed_gate": 356,
+              "final_quality_rejection": 1,
+              "insufficient_time_sampling": 1,
+              "split_or_competing_track": 1
+            },
+            "lt20": {
+              "initial": 1545,
+              "sdss_nearby": 1364,
+              "associated": 1364,
+              "fit_eligible": 1334,
+              "calibrated": 1334,
+              "final": 1330,
+              "no_sdss_within_fixed_gate": 181,
+              "insufficient_time_sampling": 30,
+              "final_quality_rejection": 4
+            },
+            "21_to_22": {
+              "initial": 1597,
+              "sdss_nearby": 1421,
+              "associated": 1420,
+              "fit_eligible": 1415,
+              "calibrated": 1415,
+              "final": 1340,
+              "no_sdss_within_fixed_gate": 176,
+              "final_quality_rejection": 75,
+              "insufficient_time_sampling": 5,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 46457,
+            "non_r_before_quality": 596,
+            "non_r_morphology_exit": 248,
+            "non_r_missing_survey": 26529,
+            "non_r_ownership_exit": 4,
+            "non_r_time_exit": 332,
+            "non_r_formal_error_exit": 3
+          },
+          "strict_r_solutions": 3016
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "22_to_23": {
+              "initial": 593,
+              "sdss_nearby": 480,
+              "associated": 480,
+              "fit_eligible": 394,
+              "calibrated": 394,
+              "final": 224,
+              "insufficient_time_sampling": 86,
+              "final_quality_rejection": 170,
+              "no_sdss_within_fixed_gate": 113
+            },
+            "20_to_21": {
+              "initial": 1259,
+              "sdss_nearby": 906,
+              "associated": 906,
+              "fit_eligible": 702,
+              "calibrated": 702,
+              "final": 700,
+              "insufficient_time_sampling": 204,
+              "no_sdss_within_fixed_gate": 353,
+              "final_quality_rejection": 2
+            },
+            "lt20": {
+              "initial": 1543,
+              "sdss_nearby": 1380,
+              "associated": 1378,
+              "fit_eligible": 1045,
+              "calibrated": 1045,
+              "final": 1044,
+              "insufficient_time_sampling": 333,
+              "no_sdss_within_fixed_gate": 163,
+              "split_or_competing_track": 2,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1596,
+              "sdss_nearby": 1420,
+              "associated": 1420,
+              "fit_eligible": 1132,
+              "calibrated": 1132,
+              "final": 1071,
+              "insufficient_time_sampling": 288,
+              "no_sdss_within_fixed_gate": 176,
+              "final_quality_rejection": 61
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "physical_all_r_anchor": {
+            "22_to_23": {
+              "initial": 593,
+              "sdss_nearby": 480,
+              "associated": 480,
+              "fit_eligible": 473,
+              "calibrated": 473,
+              "final": 307,
+              "final_quality_rejection": 166,
+              "no_sdss_within_fixed_gate": 113,
+              "insufficient_time_sampling": 7
+            },
+            "20_to_21": {
+              "initial": 1259,
+              "sdss_nearby": 906,
+              "associated": 906,
+              "fit_eligible": 905,
+              "calibrated": 905,
+              "final": 904,
+              "no_sdss_within_fixed_gate": 353,
+              "final_quality_rejection": 1,
+              "insufficient_time_sampling": 1
+            },
+            "lt20": {
+              "initial": 1543,
+              "sdss_nearby": 1380,
+              "associated": 1378,
+              "fit_eligible": 1350,
+              "calibrated": 1350,
+              "final": 1345,
+              "no_sdss_within_fixed_gate": 163,
+              "final_quality_rejection": 5,
+              "insufficient_time_sampling": 28,
+              "split_or_competing_track": 2
+            },
+            "21_to_22": {
+              "initial": 1596,
+              "sdss_nearby": 1420,
+              "associated": 1420,
+              "fit_eligible": 1416,
+              "calibrated": 1416,
+              "final": 1340,
+              "no_sdss_within_fixed_gate": 176,
+              "final_quality_rejection": 76,
+              "insufficient_time_sampling": 4
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 46058,
+            "non_r_missing_survey": 26084,
+            "non_r_before_quality": 576,
+            "non_r_time_exit": 315,
+            "non_r_ownership_exit": 2,
+            "non_r_morphology_exit": 251,
+            "non_r_formal_error_exit": 3
+          },
+          "strict_r_solutions": 3039
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 52341,
+        "sky_sdss_nsc_r_edges": 52565,
+        "new_edges": 224,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 54904,
+          "reference_sources": 6290,
+          "training_sources": 4401,
+          "holdout_sources": 1889
+        },
+        "spherical": {
+          "measurements": 55304,
+          "reference_sources": 6340,
+          "training_sources": 4438,
+          "holdout_sources": 1902
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 21,
+          "22": 2
+        },
+        "B2_selected": {
+          "21": 21,
+          "22": 2
+        },
+        "B3_spherical": {
+          "21": 21,
+          "22": 2
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 161.86215917393565,
+      "peak_rss_mib": 732.21875,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "066aed4b69d01945ebd0c7d1e20a762c9bfed90d8436fcccbd4928c53632586d",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_08_10",
+      "center_theta_deg": 30.76350060755456,
+      "members": {
+        "old": {
+          "sources": 5775,
+          "same_physical_members_as_old": 5775,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 5779,
+          "same_physical_members_as_old": 5774,
+          "new_member_sets": 5,
+          "missing_old_member_sets": 1
+        },
+        "B3_spherical": {
+          "sources": 5803,
+          "same_physical_members_as_old": 5764,
+          "new_member_sets": 39,
+          "missing_old_member_sets": 11
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "21_to_22": {
+              "initial": 4136,
+              "sdss_nearby": 2325,
+              "associated": 2325,
+              "fit_eligible": 1978,
+              "calibrated": 1978,
+              "final": 1874,
+              "insufficient_time_sampling": 347,
+              "no_sdss_within_fixed_gate": 1811,
+              "final_quality_rejection": 104
+            },
+            "20_to_21": {
+              "initial": 3149,
+              "sdss_nearby": 1473,
+              "associated": 1473,
+              "fit_eligible": 1231,
+              "calibrated": 1231,
+              "final": 1230,
+              "insufficient_time_sampling": 242,
+              "no_sdss_within_fixed_gate": 1676,
+              "final_quality_rejection": 1
+            },
+            "lt20": {
+              "initial": 2936,
+              "sdss_nearby": 1574,
+              "associated": 1574,
+              "fit_eligible": 1302,
+              "calibrated": 1302,
+              "final": 1301,
+              "insufficient_time_sampling": 272,
+              "no_sdss_within_fixed_gate": 1362,
+              "final_quality_rejection": 1
+            },
+            "22_to_23": {
+              "initial": 1604,
+              "sdss_nearby": 803,
+              "associated": 802,
+              "fit_eligible": 676,
+              "calibrated": 676,
+              "final": 388,
+              "final_quality_rejection": 288,
+              "no_sdss_within_fixed_gate": 801,
+              "insufficient_time_sampling": 126,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 33,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 33
+            }
+          },
+          "physical_all_r_anchor": {
+            "21_to_22": {
+              "initial": 4136,
+              "sdss_nearby": 2325,
+              "associated": 2325,
+              "fit_eligible": 2319,
+              "calibrated": 2319,
+              "final": 2214,
+              "no_sdss_within_fixed_gate": 1811,
+              "final_quality_rejection": 105,
+              "insufficient_time_sampling": 6
+            },
+            "20_to_21": {
+              "initial": 3149,
+              "sdss_nearby": 1473,
+              "associated": 1473,
+              "fit_eligible": 1469,
+              "calibrated": 1469,
+              "final": 1468,
+              "insufficient_time_sampling": 4,
+              "no_sdss_within_fixed_gate": 1676,
+              "final_quality_rejection": 1
+            },
+            "lt20": {
+              "initial": 2936,
+              "sdss_nearby": 1574,
+              "associated": 1574,
+              "fit_eligible": 1559,
+              "calibrated": 1559,
+              "final": 1557,
+              "no_sdss_within_fixed_gate": 1362,
+              "insufficient_time_sampling": 15,
+              "final_quality_rejection": 2
+            },
+            "22_to_23": {
+              "initial": 1604,
+              "sdss_nearby": 803,
+              "associated": 802,
+              "fit_eligible": 787,
+              "calibrated": 787,
+              "final": 525,
+              "final_quality_rejection": 262,
+              "no_sdss_within_fixed_gate": 801,
+              "insufficient_time_sampling": 15,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 33,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 33
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 55406,
+            "non_r_missing_survey": 35630,
+            "non_r_before_quality": 460,
+            "non_r_time_exit": 262,
+            "non_r_morphology_exit": 180,
+            "non_r_ownership_exit": 1,
+            "non_r_formal_error_exit": 2
+          },
+          "strict_r_solutions": 4793
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "21_to_22": {
+              "initial": 4134,
+              "sdss_nearby": 2329,
+              "associated": 2328,
+              "fit_eligible": 1981,
+              "calibrated": 1981,
+              "final": 1877,
+              "insufficient_time_sampling": 347,
+              "no_sdss_within_fixed_gate": 1805,
+              "final_quality_rejection": 104,
+              "split_or_competing_track": 1
+            },
+            "20_to_21": {
+              "initial": 3147,
+              "sdss_nearby": 1475,
+              "associated": 1474,
+              "fit_eligible": 1233,
+              "calibrated": 1233,
+              "final": 1232,
+              "insufficient_time_sampling": 241,
+              "no_sdss_within_fixed_gate": 1672,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 1
+            },
+            "lt20": {
+              "initial": 2932,
+              "sdss_nearby": 1588,
+              "associated": 1588,
+              "fit_eligible": 1315,
+              "calibrated": 1315,
+              "final": 1314,
+              "insufficient_time_sampling": 273,
+              "no_sdss_within_fixed_gate": 1344,
+              "final_quality_rejection": 1
+            },
+            "22_to_23": {
+              "initial": 1603,
+              "sdss_nearby": 806,
+              "associated": 806,
+              "fit_eligible": 681,
+              "calibrated": 681,
+              "final": 391,
+              "final_quality_rejection": 290,
+              "no_sdss_within_fixed_gate": 797,
+              "insufficient_time_sampling": 125
+            },
+            "ge23": {
+              "initial": 33,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 33
+            }
+          },
+          "physical_all_r_anchor": {
+            "21_to_22": {
+              "initial": 4134,
+              "sdss_nearby": 2329,
+              "associated": 2328,
+              "fit_eligible": 2322,
+              "calibrated": 2322,
+              "final": 2217,
+              "no_sdss_within_fixed_gate": 1805,
+              "final_quality_rejection": 105,
+              "insufficient_time_sampling": 6,
+              "split_or_competing_track": 1
+            },
+            "20_to_21": {
+              "initial": 3147,
+              "sdss_nearby": 1475,
+              "associated": 1474,
+              "fit_eligible": 1471,
+              "calibrated": 1471,
+              "final": 1470,
+              "no_sdss_within_fixed_gate": 1672,
+              "insufficient_time_sampling": 3,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 1
+            },
+            "lt20": {
+              "initial": 2932,
+              "sdss_nearby": 1588,
+              "associated": 1588,
+              "fit_eligible": 1577,
+              "calibrated": 1577,
+              "final": 1575,
+              "no_sdss_within_fixed_gate": 1344,
+              "insufficient_time_sampling": 11,
+              "final_quality_rejection": 2
+            },
+            "22_to_23": {
+              "initial": 1603,
+              "sdss_nearby": 806,
+              "associated": 806,
+              "fit_eligible": 792,
+              "calibrated": 792,
+              "final": 528,
+              "final_quality_rejection": 264,
+              "no_sdss_within_fixed_gate": 797,
+              "insufficient_time_sampling": 14
+            },
+            "ge23": {
+              "initial": 33,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 33
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 54979,
+            "non_r_missing_survey": 35157,
+            "non_r_before_quality": 442,
+            "non_r_morphology_exit": 181,
+            "non_r_time_exit": 246,
+            "non_r_formal_error_exit": 2
+          },
+          "strict_r_solutions": 4814
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 59373,
+        "sky_sdss_nsc_r_edges": 59585,
+        "new_edges": 212,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 47783,
+          "reference_sources": 5337,
+          "training_sources": 3779,
+          "holdout_sources": 1558
+        },
+        "spherical": {
+          "measurements": 48121,
+          "reference_sources": 5381,
+          "training_sources": 3802,
+          "holdout_sources": 1579
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 37,
+          "22": 1
+        },
+        "B2_selected": {
+          "21": 37,
+          "22": 1
+        },
+        "B3_spherical": {
+          "21": 37,
+          "22": 1
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 200.6725781899877,
+      "peak_rss_mib": 878.984375,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "44747df4b5fa9873be4f9d7c958c4d4ae5452bf32e17616c65cbfeeda6345540",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_28_00",
+      "center_theta_deg": 31.61934873903847,
+      "members": {
+        "old": {
+          "sources": 3870,
+          "same_physical_members_as_old": 3870,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3873,
+          "same_physical_members_as_old": 3868,
+          "new_member_sets": 5,
+          "missing_old_member_sets": 2
+        },
+        "B3_spherical": {
+          "sources": 3893,
+          "same_physical_members_as_old": 3849,
+          "new_member_sets": 44,
+          "missing_old_member_sets": 21
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1680,
+              "sdss_nearby": 1401,
+              "associated": 1399,
+              "fit_eligible": 1057,
+              "calibrated": 1057,
+              "final": 1056,
+              "insufficient_time_sampling": 342,
+              "no_sdss_within_fixed_gate": 279,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 2
+            },
+            "20_to_21": {
+              "initial": 1254,
+              "sdss_nearby": 796,
+              "associated": 795,
+              "fit_eligible": 598,
+              "calibrated": 598,
+              "final": 598,
+              "no_sdss_within_fixed_gate": 458,
+              "insufficient_time_sampling": 197,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 1590,
+              "sdss_nearby": 1394,
+              "associated": 1392,
+              "fit_eligible": 1018,
+              "calibrated": 1018,
+              "final": 972,
+              "no_sdss_within_fixed_gate": 196,
+              "final_quality_rejection": 46,
+              "insufficient_time_sampling": 374,
+              "split_or_competing_track": 2
+            },
+            "22_to_23": {
+              "initial": 640,
+              "sdss_nearby": 493,
+              "associated": 492,
+              "fit_eligible": 367,
+              "calibrated": 367,
+              "final": 247,
+              "no_sdss_within_fixed_gate": 147,
+              "insufficient_time_sampling": 125,
+              "final_quality_rejection": 120,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 28,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 28
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1680,
+              "sdss_nearby": 1401,
+              "associated": 1399,
+              "fit_eligible": 1380,
+              "calibrated": 1380,
+              "final": 1378,
+              "no_sdss_within_fixed_gate": 279,
+              "insufficient_time_sampling": 19,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 2
+            },
+            "20_to_21": {
+              "initial": 1254,
+              "sdss_nearby": 796,
+              "associated": 795,
+              "fit_eligible": 795,
+              "calibrated": 795,
+              "final": 794,
+              "no_sdss_within_fixed_gate": 458,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1590,
+              "sdss_nearby": 1394,
+              "associated": 1392,
+              "fit_eligible": 1389,
+              "calibrated": 1389,
+              "final": 1339,
+              "no_sdss_within_fixed_gate": 196,
+              "final_quality_rejection": 50,
+              "insufficient_time_sampling": 3,
+              "split_or_competing_track": 2
+            },
+            "22_to_23": {
+              "initial": 640,
+              "sdss_nearby": 493,
+              "associated": 492,
+              "fit_eligible": 487,
+              "calibrated": 487,
+              "final": 351,
+              "no_sdss_within_fixed_gate": 147,
+              "final_quality_rejection": 136,
+              "insufficient_time_sampling": 5,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 28,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 28
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 45013,
+            "non_r_missing_survey": 26703,
+            "non_r_before_quality": 489,
+            "non_r_morphology_exit": 261,
+            "non_r_time_exit": 208,
+            "non_r_ownership_exit": 6,
+            "non_r_formal_error_exit": 3
+          },
+          "strict_r_solutions": 2873
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1677,
+              "sdss_nearby": 1415,
+              "associated": 1413,
+              "fit_eligible": 1068,
+              "calibrated": 1068,
+              "final": 1067,
+              "insufficient_time_sampling": 345,
+              "no_sdss_within_fixed_gate": 262,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 2
+            },
+            "20_to_21": {
+              "initial": 1254,
+              "sdss_nearby": 800,
+              "associated": 799,
+              "fit_eligible": 601,
+              "calibrated": 601,
+              "final": 601,
+              "no_sdss_within_fixed_gate": 454,
+              "split_or_competing_track": 1,
+              "insufficient_time_sampling": 198
+            },
+            "21_to_22": {
+              "initial": 1588,
+              "sdss_nearby": 1393,
+              "associated": 1391,
+              "fit_eligible": 1018,
+              "calibrated": 1018,
+              "final": 972,
+              "no_sdss_within_fixed_gate": 195,
+              "final_quality_rejection": 46,
+              "insufficient_time_sampling": 373,
+              "split_or_competing_track": 2
+            },
+            "22_to_23": {
+              "initial": 640,
+              "sdss_nearby": 494,
+              "associated": 493,
+              "fit_eligible": 368,
+              "calibrated": 368,
+              "final": 247,
+              "no_sdss_within_fixed_gate": 146,
+              "insufficient_time_sampling": 125,
+              "final_quality_rejection": 121,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 28,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 28
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1677,
+              "sdss_nearby": 1415,
+              "associated": 1413,
+              "fit_eligible": 1397,
+              "calibrated": 1397,
+              "final": 1395,
+              "no_sdss_within_fixed_gate": 262,
+              "insufficient_time_sampling": 16,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 2
+            },
+            "20_to_21": {
+              "initial": 1254,
+              "sdss_nearby": 800,
+              "associated": 799,
+              "fit_eligible": 799,
+              "calibrated": 799,
+              "final": 798,
+              "no_sdss_within_fixed_gate": 454,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1588,
+              "sdss_nearby": 1393,
+              "associated": 1391,
+              "fit_eligible": 1388,
+              "calibrated": 1388,
+              "final": 1339,
+              "no_sdss_within_fixed_gate": 195,
+              "final_quality_rejection": 49,
+              "split_or_competing_track": 2,
+              "insufficient_time_sampling": 3
+            },
+            "22_to_23": {
+              "initial": 640,
+              "sdss_nearby": 494,
+              "associated": 493,
+              "fit_eligible": 488,
+              "calibrated": 488,
+              "final": 352,
+              "no_sdss_within_fixed_gate": 146,
+              "final_quality_rejection": 136,
+              "insufficient_time_sampling": 5,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 28,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 28
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 44563,
+            "non_r_missing_survey": 26219,
+            "non_r_before_quality": 460,
+            "non_r_morphology_exit": 262,
+            "non_r_time_exit": 181,
+            "non_r_ownership_exit": 5,
+            "non_r_formal_error_exit": 3
+          },
+          "strict_r_solutions": 2887
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 64860,
+        "sky_sdss_nsc_r_edges": 65125,
+        "new_edges": 265,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 59265,
+          "reference_sources": 5465,
+          "training_sources": 3791,
+          "holdout_sources": 1674
+        },
+        "spherical": {
+          "measurements": 59823,
+          "reference_sources": 5521,
+          "training_sources": 3829,
+          "holdout_sources": 1692
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 32,
+          "22": 1
+        },
+        "B2_selected": {
+          "21": 32,
+          "22": 1
+        },
+        "B3_spherical": {
+          "21": 32,
+          "22": 1
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 152.37035622703843,
+      "peak_rss_mib": 750.015625,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "1854239079d86fef657dd117014246e99dfa90da633264b3162e91f5c3081c22",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_28_01",
+      "center_theta_deg": 31.404484028508126,
+      "members": {
+        "old": {
+          "sources": 3536,
+          "same_physical_members_as_old": 3536,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3536,
+          "same_physical_members_as_old": 3533,
+          "new_member_sets": 3,
+          "missing_old_member_sets": 3
+        },
+        "B3_spherical": {
+          "sources": 3556,
+          "same_physical_members_as_old": 3527,
+          "new_member_sets": 29,
+          "missing_old_member_sets": 9
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "20_to_21": {
+              "initial": 1015,
+              "sdss_nearby": 799,
+              "associated": 797,
+              "fit_eligible": 654,
+              "calibrated": 654,
+              "final": 654,
+              "no_sdss_within_fixed_gate": 216,
+              "insufficient_time_sampling": 143,
+              "split_or_competing_track": 2
+            },
+            "lt20": {
+              "initial": 1594,
+              "sdss_nearby": 1383,
+              "associated": 1380,
+              "fit_eligible": 1098,
+              "calibrated": 1098,
+              "final": 1098,
+              "insufficient_time_sampling": 282,
+              "no_sdss_within_fixed_gate": 211,
+              "split_or_competing_track": 3
+            },
+            "21_to_22": {
+              "initial": 1398,
+              "sdss_nearby": 1246,
+              "associated": 1245,
+              "fit_eligible": 1043,
+              "calibrated": 1043,
+              "final": 976,
+              "insufficient_time_sampling": 202,
+              "no_sdss_within_fixed_gate": 152,
+              "final_quality_rejection": 67,
+              "split_or_competing_track": 1
+            },
+            "22_to_23": {
+              "initial": 345,
+              "sdss_nearby": 257,
+              "associated": 257,
+              "fit_eligible": 198,
+              "calibrated": 198,
+              "final": 121,
+              "final_quality_rejection": 77,
+              "insufficient_time_sampling": 59,
+              "no_sdss_within_fixed_gate": 88
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "physical_all_r_anchor": {
+            "20_to_21": {
+              "initial": 1015,
+              "sdss_nearby": 799,
+              "associated": 797,
+              "fit_eligible": 797,
+              "calibrated": 797,
+              "final": 797,
+              "no_sdss_within_fixed_gate": 216,
+              "split_or_competing_track": 2
+            },
+            "lt20": {
+              "initial": 1594,
+              "sdss_nearby": 1383,
+              "associated": 1380,
+              "fit_eligible": 1356,
+              "calibrated": 1356,
+              "final": 1355,
+              "no_sdss_within_fixed_gate": 211,
+              "insufficient_time_sampling": 24,
+              "split_or_competing_track": 3,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1398,
+              "sdss_nearby": 1246,
+              "associated": 1245,
+              "fit_eligible": 1242,
+              "calibrated": 1242,
+              "final": 1189,
+              "no_sdss_within_fixed_gate": 152,
+              "final_quality_rejection": 53,
+              "insufficient_time_sampling": 3,
+              "split_or_competing_track": 1
+            },
+            "22_to_23": {
+              "initial": 345,
+              "sdss_nearby": 257,
+              "associated": 257,
+              "fit_eligible": 252,
+              "calibrated": 252,
+              "final": 189,
+              "final_quality_rejection": 63,
+              "no_sdss_within_fixed_gate": 88,
+              "insufficient_time_sampling": 5
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 44055,
+            "non_r_before_quality": 755,
+            "non_r_time_exit": 331,
+            "non_r_missing_survey": 25865,
+            "non_r_morphology_exit": 405,
+            "non_r_ownership_exit": 3,
+            "non_r_formal_error_exit": 10
+          },
+          "strict_r_solutions": 2849
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "20_to_21": {
+              "initial": 1013,
+              "sdss_nearby": 800,
+              "associated": 799,
+              "fit_eligible": 656,
+              "calibrated": 656,
+              "final": 656,
+              "no_sdss_within_fixed_gate": 213,
+              "insufficient_time_sampling": 143,
+              "split_or_competing_track": 1
+            },
+            "lt20": {
+              "initial": 1590,
+              "sdss_nearby": 1396,
+              "associated": 1396,
+              "fit_eligible": 1115,
+              "calibrated": 1115,
+              "final": 1115,
+              "insufficient_time_sampling": 281,
+              "no_sdss_within_fixed_gate": 194
+            },
+            "21_to_22": {
+              "initial": 1396,
+              "sdss_nearby": 1245,
+              "associated": 1245,
+              "fit_eligible": 1044,
+              "calibrated": 1044,
+              "final": 976,
+              "insufficient_time_sampling": 201,
+              "no_sdss_within_fixed_gate": 151,
+              "final_quality_rejection": 68
+            },
+            "22_to_23": {
+              "initial": 345,
+              "sdss_nearby": 257,
+              "associated": 257,
+              "fit_eligible": 198,
+              "calibrated": 198,
+              "final": 121,
+              "final_quality_rejection": 77,
+              "insufficient_time_sampling": 59,
+              "no_sdss_within_fixed_gate": 88
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "physical_all_r_anchor": {
+            "20_to_21": {
+              "initial": 1013,
+              "sdss_nearby": 800,
+              "associated": 799,
+              "fit_eligible": 799,
+              "calibrated": 799,
+              "final": 799,
+              "no_sdss_within_fixed_gate": 213,
+              "split_or_competing_track": 1
+            },
+            "lt20": {
+              "initial": 1590,
+              "sdss_nearby": 1396,
+              "associated": 1396,
+              "fit_eligible": 1375,
+              "calibrated": 1375,
+              "final": 1374,
+              "no_sdss_within_fixed_gate": 194,
+              "insufficient_time_sampling": 21,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1396,
+              "sdss_nearby": 1245,
+              "associated": 1245,
+              "fit_eligible": 1242,
+              "calibrated": 1242,
+              "final": 1188,
+              "no_sdss_within_fixed_gate": 151,
+              "final_quality_rejection": 54,
+              "insufficient_time_sampling": 3
+            },
+            "22_to_23": {
+              "initial": 345,
+              "sdss_nearby": 257,
+              "associated": 257,
+              "fit_eligible": 252,
+              "calibrated": 252,
+              "final": 189,
+              "final_quality_rejection": 63,
+              "no_sdss_within_fixed_gate": 88,
+              "insufficient_time_sampling": 5
+            },
+            "ge23": {
+              "initial": 26,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 26
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 43705,
+            "non_r_before_quality": 740,
+            "non_r_time_exit": 316,
+            "non_r_missing_survey": 25471,
+            "non_r_morphology_exit": 405,
+            "non_r_ownership_exit": 3,
+            "non_r_formal_error_exit": 10
+          },
+          "strict_r_solutions": 2868
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 43725,
+        "sky_sdss_nsc_r_edges": 43938,
+        "new_edges": 213,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 54008,
+          "reference_sources": 5958,
+          "training_sources": 4201,
+          "holdout_sources": 1757
+        },
+        "spherical": {
+          "measurements": 54421,
+          "reference_sources": 6011,
+          "training_sources": 4236,
+          "holdout_sources": 1775
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 16,
+          "22": 0
+        },
+        "B2_selected": {
+          "21": 16,
+          "22": 0
+        },
+        "B3_spherical": {
+          "21": 16,
+          "22": 0
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 140.36221932491753,
+      "peak_rss_mib": 732.21875,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "cde2c69861581fe7e1b721bdfdb320e149682cee066ed22803edab50866094f4",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w210_110_26_01",
+      "center_theta_deg": 31.861078783996383,
+      "members": {
+        "old": {
+          "sources": 3879,
+          "same_physical_members_as_old": 3879,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 3880,
+          "same_physical_members_as_old": 3877,
+          "new_member_sets": 3,
+          "missing_old_member_sets": 2
+        },
+        "B3_spherical": {
+          "sources": 3903,
+          "same_physical_members_as_old": 3860,
+          "new_member_sets": 43,
+          "missing_old_member_sets": 19
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1618,
+              "sdss_nearby": 1369,
+              "associated": 1367,
+              "fit_eligible": 1094,
+              "calibrated": 1094,
+              "final": 1094,
+              "no_sdss_within_fixed_gate": 249,
+              "insufficient_time_sampling": 273,
+              "split_or_competing_track": 2
+            },
+            "20_to_21": {
+              "initial": 1230,
+              "sdss_nearby": 856,
+              "associated": 855,
+              "fit_eligible": 688,
+              "calibrated": 688,
+              "final": 687,
+              "no_sdss_within_fixed_gate": 374,
+              "insufficient_time_sampling": 167,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 1595,
+              "sdss_nearby": 1422,
+              "associated": 1420,
+              "fit_eligible": 1124,
+              "calibrated": 1124,
+              "final": 1066,
+              "no_sdss_within_fixed_gate": 173,
+              "final_quality_rejection": 58,
+              "insufficient_time_sampling": 296,
+              "split_or_competing_track": 2
+            },
+            "22_to_23": {
+              "initial": 574,
+              "sdss_nearby": 436,
+              "associated": 436,
+              "fit_eligible": 337,
+              "calibrated": 337,
+              "final": 210,
+              "no_sdss_within_fixed_gate": 138,
+              "insufficient_time_sampling": 99,
+              "final_quality_rejection": 127
+            },
+            "ge23": {
+              "initial": 35,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 34,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1618,
+              "sdss_nearby": 1369,
+              "associated": 1367,
+              "fit_eligible": 1357,
+              "calibrated": 1357,
+              "final": 1356,
+              "no_sdss_within_fixed_gate": 249,
+              "insufficient_time_sampling": 10,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 2
+            },
+            "20_to_21": {
+              "initial": 1230,
+              "sdss_nearby": 856,
+              "associated": 855,
+              "fit_eligible": 852,
+              "calibrated": 852,
+              "final": 851,
+              "no_sdss_within_fixed_gate": 374,
+              "insufficient_time_sampling": 3,
+              "final_quality_rejection": 1,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 1595,
+              "sdss_nearby": 1422,
+              "associated": 1420,
+              "fit_eligible": 1420,
+              "calibrated": 1420,
+              "final": 1351,
+              "no_sdss_within_fixed_gate": 173,
+              "final_quality_rejection": 69,
+              "split_or_competing_track": 2
+            },
+            "22_to_23": {
+              "initial": 574,
+              "sdss_nearby": 436,
+              "associated": 436,
+              "fit_eligible": 430,
+              "calibrated": 430,
+              "final": 301,
+              "no_sdss_within_fixed_gate": 138,
+              "final_quality_rejection": 129,
+              "insufficient_time_sampling": 6
+            },
+            "ge23": {
+              "initial": 35,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 1,
+              "calibrated": 1,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 34,
+              "final_quality_rejection": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 45793,
+            "non_r_missing_survey": 26567,
+            "non_r_before_quality": 621,
+            "non_r_morphology_exit": 328,
+            "non_r_time_exit": 262,
+            "non_r_ownership_exit": 7,
+            "non_r_formal_error_exit": 3
+          },
+          "strict_r_solutions": 3057
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1616,
+              "sdss_nearby": 1390,
+              "associated": 1389,
+              "fit_eligible": 1114,
+              "calibrated": 1114,
+              "final": 1114,
+              "no_sdss_within_fixed_gate": 226,
+              "insufficient_time_sampling": 275,
+              "split_or_competing_track": 1
+            },
+            "20_to_21": {
+              "initial": 1230,
+              "sdss_nearby": 859,
+              "associated": 858,
+              "fit_eligible": 689,
+              "calibrated": 689,
+              "final": 688,
+              "no_sdss_within_fixed_gate": 371,
+              "insufficient_time_sampling": 169,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1595,
+              "sdss_nearby": 1425,
+              "associated": 1425,
+              "fit_eligible": 1127,
+              "calibrated": 1127,
+              "final": 1069,
+              "no_sdss_within_fixed_gate": 170,
+              "final_quality_rejection": 58,
+              "insufficient_time_sampling": 298
+            },
+            "22_to_23": {
+              "initial": 572,
+              "sdss_nearby": 438,
+              "associated": 438,
+              "fit_eligible": 339,
+              "calibrated": 339,
+              "final": 212,
+              "no_sdss_within_fixed_gate": 134,
+              "insufficient_time_sampling": 99,
+              "final_quality_rejection": 127
+            },
+            "ge23": {
+              "initial": 35,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 34,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1616,
+              "sdss_nearby": 1390,
+              "associated": 1389,
+              "fit_eligible": 1379,
+              "calibrated": 1379,
+              "final": 1377,
+              "no_sdss_within_fixed_gate": 226,
+              "insufficient_time_sampling": 10,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 1
+            },
+            "20_to_21": {
+              "initial": 1230,
+              "sdss_nearby": 859,
+              "associated": 858,
+              "fit_eligible": 855,
+              "calibrated": 855,
+              "final": 854,
+              "no_sdss_within_fixed_gate": 371,
+              "insufficient_time_sampling": 3,
+              "split_or_competing_track": 1,
+              "final_quality_rejection": 1
+            },
+            "21_to_22": {
+              "initial": 1595,
+              "sdss_nearby": 1425,
+              "associated": 1425,
+              "fit_eligible": 1423,
+              "calibrated": 1423,
+              "final": 1354,
+              "no_sdss_within_fixed_gate": 170,
+              "final_quality_rejection": 69,
+              "insufficient_time_sampling": 2
+            },
+            "22_to_23": {
+              "initial": 572,
+              "sdss_nearby": 438,
+              "associated": 438,
+              "fit_eligible": 433,
+              "calibrated": 433,
+              "final": 303,
+              "no_sdss_within_fixed_gate": 134,
+              "final_quality_rejection": 130,
+              "insufficient_time_sampling": 5
+            },
+            "ge23": {
+              "initial": 35,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 1,
+              "calibrated": 1,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 34,
+              "final_quality_rejection": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 45350,
+            "non_r_missing_survey": 26076,
+            "non_r_before_quality": 589,
+            "non_r_morphology_exit": 328,
+            "non_r_time_exit": 239,
+            "non_r_formal_error_exit": 3,
+            "non_r_ownership_exit": 4
+          },
+          "strict_r_solutions": 3083
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 54309,
+        "sky_sdss_nsc_r_edges": 54574,
+        "new_edges": 265,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 58100,
+          "reference_sources": 5643,
+          "training_sources": 3985,
+          "holdout_sources": 1658
+        },
+        "spherical": {
+          "measurements": 58887,
+          "reference_sources": 5726,
+          "training_sources": 4038,
+          "holdout_sources": 1688
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 42,
+          "22": 2
+        },
+        "B2_selected": {
+          "21": 42,
+          "22": 2
+        },
+        "B3_spherical": {
+          "21": 42,
+          "22": 2
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 144.76302386890166,
+      "peak_rss_mib": 756.1640625,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "911b0a85c3ec46fb70b0f5ea94c6c24559f27c047117390091edaa9a35915739",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w120_110_28_00",
+      "center_theta_deg": 46.15930529832607,
+      "members": {
+        "old": {
+          "sources": 6655,
+          "same_physical_members_as_old": 6655,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 6668,
+          "same_physical_members_as_old": 6653,
+          "new_member_sets": 15,
+          "missing_old_member_sets": 2
+        },
+        "B3_spherical": {
+          "sources": 6753,
+          "same_physical_members_as_old": 6563,
+          "new_member_sets": 190,
+          "missing_old_member_sets": 92
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "21_to_22": {
+              "initial": 2239,
+              "sdss_nearby": 1724,
+              "associated": 1722,
+              "fit_eligible": 1639,
+              "calibrated": 1639,
+              "final": 1637,
+              "no_sdss_within_fixed_gate": 515,
+              "insufficient_time_sampling": 83,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 2
+            },
+            "lt20": {
+              "initial": 3553,
+              "sdss_nearby": 3242,
+              "associated": 3226,
+              "fit_eligible": 3071,
+              "calibrated": 3071,
+              "final": 3069,
+              "split_or_competing_track": 16,
+              "no_sdss_within_fixed_gate": 311,
+              "insufficient_time_sampling": 155,
+              "final_quality_rejection": 2
+            },
+            "20_to_21": {
+              "initial": 1997,
+              "sdss_nearby": 1399,
+              "associated": 1389,
+              "fit_eligible": 1354,
+              "calibrated": 1354,
+              "final": 1354,
+              "no_sdss_within_fixed_gate": 598,
+              "split_or_competing_track": 10,
+              "insufficient_time_sampling": 35
+            },
+            "22_to_23": {
+              "initial": 578,
+              "sdss_nearby": 371,
+              "associated": 368,
+              "fit_eligible": 283,
+              "calibrated": 283,
+              "final": 261,
+              "no_sdss_within_fixed_gate": 207,
+              "final_quality_rejection": 22,
+              "split_or_competing_track": 3,
+              "insufficient_time_sampling": 85
+            },
+            "ge23": {
+              "initial": 83,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 83
+            }
+          },
+          "physical_all_r_anchor": {
+            "21_to_22": {
+              "initial": 2239,
+              "sdss_nearby": 1724,
+              "associated": 1722,
+              "fit_eligible": 1721,
+              "calibrated": 1721,
+              "final": 1719,
+              "no_sdss_within_fixed_gate": 515,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 2,
+              "insufficient_time_sampling": 1
+            },
+            "lt20": {
+              "initial": 3553,
+              "sdss_nearby": 3242,
+              "associated": 3226,
+              "fit_eligible": 3197,
+              "calibrated": 3197,
+              "final": 3193,
+              "split_or_competing_track": 16,
+              "no_sdss_within_fixed_gate": 311,
+              "insufficient_time_sampling": 29,
+              "final_quality_rejection": 4
+            },
+            "20_to_21": {
+              "initial": 1997,
+              "sdss_nearby": 1399,
+              "associated": 1389,
+              "fit_eligible": 1388,
+              "calibrated": 1388,
+              "final": 1388,
+              "no_sdss_within_fixed_gate": 598,
+              "split_or_competing_track": 10,
+              "insufficient_time_sampling": 1
+            },
+            "22_to_23": {
+              "initial": 578,
+              "sdss_nearby": 371,
+              "associated": 368,
+              "fit_eligible": 358,
+              "calibrated": 358,
+              "final": 334,
+              "no_sdss_within_fixed_gate": 207,
+              "final_quality_rejection": 24,
+              "split_or_competing_track": 3,
+              "insufficient_time_sampling": 10
+            },
+            "ge23": {
+              "initial": 83,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 83
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 56545,
+            "non_r_before_quality": 659,
+            "non_r_time_exit": 388,
+            "non_r_missing_survey": 33437,
+            "non_r_morphology_exit": 224,
+            "non_r_ownership_exit": 9,
+            "non_r_shared_detection_rejected": 2,
+            "non_r_formal_error_exit": 2
+          },
+          "strict_r_solutions": 6321
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "21_to_22": {
+              "initial": 2234,
+              "sdss_nearby": 1729,
+              "associated": 1728,
+              "fit_eligible": 1647,
+              "calibrated": 1647,
+              "final": 1645,
+              "no_sdss_within_fixed_gate": 505,
+              "insufficient_time_sampling": 81,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 1
+            },
+            "lt20": {
+              "initial": 3532,
+              "sdss_nearby": 3302,
+              "associated": 3298,
+              "fit_eligible": 3143,
+              "calibrated": 3143,
+              "final": 3138,
+              "no_sdss_within_fixed_gate": 230,
+              "insufficient_time_sampling": 155,
+              "final_quality_rejection": 5,
+              "split_or_competing_track": 4
+            },
+            "20_to_21": {
+              "initial": 1984,
+              "sdss_nearby": 1402,
+              "associated": 1399,
+              "fit_eligible": 1366,
+              "calibrated": 1366,
+              "final": 1364,
+              "no_sdss_within_fixed_gate": 582,
+              "final_quality_rejection": 2,
+              "insufficient_time_sampling": 33,
+              "split_or_competing_track": 3
+            },
+            "22_to_23": {
+              "initial": 576,
+              "sdss_nearby": 372,
+              "associated": 371,
+              "fit_eligible": 284,
+              "calibrated": 284,
+              "final": 264,
+              "no_sdss_within_fixed_gate": 204,
+              "final_quality_rejection": 20,
+              "insufficient_time_sampling": 87,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 83,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 83
+            }
+          },
+          "physical_all_r_anchor": {
+            "21_to_22": {
+              "initial": 2234,
+              "sdss_nearby": 1729,
+              "associated": 1728,
+              "fit_eligible": 1727,
+              "calibrated": 1727,
+              "final": 1725,
+              "no_sdss_within_fixed_gate": 505,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 1,
+              "insufficient_time_sampling": 1
+            },
+            "lt20": {
+              "initial": 3532,
+              "sdss_nearby": 3302,
+              "associated": 3298,
+              "fit_eligible": 3269,
+              "calibrated": 3269,
+              "final": 3262,
+              "no_sdss_within_fixed_gate": 230,
+              "insufficient_time_sampling": 29,
+              "split_or_competing_track": 4,
+              "final_quality_rejection": 7
+            },
+            "20_to_21": {
+              "initial": 1984,
+              "sdss_nearby": 1402,
+              "associated": 1399,
+              "fit_eligible": 1398,
+              "calibrated": 1398,
+              "final": 1397,
+              "no_sdss_within_fixed_gate": 582,
+              "split_or_competing_track": 3,
+              "final_quality_rejection": 1,
+              "insufficient_time_sampling": 1
+            },
+            "22_to_23": {
+              "initial": 576,
+              "sdss_nearby": 372,
+              "associated": 371,
+              "fit_eligible": 362,
+              "calibrated": 362,
+              "final": 342,
+              "no_sdss_within_fixed_gate": 204,
+              "final_quality_rejection": 20,
+              "insufficient_time_sampling": 9,
+              "split_or_competing_track": 1
+            },
+            "ge23": {
+              "initial": 83,
+              "sdss_nearby": 0,
+              "associated": 0,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 83
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 53352,
+            "non_r_before_quality": 517,
+            "non_r_morphology_exit": 191,
+            "non_r_missing_survey": 30166,
+            "non_r_time_exit": 288,
+            "non_r_ownership_exit": 7,
+            "non_r_formal_error_exit": 4
+          },
+          "strict_r_solutions": 6411
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 192724,
+        "sky_sdss_nsc_r_edges": 196638,
+        "new_edges": 3914,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 65918,
+          "reference_sources": 5802,
+          "training_sources": 4031,
+          "holdout_sources": 1771
+        },
+        "spherical": {
+          "measurements": 69071,
+          "reference_sources": 6083,
+          "training_sources": 4238,
+          "holdout_sources": 1845
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 52,
+          "22": 6
+        },
+        "B2_selected": {
+          "21": 52,
+          "22": 6
+        },
+        "B3_spherical": {
+          "21": 52,
+          "22": 6
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 182.67520947998855,
+      "peak_rss_mib": 978.14453125,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "cced8c99496ca7531294001714da60e4bf4cefe770af0f0479881a2c5cc679c3",
+        "graph_sha256": "fadec0537e912d1d3d2c8f3ff0400b361661758e2b0e1f57c81709176ed64e3d",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w010_080_08_11",
+      "center_theta_deg": 14.142025591739635,
+      "members": {
+        "old": {
+          "sources": 6259,
+          "same_physical_members_as_old": 6259,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 6259,
+          "same_physical_members_as_old": 6259,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B3_spherical": {
+          "sources": 6264,
+          "same_physical_members_as_old": 6223,
+          "new_member_sets": 41,
+          "missing_old_member_sets": 36
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1871,
+              "sdss_nearby": 1451,
+              "associated": 1414,
+              "fit_eligible": 1373,
+              "calibrated": 1373,
+              "final": 1373,
+              "no_sdss_within_fixed_gate": 420,
+              "split_or_competing_track": 37,
+              "insufficient_time_sampling": 41
+            },
+            "22_to_23": {
+              "initial": 2595,
+              "sdss_nearby": 2006,
+              "associated": 2001,
+              "fit_eligible": 1992,
+              "calibrated": 1992,
+              "final": 1982,
+              "no_sdss_within_fixed_gate": 589,
+              "final_quality_rejection": 10,
+              "split_or_competing_track": 5,
+              "insufficient_time_sampling": 9
+            },
+            "20_to_21": {
+              "initial": 2578,
+              "sdss_nearby": 999,
+              "associated": 980,
+              "fit_eligible": 976,
+              "calibrated": 976,
+              "final": 976,
+              "no_sdss_within_fixed_gate": 1579,
+              "split_or_competing_track": 19,
+              "insufficient_time_sampling": 4
+            },
+            "21_to_22": {
+              "initial": 3443,
+              "sdss_nearby": 1828,
+              "associated": 1820,
+              "fit_eligible": 1811,
+              "calibrated": 1811,
+              "final": 1811,
+              "no_sdss_within_fixed_gate": 1615,
+              "split_or_competing_track": 8,
+              "insufficient_time_sampling": 9
+            },
+            "ge23": {
+              "initial": 254,
+              "sdss_nearby": 5,
+              "associated": 5,
+              "fit_eligible": 4,
+              "calibrated": 4,
+              "final": 4,
+              "no_sdss_within_fixed_gate": 249,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1871,
+              "sdss_nearby": 1451,
+              "associated": 1414,
+              "fit_eligible": 1410,
+              "calibrated": 1410,
+              "final": 1405,
+              "no_sdss_within_fixed_gate": 420,
+              "split_or_competing_track": 37,
+              "final_quality_rejection": 5,
+              "insufficient_time_sampling": 4
+            },
+            "22_to_23": {
+              "initial": 2595,
+              "sdss_nearby": 2006,
+              "associated": 2001,
+              "fit_eligible": 2001,
+              "calibrated": 2001,
+              "final": 1997,
+              "no_sdss_within_fixed_gate": 589,
+              "final_quality_rejection": 4,
+              "split_or_competing_track": 5
+            },
+            "20_to_21": {
+              "initial": 2578,
+              "sdss_nearby": 999,
+              "associated": 980,
+              "fit_eligible": 977,
+              "calibrated": 977,
+              "final": 977,
+              "no_sdss_within_fixed_gate": 1579,
+              "split_or_competing_track": 19,
+              "insufficient_time_sampling": 3
+            },
+            "21_to_22": {
+              "initial": 3443,
+              "sdss_nearby": 1828,
+              "associated": 1820,
+              "fit_eligible": 1817,
+              "calibrated": 1817,
+              "final": 1817,
+              "no_sdss_within_fixed_gate": 1615,
+              "split_or_competing_track": 8,
+              "insufficient_time_sampling": 3
+            },
+            "ge23": {
+              "initial": 254,
+              "sdss_nearby": 5,
+              "associated": 5,
+              "fit_eligible": 4,
+              "calibrated": 4,
+              "final": 4,
+              "no_sdss_within_fixed_gate": 249,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 91998,
+            "non_r_missing_survey": 62250,
+            "non_r_before_quality": 609,
+            "non_r_morphology_exit": 226,
+            "non_r_ownership_exit": 22,
+            "non_r_time_exit": 301,
+            "non_r_formal_error_exit": 1
+          },
+          "strict_r_solutions": 6144
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "lt20": {
+              "initial": 1871,
+              "sdss_nearby": 1451,
+              "associated": 1418,
+              "fit_eligible": 1377,
+              "calibrated": 1377,
+              "final": 1377,
+              "no_sdss_within_fixed_gate": 420,
+              "split_or_competing_track": 33,
+              "insufficient_time_sampling": 41
+            },
+            "22_to_23": {
+              "initial": 2595,
+              "sdss_nearby": 2006,
+              "associated": 2001,
+              "fit_eligible": 1992,
+              "calibrated": 1992,
+              "final": 1982,
+              "no_sdss_within_fixed_gate": 589,
+              "final_quality_rejection": 10,
+              "split_or_competing_track": 5,
+              "insufficient_time_sampling": 9
+            },
+            "20_to_21": {
+              "initial": 2570,
+              "sdss_nearby": 995,
+              "associated": 982,
+              "fit_eligible": 977,
+              "calibrated": 977,
+              "final": 977,
+              "no_sdss_within_fixed_gate": 1575,
+              "split_or_competing_track": 13,
+              "insufficient_time_sampling": 5
+            },
+            "21_to_22": {
+              "initial": 3443,
+              "sdss_nearby": 1828,
+              "associated": 1821,
+              "fit_eligible": 1812,
+              "calibrated": 1812,
+              "final": 1812,
+              "no_sdss_within_fixed_gate": 1615,
+              "split_or_competing_track": 7,
+              "insufficient_time_sampling": 9
+            },
+            "ge23": {
+              "initial": 254,
+              "sdss_nearby": 5,
+              "associated": 5,
+              "fit_eligible": 4,
+              "calibrated": 4,
+              "final": 4,
+              "no_sdss_within_fixed_gate": 249,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "lt20": {
+              "initial": 1871,
+              "sdss_nearby": 1451,
+              "associated": 1418,
+              "fit_eligible": 1414,
+              "calibrated": 1414,
+              "final": 1409,
+              "no_sdss_within_fixed_gate": 420,
+              "split_or_competing_track": 33,
+              "final_quality_rejection": 5,
+              "insufficient_time_sampling": 4
+            },
+            "22_to_23": {
+              "initial": 2595,
+              "sdss_nearby": 2006,
+              "associated": 2001,
+              "fit_eligible": 2001,
+              "calibrated": 2001,
+              "final": 1997,
+              "no_sdss_within_fixed_gate": 589,
+              "final_quality_rejection": 4,
+              "split_or_competing_track": 5
+            },
+            "20_to_21": {
+              "initial": 2570,
+              "sdss_nearby": 995,
+              "associated": 982,
+              "fit_eligible": 978,
+              "calibrated": 978,
+              "final": 978,
+              "no_sdss_within_fixed_gate": 1575,
+              "split_or_competing_track": 13,
+              "insufficient_time_sampling": 4
+            },
+            "21_to_22": {
+              "initial": 3443,
+              "sdss_nearby": 1828,
+              "associated": 1821,
+              "fit_eligible": 1818,
+              "calibrated": 1818,
+              "final": 1818,
+              "no_sdss_within_fixed_gate": 1615,
+              "split_or_competing_track": 7,
+              "insufficient_time_sampling": 3
+            },
+            "ge23": {
+              "initial": 254,
+              "sdss_nearby": 5,
+              "associated": 5,
+              "fit_eligible": 4,
+              "calibrated": 4,
+              "final": 4,
+              "no_sdss_within_fixed_gate": 249,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 91598,
+            "non_r_missing_survey": 61879,
+            "non_r_before_quality": 582,
+            "non_r_morphology_exit": 222,
+            "non_r_ownership_exit": 22,
+            "non_r_time_exit": 279,
+            "non_r_formal_error_exit": 1
+          },
+          "strict_r_solutions": 6150
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 2807363,
+        "sky_sdss_nsc_r_edges": 2809506,
+        "new_edges": 2143,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 334308,
+          "reference_sources": 6848,
+          "training_sources": 4774,
+          "holdout_sources": 2074
+        },
+        "spherical": {
+          "measurements": 334468,
+          "reference_sources": 6848,
+          "training_sources": 4773,
+          "holdout_sources": 2075
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 82,
+          "22": 37
+        },
+        "B2_selected": {
+          "21": 82,
+          "22": 37
+        },
+        "B3_spherical": {
+          "21": 82,
+          "22": 37
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 302.9997532480629,
+      "peak_rss_mib": 2598.1953125,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    },
+    {
+      "ticket": {
+        "source_sha256": "53e9e7b6286cecb9ad6c0377005e6c92abfdf96be693ea21f4a802ecce9bc01d",
+        "graph_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+        "implementation_sha256": "f62e61792af2e59cdfbdba847511d812592a925f74a4cac4aac7317418cc32cb",
+        "metric_sha256": "9731a6bfb74d0700ede27800a762170823fd12af0f01e6f6c9396ce55c0c95db",
+        "selection_sha256": "484466491ba5f9f8762256c837075fbb0f12b0f57ae03d9df7a7e1f8711d6d39"
+      },
+      "core": "w230_110_64_00",
+      "center_theta_deg": 53.28522828235811,
+      "members": {
+        "old": {
+          "sources": 6067,
+          "same_physical_members_as_old": 6067,
+          "new_member_sets": 0,
+          "missing_old_member_sets": 0
+        },
+        "B2_selected": {
+          "sources": 6101,
+          "same_physical_members_as_old": 6056,
+          "new_member_sets": 45,
+          "missing_old_member_sets": 11
+        },
+        "B3_spherical": {
+          "sources": 6402,
+          "same_physical_members_as_old": 5914,
+          "new_member_sets": 488,
+          "missing_old_member_sets": 153
+        }
+      },
+      "funnel": {
+        "B2_selected": {
+          "legacy_r": {
+            "21_to_22": {
+              "initial": 2152,
+              "sdss_nearby": 1882,
+              "associated": 1856,
+              "fit_eligible": 1519,
+              "calibrated": 1519,
+              "final": 1516,
+              "insufficient_time_sampling": 337,
+              "no_sdss_within_fixed_gate": 270,
+              "split_or_competing_track": 26,
+              "final_quality_rejection": 3
+            },
+            "20_to_21": {
+              "initial": 1813,
+              "sdss_nearby": 1286,
+              "associated": 1268,
+              "fit_eligible": 1040,
+              "calibrated": 1040,
+              "final": 1040,
+              "no_sdss_within_fixed_gate": 527,
+              "insufficient_time_sampling": 228,
+              "split_or_competing_track": 18
+            },
+            "lt20": {
+              "initial": 2684,
+              "sdss_nearby": 2340,
+              "associated": 2306,
+              "fit_eligible": 1873,
+              "calibrated": 1873,
+              "final": 1873,
+              "insufficient_time_sampling": 433,
+              "no_sdss_within_fixed_gate": 344,
+              "split_or_competing_track": 34
+            },
+            "22_to_23": {
+              "initial": 910,
+              "sdss_nearby": 790,
+              "associated": 772,
+              "fit_eligible": 527,
+              "calibrated": 527,
+              "final": 513,
+              "insufficient_time_sampling": 245,
+              "no_sdss_within_fixed_gate": 120,
+              "final_quality_rejection": 14,
+              "split_or_competing_track": 18
+            },
+            "ge23": {
+              "initial": 41,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 40,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "21_to_22": {
+              "initial": 2152,
+              "sdss_nearby": 1882,
+              "associated": 1856,
+              "fit_eligible": 1824,
+              "calibrated": 1824,
+              "final": 1822,
+              "no_sdss_within_fixed_gate": 270,
+              "split_or_competing_track": 26,
+              "insufficient_time_sampling": 32,
+              "final_quality_rejection": 2
+            },
+            "20_to_21": {
+              "initial": 1813,
+              "sdss_nearby": 1286,
+              "associated": 1268,
+              "fit_eligible": 1244,
+              "calibrated": 1244,
+              "final": 1244,
+              "no_sdss_within_fixed_gate": 527,
+              "insufficient_time_sampling": 24,
+              "split_or_competing_track": 18
+            },
+            "lt20": {
+              "initial": 2684,
+              "sdss_nearby": 2340,
+              "associated": 2306,
+              "fit_eligible": 2247,
+              "calibrated": 2247,
+              "final": 2247,
+              "insufficient_time_sampling": 59,
+              "no_sdss_within_fixed_gate": 344,
+              "split_or_competing_track": 34
+            },
+            "22_to_23": {
+              "initial": 910,
+              "sdss_nearby": 790,
+              "associated": 772,
+              "fit_eligible": 742,
+              "calibrated": 742,
+              "final": 713,
+              "no_sdss_within_fixed_gate": 120,
+              "split_or_competing_track": 18,
+              "final_quality_rejection": 29,
+              "insufficient_time_sampling": 30
+            },
+            "ge23": {
+              "initial": 41,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 40,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 57300,
+            "non_r_before_quality": 1670,
+            "non_r_time_exit": 1045,
+            "non_r_missing_survey": 31338,
+            "non_r_morphology_exit": 525,
+            "non_r_ownership_exit": 14,
+            "non_r_formal_error_exit": 10
+          },
+          "strict_r_solutions": 4942
+        },
+        "B3_spherical": {
+          "legacy_r": {
+            "20_to_21": {
+              "initial": 1805,
+              "sdss_nearby": 1328,
+              "associated": 1327,
+              "fit_eligible": 1097,
+              "calibrated": 1097,
+              "final": 1097,
+              "no_sdss_within_fixed_gate": 477,
+              "insufficient_time_sampling": 230,
+              "split_or_competing_track": 1
+            },
+            "lt20": {
+              "initial": 2679,
+              "sdss_nearby": 2474,
+              "associated": 2473,
+              "fit_eligible": 2005,
+              "calibrated": 2005,
+              "final": 2005,
+              "insufficient_time_sampling": 468,
+              "no_sdss_within_fixed_gate": 205,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 2148,
+              "sdss_nearby": 1933,
+              "associated": 1933,
+              "fit_eligible": 1590,
+              "calibrated": 1590,
+              "final": 1588,
+              "no_sdss_within_fixed_gate": 215,
+              "insufficient_time_sampling": 343,
+              "final_quality_rejection": 2
+            },
+            "22_to_23": {
+              "initial": 909,
+              "sdss_nearby": 813,
+              "associated": 810,
+              "fit_eligible": 562,
+              "calibrated": 562,
+              "final": 544,
+              "insufficient_time_sampling": 248,
+              "no_sdss_within_fixed_gate": 96,
+              "final_quality_rejection": 18,
+              "split_or_competing_track": 3
+            },
+            "ge23": {
+              "initial": 41,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 40,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "physical_all_r_anchor": {
+            "20_to_21": {
+              "initial": 1805,
+              "sdss_nearby": 1328,
+              "associated": 1327,
+              "fit_eligible": 1309,
+              "calibrated": 1309,
+              "final": 1307,
+              "no_sdss_within_fixed_gate": 477,
+              "insufficient_time_sampling": 18,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 1
+            },
+            "lt20": {
+              "initial": 2679,
+              "sdss_nearby": 2474,
+              "associated": 2473,
+              "fit_eligible": 2407,
+              "calibrated": 2407,
+              "final": 2405,
+              "insufficient_time_sampling": 66,
+              "no_sdss_within_fixed_gate": 205,
+              "final_quality_rejection": 2,
+              "split_or_competing_track": 1
+            },
+            "21_to_22": {
+              "initial": 2148,
+              "sdss_nearby": 1933,
+              "associated": 1933,
+              "fit_eligible": 1903,
+              "calibrated": 1903,
+              "final": 1902,
+              "no_sdss_within_fixed_gate": 215,
+              "final_quality_rejection": 1,
+              "insufficient_time_sampling": 30
+            },
+            "22_to_23": {
+              "initial": 909,
+              "sdss_nearby": 813,
+              "associated": 810,
+              "fit_eligible": 783,
+              "calibrated": 783,
+              "final": 754,
+              "no_sdss_within_fixed_gate": 96,
+              "final_quality_rejection": 29,
+              "split_or_competing_track": 3,
+              "insufficient_time_sampling": 27
+            },
+            "ge23": {
+              "initial": 41,
+              "sdss_nearby": 1,
+              "associated": 1,
+              "fit_eligible": 0,
+              "calibrated": 0,
+              "final": 0,
+              "no_sdss_within_fixed_gate": 40,
+              "insufficient_time_sampling": 1
+            }
+          },
+          "non_r": {
+            "all_filter_tracks": 51341,
+            "non_r_missing_survey": 24923,
+            "non_r_before_quality": 1157,
+            "non_r_time_exit": 663,
+            "non_r_morphology_exit": 443,
+            "non_r_ownership_exit": 7,
+            "non_r_formal_error_exit": 9
+          },
+          "strict_r_solutions": 5234
+        }
+      },
+      "candidate_edges": {
+        "old_sdss_nsc_r_edges": 140261,
+        "sky_sdss_nsc_r_edges": 148305,
+        "new_edges": 8044,
+        "lost_edges": 0
+      },
+      "reference_selection": {
+        "old_planar": {
+          "measurements": 46522,
+          "reference_sources": 4397,
+          "training_sources": 3079,
+          "holdout_sources": 1318
+        },
+        "spherical": {
+          "measurements": 50375,
+          "reference_sources": 4712,
+          "training_sources": 3298,
+          "holdout_sources": 1414
+        }
+      },
+      "qso_counts": {
+        "old": {
+          "21": 34,
+          "22": 5
+        },
+        "B2_selected": {
+          "21": 34,
+          "22": 5
+        },
+        "B3_spherical": {
+          "21": 34,
+          "22": 5
+        }
+      },
+      "old_planar_label_not_unique_in_sky": 0,
+      "elapsed_seconds": 162.67416439100634,
+      "peak_rss_mib": 875.76171875,
+      "slurm_job": "62016271",
+      "scope": "Original0.8 morphology. B2_selected changes weights/quality with old angular approximation; B3 also uses true spherical distances including QSO and reference input gates. Same frozen C0 and gauge. Source count is registered origin-core scientific replay, not a new all-area production claim. Reference input changes need a separately solved graph."
+    }
+  ],
+  "slurm_job": "62016271"
+}

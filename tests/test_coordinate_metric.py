@@ -106,3 +106,15 @@ def test_actual_chip_opportunity_keeps_band_and_depth_unknown_separate():
     np.testing.assert_array_equal(result['geometric'],[True,True,True])
     np.testing.assert_array_equal(result['catalogue_10sigma'],[True,False,False])
     np.testing.assert_array_equal(result['depth_or_band_unknown'],[False,False,True])
+
+
+def test_legacy_sweep_filename_uses_integer_declination_degrees(tmp_path):
+    from astropy.io import fits
+    from deep_pm.coordinate_candidate import independent_morphology
+    folder=tmp_path/'south/sweep/9.0';folder.mkdir(parents=True)
+    table=fits.BinTableHDU.from_columns([
+        fits.Column(name='RA',format='D',array=[211.]),fits.Column(name='DEC',format='D',array=[28.5]),
+        fits.Column(name='TYPE',format='3A',array=['PSF'])])
+    table.writeto(folder/'sweep-210p025-220p030.fits')
+    values,meta=independent_morphology(np.zeros((1,2)),tmp_path,(211.,28.5))
+    assert meta['sweep_files']==1 and values[0]['shape']=='PSF'

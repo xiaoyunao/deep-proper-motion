@@ -92,7 +92,8 @@ def independent_morphology(positions,root,center):
         for file in sorted(folder.glob('sweep-*.fits')):
             m=re.fullmatch(r'sweep-(\d{3})([mp])(\d{3})-(\d{3})([mp])(\d{3})\.fits',file.name)
             if not m:continue
-            a,s,d,b,t,e=m.groups();lo=float(d)/10*(-1 if s=='m' else 1);hi=float(e)/10*(-1 if t=='m' else 1)
+            # LS sweep names encode integer degrees (p025 is +25deg).
+            a,s,d,b,t,e=m.groups();lo=float(d)*(-1 if s=='m' else 1);hi=float(e)*(-1 if t=='m' else 1)
             overlap=(sky[:,0]>=float(a)-.003)&(sky[:,0]<=float(b)+.003)&(sky[:,1]>=lo-.003)&(sky[:,1]<=hi+.003)
             if not overlap.any():continue
             with fits.open(file,memmap=True) as h:
@@ -110,6 +111,32 @@ def independent_morphology(positions,root,center):
             masked=bool(r.get('maskbits',0)!=0),blend_proxy=bool(r.get('fracflux_r',0)>.2),
             fractional_mask=r.get('fracmasked_r'),fractional_in=r.get('fracin_r'),r_exposures=r.get('nobs_r'))
     return result,dict(sweep_files=files,matched=int(found.sum()),scope='Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support.')
+
+
+def repair_morphology(task):
+    row,completed,output,lsroot=task;prior=Path(completed)/row['core'];dest=Path(output)/row['core'];dest.mkdir(parents=True,exist_ok=True)
+    result=dest/'v21_external_morphology_core_summary.json'
+    ticket=dict(competition_sha256=digest(prior/'v21_candidate_completion_core_summary.json'),implementation_sha256=digest(Path(__file__)))
+    if result.exists():
+        r=read(result)
+        if r['ticket']!=ticket:raise ValueError('External morphology audit signature changed')
+        return r
+    start=monotonic();frozen=read(prior/'private_training_competitors.json.gz');nold=frozen['original'];members=frozen['members'][nold:]
+    config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text());graph=Path(row['graph'])/'private_c0.npz';center=reference_frame(graph)
+    data,xy,t,sigma,keep=quality_detections(Path(row['source']),center,config,settings['production']);keys=calibration_groups(data);lookup=pd.Index(data.detection_id)
+    solution=read_offsets(graph);points=[]
+    for member in members:
+        ix=lookup.get_indexer(member)
+        if (ix<0).any():raise ValueError('Frozen training identity missing from raw source')
+        model,_=fit_with_calibration(xy[ix],t[ix],sigma[ix],config['reference_epoch'],[solution[g] for g in keys[ix]])
+        points.append(model.coeff[0])
+    morph,meta=independent_morphology(np.asarray(points).reshape(-1,2),Path(lsroot),center)
+    with gzip.open(dest/'private_external_morphology.json.gz','wt') as f:json.dump(morph,f,default=json_default,allow_nan=False)
+    r=dict(ticket=ticket,core=row['core'],training_added_sources=len(members),external_morphology_counts=dict(Counter(v.get('shape',v['status']) for v in morph)),
+        blend_proxy_count=sum(v.get('blend_proxy',False) for v in morph),mask_flag_count=sum(v.get('masked',False) for v in morph),
+        metadata=meta,elapsed_seconds=monotonic()-start,slurm_job=os.environ['SLURM_JOB_ID'],
+        scope='Corrected sweep filename degree parser. Fixed old-geometry training members/fit reused; full competition and opportunity results unchanged. Previous external morphology absence was an implementation failure, superseded by this audit. LS shares some NSC images and is not stellar truth.')
+    check_aggregate(r);save_json(result,r);print('EXTERNAL_MORPHOLOGY_AUDITED',row['core'],r['external_morphology_counts'],flush=True);return r
 
 
 def one(task):

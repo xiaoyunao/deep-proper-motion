@@ -1,0 +1,4822 @@
+{
+  "cores": [
+    {
+      "ticket": {
+        "source_sha256": "a53e7ebf11cd70924c0ab54248c025b4bda1d79f86234a6ec2b296ea8a24bfa9",
+        "old_candidate_sha256": "7b87ced2eeac1073bf6116ab04e7880335a3defe28550f98b1d3010499973483",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w130_110_86_11",
+      "training": {
+        "original": {
+          "training_sources": 3715,
+          "unique_reproductions": 2826,
+          "shifted_unique_sources": [
+            7,
+            14,
+            10,
+            8
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 3184,
+              "unique_reproductions": 2826,
+              "ratio": {
+                "n": 2826,
+                "denominator": 3184,
+                "value": 0.8875628140703518,
+                "wilson95": [
+                  0.8761196950238002,
+                  0.8980718800217822
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 2659,
+              "unique_reproductions": 2444,
+              "ratio": {
+                "n": 2444,
+                "denominator": 2659,
+                "value": 0.9191425347875141,
+                "wilson95": [
+                  0.908165785410731,
+                  0.928909960355661
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 3022,
+              "unique_reproductions": 2735,
+              "ratio": {
+                "n": 2735,
+                "denominator": 3022,
+                "value": 0.9050297816015883,
+                "wilson95": [
+                  0.8940569242021011,
+                  0.9149742274016234
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 116,
+              "unique_reproductions": 59,
+              "ratio": {
+                "n": 59,
+                "denominator": 116,
+                "value": 0.5086206896551724,
+                "wilson95": [
+                  0.41883837571114535,
+                  0.5978503396940331
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 346,
+          "unique_reproductions": 212,
+          "shifted_unique_sources": [
+            1,
+            0,
+            1,
+            4
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 304,
+              "unique_reproductions": 212,
+              "ratio": {
+                "n": 212,
+                "denominator": 304,
+                "value": 0.6973684210526315,
+                "wilson95": [
+                  0.6435280914793303,
+                  0.7462829510608994
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 88,
+              "unique_reproductions": 79,
+              "ratio": {
+                "n": 79,
+                "denominator": 88,
+                "value": 0.8977272727272727,
+                "wilson95": [
+                  0.8169275157647539,
+                  0.9452554993881727
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 165,
+              "unique_reproductions": 134,
+              "ratio": {
+                "n": 134,
+                "denominator": 165,
+                "value": 0.8121212121212121,
+                "wilson95": [
+                  0.7456741280232221,
+                  0.8643656141077892
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 82,
+              "unique_reproductions": 44,
+              "ratio": {
+                "n": 44,
+                "denominator": 82,
+                "value": 0.5365853658536586,
+                "wilson95": [
+                  0.4294472560322624,
+                  0.6404490397952913
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 2826,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 212,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 3343,
+        "median": [
+          1.4914063662290573,
+          4.137606021016836
+        ],
+        "nmad": [
+          44.55107402010262,
+          61.81602597640045
+        ],
+        "absolute_radial_p68": 91.23289498115251,
+        "equal_mean": [
+          6.879174885940951,
+          12.455006651469734
+        ],
+        "median_object_interval95": [
+          [
+            -0.5058396011590958,
+            3.0503322184085846
+          ],
+          [
+            1.984627740457654,
+            6.694638462853618
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 1471,
+        "independent_exposures": 83,
+        "returned_CCD_entries": 5022,
+        "input_chip_sha256": "4c0a5ca0c408287c5bec5ecf610178ffe564c75730fcf8d9548ed8ee1998609b",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 346
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 52.15677078801673,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 29,
+          "candidate_labels": 35,
+          "lost_original_labels": 0,
+          "added_labels": 6,
+          "added_motion": {
+            "n": 6,
+            "median": [
+              -0.45164809593422084,
+              -2.8163803563247427
+            ],
+            "nmad": [
+              3.176425316976591,
+              6.592972610830295
+            ],
+            "absolute_radial_p68": 7.971534145961087,
+            "equal_mean": [
+              -0.4149404167729669,
+              -3.4653837570642643
+            ],
+            "median_object_interval95": [
+              [
+                -3.288025353144123,
+                3.0954385733895284
+              ],
+              [
+                -10.429875872909301,
+                1.5618818078954284
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 29,
+            "median": [
+              -0.14837721098357978,
+              -3.3972817185853685
+            ],
+            "nmad": [
+              3.61006816741219,
+              4.536720015567641
+            ],
+            "absolute_radial_p68": 8.195218844659976,
+            "equal_mean": [
+              0.3271074061241511,
+              -3.5791376745588237
+            ],
+            "median_object_interval95": [
+              [
+                -1.0158053968768008,
+                2.108517758187867
+              ],
+              [
+                -5.027132870465228,
+                -2.347894458304566
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 29,
+            "median": [
+              -0.14837721098357978,
+              -3.3972817185853685
+            ],
+            "nmad": [
+              3.61006816741219,
+              4.536720015567641
+            ],
+            "absolute_radial_p68": 8.195218844659976,
+            "equal_mean": [
+              0.3271074061241511,
+              -3.5791376745588237
+            ],
+            "median_object_interval95": [
+              [
+                -1.0158053968768008,
+                2.108517758187867
+              ],
+              [
+                -5.027132870465228,
+                -2.347894458304566
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 2,
+          "candidate_labels": 2,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 2
+          },
+          "common_candidate": {
+            "n": 2
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "c602a33ad921ff4201afe074f50c4f9853ac08ddeb02012db65df6ac97e8f933",
+        "old_candidate_sha256": "dfef4797cb4e5000ad09d11e87d5e40a689e7d593b1a3a6f6b38d368726079b2",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w130_110_60_10",
+      "training": {
+        "original": {
+          "training_sources": 5107,
+          "unique_reproductions": 0,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 485,
+          "unique_reproductions": 0,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 0,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 0,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 0
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 5026,
+        "independent_exposures": 268,
+        "returned_CCD_entries": 16264,
+        "input_chip_sha256": "62e9712b56553c4ec1cb3c52e421d7fcf6be9dfd78389af6f996ea029a4c43e8",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 485
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 73.54364171798807,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 5,
+          "candidate_labels": 5,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 5,
+            "median": [
+              6.18123962648986,
+              -0.7717087003077401
+            ],
+            "nmad": [
+              2.5211032902875363,
+              0.7525071522382931
+            ],
+            "absolute_radial_p68": 6.453683072673551,
+            "equal_mean": [
+              5.078396349843128,
+              -0.7169924866070917
+            ],
+            "median_object_interval95": [
+              [
+                1.6429001577063356,
+                7.881700499474843
+              ],
+              [
+                -2.628779958660936,
+                0.9977059104875629
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 5,
+            "median": [
+              6.18123962648986,
+              -0.7717087003077401
+            ],
+            "nmad": [
+              2.5211032902875363,
+              0.7525071522382931
+            ],
+            "absolute_radial_p68": 6.453683072673551,
+            "equal_mean": [
+              5.078396349843128,
+              -0.7169924866070917
+            ],
+            "median_object_interval95": [
+              [
+                1.6429001577063356,
+                7.881700499474843
+              ],
+              [
+                -2.628779958660936,
+                0.9977059104875629
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 0,
+          "candidate_labels": 0,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 0
+          },
+          "common_candidate": {
+            "n": 0
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "a168662d916f737bfa65e3f3941d8a82b0453c66a59dc0bcb1cef3239dbe8501",
+        "old_candidate_sha256": "6049171bcd195c3b763747b5b776e709446fe15302360546d3592279143c6612",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w150_090_68_11",
+      "training": {
+        "original": {
+          "training_sources": 3065,
+          "unique_reproductions": 2570,
+          "shifted_unique_sources": [
+            12,
+            16,
+            9,
+            15
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 2721,
+              "unique_reproductions": 2570,
+              "ratio": {
+                "n": 2570,
+                "denominator": 2721,
+                "value": 0.9445056964351342,
+                "wilson95": [
+                  0.9352600748493578,
+                  0.9524979971549261
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 2692,
+              "unique_reproductions": 2543,
+              "ratio": {
+                "n": 2543,
+                "denominator": 2692,
+                "value": 0.9446508172362555,
+                "wilson95": [
+                  0.9353623676160719,
+                  0.9526720500485574
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 2720,
+              "unique_reproductions": 2569,
+              "ratio": {
+                "n": 2569,
+                "denominator": 2720,
+                "value": 0.944485294117647,
+                "wilson95": [
+                  0.9352363994748002,
+                  0.9524804653117757
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 48,
+              "unique_reproductions": 44,
+              "ratio": {
+                "n": 44,
+                "denominator": 48,
+                "value": 0.9166666666666666,
+                "wilson95": [
+                  0.8044669820963272,
+                  0.9671162431819081
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 538,
+          "unique_reproductions": 467,
+          "shifted_unique_sources": [
+            5,
+            1,
+            3,
+            3
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 488,
+              "unique_reproductions": 467,
+              "ratio": {
+                "n": 467,
+                "denominator": 488,
+                "value": 0.9569672131147541,
+                "wilson95": [
+                  0.9351121704594568,
+                  0.9716840989509953
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 380,
+              "unique_reproductions": 365,
+              "ratio": {
+                "n": 365,
+                "denominator": 380,
+                "value": 0.9605263157894737,
+                "wilson95": [
+                  0.9358999594696262,
+                  0.9759348409589992
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 482,
+              "unique_reproductions": 464,
+              "ratio": {
+                "n": 464,
+                "denominator": 482,
+                "value": 0.9626556016597511,
+                "wilson95": [
+                  0.9417455032420086,
+                  0.9762494350298236
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 43,
+              "unique_reproductions": 41,
+              "ratio": {
+                "n": 41,
+                "denominator": 43,
+                "value": 0.9534883720930233,
+                "wilson95": [
+                  0.8454450199593603,
+                  0.9871507399056197
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2018,
+      "original_only_unique": 2570,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 467,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 7190,
+        "median": [
+          0.7001584991812706,
+          4.652222901582718
+        ],
+        "nmad": [
+          24.05805027296841,
+          30.906343752222508
+        ],
+        "absolute_radial_p68": 45.96768083324638,
+        "equal_mean": [
+          2.4891750354801663,
+          6.003546086763017
+        ],
+        "median_object_interval95": [
+          [
+            -0.0477688517421484,
+            1.3796212077140808
+          ],
+          [
+            3.9272063076496124,
+            5.578370211645961
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 4368,
+        "independent_exposures": 229,
+        "returned_CCD_entries": 13876,
+        "input_chip_sha256": "2ef6f6063a3cce644d1a92e2c9aaec901685b3fee890a5592244598738a9dde9",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 538
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 58.950152027071454,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 30,
+          "candidate_labels": 45,
+          "lost_original_labels": 0,
+          "added_labels": 15,
+          "added_motion": {
+            "n": 15,
+            "median": [
+              -3.3320339139987274,
+              -1.3465616512456116
+            ],
+            "nmad": [
+              2.22541173682437,
+              3.673308737957338
+            ],
+            "absolute_radial_p68": 7.398110492253821,
+            "equal_mean": [
+              -2.057502694354526,
+              -0.18130224084583937
+            ],
+            "median_object_interval95": [
+              [
+                -4.6940964967810235,
+                -1.374285593775644
+              ],
+              [
+                -3.82417445170247,
+                0.36732396004346163
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 30,
+            "median": [
+              -1.8933079298562006,
+              -0.4859984924443004
+            ],
+            "nmad": [
+              3.9992527425271236,
+              3.6870485020618906
+            ],
+            "absolute_radial_p68": 6.765628581815861,
+            "equal_mean": [
+              -1.580767496979768,
+              -1.3216931132507832
+            ],
+            "median_object_interval95": [
+              [
+                -2.92303641775856,
+                -0.1715987383187657
+              ],
+              [
+                -2.194117243829684,
+                0.34880495901120706
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 30,
+            "median": [
+              -1.8933079298562006,
+              -0.4859984924443004
+            ],
+            "nmad": [
+              3.9992527425271236,
+              3.6870485020618906
+            ],
+            "absolute_radial_p68": 6.765628581815861,
+            "equal_mean": [
+              -1.580767496979768,
+              -1.3216931132507832
+            ],
+            "median_object_interval95": [
+              [
+                -2.92303641775856,
+                -0.1715987383187657
+              ],
+              [
+                -2.194117243829684,
+                0.34880495901120706
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 2,
+          "candidate_labels": 10,
+          "lost_original_labels": 0,
+          "added_labels": 8,
+          "added_motion": {
+            "n": 8,
+            "median": [
+              -2.294689687261452,
+              -1.5976656162144738
+            ],
+            "nmad": [
+              5.617895146005987,
+              4.015299022894552
+            ],
+            "absolute_radial_p68": 8.42747791270883,
+            "equal_mean": [
+              -1.786401201714592,
+              -2.080939579897602
+            ],
+            "median_object_interval95": [
+              [
+                -6.2783600684002785,
+                1.7507700573251657
+              ],
+              [
+                -6.710971491181471,
+                0.6894047014237739
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 2
+          },
+          "common_candidate": {
+            "n": 2
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "094115c35f516809dc6cdf3f8e3b375d841b213446d60dbf12d8e9173a687623",
+        "old_candidate_sha256": "2457c272e3c80d51799eec5c616201aaed70a905198eebaa84338a3fc0341a02",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w150_090_22_10",
+      "training": {
+        "original": {
+          "training_sources": 6581,
+          "unique_reproductions": 0,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 2,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 2,
+                "value": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.6576197724933469
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 2,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 2,
+                "value": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.6576197724933469
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 2,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 2,
+                "value": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.6576197724933469
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 376,
+          "unique_reproductions": 0,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 0,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 0,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 0
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 5211,
+        "independent_exposures": 249,
+        "returned_CCD_entries": 15048,
+        "input_chip_sha256": "c9499b476c231358fac03766e2f3bde970555190ee1e4a52bc5b2fb982f44132",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 376
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 6,
+        "matched": 0,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 138.89206127205398,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 68,
+          "candidate_labels": 68,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 68,
+            "median": [
+              -0.5911402892135701,
+              -1.5287599022098335
+            ],
+            "nmad": [
+              4.2687987421264,
+              4.354013409647248
+            ],
+            "absolute_radial_p68": 5.873290624851912,
+            "equal_mean": [
+              -0.3481836476583641,
+              -1.3784015736539683
+            ],
+            "median_object_interval95": [
+              [
+                -2.2176194092225505,
+                0.4740025831092188
+              ],
+              [
+                -2.88020092433511,
+                -0.16121733795096455
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 68,
+            "median": [
+              -0.5911402892135701,
+              -1.5287599022098335
+            ],
+            "nmad": [
+              4.2687987421264,
+              4.354013409647248
+            ],
+            "absolute_radial_p68": 5.873290624851912,
+            "equal_mean": [
+              -0.3481836476583641,
+              -1.3784015736539683
+            ],
+            "median_object_interval95": [
+              [
+                -2.2176194092225505,
+                0.4740025831092188
+              ],
+              [
+                -2.88020092433511,
+                -0.16121733795096455
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 18,
+          "candidate_labels": 23,
+          "lost_original_labels": 0,
+          "added_labels": 5,
+          "added_motion": {
+            "n": 5,
+            "median": [
+              -1.7085654062246896,
+              0.7475120546189746
+            ],
+            "nmad": [
+              2.235266116496499,
+              3.8519984911189353
+            ],
+            "absolute_radial_p68": 6.023870852630976,
+            "equal_mean": [
+              0.3133734578049026,
+              2.613946528226719
+            ],
+            "median_object_interval95": [
+              [
+                -3.2162317467727126,
+                6.1821951529384025
+              ],
+              [
+                -1.850625333158535,
+                10.939066026924992
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 18,
+            "median": [
+              -0.7963982219281239,
+              -0.08489130813964632
+            ],
+            "nmad": [
+              4.140377020180995,
+              2.497152155424353
+            ],
+            "absolute_radial_p68": 7.269301430569991,
+            "equal_mean": [
+              0.5737657554032934,
+              0.04753509002912813
+            ],
+            "median_object_interval95": [
+              [
+                -2.496569140993438,
+                3.455444078716702
+              ],
+              [
+                -1.6058377820669898,
+                1.3306234823831806
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 18,
+            "median": [
+              -0.7963982219281239,
+              -0.08489130813964632
+            ],
+            "nmad": [
+              4.140377020180995,
+              2.497152155424353
+            ],
+            "absolute_radial_p68": 7.269301430569991,
+            "equal_mean": [
+              0.5737657554032934,
+              0.04753509002912813
+            ],
+            "median_object_interval95": [
+              [
+                -2.496569140993438,
+                3.455444078716702
+              ],
+              [
+                -1.6058377820669898,
+                1.3306234823831806
+              ]
+            ]
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "73bcc921e2c27861b25f2a3faabf7e06dc8e19399d52d291da5397d16a2fb4bf",
+        "old_candidate_sha256": "73bd0c87c8ce363b51690648da8f9537adc2dab7098ec3ff26e2e55706b4adff",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w170_090_28_00",
+      "training": {
+        "original": {
+          "training_sources": 4204,
+          "unique_reproductions": 2696,
+          "shifted_unique_sources": [
+            15,
+            32,
+            19,
+            28
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 3129,
+              "unique_reproductions": 2696,
+              "ratio": {
+                "n": 2696,
+                "denominator": 3129,
+                "value": 0.8616171300735059,
+                "wilson95": [
+                  0.8490741738670559,
+                  0.8732732636735175
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 2907,
+              "unique_reproductions": 2509,
+              "ratio": {
+                "n": 2509,
+                "denominator": 2907,
+                "value": 0.8630890952872377,
+                "wilson95": [
+                  0.8501129423252003,
+                  0.8751069055655385
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 3102,
+              "unique_reproductions": 2681,
+              "ratio": {
+                "n": 2681,
+                "denominator": 3102,
+                "value": 0.86428110896196,
+                "wilson95": [
+                  0.8517771432256894,
+                  0.8758839527975876
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 22,
+              "unique_reproductions": 10,
+              "ratio": {
+                "n": 10,
+                "denominator": 22,
+                "value": 0.45454545454545453,
+                "wilson95": [
+                  0.2692029418081331,
+                  0.6534020467926505
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 218,
+          "unique_reproductions": 138,
+          "shifted_unique_sources": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 156,
+              "unique_reproductions": 138,
+              "ratio": {
+                "n": 138,
+                "denominator": 156,
+                "value": 0.8846153846153846,
+                "wilson95": [
+                  0.824988355086836,
+                  0.9257555438074601
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 88,
+              "unique_reproductions": 74,
+              "ratio": {
+                "n": 74,
+                "denominator": 88,
+                "value": 0.8409090909090909,
+                "wilson95": [
+                  0.7504987505642383,
+                  0.9028009767096988
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 141,
+              "unique_reproductions": 123,
+              "ratio": {
+                "n": 123,
+                "denominator": 141,
+                "value": 0.8723404255319149,
+                "wilson95": [
+                  0.8072289038457278,
+                  0.9177016571615618
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 9,
+              "unique_reproductions": 9,
+              "ratio": {
+                "n": 9,
+                "denominator": 9,
+                "value": 1.0,
+                "wilson95": [
+                  0.7008549515804559,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 2696,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 138,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 2,
+      "matched_position_residual_mas": {
+        "n": 2834,
+        "median": [
+          -5.156228760257363,
+          0.5298301130533218
+        ],
+        "nmad": [
+          24.125104158043115,
+          29.19606346596479
+        ],
+        "absolute_radial_p68": 44.80246649121942,
+        "equal_mean": [
+          -6.368064526902957,
+          1.449149656409875
+        ],
+        "median_object_interval95": [
+          [
+            -6.122241779579781,
+            -3.9096580125624314
+          ],
+          [
+            -0.7086624186486006,
+            2.251966839423403
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 1561,
+        "independent_exposures": 81,
+        "returned_CCD_entries": 4921,
+        "input_chip_sha256": "ac198d5732cfc887ea7123ffea786e0bcaf9f4bf33b5a543c6e5b5be2ae7c856",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 218
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 2,
+        "matched": 0,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 55.70380961196497,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 9,
+          "candidate_labels": 9,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 9,
+            "median": [
+              -0.4499400932208793,
+              -0.29081508323949745
+            ],
+            "nmad": [
+              3.6128531076020343,
+              4.253939853877915
+            ],
+            "absolute_radial_p68": 5.6782353872775895,
+            "equal_mean": [
+              0.6661610522621686,
+              -1.1547829239086742
+            ],
+            "median_object_interval95": [
+              [
+                -1.4407543401207163,
+                2.184151104901897
+              ],
+              [
+                -4.705696395155604,
+                0.37062141103379886
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 9,
+            "median": [
+              -0.4499400932208793,
+              -0.29081508323949745
+            ],
+            "nmad": [
+              3.6128531076020343,
+              4.253939853877915
+            ],
+            "absolute_radial_p68": 5.6782353872775895,
+            "equal_mean": [
+              0.6661610522621686,
+              -1.1547829239086742
+            ],
+            "median_object_interval95": [
+              [
+                -1.4407543401207163,
+                2.184151104901897
+              ],
+              [
+                -4.705696395155604,
+                0.37062141103379886
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 2,
+          "candidate_labels": 2,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 2
+          },
+          "common_candidate": {
+            "n": 2
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "628837aec61f3c54c1371820dafb3e71b1d4d4d8cda0b4bd3c09850121322a95",
+        "old_candidate_sha256": "0d516e21f25c68fc8769262f2651cf24762456b1e9c98eb158178279520fcbde",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w170_090_22_11",
+      "training": {
+        "original": {
+          "training_sources": 4717,
+          "unique_reproductions": 135,
+          "shifted_unique_sources": [
+            2,
+            1,
+            1,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 137,
+              "unique_reproductions": 135,
+              "ratio": {
+                "n": 135,
+                "denominator": 137,
+                "value": 0.9854014598540146,
+                "wilson95": [
+                  0.9483368333615502,
+                  0.9959873813522643
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 127,
+              "unique_reproductions": 125,
+              "ratio": {
+                "n": 125,
+                "denominator": 127,
+                "value": 0.984251968503937,
+                "wilson95": [
+                  0.9443983609474612,
+                  0.9956706440042485
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 135,
+              "unique_reproductions": 133,
+              "ratio": {
+                "n": 133,
+                "denominator": 135,
+                "value": 0.9851851851851852,
+                "wilson95": [
+                  0.9475944129430699,
+                  0.9959277965806651
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 8,
+              "unique_reproductions": 8,
+              "ratio": {
+                "n": 8,
+                "denominator": 8,
+                "value": 1.0,
+                "wilson95": [
+                  0.6755924351161198,
+                  1.0
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 416,
+          "unique_reproductions": 10,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 11,
+              "unique_reproductions": 10,
+              "ratio": {
+                "n": 10,
+                "denominator": 11,
+                "value": 0.9090909090909091,
+                "wilson95": [
+                  0.6226415635484043,
+                  0.9837678271141151
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 6,
+              "unique_reproductions": 6,
+              "ratio": {
+                "n": 6,
+                "denominator": 6,
+                "value": 1.0,
+                "wilson95": [
+                  0.6096657120978346,
+                  1.0
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 10,
+              "unique_reproductions": 10,
+              "ratio": {
+                "n": 10,
+                "denominator": 10,
+                "value": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 4,
+              "unique_reproductions": 3,
+              "ratio": {
+                "n": 3,
+                "denominator": 4,
+                "value": 0.75,
+                "wilson95": [
+                  0.30064184258240184,
+                  0.9544127391902995
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 135,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 10,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 278,
+        "median": [
+          12.288846457377076,
+          14.71897055208683
+        ],
+        "nmad": [
+          29.574786715582942,
+          33.71427740594912
+        ],
+        "absolute_radial_p68": 60.4788448356005,
+        "equal_mean": [
+          8.711566673745837,
+          19.662887170555727
+        ],
+        "median_object_interval95": [
+          [
+            8.064229051582515,
+            16.63889683666639
+          ],
+          [
+            9.770100159337744,
+            21.299207864445634
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 3282,
+        "independent_exposures": 245,
+        "returned_CCD_entries": 14871,
+        "input_chip_sha256": "d5e16e9b8f32c85783a48318634cfb32e0cbdadd2f5faf6ee50c64685d24dae2",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 416
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 6,
+        "matched": 0,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 109.36110951995943,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 65,
+          "candidate_labels": 66,
+          "lost_original_labels": 0,
+          "added_labels": 1,
+          "added_motion": {
+            "n": 1
+          },
+          "common_original": {
+            "n": 65,
+            "median": [
+              -1.469766944945459,
+              -0.2918971014936124
+            ],
+            "nmad": [
+              4.2429824641158795,
+              4.105662845158158
+            ],
+            "absolute_radial_p68": 6.469378845591985,
+            "equal_mean": [
+              -0.8824551241680642,
+              -0.5554435084073289
+            ],
+            "median_object_interval95": [
+              [
+                -2.802485550418875,
+                -0.20953799360259961
+              ],
+              [
+                -1.9717730264593594,
+                1.3573827189364638
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 65,
+            "median": [
+              -1.469766944945459,
+              -0.2918971014936124
+            ],
+            "nmad": [
+              4.2429824641158795,
+              4.105662845158158
+            ],
+            "absolute_radial_p68": 6.469378845591985,
+            "equal_mean": [
+              -0.8824551241680642,
+              -0.5554435084073289
+            ],
+            "median_object_interval95": [
+              [
+                -2.802485550418875,
+                -0.20953799360259961
+              ],
+              [
+                -1.9717730264593594,
+                1.3573827189364638
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 9,
+          "candidate_labels": 13,
+          "lost_original_labels": 0,
+          "added_labels": 4,
+          "added_motion": {
+            "n": 4,
+            "median": [
+              -1.1085607643975597,
+              2.995053164377716
+            ],
+            "nmad": [
+              6.783261771000499,
+              1.876160559986399
+            ],
+            "absolute_radial_p68": 8.688221764947103,
+            "equal_mean": [
+              -0.7852865039158925,
+              3.876848927712237
+            ],
+            "median_object_interval95": [
+              [
+                -5.68380814804824,
+                8.405238271939128
+              ],
+              [
+                1.497703963778661,
+                6.024097652052019
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 9,
+            "median": [
+              -0.09944226735130197,
+              3.5260967505396885
+            ],
+            "nmad": [
+              7.826721839669197,
+              4.786117836457295
+            ],
+            "absolute_radial_p68": 9.624515084503672,
+            "equal_mean": [
+              0.4463368801266044,
+              2.2124247348451664
+            ],
+            "median_object_interval95": [
+              [
+                -5.378493825201833,
+                8.37081310054851
+              ],
+              [
+                -1.5906355977425726,
+                4.774096328930321
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 9,
+            "median": [
+              -0.09944226735130197,
+              3.5260967505396885
+            ],
+            "nmad": [
+              7.826721839669197,
+              4.786117836457295
+            ],
+            "absolute_radial_p68": 9.624515084503672,
+            "equal_mean": [
+              0.4463368801266044,
+              2.2124247348451664
+            ],
+            "median_object_interval95": [
+              [
+                -5.378493825201833,
+                8.37081310054851
+              ],
+              [
+                -1.5906355977425726,
+                4.774096328930321
+              ]
+            ]
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "325dbedd46bac6b7c076d1277db9f384fa3118dbe942ac18a6eab0e8a4fccb45",
+        "old_candidate_sha256": "fe7eff532a16d1f8058a384c840d7948d04fbad9d254125bdbb0ccc45356b3c3",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w210_090_08_11",
+      "training": {
+        "original": {
+          "training_sources": 5886,
+          "unique_reproductions": 1328,
+          "shifted_unique_sources": [
+            9,
+            5,
+            6,
+            3
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 1537,
+              "unique_reproductions": 1328,
+              "ratio": {
+                "n": 1328,
+                "denominator": 1537,
+                "value": 0.8640208197787899,
+                "wilson95": [
+                  0.845974610928011,
+                  0.8802519541700252
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 1453,
+              "unique_reproductions": 1261,
+              "ratio": {
+                "n": 1261,
+                "denominator": 1453,
+                "value": 0.8678596008258775,
+                "wilson95": [
+                  0.8494731859203659,
+                  0.8843060414125452
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 1521,
+              "unique_reproductions": 1320,
+              "ratio": {
+                "n": 1320,
+                "denominator": 1521,
+                "value": 0.8678500986193294,
+                "wilson95": [
+                  0.8499003953392531,
+                  0.8839463882243509
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 16,
+              "unique_reproductions": 8,
+              "ratio": {
+                "n": 8,
+                "denominator": 16,
+                "value": 0.5,
+                "wilson95": [
+                  0.27999563610326017,
+                  0.7200043638967398
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 548,
+          "unique_reproductions": 101,
+          "shifted_unique_sources": [
+            1,
+            2,
+            1,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 117,
+              "unique_reproductions": 101,
+              "ratio": {
+                "n": 101,
+                "denominator": 117,
+                "value": 0.8632478632478633,
+                "wilson95": [
+                  0.7893619458421701,
+                  0.9140390295310579
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 29,
+              "unique_reproductions": 26,
+              "ratio": {
+                "n": 26,
+                "denominator": 29,
+                "value": 0.896551724137931,
+                "wilson95": [
+                  0.736149189092262,
+                  0.9641851086493229
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 115,
+              "unique_reproductions": 99,
+              "ratio": {
+                "n": 99,
+                "denominator": 115,
+                "value": 0.8608695652173913,
+                "wilson95": [
+                  0.7858987820513625,
+                  0.9125106856852203
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 1328,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 101,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 1444,
+        "median": [
+          -4.3499307334423065,
+          7.0564533695578575
+        ],
+        "nmad": [
+          35.65591518446803,
+          34.88796202691272
+        ],
+        "absolute_radial_p68": 62.57117199268774,
+        "equal_mean": [
+          -2.830347506685435,
+          8.082259957882423
+        ],
+        "median_object_interval95": [
+          [
+            -5.752701202407479,
+            -1.8140904642641544
+          ],
+          [
+            5.327141265384853,
+            8.898362969048321
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 2059,
+        "independent_exposures": 99,
+        "returned_CCD_entries": 6007,
+        "input_chip_sha256": "ac942866df186aa292129663fd3fd207c1a22a2b7c91e7333ad6928402c50c1d",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 548
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 77.78465355199296,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 10,
+          "candidate_labels": 11,
+          "lost_original_labels": 0,
+          "added_labels": 1,
+          "added_motion": {
+            "n": 1
+          },
+          "common_original": {
+            "n": 10,
+            "median": [
+              0.7553628445643399,
+              -1.621882414559676
+            ],
+            "nmad": [
+              4.960126488275589,
+              3.1454028546531276
+            ],
+            "absolute_radial_p68": 6.201394744401848,
+            "equal_mean": [
+              0.9280036463012546,
+              -1.6634905268503044
+            ],
+            "median_object_interval95": [
+              [
+                -2.60646177095551,
+                4.97141888987115
+              ],
+              [
+                -4.1419958909471735,
+                1.2146403322532386
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 10,
+            "median": [
+              0.7553628445643399,
+              -1.621882414559676
+            ],
+            "nmad": [
+              4.960126488275589,
+              3.1454028546531276
+            ],
+            "absolute_radial_p68": 6.201394744401848,
+            "equal_mean": [
+              0.9280036463012546,
+              -1.6634905268503044
+            ],
+            "median_object_interval95": [
+              [
+                -2.60646177095551,
+                4.97141888987115
+              ],
+              [
+                -4.1419958909471735,
+                1.2146403322532386
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 1,
+          "candidate_labels": 2,
+          "lost_original_labels": 0,
+          "added_labels": 1,
+          "added_motion": {
+            "n": 1
+          },
+          "common_original": {
+            "n": 1
+          },
+          "common_candidate": {
+            "n": 1
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "30e0c0f12458bce7e23fad86a9284c90a6f9b7c7c8ffd011f4ec9c5ae5907a38",
+        "old_candidate_sha256": "f826712d609c246c0b244cb68d78f399dfe44faa87c809edebd60806639eeaf8",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w210_090_06_11",
+      "training": {
+        "original": {
+          "training_sources": 5763,
+          "unique_reproductions": 4444,
+          "shifted_unique_sources": [
+            15,
+            21,
+            22,
+            19
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 4843,
+              "unique_reproductions": 4444,
+              "ratio": {
+                "n": 4444,
+                "denominator": 4843,
+                "value": 0.9176130497625439,
+                "wilson95": [
+                  0.9095343345925817,
+                  0.9250297901816185
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 4453,
+              "unique_reproductions": 4095,
+              "ratio": {
+                "n": 4095,
+                "denominator": 4453,
+                "value": 0.9196047608353919,
+                "wilson95": [
+                  0.911252196206232,
+                  0.9272339905985442
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 4753,
+              "unique_reproductions": 4368,
+              "ratio": {
+                "n": 4368,
+                "denominator": 4753,
+                "value": 0.9189985272459499,
+                "wilson95": [
+                  0.9108993711433522,
+                  0.9264209462311639
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 89,
+              "unique_reproductions": 75,
+              "ratio": {
+                "n": 75,
+                "denominator": 89,
+                "value": 0.8426966292134831,
+                "wilson95": [
+                  0.7531121499312459,
+                  0.9039219033337944
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 509,
+          "unique_reproductions": 395,
+          "shifted_unique_sources": [
+            2,
+            2,
+            2,
+            3
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 420,
+              "unique_reproductions": 395,
+              "ratio": {
+                "n": 395,
+                "denominator": 420,
+                "value": 0.9404761904761905,
+                "wilson95": [
+                  0.9136078748319504,
+                  0.9593600529151279
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 120,
+              "unique_reproductions": 114,
+              "ratio": {
+                "n": 114,
+                "denominator": 120,
+                "value": 0.95,
+                "wilson95": [
+                  0.8951971146376326,
+                  0.9768856355855343
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 410,
+              "unique_reproductions": 386,
+              "ratio": {
+                "n": 386,
+                "denominator": 410,
+                "value": 0.9414634146341463,
+                "wilson95": [
+                  0.9143797295617345,
+                  0.9603513837287886
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 4444,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 395,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 4839,
+        "median": [
+          -0.7139977514743805,
+          2.6887127943336964
+        ],
+        "nmad": [
+          33.05919239087105,
+          29.397758344841748
+        ],
+        "absolute_radial_p68": 56.27346204333504,
+        "equal_mean": [
+          -1.1567095506718446,
+          3.723376910402943
+        ],
+        "median_object_interval95": [
+          [
+            -2.0723504200577736,
+            0.4373169429600239
+          ],
+          [
+            1.7412310102954507,
+            3.5463173501193523
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 2187,
+        "independent_exposures": 107,
+        "returned_CCD_entries": 6496,
+        "input_chip_sha256": "3d229d73f1dcb09a956528bae603feb189b67f8a15e6a586bfeaf83b0d8657c4",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 509
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 3,
+        "matched": 0,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 71.65249602706172,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 9,
+          "candidate_labels": 9,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 9,
+            "median": [
+              1.1021631221099777,
+              -0.49003548467587543
+            ],
+            "nmad": [
+              2.9020768670975,
+              2.0872962347726927
+            ],
+            "absolute_radial_p68": 3.127498759549663,
+            "equal_mean": [
+              0.141768136820823,
+              -0.27568104819027744
+            ],
+            "median_object_interval95": [
+              [
+                -2.006267974184589,
+                1.8621744680128116
+              ],
+              [
+                -1.8174902812853262,
+                0.9355442141428116
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 9,
+            "median": [
+              1.1021631221099777,
+              -0.49003548467587543
+            ],
+            "nmad": [
+              2.9020768670975,
+              2.0872962347726927
+            ],
+            "absolute_radial_p68": 3.127498759549663,
+            "equal_mean": [
+              0.141768136820823,
+              -0.27568104819027744
+            ],
+            "median_object_interval95": [
+              [
+                -2.006267974184589,
+                1.8621744680128116
+              ],
+              [
+                -1.8174902812853262,
+                0.9355442141428116
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 0,
+          "candidate_labels": 0,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 0
+          },
+          "common_candidate": {
+            "n": 0
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "abd2f30cc73737688d0688a7ec28c588a6be32df47e964dd3bcda104996fa837",
+        "old_candidate_sha256": "9f1aa2e7354f634e09faeeda98d3fc05eade4f02ed8d73e997489fc8366badef",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w220_090_08_01",
+      "training": {
+        "original": {
+          "training_sources": 4985,
+          "unique_reproductions": 2822,
+          "shifted_unique_sources": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 3592,
+              "unique_reproductions": 2822,
+              "ratio": {
+                "n": 2822,
+                "denominator": 3592,
+                "value": 0.7856347438752784,
+                "wilson95": [
+                  0.7719128365879351,
+                  0.798746360570602
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 2310,
+              "unique_reproductions": 2163,
+              "ratio": {
+                "n": 2163,
+                "denominator": 2310,
+                "value": 0.9363636363636364,
+                "wilson95": [
+                  0.9256666547382284,
+                  0.9456117089174665
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 2884,
+              "unique_reproductions": 2627,
+              "ratio": {
+                "n": 2627,
+                "denominator": 2884,
+                "value": 0.9108876560332871,
+                "wilson95": [
+                  0.8999355915230013,
+                  0.9207465801942215
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 96,
+              "unique_reproductions": 19,
+              "ratio": {
+                "n": 19,
+                "denominator": 96,
+                "value": 0.19791666666666666,
+                "wilson95": [
+                  0.13052733153747123,
+                  0.28855166945987454
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 875,
+          "unique_reproductions": 242,
+          "shifted_unique_sources": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 621,
+              "unique_reproductions": 242,
+              "ratio": {
+                "n": 242,
+                "denominator": 621,
+                "value": 0.3896940418679549,
+                "wilson95": [
+                  0.3521278532237077,
+                  0.4286165291055804
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 64,
+              "unique_reproductions": 59,
+              "ratio": {
+                "n": 59,
+                "denominator": 64,
+                "value": 0.921875,
+                "wilson95": [
+                  0.8298046264583709,
+                  0.9661688230914496
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 201,
+              "unique_reproductions": 165,
+              "ratio": {
+                "n": 165,
+                "denominator": 201,
+                "value": 0.8208955223880597,
+                "wilson95": [
+                  0.7620246369670284,
+                  0.8677306906052032
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 74,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 74,
+                "value": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.049349779396386066
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 2822,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 242,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 3064,
+        "median": [
+          18.39559257030487,
+          -9.736851505935192
+        ],
+        "nmad": [
+          109.37082595497071,
+          65.2065004575625
+        ],
+        "absolute_radial_p68": 142.85896520872026,
+        "equal_mean": [
+          5.835949257181534,
+          -0.9344972276466829
+        ],
+        "median_object_interval95": [
+          [
+            14.11314806342125,
+            23.321239542216063
+          ],
+          [
+            -11.932174663990736,
+            -7.208464305847883
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 4421,
+        "independent_exposures": 267,
+        "returned_CCD_entries": 16075,
+        "input_chip_sha256": "9c6b51d48e57c267606687d3ef352e8adfb5e531a51c7048a07b7e4d8516f8a4",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 875
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 74.49839982099365,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 21,
+          "candidate_labels": 38,
+          "lost_original_labels": 0,
+          "added_labels": 17,
+          "added_motion": {
+            "n": 17,
+            "median": [
+              -0.9935020198893644,
+              1.9227285576165811
+            ],
+            "nmad": [
+              4.1365355872048495,
+              2.666444356783306
+            ],
+            "absolute_radial_p68": 5.9050296108504154,
+            "equal_mean": [
+              -0.662209246533106,
+              2.2821646243047695
+            ],
+            "median_object_interval95": [
+              [
+                -3.783557049705127,
+                1.0884281325941054
+              ],
+              [
+                0.44570451496351576,
+                4.652721760735071
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 21,
+            "median": [
+              0.8272257751544099,
+              0.717583882509034
+            ],
+            "nmad": [
+              2.8093558811109722,
+              2.8626422435380836
+            ],
+            "absolute_radial_p68": 4.992198570717111,
+            "equal_mean": [
+              0.9652268002736991,
+              -0.7015568982374987
+            ],
+            "median_object_interval95": [
+              [
+                -0.5164801617137648,
+                2.3350113643559967
+              ],
+              [
+                -1.8493139944417378,
+                1.9577216366033832
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 21,
+            "median": [
+              0.8272257751544099,
+              0.717583882509034
+            ],
+            "nmad": [
+              2.8093558811109722,
+              2.8626422435380836
+            ],
+            "absolute_radial_p68": 4.992198570717111,
+            "equal_mean": [
+              0.9652268002736991,
+              -0.7015568982374987
+            ],
+            "median_object_interval95": [
+              [
+                -0.5164801617137648,
+                2.3350113643559967
+              ],
+              [
+                -1.8493139944417378,
+                1.9577216366033832
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 2,
+          "candidate_labels": 8,
+          "lost_original_labels": 0,
+          "added_labels": 6,
+          "added_motion": {
+            "n": 6,
+            "median": [
+              -2.9768952425422155,
+              3.2920077796544653
+            ],
+            "nmad": [
+              2.4325290185049613,
+              4.236593919284729
+            ],
+            "absolute_radial_p68": 7.764219378418982,
+            "equal_mean": [
+              -0.32377393978307606,
+              3.768482124312765
+            ],
+            "median_object_interval95": [
+              [
+                -4.6176135876824835,
+                5.392871304458582
+              ],
+              [
+                -0.6732246230300118,
+                8.68666321631384
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 2
+          },
+          "common_candidate": {
+            "n": 2
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "67dc84d0edf0601f270a7e063a8dc9baf3cba279415b257fe62d73ca219373b5",
+        "old_candidate_sha256": "b306eb7610e59a755e25ba27a67f41c3d226c60415ce9802dfa6328f53e179e0",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w220_090_42_01",
+      "training": {
+        "original": {
+          "training_sources": 7704,
+          "unique_reproductions": 7142,
+          "shifted_unique_sources": [
+            10,
+            19,
+            11,
+            17
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 7521,
+              "unique_reproductions": 7142,
+              "ratio": {
+                "n": 7142,
+                "denominator": 7521,
+                "value": 0.949607764924877,
+                "wilson95": [
+                  0.9444303359908729,
+                  0.9543261410738156
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 6212,
+              "unique_reproductions": 6097,
+              "ratio": {
+                "n": 6097,
+                "denominator": 6212,
+                "value": 0.9814874436574372,
+                "wilson95": [
+                  0.9778256989661402,
+                  0.9845540592098254
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 7047,
+              "unique_reproductions": 6874,
+              "ratio": {
+                "n": 6874,
+                "denominator": 7047,
+                "value": 0.9754505463317724,
+                "wilson95": [
+                  0.9715702051572985,
+                  0.9788128149596782
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 203,
+              "unique_reproductions": 164,
+              "ratio": {
+                "n": 164,
+                "denominator": 203,
+                "value": 0.8078817733990148,
+                "wilson95": [
+                  0.7481708983249877,
+                  0.8561566901221596
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 430,
+          "unique_reproductions": 325,
+          "shifted_unique_sources": [
+            0,
+            2,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 424,
+              "unique_reproductions": 325,
+              "ratio": {
+                "n": 325,
+                "denominator": 424,
+                "value": 0.7665094339622641,
+                "wilson95": [
+                  0.7239584906525255,
+                  0.8042745623642352
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 142,
+              "unique_reproductions": 139,
+              "ratio": {
+                "n": 139,
+                "denominator": 142,
+                "value": 0.9788732394366197,
+                "wilson95": [
+                  0.9397300911612929,
+                  0.9927893796375162
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 283,
+              "unique_reproductions": 257,
+              "ratio": {
+                "n": 257,
+                "denominator": 283,
+                "value": 0.9081272084805654,
+                "wilson95": [
+                  0.8687908084524013,
+                  0.936532107383134
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 11,
+              "unique_reproductions": 7,
+              "ratio": {
+                "n": 7,
+                "denominator": 11,
+                "value": 0.6363636363636364,
+                "wilson95": [
+                  0.35380117450784887,
+                  0.8483352890463243
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 7142,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 325,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 13714,
+        "median": [
+          -4.833066552877426,
+          -10.37039377912879
+        ],
+        "nmad": [
+          73.06028552854657,
+          51.46779852078594
+        ],
+        "absolute_radial_p68": 105.2433636704516,
+        "equal_mean": [
+          -6.760339801382685,
+          -10.059870331804719
+        ],
+        "median_object_interval95": [
+          [
+            -5.977387931197882,
+            -3.5048419069498777
+          ],
+          [
+            -11.464538688538596,
+            -9.359426670707762
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 4757,
+        "independent_exposures": 174,
+        "returned_CCD_entries": 10486,
+        "input_chip_sha256": "4f6c6338372a6f33cd539f070da776a95d2bd439788116e062935f38489e2dca",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 430
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 7,
+        "matched": 0,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 126.5526156600099,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 58,
+          "candidate_labels": 58,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 58,
+            "median": [
+              1.8971413109489863,
+              1.2411806415451774
+            ],
+            "nmad": [
+              3.7325272961179383,
+              3.6329772979691533
+            ],
+            "absolute_radial_p68": 5.788593203060981,
+            "equal_mean": [
+              1.59207568884053,
+              1.2743945839810589
+            ],
+            "median_object_interval95": [
+              [
+                0.32517724595187164,
+                3.284791740226323
+              ],
+              [
+                -0.3777931922670482,
+                1.9221107749677437
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 58,
+            "median": [
+              1.8971413109489863,
+              1.2411806415451774
+            ],
+            "nmad": [
+              3.7325272961179383,
+              3.6329772979691533
+            ],
+            "absolute_radial_p68": 5.788593203060981,
+            "equal_mean": [
+              1.59207568884053,
+              1.2743945839810589
+            ],
+            "median_object_interval95": [
+              [
+                0.32517724595187164,
+                3.284791740226323
+              ],
+              [
+                -0.3777931922670482,
+                1.9221107749677437
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 15,
+          "candidate_labels": 21,
+          "lost_original_labels": 0,
+          "added_labels": 6,
+          "added_motion": {
+            "n": 6,
+            "median": [
+              3.490123430382577,
+              -0.21214634521898246
+            ],
+            "nmad": [
+              6.351959904756094,
+              9.727180687305857
+            ],
+            "absolute_radial_p68": 10.501805632183409,
+            "equal_mean": [
+              2.0574592407104677,
+              -2.5004785758381005
+            ],
+            "median_object_interval95": [
+              [
+                -5.09220739895757,
+                7.556968190884141
+              ],
+              [
+                -12.848827404381941,
+                6.677729605637303
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 15,
+            "median": [
+              2.9637721591713597,
+              3.3417559507143877
+            ],
+            "nmad": [
+              5.652332791117264,
+              4.7402495938109
+            ],
+            "absolute_radial_p68": 6.537906569440352,
+            "equal_mean": [
+              1.7694542973681526,
+              2.072785348375791
+            ],
+            "median_object_interval95": [
+              [
+                -1.0567847022563568,
+                4.005409456200333
+              ],
+              [
+                -0.5516172675652787,
+                4.280679431539896
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 15,
+            "median": [
+              2.9637721591713597,
+              3.3417559507143877
+            ],
+            "nmad": [
+              5.652332791117264,
+              4.7402495938109
+            ],
+            "absolute_radial_p68": 6.537906569440352,
+            "equal_mean": [
+              1.7694542973681526,
+              2.072785348375791
+            ],
+            "median_object_interval95": [
+              [
+                -1.0567847022563568,
+                4.005409456200333
+              ],
+              [
+                -0.5516172675652787,
+                4.280679431539896
+              ]
+            ]
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "7c859ad45ae6012ba1ad2b465fa32274d4c1fcb47f05f47b890fb72fb6ff3ae3",
+        "old_candidate_sha256": "76a6ed09da946deb7276a1f6b069c48ecf78b3269c5233e015d1def27a59935b",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w220_110_66_00",
+      "training": {
+        "original": {
+          "training_sources": 4389,
+          "unique_reproductions": 173,
+          "shifted_unique_sources": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 201,
+              "unique_reproductions": 173,
+              "ratio": {
+                "n": 173,
+                "denominator": 201,
+                "value": 0.8606965174129353,
+                "wilson95": [
+                  0.806034011377953,
+                  0.901830504110214
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 156,
+              "unique_reproductions": 143,
+              "ratio": {
+                "n": 143,
+                "denominator": 156,
+                "value": 0.9166666666666666,
+                "wilson95": [
+                  0.86265154132306,
+                  0.9506543491457609
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 182,
+              "unique_reproductions": 161,
+              "ratio": {
+                "n": 161,
+                "denominator": 182,
+                "value": 0.8846153846153846,
+                "wilson95": [
+                  0.8300488639340768,
+                  0.9232814257031592
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 7,
+              "unique_reproductions": 5,
+              "ratio": {
+                "n": 5,
+                "denominator": 7,
+                "value": 0.7142857142857143,
+                "wilson95": [
+                  0.35893445183261935,
+                  0.9177810759959433
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 263,
+          "unique_reproductions": 5,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 7,
+              "unique_reproductions": 5,
+              "ratio": {
+                "n": 5,
+                "denominator": 7,
+                "value": 0.7142857142857143,
+                "wilson95": [
+                  0.35893445183261935,
+                  0.9177810759959433
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 0,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 4,
+              "unique_reproductions": 4,
+              "ratio": {
+                "n": 4,
+                "denominator": 4,
+                "value": 1.0,
+                "wilson95": [
+                  0.5101091635454027,
+                  1.0
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 1,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 1,
+                "value": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.7934506856227626
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 173,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 5,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 178,
+        "median": [
+          -7.638419955968857,
+          -2.5823038406670094
+        ],
+        "nmad": [
+          54.67881200402677,
+          74.72703150357977
+        ],
+        "absolute_radial_p68": 108.05207626711189,
+        "equal_mean": [
+          -19.47644963157311,
+          15.094734785450475
+        ],
+        "median_object_interval95": [
+          [
+            -16.167673349380493,
+            -0.08435335755348206
+          ],
+          [
+            -16.906182915205136,
+            12.582363126100972
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 1172,
+        "independent_exposures": 54,
+        "returned_CCD_entries": 3281,
+        "input_chip_sha256": "5c746b0f1731b3b39f78a8eed56f7569f2e6c7362c418a7a8ac60236e8f00e07",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 263
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 48.44592196610756,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 16,
+          "candidate_labels": 16,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 16,
+            "median": [
+              0.06058586619430223,
+              0.006166859447409467
+            ],
+            "nmad": [
+              3.665081018521661,
+              3.082816795560259
+            ],
+            "absolute_radial_p68": 5.5783629253335265,
+            "equal_mean": [
+              -0.4462928560528604,
+              -1.3372385082904692
+            ],
+            "median_object_interval95": [
+              [
+                -2.5294126040967457,
+                1.2651618692660664
+              ],
+              [
+                -3.2224727881870496,
+                1.70350944541217
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 16,
+            "median": [
+              0.06058586619430223,
+              0.006166859447409467
+            ],
+            "nmad": [
+              3.665081018521661,
+              3.082816795560259
+            ],
+            "absolute_radial_p68": 5.5783629253335265,
+            "equal_mean": [
+              -0.4462928560528604,
+              -1.3372385082904692
+            ],
+            "median_object_interval95": [
+              [
+                -2.5294126040967457,
+                1.2651618692660664
+              ],
+              [
+                -3.2224727881870496,
+                1.70350944541217
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 0,
+          "candidate_labels": 2,
+          "lost_original_labels": 0,
+          "added_labels": 2,
+          "added_motion": {
+            "n": 2
+          },
+          "common_original": {
+            "n": 0
+          },
+          "common_candidate": {
+            "n": 0
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "535ac82053df0f38dca22b0a71c968c9af4d7e7a1948ebb01c460c97332bc0b0",
+        "old_candidate_sha256": "4d219281298f7c0dd03c09be82fd2ad6bbf7dcfeb7e625f7446bddc648aa1d31",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w220_110_62_10",
+      "training": {
+        "original": {
+          "training_sources": 5008,
+          "unique_reproductions": 39,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 49,
+              "unique_reproductions": 39,
+              "ratio": {
+                "n": 39,
+                "denominator": 49,
+                "value": 0.7959183673469388,
+                "wilson95": [
+                  0.6636299908048744,
+                  0.8851815039421786
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 36,
+              "unique_reproductions": 32,
+              "ratio": {
+                "n": 32,
+                "denominator": 36,
+                "value": 0.8888888888888888,
+                "wilson95": [
+                  0.7468519140963513,
+                  0.9559335969968435
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 43,
+              "unique_reproductions": 37,
+              "ratio": {
+                "n": 37,
+                "denominator": 43,
+                "value": 0.8604651162790697,
+                "wilson95": [
+                  0.7273641203261714,
+                  0.9344427657203511
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 1,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 1,
+                "value": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.7934506856227626
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 394,
+          "unique_reproductions": 2,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 6,
+              "unique_reproductions": 2,
+              "ratio": {
+                "n": 2,
+                "denominator": 6,
+                "value": 0.3333333333333333,
+                "wilson95": [
+                  0.09677141110578041,
+                  0.700006684861608
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 1,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 1,
+                "value": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.7934506856227626
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 2,
+              "unique_reproductions": 1,
+              "ratio": {
+                "n": 1,
+                "denominator": 2,
+                "value": 0.5,
+                "wilson95": [
+                  0.09453120573423074,
+                  0.9054687942657693
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 3,
+              "unique_reproductions": 0,
+              "ratio": {
+                "n": 0,
+                "denominator": 3,
+                "value": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 39,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 2,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 41,
+        "median": [
+          -31.947445541620255,
+          -21.28854003921151
+        ],
+        "nmad": [
+          110.88266968009471,
+          58.66072696666829
+        ],
+        "absolute_radial_p68": 150.13881685341036,
+        "equal_mean": [
+          -68.25676513663153,
+          -16.251616706026763
+        ],
+        "median_object_interval95": [
+          [
+            -104.97376492619514,
+            -7.4479584991931915
+          ],
+          [
+            -41.456172466278076,
+            4.135035540908575
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 1347,
+        "independent_exposures": 73,
+        "returned_CCD_entries": 4435,
+        "input_chip_sha256": "ae9e6e4fe077ce79ceef4f4c03477b844abe66b383dbf25bc14c41d439f4871c",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 394
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 54.332338465959765,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 48,
+          "candidate_labels": 51,
+          "lost_original_labels": 0,
+          "added_labels": 3,
+          "added_motion": {
+            "n": 3,
+            "median": [
+              4.120669901087028,
+              0.7365570816358955
+            ],
+            "nmad": [
+              4.137574890135567,
+              0.7783332400236037
+            ],
+            "absolute_radial_p68": 6.088994942442644,
+            "equal_mean": [
+              4.250624459823452,
+              1.4821376254224532
+            ],
+            "median_object_interval95": [
+              [
+                1.329913871048199,
+                7.301289607335131
+              ],
+              [
+                0.21157850344649598,
+                3.498277291184968
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 48,
+            "median": [
+              -0.20308936755997167,
+              -1.246177013382498
+            ],
+            "nmad": [
+              4.166583584149917,
+              4.84292945107097
+            ],
+            "absolute_radial_p68": 6.4317043243444765,
+            "equal_mean": [
+              0.19357643048922846,
+              -1.1839779377747612
+            ],
+            "median_object_interval95": [
+              [
+                -1.2072776244823549,
+                1.4129508718995227
+              ],
+              [
+                -2.6365493940315843,
+                0.723538756091573
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 48,
+            "median": [
+              -0.20308936755997167,
+              -1.246177013382498
+            ],
+            "nmad": [
+              4.166583584149917,
+              4.84292945107097
+            ],
+            "absolute_radial_p68": 6.4317043243444765,
+            "equal_mean": [
+              0.19357643048922846,
+              -1.1839779377747612
+            ],
+            "median_object_interval95": [
+              [
+                -1.2072776244823549,
+                1.4129508718995227
+              ],
+              [
+                -2.6365493940315843,
+                0.723538756091573
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 11,
+          "candidate_labels": 22,
+          "lost_original_labels": 0,
+          "added_labels": 11,
+          "added_motion": {
+            "n": 11,
+            "median": [
+              0.21811873503012885,
+              -3.4023159093164286
+            ],
+            "nmad": [
+              3.5710056579433362,
+              8.353547442242972
+            ],
+            "absolute_radial_p68": 7.753827082340948,
+            "equal_mean": [
+              1.6380715010739337,
+              -1.4160775559515708
+            ],
+            "median_object_interval95": [
+              [
+                -2.11265172562303,
+                5.659367786845848
+              ],
+              [
+                -6.795944633744724,
+                2.5431206207810346
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 11,
+            "median": [
+              0.08265795483887325,
+              -0.5098467803578023
+            ],
+            "nmad": [
+              4.186226513702024,
+              4.732216714222112
+            ],
+            "absolute_radial_p68": 10.049982465236964,
+            "equal_mean": [
+              1.3697218526566066,
+              1.284803002453508
+            ],
+            "median_object_interval95": [
+              [
+                -2.7409131457290643,
+                4.2088768644057755
+              ],
+              [
+                -3.7016832259413124,
+                9.560324473625322
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 11,
+            "median": [
+              0.08265795483887325,
+              -0.5098467803578023
+            ],
+            "nmad": [
+              4.186226513702024,
+              4.732216714222112
+            ],
+            "absolute_radial_p68": 10.049982465236964,
+            "equal_mean": [
+              1.3697218526566066,
+              1.284803002453508
+            ],
+            "median_object_interval95": [
+              [
+                -2.7409131457290643,
+                4.2088768644057755
+              ],
+              [
+                -3.7016832259413124,
+                9.560324473625322
+              ]
+            ]
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "286c3c288ad64bf88248301d4bb7833421fb6be4533c486e413f87d22f2bb677",
+        "old_candidate_sha256": "5ed305193ea09b8b2bc6f692b6b01fd4b9a5a4c29f8b6235c27f14fff0c97e56",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w230_090_26_01",
+      "training": {
+        "original": {
+          "training_sources": 8925,
+          "unique_reproductions": 7102,
+          "shifted_unique_sources": [
+            7,
+            8,
+            14,
+            6
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 7688,
+              "unique_reproductions": 7102,
+              "ratio": {
+                "n": 7102,
+                "denominator": 7688,
+                "value": 0.923777315296566,
+                "wilson95": [
+                  0.9176318422579464,
+                  0.9294995026721695
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 6532,
+              "unique_reproductions": 6081,
+              "ratio": {
+                "n": 6081,
+                "denominator": 6532,
+                "value": 0.9309552969993876,
+                "wilson95": [
+                  0.9245502984202829,
+                  0.9368537052526975
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 7418,
+              "unique_reproductions": 6899,
+              "ratio": {
+                "n": 6899,
+                "denominator": 7418,
+                "value": 0.9300350498786735,
+                "wilson95": [
+                  0.9240048063013017,
+                  0.9356201311753013
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 305,
+              "unique_reproductions": 236,
+              "ratio": {
+                "n": 236,
+                "denominator": 305,
+                "value": 0.7737704918032787,
+                "wilson95": [
+                  0.7235794210428047,
+                  0.8171510904555114
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 420,
+          "unique_reproductions": 345,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 361,
+              "unique_reproductions": 345,
+              "ratio": {
+                "n": 345,
+                "denominator": 361,
+                "value": 0.9556786703601108,
+                "wilson95": [
+                  0.9292243422141013,
+                  0.9725372094019147
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 68,
+              "unique_reproductions": 66,
+              "ratio": {
+                "n": 66,
+                "denominator": 68,
+                "value": 0.9705882352941176,
+                "wilson95": [
+                  0.8989536863477694,
+                  0.9918968204568701
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 334,
+              "unique_reproductions": 319,
+              "ratio": {
+                "n": 319,
+                "denominator": 334,
+                "value": 0.9550898203592815,
+                "wilson95": [
+                  0.9272326114462408,
+                  0.9725977440736984
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 19,
+              "unique_reproductions": 19,
+              "ratio": {
+                "n": 19,
+                "denominator": 19,
+                "value": 1.0,
+                "wilson95": [
+                  0.8318207759473837,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 7102,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 345,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 7926,
+        "median": [
+          -23.375782161951065,
+          23.10285459086299
+        ],
+        "nmad": [
+          80.1540296637833,
+          53.12531030805632
+        ],
+        "absolute_radial_p68": 118.00128125811132,
+        "equal_mean": [
+          -16.13926935084625,
+          24.240787109851258
+        ],
+        "median_object_interval95": [
+          [
+            -25.261661648750305,
+            -21.672857098281384
+          ],
+          [
+            21.614809934049845,
+            24.430656662210822
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 2181,
+        "independent_exposures": 118,
+        "returned_CCD_entries": 7153,
+        "input_chip_sha256": "efd036b469bb14bfe10cacf476ba25ccb6cde1d39f18e03b23eee686e68a833c",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 420
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 4,
+        "matched": 0,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 96.11274842207786,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 60,
+          "candidate_labels": 61,
+          "lost_original_labels": 0,
+          "added_labels": 1,
+          "added_motion": {
+            "n": 1
+          },
+          "common_original": {
+            "n": 60,
+            "median": [
+              2.618956785951003,
+              -3.7613399167902335
+            ],
+            "nmad": [
+              3.8082662934611413,
+              3.977786807346405
+            ],
+            "absolute_radial_p68": 7.37931873350484,
+            "equal_mean": [
+              2.540556128116649,
+              -3.1670526321496646
+            ],
+            "median_object_interval95": [
+              [
+                1.7250501544315133,
+                3.8641730653443433
+              ],
+              [
+                -5.135169077006869,
+                -1.8848642212676392
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 60,
+            "median": [
+              2.618956785951003,
+              -3.7613399167902335
+            ],
+            "nmad": [
+              3.8082662934611413,
+              3.977786807346405
+            ],
+            "absolute_radial_p68": 7.37931873350484,
+            "equal_mean": [
+              2.540556128116649,
+              -3.1670526321496646
+            ],
+            "median_object_interval95": [
+              [
+                1.7250501544315133,
+                3.8641730653443433
+              ],
+              [
+                -5.135169077006869,
+                -1.8848642212676392
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 19,
+          "candidate_labels": 23,
+          "lost_original_labels": 0,
+          "added_labels": 4,
+          "added_motion": {
+            "n": 4,
+            "median": [
+              0.26181322852235717,
+              -1.8097971714315517
+            ],
+            "nmad": [
+              0.8326118166580133,
+              9.709339290747078
+            ],
+            "absolute_radial_p68": 7.936179262641184,
+            "equal_mean": [
+              1.2007629025220163,
+              -1.7706232595758498
+            ],
+            "median_object_interval95": [
+              [
+                -0.7139293944596323,
+                2.7013015530885265
+              ],
+              [
+                -9.544800991519196,
+                4.817410284511794
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 19,
+            "median": [
+              4.487486804667698,
+              -5.790247563184575
+            ],
+            "nmad": [
+              5.477128761155245,
+              4.992132706170952
+            ],
+            "absolute_radial_p68": 10.848512991296396,
+            "equal_mean": [
+              2.939313883952623,
+              -4.902580133638061
+            ],
+            "median_object_interval95": [
+              [
+                0.09175872076736677,
+                7.347684525530538
+              ],
+              [
+                -7.138150763253824,
+                -2.4231001827913796
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 19,
+            "median": [
+              4.487486804667698,
+              -5.790247563184575
+            ],
+            "nmad": [
+              5.477128761155245,
+              4.992132706170952
+            ],
+            "absolute_radial_p68": 10.848512991296396,
+            "equal_mean": [
+              2.939313883952623,
+              -4.902580133638061
+            ],
+            "median_object_interval95": [
+              [
+                0.09175872076736677,
+                7.347684525530538
+              ],
+              [
+                -7.138150763253824,
+                -2.4231001827913796
+              ]
+            ]
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "078fe9538e56834d4e1a41379ebde213220f930039902c932078045d632c7275",
+        "old_candidate_sha256": "e97ac7d61cd716f7a3caa75ad46aadb6fa8d1fbea3ea7cc079b49f0b1f80dc4b",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w230_090_04_00",
+      "training": {
+        "original": {
+          "training_sources": 8831,
+          "unique_reproductions": 7108,
+          "shifted_unique_sources": [
+            10,
+            15,
+            12,
+            15
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 7806,
+              "unique_reproductions": 7108,
+              "ratio": {
+                "n": 7108,
+                "denominator": 7806,
+                "value": 0.9105816038944402,
+                "wilson95": [
+                  0.9040479413986833,
+                  0.9167113574677916
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 6805,
+              "unique_reproductions": 6262,
+              "ratio": {
+                "n": 6262,
+                "denominator": 6805,
+                "value": 0.9202057310800882,
+                "wilson95": [
+                  0.9135279397054874,
+                  0.9264093733584216
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 7456,
+              "unique_reproductions": 6871,
+              "ratio": {
+                "n": 6871,
+                "denominator": 7456,
+                "value": 0.9215396995708155,
+                "wilson95": [
+                  0.9152168640202045,
+                  0.9274283898634801
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 292,
+              "unique_reproductions": 192,
+              "ratio": {
+                "n": 192,
+                "denominator": 292,
+                "value": 0.6575342465753424,
+                "wilson95": [
+                  0.6013762790378052,
+                  0.7096010950149643
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 457,
+          "unique_reproductions": 327,
+          "shifted_unique_sources": [
+            1,
+            1,
+            0,
+            2
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 413,
+              "unique_reproductions": 327,
+              "ratio": {
+                "n": 327,
+                "denominator": 413,
+                "value": 0.7917675544794189,
+                "wilson95": [
+                  0.7500066546716849,
+                  0.8281508075966425
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 166,
+              "unique_reproductions": 157,
+              "ratio": {
+                "n": 157,
+                "denominator": 166,
+                "value": 0.9457831325301205,
+                "wilson95": [
+                  0.9001835794451793,
+                  0.9712173201210879
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 303,
+              "unique_reproductions": 276,
+              "ratio": {
+                "n": 276,
+                "denominator": 303,
+                "value": 0.9108910891089109,
+                "wilson95": [
+                  0.8734570656297617,
+                  0.9380369252963657
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 46,
+              "unique_reproductions": 16,
+              "ratio": {
+                "n": 16,
+                "denominator": 46,
+                "value": 0.34782608695652173,
+                "wilson95": [
+                  0.22680993370754338,
+                  0.49229941157937235
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 7108,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 327,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 7944,
+        "median": [
+          23.722804933786392,
+          2.2186914458870888
+        ],
+        "nmad": [
+          69.46625630634426,
+          45.044905706549805
+        ],
+        "absolute_radial_p68": 102.25749989293176,
+        "equal_mean": [
+          27.037287075368898,
+          4.054074462008459
+        ],
+        "median_object_interval95": [
+          [
+            21.955275636166334,
+            25.418337151408195
+          ],
+          [
+            1.0384744596667588,
+            3.3932706266641617
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 3451,
+        "independent_exposures": 146,
+        "returned_CCD_entries": 8806,
+        "input_chip_sha256": "7e2416079054a6fb9cc417f78435017a9dd54f21e66ba42b4f9617e62bfc0b9b",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 457
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 5,
+        "matched": 0,
+        "scope": "Independent catalogue processing, partly shared NSC imaging. Published morphology and crowding proxies; not independent images or certified star truth. 0.7arcsec and 0.3arcsec sky uniqueness at static published positions; fast motion can reduce support."
+      },
+      "elapsed_seconds": 124.75424179900438,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 55,
+          "candidate_labels": 56,
+          "lost_original_labels": 0,
+          "added_labels": 1,
+          "added_motion": {
+            "n": 1
+          },
+          "common_original": {
+            "n": 55,
+            "median": [
+              -1.237820825143341,
+              -0.3587042110065665
+            ],
+            "nmad": [
+              3.7707954675078734,
+              4.053531627033507
+            ],
+            "absolute_radial_p68": 5.582031324011807,
+            "equal_mean": [
+              -1.6260259116374367,
+              -0.8384290095269651
+            ],
+            "median_object_interval95": [
+              [
+                -2.719608232822516,
+                0.09870652959545302
+              ],
+              [
+                -2.2949240160605964,
+                0.7376009124894697
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 55,
+            "median": [
+              -1.237820825143341,
+              -0.3587042110065665
+            ],
+            "nmad": [
+              3.7707954675078734,
+              4.053531627033507
+            ],
+            "absolute_radial_p68": 5.582031324011807,
+            "equal_mean": [
+              -1.6260259116374367,
+              -0.8384290095269651
+            ],
+            "median_object_interval95": [
+              [
+                -2.719608232822516,
+                0.09870652959545302
+              ],
+              [
+                -2.2949240160605964,
+                0.7376009124894697
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 21,
+          "candidate_labels": 27,
+          "lost_original_labels": 0,
+          "added_labels": 6,
+          "added_motion": {
+            "n": 6,
+            "median": [
+              -1.3407558329784712,
+              -1.8295583857531752
+            ],
+            "nmad": [
+              5.200960355416262,
+              7.824993671570556
+            ],
+            "absolute_radial_p68": 8.625232579250513,
+            "equal_mean": [
+              -1.8937651422815744,
+              -1.2377961240377164
+            ],
+            "median_object_interval95": [
+              [
+                -6.385623686511996,
+                2.167243867153906
+              ],
+              [
+                -7.255440738708919,
+                5.67339439833941
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 21,
+            "median": [
+              -2.3151171444388488,
+              -2.6684616112072566
+            ],
+            "nmad": [
+              3.174402476996152,
+              3.756712058537656
+            ],
+            "absolute_radial_p68": 7.1590371809658535,
+            "equal_mean": [
+              -1.8965582811177917,
+              -1.367043099589746
+            ],
+            "median_object_interval95": [
+              [
+                -3.433884406924752,
+                -0.917139186725011
+              ],
+              [
+                -4.62139458825969,
+                1.7443179989867466
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 21,
+            "median": [
+              -2.3151171444388488,
+              -2.6684616112072566
+            ],
+            "nmad": [
+              3.174402476996152,
+              3.756712058537656
+            ],
+            "absolute_radial_p68": 7.1590371809658535,
+            "equal_mean": [
+              -1.8965582811177917,
+              -1.367043099589746
+            ],
+            "median_object_interval95": [
+              [
+                -3.433884406924752,
+                -0.917139186725011
+              ],
+              [
+                -4.62139458825969,
+                1.7443179989867466
+              ]
+            ]
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "6af19258231894aa72baaac4eca3f1a0c0e90aed0f5d16743ff628f9b1e6d4bd",
+        "old_candidate_sha256": "6b448fee5ff579303a2a611466d753d0e97490b3d5e2517561ef84950187f8f3",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w230_110_46_10",
+      "training": {
+        "original": {
+          "training_sources": 5089,
+          "unique_reproductions": 1199,
+          "shifted_unique_sources": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 1347,
+              "unique_reproductions": 1199,
+              "ratio": {
+                "n": 1199,
+                "denominator": 1347,
+                "value": 0.8901262063845583,
+                "wilson95": [
+                  0.8723028914529172,
+                  0.905730676540724
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 1265,
+              "unique_reproductions": 1132,
+              "ratio": {
+                "n": 1132,
+                "denominator": 1265,
+                "value": 0.8948616600790514,
+                "wilson95": [
+                  0.8767466200849099,
+                  0.910585787013851
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 1331,
+              "unique_reproductions": 1194,
+              "ratio": {
+                "n": 1194,
+                "denominator": 1331,
+                "value": 0.8970698722764838,
+                "wilson95": [
+                  0.8795860393469959,
+                  0.9122682988706967
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 15,
+              "unique_reproductions": 4,
+              "ratio": {
+                "n": 4,
+                "denominator": 15,
+                "value": 0.26666666666666666,
+                "wilson95": [
+                  0.10897453325692374,
+                  0.5195043405598057
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 474,
+          "unique_reproductions": 91,
+          "shifted_unique_sources": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 104,
+              "unique_reproductions": 91,
+              "ratio": {
+                "n": 91,
+                "denominator": 104,
+                "value": 0.875,
+                "wilson95": [
+                  0.7978100094584702,
+                  0.9254739747621908
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 53,
+              "unique_reproductions": 49,
+              "ratio": {
+                "n": 49,
+                "denominator": 53,
+                "value": 0.9245283018867925,
+                "wilson95": [
+                  0.8214152251634678,
+                  0.9702604449130533
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 92,
+              "unique_reproductions": 83,
+              "ratio": {
+                "n": 83,
+                "denominator": 92,
+                "value": 0.9021739130434783,
+                "wilson95": [
+                  0.8244322048381333,
+                  0.9476762429103883
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 7,
+              "unique_reproductions": 4,
+              "ratio": {
+                "n": 4,
+                "denominator": 7,
+                "value": 0.5714285714285714,
+                "wilson95": [
+                  0.2504583645276572,
+                  0.8417801447485302
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 1199,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 91,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 1290,
+        "median": [
+          0.6960432827472687,
+          -5.020103197544813
+        ],
+        "nmad": [
+          80.13121630308329,
+          55.65787644960656
+        ],
+        "absolute_radial_p68": 103.54076913636203,
+        "equal_mean": [
+          1.398474206157433,
+          -6.053722131073243
+        ],
+        "median_object_interval95": [
+          [
+            -4.649977525696158,
+            4.631565826013684
+          ],
+          [
+            -10.24964963644743,
+            -0.8294808249920607
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 1282,
+        "independent_exposures": 59,
+        "returned_CCD_entries": 3584,
+        "input_chip_sha256": "2ce4199b919a7547eea9dc424a9050e4957248726d368662fde215db9353884a",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 474
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 54.01923873007763,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 43,
+          "candidate_labels": 49,
+          "lost_original_labels": 0,
+          "added_labels": 6,
+          "added_motion": {
+            "n": 6,
+            "median": [
+              1.0537629026468172,
+              1.985785292162845
+            ],
+            "nmad": [
+              5.175519524379451,
+              2.7698058362478735
+            ],
+            "absolute_radial_p68": 9.250166775441105,
+            "equal_mean": [
+              0.8242593250621021,
+              -0.17582047327625352
+            ],
+            "median_object_interval95": [
+              [
+                -6.048332879592074,
+                7.467347952131563
+              ],
+              [
+                -6.367240446247985,
+                3.5789320830569573
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 43,
+            "median": [
+              -0.2469050389660285,
+              -0.15719767277238123
+            ],
+            "nmad": [
+              2.7479570050657074,
+              2.1939803952469203
+            ],
+            "absolute_radial_p68": 4.279879046037072,
+            "equal_mean": [
+              -0.06131983732319991,
+              -0.44989634867275613
+            ],
+            "median_object_interval95": [
+              [
+                -0.9526235705053516,
+                0.5233810654049039
+              ],
+              [
+                -0.8143484328214391,
+                0.9098707361825755
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 43,
+            "median": [
+              -0.2469050389660285,
+              -0.15719767277238123
+            ],
+            "nmad": [
+              2.7479570050657074,
+              2.1939803952469203
+            ],
+            "absolute_radial_p68": 4.279879046037072,
+            "equal_mean": [
+              -0.06131983732319991,
+              -0.44989634867275613
+            ],
+            "median_object_interval95": [
+              [
+                -0.9526235705053516,
+                0.5233810654049039
+              ],
+              [
+                -0.8143484328214391,
+                0.9098707361825755
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 1,
+          "candidate_labels": 8,
+          "lost_original_labels": 0,
+          "added_labels": 7,
+          "added_motion": {
+            "n": 7,
+            "median": [
+              1.1596476347520848,
+              -1.7592650897813673
+            ],
+            "nmad": [
+              2.7604604216464717,
+              1.9832497011244916
+            ],
+            "absolute_radial_p68": 5.2370818730475825,
+            "equal_mean": [
+              -1.0812152495887,
+              -0.9443392303653947
+            ],
+            "median_object_interval95": [
+              [
+                -4.052570036228689,
+                2.9952404957983547
+              ],
+              [
+                -3.096948686924556,
+                0.06627716572324177
+              ]
+            ]
+          },
+          "common_original": {
+            "n": 1
+          },
+          "common_candidate": {
+            "n": 1
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    },
+    {
+      "ticket": {
+        "source_sha256": "461b8e25ed20ad7d1b2e6a6496321f7164aa9eb605ecca6afbffe4b726ee0475",
+        "old_candidate_sha256": "3731d9dee2263d156edcf73a92e106f8638ed7095db583df4f51c1ef6c83a149",
+        "implementation_sha256": "783e05469b4f1f5411160b5370d2fddad1c92a01bd978a5c0622471a07b12389"
+      },
+      "core": "w230_110_86_10",
+      "training": {
+        "original": {
+          "training_sources": 6286,
+          "unique_reproductions": 1980,
+          "shifted_unique_sources": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 2521,
+              "unique_reproductions": 1980,
+              "ratio": {
+                "n": 1980,
+                "denominator": 2521,
+                "value": 0.7854026180087267,
+                "wilson95": [
+                  0.7689488852930253,
+                  0.8009878903301577
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 1636,
+              "unique_reproductions": 1502,
+              "ratio": {
+                "n": 1502,
+                "denominator": 1636,
+                "value": 0.9180929095354523,
+                "wilson95": [
+                  0.9038049517654962,
+                  0.9304220356310835
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 2099,
+              "unique_reproductions": 1835,
+              "ratio": {
+                "n": 1835,
+                "denominator": 2099,
+                "value": 0.8742258218199143,
+                "wilson95": [
+                  0.8593530167693517,
+                  0.8877313596634018
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 120,
+              "unique_reproductions": 28,
+              "ratio": {
+                "n": 28,
+                "denominator": 120,
+                "value": 0.23333333333333334,
+                "wilson95": [
+                  0.16665575133182917,
+                  0.31655447075814613
+                ]
+              }
+            }
+          }
+        },
+        "added": {
+          "training_sources": 505,
+          "unique_reproductions": 47,
+          "shifted_unique_sources": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "opportunities": {
+            "geometric": {
+              "candidates": 202,
+              "unique_reproductions": 47,
+              "ratio": {
+                "n": 47,
+                "denominator": 202,
+                "value": 0.23267326732673269,
+                "wilson95": [
+                  0.1797244929506585,
+                  0.2955998628970261
+                ]
+              }
+            },
+            "catalogue_10sigma": {
+              "candidates": 6,
+              "unique_reproductions": 5,
+              "ratio": {
+                "n": 5,
+                "denominator": 6,
+                "value": 0.8333333333333334,
+                "wilson95": [
+                  0.43649717781352987,
+                  0.9699466302516935
+                ]
+              }
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 48,
+              "unique_reproductions": 33,
+              "ratio": {
+                "n": 33,
+                "denominator": 48,
+                "value": 0.6875,
+                "wilson95": [
+                  0.5466692858410841,
+                  0.8005431655341219
+                ]
+              }
+            },
+            "depth_or_band_unknown": {
+              "candidates": 85,
+              "unique_reproductions": 1,
+              "ratio": {
+                "n": 1,
+                "denominator": 85,
+                "value": 0.011764705882352941,
+                "wilson95": [
+                  0.002079787134664092,
+                  0.06367170882493911
+                ]
+              }
+            }
+          }
+        }
+      },
+      "old_training_count_reproduced": true,
+      "held_year": 2019,
+      "original_only_unique": 1980,
+      "original_lost_after_full_competition": 0,
+      "added_only_unique": 47,
+      "added_lost_after_full_competition": 0,
+      "competing_claims_rejected": 0,
+      "matched_position_residual_mas": {
+        "n": 2027,
+        "median": [
+          8.34037983417511,
+          11.052281498908997
+        ],
+        "nmad": [
+          85.99685333447457,
+          116.93413431498706
+        ],
+        "absolute_radial_p68": 170.43007806650456,
+        "equal_mean": [
+          11.012320304746162,
+          30.253131943037637
+        ],
+        "median_object_interval95": [
+          [
+            4.194105952978134,
+            13.153098039329052
+          ],
+          [
+            5.064742534421384,
+            18.059609551914036
+          ]
+        ]
+      },
+      "chip_metadata": {
+        "independent_chip_center_entries": 1190,
+        "independent_exposures": 62,
+        "returned_CCD_entries": 3763,
+        "input_chip_sha256": "ed406b0671b780ee5fd8157105bce1753f18697258875769be886ba401f581c5",
+        "internal_exposure_bad_pixel_masks_available": false,
+        "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+        "invalid_polygon_CCDs": 0
+      },
+      "external_morphology_counts": {
+        "no_unique_external_position": 505
+      },
+      "external_blend_proxy_count": 0,
+      "external_morphology": {
+        "sweep_files": 0,
+        "matched": 0
+      },
+      "elapsed_seconds": 65.3853235100396,
+      "slurm_job": "62016379",
+      "full_epoch_spectral_competition": {
+        "21": {
+          "original_labels": 19,
+          "candidate_labels": 20,
+          "lost_original_labels": 0,
+          "added_labels": 1,
+          "added_motion": {
+            "n": 1
+          },
+          "common_original": {
+            "n": 19,
+            "median": [
+              1.2550239178349567,
+              -2.2871042748909978
+            ],
+            "nmad": [
+              2.7128945802535473,
+              3.9668880608027703
+            ],
+            "absolute_radial_p68": 5.7694494904772045,
+            "equal_mean": [
+              1.1390952162557275,
+              -1.771006135623236
+            ],
+            "median_object_interval95": [
+              [
+                0.4266035591661184,
+                2.8614606596148544
+              ],
+              [
+                -4.156269306360135,
+                0.06036367533665883
+              ]
+            ]
+          },
+          "common_candidate": {
+            "n": 19,
+            "median": [
+              1.2550239178349567,
+              -2.2871042748909978
+            ],
+            "nmad": [
+              2.7128945802535473,
+              3.9668880608027703
+            ],
+            "absolute_radial_p68": 5.7694494904772045,
+            "equal_mean": [
+              1.1390952162557275,
+              -1.771006135623236
+            ],
+            "median_object_interval95": [
+              [
+                0.4266035591661184,
+                2.8614606596148544
+              ],
+              [
+                -4.156269306360135,
+                0.06036367533665883
+              ]
+            ]
+          }
+        },
+        "22": {
+          "original_labels": 2,
+          "candidate_labels": 2,
+          "lost_original_labels": 0,
+          "added_labels": 0,
+          "added_motion": {
+            "n": 0
+          },
+          "common_original": {
+            "n": 2
+          },
+          "common_candidate": {
+            "n": 2
+          }
+        }
+      },
+      "scope": "Original geometry/C0/W0 and sole0.6 threshold; all original+frozen new training sources compete. Test-year excluded before original association. Geometry and catalogue depth denominators measured; internal CCD effective-pixel masks absent and stellar purity truth remains limited. Published QSO recovery is stationary-source evidence, not star certification."
+    }
+  ],
+  "slurm_job": "62016379",
+  "decision_state": "assessed_with_remaining_external_support_limits",
+  "scope": "Full source competition and measured CCD/depth opportunity audits complete. Shared-image external morphology is evidence, not independent stellar identity truth. Adoptable scope requires final stratified review of actual results; no second threshold searched."
+}

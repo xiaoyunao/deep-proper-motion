@@ -64,17 +64,17 @@ def source_pool(task):
         r=dict(computed[0] if computed else options[0]);mag=r['magnitude']
         old=oldrows[slot];qso=spectra.iloc[r['qso_local_index']]
         if mag is not None:assert float(qso.reference_r)==mag
-        r.update(identity=(str(qso.origin),float(qso.ra),float(qso.dec)),window=entry['window'],**information(dict(old,projection_center_deg=entry['center'])))
+        r.update(identity=(str(qso.origin),float(qso.ra),float(qso.dec)),original_owner_core=before['moves'].get(slot,core),window=entry['window'],**information(dict(old,projection_center_deg=entry['center'])))
         r['information_epoch_definition']='Original fixed physical members and archived source conditions; new local support/formal exits retained.'
         if r['status']=='computed':r['pm_covariance']=np.asarray(r['new_fit']['covariance'])[np.ix_([1,3],[1,3])]
         fixed.append(r)
     compact=pd.read_parquet(root/'catalogue/index'/core/'science.parquet',columns=['slot','owner'])
-    retained=set(compact.loc[compact.owner.notna(),'slot'])
+    owner_by_slot=dict(zip(compact.slot,compact.owner));retained=set(compact.loc[compact.owner.notna(),'slot'])
     for r in blind_entries:
         slot=r['source_slot'];src=(i<<32)+slot
         if slot not in retained:exits['new_exterior_spectral']+=1;continue
         if src in quarantined:exits['new_global_identity_excluded']+=1;continue
-        row=newrows[slot];s=dict(r);s.update(window=entry['window'],**information(row))
+        row=newrows[slot];s=dict(r);s.update(final_owner_core=owner_by_slot[slot],window=entry['window'],**information(row))
         s['pm_covariance']=np.asarray(row['covariance'])[np.ix_([1,3],[1,3])]
         blind.append(s)
     write_rows(out/'private_qso_pool.json.gz',dict(fixed=fixed,blind=blind))
@@ -166,7 +166,7 @@ def stratified(rows):
             ('SDSS_years_ge2',lambda r:r.get('sdss_years') is not None and r['sdss_years']>=2),
             ('joint_span_ge12',lambda r:r['joint_span']>=12),('far_chart_ge40',lambda r:r['chart_angle_deg'] is not None and r['chart_angle_deg']>=40)]:groups[tag]=[r for r in base if predicate(r)]
         for angle in range(0,70,10):groups[f'chart_angle_{angle}_{angle+10}']=[r for r in base if r['chart_angle_deg'] is not None and angle<=r['chart_angle_deg']<angle+10]
-        for key in ('kind','instruments','window','bands'):
+        for key in ('kind','instruments','window','bands','historical_area'):
             for value in sorted({r[key] for r in base}):groups[key+'__'+value]=[r for r in base if r[key]==value]
         result[str(low)]={}
         for tag,part in groups.items():
@@ -185,12 +185,17 @@ def run(root,workers,frozen=None):
     import duckdb
     plan=read(root/'registration/private_full_coordinate_plan.json');dest=root/'quality';dest.mkdir(exist_ok=True)
     db=duckdb.connect(str(root/'catalogue/catalogue.duckdb'),read_only=True);quarantined=set(db.execute('SELECT src FROM not_adopted').fetchnumpy()['src']);db.close()
-    old=old_index(root.parent/'v1.9/batch/science' if frozen is None else frozen)
+    frozen=root.parent/'v1.9/batch/science' if frozen is None else frozen
+    old=old_index(frozen);intake=frozen.parent/'intake/tasks.tsv'
+    historical_new={line.split()[0] for line in intake.read_text().splitlines()} if intake.exists() else None
+    if len(plan['cores'])==2875 and (historical_new is None or len(historical_new)!=624):raise ValueError('Frozen historical sky-cohort metadata unavailable')
     with ProcessPoolExecutor(max_workers=workers) as pool:
         for _ in pool.map(source_pool,[(i,e,str(root),old,quarantined) for i,e in enumerate(plan['cores'])]):pass
     fixed=[];blind=[];pool_exits=Counter()
     for e in plan['cores']:
         part=read(dest/'cores'/e['core']/'private_qso_pool.json.gz');fixed.extend(part['fixed']);blind.extend(part['blind']);pool_exits.update(read(dest/'cores'/e['core']/'private_pool_receipt.json')['exits'])
+    for r in fixed:r['historical_area']='not_registered' if historical_new is None else ('v19_new_597deg' if r['original_owner_core'] in historical_new else 'pre_v19_2154deg')
+    for r in blind:r['historical_area']='not_registered' if historical_new is None else ('v19_new_597deg' if r['final_owner_core'] in historical_new else 'pre_v19_2154deg')
     # Exact old label identity is the frozen baseline's convention; preserve its
     # denominator, then separately report near-duplicate sensitivity if needed.
     counts=Counter(tuple(r['identity']) for r in fixed);fixed_unique=[r for r in fixed if counts[tuple(r['identity'])]==1]
@@ -211,12 +216,18 @@ def run(root,workers,frozen=None):
             local_support_exits=sum(not r['local_support_pass'] for r in computed),formal_error_exits=sum(not r['formal_error_pass'] for r in computed),
             residual_exits=sum(not r['residual_pass'] for r in computed),new_reference_common_on_fixed_identities=reference_common(computed),by_chart_angle=fixed_angle_readout(before),all_computed_same_members=metrics(points,('new','old','B1')),
             scope='New quality failures stay in same-member evaluation. Only unavailable new fits leave computed comparison, with explicit original denominator/status.')
+    for low in (20,21,22):
+        fixed_report[str(low)]['historical_area']={}
+        for tag in sorted({r['historical_area'] for r in fixed_unique}):
+            part=[r for r in fixed_unique if in_magnitude_bin(r,low) and r['historical_area']==tag];computed=[r for r in part if r['status']=='computed']
+            points=[dict(r,values=dict(new=r['new_values'],old=r['old_values']['blind_all'],B1=r['B1_values'])) for r in computed]
+            fixed_report[str(low)]['historical_area'][tag]=dict(frozen_denominator=len(part),status=dict(Counter(r['status'] for r in part)),all_computed_same_members=metrics(points,('new','old','B1')))
     spatial=[]
     for low in (20,21,22):
         for pixel in sorted({r['pixel64'] for r in new if in_magnitude_bin(r,low)}):
             part=[r for r in new if r['pixel64']==pixel and in_magnitude_bin(r,low)]
             spatial.append(dict(pixel64=pixel,r_bin=low,spectral_denominator=len(part),comparison=metrics(part,('new_all','Xiao','NSC'))))
-    report=dict(frozen_old_all_magnitude_identities=len(fixed_unique),frozen_old_all_identity_status=dict(Counter(r['status'] for r in fixed_unique)),
+    report=dict(historical_area_intake_sha256=digest(intake) if intake.exists() else None,frozen_old_all_magnitude_identities=len(fixed_unique),frozen_old_all_identity_status=dict(Counter(r['status'] for r in fixed_unique)),
         frozen_old_unbinned_magnitude=sum(not any(in_magnitude_bin(r,low) for low in (20,21,22)) for r in fixed_unique),
         new_unbinned_magnitude=sum(not any(in_magnitude_bin(r,low) for low in (20,21,22)) for r in new),source_pool_exits=dict(pool_exits),fixed_old_QSO=fixed_report,new_final_blind=stratified(new),new_unique_spectral_sources=len(new),new_near_duplicate_claims_excluded=duplicate,
         old_exact_duplicate_claims_excluded=len(fixed)-len(fixed_unique),

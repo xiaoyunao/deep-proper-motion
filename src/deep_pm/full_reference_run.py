@@ -50,11 +50,9 @@ def solve(root,number):
     point,draws,weight,trace=fit_component(ptr,groups,precision,values,names,draws=48,seed=45116+number,checkpoint=dest/'checkpoints')
     counts=np.bincount(groups,minlength=len(names))
     center=binding['component']['center_deg']
-    # Distinct source support, not measurement counts, is the reference count.
-    support=np.zeros(len(names),dtype='int64')
-    for start_ref in range(0,len(ptr)-1,50000):
-        for s in range(start_ref,min(start_ref+50000,len(ptr)-1)):
-            support[np.unique(groups[ptr[s]:ptr[s+1]])]+=1
+    # Exact distinct source counts exported with the globally peeled graph.
+    support=np.load(dest/'reference_counts.npy')
+    if len(support)!=len(names) or support.min()<10:raise ValueError('Reference support fell below registered minimum')
     data=dict(names=names,position=point,draws=draws,counts=support,
         gauge=np.repeat(str(number),len(names)),projection_center_deg=np.asarray(center),
         gauge_nsc_names=names[np.char.startswith(names,'NSC:')],native_application_se_mas=np.array(12.),

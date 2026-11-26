@@ -53,7 +53,7 @@ def close_graph(root,memory='24GB',threads=8):
     # Conflict policy preserves archived semantics. Exact halo duplicates are
     # removed before distinct physical exposure collisions are excluded.
     stage('bad_detection',f'''CREATE TABLE bad_detection AS SELECT detection_id FROM read_parquet('{glob}')
-        GROUP BY detection_id HAVING count(DISTINCT reference)>1''')
+        GROUP BY detection_id HAVING min(reference)<>max(reference)''')
     stage('unique_detection',f'''CREATE TABLE unique_detection AS
         SELECT * EXCLUDE(rn) FROM (
           SELECT *,row_number() OVER(PARTITION BY detection_id ORDER BY source_core) rn
@@ -61,15 +61,15 @@ def close_graph(root,memory='24GB',threads=8):
     # Check the native input, not the obsolete per-domain projection coordinates.
     native_conflict=scalar(db,f'''SELECT count(*) FROM (
         SELECT detection_id FROM read_parquet('{glob}') GROUP BY detection_id
-        HAVING count(DISTINCT "group")>1 OR max(ra_deg)-min(ra_deg)>1e-8
+        HAVING min("group")<>max("group") OR max(ra_deg)-min(ra_deg)>1e-8
         OR max(dec_deg)-min(dec_deg)>1e-8 OR max(sigma_e)-min(sigma_e)>1e-5
-        OR max(sigma_n)-min(sigma_n)>1e-5 OR count(DISTINCT is_holdout)>1)''')
+        OR max(sigma_n)-min(sigma_n)>1e-5 OR min(is_holdout)<>max(is_holdout))''')
     if native_conflict:raise ValueError(f'Conflicting physical measurement/split: {native_conflict}')
     stage('bad_exposure','''CREATE TABLE bad_exposure AS SELECT reference,exposure_id FROM unique_detection
         GROUP BY reference,exposure_id HAVING count(*)>1''')
     stage('clean','''CREATE TABLE clean AS SELECT u.* FROM unique_detection u
         ANTI JOIN bad_exposure b USING(reference,exposure_id)''')
-    split_clash=scalar(db,'SELECT count(*) FROM (SELECT reference FROM clean GROUP BY reference HAVING count(DISTINCT is_holdout)>1)')
+    split_clash=scalar(db,'SELECT count(*) FROM (SELECT reference FROM clean GROUP BY reference HAVING min(is_holdout)<>max(is_holdout))')
     if split_clash:raise ValueError('Physical reference appears in training and holdout')
     stage('active','CREATE TABLE active AS SELECT * FROM clean WHERE NOT is_holdout')
     trace=[]
@@ -97,6 +97,12 @@ def close_graph(root,memory='24GB',threads=8):
     group_table['component']=labels
     db.unregister('group_map_frame');db.register('group_map_frame',group_table)
     db.execute('CREATE OR REPLACE TABLE group_map AS SELECT * FROM group_map_frame')
+    old_group_sets={}
+    for graph in plan.get('graphs',{}):
+        with np.load(graph,allow_pickle=False) as a:
+            old_group_sets[graph]=set(map(str,a['names']))
+    old_union=set().union(*old_group_sets.values()) if old_group_sets else set()
+    new_union=set(map(str,names))
     components=[]
     for component in range(ncomponents):
         member=group_table.loc[group_table.component.eq(component),'group'].tolist()
@@ -122,6 +128,9 @@ def close_graph(root,memory='24GB',threads=8):
         physical_exposure_conflicts=scalar(db,'SELECT count(*) FROM bad_exposure'),clean_measurements=scalar(db,'SELECT count(*) FROM clean'),
         clean_holdout_measurements=scalar(db,'SELECT count(*) FROM clean WHERE is_holdout'),
         training_measurements=scalar(db,'SELECT count(*) FROM active'),peeling=trace,components=components,
+        old_retained_group_count=len(old_union),new_solved_group_count=len(new_union),
+        restored_or_new_groups=len(new_union-old_union),old_retained_groups_lost=len(old_union-new_union),
+        scope_of_group_change='Old graph-plane SE-filtered groups vs new peeled pre-SE solvable groups; native12mas target support is a separate downstream selection.',
         elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
         slurm_job=os.environ['SLURM_JOB_ID'],support_definition='Graph peeling is pre-SE. No group-level planar SE rejection. Native12mas support evaluated at each target measurement.')
     check_aggregate(summary);save_json(dest/'v22_global_graph_summary.json',summary)
@@ -137,6 +146,10 @@ def export_component(root,number,memory='24GB',threads=8):
     names=db.execute('SELECT "group" FROM group_map WHERE component=? ORDER BY "group"',[number]).fetchnumpy()['group']
     db.register('local_groups_frame',pd.DataFrame({'group':names,'lg':np.arange(len(names),dtype='int32')}))
     db.execute('CREATE OR REPLACE TEMP TABLE local_refs AS SELECT reference,row_number() OVER(ORDER BY reference)-1 rid FROM active SEMI JOIN local_groups_frame USING("group") GROUP BY reference')
+    index_path=dest/'private_reference_index.parquet'
+    db.execute(f"COPY (SELECT * FROM local_refs ORDER BY rid) TO '{index_path}' (FORMAT PARQUET,COMPRESSION ZSTD)")
+    support=db.execute('SELECT lg,count(DISTINCT reference) n FROM active JOIN local_groups_frame USING("group") GROUP BY lg ORDER BY lg').fetchnumpy()['n']
+    np.save(dest/'reference_counts.npy',support)
     n=entry['measurements'];nr=entry['reference_sources']
     groups=np.lib.format.open_memmap(dest/'groups.npy',mode='w+',dtype='int32',shape=(n,))
     value=np.lib.format.open_memmap(dest/'values.npy',mode='w+',dtype='float64',shape=(n,2))
@@ -163,6 +176,7 @@ def export_component(root,number,memory='24GB',threads=8):
     np.save(dest/'names.npy',np.asarray(names,dtype=str))
     for a in (groups,value,precision):a.flush()
     files={p.name:digest(p) for p in sorted(dest.glob('*.npy'))}
+    files[index_path.name]=digest(index_path)
     save_json(dest/'private_numeric_binding.json',dict(graph_sha256=digest(binding),component=entry,files=files,
         precision='native covariance including50mas, projected and inverted full2D once',centering='per source first measurement'))
     db.close();print('COMPONENT_EXPORTED',number,n,nr,flush=True)

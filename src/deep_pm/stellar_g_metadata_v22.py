@@ -27,7 +27,8 @@ def run(root,output):
     output.mkdir(parents=True,exist_ok=True)
     plan_path=root/'v2.2/registration/private_full_coordinate_plan.json';plan=read(plan_path)
     evaluations=[];skipped=defaultdict(int)
-    for entry in plan['cores']:
+    for index,entry in enumerate(plan['cores']):
+        if index%128==0:print('G_METADATA_PROGRESS',index,len(plan['cores']),flush=True)
         source=Path(entry['source']);paths,complete=chip_receipts(source/'run_manifest.json')
         if not complete:skipped['incomplete_chip_metadata']+=1;continue
         parts=[]

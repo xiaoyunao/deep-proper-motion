@@ -1,3 +1,9 @@
+# v2.2 独立g机制支线
+
+主几何目录更新在experiment-a-v2.2-full-coordinate-update进行。本支线≤2计费节点小时计入总48，主C0生产不加新颜色项。阶段一20032物理g测量/真实几何/深邻源已完成；下一步实际g匹配、同夜pairwise辨识、最多2元数据补充核心，以及原102簇/场东向K/观测组读出。任务与限制见[登记](docs/stellar_g_v22.md)。
+
+---
+
 # v2.1 广域坐标一致性及其对暗源自行的影响
 
 固定6faabde，原2751.446平方度/15625958生产解只读。[中文科学报告](reports/experiment_A_v2.1_coordinate_consistency.md) · [预登记](docs/coordinate_consistency_v21.md) · [实际方法](docs/coordinate_units_v21.md)。

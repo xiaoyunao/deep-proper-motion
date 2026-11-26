@@ -154,6 +154,16 @@ def close(root):
         old_retained_solutions=db.execute('SELECT count(*) FROM old').fetchone()[0],
         private_input_binding_sha256=digest(lock),slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Full-source native ICRS/J2015.5 catalogue. Owner remapping leaves state/covariance/members unchanged. Exterior archived; any shared detection quarantines competing raw solutions pending explicit local audit. Occupied HEALPix pixels are not effective or certified area. Exact membership does not certify a true star; changed-member continuity follows separately.')
+    if 'se_e' in {r[0] for r in db.execute('DESCRIBE accepted').fetchall()}:
+        spatial=db.execute('''SELECT pixel128,count(*) source_count,median(se_e) median_SE_e,median(se_n) median_SE_n,
+          avg(CASE WHEN maximum_group_leverage>=.8 THEN 1.0 ELSE 0.0 END) high_leverage_fraction,
+          median(nsc_nights) median_nsc_nights,median(joint_span) median_joint_span,
+          count(*) FILTER(WHERE kind='r_existing') r_existing,
+          count(*) FILTER(WHERE kind='extra_r_anchor') extra_r_anchor,
+          count(*) FILTER(WHERE kind='non_r_anchor') non_r_anchor
+          FROM accepted GROUP BY pixel128''').fetchdf().to_dict('records')
+        public=dict(nside=128,spatial=spatial,scope='Source-occupied pixels and conditional error/support diagnostics; neither geometric effective area nor certified spatial zero area.')
+        check_aggregate(public);save_json(dest/'v22_catalogue_spatial_support_summary.json',public)
     check_aggregate(result);save_json(dest/'v22_catalogue_ownership_summary.json',result)
     save_json(dest/'private_owned_counts.json',dict(by_core));db.execute('CHECKPOINT');db.close()
 

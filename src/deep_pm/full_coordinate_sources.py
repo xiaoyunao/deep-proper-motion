@@ -22,7 +22,7 @@ from .allband_blind_year import r_magnitude
 from .astrometry import project,seasons
 from .blind_catalogue_quality import read
 from .continuous_reference import PRECISION,SPATIAL,read_offsets,reference_frame,verify_directory
-from .coordinate_metric import native_covariance,projected_covariance,fit_vector_motion,reference_covariance,AngularTree,old_influence,covariance_of_estimator
+from .coordinate_metric import native_covariance,projected_covariance,fit_vector_motion,reference_covariance,AngularTree,old_influence,covariance_of_estimator,design_matrix
 from .dark_precision import query_unique
 from .exposure_catalogues import inside
 from .full_reference_run import local_support
@@ -38,13 +38,15 @@ from .year_opportunities import utc_year
 
 def information(data,time,night,keys,model,fit,covariance,utc_years=None):
     """Full2D Fisher information after eliminating the two position nuisances."""
-    dt=time-time.mean();w=np.linalg.inv(covariance)*model.weight[:,None,None]
-    pp=w.sum(axis=0);pm=np.einsum('n,nij->ij',dt,w)
-    mean=np.linalg.solve(pp,pm)
-    residual=dt[:,None,None]*np.eye(2)-mean
+    w=np.linalg.inv(covariance)*model.weight[:,None,None]
+    jacobian=np.asarray(fit['state_jacobian'])
+    transformed_design=design_matrix(time,model.epoch)@np.linalg.inv(jacobian)
+    pos=transformed_design[:,:,[0,2]];motion=transformed_design[:,:,[1,3]]
+    pp=np.einsum('nip,nij,njq->pq',pos,w,pos)
+    pm=np.einsum('nip,nij,njq->pq',pos,w,motion)
+    nuisance=np.linalg.solve(pp,pm)
+    residual=motion-pos@nuisance
     fisher=residual.transpose(0,2,1)@w@residual
-    velocity_jac=np.asarray(fit['state_jacobian'])[np.ix_([1,3],[1,3])]
-    inv=np.linalg.inv(velocity_jac);fisher=inv.T[None]@fisher@inv[None]
     diagonal=fisher[:,[0,1],[0,1]];total=diagonal.sum(axis=0)
     maximum={};effective={}
     for label,tags in [('physical_group',keys),('observing_night',np.char.add(data.survey.to_numpy(str),night.astype(str)))]:
@@ -57,8 +59,8 @@ def information(data,time,night,keys,model,fit,covariance,utc_years=None):
         sdss_physical_runs=data.exposure_id[~nsc].nunique(),
         sdss_independent_UTC_years=len(set(utc_years[~nsc])),nsc_independent_UTC_years=len(set(utc_years[nsc])),
         full2D_profiled_ICRS_slope_information=total,largest_information_fraction=maximum,effective_information_groups=effective,
-        independent_pm_variance=np.diag(fit['independent_tangent_covariance'])[[1,3]],
-        reference_pm_variance=np.diag(fit['reference_tangent_covariance'])[[1,3]],
+        independent_pm_variance=np.diag(jacobian@fit['independent_tangent_covariance']@jacobian.T)[[1,3]],
+        reference_pm_variance=np.diag(jacobian@fit['reference_tangent_covariance']@jacobian.T)[[1,3]],
         leverage_definition='Full2D GLS profiled Fisher contribution, localICRS slope axes; conditional W0, not independent-night information')
 
 
@@ -82,7 +84,8 @@ def external_values(source,oldfit,spectra,center):
             row=frame.iloc[near[j]]
             err=row[['pmraerr','pmdecerr'] if method=='NSC' else ['pmra_err','pmdec_err']].to_numpy(float)
             pm=row[['pmra','pmdec']].to_numpy(float)
-            if np.isfinite(pm).all() and np.isfinite(err).all() and (err>0).all():result.setdefault(int(j),{})[method]=(pm,err)
+            if method=='NSC' and (not np.isfinite(float(row.deltamjd)) or float(row.deltamjd)<=0):continue
+            if np.isfinite(pm).all() and abs(pm).max()<1e5 and np.isfinite(err).all() and (err>0).all():result.setdefault(int(j),{})[method]=(pm,err)
     return result
 
 
@@ -98,7 +101,12 @@ def reference_context(graph):
 def component_map(root):
     path=Path(root)/'graph/private_group_components.parquet'
     frame=pd.read_parquet(path)
-    return frame.set_index('group').component,digest(path)
+    meta_path=Path(root)/'graph/v22_global_graph_summary.json';meta=read(meta_path)
+    ready={r['component'] for r in meta['components'] if r['status']=='ready'}
+    frame=frame.loc[frame.component.isin(ready)]
+    from hashlib import sha256
+    signature=sha256((digest(path)+digest(meta_path)).encode()).hexdigest()
+    return frame.set_index('group').component,signature
 
 
 def one(task):
@@ -178,6 +186,8 @@ def one(task):
             fit.update(reference_epoch=config['reference_epoch'],tangent_state=model.coeff.T.ravel(),
                 independent_tangent_covariance=model.cov,reference_tangent_covariance=common,
                 robust_weight=model.weight,span_years=float(np.ptp(t[ix])))
+            j=np.asarray(fit['state_jacobian'])
+            fit.update(independent_icrs_covariance=j@model.cov@j.T,reference_icrs_covariance=j@common@j.T)
             return model,fit,response
         def fit_source(ix):
             model,fit,_=cached(tuple(ix));return model,fit['pm_error_masyr']

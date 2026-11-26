@@ -80,3 +80,5 @@
 !/reports/experiment_A_v2.2_full_coordinate.md
 
 !/figures/v22_*.png
+
+!/results/summary/v22_global_QSO_quality_full_summary.json.gz

@@ -55,7 +55,7 @@ def metadata_chips(source,cache):
         scope='All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.')
 
 
-def opportunities(data,models,members,chips,center,solution,held_year):
+def opportunities(data,models,members,chips,center,solution,held_year,calibration_accept=None):
     n=len(models);covered=np.zeros(n,bool);depth=np.zeros(n,bool);five=np.zeros(n,bool);unknown=np.zeros(n,bool)
     counts=np.zeros(n,int);qualified=np.zeros(n,int);bands=[]
     for ix in members:
@@ -74,7 +74,9 @@ def opportunities(data,models,members,chips,center,solution,held_year):
         # The fitted positions are C0-corrected; add the archived offset before
         # checking a footprint expressed in the catalogue's published WCS.
         prediction=positions+motion*(time-epoch)+solution[key][0]
-        here=polygon.contains_points(prediction);covered|=here;counts+=here
+        here=polygon.contains_points(prediction)
+        if calibration_accept is not None:here &= calibration_accept(key,prediction,center)
+        covered|=here;counts+=here
         mag=np.array([r.get(str(chip['filter']),np.nan) for r in bands])
         good=here&np.isfinite(mag)&np.isfinite(chip.depth10sig)
         depth|=good&(mag<=chip.depth10sig);five|=good&(mag<=chip.depth10sig+2.5*np.log10(2))

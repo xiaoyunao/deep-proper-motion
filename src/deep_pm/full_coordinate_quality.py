@@ -61,7 +61,7 @@ def source_pool(task):
         if mag is None or not 21<=mag<23:continue
         old=oldrows[slot];qso=spectra.iloc[r['qso_local_index']]
         assert float(qso.reference_r)==mag
-        r.update(identity=(str(qso.origin),float(qso.ra),float(qso.dec)),window=entry['window'],**information(old))
+        r.update(identity=(str(qso.origin),float(qso.ra),float(qso.dec)),window=entry['window'],**information(dict(old,projection_center_deg=entry['center'])))
         r['information_epoch_definition']='Original fixed physical members and archived source conditions; new local support/formal exits retained.'
         fixed.append(r)
     compact=pd.read_parquet(root/'catalogue/index'/core/'science.parquet',columns=['slot','owner'])

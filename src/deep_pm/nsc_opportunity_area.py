@@ -29,21 +29,32 @@ def equal_area_grid(box,step):
     return np.c_[a.ravel(),d.ravel()],area(box)/(nx*ny)
 
 
-def scan_members(table,sky,xy,center,margin):
-    tree=cKDTree(xy);byrun={};epochs={}
+def scan_members(table,sky,xy,center,margin,calibration_accept=None,details=False):
+    if calibration_accept is None:tree=cKDTree(xy)
+    else:
+        from .coordinate_metric import AngularTree
+        tree=AngularTree(xy,center)
+    byrun={};epochs={};field_times=[]
     for row in table.itertuples(index=False):
         origin=project([row.RA],[row.DEC],center)[0]
         ix=np.asarray(tree.query_ball_point(origin,margin*3600000),int)
         if not len(ix):continue
         mu,nu=sdss_great_circle(sky[ix,0],sky[ix,1],row.NODE,row.INCL);width=(row.MU_END-row.MU_START)%360
         ix=ix[((mu-row.MU_START)%360<=width)&(nu>=min(row.NU_START,row.NU_END))&(nu<=max(row.NU_START,row.NU_END))]
-        if len(ix):byrun.setdefault(int(row.RUN),[]).append(ix);epochs.setdefault(int(row.RUN),[]).append(float(row.epoch))
-    return {k:np.unique(np.concatenate(v)) for k,v in byrun.items()},epochs
+        if len(ix) and calibration_accept is not None:ix=ix[calibration_accept(f'SDSS:{int(row.RUN)}:{int(row.CAMCOL)}',sky[ix])]
+        if len(ix):
+            byrun.setdefault(int(row.RUN),[]).append(ix);epochs.setdefault(int(row.RUN),[]).append(float(row.epoch));field_times.append((ix,float(row.epoch)))
+    answer=({k:np.unique(np.concatenate(v)) for k,v in byrun.items()},epochs)
+    return answer+(field_times,) if details else answer
 
 
-def opportunity_masks(chips, window, sky, center, solution):
+def opportunity_masks(chips, window, sky, center, solution,calibration_accept=None):
     """Evaluate supported SDSS and NSC footprint and time at exact positions."""
-    xy=project(*sky.T,center);tree=cKDTree(xy);n=len(sky)
+    xy=project(*sky.T,center);n=len(sky)
+    if calibration_accept is None:tree=cKDTree(xy)
+    else:
+        from .coordinate_metric import AngularTree,angular_distance
+        tree=AngularTree(xy,center)
     layers={k:dict(count=np.zeros(n,int),first=np.full(n,np.inf),last=np.full(n,-np.inf)) for k in ('r','all')}
     def update(layer,indices,epoch):
         layer['count'][indices]+=1;layer['first'][indices]=np.minimum(layer['first'][indices],epoch);layer['last'][indices]=np.maximum(layer['last'][indices],epoch)
@@ -53,19 +64,27 @@ def opportunity_masks(chips, window, sky, center, solution):
         for row in part.itertuples(index=False):
             corners=np.array([(getattr(row,'vertex_ra'+str(i)),getattr(row,'vertex_dec'+str(i))) for i in range(1,5)])
             if not np.isfinite(corners).all():continue
-            corners=project(*corners.T,center);mid=corners.mean(axis=0);radius=np.linalg.norm(corners-mid,axis=1).max();ix=np.asarray(tree.query_ball_point(mid,radius+1),int)
+            corners=project(*corners.T,center);mid=corners.mean(axis=0);radius=np.linalg.norm(corners-mid,axis=1).max() if calibration_accept is None else angular_distance(corners,mid,center).max()
+            ix=np.asarray(tree.query_ball_point(mid,radius+1),int)
             if len(ix):selected.append(ix[Polygon(np.vstack([corners,corners[0]]),closed=True).contains_points(xy[ix])])
         if not selected:continue
-        ix=np.unique(np.concatenate(selected));epoch=float(years(utc_to_tt(float(np.median(part.mjd)))))
+        ix=np.unique(np.concatenate(selected))
+        if calibration_accept is not None:ix=ix[calibration_accept('NSC:'+str(exposure),sky[ix])]
+        epoch=float(years(utc_to_tt(float(np.median(part.mjd)))))
         update(layers['all'],ix,epoch)
         if set(part['filter'].astype(str))=={'r'}:update(layers['r'],ix,epoch)
     selected=window.loc[[f'SDSS:{int(r)}:{int(c)}' in solution for r,c in zip(window.RUN,window.CAMCOL)]]
     # Two independent field-center margins must recover the same exact native
     # scan-bound coverage; polygon/scan metadata do not imply source SNR.
-    members,epochs=scan_members(selected,sky,xy,center,.30);other,_=scan_members(selected,sky,xy,center,.50)
+    members,epochs,field_times=scan_members(selected,sky,xy,center,.30,calibration_accept,True);other,_=scan_members(selected,sky,xy,center,.50,calibration_accept)
     if set(members)!=set(other) or any(not np.array_equal(members[k],other[k]) for k in members):raise ValueError('SDSS native footprint changes with center margin')
     early=dict(count=np.zeros(n,int),first=np.full(n,np.inf),last=np.full(n,-np.inf))
-    for run,ix in members.items():update(early,ix,float(np.median(epochs[run])))
+    if calibration_accept is None:
+        for run,ix in members.items():update(early,ix,float(np.median(epochs[run])))
+    else:
+        for run,ix in members.items():early['count'][ix]+=1
+        for ix,epoch in field_times:
+            early['first'][ix]=np.minimum(early['first'][ix],epoch);early['last'][ix]=np.maximum(early['last'][ix],epoch)
     masks={}
     for key,layer in layers.items():
         span=layer['last']-layer['first'];joint=np.maximum(layer['last'],early['last'])-np.minimum(layer['first'],early['first'])

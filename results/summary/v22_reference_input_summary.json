@@ -1,0 +1,12 @@
+{
+  "plan_sha256": "6c78c0ea3c5d69d9cbd0f2a17e39fc33991d5dabf48222929f3a90329d76c84b",
+  "pilot": false,
+  "completed_cores": 2875,
+  "shard_measurements": 318694317,
+  "input_detections": 1750398729,
+  "added_detection_count": 54126,
+  "exited_detection_count": 2106170,
+  "total_worker_seconds": 22475.356204378535,
+  "maximum_worker_rss_mib": 25582.9140625,
+  "slurm_job": "62036896"
+}

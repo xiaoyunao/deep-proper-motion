@@ -43,6 +43,46 @@ def hemisphere_center(sky):
     return [float(np.degrees(np.arctan2(vector[1],vector[0]))%360),float(np.degrees(np.arcsin(vector[2])))]
 
 
+def partitioned_detections(db,root,dest,binding_sha):
+    """Bound the window operator by hash(detID); its global rule is unchanged."""
+    intake=dest/'detection_buckets';marker=dest/'private_detection_buckets.json'
+    if marker.exists():
+        previous=read(marker)
+        if previous['binding_sha256']!=binding_sha:raise ValueError('Changed detection bucket input')
+        for name,sha in previous['files'].items():
+            if digest(dest/name)!=sha:raise ValueError('Changed partitioned input cache')
+    else:
+        if intake.exists():
+            attempt=1
+            while intake.with_name(intake.name+f'-incomplete-{attempt}').exists():attempt+=1
+            intake.rename(intake.with_name(intake.name+f'-incomplete-{attempt}'))
+        glob=str(root/'input/*/reference.parquet')
+        db.execute(f"COPY (SELECT *, hash(detection_id)%64 detection_bucket FROM read_parquet('{glob}')) TO '{intake}' (FORMAT PARQUET,PARTITION_BY(detection_bucket),COMPRESSION ZSTD,ROW_GROUP_SIZE 32768)")
+        files={str(p.relative_to(dest)):digest(p) for p in sorted(intake.glob('**/*.parquet'))}
+        save_json(marker,dict(binding_sha256=binding_sha,files=files,bucket_count=64))
+    unique=dest/'deduplicated';unique.mkdir(exist_ok=True)
+    for folder in sorted(intake.glob('detection_bucket=*')):
+        label=folder.name.split('=')[1];out=unique/(label+'.parquet');receipt=out.with_suffix('.json')
+        if receipt.exists():
+            old=read(receipt)
+            if old['binding_sha256']!=binding_sha or old['sha256']!=digest(out):raise ValueError('Changed completed detection bucket')
+            continue
+        glob=str(folder/'*.parquet')
+        conflict=scalar(db,f'''SELECT count(*) FROM (SELECT detection_id FROM read_parquet('{glob}',hive_partitioning=true)
+            GROUP BY detection_id HAVING min("group")<>max("group") OR max(ra_deg)-min(ra_deg)>1e-8 OR max(dec_deg)-min(dec_deg)>1e-8
+            OR max(sigma_e)-min(sigma_e)>1e-5 OR max(sigma_n)-min(sigma_n)>1e-5 OR min(is_holdout)<>max(is_holdout))''')
+        if conflict:raise ValueError(f'Conflicting native physical records in bucket{label}: {conflict}')
+        temp=out.with_suffix('.pending.parquet')
+        db.execute(f'''COPY (SELECT * EXCLUDE(rn,detection_bucket) FROM (
+            SELECT *,row_number() OVER(PARTITION BY detection_id ORDER BY source_core) rn
+            FROM read_parquet('{glob}',hive_partitioning=true) ANTI JOIN bad_detection USING(detection_id)) WHERE rn=1)
+            TO '{temp}' (FORMAT PARQUET,COMPRESSION ZSTD)''')
+        temp.replace(out)
+        save_json(receipt,dict(binding_sha256=binding_sha,sha256=digest(out),native_conflicts=0))
+        print('DETECTION_BUCKET_DONE',label,flush=True)
+    return str(unique/'*.parquet')
+
+
 def close_graph(root,memory='24GB',threads=8):
     start=monotonic();dest=root/'graph';dest.mkdir(parents=True,exist_ok=True)
     plan_path=root/'registration/private_full_coordinate_plan.json';plan=read(plan_path)
@@ -51,7 +91,8 @@ def close_graph(root,memory='24GB',threads=8):
         path=root/'input'/entry['core'];proof=read(path/'v22_reference_input_core_summary.json')
         if proof['parquet_sha256']!=digest(path/'reference.parquet'):raise ValueError('Changed input Parquet')
         proofs.append(proof['parquet_sha256'])
-    ticket=dict(plan_sha256=digest(plan_path),shards=proofs,implementation_sha256=digest(Path(__file__)))
+    ticket=dict(plan_sha256=digest(plan_path),shards=proofs,implementation_sha256=digest(Path(__file__)),
+        engine_version=__import__('duckdb').__version__,partition_policy='detID-hash64-equivalent-global-window')
     lock=dest/'private_input_binding.json'
     if lock.exists() and read(lock)!=ticket:raise ValueError('Global graph input changed; use a new version directory')
     save_json(lock,ticket)
@@ -62,21 +103,20 @@ def close_graph(root,memory='24GB',threads=8):
             db.execute('CHECKPOINT')
         print('GRAPH_STAGE',name,scalar(db,f'SELECT count(*) FROM {name}'),flush=True)
     glob=str(root/'input/*/reference.parquet')
+    previous=root/'graph-attempt-910abae'
+    if (previous/'private_input_binding.json').exists() and scalar(db,"SELECT count(*) FROM information_schema.tables WHERE table_name='bad_detection'")==0:
+        old=read(previous/'private_input_binding.json')
+        if old['plan_sha256']!=ticket['plan_sha256'] or old['shards']!=ticket['shards']:raise ValueError('Prior reference input identity changed')
+        db.execute(f"ATTACH '{previous/'reference.duckdb'}' AS completed_prior (READ_ONLY)")
+        db.execute('CREATE TABLE bad_detection AS SELECT * FROM completed_prior.bad_detection')
+        db.execute('DETACH completed_prior');db.execute('CHECKPOINT')
+        print('REUSED_PRIOR_MEMBERSHIP_CONFLICT_STAGE',flush=True)
     # Conflict policy preserves archived semantics. Exact halo duplicates are
     # removed before distinct physical exposure collisions are excluded.
     stage('bad_detection',f'''CREATE TABLE bad_detection AS SELECT detection_id FROM read_parquet('{glob}')
         GROUP BY detection_id HAVING min(reference)<>max(reference)''')
-    stage('unique_detection',f'''CREATE TABLE unique_detection AS
-        SELECT * EXCLUDE(rn) FROM (
-          SELECT *,row_number() OVER(PARTITION BY detection_id ORDER BY source_core) rn
-          FROM read_parquet('{glob}') ANTI JOIN bad_detection USING(detection_id)) WHERE rn=1''')
-    # Check the native input, not the obsolete per-domain projection coordinates.
-    native_conflict=scalar(db,f'''SELECT count(*) FROM (
-        SELECT detection_id FROM read_parquet('{glob}') GROUP BY detection_id
-        HAVING min("group")<>max("group") OR max(ra_deg)-min(ra_deg)>1e-8
-        OR max(dec_deg)-min(dec_deg)>1e-8 OR max(sigma_e)-min(sigma_e)>1e-5
-        OR max(sigma_n)-min(sigma_n)>1e-5 OR min(is_holdout)<>max(is_holdout))''')
-    if native_conflict:raise ValueError(f'Conflicting physical measurement/split: {native_conflict}')
+    unique_glob=partitioned_detections(db,root,dest,digest(lock))
+    stage('unique_detection',f"CREATE VIEW unique_detection AS SELECT * FROM read_parquet('{unique_glob}')")
     stage('bad_exposure','''CREATE TABLE bad_exposure AS SELECT reference,exposure_id FROM unique_detection
         GROUP BY reference,exposure_id HAVING count(*)>1''')
     stage('clean','''CREATE TABLE clean AS SELECT u.* FROM unique_detection u
@@ -87,10 +127,11 @@ def close_graph(root,memory='24GB',threads=8):
     trace=[]
     while True:
         n=scalar(db,'SELECT count(*) FROM active')
-        db.execute('''CREATE OR REPLACE TABLE peel_groups AS SELECT "group" FROM active
-            GROUP BY "group" HAVING count(DISTINCT reference)>=10''')
-        db.execute('''CREATE OR REPLACE TABLE peel_refs AS SELECT reference FROM active
-            SEMI JOIN peel_groups USING("group") GROUP BY reference HAVING count(DISTINCT "group")>=2''')
+        db.execute('''CREATE OR REPLACE TABLE active_pairs AS SELECT reference,"group" FROM active GROUP BY reference,"group"''')
+        db.execute('''CREATE OR REPLACE TABLE peel_groups AS SELECT "group" FROM active_pairs
+            GROUP BY "group" HAVING count(*)>=10''')
+        db.execute('''CREATE OR REPLACE TABLE peel_refs AS SELECT reference FROM active_pairs
+            SEMI JOIN peel_groups USING("group") GROUP BY reference HAVING count(*)>=2''')
         db.execute('''CREATE OR REPLACE TABLE next_active AS SELECT a.* FROM active a
             SEMI JOIN peel_groups USING("group") SEMI JOIN peel_refs USING(reference)''')
         m=scalar(db,'SELECT count(*) FROM next_active');trace.append(dict(before=n,after=m))
@@ -172,7 +213,7 @@ def export_component(root,number,memory='24GB',threads=8):
     db.execute('CREATE OR REPLACE TEMP TABLE local_refs AS SELECT reference,row_number() OVER(ORDER BY reference)-1 rid FROM active SEMI JOIN local_groups_frame USING("group") GROUP BY reference')
     index_path=dest/'private_reference_index.parquet'
     db.execute(f"COPY (SELECT * FROM local_refs ORDER BY rid) TO '{index_path}' (FORMAT PARQUET,COMPRESSION ZSTD)")
-    support=db.execute('SELECT lg,count(DISTINCT reference) n FROM active JOIN local_groups_frame USING("group") GROUP BY lg ORDER BY lg').fetchnumpy()['n']
+    support=db.execute('SELECT lg,count(*) n FROM active_pairs JOIN local_groups_frame USING("group") GROUP BY lg ORDER BY lg').fetchnumpy()['n']
     np.save(dest/'reference_counts.npy',support)
     n=entry['measurements'];nr=entry['reference_sources']
     groups=np.lib.format.open_memmap(dest/'groups.npy',mode='w+',dtype='int32',shape=(n,))

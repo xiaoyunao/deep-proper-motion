@@ -1,0 +1,10 @@
+{
+  "baseline": "75a7abfa883a13d649719eaefe8d676e713bb3b3",
+  "cores": 2875,
+  "old_graphs": 3,
+  "plan_sha256": "6c78c0ea3c5d69d9cbd0f2a17e39fc33991d5dabf48222929f3a90329d76c84b",
+  "budget_cpu_node_hours": 48,
+  "source_shape_minimum": 0.8,
+  "method": "spherical-reference-full2d-v22-nativeSE12",
+  "slurm_job": "62036857"
+}

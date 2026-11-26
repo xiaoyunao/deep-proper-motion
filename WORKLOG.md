@@ -2,6 +2,7 @@
 
 ## 2026-11-26 · v2.2 恒星g独立机制支线
 
+- 补充元数据选区首次0/2875因要求chips中不存在的airmass/CCD角点组合，属读取缺项，不是无g。改读取校验SHA的既有transfer CCD足迹，缺airmass由真实台址几何计算；物理夜统一18UTC边界。
 - 后续同夜辨识统一UTC18到次日UTC18（与主目录night_labels一致），保留原几何汇总UTC日历日期定义，不将两者混作独立夜数。实际UTC观测时刻不改变。
 
 - B5的SDSS field由冻结真实detection_id解析并核验SAS五字段接口，而非沿用可能缺field的旧分组文本；读取PSFMAG/PSFMAGERR验证颜色误差来源，缺测不作零误差。

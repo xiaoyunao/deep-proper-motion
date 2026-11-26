@@ -23,18 +23,37 @@ from .public_summary import check_aggregate
 def cached_zenith(mjd):return zenith_vectors(np.array([mjd]))
 
 
+@lru_cache(maxsize=4)
+def chip_table(path):return pd.read_csv(path,dtype={'exposure':str})
+
+
 def run(root,output):
     output.mkdir(parents=True,exist_ok=True)
     plan_path=root/'v2.2/registration/private_full_coordinate_plan.json';plan=read(plan_path)
-    evaluations=[];skipped=defaultdict(int)
-    for index,entry in enumerate(plan['cores']):
+    production=read(root/'v1.9/batch/science/private_continuation_manifest.json')
+    footprints={}
+    for part in production['partitions']:
+        for core,window in part['region_by_core'].items():
+            footprints[core]=Path(part['owned']).parent/window/'footprint/private_transfer_chips.csv.gz'
+    evaluations=[];skipped=defaultdict(int);metadata_receipts={}
+    for index,entry in enumerate(sorted(plan['cores'],key=lambda e:(str(footprints.get(e['core'],'')),e['core']))):
         if index%128==0:print('G_METADATA_PROGRESS',index,len(plan['cores']),flush=True)
         source=Path(entry['source']);paths,complete=chip_receipts(source/'run_manifest.json')
+        # Verified transfer footprints have real CCD corners; air mass may be
+        # absent, in which case geometry is computed, never assumed missing g.
+        transfer=footprints.get(entry['core'])
+        if transfer is not None and transfer.is_file():
+            if str(transfer) not in metadata_receipts:
+                receipt=read(transfer.parent/'transfer_footprint_summary.json')
+                if receipt['chip_sha256']!=digest(transfer):raise ValueError('Changed physical transfer footprint')
+                metadata_receipts[str(transfer)]=receipt['chip_sha256']
+            paths=[transfer];complete=True
         if not complete:skipped['incomplete_chip_metadata']+=1;continue
         parts=[]
         for path in paths:
-            f=pd.read_csv(path,dtype={'exposure':str})
-            if not {'filter','instrument','mjd','airmass','ccdnum','vertex_ra1','vertex_dec1'}<=set(f):continue
+            f=chip_table(str(path)).copy()
+            if not {'filter','instrument','mjd','ccdnum','vertex_ra1','vertex_dec1'}<=set(f):continue
+            if 'airmass' not in f:f['airmass']=np.nan
             parts.append(f.loc[f.instrument.eq('c4d')&f['filter'].eq('g')])
         if not parts:skipped['no_g_chip_metadata']+=1;continue
         frame=pd.concat(parts,ignore_index=True).drop_duplicates(['exposure','ccdnum'])
@@ -56,7 +75,7 @@ def run(root,output):
             try:vector,air=tangent_geometry(np.array([center[0]]),np.array([center[1]]),cached_zenith(mjd),center)
             except ValueError:skipped['outside_geometric_altitude_support']+=1;continue
             night=Time([np.floor(mjd-.75)],format='mjd',scale='utc').isot[0][:10]
-            visits.append(dict(exposure=name,night=night,mjd_utc=mjd,metadata_airmass=float(part.airmass.median()),
+            visits.append(dict(exposure=name,night=night,mjd_utc=mjd,metadata_airmass=float(part.airmass.median()) if part.airmass.notna().any() else None,
                 geometric_airmass=float(air[0]),h=vector[0],covered=covered))
         repeat=[]
         for left,right in combinations(visits,2):
@@ -81,7 +100,7 @@ def run(root,output):
     best=next((r for r in repeat if r['core'] not in {c['core'] for c in chosen} and r['overlapping_repeat_pairs']>0),None)
     if best is not None:chosen.append(dict(best,role='repeat_geometry_DECam'))
     selected=[dict(next(e for e in plan['cores'] if e['core']==c['core']),metadata_selection=c) for c in chosen]
-    save_json(output/'private_additional_core_plan.json',dict(source_plan_sha256=digest(plan_path),selected=selected,maximum_additional_cores=2,
+    save_json(output/'private_additional_core_plan.json',dict(source_plan_sha256=digest(plan_path),selected=selected,maximum_additional_cores=2,metadata_receipts=metadata_receipts,
         criteria='5x5 real CCD footprint overlap >=0.2; geometric tanZ-vector span>=0.1 within UTC night; low-airmassrole mediansecz<=1.4. Rank by independent useful nights, vector span, then exposure count. No new residual/PM read.'))
     result=dict(source_plan_sha256=digest(plan_path),evaluated_cores=len(evaluations),skipped=dict(skipped),
         low_airmass_candidates=len(low),at_least_three_useful_repeat_nights=sum(r['usable_geometry_nights']>=3 for r in evaluations),

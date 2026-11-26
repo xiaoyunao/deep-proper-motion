@@ -1,0 +1,308 @@
+{
+  "base_commit": "6faabde4fe6205675d9ed2e02c631e7f2e350965",
+  "manifest_sha256": "859eaee00c3a22c42aa7cc2f2c5bd6a9f0ad99b1b39c74149944be018deb69b5",
+  "graphs": [
+    {
+      "label": "v19_w130_110",
+      "reference_sha256": "044c78f1f90b12dbb110732a94624d4f1d0c0886dd2510de86d3994703027a49",
+      "center_deg": [
+        176.05683979156782,
+        30.767495215576464
+      ],
+      "core_count": 884,
+      "groups": 7366,
+      "components": 1,
+      "draw_shape": [
+        7366,
+        48,
+        2
+      ],
+      "source_theta_5deg_histogram": [
+        70263,
+        183690,
+        241852,
+        231419,
+        372940,
+        258150,
+        356526,
+        410537,
+        502623,
+        665680,
+        362568,
+        95962,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_theta_scope": "Actual J2015.5 source counts at NSIDE128 pixel centers; angular cell uncertainty <0.5deg, exact selected-source angles supplied by replay.",
+      "observing_support_counts": {
+        "r_anchor_well_sampled": 2183449,
+        "r_anchor_limited_sampling": 1537149,
+        "non_r_anchor": 31612
+      }
+    },
+    {
+      "label": "v19_w150_090",
+      "reference_sha256": "e92ef25b0c42152eb9f3225ba6092ed9cf52363b368edaf7048d7cdded48bc9d",
+      "center_deg": [
+        177.0,
+        0.0
+      ],
+      "core_count": 892,
+      "groups": 20892,
+      "components": 1,
+      "draw_shape": [
+        20892,
+        48,
+        2
+      ],
+      "source_theta_5deg_histogram": [
+        177703,
+        334422,
+        368540,
+        553603,
+        472842,
+        404833,
+        364535,
+        509931,
+        709692,
+        420661,
+        416508,
+        477967,
+        309813,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_theta_scope": "Actual J2015.5 source counts at NSIDE128 pixel centers; angular cell uncertainty <0.5deg, exact selected-source angles supplied by replay.",
+      "observing_support_counts": {
+        "r_anchor_limited_sampling": 1258211,
+        "r_anchor_well_sampled": 4204187,
+        "non_r_anchor": 58652
+      }
+    },
+    {
+      "label": "next_w010_100",
+      "reference_sha256": "fadec0537e912d1d3d2c8f3ff0400b361661758e2b0e1f57c81709176ed64e3d",
+      "center_deg": [
+        0.20657383434754126,
+        8.058668188463164
+      ],
+      "core_count": 1099,
+      "groups": 20760,
+      "components": 1,
+      "draw_shape": [
+        20760,
+        48,
+        2
+      ],
+      "source_theta_5deg_histogram": [
+        0,
+        68328,
+        569411,
+        933758,
+        1610966,
+        1485750,
+        994711,
+        654614,
+        35160,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_theta_scope": "Actual J2015.5 source counts at NSIDE128 pixel centers; angular cell uncertainty <0.5deg, exact selected-source angles supplied by replay.",
+      "observing_support_counts": {
+        "r_anchor_well_sampled": 5010379,
+        "r_anchor_limited_sampling": 1302421,
+        "non_r_anchor": 39898
+      }
+    }
+  ],
+  "pilot": [
+    {
+      "core": "north_one_01_00",
+      "window": "north_one",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 2.119103306965276,
+      "input_rows": 211519,
+      "research_sources": 2934
+    },
+    {
+      "core": "north_two_04_01",
+      "window": "north_two",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 26.32004553467575,
+      "input_rows": 101400,
+      "research_sources": 2627
+    },
+    {
+      "core": "w230_090_60_11",
+      "window": "w230_090",
+      "graph_label": "v19_w150_090",
+      "center_theta_deg": 60.511107678945095,
+      "input_rows": 458375,
+      "research_sources": 8460
+    }
+  ],
+  "selected": [
+    {
+      "core": "north_one_01_00",
+      "window": "north_one",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 2.119103306965276,
+      "input_rows": 211519,
+      "research_sources": 2934,
+      "ngc": false
+    },
+    {
+      "core": "north_two_04_01",
+      "window": "north_two",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 26.32004553467575,
+      "input_rows": 101400,
+      "research_sources": 2627,
+      "ngc": false
+    },
+    {
+      "core": "w230_090_60_11",
+      "window": "w230_090",
+      "graph_label": "v19_w150_090",
+      "center_theta_deg": 60.511107678945095,
+      "input_rows": 458375,
+      "research_sources": 8460,
+      "ngc": false
+    },
+    {
+      "core": "w020_110_20_11",
+      "window": "w020_110",
+      "graph_label": "next_w010_100",
+      "center_theta_deg": 26.165944747003188,
+      "input_rows": 157542,
+      "research_sources": 2719,
+      "ngc": false
+    },
+    {
+      "core": "w210_110_08_00",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 29.90715479763204,
+      "input_rows": 227043,
+      "research_sources": 3510,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_08_01",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 29.6981611808954,
+      "input_rows": 215689,
+      "research_sources": 3215,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_08_11",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 30.551624237814753,
+      "input_rows": 221249,
+      "research_sources": 3204,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_06_01",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 30.144970570213612,
+      "input_rows": 230799,
+      "research_sources": 3532,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_06_11",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 31.00319665215229,
+      "input_rows": 219934,
+      "research_sources": 3878,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_08_10",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 30.76350060755456,
+      "input_rows": 276040,
+      "research_sources": 5775,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_28_00",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 31.61934873903847,
+      "input_rows": 247821,
+      "research_sources": 3870,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_28_01",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 31.404484028508126,
+      "input_rows": 211296,
+      "research_sources": 3536,
+      "ngc": true
+    },
+    {
+      "core": "w210_110_26_01",
+      "window": "w210_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 31.861078783996383,
+      "input_rows": 245069,
+      "research_sources": 3879,
+      "ngc": true
+    },
+    {
+      "core": "w120_110_28_00",
+      "window": "w120_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 46.15930529832607,
+      "input_rows": 312717,
+      "research_sources": 6655,
+      "ngc": false
+    },
+    {
+      "core": "w010_080_08_11",
+      "window": "w010_080",
+      "graph_label": "next_w010_100",
+      "center_theta_deg": 14.142025591739635,
+      "input_rows": 1394765,
+      "research_sources": 6259,
+      "ngc": false
+    },
+    {
+      "core": "w230_110_64_00",
+      "window": "w230_110",
+      "graph_label": "v19_w130_110",
+      "center_theta_deg": 53.28522828235811,
+      "input_rows": 289540,
+      "research_sources": 6066,
+      "ngc": false
+    }
+  ],
+  "budget_cpu_node_hours": 5,
+  "candidate_verification_target_cpu_node_hours": 1,
+  "plan_sha256": "628036ca47d3a58df73350fe3fac3943e4434d2ff4b1bbc7019d4a1751d8c9fc",
+  "slurm_job": "62014996"
+}

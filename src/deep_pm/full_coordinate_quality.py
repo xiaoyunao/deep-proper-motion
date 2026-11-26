@@ -20,6 +20,7 @@ from .continuous_summary import estimate
 from .public_summary import check_aggregate
 from .usability_accounting import index as old_index
 from .validation import ratio
+from .stream_json import array_items
 
 SETTINGS=dict(min_publish_count=5,tail_masyr=5,bootstrap_draws=800,bootstrap_absolute_zero=True,seed=2226)
 
@@ -40,16 +41,19 @@ def source_pool(task):
     i,entry,root,old_entries,quarantined=task;root=Path(root);core=entry['core'];out=root/'quality/cores'/core;out.mkdir(parents=True,exist_ok=True)
     source=Path(entry['source']);folder=root/'sources'/core;before=old_entries[core]
     ticket=dict(source_summary_sha256=digest(folder/'v22_source_core_summary.json'),index_sha256=digest(root/'catalogue/index'/core/'private_index_receipt.json'),
-        implementation_sha256=digest(Path(__file__)))
+        implementation_sha256=digest(Path(__file__)),input_reader_sha256=digest(Path(__file__).with_name('stream_json.py')))
     marker=out/'private_pool_receipt.json'
     if marker.exists():
         old=read(marker)
         if old['ticket']!=ticket or old['sha256']!=digest(out/'private_qso_pool.json.gz'):raise ValueError('Changed QSO readout checkpoint')
         return old
-    oldrows=read(Path(before['path'])/'private_standard_motion.json.gz');newrows=read(folder/'private_standard_motion.json.gz')
+    fixed_entries=read(folder/'private_fixed_blind_qso.json.gz');blind_entries=read(folder/'private_blind_qso.json')
+    old_wanted={r['source_slot'] for r in fixed_entries};new_wanted={r['source_slot'] for r in blind_entries}
+    oldrows={j:r for j,r in enumerate(array_items(Path(before['path'])/'private_standard_motion.json.gz')) if j in old_wanted}
+    newrows={j:r for j,r in enumerate(array_items(folder/'private_standard_motion.json.gz')) if j in new_wanted}
     spectra=pd.read_csv(source/'spectra_union.csv');spectra=spectra.loc[inside(spectra.ra,spectra.dec,entry['spec'])].reset_index(drop=True)
     fixed_groups=defaultdict(list)
-    for r in read(folder/'private_fixed_blind_qso.json.gz'):fixed_groups[r['source_slot']].append(r)
+    for r in fixed_entries:fixed_groups[r['source_slot']].append(r)
     fixed=[];blind=[];exits=Counter()
     for slot,options in fixed_groups.items():
         # The old scientific universe uses its frozen owner overlay, independent
@@ -66,7 +70,7 @@ def source_pool(task):
         fixed.append(r)
     compact=pd.read_parquet(root/'catalogue/index'/core/'science.parquet',columns=['slot','owner'])
     retained=set(compact.loc[compact.owner.notna(),'slot'])
-    for r in read(folder/'private_blind_qso.json'):
+    for r in blind_entries:
         slot=r['source_slot'];src=(i<<32)+slot
         if slot not in retained:exits['new_exterior_spectral']+=1;continue
         if src in quarantined:exits['new_global_identity_excluded']+=1;continue

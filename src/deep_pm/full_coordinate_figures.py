@@ -50,7 +50,7 @@ def angle_figures(repo,quality):
                     if key=='new_over_old':ax.annotate(f"{entry['computed']}/{entry['frozen_denominator']}",(x[-1],y[-1]),xytext=(0,7),textcoords='offset points',fontsize=6,ha='center')
                 if x:
                     y=np.array(y);bound=np.array(errors);ax.errorbar(x,y,yerr=[np.maximum(y-bound[:,0],0),np.maximum(bound[:,1]-y,0)],fmt='o-',capsize=3,color=color,label=label)
-            ax.axhline(1,color='.5',ls=':',lw=1);ax.set(xlim=(0,70),xlabel='Actual reference-chart angle (deg)',ylabel='Median reported PM error ratio',title=f'{low} ≤ r < {low+1}; '+['East','North'][axis]);ax.grid(alpha=.2)
+            ax.axhline(1,color='.5',ls=':',lw=1);ax.set(xlim=(0,70),xlabel='Original reference-chart angle (deg)',ylabel='Median reported PM error ratio',title=f'{low} ≤ r < {low+1}; '+['East','North'][axis]);ax.grid(alpha=.2)
             if row==0 and axis==0:ax.legend(fontsize=8)
     fig.suptitle('Fixed old QSO identities; 95% conditional source-sampling intervals; N computed/original',fontsize=11)
     save(fig,repo/'figures','v22_fixed_QSO_error_vs_chart_angle')
@@ -64,7 +64,7 @@ def angle_figures(repo,quality):
             ax.annotate(str(entry['computed']),(x[-1],y[-1]),xytext=(0,7),textcoords='offset points',fontsize=7,ha='center')
         if x:
             y=np.array(y);b=np.array(bounds);ax.errorbar(x,y,yerr=[np.maximum(y-b[:,0],0),np.maximum(b[:,1]-y,0)],fmt='o-',capsize=3,color='#173e66')
-        ax.axhline(0,color='.5',ls=':',lw=1);ax.yaxis.set_major_formatter(PercentFormatter(1));ax.set(xlim=(0,70),xlabel='Actual reference-chart angle (deg)',ylabel='1 − P68(new)/P68(old)',title=f'{low} ≤ r < {low+1}');ax.grid(alpha=.2)
+        ax.axhline(0,color='.5',ls=':',lw=1);ax.yaxis.set_major_formatter(PercentFormatter(1));ax.set(xlim=(0,70),xlabel='Original reference-chart angle (deg)',ylabel='1 − P68(new)/P68(old)',title=f'{low} ≤ r < {low+1}');ax.grid(alpha=.2)
     fig.suptitle('Point-estimate change on the same computable identities; new quality failures remain',fontsize=12)
     save(fig,repo/'figures','v22_fixed_QSO_point_gain_vs_chart_angle')
 

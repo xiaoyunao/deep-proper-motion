@@ -59,7 +59,7 @@ def update_anchor_trace(trace, slots, status):
             trace[slot] = status
 
 
-def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None, audit_records=None, morphology_accept=None, sky_center=None, quality_distance=None):
+def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings, radius, reference_keep=None, trace=None, fits=None, initial=None, anchor_info=None, model_cache=None, observation_groups=None, core_members=None, quality_audit=None, fit_source=None, audit_records=None, morphology_accept=None, sky_center=None, quality_distance=None, calibration_keep=None):
     prod = settings["production"]
     group = calibration_groups(data) if observation_groups is None else observation_groups
     nsc = data.survey.eq("NSC").to_numpy()
@@ -74,7 +74,7 @@ def source_funnel(data, xy, time, sigma, keep, tracks, offsets, config, settings
     reference_keep = keep if reference_keep is None else reference_keep
     if initial is None:
         initial = make_tracks(xy, exposure, reference_keep & nsc, prod["match_radius_mas"],sky_center=sky_center)
-    support = calibration_support(group,offsets)
+    support = calibration_support(group,offsets) if calibration_keep is None else np.asarray(calibration_keep,dtype=bool)
     morphology, mag = data.morphology.to_numpy(), data.magnitude.to_numpy()
     p = {}
     limit = np.tan(np.deg2rad(radius))*180/np.pi*3_600_000

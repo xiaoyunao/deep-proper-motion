@@ -10,6 +10,7 @@ dependencies = ["numpy>=1.24", "scipy>=1.10", "pandas>=1.5", "astropy>=5", "matp
 
 [project.optional-dependencies]
 test = ["pytest>=7"]
+full-reference = ["pyarrow>=12", "duckdb==1.1.3", "numba>=0.58,<0.61"]
 
 [project.scripts]
 deep-pm = "deep_pm.__main__:main"

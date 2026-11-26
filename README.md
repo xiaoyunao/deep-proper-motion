@@ -93,3 +93,6 @@ python -m deep_pm.cross_region_audit "$LEFT" "$RIGHT" "$LEFT_REF" "$RIGHT_REF" "
 ```
 
 `independent_year`从训练关联建立前移除整个目标年，使用原C0/W0，只检验门限内区域切平面位置预测。`cross_region_audit`对不同参考图只报告实测差分；共享误差未求解时不以独立平方和构造置信度。暗恒星外部参照的范围和缺项见[核验记录](docs/dark_reference_v13.md)。数据和新代码快照均放个人PScratch，不追加Home数据备份。
+
+
+完整二维参考图更新的额外依赖：`pip install -e ".[full-reference]"`。DuckDB/Parquet用于PScratch磁盘上的全域去重、连通分析和分块数值导出，Numba编译对象块Schur算子，避免亿行显式二维设计的内存。Python3.8运行环境使用可兼容的二进制wheel；具体版本记入Slurm日志。原科研流程无需这些额外依赖。

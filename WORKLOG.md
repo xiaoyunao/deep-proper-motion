@@ -2,6 +2,10 @@
 
 ## 2026-11-26 · v2.2 完整覆盖更新启动
 
+- 首3个真实参考入口62036857完成（单核1.98–2.43秒），采用球面参考且保留原物理对象hash训练/留出；全2875核入口已派发，复用相同dd96567代码和成功签名。
+- Schur全二维内核、外存去重/连通与数值导出、局部ICRS12mas支持已实现，4项新数学/图测试通过；全域参考尚未解。
+- 初次62036814因Python3.8无新DuckDB wheel而触发源码编译，取消；62036842因Numba缺Python3.8 importlib_metadata回移依赖失败。改固定可兼容二进制wheel并在PScratch独立runtime补全；未修改原环境。两次失败回执/资源保留。
+
 - 完整读取用户v22_codex.txt（445行）、完整Pro审阅（330行）及最新对话消息；建立A1–A7/B1–B5/C/形态附表/图/资源交付逐项goal与登记。
 - git status/branch/fetch/log核实75a7abf与远端一致，建立experiment-a-v2.2-full-coordinate-update；原生产与v21只读。
 - NERSC认证有效、squeue空、PScratch可访问；不要求Home/HPSS。科学计算仅Slurm，48总预算及B≤2小时登记。

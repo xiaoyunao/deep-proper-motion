@@ -71,6 +71,24 @@ def write_rows(path,rows):
     pending.replace(path)
 
 
+def saved_reference_response(row,data,time,sigma):
+    """Recover the saved estimator's synchronous state draws without refitting.
+
+    Only spectral validation rows save these large arrays. All science rows
+    keep member identities, estimator weights and the full covariance, so the
+    same responses remain recoverable from signed raw inputs.
+    """
+    ix=pd.Index(data.detection_id).get_indexer(row['detection_ids'])
+    if np.any(ix<0):raise ValueError('Saved fit lost its physical measurement')
+    center=row['projection_center_deg'];cp=projected_covariance(data.ra_deg.iloc[ix],data.dec_deg.iloc[ix],center,native_covariance(sigma[ix]))
+    w=np.linalg.inv(cp)*np.asarray(row['robust_weight'])[:,None,None]
+    design=design_matrix(time[ix],row['reference_epoch'])
+    h=np.einsum('pq,qni->pni',np.asarray(row['independent_tangent_covariance']),np.einsum('nip,nij->pnj',design,w))
+    # Find the exact versioned graph by component; never realign unrelated
+    # reference components as if their draw labels represented the same noise.
+    return h,ix
+
+
 def external_values(source,oldfit,spectra,center):
     """Published ground PMs for same spectral positions; no calibration use."""
     result={};goals=project(spectra.ra,spectra.dec,center)
@@ -259,9 +277,16 @@ def one(task):
             k=int(near[j])
             if claims[k]!=1:continue
             qso=spectra.iloc[k];row=records[j];rmag=float(qso.reference_r)
+            h,ix=saved_reference_response(row,data,t,sigma)
+            graph=root/'reference'/f"component-{int(row['reference_component']):04d}"/'private_c0_unfiltered.npz'
+            _,reference,_,_,_=reference_context(str(graph))
+            state_draws=-np.einsum('pni,dni->dp',h,np.stack([reference[g][1] for g in keys[ix]],axis=1))
+            native_draws=state_draws@np.asarray(row['state_jacobian']).T
+            np.testing.assert_allclose(np.cov(native_draws,rowvar=False),row['reference_icrs_covariance'],rtol=2e-7,atol=2e-7)
             blind.append(dict(identity=(str(qso.origin),float(qso.ra),float(qso.dec)),source_slot=int(j),core=entry['core'],
                 magnitude=rmag if np.isfinite(rmag) else None,kind=row['kind'],information=row['information'],bands=row['bands'],instruments=row['instruments'],
-                reference_component=row['reference_component'],values=dict(new_all=(row['pm_icrs_masyr'],row['pm_error_masyr']),**published.get(k,{}))))
+                reference_component=row['reference_component'],reference_model_sha256=row['reference_model_sha256'],
+                synchronous_reference_icrs_state_draws=native_draws,values=dict(new_all=(row['pm_icrs_masyr'],row['pm_error_masyr']),**published.get(k,{}))))
     save_json(dest/'private_blind_qso.json',blind)
     files=['private_standard_motion.json.gz','private_r_control.json.gz','private_fixed_blind_qso.json.gz','private_blind_qso.json']
     result=dict(ticket=ticket,core=entry['core'],window=entry['window'],research_solutions=len(records),r_control_solutions=sum(r['control_kind']=='legacy' for r in controls),physical_r_control_solutions=sum(r['control_kind']=='physical' for r in controls),

@@ -1,0 +1,44 @@
+{
+  "cores": [
+    {
+      "core": "w220_090_00_00",
+      "frozen_source_candidates": 3954,
+      "color_supported_nonQSO_sources": 3866,
+      "deep_control_sources": 3439,
+      "pairs": 43028,
+      "nights": 32,
+      "training_pairs": 25283,
+      "independent_identity_and_night_pairs": 1732,
+      "color_p16_p50_p84": [
+        0.5146503448486328,
+        0.7958354949951171,
+        1.6896228790283203
+      ],
+      "exits": {
+        "deep_neighbor_control": 427
+      }
+    },
+    {
+      "core": "w140_090_82_10",
+      "frozen_source_candidates": 4450,
+      "color_supported_nonQSO_sources": 3997,
+      "deep_control_sources": 3228,
+      "pairs": 78478,
+      "nights": 56,
+      "training_pairs": 41179,
+      "independent_identity_and_night_pairs": 5729,
+      "color_p16_p50_p84": [
+        0.52113675963197,
+        1.1273742634447437,
+        2.3727731704711914
+      ],
+      "exits": {
+        "deep_neighbor_control": 769
+      }
+    }
+  ],
+  "metadata_selection_sha256": "27ed2d38ba9ce7d833ccf447b23ed57e4cf658c4bc279a6df9fa23c030e5f3b8",
+  "pairs": 121506,
+  "slurm_job": "62039734",
+  "scope": "At most two preselected existing cores. Frozen physical blind source members; known optical spectra vetoed before training. Observed g positions, actual gSNR>=20, color error<=0.2, deep neighbor>=3arcsec. One maximum-geometry pair per physical star/UTC18 night avoids duplicate exposure pairs. No Gaia PM/parallax/epoch position or residual used. Exposure-CCD-pair intercept nuisance must remain in coefficient fit; absolute zero and stellar purity not certified."
+}

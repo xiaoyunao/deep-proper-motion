@@ -1,0 +1,32 @@
+{
+  "source_plan_sha256": "6c78c0ea3c5d69d9cbd0f2a17e39fc33991d5dabf48222929f3a90329d76c84b",
+  "evaluated_cores": 2827,
+  "skipped": {},
+  "low_airmass_candidates": 1550,
+  "at_least_three_useful_repeat_nights": 138,
+  "chosen": [
+    {
+      "core": "w220_090_00_00",
+      "window": "w220_090",
+      "g_exposures": 304,
+      "median_airmass": 1.278150927841473,
+      "usable_geometry_nights": 34,
+      "maximum_vector_span": 2.2676354940665155,
+      "overlapping_repeat_pairs": 262,
+      "role": "low_airmass_DECam"
+    },
+    {
+      "core": "w140_090_82_10",
+      "window": "w140_090",
+      "g_exposures": 429,
+      "median_airmass": 1.5967095231813662,
+      "usable_geometry_nights": 39,
+      "maximum_vector_span": 2.8092113928512465,
+      "overlapping_repeat_pairs": 2168,
+      "role": "repeat_geometry_DECam"
+    }
+  ],
+  "private_selection_sha256": "27ed2d38ba9ce7d833ccf447b23ed57e4cf658c4bc279a6df9fa23c030e5f3b8",
+  "slurm_job": "62039734",
+  "scope": "Metadata-only existing-coverage selection, no new catalogue outcome. Actual CCD25point overlap proxy, not effective-pixel or star support; next source-level support must verify. Other sites not assigned Blanco; unsupported altitudes recorded by task failure rather than fabricated geometry."
+}

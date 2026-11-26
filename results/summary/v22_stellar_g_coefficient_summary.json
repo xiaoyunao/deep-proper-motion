@@ -1,0 +1,340 @@
+{
+  "registration": {
+    "input_sha256": "8610c522964ff412926e22b0c6fc93c0ff5b936003f1956378f17a4ff036aa9b",
+    "train_pairs": 58918,
+    "train_stars": 3832,
+    "train_nights": 69,
+    "validation_pairs": 6303,
+    "validation_stars": 1309,
+    "validation_nights": 17,
+    "split": "Independent star hashmod3 and observing-night hashmod4; train uses neither held, final validation uses BOTH held. No validation position/PM read in training fit. Groups need >=5 stars.",
+    "predeclared_gate": "At least3 train and3 validation nights; >=50 train and50 independent validation stars; conditional beta SE<=10mas/(mag tanZ). One two-axis common coefficient, pivotg-i1.2, no additional colour/CCD parameters."
+  },
+  "frozen_source_state_sha256": {
+    "w220_090_00_00": "3a759b6154a147edba21e46dd11fd4ea4244f9d9595497e966ec3af8492abd1c",
+    "w140_090_82_10": "6bf9d9e73ec6a0e8d617b6ce005f783c5632de765c779a4d1225761d51a6b161"
+  },
+  "coefficient_mas_per_mag_tanz": -36.22130126252057,
+  "conditional_centroid_SE": 0.5692096698199048,
+  "crossed_star_night_and_shared_colour_sensitivity95": [
+    -37.218701341825565,
+    -34.973524988680985
+  ],
+  "crossed_sensitivity_SE": 0.6654746080476102,
+  "maximum_common_reference_coefficient_change": 7.105427357601002e-15,
+  "train_physical_pair_intercepts": 2782,
+  "validation": {
+    "independent_identity_and_night": {
+      "pairs": 6303,
+      "nights": 17,
+      "stars": 1309,
+      "models": {
+        "uncorrected": {
+          "raw_C0_difference_native_mas": {
+            "n": 6303,
+            "median": [
+              4.379629880508039,
+              2.7579201804944367
+            ],
+            "nmad": [
+              31.702373342440634,
+              30.05834261294193
+            ],
+            "absolute_radial_p68": 52.53334641393482,
+            "equal_mean": [
+              4.31611532595176,
+              2.6132581490309175
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 6303,
+            "median": [
+              0.712603755532606,
+              0.4172697262015093
+            ],
+            "nmad": [
+              29.300487245651578,
+              26.493231204710263
+            ],
+            "absolute_radial_p68": 47.45229850043119,
+            "equal_mean": [
+              -0.9440116991851176,
+              -0.0004034318918685788
+            ]
+          }
+        },
+        "frozen_minus28p32": {
+          "raw_C0_difference_native_mas": {
+            "n": 6303,
+            "median": [
+              4.906264049007862,
+              2.6119703062553636
+            ],
+            "nmad": [
+              28.45074159069476,
+              29.889557218340116
+            ],
+            "absolute_radial_p68": 48.3227751343744,
+            "equal_mean": [
+              5.027556097952555,
+              2.5007110135213493
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 6303,
+            "median": [
+              0.19736659238712864,
+              0.471464997861168
+            ],
+            "nmad": [
+              25.6485895685899,
+              26.604880945768297
+            ],
+            "absolute_radial_p68": 43.09861026861141,
+            "equal_mean": [
+              -0.4702842246929541,
+              -0.023156202444812344
+            ]
+          }
+        },
+        "frozen_minus23p39": {
+          "raw_C0_difference_native_mas": {
+            "n": 6303,
+            "median": [
+              4.796395050235693,
+              2.6124591455935633
+            ],
+            "nmad": [
+              28.871055841212975,
+              29.771642552503668
+            ],
+            "absolute_radial_p68": 48.84991537739469,
+            "equal_mean": [
+              4.903707121753263,
+              2.520303435063089
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 6303,
+            "median": [
+              0.3174379323645082,
+              0.5016088798373647
+            ],
+            "nmad": [
+              26.225332610101134,
+              26.54807106284087
+            ],
+            "absolute_radial_p68": 43.567965643968016,
+            "equal_mean": [
+              -0.5527516134375262,
+              -0.019195356441069313
+            ]
+          }
+        },
+        "one_stellar_candidate": {
+          "raw_C0_difference_native_mas": {
+            "n": 6303,
+            "median": [
+              4.889854626291396,
+              2.626083702486559
+            ],
+            "nmad": [
+              28.34340229171965,
+              29.943827539740145
+            ],
+            "absolute_radial_p68": 48.18073012525549,
+            "equal_mean": [
+              5.226048607487084,
+              2.46931027821433
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 6303,
+            "median": [
+              0.008826659305923764,
+              0.48301319266154585
+            ],
+            "nmad": [
+              25.16492023432829,
+              26.527599551918286
+            ],
+            "absolute_radial_p68": 42.42623466102544,
+            "equal_mean": [
+              -0.3381139036373144,
+              -0.029504242511754927
+            ]
+          }
+        }
+      },
+      "color_p16_p50_p84": [
+        0.5080381317978784,
+        0.9660448551498648,
+        2.2580717572989744
+      ],
+      "gSNR_p16_p50_p84": [
+        28.586600135489274,
+        55.566222547612625,
+        136.76326491594313
+      ],
+      "maximum_motion_bound_mas_at10000": 7.774163839258108
+    },
+    "training": {
+      "pairs": 58918,
+      "nights": 69,
+      "stars": 3832,
+      "models": {
+        "uncorrected": {
+          "raw_C0_difference_native_mas": {
+            "n": 58918,
+            "median": [
+              6.244036377679799,
+              -0.9403892999028389
+            ],
+            "nmad": [
+              34.562428437023186,
+              30.10077709058438
+            ],
+            "absolute_radial_p68": 55.08057637369633,
+            "equal_mean": [
+              7.668697600085748,
+              -0.7471983726779353
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 58918,
+            "median": [
+              0.5764275008756858,
+              -0.15373269497008202
+            ],
+            "nmad": [
+              30.048299554505224,
+              26.838892526109625
+            ],
+            "absolute_radial_p68": 48.152394177471656,
+            "equal_mean": [
+              -0.743480305570263,
+              -0.01632964391070701
+            ]
+          }
+        },
+        "frozen_minus28p32": {
+          "raw_C0_difference_native_mas": {
+            "n": 58918,
+            "median": [
+              6.637641785644188,
+              -1.0319896599111233
+            ],
+            "nmad": [
+              29.985995592565068,
+              29.941538142322294
+            ],
+            "absolute_radial_p68": 50.355483214211866,
+            "equal_mean": [
+              8.059875505011806,
+              -0.8735099721081898
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 58918,
+            "median": [
+              0.2827184643889348,
+              -0.0801130323322857
+            ],
+            "nmad": [
+              26.108623793899564,
+              26.674553302080778
+            ],
+            "absolute_radial_p68": 43.51786460115919,
+            "equal_mean": [
+              -0.3933472988842295,
+              -0.044350036079237355
+            ]
+          }
+        },
+        "frozen_minus23p39": {
+          "raw_C0_difference_native_mas": {
+            "n": 58918,
+            "median": [
+              6.5447824490022715,
+              -1.0391191634720847
+            ],
+            "nmad": [
+              30.609760592888744,
+              29.985748440964844
+            ],
+            "absolute_radial_p68": 50.7986426618714,
+            "equal_mean": [
+              7.991778503907169,
+              -0.851521406246934
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 58918,
+            "median": [
+              0.2917435224712259,
+              -0.10516061414486014
+            ],
+            "nmad": [
+              26.617856919046165,
+              26.69489830727287
+            ],
+            "absolute_radial_p68": 44.118786958465506,
+            "equal_mean": [
+              -0.45429912526001226,
+              -0.03947219238605679
+            ]
+          }
+        },
+        "one_stellar_candidate": {
+          "raw_C0_difference_native_mas": {
+            "n": 58918,
+            "median": [
+              6.69962351611178,
+              -1.0117780069290108
+            ],
+            "nmad": [
+              29.76777867331183,
+              29.940293855021768
+            ],
+            "absolute_radial_p68": 50.06220354376755,
+            "equal_mean": [
+              8.169014434180788,
+              -0.908751003183374
+            ]
+          },
+          "relative_after_nuisance_intercept_native_mas": {
+            "n": 58918,
+            "median": [
+              0.2602500128027253,
+              -0.06954781886894154
+            ],
+            "nmad": [
+              25.587097224108046,
+              26.70466330754182
+            ],
+            "absolute_radial_p68": 43.34817322066218,
+            "equal_mean": [
+              -0.2956599271406567,
+              -0.05216774653183233
+            ]
+          }
+        }
+      },
+      "color_p16_p50_p84": [
+        0.5205268859863281,
+        0.9252071380615234,
+        2.201557464599608
+      ],
+      "gSNR_p16_p50_p84": [
+        28.523965026222402,
+        58.520789347174556,
+        149.09862740430233
+      ],
+      "maximum_motion_bound_mas_at10000": 8.096272761122236
+    }
+  },
+  "uncertainty_scope": "192 crossed star/night Bayesian reweights with one colour error deviate per physical star shared over its entire trajectory; coefficients and intercepts recomputed jointly. Sampling sensitivity, not a full posterior or absolute offset certification. Repeat-group C0 draws cancel numerically after intercept profiling; no per-source sqrt reduction.",
+  "decision": "Relative-colour candidate only; no main-production correction. Absolute stellar/QSO intercept and cross-source-type reference transfer remain independent acceptance requirements.",
+  "slurm_job": "62039734",
+  "scope": "One physical two-axis zenith-vector colour derivative trained on observed repeats without Gaia, independently tested by star AND night. Free pair intercepts prevent reference zeros from masquerading as colour. Their freedom also means absolute stellar zero is not determined. No new candidate beyond this coefficient."
+}

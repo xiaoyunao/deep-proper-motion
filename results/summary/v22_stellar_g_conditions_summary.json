@@ -1,0 +1,291 @@
+{
+  "input_sha256": "5d238767435078e5d494d028fbebd1bf776534dcc1c58cc71f501cef8c627cc9",
+  "matched_actual_g_colour": {
+    "n": 388,
+    "physical_stars": 337,
+    "nights": 12,
+    "exposure_CCD_groups": 214,
+    "delta_color_p16_p50_p84": [
+      1.772500991821289,
+      2.064541816711426,
+      2.3568496704101562
+    ],
+    "observed_common_basis_red_minus_blue_mas": {
+      "n": 388,
+      "median": [
+        -6.250270178190929,
+        118.73396640102726
+      ],
+      "nmad": [
+        25.195304857193825,
+        34.62745773677655
+      ],
+      "absolute_radial_p68": 140.30752002633943,
+      "equal_mean": [
+        -1.873385038601505,
+        117.28075813904644
+      ]
+    },
+    "parallel_p16_p50_p84_mas": [
+      -153.1556127644388,
+      -119.84389608286847,
+      -88.86963974762845
+    ],
+    "perpendicular_p16_p50_p84_mas": [
+      -25.629151921054863,
+      -2.155277406639298,
+      19.826018929939305
+    ],
+    "frozen_models": {
+      "-28.32": {
+        "n": 388,
+        "median": [
+          -3.5196543413527785,
+          21.9902705829917
+        ],
+        "nmad": [
+          21.238668942466955,
+          30.198679324926637
+        ],
+        "absolute_radial_p68": 47.37155498022099,
+        "equal_mean": [
+          0.5187562832187175,
+          20.235537749230758
+        ]
+      },
+      "-23.39": {
+        "n": 388,
+        "median": [
+          -4.382105139417293,
+          38.93724419166733
+        ],
+        "nmad": [
+          22.089429210242137,
+          30.376081394263817
+        ],
+        "absolute_radial_p68": 61.90195827306058,
+        "equal_mean": [
+          0.10232772684252915,
+          37.129356129237486
+        ]
+      }
+    },
+    "equal_night_median_sensitivity95": [
+      [
+        -19.562493932241022,
+        7.236458212205833
+      ],
+      [
+        108.66713403231472,
+        124.01885248419437
+      ]
+    ],
+    "scope": "Metadata-only match in actual g mag0.3/logSNR0.15/sky0.05deg, unique deep self and neighbour>=3arcsec. Gaia residuals validate contrasts; no candidate coefficient fit. Night interval is conditional sampling sensitivity."
+  },
+  "training_identity_validation_only": {
+    "n": 135,
+    "physical_stars": 126,
+    "nights": 12,
+    "exposure_CCD_groups": 113,
+    "delta_color_p16_p50_p84": [
+      1.7842178344726598,
+      2.0318241119384766,
+      2.213607177734376
+    ],
+    "observed_common_basis_red_minus_blue_mas": {
+      "n": 135,
+      "median": [
+        -6.355664632584366,
+        117.4861141629522
+      ],
+      "nmad": [
+        25.979158049269806,
+        32.18200005306493
+      ],
+      "absolute_radial_p68": 139.75404276726897,
+      "equal_mean": [
+        0.16885936029420373,
+        113.680690208391
+      ]
+    },
+    "parallel_p16_p50_p84_mas": [
+      -148.22601236878123,
+      -117.7512130429207,
+      -88.1132271794703
+    ],
+    "perpendicular_p16_p50_p84_mas": [
+      -28.654733702629258,
+      -3.37394127359107,
+      19.267541155123162
+    ],
+    "frozen_models": {
+      "-28.32": {
+        "n": 135,
+        "median": [
+          -3.623532883431354,
+          23.790253760601104
+        ],
+        "nmad": [
+          21.81947320926526,
+          30.128240716025125
+        ],
+        "absolute_radial_p68": 51.13807969304582,
+        "equal_mean": [
+          2.8901837194548556,
+          19.56912816528109
+        ]
+      },
+      "-23.39": {
+        "n": 135,
+        "median": [
+          -4.735228245723352,
+          39.85424247343019
+        ],
+        "nmad": [
+          22.594602414853913,
+          29.82558053758645
+        ],
+        "absolute_radial_p68": 64.51692699827538,
+        "equal_mean": [
+          2.416450347609445,
+          35.95224966501742
+        ]
+      }
+    },
+    "equal_night_median_sensitivity95": [
+      [
+        -19.885962256336303,
+        8.540780776331047
+      ],
+      [
+        110.32220138881388,
+        126.46486874684847
+      ]
+    ],
+    "scope": "Metadata-only match in actual g mag0.3/logSNR0.15/sky0.05deg, unique deep self and neighbour>=3arcsec. Gaia residuals validate contrasts; no candidate coefficient fit. Night interval is conditional sampling sensitivity."
+  },
+  "maximum_same_group_C0_cancellation_mas": 1.4210854715202004e-14,
+  "potential_colour_pair_groups": 380,
+  "groups_with_matched_pairs": 214,
+  "repeated_exposure_support": [
+    {
+      "observing_night_UTC18": "2017-03-28",
+      "physical_exposures": [
+        "observation_0703fe9e7593",
+        "observation_f9bc5529d8d7"
+      ],
+      "common_stars": 0
+    },
+    {
+      "observing_night_UTC18": "2017-03-28",
+      "physical_exposures": [
+        "observation_0703fe9e7593",
+        "observation_fc43277c7093"
+      ],
+      "common_stars": 60,
+      "training_identity_stars": 39,
+      "gSNR20_deep3arcsec_stars": 56,
+      "color_p16_p50_p84": [
+        0.4658172607421875,
+        0.9596204757690447,
+        2.474450836181642
+      ],
+      "predictor_after_exposure_intercept_rms": 0.14297182369586645,
+      "conditional_coefficient_Fisher": 0.00021297381829751664,
+      "conditional_coefficient_sigma": 68.52308249940404,
+      "expected_signal_to_noise_at_frozen28": 0.41329138980643937,
+      "detector_pair_intercepts": 4,
+      "maximum_interval_hours": 0.37915840755204044,
+      "maximum_motion_sensitivity_mas_at10000masyr": 0.43253297690171166
+    },
+    {
+      "observing_night_UTC18": "2017-03-28",
+      "physical_exposures": [
+        "observation_f9bc5529d8d7",
+        "observation_fc43277c7093"
+      ],
+      "common_stars": 0
+    },
+    {
+      "observing_night_UTC18": "2017-04-21",
+      "physical_exposures": [
+        "observation_c38ba7860f6a",
+        "observation_94a46a703f13"
+      ],
+      "common_stars": 9,
+      "training_identity_stars": 6,
+      "gSNR20_deep3arcsec_stars": 8,
+      "color_p16_p50_p84": [
+        1.1526567268371581,
+        2.2708969116210938,
+        2.782222900390624
+      ],
+      "predictor_after_exposure_intercept_rms": 0.20510333872826622,
+      "conditional_coefficient_Fisher": 8.09375858273466e-05,
+      "conditional_coefficient_sigma": 111.1539439407014,
+      "expected_signal_to_noise_at_frozen28": 0.2547817827778401,
+      "detector_pair_intercepts": 1,
+      "maximum_interval_hours": 0.5875234439699852,
+      "maximum_motion_sensitivity_mas_at10000masyr": 0.670229801471578
+    },
+    {
+      "observing_night_UTC18": "2018-02-22",
+      "physical_exposures": [
+        "observation_ad1e0f8076a0",
+        "observation_1343abcb487e"
+      ],
+      "common_stars": 219,
+      "training_identity_stars": 132,
+      "gSNR20_deep3arcsec_stars": 197,
+      "color_p16_p50_p84": [
+        0.334780960083008,
+        0.6830215454101562,
+        2.1603212738037136
+      ],
+      "predictor_after_exposure_intercept_rms": 0.021712741437284678,
+      "conditional_coefficient_Fisher": 1.5838260996694336e-05,
+      "conditional_coefficient_sigma": 251.27324728075683,
+      "expected_signal_to_noise_at_frozen28": 0.11270598962076142,
+      "detector_pair_intercepts": 10,
+      "maximum_interval_hours": 0.06355290961573701,
+      "maximum_motion_sensitivity_mas_at10000masyr": 0.07249932650665869
+    },
+    {
+      "observing_night_UTC18": "2018-02-22",
+      "physical_exposures": [
+        "observation_ad1e0f8076a0",
+        "observation_905fc24bea3c"
+      ],
+      "common_stars": 0
+    },
+    {
+      "observing_night_UTC18": "2018-02-22",
+      "physical_exposures": [
+        "observation_1343abcb487e",
+        "observation_905fc24bea3c"
+      ],
+      "common_stars": 52,
+      "training_identity_stars": 34,
+      "gSNR20_deep3arcsec_stars": 50,
+      "color_p16_p50_p84": [
+        0.6493085479736328,
+        1.315051555633545,
+        2.454448776245116
+      ],
+      "predictor_after_exposure_intercept_rms": 0.029686002833153643,
+      "conditional_coefficient_Fisher": 5.963515394759248e-06,
+      "conditional_coefficient_sigma": 409.4952115085137,
+      "expected_signal_to_noise_at_frozen28": 0.06915831786084563,
+      "detector_pair_intercepts": 7,
+      "maximum_interval_hours": 0.09066583895764779,
+      "maximum_motion_sensitivity_mas_at10000masyr": 0.10342897439841181
+    }
+  ],
+  "qualified_repeat_nights": 1,
+  "decision": "candidate_not_fit_insufficient_independent_repeat_nights",
+  "night_definition": "UTC18toUTC18 as in catalogue night_labels; original geometry summary groups UTC calendar dates",
+  "slurm_job": "62039734",
+  "scope": "Matched actual-g/deep-neighbour colour contrasts are Gaia validation. Raw same-star within-night geometry support uses observed coordinates only, with exposure intercept nuisance and short-motion sensitivity. No new physical coefficient trained or applied. Additional metadata-selected cores limited to2 if needed; old historical coefficients remain frozen.",
+  "raw_public_readout_sha256": "7193bba975ea87eab8aef40561cc5308eea306d729083da7b80d3e4d26388cbe",
+  "export_scope": "Observational labels deidentified; original private/aggregate evidence remains on NERSC. First geometry date bins are UTC calendar dates, subsequent conditions use physical UTC18 nights. Resampling intervals describe conditional measurement/pair sensitivity, not independent-source or independent-sky uncertainty."
+}

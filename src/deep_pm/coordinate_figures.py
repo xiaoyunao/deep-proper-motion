@@ -93,7 +93,7 @@ def stellar_figure(stellar,group,out):
 
 def selection_figure(ngc,candidate,identity,out):
     fig,axes=plt.subplots(2,2,figsize=(12.1,8.2),layout='constrained')
-    names={'recovered':'Recovered','pointlike_morphology':'Morphology','no_published_SDSS_detection':'No published SDSS','SDSS_quality_or_distance':'SDSS quality / distance','quality':'Fit quality','time_baseline':'Time support','no_published_NSC_detection':'No published NSC','NSC_physical_quality_or_distance':'NSC quality / distance'}
+    names={'recovered':'Recovered','pointlike_morphology':'Morphology','no_published_SDSS_detection':'No retrieved SDSS','SDSS_quality_or_distance':'SDSS quality / distance','quality':'Fit quality','time_baseline':'Time support','no_published_NSC_detection':'No retrieved NSC','NSC_physical_quality_or_distance':'NSC quality / distance'}
     colors={'recovered':SKY,'pointlike_morphology':B2,'no_published_SDSS_detection':OLD,'SDSS_quality_or_distance':'#9ab3c3','quality':'#d3aa83','time_baseline':'#c5c5b0','no_published_NSC_detection':'#555555','NSC_physical_quality_or_distance':'#bdcdd8'}
     handles={}
     for i,low in enumerate(('22.0','22.5')):

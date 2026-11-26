@@ -15,6 +15,8 @@
 | `source_funnel` / `augment_tracks` / `select_catalogue` | 关联1arcsec、QSO0.5arcsec与0.3arcsec竞争余量 | 在大gnomonic中直接用mas圆；r误差门槛与non-r轴不同 | B2_selected先仅统一2D质量/ICRS误差；B3再用3D单位矢量AngularTree实际角距离。原形态0.8保持 |
 | `precision_v03.reference_rows` | 星系隔离、Gaia/QSO位置排除、SDSS–NSC参考匹配 | 同一全图平面半径 | B3独立统计球面入口变化；新参考身份不暗中替换冻结C0 |
 
+实际gauge不是某一曝光固定为零：`continuous_reference.solve`先对每个连通分量减去NSC组point的中位数；每组draw先减自身draw均值，再减NSC组的逐draw中位公共模式。此归一化发生在12mas参考组SE筛选之前。序列化后没有单一零曝光是正常结果。有界试验固定外部旧offsets，继承其gauge；全图重解须登记筛选前NSC物理组集合与这一同步归一化。旧12mas参考SE门槛实际作用于图平面，不能称为每处相同的ICRS角误差；本轮不暗中重选旧C0支持组，原生角单位的参考SE诊断另列。
+
 ## B1 的两种误差解释
 
 旧成员、点估计、IRLS权重w和影响H固定。估计器降权但噪声仍为C：独立协方差 H C Hᵀ；把稳健降权解释为噪声膨胀：H(C/w)Hᵀ。两者是不同噪声假设，均保存。新C只替换独立测量项，旧公共C0项保持数值原值。不能把两种IRLS解释之差称为几何精度收益。

@@ -12,6 +12,7 @@ from pathlib import Path
 import subprocess
 import sys
 import resource
+import inspect
 from time import monotonic,sleep
 
 import numpy as np
@@ -108,6 +109,12 @@ def memory_queue(root,plan,indices,mode):
 
 def run(root,components,workers,memory_gib,hours,memory_model='reference-input-conservative',worker_start='subprocess'):
     if not read(root/'admission/v22_complete_component_admission_summary.json')['numerical_admission_passed']:raise ValueError('Complete-component admission missing')
+    if worker_start=='fork':
+        proof=read(root/'admission/v22_fork_worker_equivalence_summary.json')
+        expected=sha256((inspect.getsource(single_core)+inspect.getsource(isolated_fork_core)).encode()).hexdigest()
+        if not proof['all_scientific_outputs_decompressed_byte_identical'] or proof['worker_entry_sha256']!=expected:raise ValueError('Isolated fork worker requires unchanged real-source equivalence admission')
+        for name,checksum in proof['scientific_implementation_sha256'].items():
+            if digest(Path(__file__).with_name(name))!=checksum:raise ValueError('Fork equivalence scientific implementation changed')
     plan=read(root/'registration/private_full_coordinate_plan.json');indices=selected_cores(root,components)
     key='-'.join(map(str,components));job=os.environ['SLURM_JOB_ID'];dest=root/'batch'/f'component-{key}'/job;dest.mkdir(parents=True,exist_ok=True)
     if workers>int(os.environ.get('SLURM_CPUS_PER_TASK',workers)):raise ValueError('Workers exceed allocated CPUs')
@@ -174,7 +181,7 @@ def run(root,components,workers,memory_gib,hours,memory_model='reference-input-c
         warm_cache_checks=len(cache_checks),warm_cache_reused=sum(v['reused'] for v in cache_checks),
         warm_cache_elapsed_seconds=cache_elapsed,
         implementation_sha256=digest(Path(__file__)),slurm_job=job,
-        scope='Every worker validates source/reference/ticket and all private output hashes; isolated process per core prevents retained giant-input memory. Completion is per origin core, before global ownership/detection/spectral closure. Failed cores retain logs and must recover; no silent numerical failure acceptance.')
+        scope='Every worker validates source/reference/ticket and all private output hashes. Only completed caches use the warm metadata pool; new fits each have a fresh process and are never reused as fitting workers. Fork start requires real-source numerical admission. Completion is per origin core, before global ownership/detection/spectral closure. Failed cores retain logs and must recover; no silent numerical failure acceptance.')
     check_aggregate(result);save_json(dest/'v22_source_batch_summary.json',result)
     if failed:raise RuntimeError('Affected source cores failed; inspect per-core logs before retry')
 

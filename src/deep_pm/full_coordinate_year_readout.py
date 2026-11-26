@@ -25,7 +25,7 @@ def source_interval(vectors,identities,draws=256,seed=2227):
         same=a==b
         if same.any():out[-1][same]=sorted_values[ia[same],np.flatnonzero(same)]
     bounds=np.quantile(out,[.025,.975],axis=0).T
-    return dict(independent_source_sampling_units=n,test_measurements=len(vectors),median_source_resampling95=bounds[:2],radial_P68_source_resampling95=bounds[2],
+    return dict(physical_source_sampling_units=n,test_measurements=len(vectors),median_source_resampling95=bounds[:2],radial_P68_source_resampling95=bounds[2],
         scope='Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources.')
 
 
@@ -43,7 +43,7 @@ def run(root):
                 if group:position['source_sampling']=source_interval([r['native_residual_mas'] for r in group],[r['entity'] for r in group])
         summary['original_summary_sha256']=digest(original);summary['interval_readout']='Original generic per-measurement median_object_interval95 label removed in this independent export; actual whole-source resampling intervals substituted. Raw receipt unchanged.'
         parts.append(summary)
-    result=dict(cores=parts,slurm_job=os.environ['SLURM_JOB_ID'],scope='Frozen metadata selection and all original source/test identities; read-only uncertainty relabel and source-level sampling, no new fitted model or favourable source selection.')
+    result=dict(cores=parts,implementation_sha256=digest(Path(__file__)),slurm_job=os.environ['SLURM_JOB_ID'],scope='Frozen metadata selection and all original source/test identities; read-only uncertainty relabel and source-level sampling, no new fitted model or favourable source selection.')
     check_aggregate(result);save_json(root/'year/v22_far_core_year_validation_summary.json',result)
 
 

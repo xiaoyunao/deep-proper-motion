@@ -24,3 +24,7 @@
 ## 存储与实现选择
 
 原规范检测/原始下载复用。新增参考入口分核心写Parquet，用DuckDB在PScratch磁盘进行全域去重/分组/外排；它是嵌入式处理库，无服务端数据库。新增numba仅编译数值Schur循环，避免亿行Python循环；核心数学有可直接检验的等价设计。依赖、版本、内存及溢出目录随运行回执记录。公开只包含代码/聚合/图，精确个人路径与私有文件不提交。
+
+## v1.5资产与本轮新增证据
+
+沿用[既有DCR几何](../src/deep_pm/dcr_geometry.py)、[原协议](dcr_protocol_v15.md)、[原星系联合参考拟合](../src/deep_pm/dcr_reference_fit.py)、[原验证](../src/deep_pm/dcr_validation.py)及[v1.5正负结果](../reports/experiment_A_v1.5_nsc_information.md)。本轮新增信息是实际g信噪/深邻源方向、同星同夜重复及独立星/夜的唯一相对颜色系数；不重复叠加发布WCS的既有改正、不把其解释为普适绝对星系到恒星转移。主目录维持C0/W0、0.8形态和普通源关联范围；未开发高自行专项或五波段SDSS位置联合拟合。

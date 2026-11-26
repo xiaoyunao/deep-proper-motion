@@ -303,16 +303,6 @@
                   4.354395034241571,
                   6.437747375840149
                 ],
-                "median_object_interval95": [
-                  [
-                    1.8280810605556916,
-                    2.6702036502958464
-                  ],
-                  [
-                    4.275501659249142,
-                    5.537660348093864
-                  ]
-                ],
                 "within_1sigma": [
                   0.958151700087184,
                   0.9375
@@ -320,7 +310,26 @@
                 "within_2sigma": [
                   0.9962401918047079,
                   0.9968395815170009
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 5176,
+                  "test_measurements": 18352,
+                  "median_source_resampling95": [
+                    [
+                      1.6924885910765348,
+                      2.7910065417745575
+                    ],
+                    [
+                      4.232273097499946,
+                      5.70065265358643
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    53.833618855692144,
+                    55.79408055429148
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             },
             "old_only_training": {
@@ -355,16 +364,6 @@
                   9.915982495301783,
                   9.741353313263128
                 ],
-                "median_object_interval95": [
-                  [
-                    -3.5555755610332067,
-                    25.272747591120496
-                  ],
-                  [
-                    -14.019285491218232,
-                    19.349009859074847
-                  ]
-                ],
                 "within_1sigma": [
                   0.872,
                   0.88
@@ -372,7 +371,26 @@
                 "within_2sigma": [
                   0.976,
                   0.96
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 49,
+                  "test_measurements": 125,
+                  "median_source_resampling95": [
+                    [
+                      -6.805233576860967,
+                      28.588002858084963
+                    ],
+                    [
+                      -14.708705335997735,
+                      21.806975502990024
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    105.05399900893676,
+                    145.473349308511
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             },
             "new_only_training": {
@@ -431,16 +449,6 @@
                   5.048832562856515,
                   5.957646003652876
                 ],
-                "median_object_interval95": [
-                  [
-                    2.3394107767331067,
-                    3.2022240280979406
-                  ],
-                  [
-                    3.7057326884091513,
-                    4.961108004887477
-                  ]
-                ],
                 "within_1sigma": [
                   0.970357454228422,
                   0.9522667829119442
@@ -448,7 +456,26 @@
                 "within_2sigma": [
                   0.9970030514385353,
                   0.9978204010462075
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 5176,
+                  "test_measurements": 18352,
+                  "median_source_resampling95": [
+                    [
+                      2.2468797335390773,
+                      3.3425635148143074
+                    ],
+                    [
+                      3.6698665475966785,
+                      5.08687944636528
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    54.09416812979566,
+                    55.97173076216547
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             },
             "old_only_training": {
@@ -501,16 +528,6 @@
                   8.820365155614192,
                   12.32114543987899
                 ],
-                "median_object_interval95": [
-                  [
-                    8.27733729121526,
-                    12.408334051458791
-                  ],
-                  [
-                    3.8744813038982615,
-                    9.564135033053061
-                  ]
-                ],
                 "within_1sigma": [
                   0.9145299145299145,
                   0.9088319088319088
@@ -518,7 +535,26 @@
                 "within_2sigma": [
                   0.9829059829059829,
                   0.9829059829059829
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 306,
+                  "test_measurements": 1053,
+                  "median_source_resampling95": [
+                    [
+                      8.111246135947017,
+                      12.839029155210149
+                    ],
+                    [
+                      4.315720054891384,
+                      9.827030360740677
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    61.56488404797469,
+                    71.33859146884245
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             }
           },
@@ -581,571 +617,9 @@
       },
       "training_before_all_held_target_association": true,
       "slurm_job": "62041280",
-      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate."
-    },
-    {
-      "core": "w020_110_20_11",
-      "status": "completed",
-      "held_year": 2017,
-      "old_training": 2344,
-      "new_training": 2091,
-      "entities": {
-        "common_training_identity": 2087,
-        "old_only_training": 257,
-        "new_only_training": 4
-      },
-      "old_funnel": {
-        "legacy_r": {
-          "lt20": {
-            "initial": 1775,
-            "sdss_nearby": 1640,
-            "associated": 1640,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 135,
-            "insufficient_time_sampling": 1640
-          },
-          "20_to_21": {
-            "initial": 996,
-            "sdss_nearby": 748,
-            "associated": 748,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "insufficient_time_sampling": 748,
-            "no_sdss_within_fixed_gate": 248
-          },
-          "22_to_23": {
-            "initial": 409,
-            "sdss_nearby": 107,
-            "associated": 107,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 302,
-            "insufficient_time_sampling": 107
-          },
-          "21_to_22": {
-            "initial": 1206,
-            "sdss_nearby": 889,
-            "associated": 889,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "insufficient_time_sampling": 889,
-            "no_sdss_within_fixed_gate": 317
-          },
-          "ge23": {
-            "initial": 14,
-            "sdss_nearby": 0,
-            "associated": 0,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 14
-          }
-        },
-        "physical_all_r_anchor": {
-          "lt20": {
-            "initial": 1775,
-            "sdss_nearby": 1640,
-            "associated": 1640,
-            "fit_eligible": 1294,
-            "calibrated": 1294,
-            "final": 1288,
-            "no_sdss_within_fixed_gate": 135,
-            "insufficient_time_sampling": 346,
-            "final_quality_rejection": 6
-          },
-          "20_to_21": {
-            "initial": 996,
-            "sdss_nearby": 748,
-            "associated": 748,
-            "fit_eligible": 675,
-            "calibrated": 675,
-            "final": 649,
-            "no_sdss_within_fixed_gate": 248,
-            "insufficient_time_sampling": 73,
-            "final_quality_rejection": 26
-          },
-          "22_to_23": {
-            "initial": 409,
-            "sdss_nearby": 107,
-            "associated": 107,
-            "fit_eligible": 90,
-            "calibrated": 90,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 302,
-            "final_quality_rejection": 90,
-            "insufficient_time_sampling": 17
-          },
-          "21_to_22": {
-            "initial": 1206,
-            "sdss_nearby": 889,
-            "associated": 889,
-            "fit_eligible": 802,
-            "calibrated": 802,
-            "final": 338,
-            "final_quality_rejection": 464,
-            "no_sdss_within_fixed_gate": 317,
-            "insufficient_time_sampling": 87
-          },
-          "ge23": {
-            "initial": 14,
-            "sdss_nearby": 0,
-            "associated": 0,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 14
-          }
-        },
-        "non_r": {
-          "all_filter_tracks": 32685,
-          "non_r_before_quality": 1003,
-          "non_r_time_exit": 763,
-          "non_r_ownership_exit": 15,
-          "non_r_morphology_exit": 127,
-          "non_r_missing_survey": 23800,
-          "non_r_formal_error_exit": 29
-        },
-        "strict_r_solutions": 0
-      },
-      "new_funnel": {
-        "legacy_r": {
-          "lt20": {
-            "initial": 1775,
-            "sdss_nearby": 1641,
-            "associated": 1641,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 134,
-            "insufficient_time_sampling": 1641
-          },
-          "20_to_21": {
-            "initial": 995,
-            "sdss_nearby": 750,
-            "associated": 749,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "insufficient_time_sampling": 749,
-            "no_sdss_within_fixed_gate": 245,
-            "split_or_competing_track": 1
-          },
-          "22_to_23": {
-            "initial": 409,
-            "sdss_nearby": 107,
-            "associated": 107,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 302,
-            "insufficient_time_sampling": 107
-          },
-          "21_to_22": {
-            "initial": 1205,
-            "sdss_nearby": 888,
-            "associated": 888,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "insufficient_time_sampling": 888,
-            "no_sdss_within_fixed_gate": 317
-          },
-          "ge23": {
-            "initial": 14,
-            "sdss_nearby": 0,
-            "associated": 0,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 14
-          }
-        },
-        "physical_all_r_anchor": {
-          "lt20": {
-            "initial": 1775,
-            "sdss_nearby": 1641,
-            "associated": 1641,
-            "fit_eligible": 1295,
-            "calibrated": 1295,
-            "final": 1286,
-            "no_sdss_within_fixed_gate": 134,
-            "insufficient_time_sampling": 346,
-            "final_quality_rejection": 9
-          },
-          "20_to_21": {
-            "initial": 995,
-            "sdss_nearby": 750,
-            "associated": 749,
-            "fit_eligible": 676,
-            "calibrated": 676,
-            "final": 602,
-            "no_sdss_within_fixed_gate": 245,
-            "final_quality_rejection": 74,
-            "insufficient_time_sampling": 73,
-            "split_or_competing_track": 1
-          },
-          "22_to_23": {
-            "initial": 409,
-            "sdss_nearby": 107,
-            "associated": 107,
-            "fit_eligible": 90,
-            "calibrated": 90,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 302,
-            "final_quality_rejection": 90,
-            "insufficient_time_sampling": 17
-          },
-          "21_to_22": {
-            "initial": 1205,
-            "sdss_nearby": 888,
-            "associated": 888,
-            "fit_eligible": 801,
-            "calibrated": 801,
-            "final": 140,
-            "final_quality_rejection": 661,
-            "no_sdss_within_fixed_gate": 317,
-            "insufficient_time_sampling": 87
-          },
-          "ge23": {
-            "initial": 14,
-            "sdss_nearby": 0,
-            "associated": 0,
-            "fit_eligible": 0,
-            "calibrated": 0,
-            "final": 0,
-            "no_sdss_within_fixed_gate": 14
-          }
-        },
-        "non_r": {
-          "all_filter_tracks": 32597,
-          "non_r_before_quality": 1004,
-          "non_r_time_exit": 765,
-          "non_r_ownership_exit": 15,
-          "non_r_morphology_exit": 126,
-          "non_r_missing_survey": 23699,
-          "non_r_formal_error_exit": 35
-        },
-        "strict_r_solutions": 0
-      },
-      "methods": {
-        "old": {
-          "by_class": {
-            "common_training_identity": {
-              "training_sources": 2087,
-              "unique_reproductions": {
-                "n": 2059,
-                "denominator": 2087,
-                "value": 0.9865836128413992,
-                "wilson95": [
-                  0.9806778216685301,
-                  0.9907014244391845
-                ]
-              },
-              "displaced_sources": [
-                13,
-                11,
-                13,
-                7
-              ],
-              "position": {
-                "n": 6890,
-                "median": [
-                  -2.317565225448339,
-                  -4.147313839967101
-                ],
-                "nmad": [
-                  21.604378170679112,
-                  28.60794140764015
-                ],
-                "absolute_radial_p68": 41.002335182857195,
-                "equal_mean": [
-                  -2.432313147088313,
-                  -2.1666403769913813
-                ],
-                "median_object_interval95": [
-                  [
-                    -2.9313573559089123,
-                    -1.5756524479744134
-                  ],
-                  [
-                    -4.917837501472468,
-                    -3.2465126018770847
-                  ]
-                ],
-                "within_1sigma": [
-                  0.9683599419448476,
-                  0.9579100145137881
-                ],
-                "within_2sigma": [
-                  0.9937590711175617,
-                  0.9936139332365748
-                ]
-              }
-            },
-            "old_only_training": {
-              "training_sources": 257,
-              "unique_reproductions": {
-                "n": 256,
-                "denominator": 257,
-                "value": 0.9961089494163424,
-                "wilson95": [
-                  0.9782925248669571,
-                  0.9993128034918698
-                ]
-              },
-              "displaced_sources": [
-                2,
-                2,
-                4,
-                1
-              ],
-              "position": {
-                "n": 867,
-                "median": [
-                  -1.4340950719202437,
-                  1.9868060148585454
-                ],
-                "nmad": [
-                  41.76810052354333,
-                  44.692405252546706
-                ],
-                "absolute_radial_p68": 65.9530910936335,
-                "equal_mean": [
-                  -1.443176811521276,
-                  4.446084138812194
-                ],
-                "median_object_interval95": [
-                  [
-                    -4.330591366468809,
-                    1.4460769387600843
-                  ],
-                  [
-                    -1.0386987877174083,
-                    4.359931967091215
-                  ]
-                ],
-                "within_1sigma": [
-                  0.9596309111880046,
-                  0.9469434832756632
-                ],
-                "within_2sigma": [
-                  0.9976931949250288,
-                  0.9953863898500577
-                ]
-              }
-            },
-            "new_only_training": {
-              "training_sources": 0,
-              "unique_reproductions": {
-                "n": 0,
-                "denominator": 0,
-                "value": null,
-                "wilson95": null
-              },
-              "displaced_sources": [
-                0,
-                0,
-                0,
-                0
-              ],
-              "position": {
-                "n": 0
-              }
-            }
-          },
-          "competing_claims_rejected": 0,
-          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
-        },
-        "new": {
-          "by_class": {
-            "common_training_identity": {
-              "training_sources": 2087,
-              "unique_reproductions": {
-                "n": 2059,
-                "denominator": 2087,
-                "value": 0.9865836128413992,
-                "wilson95": [
-                  0.9806778216685301,
-                  0.9907014244391845
-                ]
-              },
-              "displaced_sources": [
-                13,
-                11,
-                13,
-                7
-              ],
-              "position": {
-                "n": 6890,
-                "median": [
-                  -2.279564685832942,
-                  -4.13525110410993
-                ],
-                "nmad": [
-                  21.59342701662254,
-                  28.652774644815462
-                ],
-                "absolute_radial_p68": 41.00160264213598,
-                "equal_mean": [
-                  -2.394636924689359,
-                  -2.173822219111534
-                ],
-                "median_object_interval95": [
-                  [
-                    -2.9007669804096667,
-                    -1.516457233685619
-                  ],
-                  [
-                    -4.858927398262075,
-                    -3.256266312284396
-                  ]
-                ],
-                "within_1sigma": [
-                  0.9706821480406386,
-                  0.9613933236574747
-                ],
-                "within_2sigma": [
-                  0.9941944847605225,
-                  0.9937590711175617
-                ]
-              }
-            },
-            "old_only_training": {
-              "training_sources": 0,
-              "unique_reproductions": {
-                "n": 0,
-                "denominator": 0,
-                "value": null,
-                "wilson95": null
-              },
-              "displaced_sources": [
-                0,
-                0,
-                0,
-                0
-              ],
-              "position": {
-                "n": 0
-              }
-            },
-            "new_only_training": {
-              "training_sources": 4,
-              "unique_reproductions": {
-                "n": 4,
-                "denominator": 4,
-                "value": 1.0,
-                "wilson95": [
-                  0.5101091635454027,
-                  1.0
-                ]
-              },
-              "displaced_sources": [
-                0,
-                0,
-                0,
-                0
-              ],
-              "position": {
-                "n": 13,
-                "median": [
-                  9.103572046128003,
-                  7.460821657200031
-                ],
-                "nmad": [
-                  74.83881250464812,
-                  42.28311642161786
-                ],
-                "absolute_radial_p68": 114.72918607462864,
-                "equal_mean": [
-                  21.094208180110414,
-                  -12.371888272047777
-                ],
-                "median_object_interval95": [
-                  [
-                    -11.790378347154384,
-                    91.81676947854787
-                  ],
-                  [
-                    -15.674928827334858,
-                    35.98039296545436
-                  ]
-                ],
-                "within_1sigma": [
-                  0.6153846153846154,
-                  0.6923076923076923
-                ],
-                "within_2sigma": [
-                  1.0,
-                  0.8461538461538461
-                ]
-              }
-            }
-          },
-          "competing_claims_rejected": 0,
-          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
-        }
-      },
-      "opportunity": {
-        "new_sources": 2091,
-        "geometry": 2086,
-        "catalogue_10sigma": 2083,
-        "metadata": {
-          "independent_chip_center_entries": 1468,
-          "independent_exposures": 79,
-          "returned_CCD_entries": 4809,
-          "input_chip_sha256": "abc34ab844e60ec4a54974e144617371527eb29a4fe3e4f2b8f8be20a08893d6",
-          "internal_exposure_bad_pixel_masks_available": false,
-          "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
-          "invalid_polygon_CCDs": 0
-        },
-        "by_class": {
-          "common_training_identity": {
-            "geometric": {
-              "candidates": 2082,
-              "uniquely_reproduced": 2059
-            },
-            "catalogue_10sigma": {
-              "candidates": 2079,
-              "uniquely_reproduced": 2056
-            },
-            "background_limited_5sigma_proxy": {
-              "candidates": 2079,
-              "uniquely_reproduced": 2056
-            },
-            "depth_or_band_unknown": {
-              "candidates": 73,
-              "uniquely_reproduced": 73
-            }
-          },
-          "new_only_training": {
-            "geometric": {
-              "candidates": 4,
-              "uniquely_reproduced": 4
-            },
-            "catalogue_10sigma": {
-              "candidates": 4,
-              "uniquely_reproduced": 4
-            },
-            "background_limited_5sigma_proxy": {
-              "candidates": 4,
-              "uniquely_reproduced": 4
-            },
-            "depth_or_band_unknown": {
-              "candidates": 1,
-              "uniquely_reproduced": 1
-            }
-          }
-        },
-        "scope": "Actual CCD footprint, exposure epoch and train-band magnitude/depth. Native12mas group support checked at each predicted published sky position. Internal bad pixels and true target extraction completeness not certified."
-      },
-      "training_before_all_held_target_association": true,
-      "slurm_job": "62041280",
-      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate."
+      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate.",
+      "original_summary_sha256": "757637c3c7a0df1fa63e3de175624772b67a11a7cdc08744546569cba9ebcc5a",
+      "interval_readout": "Original generic per-measurement median_object_interval95 label removed in this independent export; actual whole-source resampling intervals substituted. Raw receipt unchanged."
     },
     {
       "core": "w230_090_60_11",
@@ -1444,16 +918,6 @@
                   -0.24447834969450016,
                   0.29190287842451884
                 ],
-                "median_object_interval95": [
-                  [
-                    -0.6738370140621294,
-                    -0.12767701949113597
-                  ],
-                  [
-                    -1.4368402221858576,
-                    -0.7892982324934528
-                  ]
-                ],
                 "within_1sigma": [
                   0.9609323158593231,
                   0.9575038708250387
@@ -1461,7 +925,26 @@
                 "within_2sigma": [
                   0.9945255474452555,
                   0.9938343286883433
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 8204,
+                  "test_measurements": 36168,
+                  "median_source_resampling95": [
+                    [
+                      -0.7418378945104084,
+                      -0.10490050587991369
+                    ],
+                    [
+                      -1.4831945036183691,
+                      -0.7046963934111788
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    42.30766159960355,
+                    43.96068428252092
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             },
             "old_only_training": {
@@ -1496,16 +979,6 @@
                   0.3668778859828869,
                   -1.4552483809198933
                 ],
-                "median_object_interval95": [
-                  [
-                    -8.024615149370284,
-                    1.9906823149556838
-                  ],
-                  [
-                    -0.6518859225948668,
-                    8.600684550355407
-                  ]
-                ],
                 "within_1sigma": [
                   0.8757062146892656,
                   0.8502824858757062
@@ -1513,7 +986,26 @@
                 "within_2sigma": [
                   0.9675141242937854,
                   0.943502824858757
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 214,
+                  "test_measurements": 708,
+                  "median_source_resampling95": [
+                    [
+                      -8.132770210550682,
+                      1.9984489511281662
+                    ],
+                    [
+                      -2.073014570031678,
+                      9.575903251178364
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    93.0744447235798,
+                    107.29696471543538
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             },
             "new_only_training": {
@@ -1572,16 +1064,6 @@
                   0.24633332761239177,
                   0.39714384905782796
                 ],
-                "median_object_interval95": [
-                  [
-                    -0.36367107786402403,
-                    0.19211626296451628
-                  ],
-                  [
-                    -1.2987877565092725,
-                    -0.7088220592086758
-                  ]
-                ],
                 "within_1sigma": [
                   0.9696693209466932,
                   0.9647754921477549
@@ -1589,7 +1071,26 @@
                 "within_2sigma": [
                   0.995742092457421,
                   0.9949402786994028
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 8204,
+                  "test_measurements": 36168,
+                  "median_source_resampling95": [
+                    [
+                      -0.38217639935606773,
+                      0.27535650024539593
+                    ],
+                    [
+                      -1.3412883006664358,
+                      -0.5720302678803917
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    42.02480663524934,
+                    43.582628212757164
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             },
             "old_only_training": {
@@ -1642,16 +1143,6 @@
                   4.156090781473765,
                   3.2495353895951973
                 ],
-                "median_object_interval95": [
-                  [
-                    2.3855953883950205,
-                    4.163210449492766
-                  ],
-                  [
-                    -0.22599715940741924,
-                    1.3189053295995299
-                  ]
-                ],
                 "within_1sigma": [
                   0.9336188436830836,
                   0.9373661670235546
@@ -1659,7 +1150,26 @@
                 "within_2sigma": [
                   0.9867951463240543,
                   0.9834047109207709
-                ]
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 1317,
+                  "test_measurements": 5604,
+                  "median_source_resampling95": [
+                    [
+                      2.2822484046184055,
+                      4.3258502425965455
+                    ],
+                    [
+                      -0.25129167434899263,
+                      1.496214327277179
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    49.82708857484883,
+                    54.62022561376571
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
               }
             }
           },
@@ -1722,8 +1232,614 @@
       },
       "training_before_all_held_target_association": true,
       "slurm_job": "62041280",
-      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate."
+      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate.",
+      "original_summary_sha256": "47636653efcb25f205ddc7002215dd4e49c3f7d604e20726fc561d39953db157",
+      "interval_readout": "Original generic per-measurement median_object_interval95 label removed in this independent export; actual whole-source resampling intervals substituted. Raw receipt unchanged."
+    },
+    {
+      "core": "w020_110_20_11",
+      "status": "completed",
+      "held_year": 2017,
+      "old_training": 2344,
+      "new_training": 2091,
+      "entities": {
+        "common_training_identity": 2087,
+        "old_only_training": 257,
+        "new_only_training": 4
+      },
+      "old_funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1640,
+            "associated": 1640,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 135,
+            "insufficient_time_sampling": 1640
+          },
+          "20_to_21": {
+            "initial": 996,
+            "sdss_nearby": 748,
+            "associated": 748,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 748,
+            "no_sdss_within_fixed_gate": 248
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "insufficient_time_sampling": 107
+          },
+          "21_to_22": {
+            "initial": 1206,
+            "sdss_nearby": 889,
+            "associated": 889,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 889,
+            "no_sdss_within_fixed_gate": 317
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1640,
+            "associated": 1640,
+            "fit_eligible": 1294,
+            "calibrated": 1294,
+            "final": 1288,
+            "no_sdss_within_fixed_gate": 135,
+            "insufficient_time_sampling": 346,
+            "final_quality_rejection": 6
+          },
+          "20_to_21": {
+            "initial": 996,
+            "sdss_nearby": 748,
+            "associated": 748,
+            "fit_eligible": 675,
+            "calibrated": 675,
+            "final": 649,
+            "no_sdss_within_fixed_gate": 248,
+            "insufficient_time_sampling": 73,
+            "final_quality_rejection": 26
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 90,
+            "calibrated": 90,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "final_quality_rejection": 90,
+            "insufficient_time_sampling": 17
+          },
+          "21_to_22": {
+            "initial": 1206,
+            "sdss_nearby": 889,
+            "associated": 889,
+            "fit_eligible": 802,
+            "calibrated": 802,
+            "final": 338,
+            "final_quality_rejection": 464,
+            "no_sdss_within_fixed_gate": 317,
+            "insufficient_time_sampling": 87
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 32685,
+          "non_r_before_quality": 1003,
+          "non_r_time_exit": 763,
+          "non_r_ownership_exit": 15,
+          "non_r_morphology_exit": 127,
+          "non_r_missing_survey": 23800,
+          "non_r_formal_error_exit": 29
+        },
+        "strict_r_solutions": 0
+      },
+      "new_funnel": {
+        "legacy_r": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1641,
+            "associated": 1641,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 134,
+            "insufficient_time_sampling": 1641
+          },
+          "20_to_21": {
+            "initial": 995,
+            "sdss_nearby": 750,
+            "associated": 749,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 749,
+            "no_sdss_within_fixed_gate": 245,
+            "split_or_competing_track": 1
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "insufficient_time_sampling": 107
+          },
+          "21_to_22": {
+            "initial": 1205,
+            "sdss_nearby": 888,
+            "associated": 888,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "insufficient_time_sampling": 888,
+            "no_sdss_within_fixed_gate": 317
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "physical_all_r_anchor": {
+          "lt20": {
+            "initial": 1775,
+            "sdss_nearby": 1641,
+            "associated": 1641,
+            "fit_eligible": 1295,
+            "calibrated": 1295,
+            "final": 1286,
+            "no_sdss_within_fixed_gate": 134,
+            "insufficient_time_sampling": 346,
+            "final_quality_rejection": 9
+          },
+          "20_to_21": {
+            "initial": 995,
+            "sdss_nearby": 750,
+            "associated": 749,
+            "fit_eligible": 676,
+            "calibrated": 676,
+            "final": 602,
+            "no_sdss_within_fixed_gate": 245,
+            "final_quality_rejection": 74,
+            "insufficient_time_sampling": 73,
+            "split_or_competing_track": 1
+          },
+          "22_to_23": {
+            "initial": 409,
+            "sdss_nearby": 107,
+            "associated": 107,
+            "fit_eligible": 90,
+            "calibrated": 90,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 302,
+            "final_quality_rejection": 90,
+            "insufficient_time_sampling": 17
+          },
+          "21_to_22": {
+            "initial": 1205,
+            "sdss_nearby": 888,
+            "associated": 888,
+            "fit_eligible": 801,
+            "calibrated": 801,
+            "final": 140,
+            "final_quality_rejection": 661,
+            "no_sdss_within_fixed_gate": 317,
+            "insufficient_time_sampling": 87
+          },
+          "ge23": {
+            "initial": 14,
+            "sdss_nearby": 0,
+            "associated": 0,
+            "fit_eligible": 0,
+            "calibrated": 0,
+            "final": 0,
+            "no_sdss_within_fixed_gate": 14
+          }
+        },
+        "non_r": {
+          "all_filter_tracks": 32597,
+          "non_r_before_quality": 1004,
+          "non_r_time_exit": 765,
+          "non_r_ownership_exit": 15,
+          "non_r_morphology_exit": 126,
+          "non_r_missing_survey": 23699,
+          "non_r_formal_error_exit": 35
+        },
+        "strict_r_solutions": 0
+      },
+      "methods": {
+        "old": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 2087,
+              "unique_reproductions": {
+                "n": 2059,
+                "denominator": 2087,
+                "value": 0.9865836128413992,
+                "wilson95": [
+                  0.9806778216685301,
+                  0.9907014244391845
+                ]
+              },
+              "displaced_sources": [
+                13,
+                11,
+                13,
+                7
+              ],
+              "position": {
+                "n": 6890,
+                "median": [
+                  -2.317565225448339,
+                  -4.147313839967101
+                ],
+                "nmad": [
+                  21.604378170679112,
+                  28.60794140764015
+                ],
+                "absolute_radial_p68": 41.002335182857195,
+                "equal_mean": [
+                  -2.432313147088313,
+                  -2.1666403769913813
+                ],
+                "within_1sigma": [
+                  0.9683599419448476,
+                  0.9579100145137881
+                ],
+                "within_2sigma": [
+                  0.9937590711175617,
+                  0.9936139332365748
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 2059,
+                  "test_measurements": 6890,
+                  "median_source_resampling95": [
+                    [
+                      -3.0732481348548366,
+                      -1.5110997661401764
+                    ],
+                    [
+                      -4.992421234467783,
+                      -3.374530743054277
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    40.07800301155065,
+                    41.78218189532372
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
+              }
+            },
+            "old_only_training": {
+              "training_sources": 257,
+              "unique_reproductions": {
+                "n": 256,
+                "denominator": 257,
+                "value": 0.9961089494163424,
+                "wilson95": [
+                  0.9782925248669571,
+                  0.9993128034918698
+                ]
+              },
+              "displaced_sources": [
+                2,
+                2,
+                4,
+                1
+              ],
+              "position": {
+                "n": 867,
+                "median": [
+                  -1.4340950719202437,
+                  1.9868060148585454
+                ],
+                "nmad": [
+                  41.76810052354333,
+                  44.692405252546706
+                ],
+                "absolute_radial_p68": 65.9530910936335,
+                "equal_mean": [
+                  -1.443176811521276,
+                  4.446084138812194
+                ],
+                "within_1sigma": [
+                  0.9596309111880046,
+                  0.9469434832756632
+                ],
+                "within_2sigma": [
+                  0.9976931949250288,
+                  0.9953863898500577
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 256,
+                  "test_measurements": 867,
+                  "median_source_resampling95": [
+                    [
+                      -4.4697957302193645,
+                      1.6671862816832967
+                    ],
+                    [
+                      -1.4741191559879383,
+                      5.47163109901727
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    62.62942573417094,
+                    69.01629587957935
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
+              }
+            },
+            "new_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            }
+          },
+          "competing_claims_rejected": 0,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        },
+        "new": {
+          "by_class": {
+            "common_training_identity": {
+              "training_sources": 2087,
+              "unique_reproductions": {
+                "n": 2059,
+                "denominator": 2087,
+                "value": 0.9865836128413992,
+                "wilson95": [
+                  0.9806778216685301,
+                  0.9907014244391845
+                ]
+              },
+              "displaced_sources": [
+                13,
+                11,
+                13,
+                7
+              ],
+              "position": {
+                "n": 6890,
+                "median": [
+                  -2.279564685832942,
+                  -4.13525110410993
+                ],
+                "nmad": [
+                  21.59342701662254,
+                  28.652774644815462
+                ],
+                "absolute_radial_p68": 41.00160264213598,
+                "equal_mean": [
+                  -2.394636924689359,
+                  -2.173822219111534
+                ],
+                "within_1sigma": [
+                  0.9706821480406386,
+                  0.9613933236574747
+                ],
+                "within_2sigma": [
+                  0.9941944847605225,
+                  0.9937590711175617
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 2059,
+                  "test_measurements": 6890,
+                  "median_source_resampling95": [
+                    [
+                      -3.0137810239320264,
+                      -1.3794034847088614
+                    ],
+                    [
+                      -4.95090404819437,
+                      -3.359229945285504
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    40.102899706380136,
+                    41.953783483361065
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
+              }
+            },
+            "old_only_training": {
+              "training_sources": 0,
+              "unique_reproductions": {
+                "n": 0,
+                "denominator": 0,
+                "value": null,
+                "wilson95": null
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 0
+              }
+            },
+            "new_only_training": {
+              "training_sources": 4,
+              "unique_reproductions": {
+                "n": 4,
+                "denominator": 4,
+                "value": 1.0,
+                "wilson95": [
+                  0.5101091635454027,
+                  1.0
+                ]
+              },
+              "displaced_sources": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "position": {
+                "n": 13,
+                "median": [
+                  9.103572046128003,
+                  7.460821657200031
+                ],
+                "nmad": [
+                  74.83881250464812,
+                  42.28311642161786
+                ],
+                "absolute_radial_p68": 114.72918607462864,
+                "equal_mean": [
+                  21.094208180110414,
+                  -12.371888272047777
+                ],
+                "within_1sigma": [
+                  0.6153846153846154,
+                  0.6923076923076923
+                ],
+                "within_2sigma": [
+                  1.0,
+                  0.8461538461538461
+                ],
+                "source_sampling": {
+                  "physical_source_sampling_units": 4,
+                  "test_measurements": 13,
+                  "median_source_resampling95": [
+                    [
+                      -7.983618041372437,
+                      94.58051038089442
+                    ],
+                    [
+                      -114.111109249874,
+                      32.11773960269708
+                    ]
+                  ],
+                  "radial_P68_source_resampling95": [
+                    31.86014954014632,
+                    188.87157299595225
+                  ],
+                  "scope": "Resample physical training-source identities; every repeated held-year measurement follows that source. Conditional source-sampling interval after the1arcsec/margin gate, not independent-exposure/sky confidence or stellar purity. Shared zero-point terms remain in formal prediction covariance, not assumed to average as independent sources."
+                }
+              }
+            }
+          },
+          "competing_claims_rejected": 0,
+          "scope": "Same full old/new training-identity universe; fallback hypotheses compete but do not enter primary metrics. Unique 1arcsec, margin300mas; residual/coverage are conditional on this gate."
+        }
+      },
+      "opportunity": {
+        "new_sources": 2091,
+        "geometry": 2086,
+        "catalogue_10sigma": 2083,
+        "metadata": {
+          "independent_chip_center_entries": 1468,
+          "independent_exposures": 79,
+          "returned_CCD_entries": 4809,
+          "input_chip_sha256": "abc34ab844e60ec4a54974e144617371527eb29a4fe3e4f2b8f8be20a08893d6",
+          "internal_exposure_bad_pixel_masks_available": false,
+          "scope": "All bands, no target-detection existence requirement. Actual polygons and 10sigma catalogue depth. depth95 is a magnitude percentile, not 95percent completeness. Internal effective-pixel masks unavailable; geometry/depth opportunities remain conditional, not verified image extraction completeness.",
+          "invalid_polygon_CCDs": 0
+        },
+        "by_class": {
+          "common_training_identity": {
+            "geometric": {
+              "candidates": 2082,
+              "uniquely_reproduced": 2059
+            },
+            "catalogue_10sigma": {
+              "candidates": 2079,
+              "uniquely_reproduced": 2056
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 2079,
+              "uniquely_reproduced": 2056
+            },
+            "depth_or_band_unknown": {
+              "candidates": 73,
+              "uniquely_reproduced": 73
+            }
+          },
+          "new_only_training": {
+            "geometric": {
+              "candidates": 4,
+              "uniquely_reproduced": 4
+            },
+            "catalogue_10sigma": {
+              "candidates": 4,
+              "uniquely_reproduced": 4
+            },
+            "background_limited_5sigma_proxy": {
+              "candidates": 4,
+              "uniquely_reproduced": 4
+            },
+            "depth_or_band_unknown": {
+              "candidates": 1,
+              "uniquely_reproduced": 1
+            }
+          }
+        },
+        "scope": "Actual CCD footprint, exposure epoch and train-band magnitude/depth. Native12mas group support checked at each predicted published sky position. Internal bad pixels and true target extraction completeness not certified."
+      },
+      "training_before_all_held_target_association": true,
+      "slurm_job": "62041280",
+      "scope": "Full new-reference conditional prediction; reference galaxies can calibrate test exposures, held target bands never enter training. Source continuity is physical training-member evidence, not stellar truth; footprint/depth is not image extraction completeness. Old and new reference draw streams are kept separate.",
+      "original_summary_sha256": "a06cd7a5af1bcdc487a9255453d3064ca88efbf5d198bebeff45ed4303007b21",
+      "interval_readout": "Original generic per-measurement median_object_interval95 label removed in this independent export; actual whole-source resampling intervals substituted. Raw receipt unchanged."
     }
   ],
-  "scope": "Metadata-first representative far-core whole-year target isolation; original and new compete before evaluation. Conditional unique-position and real CCD/depth support, not stellar purity."
+  "implementation_sha256": "a54b911b3afb8f3dc30fac8a74d5ece417e51c0527493913046e0e53e15e5f9f",
+  "slurm_job": "62041280",
+  "scope": "Frozen metadata selection and all original source/test identities; read-only uncertainty relabel and source-level sampling, no new fitted model or favourable source selection."
 }

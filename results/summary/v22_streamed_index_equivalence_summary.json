@@ -1,0 +1,35 @@
+{
+  "cores": [
+    {
+      "core": "w220_110_28_11",
+      "scientific_parquet_byte_identical": {
+        "science.parquet": true,
+        "claims.parquet": true,
+        "old.parquet": true
+      },
+      "peak_rss_mib": 265.98046875,
+      "elapsed_seconds": 1.3357718449551612
+    },
+    {
+      "core": "w170_090_88_00",
+      "scientific_parquet_byte_identical": {
+        "science.parquet": true,
+        "claims.parquet": true,
+        "old.parquet": true
+      },
+      "peak_rss_mib": 286.80859375,
+      "elapsed_seconds": 1.2775340999942273
+    },
+    {
+      "core": "w010_100_02_00",
+      "scientific_parquet_byte_identical": {
+        "science.parquet": true,
+        "claims.parquet": true,
+        "old.parquet": true
+      },
+      "peak_rss_mib": 286.80859375,
+      "elapsed_seconds": 0.892538134008646
+    }
+  ],
+  "scope": "Same real3 engineering source/old products, every compact field/physical claim/old membership frame equal and changed-member content equal. Source fits untouched; indexing-memory change only."
+}

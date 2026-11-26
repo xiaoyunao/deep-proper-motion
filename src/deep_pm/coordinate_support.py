@@ -28,7 +28,7 @@ def run(registration,root,output):
         if not file.exists():continue
         table=pd.read_csv(file)
         # This is schema text only: column names/units/descriptions, no source rows.
-        report['schemas'][name]=dict(columns=list(table),rows=table.astype(str).to_dict('records'))
+        report['schemas'][name]=dict(columns=list(table),schema_records=table.astype(str).to_dict('records'))
     report['slurm_job']=os.environ['SLURM_JOB_ID'];check_aggregate(report)
     save_json(output/'v21_support_metadata_summary.json',report)
     print('SUPPORT_METADATA_DONE',len(selected),flush=True)

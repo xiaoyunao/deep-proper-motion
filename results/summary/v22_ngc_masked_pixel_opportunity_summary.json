@@ -1,0 +1,75 @@
+{
+  "categories": {
+    "SDSS_quality_distance": {
+      "targets": 10,
+      "pixel_status": {
+        "conditional_clean_pixel_opportunity": 17
+      },
+      "any_conservative_bad_pixel": 0,
+      "any_published_neighbor3arcsec": 0,
+      "conditional_SNR_target_count": 10,
+      "per_exposure_SNR_proxy_p16_p50_p84": [
+        3.3824224218038825,
+        5.144769456738272,
+        6.3233668678512664
+      ],
+      "one_per_run_joint_SNR_proxy_p16_p50_p84": [
+        5.322200064511424,
+        5.835766068478973,
+        8.162734974057516
+      ],
+      "multiple_conditionally_usable_runs": 7
+    },
+    "no_cached_SDSS": {
+      "targets": 20,
+      "pixel_status": {
+        "conditional_clean_pixel_opportunity": 35,
+        "masked_or_nonfinite_aperture": 2
+      },
+      "any_conservative_bad_pixel": 2,
+      "any_published_neighbor3arcsec": 2,
+      "conditional_SNR_target_count": 20,
+      "per_exposure_SNR_proxy_p16_p50_p84": [
+        2.4111843248786275,
+        3.5707098352956437,
+        6.148943679156177
+      ],
+      "one_per_run_joint_SNR_proxy_p16_p50_p84": [
+        3.4262514288802954,
+        5.447093936049615,
+        6.7406381032392035
+      ],
+      "multiple_conditionally_usable_runs": 15
+    },
+    "positive_early_control": {
+      "targets": 10,
+      "pixel_status": {
+        "conditional_clean_pixel_opportunity": 20
+      },
+      "any_conservative_bad_pixel": 0,
+      "any_published_neighbor3arcsec": 0,
+      "conditional_SNR_target_count": 10,
+      "per_exposure_SNR_proxy_p16_p50_p84": [
+        6.701749664394925,
+        8.01729026858349,
+        9.548746127018681
+      ],
+      "one_per_run_joint_SNR_proxy_p16_p50_p84": [
+        9.14034987497658,
+        11.591135472036996,
+        12.680687209713858
+      ],
+      "multiple_conditionally_usable_runs": 9
+    }
+  },
+  "unique_decoded_physical_fields": 13,
+  "official_reader_source": {
+    "url": "https://www.sdss2.org/dr4/products/images/readAtlasImages-v5_4_11.tar.gz",
+    "sha256": "b914c8b53977995d3ab06bfb786dd6e0e1c337d5a2eb6babaf43e0e828f2b943",
+    "purpose": "Official SDSS binary mask decoder only; no source extraction or PSF astrometry."
+  },
+  "decoder_sha256": "6356d0c9e8f1d1c3b864abd0fca8406d69eb35046ef47a8948f2f6a3da0fbfd5",
+  "frozen_forty_sha256": "644b8657f3dbdf4366b173134353fa0a655db6a710b3fd21e279086896b7d7d6",
+  "slurm_job": "62039734",
+  "scope": "Same40 photometric targets, no PM selection. Real rerun301/run fpM exact mask planes decoded by official reader; mask/frame grid and input hashes checked. 3.5pixel conservative bad region around2.5pixel aperture; background removes catalogued object mask. Geometry chooses one field per physical run. SNR proxies ignore remaining pixel covariance, source Poisson/variability and centroid bias; no new position/proper motion fitted. 1arcsec photometric-position catalogue absence is not a proof of source-extraction failure when physical identity/motion is unknown. Neighbor flags are conditional catalogue evidence, not stellar truth."
+}

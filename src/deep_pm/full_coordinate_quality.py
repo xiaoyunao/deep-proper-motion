@@ -139,6 +139,21 @@ def in_magnitude_bin(row,low):
     return value is not None and np.isfinite(value) and low<=value<low+1
 
 
+def fixed_angle_readout(records):
+    output={}
+    for low in range(0,70,10):
+        part=[r for r in records if r['chart_angle_deg'] is not None and low<=r['chart_angle_deg']<low+10]
+        computed=[r for r in part if r['status']=='computed'];out=dict(frozen_denominator=len(part),computed=len(computed),status=dict(Counter(r['status'] for r in part)))
+        if len(computed)>=5:
+            old=np.array([r['old_values']['blind_all'][1] for r in computed]);ratios={name:np.array([r[key][1] for r in computed])/old for name,key in [('B1_over_old','B1_values'),('new_over_old','new_values')]}
+            rng=np.random.default_rng(2227);indices=rng.integers(0,len(computed),(256,len(computed)))
+            out['error_ratio']={name:dict(median=np.median(value,axis=0),median_source_sampling95=np.quantile(np.median(value[indices],axis=1),[.025,.975],axis=0).T) for name,value in ratios.items()}
+            points=[dict(r,values=dict(new=r['new_values'],old=r['old_values']['blind_all'],B1=r['B1_values'])) for r in computed]
+            out['same_identity_quality']=metrics(points,('new','old','B1'))
+        output[str(low)]=out
+    return output
+
+
 def stratified(rows):
     result={}
     for low in (20,21,22):
@@ -150,6 +165,7 @@ def stratified(rows):
             ('NSC_years_ge3',lambda r:r.get('nsc_years') is not None and r['nsc_years']>=3),
             ('SDSS_years_ge2',lambda r:r.get('sdss_years') is not None and r['sdss_years']>=2),
             ('joint_span_ge12',lambda r:r['joint_span']>=12),('far_chart_ge40',lambda r:r['chart_angle_deg'] is not None and r['chart_angle_deg']>=40)]:groups[tag]=[r for r in base if predicate(r)]
+        for angle in range(0,70,10):groups[f'chart_angle_{angle}_{angle+10}']=[r for r in base if r['chart_angle_deg'] is not None and angle<=r['chart_angle_deg']<angle+10]
         for key in ('kind','instruments','window','bands'):
             for value in sorted({r[key] for r in base}):groups[key+'__'+value]=[r for r in base if r[key]==value]
         result[str(low)]={}
@@ -193,7 +209,7 @@ def run(root,workers,frozen=None):
         points=[dict(r,values=dict(old=r['old_values']['blind_all'],new=r['new_values'],B1=r['B1_values'])) for r in computed]
         fixed_report[str(low)]=dict(frozen_denominator=len(before),status=dict(Counter(r['status'] for r in before)),
             local_support_exits=sum(not r['local_support_pass'] for r in computed),formal_error_exits=sum(not r['formal_error_pass'] for r in computed),
-            residual_exits=sum(not r['residual_pass'] for r in computed),all_computed_same_members=metrics(points,('new','old','B1')),
+            residual_exits=sum(not r['residual_pass'] for r in computed),by_chart_angle=fixed_angle_readout(before),all_computed_same_members=metrics(points,('new','old','B1')),
             scope='New quality failures stay in same-member evaluation. Only unavailable new fits leave computed comparison, with explicit original denominator/status.')
     spatial=[]
     for low in (20,21,22):

@@ -161,11 +161,11 @@ def stratified(rows):
     return result
 
 
-def run(root,workers):
+def run(root,workers,frozen=None):
     import duckdb
     plan=read(root/'registration/private_full_coordinate_plan.json');dest=root/'quality';dest.mkdir(exist_ok=True)
     db=duckdb.connect(str(root/'catalogue/catalogue.duckdb'),read_only=True);quarantined=set(db.execute('SELECT src FROM not_adopted').fetchnumpy()['src']);db.close()
-    old=old_index(root.parent/'v1.9/batch/science')
+    old=old_index(root.parent/'v1.9/batch/science' if frozen is None else frozen)
     with ProcessPoolExecutor(max_workers=workers) as pool:
         for _ in pool.map(source_pool,[(i,e,str(root),old,quarantined) for i,e in enumerate(plan['cores'])]):pass
     fixed=[];blind=[];pool_exits=Counter()
@@ -207,6 +207,6 @@ def run(root,workers):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--workers',type=int,default=4);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--workers',type=int,default=4);p.add_argument('--frozen',type=Path);a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
-    run(a.root,a.workers)
+    run(a.root,a.workers,a.frozen)

@@ -65,10 +65,10 @@ def static_tracks(xy, exposure, radius, eps=None, sky_center=None):
     for index in np.flatnonzero(~used):
         if used[index]:
             continue
-        candidates = np.array(tree.query_ball_point(xy[index], radius), dtype=int)
+        candidates = np.array(tree.query_ball_point(xy[index], radius) if sky_center is None else tree.query_ball_index(index, radius), dtype=int)
         candidates = candidates[~used[candidates]]
-        chosen = one_per_exposure(candidates, distance(xy[candidates],xy[index]),
-                                  exposure)
+        separation = distance(xy[candidates],xy[index]) if sky_center is None else tree.distances_to_index(candidates,index)
+        chosen = one_per_exposure(candidates, separation, exposure)
         used[list(chosen)] = True
         groups.append(chosen)
     return [tuple(sorted(group)) for group in groups]

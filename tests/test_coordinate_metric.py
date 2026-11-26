@@ -118,3 +118,22 @@ def test_legacy_sweep_filename_uses_integer_declination_degrees(tmp_path):
     table.writeto(folder/'sweep-210p025-220p030.fits')
     values,meta=independent_morphology(np.zeros((1,2)),tmp_path,(211.,28.5))
     assert meta['sweep_files']==1 and values[0]['shape']=='PSF'
+
+
+def test_cached_unit_sphere_matches_roundtrip_and_static_members():
+    from deep_pm.coordinate_metric import plane_units,unit_distance
+    from deep_pm.associate import static_tracks,one_per_exposure
+    rng=np.random.default_rng(22022);center=(310.,20.)
+    sky=np.column_stack([rng.normal(.001,.0006,200),rng.normal(35.,.0006,200)])
+    xy=project(*sky.T,center);exp=rng.integers(0,8,len(xy))
+    u=plane_units(xy,center);reference=sky_basis(*unproject(xy,center).T)[:,0,:]
+    np.testing.assert_allclose(u,reference,atol=2e-15,rtol=0)
+    np.testing.assert_allclose(unit_distance(u,u[0]),unit_distance(reference,reference[0]),atol=3e-7,rtol=0)
+    used=np.zeros(len(xy),bool);groups=[]
+    for index in range(len(xy)):
+        if used[index]:continue
+        dist=unit_distance(reference,reference[index]);ix=np.flatnonzero((dist<=1000)&~used)
+        chosen=one_per_exposure(ix,dist[ix],exp);used[list(chosen)]=True;groups.append(chosen)
+    assert static_tracks(xy,exp,1000,sky_center=center)==groups
+    dist,ix=AngularTree(xy,center).query(xy[0],k=200,distance_upper_bound=1000)
+    assert np.isfinite(dist).sum()==np.sum(unit_distance(reference,reference[0])<=1000)

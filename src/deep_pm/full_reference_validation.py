@@ -78,4 +78,4 @@ def validate(root,number,output):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('component',type=int);p.add_argument('output',type=Path);a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
-    validate(**vars(a))
+    validate(a.root,a.component,a.output)

@@ -44,30 +44,51 @@ def projected_covariance(ra,dec,center,covariance):
     return a@covariance@np.swapaxes(a,-1,-2)
 
 
-def angular_distance(x,y,center):
-    a=unproject(np.atleast_2d(x),center);b=unproject(np.atleast_2d(y),center)
-    u=sky_basis(*a.T)[...,0,:];v=sky_basis(*b.T)[...,0,:]
+def plane_units(xy,center):
+    """Inverse gnomonic direction directly, avoiding RA/Dec round trips."""
+    xy=np.asarray(xy,float).reshape(-1,2)/MAS_PER_RADIAN
+    local=np.column_stack([np.ones(len(xy)),xy])
+    local/=np.linalg.norm(local,axis=1,keepdims=True)
+    return local@basis(*center)
+
+
+def unit_distance(u,v):
     return np.arctan2(np.linalg.norm(np.cross(u,v),axis=-1),np.sum(u*v,axis=-1))*MAS_PER_RADIAN
+
+
+def angular_distance(x,y,center):
+    return unit_distance(plane_units(x,center),plane_units(y,center))
 
 
 class AngularTree:
     """cKDTree interface whose reported distances and radii are true sky mas."""
     def __init__(self,xy,center):
-        self.center=center;self.xy=np.asarray(xy);self.tree=cKDTree(self.units(self.xy))
+        self.center=center;self.xy=np.asarray(xy);self.unit_vectors=self.units(self.xy)
+        self.tree=cKDTree(self.unit_vectors)
 
-    def units(self,xy):
-        pos=unproject(np.asarray(xy).reshape(-1,2),self.center)
-        return sky_basis(*pos.T)[:,0,:]
+    def units(self,xy):return plane_units(xy,self.center)
 
     def query(self,xy,k=1,**kwargs):
-        query=np.asarray(xy);distance,index=self.tree.query(self.units(query),k=k,**kwargs)
+        query=np.asarray(xy)
+        # cKDTree bounds are chord lengths too; never pass mas directly.
+        if 'distance_upper_bound' in kwargs:
+            bound=kwargs['distance_upper_bound']
+            kwargs['distance_upper_bound']=2*np.sin(min(bound/MAS_PER_RADIAN,np.pi)/2) if np.isfinite(bound) else np.inf
+        distance,index=self.tree.query(self.units(query),k=k,**kwargs)
         angle=np.where(np.isfinite(distance),2*np.arcsin(np.clip(distance/2,0,1))*MAS_PER_RADIAN,np.inf)
         return (angle[0],index[0]) if query.ndim==1 else (angle,index)
 
     def query_ball_point(self,xy,r,**kwargs):
-        query=np.asarray(xy);radius=2*np.sin(np.asarray(r)/(2*MAS_PER_RADIAN))
+        query=np.asarray(xy);radius=2*np.sin(np.minimum(np.asarray(r)/MAS_PER_RADIAN,np.pi)/2)
         values=self.tree.query_ball_point(self.units(query),radius,**kwargs)
         return values[0] if query.ndim==1 else values
+
+    def query_ball_index(self,index,r):
+        radius=2*np.sin(min(r/MAS_PER_RADIAN,np.pi)/2)
+        return self.tree.query_ball_point(self.unit_vectors[index],radius)
+
+    def distances_to_index(self,indices,index):
+        return unit_distance(self.unit_vectors[indices],self.unit_vectors[index])
 
 
 def design_matrix(time,epoch):

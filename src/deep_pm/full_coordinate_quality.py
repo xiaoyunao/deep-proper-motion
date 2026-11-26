@@ -58,9 +58,8 @@ def source_pool(task):
         computed=[r for r in options if r['status']=='computed']
         if len(computed)>1:raise ValueError('One old identity computed under incompatible reference components')
         r=dict(computed[0] if computed else options[0]);mag=r['magnitude']
-        if mag is None or not 21<=mag<23:continue
         old=oldrows[slot];qso=spectra.iloc[r['qso_local_index']]
-        assert float(qso.reference_r)==mag
+        if mag is not None:assert float(qso.reference_r)==mag
         r.update(identity=(str(qso.origin),float(qso.ra),float(qso.dec)),window=entry['window'],**information(dict(old,projection_center_deg=entry['center'])))
         r['information_epoch_definition']='Original fixed physical members and archived source conditions; new local support/formal exits retained.'
         if r['status']=='computed':r['pm_covariance']=np.asarray(r['new_fit']['covariance'])[np.ix_([1,3],[1,3])]
@@ -131,10 +130,15 @@ def metrics(rows,methods):
     return out
 
 
+def in_magnitude_bin(row,low):
+    value=row.get('magnitude')
+    return value is not None and np.isfinite(value) and low<=value<low+1
+
+
 def stratified(rows):
     result={}
-    for low in (21,22):
-        base=[r for r in rows if low<=r['magnitude']<low+1];groups={'all':base}
+    for low in (20,21,22):
+        base=[r for r in rows if in_magnitude_bin(r,low)];groups={'all':base}
         for tag,predicate in [('one_run',lambda r:r['sdss_runs']==1),('multi_run',lambda r:r['sdss_runs']>1),
             ('nsc_span_lt2',lambda r:r['nsc_span']<2),('nsc_span_ge2',lambda r:r['nsc_span']>=2),
             ('night_lt5',lambda r:r['nsc_nights']<5),('night_ge5',lambda r:r['nsc_nights']>=5),
@@ -164,9 +168,9 @@ def run(root,workers):
     old=old_index(root.parent/'v1.9/batch/science')
     with ProcessPoolExecutor(max_workers=workers) as pool:
         for _ in pool.map(source_pool,[(i,e,str(root),old,quarantined) for i,e in enumerate(plan['cores'])]):pass
-    fixed=[];blind=[]
+    fixed=[];blind=[];pool_exits=Counter()
     for e in plan['cores']:
-        part=read(dest/'cores'/e['core']/'private_qso_pool.json.gz');fixed.extend(part['fixed']);blind.extend(part['blind'])
+        part=read(dest/'cores'/e['core']/'private_qso_pool.json.gz');fixed.extend(part['fixed']);blind.extend(part['blind']);pool_exits.update(read(dest/'cores'/e['core']/'private_pool_receipt.json')['exits'])
     # Exact old label identity is the frozen baseline's convention; preserve its
     # denominator, then separately report near-duplicate sensitivity if needed.
     counts=Counter(tuple(r['identity']) for r in fixed);fixed_unique=[r for r in fixed if counts[tuple(r['identity'])]==1]
@@ -180,19 +184,21 @@ def run(root,workers):
             near=tree.query_ball_point(coordinates(*r['identity'][1:])[0],2*np.sin(.036/3600000*np.pi/180/2))
             if len(near)==1:r['values']['old_all']=prior[near[0]]['old_values']['blind_all']
     fixed_report={}
-    for low in (21,22):
-        before=[r for r in fixed_unique if low<=r['magnitude']<low+1];computed=[r for r in before if r['status']=='computed']
+    for low in (20,21,22):
+        before=[r for r in fixed_unique if in_magnitude_bin(r,low)];computed=[r for r in before if r['status']=='computed']
         points=[dict(r,values=dict(old=r['old_values']['blind_all'],new=r['new_values'],B1=r['B1_values'])) for r in computed]
         fixed_report[str(low)]=dict(frozen_denominator=len(before),status=dict(Counter(r['status'] for r in before)),
             local_support_exits=sum(not r['local_support_pass'] for r in computed),formal_error_exits=sum(not r['formal_error_pass'] for r in computed),
             residual_exits=sum(not r['residual_pass'] for r in computed),all_computed_same_members=metrics(points,('new','old','B1')),
             scope='New quality failures stay in same-member evaluation. Only unavailable new fits leave computed comparison, with explicit original denominator/status.')
     spatial=[]
-    for low in (21,22):
-        for pixel in sorted({r['pixel64'] for r in new if low<=r['magnitude']<low+1}):
-            part=[r for r in new if r['pixel64']==pixel and low<=r['magnitude']<low+1]
+    for low in (20,21,22):
+        for pixel in sorted({r['pixel64'] for r in new if in_magnitude_bin(r,low)}):
+            part=[r for r in new if r['pixel64']==pixel and in_magnitude_bin(r,low)]
             spatial.append(dict(pixel64=pixel,r_bin=low,spectral_denominator=len(part),comparison=metrics(part,('new_all','Xiao','NSC'))))
-    report=dict(fixed_old_QSO=fixed_report,new_final_blind=stratified(new),new_unique_spectral_sources=len(new),new_near_duplicate_claims_excluded=duplicate,
+    report=dict(frozen_old_all_magnitude_identities=len(fixed_unique),frozen_old_all_identity_status=dict(Counter(r['status'] for r in fixed_unique)),
+        frozen_old_unbinned_magnitude=sum(not any(in_magnitude_bin(r,low) for low in (20,21,22)) for r in fixed_unique),
+        new_unbinned_magnitude=sum(not any(in_magnitude_bin(r,low) for low in (20,21,22)) for r in new),source_pool_exits=dict(pool_exits),fixed_old_QSO=fixed_report,new_final_blind=stratified(new),new_unique_spectral_sources=len(new),new_near_duplicate_claims_excluded=duplicate,
         old_exact_duplicate_claims_excluded=len(fixed)-len(fixed_unique),
         spatial_nside64=spatial,slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Frozen old-source identities before quality selection and newly generated global-owned blind catalogue are independent evaluation denominators. New catalogue/source members freeze before spectrum lookup. Xiao DESI ground only and official NSC, no faint Gaia PM ranking. Source/object bootstrap describes conditional object sampling; common-frame and physical-observation sensitivity stay separate. Spatial pixels with <5 strict objects publish counts only, not precision/zero certification.')

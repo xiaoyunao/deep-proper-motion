@@ -27,3 +27,11 @@ def test_correlated_motion_ellipse_is_not_diagonal_axis_scaling():
     assert out['raw']['coverage']['0.68']['n']==5
     diagonal=ellipse_coverage(points,np.repeat(np.eye(2)[None],10,axis=0))
     assert diagonal['raw']['coverage']['0.68']['n']==0
+
+
+def test_unbinned_spectral_photometry_does_not_become_a_faint_quality_case():
+    from deep_pm.full_coordinate_quality import in_magnitude_bin
+    assert not in_magnitude_bin({'magnitude':None},21)
+    assert not in_magnitude_bin({'magnitude':float('nan')},21)
+    assert in_magnitude_bin({'magnitude':21.99},21)
+    assert not in_magnitude_bin({'magnitude':22.0},21)

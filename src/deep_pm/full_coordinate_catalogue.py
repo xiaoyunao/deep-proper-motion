@@ -168,6 +168,7 @@ def close(root):
     db.execute('CREATE OR REPLACE TABLE exact_common AS SELECT a.src new_src,o.src old_src,a.member_sha256 FROM accepted a JOIN old o USING(member_sha256)')
     duplicates=db.execute('SELECT count(*) FROM (SELECT member_sha256 FROM accepted GROUP BY member_sha256 HAVING count(*)>1)').fetchone()[0]
     if duplicates:raise ValueError('Duplicate accepted physical source')
+    if len(plan['cores'])==2875 and db.execute('SELECT count(*) FROM old').fetchone()[0]!=15625958:raise ValueError('Frozen full-area catalogue denominator did not reproduce')
     stats=db.execute('SELECT count(*),count(DISTINCT pixel128) FROM accepted').fetchone()
     by_class=dict(db.execute('SELECT kind,count(*) FROM accepted GROUP BY kind').fetchall())
     by_core=db.execute('SELECT owner,count(*) FROM accepted GROUP BY owner').fetchall()

@@ -21,14 +21,14 @@
     "PROJECT_CONTEXT.md": "8367663a98516cf3e62e1b4be9543d788f1299eb5a2a51f6e9b09b1a40a7c8ab",
     "README.md": "9141691afe67b82c5de5a74c5c5deeb687492a98ef72d4c8df0e5589bcb4429a",
     "WORKLOG.md": "6f82d331078ba342f38ab88306905c88aeea63402342b0b2b344fa03374c34a4",
-    "docs/coordinate_units_v21.md": "5ff68c0758874ff0aa685a6b090d365e9591948784fddff85dcc7a2d98b92897",
+    "docs/coordinate_units_v21.md": "c4a3447047b4a2b8d2bcb9716ecf5bc95e753471588749b05b30677934960ca9",
     "docs/running_v21.md": "ba895db33fde243f8008ca52c025d2bd26b1fe20e81d620734bfcdd22d593960",
     "figures/v21_coordinate_scale_summary.png": "896e20e12a6939e83c69e74826be40df3f347a7eb6b1518e63b23b6dab7743f7",
     "figures/v21_dark_selection_summary.png": "675b1028a15bbb48ad66bcbc6d9a9e67bdca1f6454129427fcdf84c0498802b9",
     "figures/v21_spherical_selection_summary.png": "3b21332abad962a5ae364586acb8a9a061a2ab7a1dd9427d91b06452055cbb4a",
     "figures/v21_stellar_attribution_summary.png": "7e651f6829b355d7081a3ab97389b3d66e7b359a1039f521449f0afbedbf8777",
     "reports/experiment_A_v2.0_science_usability.md": "d7881e13532fd11cef773513569d4222b07b3033846a985dfbb025cd62e6f6b5",
-    "reports/experiment_A_v2.1_coordinate_consistency.md": "4a1b341c1a0f877b4129553ae30e9012497ddbed8f75ba2964db2c4d53686cf1",
+    "reports/experiment_A_v2.1_coordinate_consistency.md": "3d91582eca2dfd972f175452ac19e173472cb98cf01f407dd93f32d938865065",
     "results/summary/v21_association_pilot_summary.json": "49a419997f1cb1a1004768cb39773a84027b51b9ec425d03a27a74e31cf90b55",
     "results/summary/v21_association_summary.json": "ebf6ab9a8b2ab49c4d3e6e1bb0088ea392e71c0086c2450bc284114c1d3c6b7b",
     "results/summary/v21_bounded_reference_summary.json": "459d6797804bb46cf153b05064bc5a2cdda9c9057c2ba086a4d131b4ae34787a",
@@ -378,7 +378,8 @@
     "No full-candidate star purity certification",
     "No production colour/DCR model",
     "Old completion external_morphology invalid; repaired summaries supersede",
-    "Single-zero-group heuristic invalid; actual median-NSC gauge audited"
+    "Single-zero-group heuristic invalid; actual median-NSC gauge audited",
+    "Stellar colour pairs match r magnitude and frozen-catalogue crowding proxy; per-band SNR/blend confounding remains for future DCR discrimination"
   ],
   "receipt_scope": "SHA256 of reviewed public artifacts and current source/tests. This receipt does not hash itself; git history binds the receipt. Runtime data/queries/detection identities remain on NERSC PScratch with private input/fit/reference receipts."
 }

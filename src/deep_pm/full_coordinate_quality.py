@@ -69,7 +69,7 @@ def source_pool(task):
     for r in read(folder/'private_blind_qso.json'):
         slot=r['source_slot'];src=(i<<32)+slot
         if slot not in retained:exits['new_exterior_spectral']+=1;continue
-        if src in quarantined:exits['new_shared_detection_quarantine']+=1;continue
+        if src in quarantined:exits['new_global_identity_excluded']+=1;continue
         row=newrows[slot];s=dict(r);s.update(window=entry['window'],**information(row))
         s['pm_covariance']=np.asarray(row['covariance'])[np.ix_([1,3],[1,3])]
         blind.append(s)
@@ -148,7 +148,7 @@ def stratified(rows):
 def run(root,workers):
     import duckdb
     plan=read(root/'registration/private_full_coordinate_plan.json');dest=root/'quality';dest.mkdir(exist_ok=True)
-    db=duckdb.connect(str(root/'catalogue/catalogue.duckdb'),read_only=True);quarantined=set(db.execute('SELECT src FROM competing').fetchnumpy()['src']);db.close()
+    db=duckdb.connect(str(root/'catalogue/catalogue.duckdb'),read_only=True);quarantined=set(db.execute('SELECT src FROM not_adopted').fetchnumpy()['src']);db.close()
     old=old_index(root.parent/'v1.9/batch/science')
     with ProcessPoolExecutor(max_workers=workers) as pool:
         for _ in pool.map(source_pool,[(i,e,str(root),old,quarantined) for i,e in enumerate(plan['cores'])]):pass

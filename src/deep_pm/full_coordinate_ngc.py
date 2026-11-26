@@ -52,7 +52,7 @@ def run(root):
             cp=projected_covariance(data.ra_deg.iloc[ix],data.dec_deg.iloc[ix],center,native_covariance(sigma[ix]));zero=np.array([solution[g][0] for g in keys[ix]])
             model=fit_vector_motion(xy[ix]-zero,t[ix],cp,config['reference_epoch']);common,response=reference_covariance(model.influence,np.stack([solution[g][1] for g in keys[ix]],axis=1));out=icrs_motion(model.coeff[0],model.coeff[1],center,model.cov+common)
             j=np.asarray(out['state_jacobian']);response=response@j.T
-            localpass=bool(support[ix].all());formal=bool(np.max(out['pm_error_masyr'])<=settings['production']['maximum_pm_error_masyr']) if 'maximum_pm_error_masyr' in settings['production'] else bool(np.max(out['pm_error_masyr'])<=9)
+            localpass=bool(support[ix].all());formal=bool(np.max(out['pm_error_masyr'])<=settings['production']['max_axis_pm_error_masyr'])
             exit_counts['fixed_new_native_support_exit']+=not localpass;exit_counts['fixed_new_formal_error_exit']+=not formal
             row=dict(pm_icrs_masyr=out['pm_icrs_masyr'],pm_error_masyr=out['pm_error_masyr']);details[key]=dict(row=row,independent_icrs=(j@model.cov@j.T)[np.ix_([1,3],[1,3])],reference_draws=response[:,[1,3]],graph_sha256=digest(file))
             record=dict(source_key=key,new=row,local_support_pass=localpass,formal_error_pass=formal)

@@ -7,6 +7,7 @@ import argparse
 from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 from hashlib import sha256
+from functools import lru_cache
 import os
 import inspect
 from pathlib import Path
@@ -40,11 +41,17 @@ def owners(rows,origin,specs):
     return result
 
 
+@lru_cache(maxsize=4)
+def ownership_specs(path,size,mtime):
+    plan=read(Path(path))
+    return {e['core']:e['spec'] for e in plan['cores']},digest(Path(path))
+
+
 def index_core(task):
     number,entry,root,old_entries=task;root=Path(root);core=entry['core'];folder=root/'sources'/core;dest=root/'catalogue/index'/core;dest.mkdir(parents=True,exist_ok=True)
-    plan=read(root/'registration/private_full_coordinate_plan.json');specs={e['core']:e['spec'] for e in plan['cores']}
+    path=root/'registration/private_full_coordinate_plan.json';stat=path.stat();specs,plan_sha=ownership_specs(str(path),stat.st_size,stat.st_mtime_ns)
     proof=read(folder/'v22_source_core_summary.json');old_entry=old_entries[core]
-    ticket=dict(source_summary_sha256=digest(folder/'v22_source_core_summary.json'),old_sha256=digest(Path(old_entry['path'])/'private_standard_motion.json.gz'),implementation_sha256=sha256((inspect.getsource(index_core)+inspect.getsource(owners)+inspect.getsource(member_key)).encode()).hexdigest())
+    ticket=dict(plan_sha256=plan_sha,source_summary_sha256=digest(folder/'v22_source_core_summary.json'),old_sha256=digest(Path(old_entry['path'])/'private_standard_motion.json.gz'),implementation_sha256=sha256((inspect.getsource(index_core)+inspect.getsource(ownership_specs)+inspect.getsource(owners)+inspect.getsource(member_key)).encode()).hexdigest())
     receipt=dest/'private_index_receipt.json'
     if receipt.exists():
         done=read(receipt)
@@ -109,11 +116,28 @@ def close(root):
     save_json(lock,ticket);db=database(root)
     for name,file in [('science','science.parquet'),('claims','claims.parquet'),('old','old.parquet')]:
         glob=str(dest/'index/*'/file);db.execute(f"CREATE OR REPLACE VIEW {name} AS SELECT * FROM read_parquet('{glob}',union_by_name=true)")
+    columns={r[0] for r in db.execute('DESCRIBE science').fetchall()}
+    db.execute('CREATE OR REPLACE TABLE duplicate_alias(src BIGINT,canonical_src BIGINT)')
+    if {'pm_e','pm_n','component','core','se_e','se_n'}<=columns:
+        # Collapse only exact physical-member clones whose state and common
+        # reference agree. Contradictory clones retain ordinary claim conflicts.
+        covcols=sorted(k for k in columns if k.startswith('cov_'))
+        checks=' AND '.join(f'max({k})-min({k})<=1e-5' for k in covcols) or 'true'
+        db.execute(f'''CREATE OR REPLACE TEMP TABLE exact_clone_groups AS
+          SELECT member_sha256 FROM science GROUP BY member_sha256
+          HAVING count(*)>1 AND count(DISTINCT owner)<=1 AND count(DISTINCT component)=1
+            AND max(pm_e)-min(pm_e)<=1e-6 AND max(pm_n)-min(pm_n)<=1e-6
+            AND max(se_e)-min(se_e)<=1e-6 AND max(se_n)-min(se_n)<=1e-6 AND {checks}''')
+        db.execute('''INSERT INTO duplicate_alias
+          SELECT src,canonical_src FROM (SELECT src,first_value(src) OVER
+            (PARTITION BY member_sha256 ORDER BY owner IS NULL,core IS DISTINCT FROM owner,src) canonical_src
+            FROM science SEMI JOIN exact_clone_groups USING(member_sha256)) WHERE src<>canonical_src''')
+    db.execute('CREATE OR REPLACE VIEW unique_claims AS SELECT c.* FROM claims c ANTI JOIN duplicate_alias d ON c.src=d.src')
     buckets=dest/'claim_buckets'
     marker=dest/'private_claim_partition.json'
     if not marker.exists():
         if buckets.exists():raise ValueError('Incomplete claim partition requires explicit independent recovery directory')
-        db.execute(f"COPY (SELECT *,hash(detection_id)%64 bucket FROM claims) TO '{buckets}' (FORMAT PARQUET,PARTITION_BY(bucket),COMPRESSION ZSTD)")
+        db.execute(f"COPY (SELECT *,hash(detection_id)%64 bucket FROM unique_claims) TO '{buckets}' (FORMAT PARQUET,PARTITION_BY(bucket),COMPRESSION ZSTD)")
         save_json(marker,dict(binding_sha256=digest(lock),files={str(p.relative_to(dest)):digest(p) for p in buckets.glob('**/*.parquet')}))
     previous=read(marker)
     if previous['binding_sha256']!=digest(lock):raise ValueError('Changed global claim partition')
@@ -135,7 +159,8 @@ def close(root):
         print('SCIENCE_CLAIM_BUCKET',folder.name,flush=True)
     glob=str(dest/'private_shared_*.parquet');db.execute(f"CREATE OR REPLACE VIEW shared AS SELECT * FROM read_parquet('{glob}')")
     db.execute('CREATE OR REPLACE TABLE competing AS SELECT DISTINCT src FROM shared')
-    db.execute('CREATE OR REPLACE TABLE accepted AS SELECT s.* FROM science s ANTI JOIN competing USING(src) WHERE owner IS NOT NULL')
+    db.execute('CREATE OR REPLACE TABLE not_adopted AS SELECT src FROM competing UNION SELECT src FROM duplicate_alias')
+    db.execute('CREATE OR REPLACE TABLE accepted AS SELECT s.* FROM science s ANTI JOIN not_adopted USING(src) WHERE owner IS NOT NULL')
     # An identity ambiguity is archived explicitly; no detection is silently
     # offered to two high-confidence sources, and no QSO value selects a winner.
     db.execute('CREATE OR REPLACE TABLE exact_common AS SELECT a.src new_src,o.src old_src,a.member_sha256 FROM accepted a JOIN old o USING(member_sha256)')
@@ -148,12 +173,13 @@ def close(root):
         retained_common_epoch_solutions=stats[0],occupied_nside128_pixels=stats[1],by_class=by_class,
         nominal_registered_area_sqdeg=sum(area(e['spec']) for e in plan['cores']),
         exterior_archived=db.execute('SELECT count(*) FROM science WHERE owner IS NULL').fetchone()[0],
+        exact_identical_member_state_clones_collapsed=db.execute('SELECT count(*) FROM duplicate_alias').fetchone()[0],
         competing_source_quarantine=db.execute('SELECT count(*) FROM competing').fetchone()[0],
         shared_detection_claims=db.execute('SELECT count(*) FROM shared').fetchone()[0],
         exact_physical_members_common=db.execute('SELECT count(*) FROM exact_common').fetchone()[0],
         old_retained_solutions=db.execute('SELECT count(*) FROM old').fetchone()[0],
         private_input_binding_sha256=digest(lock),slurm_job=os.environ['SLURM_JOB_ID'],
-        scope='Full-source native ICRS/J2015.5 catalogue. Owner remapping leaves state/covariance/members unchanged. Exterior archived; any shared detection quarantines competing raw solutions pending explicit local audit. Occupied HEALPix pixels are not effective or certified area. Exact membership does not certify a true star; changed-member continuity follows separately.')
+        scope='Full-source native ICRS/J2015.5 catalogue. Owner remapping leaves state/covariance/members unchanged. Exterior archived; exact-member clones only collapse if reference/state/covariance/owner agree within numerical tolerance, canonical origin-owner then source index. Any remaining shared detection quarantines competing raw solutions pending explicit local audit. Occupied HEALPix pixels are not effective or certified area. Exact membership does not certify a true star; changed-member continuity follows separately.')
     if 'se_e' in {r[0] for r in db.execute('DESCRIBE accepted').fetchall()}:
         spatial=db.execute('''SELECT pixel128,count(*) source_count,median(se_e) median_SE_e,median(se_n) median_SE_n,
           avg(CASE WHEN maximum_group_leverage>=.8 THEN 1.0 ELSE 0.0 END) high_leverage_fraction,
@@ -175,4 +201,4 @@ if __name__=='__main__':
     else:
         plan=read(a.root/'registration/private_full_coordinate_plan.json');old=old_index(a.root.parent/'v1.9/batch/science')
         with ProcessPoolExecutor(max_workers=a.workers) as pool:
-            for done in pool.map(index_core,[(i,e,str(a.root),old) for i,e in enumerate(plan['cores'])]):pass
+            for done in pool.map(index_core,[(i,e,str(a.root),{e['core']:old[e['core']]}) for i,e in enumerate(plan['cores'])]):pass

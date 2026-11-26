@@ -47,7 +47,9 @@ def run(root,sas,output,images=False):
         nearby=sdss_window_mask(t,301)&(abs(t['DEC']-np.mean([r['dec'] for r in selected]))<.6)
         dra=(t['RA']-np.mean([r['ra'] for r in selected])+180)%360-180
         nearby&=abs(dra)<.8
-        fields=t[nearby].copy()
+        # Astropy FITS_rec slicing can retain original column-array buffers;
+        # detach columns before a second boolean slice on the reduced fields.
+        fields={k:np.array(t[k][np.flatnonzero(nearby)],copy=True) for k in ('RA','DEC','RUN','CAMCOL','FIELD','NODE','INCL','MU_START','MU_END','NU_START','NU_END')}
     receipts={};positions=[];frame_receipts={}
     @lru_cache(maxsize=32)
     def catalogue(key):
@@ -76,7 +78,7 @@ def run(root,sas,output,images=False):
     for target in selected:
         mu,nu=sdss_great_circle(target['ra'],target['dec'],fields['NODE'],fields['INCL'])
         hit=((mu-fields['MU_START'])%360 <= (fields['MU_END']-fields['MU_START'])%360)&(nu>=np.minimum(fields['NU_START'],fields['NU_END']))&(nu<=np.maximum(fields['NU_START'],fields['NU_END']))
-        keys=sorted({(int(r['RUN']),301,int(r['CAMCOL']),int(r['FIELD'])) for r in fields[hit]})
+        keys=sorted({(int(fields['RUN'][j]),301,int(fields['CAMCOL'][j]),int(fields['FIELD'][j])) for j in np.flatnonzero(hit)})
         visits=[]
         for key in keys:
             entry=dict(run=key[0],camcol=key[2],field=key[3],footprint=True)

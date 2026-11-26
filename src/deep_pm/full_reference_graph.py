@@ -113,15 +113,21 @@ def close_graph(root,memory='24GB',threads=8):
             sum(cos(radians(dec_deg))*sin(radians(ra_deg))),sum(sin(radians(dec_deg)))
             FROM active JOIN group_map USING("group") WHERE component=?''',[component]).fetchone()
         count,nref,x,y,z=statistics
-        # One explicitly measured center per new component, bound in its output.
-        center=[float(np.degrees(np.arctan2(y,x))%360),float(np.degrees(np.arctan2(z,np.hypot(x,y))))]
+        # Preserve an inherited physical model when the connected component
+        # remains inside one old domain. A changed graph requires an explicitly
+        # registered new centre; never mix old plane coordinates across graphs.
+        source_cores=db.execute('SELECT DISTINCT source_core FROM active JOIN group_map USING("group") WHERE component=?',[component]).fetchnumpy()['source_core']
+        lookup={r['core']:r for r in plan.get('cores',[]) if 'old_graph' in r}
+        old_domains=sorted({lookup[c]['old_graph'] for c in source_cores if c in lookup})
+        inherited=len(old_domains)==1
+        center=list(plan['graphs'][old_domains[0]]['center']) if inherited else [float(np.degrees(np.arctan2(y,x))%360),float(np.degrees(np.arctan2(z,np.hypot(x,y))))]
         theta=scalar(db,f'''SELECT degrees(acos(least(1.0,greatest(-1.0,min(dot))))) FROM (
             SELECT sin(radians(dec_deg))*sin(radians({center[1]}))+
             cos(radians(dec_deg))*cos(radians({center[1]}))*cos(radians(ra_deg-{center[0]})) dot
             FROM active JOIN group_map USING("group") WHERE component={component})''')
         if theta>=85:raise ValueError('New component exceeds registered stable gnomonic hemisphere; choose an explicit common projection strategy')
         components.append(dict(component=component,status='ready',groups=len(member),reference_sources=nref,measurements=count,
-            center_deg=center,maximum_theta_deg=theta,nsc_gauge_group_count=sum(g.startswith('NSC:') for g in member)))
+            center_deg=center,center_inherited=inherited,old_domain_count=len(old_domains),maximum_theta_deg=theta,nsc_gauge_group_count=sum(g.startswith('NSC:') for g in member)))
     group_table.to_parquet(dest/'private_group_components.parquet',index=False)
     summary=dict(plan_sha256=digest(plan_path),input_shard_measurements=sum(read(root/'input'/e['core']/'v22_reference_input_core_summary.json')['measurements'] for e in plan['cores']),
         conflict_detection_count=scalar(db,'SELECT count(*) FROM bad_detection'),unique_measurements=scalar(db,'SELECT count(*) FROM unique_detection'),

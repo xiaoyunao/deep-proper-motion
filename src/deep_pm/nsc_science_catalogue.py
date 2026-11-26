@@ -38,7 +38,7 @@ from .public_summary import check_aggregate
 from .regional_validation import official_table
 
 
-def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings,fit_source,output_fit,selection_audit=None,morphology_accept=None,sky_center=None,quality_distance=None,calibration_keep=None):
+def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,settings,fit_source,output_fit,selection_audit=None,morphology_accept=None,sky_center=None,quality_distance=None,calibration_keep=None,control_maps=None):
     """r seeds stay r seeds; the non-r route cannot borrow an eligible r anchor."""
     prod=settings['production'];nsc=data.survey.eq('NSC').to_numpy();visit=data.exposure_id.to_numpy()
     support=calibration_support(keys,solution) if calibration_keep is None else np.asarray(calibration_keep,dtype=bool);physical=physical_candidates(data)
@@ -50,6 +50,7 @@ def select_catalogue(data,xy,time,sigma,keep,solution,keys,center,spec,config,se
     funnel_r,baseline=source_funnel(data,xy,time,sigma,keep,tracks,solution,config,settings,9.,initial=seeds,observation_groups=keys,core_members=core,fit_source=fit_source,sky_center=sky_center,quality_distance=quality_distance,calibration_keep=calibration_keep,audit_records=selection_audit.setdefault('legacy_r',[]) if selection_audit is not None else None)
     strict_tracks=make_tracks(xy,visit,strict_r,prod['match_radius_mas'],sky_center=sky_center);strict_seeds=make_tracks(xy,visit,strict_r&nsc,prod['match_radius_mas'],sky_center=sky_center)
     _,strict=source_funnel(data,xy,time,sigma,strict_r,strict_tracks,solution,config,settings,9.,initial=strict_seeds,observation_groups=keys,core_members=core,fit_source=fit_source,sky_center=sky_center,quality_distance=quality_distance,calibration_keep=calibration_keep,audit_records=selection_audit.setdefault('physical_r',[]) if selection_audit is not None else None)
+    if control_maps is not None:control_maps.update(legacy=baseline,physical=strict)
     expanded=augment_tracks(strict_tracks,data,xy,full,strict_r,prod,sky_center=sky_center)
     funnel_all,products=source_funnel(data,xy,time,sigma,full,expanded,solution,config,settings,9.,initial=strict_seeds,reference_keep=strict_r,observation_groups=keys,core_members=core,fit_source=fit_source,sky_center=sky_center,quality_distance=quality_distance,calibration_keep=calibration_keep,audit_records=selection_audit.setdefault('all_r_anchor',[]) if selection_audit is not None else None,morphology_accept=morphology_accept)
     original_members=[set(v[4]) for v in baseline.values()]

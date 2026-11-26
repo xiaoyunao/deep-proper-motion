@@ -1,0 +1,39 @@
+{
+  "components": [
+    {
+      "component": 0,
+      "measurements": 39128,
+      "reference_sources": 3329,
+      "groups": 50,
+      "comparisons": 49,
+      "maximum_offset_difference_mas": 1.1710199032677338e-08,
+      "maximum_whitened_residual_norm": 169.57113278873211,
+      "input_binding_sha256": "d4fbb5070cacdf8b20e9841cf52bf3ac63819aaf997fb93bf7948d7359949a3c"
+    },
+    {
+      "component": 1,
+      "measurements": 36364,
+      "reference_sources": 3791,
+      "groups": 38,
+      "comparisons": 49,
+      "maximum_offset_difference_mas": 6.9980563566218734e-09,
+      "maximum_whitened_residual_norm": 158.1087778257403,
+      "input_binding_sha256": "92eff4e7ac01f45ae1055c561ad58840ae40017aed39f812ab83e4452210a903"
+    },
+    {
+      "component": 2,
+      "measurements": 25710,
+      "reference_sources": 2635,
+      "groups": 37,
+      "comparisons": 49,
+      "maximum_offset_difference_mas": 7.836545279360507e-08,
+      "maximum_whitened_residual_norm": 134.4132614317152,
+      "input_binding_sha256": "b24a9d30a2e5f4fbe7841b02b42d748297b96950ff671d3610344bae4d8dd28e"
+    }
+  ],
+  "draws_per_component": 48,
+  "IRLS": "same final frozen weight",
+  "tolerance_mas": 0.001,
+  "scope": "Independent explicit full2D sparse whitened solve vs Schur on same complete engineering-sized selected-input graph. These are not full production reference domains.",
+  "slurm_job": "62037022"
+}

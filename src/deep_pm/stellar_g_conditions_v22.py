@@ -31,6 +31,7 @@ def describe(values):
 
 def pair_summary(rows):
     if not rows:return dict(n=0)
+    if len(rows)<5:return dict(n=len(rows),scope='Counts only below five pairs')
     night=defaultdict(list)
     for r in rows:night[r['night']].append(r)
     med=np.array([np.median([r['observed'] for r in g],axis=0) for g in night.values()])
@@ -126,7 +127,7 @@ def run(root,output):
         training_identity_validation_only=pair_summary([r for r in matched if r['train_identities']]),
         maximum_same_group_C0_cancellation_mas=maximum_cancellation,
         potential_colour_pair_groups=len(counts),groups_with_matched_pairs=sum(r['matched']>0 for r in counts.values()),
-        repeated_exposure_support=repeats,qualified_repeat_nights=len(nights),decision=decision,
+        repeated_exposure_support=[r if r['common_stars']>=5 else {k:r[k] for k in ('night','physical_exposures','common_stars')} for r in repeats],qualified_repeat_nights=len(nights),decision=decision,
         slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Matched actual-g/deep-neighbour colour contrasts are Gaia validation. Raw same-star within-night geometry support uses observed coordinates only, with exposure intercept nuisance and short-motion sensitivity. No new physical coefficient trained or applied. Additional metadata-selected cores limited to2 if needed; old historical coefficients remain frozen.')
     check_aggregate(report);save_json(output/'v22_stellar_g_conditions_summary.json',report)

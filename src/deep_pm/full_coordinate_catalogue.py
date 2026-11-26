@@ -61,7 +61,10 @@ def index_core(task):
         if r['reference_epoch']!=2015.5:raise ValueError('Changed output epoch')
         ids=r['detection_ids']
         if len(set(ids))!=len(ids):raise ValueError('Repeated member in a science source')
-        compact.append(dict(src=ident,core=core,slot=slot,owner=owner,member_sha256=key,n_members=len(ids),component=int(r['reference_component']),
+        compact.append(dict(src=ident,core=core,slot=slot,owner=owner,member_sha256=key,n_members=len(ids),component=int(r['reference_component']),reference_model_sha256=r['reference_model_sha256'],reference_epoch=r['reference_epoch'],
+            **{f'cov_{a}{b}':float(cov[a,b]) for a in range(4) for b in range(a,4)},
+            independent_pm_variance_e=float(r['independent_icrs_covariance'][1][1]),independent_pm_variance_n=float(r['independent_icrs_covariance'][3][3]),
+            reference_pm_variance_e=float(r['reference_icrs_covariance'][1][1]),reference_pm_variance_n=float(r['reference_icrs_covariance'][3][3]),
             ra_deg=r['position_deg'][0],dec_deg=r['position_deg'][1],pixel128=int(hp.ang2pix(128,*r['position_deg'],lonlat=True)),
             pm_e=r['pm_icrs_masyr'][0],pm_n=r['pm_icrs_masyr'][1],se_e=r['pm_error_masyr'][0],se_n=r['pm_error_masyr'][1],pm_cov_en=cov[1,3],
             kind=r['kind'],magnitude=r['magnitude'],sdss_runs=info['sdss_physical_runs'],nsc_nights=info['nsc_nights'],nsc_seasons=info['nsc_seasons'],
@@ -74,7 +77,7 @@ def index_core(task):
         key=member_key(r['detection_ids']);ident=(number<<32)+slot
         prior.append(dict(src=ident,member_sha256=key,n_members=len(r['detection_ids'])))
         if key not in new_keys:changed.append(dict(old_src=ident,member_sha256=key,detection_ids=r['detection_ids']))
-    columns='src core slot owner member_sha256 n_members component ra_deg dec_deg pixel128 pm_e pm_n se_e se_n pm_cov_en kind magnitude sdss_runs nsc_nights nsc_seasons joint_span nsc_span maximum_group_leverage flags bands instruments'.split()
+    columns='src core slot owner member_sha256 n_members component reference_model_sha256 reference_epoch independent_pm_variance_e independent_pm_variance_n reference_pm_variance_e reference_pm_variance_n ra_deg dec_deg pixel128 pm_e pm_n se_e se_n pm_cov_en kind magnitude sdss_runs nsc_nights nsc_seasons joint_span nsc_span maximum_group_leverage flags bands instruments'.split()+[f'cov_{a}{b}' for a in range(4) for b in range(a,4)]
     pd.DataFrame(compact,columns=columns).to_parquet(dest/'science.parquet',index=False,compression='zstd')
     pd.DataFrame(claims,columns=['detection_id','src']).to_parquet(dest/'claims.parquet',index=False,compression='zstd')
     pd.DataFrame(prior,columns=['src','member_sha256','n_members']).to_parquet(dest/'old.parquet',index=False,compression='zstd')

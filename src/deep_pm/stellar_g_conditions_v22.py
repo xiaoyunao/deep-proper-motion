@@ -12,6 +12,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
+from astropy.time import Time
 
 from .astrometry import project
 from .blind_catalogue_quality import read
@@ -51,6 +52,10 @@ def pair_summary(rows):
 def run(root,output):
     output.mkdir(parents=True,exist_ok=True)
     input=root/'v2.2/stellar-g/private_stellar_g_mechanism.json';p=read(input);rows=p['measurements']
+    unique=sorted({m['time'] for m in rows});mjd=Time(unique,format='jyear',scale='tt').utc.mjd
+    night_dates=Time(np.floor(mjd-.75),format='mjd',scale='utc').isot
+    nights={t:s[:10] for t,s in zip(unique,night_dates)}
+    rows=[dict(m,utc_calendar_date=m['utc_night'],utc_night=nights[m['time']]) for m in rows]
     plan=read(root/'v2.1/registration/private_coordinate_plan.json');centers={r['core']:r['graph_center'] for r in plan['selected']}
     matched=[];counts={};maximum_cancellation=0.
     for name,group in pd.DataFrame(rows).groupby('physical_group',sort=True):
@@ -128,7 +133,7 @@ def run(root,output):
         maximum_same_group_C0_cancellation_mas=maximum_cancellation,
         potential_colour_pair_groups=len(counts),groups_with_matched_pairs=sum(r['matched']>0 for r in counts.values()),
         repeated_exposure_support=[r if r['common_stars']>=5 else {k:r[k] for k in ('night','physical_exposures','common_stars')} for r in repeats],qualified_repeat_nights=len(nights),decision=decision,
-        slurm_job=os.environ['SLURM_JOB_ID'],
+        night_definition='UTC18toUTC18 as in catalogue night_labels; original geometry summary groups UTC calendar dates',slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Matched actual-g/deep-neighbour colour contrasts are Gaia validation. Raw same-star within-night geometry support uses observed coordinates only, with exposure intercept nuisance and short-motion sensitivity. No new physical coefficient trained or applied. Additional metadata-selected cores limited to2 if needed; old historical coefficients remain frozen.')
     check_aggregate(report);save_json(output/'v22_stellar_g_conditions_summary.json',report)
 

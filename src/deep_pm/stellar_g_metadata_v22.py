@@ -55,7 +55,8 @@ def run(root,output):
             stamp=Time([mjd],format='mjd',scale='utc')
             try:vector,air=tangent_geometry(np.array([center[0]]),np.array([center[1]]),cached_zenith(mjd),center)
             except ValueError:skipped['outside_geometric_altitude_support']+=1;continue
-            visits.append(dict(exposure=name,night=stamp.isot[0][:10],mjd_utc=mjd,metadata_airmass=float(part.airmass.median()),
+            night=Time([np.floor(mjd-.75)],format='mjd',scale='utc').isot[0][:10]
+            visits.append(dict(exposure=name,night=night,mjd_utc=mjd,metadata_airmass=float(part.airmass.median()),
                 geometric_airmass=float(air[0]),h=vector[0],covered=covered))
         repeat=[]
         for left,right in combinations(visits,2):

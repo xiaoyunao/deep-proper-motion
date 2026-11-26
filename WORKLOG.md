@@ -2,6 +2,8 @@
 
 ## 2026-11-26 · v2.2 恒星g独立机制支线
 
+- 后续同夜辨识统一UTC18到次日UTC18（与主目录night_labels一致），保留原几何汇总UTC日历日期定义，不将两者混作独立夜数。实际UTC观测时刻不改变。
+
 - B5的SDSS field由冻结真实detection_id解析并核验SAS五字段接口，而非沿用可能缺field的旧分组文本；读取PSFMAG/PSFMAGERR验证颜色误差来源，缺测不作零误差。
 
 - B5新增102原配对真实field/exposure/CCD/深邻源/K读出，公共组draw先同步配对再传播均值与中位误差；与g北向分列，不将g-only预测作为完整颜色校正。

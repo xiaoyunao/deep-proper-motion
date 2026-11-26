@@ -59,6 +59,15 @@ def run(root,output):
         frame=pd.concat(parts,ignore_index=True).drop_duplicates(['exposure','ccdnum'])
         if frame.empty:continue
         spec=entry['spec'];center=[sum(spec['ra'])/2,sum(spec['dec'])/2]
+        # Independent CCD footprints bound the opportunity, not target rows.
+        # Reject nonoverlapping CCD bounding boxes before polygon evaluation.
+        a=frame[['vertex_ra'+str(k) for k in range(1,5)]].to_numpy(float)
+        d=frame[['vertex_dec'+str(k) for k in range(1,5)]].to_numpy(float)
+        a=(a-center[0]+180)%360-180+center[0]
+        finite=np.isfinite(a).all(axis=1)&np.isfinite(d).all(axis=1)
+        overlapping=finite&(a.max(axis=1)>=spec['ra'][0])&(a.min(axis=1)<=spec['ra'][1])&(d.max(axis=1)>=spec['dec'][0])&(d.min(axis=1)<=spec['dec'][1])
+        frame=frame.loc[overlapping]
+        if frame.empty:continue
         # Footprints, not detected stars or resulting proper motions.
         ra=np.linspace(*spec['ra'],7)[1:-1];dec=np.linspace(*spec['dec'],7)[1:-1];sky=np.array(np.meshgrid(ra,dec)).reshape(2,-1).T;xy=project(*sky.T,center)
         visits=[]

@@ -1,0 +1,297 @@
+{
+  "snapshot_utc": "2026-11-27T09:20:28.541406+00:00",
+  "parents": {
+    "62083030": {
+      "state": "FAILED",
+      "elapsed_seconds": 74,
+      "allocated_tres": "billing=14,cpu=14,energy=29992,mem=24G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0011241319444444445
+    },
+    "62083282": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 75,
+      "allocated_tres": "billing=14,cpu=14,energy=17714,mem=24G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0011393229166666665
+    },
+    "62083592": {
+      "state": "FAILED",
+      "elapsed_seconds": 92,
+      "allocated_tres": "billing=14,cpu=14,energy=27800,mem=24G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0013975694444444446
+    },
+    "62083895": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 41,
+      "allocated_tres": "billing=14,cpu=14,energy=13659,mem=24G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0006228298611111111
+    },
+    "62083976": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 1588,
+      "allocated_tres": "billing=26,cpu=26,energy=540438,mem=48G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.044800347222222224
+    },
+    "62084179": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 52,
+      "allocated_tres": "billing=18,cpu=18,energy=13658,mem=32G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.001015625
+    },
+    "62085121": {
+      "state": "FAILED",
+      "elapsed_seconds": 46,
+      "allocated_tres": "billing=26,cpu=26,energy=13753,mem=48G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0012977430555555557
+    },
+    "62085263": {
+      "state": "FAILED",
+      "elapsed_seconds": 50,
+      "allocated_tres": "billing=26,cpu=26,energy=13010,mem=48G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0014105902777777778
+    },
+    "62085587": {
+      "state": "FAILED",
+      "elapsed_seconds": 207,
+      "allocated_tres": "billing=26,cpu=26,energy=62746,mem=48G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00583984375
+    },
+    "62085663": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 421,
+      "allocated_tres": "billing=26,cpu=26,energy=113632,mem=48G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.01187717013888889
+    },
+    "62085943": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 137,
+      "allocated_tres": "billing=26,cpu=26,energy=41038,mem=48G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.003865017361111111
+    },
+    "62086200": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 36,
+      "allocated_tres": "billing=14,cpu=14,energy=9971,mem=24G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.000546875
+    },
+    "62086412": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 42,
+      "allocated_tres": "billing=14,cpu=14,energy=9436,mem=24G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.0006380208333333333
+    },
+    "62086712": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 37,
+      "allocated_tres": "billing=10,cpu=10,energy=10128,mem=16G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00040147569444444443
+    },
+    "62086979": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 32,
+      "allocated_tres": "billing=10,cpu=10,energy=9939,mem=16G,node=1",
+      "maximum_rss": "",
+      "estimated_billed_cpu_node_hours": 0.00034722222222222224
+    }
+  },
+  "steps": {
+    "62083030.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 74,
+      "allocated_tres": "billing=14,cpu=14,mem=24G,node=1",
+      "maximum_rss": ""
+    },
+    "62083030.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 65,
+      "allocated_tres": "cpu=8,mem=24G,node=1",
+      "maximum_rss": "1011084K"
+    },
+    "62083282.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 78,
+      "allocated_tres": "billing=14,cpu=14,mem=24G,node=1",
+      "maximum_rss": ""
+    },
+    "62083282.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 72,
+      "allocated_tres": "cpu=8,mem=24G,node=1",
+      "maximum_rss": "214376K"
+    },
+    "62083592.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 95,
+      "allocated_tres": "billing=14,cpu=14,mem=24G,node=1",
+      "maximum_rss": ""
+    },
+    "62083592.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 87,
+      "allocated_tres": "cpu=8,mem=24G,node=1",
+      "maximum_rss": "2274716K"
+    },
+    "62083895.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 41,
+      "allocated_tres": "billing=14,cpu=14,mem=24G,node=1",
+      "maximum_rss": ""
+    },
+    "62083895.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 36,
+      "allocated_tres": "cpu=8,mem=24G,node=1",
+      "maximum_rss": "586536K"
+    },
+    "62083976.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 1598,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "maximum_rss": ""
+    },
+    "62083976.0": {
+      "state": "CANCELLED",
+      "elapsed_seconds": 1592,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "maximum_rss": "10139992K"
+    },
+    "62084179.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 52,
+      "allocated_tres": "billing=18,cpu=18,mem=32G,node=1",
+      "maximum_rss": ""
+    },
+    "62084179.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 50,
+      "allocated_tres": "cpu=8,mem=32G,node=1",
+      "maximum_rss": "319836K"
+    },
+    "62085121.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 47,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "maximum_rss": ""
+    },
+    "62085121.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 45,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "maximum_rss": "607044K"
+    },
+    "62085263.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 53,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "maximum_rss": ""
+    },
+    "62085263.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 47,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "maximum_rss": "472812K"
+    },
+    "62085587.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 210,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "maximum_rss": ""
+    },
+    "62085587.0": {
+      "state": "FAILED",
+      "elapsed_seconds": 203,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "maximum_rss": "1238456K"
+    },
+    "62085663.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 421,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "maximum_rss": ""
+    },
+    "62085663.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 412,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "maximum_rss": "9626260K"
+    },
+    "62085943.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 137,
+      "allocated_tres": "billing=26,cpu=26,mem=48G,node=1",
+      "maximum_rss": ""
+    },
+    "62085943.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 130,
+      "allocated_tres": "cpu=8,mem=48G,node=1",
+      "maximum_rss": "810212K"
+    },
+    "62086200.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 37,
+      "allocated_tres": "billing=14,cpu=14,mem=24G,node=1",
+      "maximum_rss": ""
+    },
+    "62086200.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 32,
+      "allocated_tres": "cpu=8,mem=24G,node=1",
+      "maximum_rss": "289668K"
+    },
+    "62086412.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 42,
+      "allocated_tres": "billing=14,cpu=14,mem=24G,node=1",
+      "maximum_rss": ""
+    },
+    "62086412.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 40,
+      "allocated_tres": "cpu=8,mem=24G,node=1",
+      "maximum_rss": "570884K"
+    },
+    "62086712.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 37,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "maximum_rss": ""
+    },
+    "62086712.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 29,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "maximum_rss": "0"
+    },
+    "62086979.extern": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 33,
+      "allocated_tres": "billing=10,cpu=10,mem=16G,node=1",
+      "maximum_rss": ""
+    },
+    "62086979.0": {
+      "state": "COMPLETED",
+      "elapsed_seconds": 30,
+      "allocated_tres": "cpu=4,mem=16G,node=1",
+      "maximum_rss": "248360K"
+    }
+  },
+  "estimated_billed_cpu_node_hours": 0.07632378472222223,
+  "total_budget_cpu_node_hours": 4,
+  "terminal": true,
+  "accounting": "All actual parent AllocTRES billing/256 times ElapsedRaw hours, including failures/cancelled/OOM. Steps are diagnostic, never added again; Iris authoritative. Running entries are snapshots, not terminal charges.",
+  "public_redaction": "Cancellation actor numeric UID removed; original sacct receipt remains on NERSC. Job states and all resource values unchanged."
+}

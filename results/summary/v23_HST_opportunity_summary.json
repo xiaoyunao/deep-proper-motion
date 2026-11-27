@@ -1,0 +1,49 @@
+{
+  "fields": [
+    {
+      "field": "ngc5466",
+      "HST_quality_except_correction_flag": 16596,
+      "isolated_quality_except_correction_flag": 1048,
+      "HST_F606W_parent_bins": {
+        "21": 2122,
+        "other_or_missing": 10767,
+        "22": 2254,
+        "20": 1453
+      },
+      "position_matches_ground_r_bins": {
+        "other": 5
+      },
+      "matched_correction_flags": {
+        "0": 5
+      }
+    },
+    {
+      "field": "ngc5272",
+      "HST_quality_except_correction_flag": 23510,
+      "isolated_quality_except_correction_flag": 29,
+      "HST_F606W_parent_bins": {
+        "other_or_missing": 11614,
+        "20": 7584,
+        "21": 4170,
+        "22": 142
+      },
+      "position_matches_ground_r_bins": {},
+      "matched_correction_flags": {}
+    },
+    {
+      "field": "ngc5904",
+      "HST_quality_except_correction_flag": 53644,
+      "isolated_quality_except_correction_flag": 114,
+      "HST_F606W_parent_bins": {
+        "22": 5861,
+        "other_or_missing": 30352,
+        "20": 10046,
+        "21": 7385
+      },
+      "position_matches_ground_r_bins": {},
+      "matched_correction_flags": {}
+    }
+  ],
+  "original_primary_freeze_sha256": "3726e7b1c461932a8648c0ee5145d617172c93feca83ea4b9fbefa2e6376b60a",
+  "scope": "Additional position/quality opportunity counts only, no ground PM residuals read and no replacement of the CORRFLAG=1 primary selection. Flag0 is not relabelled as corrected. Paper appendixB defines1 as high-frequency correction applied; corrected-minus-raw can be nonzero at0 because low-frequency corrections are distinct. HST nativeF606W is not SDSS/NSC r. Empty primary comparison is reported as no independent stellar precision measurement, never zero error."
+}

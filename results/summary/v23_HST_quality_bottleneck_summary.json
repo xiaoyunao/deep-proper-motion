@@ -1,0 +1,252 @@
+{
+  "fields": [
+    {
+      "field": "ngc5466",
+      "total": 27053,
+      "individual_support": {
+        "positive_error_lt0p5": 25796,
+        "chi2_le1p5": 21938,
+        "NU_ge5": 27042,
+        "fraction_ge0p8": 26918,
+        "span_ge5": 27047,
+        "corrected_flag1": 13
+      },
+      "ordered_funnel": {
+        "positive_error_lt0p5": 25796,
+        "chi2_le1p5": 21325,
+        "NU_ge5": 21316,
+        "fraction_ge0p8": 21225,
+        "span_ge5": 21223,
+        "corrected_flag1": 6
+      },
+      "correction_flag_counts": {
+        "0": 27040,
+        "1": 13
+      },
+      "corrected_minus_raw_by_flag": {
+        "0": {
+          "n": 27040,
+          "exactly_unchanged": 0,
+          "absolute_position_correction_p16_p50_p84": [
+            0.023695425199384872,
+            0.08721063580795047,
+            0.20462281009681058
+          ]
+        },
+        "1": {
+          "n": 13,
+          "exactly_unchanged": 0,
+          "absolute_position_correction_p16_p50_p84": [
+            0.016424667346874647,
+            0.02472818634675823,
+            0.07967192297614768
+          ]
+        }
+      },
+      "PM_error_E_N_p16_p50_p84": [
+        [
+          0.02463,
+          0.0273332
+        ],
+        [
+          0.0926,
+          0.1004
+        ],
+        [
+          0.249284,
+          0.2720368
+        ]
+      ],
+      "reduced_chi2_E_N_p16_p50_p84": [
+        [
+          0.457632,
+          0.5311
+        ],
+        [
+          0.7408,
+          0.8836
+        ],
+        [
+          1.207268,
+          1.4797
+        ]
+      ],
+      "used_exposure_p16_p50_p84": [
+        14.0,
+        17.0,
+        24.0
+      ],
+      "time_span_p16_p50_p84": [
+        10.96163,
+        10.96165,
+        10.96166
+      ]
+    },
+    {
+      "field": "ngc5272",
+      "total": 69303,
+      "individual_support": {
+        "positive_error_lt0p5": 61504,
+        "chi2_le1p5": 48338,
+        "NU_ge5": 69244,
+        "fraction_ge0p8": 67232,
+        "span_ge5": 65302,
+        "corrected_flag1": 34
+      },
+      "ordered_funnel": {
+        "positive_error_lt0p5": 61504,
+        "chi2_le1p5": 44893,
+        "NU_ge5": 44844,
+        "fraction_ge0p8": 44267,
+        "span_ge5": 43156,
+        "corrected_flag1": 15
+      },
+      "correction_flag_counts": {
+        "0": 69269,
+        "1": 34
+      },
+      "corrected_minus_raw_by_flag": {
+        "0": {
+          "n": 69269,
+          "exactly_unchanged": 0,
+          "absolute_position_correction_p16_p50_p84": [
+            0.025334427957923306,
+            0.05231877101003042,
+            0.09209476182618911
+          ]
+        },
+        "1": {
+          "n": 34,
+          "exactly_unchanged": 0,
+          "absolute_position_correction_p16_p50_p84": [
+            0.00914147690474575,
+            0.009141476904745753,
+            0.013704459128327528
+          ]
+        }
+      },
+      "PM_error_E_N_p16_p50_p84": [
+        [
+          0.05593,
+          0.05773
+        ],
+        [
+          0.1263,
+          0.12792
+        ],
+        [
+          0.34173400000000004,
+          0.3414168
+        ]
+      ],
+      "reduced_chi2_E_N_p16_p50_p84": [
+        [
+          0.5,
+          0.4753
+        ],
+        [
+          0.8889,
+          0.8504
+        ],
+        [
+          1.9564,
+          1.8764
+        ]
+      ],
+      "used_exposure_p16_p50_p84": [
+        13.0,
+        16.0,
+        18.0
+      ],
+      "time_span_p16_p50_p84": [
+        6.22961,
+        8.01502,
+        8.01502
+      ]
+    },
+    {
+      "field": "ngc5904",
+      "total": 95020,
+      "individual_support": {
+        "positive_error_lt0p5": 91757,
+        "chi2_le1p5": 60535,
+        "NU_ge5": 95000,
+        "fraction_ge0p8": 93560,
+        "span_ge5": 91754,
+        "corrected_flag1": 42
+      },
+      "ordered_funnel": {
+        "positive_error_lt0p5": 91757,
+        "chi2_le1p5": 59596,
+        "NU_ge5": 59581,
+        "fraction_ge0p8": 59440,
+        "span_ge5": 56884,
+        "corrected_flag1": 1
+      },
+      "correction_flag_counts": {
+        "0": 94978,
+        "1": 42
+      },
+      "corrected_minus_raw_by_flag": {
+        "0": {
+          "n": 94978,
+          "exactly_unchanged": 0,
+          "absolute_position_correction_p16_p50_p84": [
+            0.027230262274100022,
+            0.058554866988979215,
+            0.10659571675873765
+          ]
+        },
+        "1": {
+          "n": 42,
+          "exactly_unchanged": 0,
+          "absolute_position_correction_p16_p50_p84": [
+            0.048915259377825974,
+            0.04891525937782607,
+            0.07784539356956123
+          ]
+        }
+      },
+      "PM_error_E_N_p16_p50_p84": [
+        [
+          0.02596,
+          0.02561
+        ],
+        [
+          0.06576,
+          0.06441
+        ],
+        [
+          0.21201959999999992,
+          0.2109295999999999
+        ]
+      ],
+      "reduced_chi2_E_N_p16_p50_p84": [
+        [
+          0.6214,
+          0.5925
+        ],
+        [
+          1.0163,
+          0.973
+        ],
+        [
+          2.770695999999999,
+          2.7119
+        ]
+      ],
+      "used_exposure_p16_p50_p84": [
+        37.0,
+        68.0,
+        88.0
+      ],
+      "time_span_p16_p50_p84": [
+        7.85052,
+        7.85477,
+        9.79335
+      ]
+    }
+  ],
+  "slurm_job": "62084179",
+  "scope": "Independent input-quality diagnostics, no ground proper-motion residual or outcome-driven gate change. Counts include corrected-flag and temporal-support bottlenecks; historical field selection and current main output remain fixed."
+}

@@ -1,0 +1,195 @@
+{
+  "actual_fields": 13,
+  "r_psf_status_counts": {
+    "0": 9,
+    "1": 1,
+    "32": 1,
+    "64": 2
+  },
+  "PSF_metadata": [
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 325,
+      "gain": 4.710000038146973,
+      "dark_variance": 1.8224999904632568,
+      "psf_status": 1,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 2054,
+      "time_row_p99_residual_seconds": 0.0008315467834472657
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 115,
+      "gain": 4.894999980926514,
+      "dark_variance": 0.9024999737739563,
+      "psf_status": 64,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 236,
+      "time_row_p99_residual_seconds": 0.00030651092529296884
+    },
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 324,
+      "gain": 4.710000038146973,
+      "dark_variance": 1.8224999904632568,
+      "psf_status": 64,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1660,
+      "time_row_p99_residual_seconds": 0.0008268833160400395
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 114,
+      "gain": 4.894999980926514,
+      "dark_variance": 0.9024999737739563,
+      "psf_status": 32,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 370,
+      "time_row_p99_residual_seconds": 0.0002965259552001953
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 180,
+      "gain": 4.894999980926514,
+      "dark_variance": 0.9024999737739563,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1003,
+      "time_row_p99_residual_seconds": 0.00041103363037109375
+    },
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 323,
+      "gain": 4.710000038146973,
+      "dark_variance": 1.8224999904632568,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1686,
+      "time_row_p99_residual_seconds": 0.000820159912109375
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 42,
+      "gain": 4.710000038146973,
+      "dark_variance": 1.8224999904632568,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1376,
+      "time_row_p99_residual_seconds": 0.00010204315185546875
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 116,
+      "gain": 4.894999980926514,
+      "dark_variance": 0.9024999737739563,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1461,
+      "time_row_p99_residual_seconds": 0.0003002166748046877
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 179,
+      "gain": 4.894999980926514,
+      "dark_variance": 0.9024999737739563,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1180,
+      "time_row_p99_residual_seconds": 0.0004074192047119141
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 113,
+      "gain": 4.894999980926514,
+      "dark_variance": 0.9024999737739563,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1465,
+      "time_row_p99_residual_seconds": 0.000301361083984375
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 41,
+      "gain": 4.710000038146973,
+      "dark_variance": 1.8224999904632568,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1423,
+      "time_row_p99_residual_seconds": 9.89723205566406e-05
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 178,
+      "gain": 4.894999980926514,
+      "dark_variance": 0.9024999737739563,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1085,
+      "time_row_p99_residual_seconds": 0.0004102325439453126
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 40,
+      "gain": 4.710000038146973,
+      "dark_variance": 1.8224999904632568,
+      "psf_status": 0,
+      "psf_kernel_shape": [
+        51,
+        51
+      ],
+      "time_row_support": 1085,
+      "time_row_p99_residual_seconds": 7.62939453125e-05
+    }
+  ],
+  "slurm_job": "62083282",
+  "scope": "Frozen13 physical r fields, official psField spatial eigenPSF, gain/dark and observed per-source row time relation. These are metadata before pixel positions or PM residuals; full asTrans remains available for independent frame-to-published registration. No reuse of public r centroid as a second target likelihood."
+}

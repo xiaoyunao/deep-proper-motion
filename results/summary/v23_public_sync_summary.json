@@ -1,0 +1,23 @@
+{
+  "files_sha256": {
+    "results/summary/v23_preflight_summary.json": "6c0d3564dd51fdebedf7755ecf0d91c3dccd12c6bb48696200ddfb302d3d7919",
+    "results/summary/v23_field_assets_summary.json": "09c307eb7247455ac2ca17d3532782355815adc4bff429efa0d0b572186b8774",
+    "results/summary/v23_HST_frozen_overlap_summary.json": "f95d96c9100fad5387653f85c9a75c9f3fb3988d63475a604aa5ac6ee4d10312",
+    "results/summary/v23_HST_validation_summary.json": "59900fbb4ae4c965c58968e0e5168039ce27f60660a8d2eb2c8d519eed844fa5",
+    "results/summary/v23_HST_opportunity_summary.json": "a2927dd49a41b312421da01562d1b27b49d473c59ad6e220c5eb98ed2f37c3f5",
+    "results/summary/v23_HST_quality_bottleneck_summary.json": "981bf8d840c0a31b27192a2c5503436e08add907e298c8882512af2f05032060",
+    "results/summary/v23_spatial_PSF_validation_summary.json": "eeec24bd20955dbc12d97a25b0879e4498c9dfeaafd6cd8d0dde5653ef1476a0",
+    "results/summary/v23_frozen_error_budget_summary.json": "f33f6b6b97a5dba437fdec97cc4598908536d058ca4c71c8d1ae1aee6d7bfd55",
+    "results/summary/v23_frame_registration_summary.json": "58e0c08a02ff5e644045fa438a8356677e20699b05b8ef06e2cc8982bf83ac81",
+    "results/summary/v23_late_member_summary.json": "fdd0394871381434f1019769adfcbf632663cbc20d9de2fdb2de284434c38e71",
+    "results/summary/v23_pixel_validation_summary.json": "25a5cb31d44a77c5276ab5d19460299ea173ec6a0a62d4e1646f949de554769a",
+    "results/summary/v23_key_science_summary.json": "23f7112fef7274b2c578b967902cc6d9d148c3965f864c56e7c982ff5121c0f4",
+    "results/summary/v23_delivery_summary.json": "208f5b44307bb3bc7c2b633c0901631a7947e9c778b23c0a4c46e05aad0606f0",
+    "results/summary/v23_resource_final_summary.json": "c8256f77dd884e99faa4c711b3df8968128a75df09911e7d36cb89951869e706",
+    "figures/v23_HST_summary.png": "a61e5f1a02de42ac30d29311a31b09c2314405a9b42bc02987e3b89990377e10",
+    "figures/v23_error_budget_summary.png": "00d8f63c38d5a6c8509e34f2b588713abe84fdee73d3aa04dd349d596934f16b",
+    "figures/v23_pixel_validation_summary.png": "2fb20cbecb195cc951137ee283f6fb34a8200f09e3d152b3c9d031448e3ea262",
+    "figures/v23_trajectories_summary.png": "1882d710aa0171203c84a077fb635e9c714ed50bab9cd73e70cf2fa56899c057"
+  },
+  "source_scope": "Explicit18 public files only; no directory synchronization, per-source/validation/pixel arrays or authentication material."
+}

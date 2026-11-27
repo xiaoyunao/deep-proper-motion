@@ -1,0 +1,12 @@
+{
+  "public_figures": {
+    "v23_HST_summary.png": "a61e5f1a02de42ac30d29311a31b09c2314405a9b42bc02987e3b89990377e10",
+    "v23_error_budget_summary.png": "00d8f63c38d5a6c8509e34f2b588713abe84fdee73d3aa04dd349d596934f16b",
+    "v23_pixel_validation_summary.png": "2fb20cbecb195cc951137ee283f6fb34a8200f09e3d152b3c9d031448e3ea262",
+    "v23_trajectories_summary.png": "1882d710aa0171203c84a077fb635e9c714ed50bab9cd73e70cf2fa56899c057"
+  },
+  "key_science_sha256": "23f7112fef7274b2c578b967902cc6d9d148c3965f864c56e7c982ff5121c0f4",
+  "four_main_figures": true,
+  "baseline_binding_unchanged": true,
+  "scope": "Only four new figures and aggregate readout. Real per-source, control positions, HST and pixel arrays stay on personal PScratch."
+}

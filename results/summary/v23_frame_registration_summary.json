@@ -1,0 +1,187 @@
+{
+  "fields": [
+    {
+      "field_tag": "004623-1-0325",
+      "tie_pass": false,
+      "training_calibrators": 19,
+      "independent_validation_calibrators": 2,
+      "source_candidates": 45,
+      "measured_calibrators": 21,
+      "constant_frame_offset_mas": [
+        -120.81639759152313,
+        10.525593113852665
+      ],
+      "metadata_rowc_minus_pixel_y": 0.2214726250831518
+    },
+    {
+      "field_tag": "004646-6-0115",
+      "tie_pass": false,
+      "training_calibrators": 0,
+      "independent_validation_calibrators": 0,
+      "source_candidates": 0,
+      "measured_calibrators": 0,
+      "constant_frame_offset_mas": [
+        0.0,
+        0.0
+      ],
+      "metadata_rowc_minus_pixel_y": 0.5
+    },
+    {
+      "field_tag": "004623-1-0324",
+      "tie_pass": true,
+      "training_calibrators": 34,
+      "independent_validation_calibrators": 8,
+      "source_candidates": 57,
+      "measured_calibrators": 42,
+      "constant_frame_offset_mas": [
+        -80.77211969658674,
+        -2.3269212548912037
+      ],
+      "validation_median_mas": [
+        -1.6008595699968282,
+        -4.619764181828941
+      ],
+      "validation_NMAD_mas": [
+        32.869789912453854,
+        27.390044908133632
+      ],
+      "validation_radial_P68_mas": 40.845695476393,
+      "metadata_rowc_minus_pixel_y": 0.330740677005366
+    },
+    {
+      "field_tag": "004646-6-0114",
+      "tie_pass": false,
+      "training_calibrators": 0,
+      "independent_validation_calibrators": 0,
+      "source_candidates": 6,
+      "measured_calibrators": 0,
+      "constant_frame_offset_mas": [
+        0.0,
+        0.0
+      ],
+      "metadata_rowc_minus_pixel_y": 0.5
+    },
+    {
+      "field_tag": "004649-6-0180",
+      "tie_pass": false,
+      "training_calibrators": 4,
+      "independent_validation_calibrators": 2,
+      "source_candidates": 21,
+      "measured_calibrators": 6,
+      "constant_frame_offset_mas": [
+        -0.5837671944045724,
+        31.63390315567085
+      ],
+      "metadata_rowc_minus_pixel_y": 0.48708610095384586
+    },
+    {
+      "field_tag": "004623-1-0323",
+      "tie_pass": false,
+      "training_calibrators": 16,
+      "independent_validation_calibrators": 1,
+      "source_candidates": 45,
+      "measured_calibrators": 17,
+      "constant_frame_offset_mas": [
+        -82.2399275869393,
+        -4.497400414213189
+      ],
+      "metadata_rowc_minus_pixel_y": 0.3377580028962939
+    },
+    {
+      "field_tag": "004588-1-0042",
+      "tie_pass": false,
+      "training_calibrators": 7,
+      "independent_validation_calibrators": 0,
+      "source_candidates": 16,
+      "measured_calibrators": 7,
+      "constant_frame_offset_mas": [
+        -54.055783047442674,
+        -44.005407229589764
+      ],
+      "metadata_rowc_minus_pixel_y": 0.43585236492185686
+    },
+    {
+      "field_tag": "004646-6-0116",
+      "tie_pass": false,
+      "training_calibrators": 9,
+      "independent_validation_calibrators": 0,
+      "source_candidates": 17,
+      "measured_calibrators": 9,
+      "constant_frame_offset_mas": [
+        -45.723547530584874,
+        56.16170546718058
+      ],
+      "metadata_rowc_minus_pixel_y": 0.36295489864255615
+    },
+    {
+      "field_tag": "004649-6-0179",
+      "tie_pass": false,
+      "training_calibrators": 8,
+      "independent_validation_calibrators": 2,
+      "source_candidates": 20,
+      "measured_calibrators": 10,
+      "constant_frame_offset_mas": [
+        -20.454781855034526,
+        35.45436813566448
+      ],
+      "metadata_rowc_minus_pixel_y": 0.4546367531290798
+    },
+    {
+      "field_tag": "004646-6-0113",
+      "tie_pass": false,
+      "training_calibrators": 7,
+      "independent_validation_calibrators": 0,
+      "source_candidates": 20,
+      "measured_calibrators": 7,
+      "constant_frame_offset_mas": [
+        -27.042082905827556,
+        33.65065765057807
+      ],
+      "metadata_rowc_minus_pixel_y": 0.42552600601504764
+    },
+    {
+      "field_tag": "004588-1-0041",
+      "tie_pass": false,
+      "training_calibrators": 7,
+      "independent_validation_calibrators": 1,
+      "source_candidates": 21,
+      "measured_calibrators": 8,
+      "constant_frame_offset_mas": [
+        -31.666990359604824,
+        -23.72480766059016
+      ],
+      "metadata_rowc_minus_pixel_y": 0.4534423392692588
+    },
+    {
+      "field_tag": "004649-6-0178",
+      "tie_pass": false,
+      "training_calibrators": 1,
+      "independent_validation_calibrators": 1,
+      "source_candidates": 9,
+      "measured_calibrators": 2,
+      "constant_frame_offset_mas": [
+        -32.62698703943897,
+        150.29333871381823
+      ],
+      "metadata_rowc_minus_pixel_y": 0.3981832652622188
+    },
+    {
+      "field_tag": "004588-1-0040",
+      "tie_pass": false,
+      "training_calibrators": 2,
+      "independent_validation_calibrators": 1,
+      "source_candidates": 7,
+      "measured_calibrators": 3,
+      "constant_frame_offset_mas": [
+        -54.13218681831821,
+        -54.73270456706343
+      ],
+      "metadata_rowc_minus_pixel_y": 0.4427745284561979
+    }
+  ],
+  "passed_physical_fields": 1,
+  "registered_physical_fields": 13,
+  "calibrator_registration_sha256": "0220fa3243cd034eb63aa207e965600a46436c4971663227d8203897705a1e5d",
+  "slurm_job": "62084179",
+  "scope": "All13 frozen fields, positive flux/background profiled PSF centroids; split by shared physical calibration star before image fits. One constant native-field tie only, no higher-order fit. Validation targets not used to train offsets. Official per-pixel gain/dark/sky noise; shared calibrator bootstrap weights synchronized across frames and C0 separately retained. Frame-tie pass is not faint-centroid validation."
+}

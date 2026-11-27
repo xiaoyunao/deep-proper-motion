@@ -1,0 +1,245 @@
+{
+  "physical_fields": 13,
+  "independent_spatial_reconstructions": 26,
+  "checks": [
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 325,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 5.884270647774415e-08,
+      "C_output_constant_intercept": -5.163148391901934e-12
+    },
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 325,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 4.689603266506885e-08,
+      "C_output_constant_intercept": 5.244810499533542e-12
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 115,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 3.5060556067442784e-08,
+      "C_output_constant_intercept": 9.506890175266236e-13
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 115,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 5.174673901275835e-08,
+      "C_output_constant_intercept": -6.463136232801037e-13
+    },
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 324,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 5.173029446367332e-08,
+      "C_output_constant_intercept": 1.3275374181019595e-12
+    },
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 324,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 5.215563344908075e-08,
+      "C_output_constant_intercept": -7.586059601674688e-13
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 114,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 9.695494726594398e-08,
+      "C_output_constant_intercept": 5.553748108101664e-13
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 114,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 6.491258599974405e-08,
+      "C_output_constant_intercept": -3.9897100380381634e-13
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 180,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 5.036998501308578e-08,
+      "C_output_constant_intercept": -3.7525127861808005e-12
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 180,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 6.251924941421214e-08,
+      "C_output_constant_intercept": 4.630764630260409e-13
+    },
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 323,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 7.626092349494659e-08,
+      "C_output_constant_intercept": -4.170095800788698e-12
+    },
+    {
+      "run": 4623,
+      "camcol": 1,
+      "field": 323,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 5.096413566431871e-08,
+      "C_output_constant_intercept": 3.1291497713283045e-12
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 42,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 8.537248470834488e-08,
+      "C_output_constant_intercept": 2.9911502419897873e-12
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 42,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 3.853915510797065e-08,
+      "C_output_constant_intercept": 5.190870736720976e-12
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 116,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 7.154478372884111e-08,
+      "C_output_constant_intercept": -6.9007628929716736e-12
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 116,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 5.831775621835434e-08,
+      "C_output_constant_intercept": -4.131809423681826e-12
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 179,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 7.716815968100335e-08,
+      "C_output_constant_intercept": -1.5924479074801157e-12
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 179,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 8.543036183778223e-08,
+      "C_output_constant_intercept": -2.8884288624103638e-12
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 113,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 9.414783402808119e-08,
+      "C_output_constant_intercept": -1.7225684854210721e-12
+    },
+    {
+      "run": 4646,
+      "camcol": 6,
+      "field": 113,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 4.2458559354152275e-08,
+      "C_output_constant_intercept": -4.688857266864355e-13
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 41,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 6.58391585743933e-08,
+      "C_output_constant_intercept": -2.3670805441612652e-12
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 41,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 5.737238801422811e-08,
+      "C_output_constant_intercept": 1.3845017797151082e-12
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 178,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 4.869797252643407e-08,
+      "C_output_constant_intercept": 1.4872211535205127e-12
+    },
+    {
+      "run": 4649,
+      "camcol": 6,
+      "field": 178,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 7.52437390724599e-08,
+      "C_output_constant_intercept": 4.679567172129195e-12
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 40,
+      "test_row": 350.0,
+      "test_column": 700.0,
+      "relative_maximum_shape_difference": 6.929495433030034e-08,
+      "C_output_constant_intercept": -1.50834694127161e-13
+    },
+    {
+      "run": 4588,
+      "camcol": 1,
+      "field": 40,
+      "test_row": 1100.0,
+      "test_column": 1500.0,
+      "relative_maximum_shape_difference": 5.672212470050788e-08,
+      "C_output_constant_intercept": -7.377456935284132e-13
+    }
+  ],
+  "official_source_sha256": "7ef772e845794c2541f853e889018c0900e96d7677cf00d3fe451f859d4accb9",
+  "output_dtype_modified_source_sha256": "7f663fd8def303a4930d7b61085b5ebd72ad02d3b0c70a0970a0ee31dffbffe5",
+  "binary_sha256": "fb5226c370597a15796501b72a6cfce6018a9f4c6044b85df090409e65643c2f",
+  "slurm_job": "62083895",
+  "scope": "Independent official read_PSF implementation, changed only output datatype U16 to FL32 in separate new file; C++/C reconstruction compared against all-eigenimage Python FITS polynomial at two asymmetric actual locations per field. Constant soft bias and normalization profiled for shape verification; original v22 source/build unchanged."
+}

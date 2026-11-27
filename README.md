@@ -1,5 +1,7 @@
 # deep-proper-motion
 
+当前新增 **v2.3 有限暗星/早期像素试验已完成**：主目录仍冻结v2.2。三场HST无合格暗端共同样本；八核心2128源误差分解表明SDSS约占条件方差75%。40对象、300空位置和300移动注入完成，但接框架和暗端偏差/邻源覆盖未共同通过，未扩415、没有新增认证暗星。 [v2.3中文结论](reports/experiment_A_v2.3_faint_star.md) · [实际方法与回执](docs/running_v23.md) · [统计](results/summary/v23_key_science_summary.json)
+
 当前已完成 **v2.2 现有覆盖的完整坐标一致更新**：2,751.446平方度、2,875核心，保留15,858,226个科研自行解。三完整二维参考图与各48同步draw、球面关联、原生参考支持和标准ICRS4×4全部完成。严格共同QSO21–22/22–23等相对Xiao2025的P68改善15.08%/24.70%，但普通新区单run和绝对零点仍有限制；没有采用新的主目录颜色/DCR项。 [中文科学报告](reports/experiment_A_v2.2_full_coordinate.md) · [精简统计](results/summary/v22_key_science_summary.json) · [实际方法](docs/method_status_v22.md) · [运行与恢复](docs/running_v22.md) · [当前计划](PLAN.md)
 
 

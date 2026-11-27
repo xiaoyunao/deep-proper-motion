@@ -1,0 +1,458 @@
+{
+  "baseline_science": "0320f59b972755454252a383ba1007c665c928e8",
+  "baseline_plan_sha256": "6c78c0ea3c5d69d9cbd0f2a17e39fc33991d5dabf48222929f3a90329d76c84b",
+  "baseline_final_binding_sha256": "11f208fc5d37d0c6881f7a3713d4a4de1b9e3fab2c444c794da00ad5fbc9235d",
+  "baseline_solutions_unchanged": 15858226,
+  "HST_primary_matches": 0,
+  "HST_position_matches": 6,
+  "HST_opportunity": [
+    {
+      "field": "ngc5466",
+      "HST_quality_except_correction_flag": 16596,
+      "isolated_quality_except_correction_flag": 1048,
+      "HST_F606W_parent_bins": {
+        "21": 2122,
+        "other_or_missing": 10767,
+        "22": 2254,
+        "20": 1453
+      },
+      "position_matches_ground_r_bins": {
+        "other": 5
+      },
+      "matched_correction_flags": {
+        "0": 5
+      }
+    },
+    {
+      "field": "ngc5272",
+      "HST_quality_except_correction_flag": 23510,
+      "isolated_quality_except_correction_flag": 29,
+      "HST_F606W_parent_bins": {
+        "other_or_missing": 11614,
+        "20": 7584,
+        "21": 4170,
+        "22": 142
+      },
+      "position_matches_ground_r_bins": {},
+      "matched_correction_flags": {}
+    },
+    {
+      "field": "ngc5904",
+      "HST_quality_except_correction_flag": 53644,
+      "isolated_quality_except_correction_flag": 114,
+      "HST_F606W_parent_bins": {
+        "22": 5861,
+        "other_or_missing": 30352,
+        "20": 10046,
+        "21": 7385
+      },
+      "position_matches_ground_r_bins": {},
+      "matched_correction_flags": {}
+    }
+  ],
+  "reference_fields_passed": 1,
+  "reference_fields_tested": 13,
+  "budget_sources": 2128,
+  "budget_cores": 8,
+  "maximum_saved_covariance_error": 7.105427357601002e-14,
+  "variance_by_ground_r": {
+    "20": {
+      "n": 800,
+      "mean_axis_variance_fractions": [
+        [
+          0.7714586672720166,
+          0.7648266090743072
+        ],
+        [
+          0.2282884153146472,
+          0.23489882964187178
+        ],
+        [
+          0.00025291741333706674,
+          0.0002745612838215243
+        ]
+      ],
+      "fraction_p16_p50_p84": [
+        [
+          [
+            0.6965032381411609,
+            0.6895747782375189
+          ],
+          [
+            0.15955670732358732,
+            0.1659825364941784
+          ],
+          [
+            8.834645059105055e-05,
+            0.00010594063389602866
+          ]
+        ],
+        [
+          [
+            0.7911560766704988,
+            0.7842686781847085
+          ],
+          [
+            0.20863763923741524,
+            0.2154459949346498
+          ],
+          [
+            0.00016200397110008996,
+            0.0001710000269862638
+          ]
+        ],
+        [
+          [
+            0.8403763791679321,
+            0.8339171396519965
+          ],
+          [
+            0.3033154840096888,
+            0.310165567309747
+          ],
+          [
+            0.0003857160737608987,
+            0.00042916678696001433
+          ]
+        ]
+      ]
+    },
+    "21": {
+      "n": 800,
+      "mean_axis_variance_fractions": [
+        [
+          0.754958636740101,
+          0.7505399397640053
+        ],
+        [
+          0.24487511878211016,
+          0.24928167795033038
+        ],
+        [
+          0.0001662444777877376,
+          0.00017838228566416825
+        ]
+      ],
+      "fraction_p16_p50_p84": [
+        [
+          [
+            0.6625790910825897,
+            0.660003149335243
+          ],
+          [
+            0.16461945428157662,
+            0.16818978676347834
+          ],
+          [
+            4.7318688492018066e-05,
+            5.713243996136799e-05
+          ]
+        ],
+        [
+          [
+            0.7844296050026803,
+            0.7789732248788113
+          ],
+          [
+            0.2153259373147982,
+            0.22093136928358295
+          ],
+          [
+            0.00010435794219054888,
+            0.00011187791411002597
+          ]
+        ],
+        [
+          [
+            0.8352078619649121,
+            0.8316384787609759
+          ],
+          [
+            0.33725718222876844,
+            0.33977146924251156
+          ],
+          [
+            0.00022755423132145582,
+            0.0002555122547734611
+          ]
+        ]
+      ]
+    },
+    "22": {
+      "n": 528,
+      "mean_axis_variance_fractions": [
+        [
+          0.7501537893545148,
+          0.7473679493163382
+        ],
+        [
+          0.24979291816870777,
+          0.25257211920520395
+        ],
+        [
+          5.329247677751239e-05,
+          5.9931478457773224e-05
+        ]
+      ],
+      "fraction_p16_p50_p84": [
+        [
+          [
+            0.658341035823624,
+            0.6488350940509201
+          ],
+          [
+            0.16350828153703256,
+            0.16549065535792545
+          ],
+          [
+            2.4715805662051087e-05,
+            3.027834337050905e-05
+          ]
+        ],
+        [
+          [
+            0.7825434756629902,
+            0.7824786073415277
+          ],
+          [
+            0.2174216983089002,
+            0.21744506538035802
+          ],
+          [
+            4.4617765930751145e-05,
+            5.0449504689086154e-05
+          ]
+        ],
+        [
+          [
+            0.8364579782523056,
+            0.8344640686663066
+          ],
+          [
+            0.3416254307328715,
+            0.3510467075253395
+          ],
+          [
+            8.146852184772642e-05,
+            8.206042734139052e-05
+          ]
+        ]
+      ]
+    }
+  },
+  "pixel_by_depth": {
+    "22": {
+      "injected": 149,
+      "computed": 148,
+      "information_pass": 66,
+      "adoption_pass": 5
+    },
+    "22.5": {
+      "injected": 151,
+      "computed": 151,
+      "information_pass": 38,
+      "adoption_pass": 2
+    }
+  },
+  "run_holdout": {
+    "whole_runs": 24,
+    "independent_SNR5_positions": 21,
+    "conditional_radial_P68_mas": 213.817431448745,
+    "ellipse68_coverage": 0.8095238095238095,
+    "ellipse95_coverage": 0.8571428571428571,
+    "distinct_supported_objects": 10,
+    "distinct_held_physical_runs": 4
+  },
+  "slurm_job": "62086979",
+  "real_pixel_uncertainty": {
+    "SDSS_quality_distance": {
+      "n": 10,
+      "conditional_slope_variance_improvement_p16_p50_p84": [
+        [
+          0.8273558207970552,
+          0.7464677827255222
+        ],
+        [
+          0.9704525756006892,
+          0.9643798566517303
+        ],
+        [
+          0.9916296094425897,
+          0.9915803620696966
+        ]
+      ],
+      "conditional_covariance_PM_SE_median_masyr": [
+        15.951633685652395,
+        16.18721657254431
+      ],
+      "reference_covariance_PM_SE_median_masyr": [
+        0.04883485903766549,
+        0.05817371675572877
+      ],
+      "frame_registration_covariance_PM_SE_median_masyr": [
+        0.284479832892219,
+        0.720845376955588
+      ]
+    },
+    "no_cached_SDSS": {
+      "n": 12,
+      "conditional_slope_variance_improvement_p16_p50_p84": [
+        [
+          0.5142187010154321,
+          0.503991617812596
+        ],
+        [
+          0.9788548781504363,
+          0.9785719715629535
+        ],
+        [
+          0.9921171638911194,
+          0.9921461028325744
+        ]
+      ],
+      "conditional_covariance_PM_SE_median_masyr": [
+        28.59875295742381,
+        28.327241274398894
+      ],
+      "reference_covariance_PM_SE_median_masyr": [
+        0.052614882648977304,
+        0.06287228898037893
+      ],
+      "frame_registration_covariance_PM_SE_median_masyr": [
+        0.28581849890757505,
+        0.5957857524715303
+      ]
+    },
+    "positive_early_control": {
+      "n": 10,
+      "conditional_slope_variance_improvement_p16_p50_p84": [
+        [
+          0.978924484811975,
+          0.9794174359466453
+        ],
+        [
+          0.9828483888553563,
+          0.9831655250205791
+        ],
+        [
+          0.9891392159856155,
+          0.9893903646244622
+        ]
+      ],
+      "conditional_covariance_PM_SE_median_masyr": [
+        7.476164863242366,
+        7.523020349386163
+      ],
+      "reference_covariance_PM_SE_median_masyr": [
+        0.04548815906530039,
+        0.050121566415050514
+      ],
+      "frame_registration_covariance_PM_SE_median_masyr": [
+        0.2770817247127767,
+        0.7560658014885739
+      ]
+    }
+  },
+  "injection_PSF_clipped_negative_flux_p16_p50_p84": [
+    0.012409885098657017,
+    0.015363877154162807,
+    0.019855271950828465
+  ],
+  "injection_profile_validation": {
+    "injection_isolated": {
+      "initial": 150,
+      "information_selected": 49,
+      "coverage_scope": "Conditional on distinct real backgrounds and fixed calibration point values. Missing/weak profiles are unvalidated, not counted as covered. Conditional binomial intervals do not certify shared frame zero points.",
+      "68": {
+        "closed_profile_objects": 49,
+        "unvalidated": 101,
+        "axis_covered": [
+          34,
+          36
+        ],
+        "conditional_exact_interval95": [
+          [
+            0.5458475634947543,
+            0.8174805523541264
+          ],
+          [
+            0.5891828588435797,
+            0.8505292712792318
+          ]
+        ]
+      },
+      "95": {
+        "closed_profile_objects": 49,
+        "unvalidated": 101,
+        "axis_covered": [
+          45,
+          47
+        ],
+        "conditional_exact_interval95": [
+          [
+            0.80398581652111,
+            0.9773091193569268
+          ],
+          [
+            0.8602128129775362,
+            0.9950181581650287
+          ]
+        ]
+      }
+    },
+    "injection_neighbor": {
+      "initial": 150,
+      "information_selected": 55,
+      "coverage_scope": "Conditional on distinct real backgrounds and fixed calibration point values. Missing/weak profiles are unvalidated, not counted as covered. Conditional binomial intervals do not certify shared frame zero points.",
+      "68": {
+        "closed_profile_objects": 55,
+        "unvalidated": 95,
+        "axis_covered": [
+          9,
+          11
+        ],
+        "conditional_exact_interval95": [
+          [
+            0.07765881910622006,
+            0.28803000230782755
+          ],
+          [
+            0.10429591692576806,
+            0.32972850628761424
+          ]
+        ]
+      },
+      "95": {
+        "closed_profile_objects": 55,
+        "unvalidated": 95,
+        "axis_covered": [
+          14,
+          17
+        ],
+        "conditional_exact_interval95": [
+          [
+            0.14670044550292793,
+            0.3900284426569952
+          ],
+          [
+            0.19144641143362157,
+            0.44812974534377464
+          ]
+        ]
+      }
+    }
+  },
+  "real_forty": {
+    "initial": 40,
+    "late_unique": 32,
+    "computed": 32,
+    "information_pass": 12,
+    "adoption_pass": 0
+  },
+  "415_expansion": {
+    "original_parent": 415,
+    "new_pixels_fitted": 0,
+    "decision": "Not expanded: only1/13 independent frame ties passed, no real forty object passes the combined frame/information gate, isolated-injection0.5masyr bias target is unsupported and neighbor-profile coverage fails. Seven synthetic cases pass a per-case frame/information check, not global method acceptance or real-star adoption."
+  },
+  "scope": "Frozen production unchanged. HST primary overlap insufficient: no measured dark-star residual precision. Covariance budget is the saved conditional estimator, not all systematic error. Pixel information gate differs from adoption; injections test same-depth early information on actual backgrounds with conditional late sampling, not new-star correctness or absolute calibration. Profile coverage is conditional; linearized common reference/registration terms are separate. The missing reference tie cannot be cured by object counts."
+}

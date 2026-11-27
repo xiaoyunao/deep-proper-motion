@@ -1,0 +1,295 @@
+{
+  "registered_controls": {
+    "blank": 300,
+    "injection_isolated": 150,
+    "injection_neighbor": 150
+  },
+  "control_registration_sha256": "9f2bab433d8d15a22959137c6145b2776545127d8dbd2f3f3fcc7e529b838b56",
+  "groups": {
+    "SDSS_quality_distance": {
+      "initial": 10,
+      "status": {
+        "computed": 10
+      },
+      "information_pass": 1,
+      "adoption_pass": 0,
+      "actual_early_run_counts": {
+        "2": 3,
+        "1": 7
+      },
+      "whole_early_run_holdout": {
+        "attempted": 6,
+        "independent_positions_with_SNR5": 3,
+        "conditional_position_P68_mas": 830.5791119338554,
+        "conditional_ellipse68_coverage": 0.6666666666666666,
+        "conditional_ellipse95_coverage": 0.6666666666666666
+      }
+    },
+    "blank": {
+      "initial": 300,
+      "status": {
+        "computed": 300
+      },
+      "information_pass": 0,
+      "adoption_pass": 0,
+      "actual_early_run_counts": {
+        "2": 91,
+        "1": 204,
+        "3": 5
+      },
+      "information_false_accept_one_sided95_upper": 0.009936081944457708,
+      "null_fraction_scope": "Same nontrivial information gate, NOT adoption gate (registration failures block all adoption). Conditional actual backgrounds, synthetic late schedule.",
+      "whole_early_run_holdout": {
+        "attempted": 0,
+        "independent_positions_with_SNR5": 0,
+        "conditional_position_P68_mas": null,
+        "conditional_ellipse68_coverage": null,
+        "conditional_ellipse95_coverage": null
+      }
+    },
+    "injection_isolated": {
+      "initial": 150,
+      "status": {
+        "computed": 150
+      },
+      "information_pass": 49,
+      "adoption_pass": 3,
+      "actual_early_run_counts": {
+        "2": 48,
+        "1": 102
+      },
+      "all_computed": {
+        "n": 150,
+        "mean_PM_bias_masyr": [
+          -6.874525913998027,
+          -1.837734184038696
+        ],
+        "mean_bias_interval95": [
+          [
+            -33.370362374120155,
+            19.621310546124104
+          ],
+          [
+            -22.541282012441428,
+            18.86581364436404
+          ]
+        ],
+        "NMAD_PM_masyr": [
+          25.052500604443082,
+          22.676914033124007
+        ],
+        "conditional_Wald_1sigma_coverage": [
+          0.5133333333333333,
+          0.6133333333333333
+        ],
+        "profile_1.0": {
+          "n": 49,
+          "axis_coverage": [
+            0.6938775510204082,
+            0.7346938775510204
+          ]
+        },
+        "profile_3.841458820694124": {
+          "n": 49,
+          "axis_coverage": [
+            0.9183673469387755,
+            0.9591836734693877
+          ]
+        }
+      },
+      "information_selected": {
+        "n": 49,
+        "mean_PM_bias_masyr": [
+          2.288587425513935,
+          -1.06603768345709
+        ],
+        "mean_bias_interval95": [
+          [
+            -0.10739631264046245,
+            4.684571163668332
+          ],
+          [
+            -3.5559165793809173,
+            1.4238412124667377
+          ]
+        ],
+        "NMAD_PM_masyr": [
+          7.757573120385935,
+          6.538392482604771
+        ],
+        "conditional_Wald_1sigma_coverage": [
+          0.7142857142857143,
+          0.7346938775510204
+        ],
+        "profile_1.0": {
+          "n": 49,
+          "axis_coverage": [
+            0.6938775510204082,
+            0.7346938775510204
+          ]
+        },
+        "profile_3.841458820694124": {
+          "n": 49,
+          "axis_coverage": [
+            0.9183673469387755,
+            0.9591836734693877
+          ]
+        }
+      },
+      "whole_early_run_holdout": {
+        "attempted": 0,
+        "independent_positions_with_SNR5": 0,
+        "conditional_position_P68_mas": null,
+        "conditional_ellipse68_coverage": null,
+        "conditional_ellipse95_coverage": null
+      }
+    },
+    "injection_neighbor": {
+      "initial": 150,
+      "status": {
+        "computed": 149,
+        "unidentified_or_numerically_incomplete": 1
+      },
+      "information_pass": 55,
+      "adoption_pass": 4,
+      "actual_early_run_counts": {
+        "1": 99,
+        "2": 49,
+        "3": 2
+      },
+      "all_computed": {
+        "n": 149,
+        "mean_PM_bias_masyr": [
+          19.35759349504895,
+          24.374995444541668
+        ],
+        "mean_bias_interval95": [
+          [
+            -4.355690900298828,
+            43.07087789039673
+          ],
+          [
+            -3.131638390562518,
+            51.88162927964585
+          ]
+        ],
+        "NMAD_PM_masyr": [
+          115.79600425387537,
+          120.6321655816389
+        ],
+        "conditional_Wald_1sigma_coverage": [
+          0.40268456375838924,
+          0.37583892617449666
+        ],
+        "profile_1.0": {
+          "n": 55,
+          "axis_coverage": [
+            0.16363636363636364,
+            0.2
+          ]
+        },
+        "profile_3.841458820694124": {
+          "n": 55,
+          "axis_coverage": [
+            0.2545454545454545,
+            0.3090909090909091
+          ]
+        }
+      },
+      "information_selected": {
+        "n": 55,
+        "mean_PM_bias_masyr": [
+          0.3488317159952599,
+          -6.697101226013434
+        ],
+        "mean_bias_interval95": [
+          [
+            -25.002214238048012,
+            25.699877670038532
+          ],
+          [
+            -37.45793686996609,
+            24.063734417939227
+          ]
+        ],
+        "NMAD_PM_masyr": [
+          87.28461202744163,
+          50.78895637282047
+        ],
+        "conditional_Wald_1sigma_coverage": [
+          0.12727272727272726,
+          0.21818181818181817
+        ],
+        "profile_1.0": {
+          "n": 55,
+          "axis_coverage": [
+            0.16363636363636364,
+            0.2
+          ]
+        },
+        "profile_3.841458820694124": {
+          "n": 55,
+          "axis_coverage": [
+            0.2545454545454545,
+            0.3090909090909091
+          ]
+        }
+      },
+      "whole_early_run_holdout": {
+        "attempted": 0,
+        "independent_positions_with_SNR5": 0,
+        "conditional_position_P68_mas": null,
+        "conditional_ellipse68_coverage": null,
+        "conditional_ellipse95_coverage": null
+      }
+    },
+    "no_cached_SDSS": {
+      "initial": 20,
+      "status": {
+        "no_unique_supported_late_trajectory": 8,
+        "computed": 12
+      },
+      "information_pass": 1,
+      "adoption_pass": 0,
+      "actual_early_run_counts": {
+        "0": 8,
+        "1": 12
+      },
+      "whole_early_run_holdout": {
+        "attempted": 0,
+        "independent_positions_with_SNR5": 0,
+        "conditional_position_P68_mas": null,
+        "conditional_ellipse68_coverage": null,
+        "conditional_ellipse95_coverage": null
+      }
+    },
+    "positive_early_control": {
+      "initial": 10,
+      "status": {
+        "computed": 10
+      },
+      "information_pass": 10,
+      "adoption_pass": 0,
+      "actual_early_run_counts": {
+        "2": 6,
+        "1": 2,
+        "3": 2
+      },
+      "whole_early_run_holdout": {
+        "attempted": 18,
+        "independent_positions_with_SNR5": 18,
+        "conditional_position_P68_mas": 213.67284227141388,
+        "conditional_ellipse68_coverage": 0.8333333333333334,
+        "conditional_ellipse95_coverage": 0.8888888888888888
+      }
+    }
+  },
+  "slurm_job": "62085943",
+  "scope": "Frozen40 physical objects; all exits retained. Injections add moving spatial PSFs and source Poisson to distinct real backgrounds, conditional on measured late schedules and fixed C0/frame point offsets. Conditional profile coverage does not certify absolute frame errors or NSC footprint completeness. Common covariance propagated separately; nonlinear perturbation checks remain private and summarized independently. No HST/target PM used in selection. Absolute adoption also requires independently passed registration; no415 expansion if that or faint-control validation fails.",
+  "frozen_forty_415_decision": "Do not expand415 unless forty, registration, injection, null and independent-run criteria all pass.",
+  "nonlinear_common_response_check": {
+    "actual_refits": 9,
+    "maximum_position_difference_mas": 0.7626745783508783,
+    "maximum_PM_difference_masyr": 0.3728492485448662
+  }
+}

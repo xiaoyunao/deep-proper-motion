@@ -1,0 +1,1534 @@
+{
+  "baseline_science": "0320f59b972755454252a383ba1007c665c928e8",
+  "plan_sha256": "6c78c0ea3c5d69d9cbd0f2a17e39fc33991d5dabf48222929f3a90329d76c84b",
+  "final_binding_sha256": "11f208fc5d37d0c6881f7a3713d4a4de1b9e3fab2c444c794da00ad5fbc9235d",
+  "all_v22_solutions_frozen": 15858226,
+  "HST_geometry_candidates": [
+    "ngc5272",
+    "ngc5466",
+    "ngc5904"
+  ],
+  "selected_fields": [
+    "ngc5466",
+    "ngc5272",
+    "ngc5904"
+  ],
+  "HST_catalogue_tables": [
+    {
+      "field": "ngc5466",
+      "tables": [
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5466_f438w_v1.0_phot-catalog-ep2.fits",
+          "n": 27053,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc3_ngc5466_multi_v1.0_pm-catalog.fits",
+          "n": 27053,
+          "schema": {
+            "RA": {
+              "format": "D",
+              "unit": "deg"
+            },
+            "DEC": {
+              "format": "D",
+              "unit": "deg"
+            },
+            "X": {
+              "format": "D",
+              "unit": "WFC3/UVIS pixel"
+            },
+            "Y": {
+              "format": "D",
+              "unit": "WFC3/UVIS pixel"
+            },
+            "PMRAC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMRAC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "PMDECC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMDECC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "CHI2RX": {
+              "format": "D",
+              "unit": null
+            },
+            "CHI2RY": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "TIME": {
+              "format": "D",
+              "unit": "yr"
+            },
+            "PMRAR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMRAR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "PMDECR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMDECR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "CORRFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5466_f336w_v1.0_phot-catalog-ep2.fits",
+          "n": 27053,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5466_f814w_v1.0_phot-catalog-ep1.fits",
+          "n": 27053,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5466_f606w_v1.0_phot-catalog-ep1.fits",
+          "n": 27053,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5466_f606w_v1.0_phot-catalog-ep3.fits",
+          "n": 27053,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "field": "ngc5272",
+      "tables": [
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5272_f438w_v1.0_phot-catalog-ep2.fits",
+          "n": 69303,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5272_f336w_v1.0_phot-catalog-ep2.fits",
+          "n": 69303,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5272_f435w_v1.0_phot-catalog-ep1.fits",
+          "n": 69303,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5272_f606w_v1.0_phot-catalog-ep1.fits",
+          "n": 69303,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5272_f814w_v1.0_phot-catalog-ep1.fits",
+          "n": 69303,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5272_f555w_v1.0_phot-catalog-ep1.fits",
+          "n": 69303,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc3_ngc5272_multi_v1.0_pm-catalog.fits",
+          "n": 69303,
+          "schema": {
+            "RA": {
+              "format": "D",
+              "unit": "deg"
+            },
+            "DEC": {
+              "format": "D",
+              "unit": "deg"
+            },
+            "X": {
+              "format": "D",
+              "unit": "WFC3/UVIS pixel"
+            },
+            "Y": {
+              "format": "D",
+              "unit": "WFC3/UVIS pixel"
+            },
+            "PMRAC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMRAC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "PMDECC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMDECC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "CHI2RX": {
+              "format": "D",
+              "unit": null
+            },
+            "CHI2RY": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "TIME": {
+              "format": "D",
+              "unit": "yr"
+            },
+            "PMRAR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMRAR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "PMDECR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMDECR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "CORRFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "field": "ngc5904",
+      "tables": [
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f336w_v1.0_phot-catalog-ep5.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5904_f435w_v1.0_phot-catalog-ep1.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f606w_v1.0_phot-catalog-ep3.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f390w_v1.0_phot-catalog-ep4.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5904_f435w_v1.0_phot-catalog-ep2.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5904_f658n_v1.0_phot-catalog-ep1.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f390w_v1.0_phot-catalog-ep3.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f438w_v1.0_phot-catalog-ep5.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5904_f625w_v1.0_phot-catalog-ep1.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5904_f606w_v1.0_phot-catalog-ep2.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f814w_v1.0_phot-catalog-ep4.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc_ngc5904_f814w_v1.0_phot-catalog-ep2.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f814w_v1.0_phot-catalog-ep3.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_acs-wfc3_ngc5904_multi_v1.0_pm-catalog.fits",
+          "n": 95020,
+          "schema": {
+            "RA": {
+              "format": "D",
+              "unit": "deg"
+            },
+            "DEC": {
+              "format": "D",
+              "unit": "deg"
+            },
+            "X": {
+              "format": "D",
+              "unit": "WFC3/UVIS pixel"
+            },
+            "Y": {
+              "format": "D",
+              "unit": "WFC3/UVIS pixel"
+            },
+            "PMRAC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMRAC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "PMDECC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMDECC": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "CHI2RX": {
+              "format": "D",
+              "unit": null
+            },
+            "CHI2RY": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "TIME": {
+              "format": "D",
+              "unit": "yr"
+            },
+            "PMRAR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMRAR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "PMDECR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "EPMDECR": {
+              "format": "D",
+              "unit": "mas/yr"
+            },
+            "CORRFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        },
+        {
+          "file": "hlsp_hacks_hst_wfc3_ngc5904_f606w_v1.0_phot-catalog-ep4.fits",
+          "n": 95020,
+          "schema": {
+            "MAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "RMSMAG": {
+              "format": "D",
+              "unit": "mag"
+            },
+            "QFIT": {
+              "format": "D",
+              "unit": null
+            },
+            "O": {
+              "format": "D",
+              "unit": null
+            },
+            "NF": {
+              "format": "I",
+              "unit": null
+            },
+            "NU": {
+              "format": "I",
+              "unit": null
+            },
+            "RADXS": {
+              "format": "D",
+              "unit": null
+            },
+            "SKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "RMSSKY": {
+              "format": "D",
+              "unit": "e-"
+            },
+            "SATFLAG": {
+              "format": "I",
+              "unit": null
+            },
+            "ID": {
+              "format": "J",
+              "unit": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "frozen_forty": 40,
+  "frozen_frames": 13,
+  "official_read_PSF_available": false,
+  "slurm_job": "62083282",
+  "scope": "Schema/coverage only, before external PM residuals. Frozen outer-ring forty/415 are separate from HST central-field parent. Metadata candidates not assumed usable; actual HST quality/crowding and overlap gate precedes motion evaluation."
+}

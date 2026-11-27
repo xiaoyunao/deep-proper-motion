@@ -1,0 +1,23 @@
+{
+  "frozen_targets": 40,
+  "status": {
+    "conditional_late_association": 32,
+    "insufficient_late_time_support": 8
+  },
+  "categories": {
+    "SDSS_quality_distance": {
+      "conditional_late_association": 10
+    },
+    "no_cached_SDSS": {
+      "conditional_late_association": 12,
+      "insufficient_late_time_support": 8
+    },
+    "positive_early_control": {
+      "conditional_late_association": 10
+    }
+  },
+  "late_input_sha256": "81f761a764802477e8ed29119d737a6e0cc81a2a85376e361c363ec347128cfc",
+  "frozen_forty_sha256": "644b8657f3dbdf4366b173134353fa0a655db6a710b3fd21e279086896b7d7d6",
+  "slurm_job": "62085121",
+  "scope": "All40 optical identities preserved. Late actual all-band positions only once, physical flags/SNR/errors and native reference12mas; no prior true motion, no SDSS centroid likelihood. Shared late detection claims remain ambiguous, not assigned to two objects. This is conditional identity support, not stellar truth."
+}

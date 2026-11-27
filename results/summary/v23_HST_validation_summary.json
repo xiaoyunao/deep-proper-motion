@@ -1,0 +1,882 @@
+{
+  "fields": {
+    "ngc5466": {
+      "all_quality": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "isolated": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "crowded_or_unknown": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r20_21": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r21_22": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r22_23": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "single_run": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "multi_run": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "nsc_span_lt2": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "nsc_span_ge2": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "F606_21_22": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "F606_22_23": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      }
+    },
+    "ngc5272": {
+      "all_quality": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "isolated": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "crowded_or_unknown": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r20_21": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r21_22": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r22_23": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "single_run": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "multi_run": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "nsc_span_lt2": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "nsc_span_ge2": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "F606_21_22": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "F606_22_23": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      }
+    },
+    "ngc5904": {
+      "all_quality": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "isolated": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "crowded_or_unknown": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r20_21": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r21_22": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "r22_23": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "single_run": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "multi_run": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "nsc_span_lt2": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "nsc_span_ge2": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "F606_21_22": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      },
+      "F606_22_23": {
+        "v22_available": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            }
+          }
+        },
+        "strict_triple": {
+          "n": 0,
+          "methods": {
+            "v22": {
+              "n": 0
+            },
+            "Xiao": {
+              "n": 0
+            },
+            "NSC": {
+              "n": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "quality_and_identity_freeze_sha256": "3726e7b1c461932a8648c0ee5145d617172c93feca83ea4b9fbefa2e6376b60a",
+  "matched_HST_quality_sources": 0,
+  "covariance_budget_summary": {
+    "n": 0,
+    "maximum_reconstruction_error": 0.0
+  },
+  "slurm_job": "62083895",
+  "scope": "Same external physical HST identities and frozen v22. Relative scatter is centered diagnostic; absolute residual uses HST relative PM + published Gaia-anchored zero. HST-zero covariance is shared, not divided by N. Per-source HST and historical catalogues lack published cross-axis covariance here. Published historical positions lack an exact position epoch in local cache: unique0.7arcsec/margin0.3arcsec spatial counterpart evidence only, no PM-agreement matching. Cluster rotation suppressed by relative HST reference is an additional absolute-comparison limitation. Intervals are conditional object resampling, not independent spatial certification."
+}

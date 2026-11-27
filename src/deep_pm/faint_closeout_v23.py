@@ -79,7 +79,7 @@ def run(base,root):
     axes[0].legend(loc='center left',fontsize=8);
     for axis,ax in enumerate(axes[:2]):
         common=[100*summary['variance_by_ground_r'][str(k)]['mean_axis_variance_fractions'][2][axis] for k in [20,21,22]]
-        ax.text(.04,.04,'Common reference mean: '+', '.join(f'{v:.3f}%' for v in common),transform=ax.transAxes,fontsize=8,color='white')
+        ax.text(.04,.04,'Common reference mean: '+', '.join(f'{v:.3f}%' for v in common),transform=ax.transAxes,fontsize=8,color='black',bbox=dict(facecolor='white',edgecolor='none',alpha=.92,pad=3))
     blocks=[b for c in bud['cores'] for b in c['bright_position_blocks'] if b['mode']=='survey_band' and 'median_native_position_residual_mas' in b];labels=sorted({b['observational_block'] for b in blocks})
     for j,label in enumerate(labels):
         values=np.array([b['median_native_position_residual_mas'] for b in blocks if b['observational_block']==label]);axes[2].scatter(np.full(len(values),j)-.08,values[:,0],s=20,color=COLORS[0],label='East' if j==0 else None);axes[2].scatter(np.full(len(values),j)+.08,values[:,1],s=20,color=COLORS[1],label='North' if j==0 else None)

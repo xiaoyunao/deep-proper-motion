@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import resource
+import subprocess
 from time import monotonic
 
 from .continuous_summary import area
@@ -30,10 +31,20 @@ def select_pilots(cells):
     return [min(group,key=lambda name:sha256(("v24-intake:"+name).encode()).digest()) for group in populations if group]
 
 
-def one(task):
+def one(task, revision=None):
     label,spec,base,catalogues,sas,manifest_sha=task
-    work=base/"v2.4";dest=work/"intake"/label
+    root=base/"v2.4"
+    original=root/"intake"/label
+    prior=original/"run_manifest.json"
+    if revision is None and prior.is_file():
+        previous=json.loads(prior.read_text())
+        if previous["commit"]!=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip():
+            revision="canonical-longitude"
+    work=root/"revisions"/revision if revision is not None else root
+    dest=work/"intake"/label
     dest.mkdir(exist_ok=True,parents=True)
+    if revision and (original/"cache").is_dir() and not (dest/"cache").exists():
+        (dest/"cache").symlink_to((original/"cache").resolve(),target_is_directory=True)
     config=dest/"registered.toml"
     text=(f'manifest_sha256 = "{manifest_sha}"\n'+
           '\n'.join(f'{k} = {str(v).lower()}' for k,v in SETTINGS.items())+
@@ -47,6 +58,10 @@ def one(task):
             if not all((dest/name).is_file() for name in OUTPUTS):raise ValueError("Missing acquisition output")
     ref=extract_one((dict(core=label,source=str(dest),source_receipt_sha256=digest(dest/"run_manifest.json"),
                           center=[sum(spec[k])/2 for k in ("ra","dec")]),work/"input"))
+    if revision:
+        save_json(root/"resolved"/(label+".json"),dict(source=str(dest),shard=str(work/"input"/label),
+                  source_sha256=digest(dest/"run_manifest.json"),
+                  reference_sha256=digest(work/"input"/label/"v22_reference_input_core_summary.json")))
     intake=json.loads((dest/"acquisition_summary.json").read_text())
     return dict(core=label,quadrature_sqdeg=spec["time_area"],raw_bytes=sum(p.stat().st_size for p in dest.rglob("*") if p.is_file()),
                 rows=intake["normalized_detections"],measurements=ref["measurements"],groups=ref["groups"],

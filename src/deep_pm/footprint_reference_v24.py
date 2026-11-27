@@ -36,19 +36,29 @@ def assemble(base):
         graphs[str(graph)]=dict(sha256=summary["graph_sha256"],center=summary["center_deg"])
     old=read(prior_plan)
     registered=[]
+    def inputs(label,source,shard):
+        pointer=root/"resolved"/(label+".json")
+        if not pointer.is_file():return source,shard
+        record=read(pointer);source,shard=Path(record["source"]),Path(record["shard"])
+        if record["source_sha256"]!=digest(source/"run_manifest.json") or record["reference_sha256"]!=digest(shard/"v22_reference_input_core_summary.json"):
+            raise ValueError("Changed revision of source or reference")
+        return source,shard
+    layout=root/"joint"
+    (layout/"input").mkdir(exist_ok=True,parents=True)
+
     for entry in old["cores"]:
         label=entry["core"]
-        oldshard=prior/"input"/label
+        source,oldshard=inputs(label,Path(entry["source"]),prior/"input"/label)
         proof=read(oldshard/"v22_reference_input_core_summary.json")
         if proof["parquet_sha256"]!=digest(oldshard/"reference.parquet"):
             raise ValueError("Changed frozen old input")
-        link(oldshard,root/"input"/label)
-        registered.append(dict(core=label,spec=entry["spec"],window=entry["window"],source=entry["source"],
-                               center=entry["center"],source_receipt_sha256=entry["source_receipt_sha256"],
+        link(oldshard,layout/"input"/label)
+        registered.append(dict(core=label,spec=entry["spec"],window=entry["window"],source=str(source),
+                               center=entry["center"],source_receipt_sha256=digest(source/"run_manifest.json"),
                                predecessor=str(prior/"sources"/label),production_blind=True))
     missing=[]
     for label,spec in frozen["new"].items():
-        source=root/"intake"/label;shard=root/"input"/label
+        source,shard=inputs(label,root/"intake"/label,root/"input"/label)
         proof=shard/"v22_reference_input_core_summary.json"
         if not proof.exists():
             missing.append(label)
@@ -56,6 +66,7 @@ def assemble(base):
         r=read(proof)
         if r["parquet_sha256"]!=digest(shard/"reference.parquet") or r["ticket"]["source_receipt_sha256"]!=digest(source/"run_manifest.json"):
             raise ValueError("Changed completed acquisition")
+        link(shard,layout/"input"/label)
         registered.append(dict(core=label,spec=spec,window=label,source=str(source),
                                center=[sum(spec[k])/2 for k in ("ra","dec")],
                                source_receipt_sha256=r["ticket"]["source_receipt_sha256"],production_blind=True))
@@ -65,7 +76,7 @@ def assemble(base):
     result=dict(cores=registered,graphs=graphs,production_blind=True,footprint_sha256=expected,
                 frozen_science="0320f59b972755454252a383ba1007c665c928e8",
                 predecessor_index=str(prior/"catalogue/catalogue.duckdb"))
-    path=output/"private_full_coordinate_plan.json"
+    path=layout/"registration/private_full_coordinate_plan.json"
     if path.is_file() and read(path)!=result:raise ValueError("Changed graph binding")
     save_json(path,result)
     save_json(output/"v24_graph_registration_summary.json",dict(cores=len(registered),old=len(old["cores"]),

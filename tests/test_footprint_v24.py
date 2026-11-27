@@ -9,8 +9,8 @@ from deep_pm.stripe82_comparison_v24 import pair
 def test_meridian_count_predicate():
     db=sqlite3.connect(":memory:")
     db.execute("CREATE TABLE test(ra REAL)")
-    db.executemany("INSERT INTO test VALUES (?)",[(359.9,),(.1,),(.6,),(100.,)])
-    assert db.execute("SELECT count(*) FROM test WHERE "+longitude_bounds(-.2,.6)).fetchone()==(2,)
+    db.executemany("INSERT INTO test VALUES (?)",[(359.9,),(.1,),(.6,),(100.,),(-.11,),(-.25,),(360.1,),(360.7,)])
+    assert db.execute("SELECT count(*) FROM test WHERE "+longitude_bounds(-.2,.6)).fetchone()==(4,)
 
 
 def test_owner_rectangle_subtraction():

@@ -36,7 +36,10 @@ def longitude_bounds(west, east, alias=""):
         return "1=1"
     lo = west % 360
     hi = lo + width
-    column = alias + "ra"
+    native = alias + "ra"
+    # DR2 contains real object centres slightly below zero and above 360.
+    # A raw "ra < hi" wrap clause also admits out-of-rectangle negative rows.
+    column = f"({native} - 360*FLOOR({native}/360.0))"
     if hi <= 360:
         return f"({column}>={lo:.9f} AND {column}<{hi:.9f})"
     return f"({column}>={lo:.9f} OR {column}<{hi-360:.9f})"

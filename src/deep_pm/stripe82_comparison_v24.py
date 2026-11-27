@@ -136,7 +136,7 @@ def run(base, catalogue, plan, output, version, workers):
     work=base/"v2.4"
     output.mkdir(exist_ok=True,parents=True)
     receipts=[work/"s82/v24_s82_parent_summary.json",work/"s82-nsc/v24_nsc_epoch_input_summary.json",
-              work/"s82-xiao-epoch/v24_xiao_epoch_input_summary.json", plan]
+              work/"s82-xiao-epoch/v24_xiao_epoch_input_summary.json", plan,work/"meridian/v24_archive_longitude_summary.json"]
     ticket=dict(inputs=[digest(p) for p in receipts],catalogue_stat=[catalogue.stat().st_size,catalogue.stat().st_mtime_ns],
                 protocol=json.loads(receipts[0].read_text())["protocol_sha256"],implementation=digest(Path(__file__)),version=version)
     state=output/"private_input_signature.json"
@@ -155,6 +155,12 @@ def run(base, catalogue, plan, output, version, workers):
              "ours":"SELECT src AS external,ra_deg AS ra,dec_deg AS dec,TRUE AS valid,pm_e,pm_n,se_e,se_n,core,slot,sdss_runs,nsc_span,joint_span,nsc_nights FROM scientific.accepted WHERE abs(dec_deg)<=2.2 AND (ra_deg<53 OR ra_deg>=307)",
              "xiao":f"SELECT * FROM read_parquet('{work}/s82-xiao-epoch/private_xiao_*.parquet')",
              "nsc":f"SELECT * FROM read_parquet('{work}/s82-nsc/private_nsc_*.parquet')"}
+    supplement=work/"meridian/private_nsc_longitude_supplement.parquet"
+    if digest(supplement)!=json.loads(receipts[-1].read_text())["epoch_supplement_sha256"]:
+        raise ValueError("Unverified NSC meridian supplement")
+    queries["nsc"] += f" UNION ALL SELECT * FROM read_parquet('{supplement}')"
+    duplicate=db.execute(f"SELECT external FROM ({queries['nsc']}) x GROUP BY external HAVING count(*)>1 LIMIT 1").fetchone()
+    if duplicate:raise ValueError("Nonunique external NSC ID after longitude closure")
     directories={k:stage(db,output,k,q) for k,q in queries.items()}
     spec=[row["spec"] for row in json.loads(plan.read_text())["cores"]]
     parts=[]

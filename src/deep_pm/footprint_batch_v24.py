@@ -5,7 +5,6 @@ import fcntl
 import json
 import os
 from pathlib import Path
-import shutil
 from time import monotonic
 
 from .footprint_intake_v24 import attempt,select_pilots
@@ -25,18 +24,25 @@ def worker(job):
             if receipt.exists():continue
             error=control/(core+".failed.json")
             failures=json.loads(error.read_text()) if error.is_file() else []
-            if len(failures)>=2 or any(f["allocation"]==os.environ["SLURM_JOB_ID"] for f in failures):
+            if sum(f.get("rule")=="canonical" for f in failures)>=2 or any(f["allocation"]==os.environ["SLURM_JOB_ID"] for f in failures):
                 skipped+=1
                 continue
             result=attempt(task)
             if "error" in result:
                 failed+=1
-                failures.append(dict(allocation=os.environ["SLURM_JOB_ID"],error=result["error"]))
+                failures.append(dict(rule="canonical",allocation=os.environ["SLURM_JOB_ID"],error=result["error"]))
                 save_json(error,failures)
             else:
                 result["manifest_sha256"]=task[-1]
-                result["input_receipt_sha256"]=digest(task[2]/"v2.4/intake"/core/"run_manifest.json")
-                result["reference_receipt_sha256"]=digest(task[2]/"v2.4/input"/core/"v22_reference_input_core_summary.json")
+                root=task[2]/"v2.4"
+                resolved=root/"resolved"/(core+".json")
+                if resolved.is_file():
+                    resolved_paths=json.loads(resolved.read_text())
+                    result["input_receipt_sha256"]=resolved_paths["source_sha256"]
+                    result["reference_receipt_sha256"]=resolved_paths["reference_sha256"]
+                else:
+                    result["input_receipt_sha256"]=digest(root/"intake"/core/"run_manifest.json")
+                    result["reference_receipt_sha256"]=digest(root/"input"/core/"v22_reference_input_core_summary.json")
                 save_json(receipt,result)
                 done+=1
     return dict(completed=done,failed=failed,previously_failed=skipped)
@@ -44,7 +50,7 @@ def worker(job):
 
 def stopped(control):
     # The supervisor may stop assignment before a soft user quota is reached.
-    return (control/"pause-new-intake").exists()
+    return (control/"pause-canonical-intake").exists()
 
 
 def run(base,catalogues,sas,start,end,workers):

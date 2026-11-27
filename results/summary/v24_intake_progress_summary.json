@@ -1,22 +1,108 @@
 {
   "signed_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
   "registered_new_core_count": 15235,
-  "completed_new_inputs": 140,
-  "remaining_new_inputs": 15095,
-  "failed_unrepaired_inputs": 1,
-  "input_rectangles_nominal_sqdeg": 135.59365772128578,
-  "time_opportunity_in_completed_new_inputs_sqdeg": 124.55513325514309,
-  "input_rows_including_halo": 134550382,
-  "input_bytes": 88266089374,
-  "reference_rows_including_halo": 23731484,
-  "cores_with_local_reference_rows": 134,
+  "completed_new_inputs": 481,
+  "remaining_new_inputs": 14754,
+  "failed_unrepaired_inputs": 0,
+  "input_rectangles_nominal_sqdeg": 458.39952781162566,
+  "time_opportunity_in_completed_new_inputs_sqdeg": 400.07811988622814,
+  "input_rows_including_halo": 312531328,
+  "input_bytes": 207319492327,
+  "reference_rows_including_halo": 49155583,
+  "cores_with_local_reference_rows": 467,
   "core_rows_p10_p50_p90": [
-    248371.4,
-    456698.5,
-    1948574.5000000007
+    231454.0,
+    310188.0,
+    1437681.0
   ],
-  "worker_seconds_sum": 31573.34266565746,
+  "worker_seconds_sum": 99648.6339607584,
   "peak_individual_rss_mib": 18464.8515625,
-  "slurm_job": "62093015",
-  "interpretation": "Completed intake with signed source and reference extraction. Current graph/fit results are accounted separately. Shared detections across core halos occur in these row counts."
+  "slurm_job": "62093320",
+  "interpretation": "Completed intake with signed source and reference extraction. Current graph/fit results are accounted separately. Shared detections across core halos occur in these row counts.",
+  "remaining_intake_planning": {
+    "remaining": 14754,
+    "without_minimum_calibrators": 0,
+    "using_pooled_latitude_or_without_calibrators": 455,
+    "strata": [
+      {
+        "stripe": false,
+        "load_bin": 0,
+        "remaining": 1102,
+        "same_stratum_receipts": 3,
+        "receipts_used": 3
+      },
+      {
+        "stripe": false,
+        "load_bin": 1,
+        "remaining": 5151,
+        "same_stratum_receipts": 37,
+        "receipts_used": 37
+      },
+      {
+        "stripe": false,
+        "load_bin": 2,
+        "remaining": 5733,
+        "same_stratum_receipts": 288,
+        "receipts_used": 288
+      },
+      {
+        "stripe": false,
+        "load_bin": 3,
+        "remaining": 2119,
+        "same_stratum_receipts": 72,
+        "receipts_used": 72
+      },
+      {
+        "stripe": false,
+        "load_bin": 4,
+        "remaining": 454,
+        "same_stratum_receipts": 0,
+        "receipts_used": 7
+      },
+      {
+        "stripe": true,
+        "load_bin": 1,
+        "remaining": 1,
+        "same_stratum_receipts": 0,
+        "receipts_used": 37
+      },
+      {
+        "stripe": true,
+        "load_bin": 2,
+        "remaining": 17,
+        "same_stratum_receipts": 5,
+        "receipts_used": 5
+      },
+      {
+        "stripe": true,
+        "load_bin": 3,
+        "remaining": 133,
+        "same_stratum_receipts": 69,
+        "receipts_used": 69
+      },
+      {
+        "stripe": true,
+        "load_bin": 4,
+        "remaining": 44,
+        "same_stratum_receipts": 7,
+        "receipts_used": 7
+      }
+    ],
+    "supported_remaining_worker_hours": [
+      525.1257646090564,
+      677.2225627977582,
+      882.3868588701281
+    ],
+    "supported_remaining_intake_node_hours_at_2p2_billed_threads_per_worker": [
+      4.512799539609079,
+      5.8198813990432345,
+      7.583012068415164
+    ],
+    "supported_remaining_input_TiB": [
+      4.3091961211255985,
+      4.705872496030797,
+      5.1702203663322015
+    ],
+    "scope": "Intake only. Three descriptive forecasts use P25/P50/P75 completed worker wall/byte rates within observed CCD-load and Stripe strata. Scale 1+nmeas/200000 from the halo rectangle. 2.2 is the actual shared reservation for a regular 10-worker/40GiB job; not an invoice. Live dense stragglers can exceed these rates. Output, graph, retries, and missing strata are additional."
+  }
 }

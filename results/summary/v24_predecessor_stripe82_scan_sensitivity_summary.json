@@ -1,0 +1,32 @@
+{
+  "scope": "frozen-v22-predecessor",
+  "by_magnitude": {
+    "21": {
+      "n": 96,
+      "difference_all_minus_earliest": 0.349018324078731,
+      "paired_object_interval": [
+        -0.8306326365335485,
+        1.314773665923715
+      ],
+      "actual_leave_one_core_range": [
+        -0.025907418237798296,
+        0.9966304139056312
+      ],
+      "cores": 4
+    },
+    "22": {
+      "n": 96,
+      "difference_all_minus_earliest": 2.147122312914032,
+      "paired_object_interval": [
+        -0.8780163298185711,
+        4.663268831409873
+      ],
+      "actual_leave_one_core_range": [
+        1.5609558541363917,
+        2.6873219683037206
+      ],
+      "cores": 4
+    }
+  },
+  "interpretation": "Paired radial P68 difference (mas/yr). Intervals resample fixed stars conditional on the fields. Leave-one-core sensitivity includes shared early observations and has few regions."
+}

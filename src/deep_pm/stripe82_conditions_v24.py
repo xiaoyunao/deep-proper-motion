@@ -58,7 +58,37 @@ def readout(directory):
               "for HLC parents lacking a blind ground fit."))
 
 
+def scan_sensitivity(directory):
+    proof=json.loads((directory/"v24_stripe82_scan_ablation_summary.json").read_text())
+    pair=directory/"private_run_ablation_results.parquet"
+    parent=directory/"private_pairs.parquet"
+    original=json.loads((directory/"v24_stripe82_comparison_summary.json").read_text())
+    if digest(pair)!=proof["private_result_sha256"] or digest(parent)!=original["pair_sha256"]:
+        raise ValueError("Changed ablation or identity input")
+    frame=pd.read_parquet(pair).merge(pd.read_parquet(parent,columns=["identity","origin_core"]),on="identity",validate="one_to_one")
+    if len(frame)!=proof["rows"]:raise ValueError("Missing paired star")
+    rng=np.random.default_rng(240082)
+    stats={}
+    for lo in (21,22):
+        group=frame[frame.r.between(lo,lo+1,inclusive="left")]
+        rad=np.array([np.hypot(group[m+"_e"]-group.pm_e,group[m+"_n"]-group.pm_n) for m in ("all","first")])
+        if len(group)<2:continue
+        def difference(ix):
+            a,b=np.quantile(rad[:,ix],.68,axis=-1)
+            return a-b
+        resampled=rng.integers(0,len(group),size=(2000,len(group)))
+        leave=[float(difference(group.origin_core.to_numpy()!=key)) for key in sorted(group.origin_core.unique())
+               if (group.origin_core!=key).any()]
+        stats[str(lo)]=dict(n=len(group),difference_all_minus_earliest=float(difference(np.arange(len(group)))),
+                            paired_object_interval=np.quantile(difference(resampled),[.025,.975]),
+                            actual_leave_one_core_range=[min(leave),max(leave)] if leave else None,cores=group.origin_core.nunique())
+    save_json(directory/"v24_stripe82_scan_sensitivity_summary.json",dict(scope=proof["scope"],by_magnitude=stats,
+              interpretation="Paired radial P68 difference (mas/yr). Intervals resample fixed stars conditional on the fields. "
+              "Leave-one-core sensitivity includes shared early observations and has few regions."))
+
+
 if __name__=="__main__":
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument("directory",type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument("directory",type=Path);p.add_argument("--scan-sensitivity",action="store_true");a=p.parse_args()
     if not os.getenv("SLURM_JOB_ID"):p.error("Use assigned Slurm CPUs")
-    readout(a.directory)
+    if a.scan_sensitivity:scan_sensitivity(a.directory)
+    else:readout(a.directory)

@@ -23,6 +23,10 @@ SDSS_COLUMNS = ("objID,run,rerun,camcol,field,ra,dec,raErr,decErr,TAI_r,psfMag_r
                 "psfMag_g,psfMag_i,resolveStatus,type,flags,nChild,offsetRa_r,offsetDec_r,airmass_r,psffwhm_r,mjd")
 
 
+class SlowTapJoin(RuntimeError):
+    """A timed-out measurement/object join can be served through the object index."""
+
+
 def request(service, query):
     # Cached scientific replay must not import the optional network stack.
     import requests
@@ -49,6 +53,10 @@ def request(service, query):
             frame = pd.read_csv(BytesIO(data), keep_default_na=True)
             return frame, data
         except (requests.RequestException, ValueError) as exc:
+            if (isinstance(exc, requests.exceptions.ReadTimeout) and service == "tap"
+                    and os.getenv("DPM_NSC_TRANSPORT") == "counted-tap"
+                    and " FROM nsc_dr2.meas m JOIN nsc_dr2.object o ON m.objectid=o.id WHERE " in query):
+                raise SlowTapJoin("TAP read timeout on a measurement/object join") from exc
             if attempt == 2:
                 raise RuntimeError(f"{service} query failed: {query[:140]}") from exc
             time.sleep(2 ** attempt)

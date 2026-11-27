@@ -1,0 +1,160 @@
+"""Same-HLC, common-epoch stellar validation of an explicitly versioned frozen catalogue."""
+import argparse
+import json
+import os
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from scipy.spatial import cKDTree
+from scipy.stats import norm
+
+from .exposure_catalogues import coordinates, inside
+from .io import digest, save_json
+
+EDGES = (16, 18, 19, 20, 21, 21.5, 22, 22.5, 23, 24)
+METHODS = ("ours", "xiao", "nsc")
+ARCSEC = 180 * 3600 / np.pi
+
+
+def nearest(query, catalogue):
+    """Two angular distances and nearest index, including the one-object case."""
+    distances, indices = cKDTree(catalogue).query(query, k=2)
+    good = np.isfinite(distances)
+    distances[good] = 2 * np.arcsin(np.minimum(1., distances[good] / 2)) * ARCSEC
+    return indices[:, 0], distances
+
+
+def pair(stars, other):
+    if not len(stars) or not len(other):
+        return (np.empty(0, int),) * 2
+    h = coordinates(stars.ra, stars.dec)
+    c = coordinates(other.ra, other.dec)
+    forward, fd = nearest(h, c)
+    reverse, rd = nearest(c, h)
+    idx = np.flatnonzero((fd[:, 0] <= .7) & (fd[:, 1] - fd[:, 0] >= .3))
+    j = forward[idx]
+    keep = (reverse[j] == idx) & (rd[j, 1] - rd[j, 0] >= .3) & other.valid.to_numpy()[j]
+    return idx[keep], j[keep]
+
+
+def stage(db, directory, name, query):
+    dest = directory / name
+    db.execute(f"COPY (SELECT *,floor(ra)::INTEGER sector FROM ({query}) q) "
+               f"TO '{dest}' (FORMAT PARQUET, PARTITION_BY (sector), COMPRESSION ZSTD, OVERWRITE_OR_IGNORE)")
+    return dest
+
+
+def sector(directory, centre):
+    files = [p for i in (-1, 0, 1)
+             for p in (directory / f"sector={(centre+i)%360}").glob("*.parquet")]
+    if not files:
+        return pd.DataFrame()
+    df = pd.concat([pd.read_parquet(p) for p in files],ignore_index=True)
+    # The equatorial strip has cos(dec)>0.99. 36 arcsec padding includes competitors
+    # in both directions that can affect either the 0.7 or the 0.3 arcsec decision.
+    return df.loc[abs((df.ra - centre - .5 + 180) % 360 - 180) <= .51].reset_index(drop=True)
+
+
+def binomial(k, n):
+    if n == 0:
+        return dict(n=0, k=0)
+    z = norm.ppf(.975)
+    p = k/n
+    centre = (p+z*z/(2*n))/(1+z*z/n)
+    width = z*np.sqrt(p*(1-p)/n+z*z/(4*n*n))/(1+z*z/n)
+    return dict(n=int(n), k=int(k), rate=p, wilson95=[max(0.,centre-width),min(1.,centre+width)])
+
+
+def stats(df, method):
+    d = df[[method+"_e",method+"_n"]].to_numpy() - df[["pm_e","pm_n"]].to_numpy()
+    if not len(d):
+        return dict(n=0)
+    r = np.hypot(*d.T)
+    med = np.median(d,axis=0)
+    return dict(n=len(d),median=med.tolist(),nmad=(1.4826*np.median(abs(d-med),axis=0)).tolist(),
+                radial_p68=float(np.quantile(r,.68)),tail_gt20=binomial(int((r>20).sum()),len(r)))
+
+
+def comparison(df):
+    ok = {m:df[m+"_e"].notna() for m in METHODS}
+    common = df.loc[ok["ours"] & ok["xiao"] & ok["nsc"]]
+    return dict(parent=len(df),matched={m:binomial(int(g.sum()),len(df)) for m,g in ok.items()},
+                common=len(common),delta_to_hlc={m:stats(common,m) for m in METHODS},
+                hlc_median_pm_errors=(common[["se_e","se_n"]].median().tolist() if len(common) else None))
+
+
+def run(base, catalogue, plan, output, version, workers):
+    work=base/"v2.4"
+    output.mkdir(exist_ok=True,parents=True)
+    receipts=[work/"s82/v24_s82_parent_summary.json",work/"s82-nsc/v24_nsc_epoch_input_summary.json",
+              work/"s82-xiao-epoch/v24_xiao_epoch_input_summary.json", plan]
+    ticket=dict(inputs=[digest(p) for p in receipts],catalogue_stat=[catalogue.stat().st_size,catalogue.stat().st_mtime_ns],
+                protocol=json.loads(receipts[0].read_text())["protocol_sha256"],implementation=digest(Path(__file__)),version=version)
+    state=output/"private_input_signature.json"
+    if state.exists() and json.loads(state.read_text())!=ticket:
+        raise ValueError("Changed scientific comparison inputs, use a separate version directory")
+    save_json(state,ticket)
+    complete=output/"v24_stripe82_comparison_summary.json"
+    if complete.exists() and digest(output/"private_pairs.parquet")==json.loads(complete.read_text())["pair_sha256"]:
+        return
+    import duckdb
+    db=duckdb.connect()
+    db.execute(f"SET threads={workers}")
+    db.execute("SET memory_limit='6GB'")
+    db.execute(f"ATTACH '{catalogue}' AS scientific (READ_ONLY)")
+    queries={"hlc":f"SELECT * FROM read_parquet('{work}/s82/private_hlc_*.parquet') WHERE has_position",
+             "ours":"SELECT src AS external,ra_deg AS ra,dec_deg AS dec,TRUE AS valid,pm_e,pm_n,se_e,se_n,sdss_runs,nsc_span,joint_span,nsc_nights FROM scientific.accepted WHERE abs(dec_deg)<=2.2 AND (ra_deg<53 OR ra_deg>=307)",
+             "xiao":f"SELECT * FROM read_parquet('{work}/s82-xiao-epoch/private_xiao_*.parquet')",
+             "nsc":f"SELECT * FROM read_parquet('{work}/s82-nsc/private_nsc_*.parquet')"}
+    directories={k:stage(db,output,k,q) for k,q in queries.items()}
+    spec=[row["spec"] for row in json.loads(plan.read_text())["cores"]]
+    parts=[]
+    for centre in list(range(53))+list(range(307,360)):
+        stars=sector(directories["hlc"],centre)
+        if not len(stars):continue
+        h=coordinates(stars.ra,stars.dec)
+        _,separations=nearest(h,h)
+        stars["neighbour"]=separations[:,1]
+        for m in METHODS:
+            other=sector(directories[m],centre)
+            i,j=pair(stars,other)
+            for source,target in (("pm_e",m+"_e"),("pm_n",m+"_n"),("se_e",m+"_se"),("se_n",m+"_sn")):
+                stars[target]=np.nan
+                if len(i):stars.loc[i,target]=other[source].to_numpy()[j]
+            if m=="ours":
+                for key in ("sdss_runs","nsc_span","joint_span","nsc_nights"):
+                    stars[key]=np.nan
+                    if len(i):stars.loc[i,key]=other[key].to_numpy()[j]
+        stars=stars.loc[stars.parent & (np.floor(stars.ra)==centre)].copy()
+        region=np.zeros(len(stars),bool)
+        for s in spec:
+            if s["dec"][0]<=2.2 and s["dec"][1]>=-2.2 and ((s["ra"][0]-centre+180)%360-180)<2 and ((s["ra"][1]-centre+180)%360-180)>-2:
+                region |= inside(stars.ra,stars.dec,s).to_numpy()
+        stars["in_nominal"]=region
+        parts.append(stars)
+    all_stars=pd.concat(parts,ignore_index=True)
+    if all_stars.identity.duplicated().any() or len(all_stars)!=json.loads(receipts[0].read_text())["parent"]:
+        raise ValueError("Stripe 82 HLC parent count or unique source identity did not close")
+    pairpath=output/"private_pairs.parquet"
+    all_stars.to_parquet(pairpath,index=False,compression="zstd")
+    sample=all_stars[all_stars.in_nominal]
+    result=dict(scope=version,area_definition="Nominal frozen owner rectangles. Parent from full HLC before any ground matching.",
+                input_signature=digest(state),pair_sha256=digest(pairpath),all_hlc_parent=len(all_stars),in_nominal=len(sample),
+                total=comparison(sample),magnitude={},condition={})
+    for lo,hi in zip(EDGES,EDGES[1:]):
+        result["magnitude"][f"{lo:g}-{hi:g}"]=comparison(sample[(sample.r>=lo)&(sample.r<hi)])
+    for key,edges in (("sdss_runs",(1,2,5,np.inf)),("joint_span",(0,10,15,20,np.inf)),
+                      ("nsc_span",(0,2,4,6,np.inf)),("nsc_nights",(0,5,10,30,np.inf)),
+                      ("colour",(-np.inf,.5,1,2,np.inf)),("neighbour",(0,2,5,10,np.inf))):
+        result["condition"][key]={f"{lo:g}-{hi:g}":comparison(sample[(sample[key]>=lo)&(sample[key]<hi)]) for lo,hi in zip(edges,edges[1:])}
+    save_json(complete,result)
+
+
+if __name__=="__main__":
+    p=argparse.ArgumentParser(description=__doc__)
+    for name in ("base","catalogue","plan","output"):p.add_argument(name,type=Path)
+    p.add_argument("version")
+    args=p.parse_args()
+    if not os.getenv("SLURM_JOB_ID"):p.error("Use a Slurm compute node")
+    run(**vars(args),workers=int(os.environ["SLURM_CPUS_PER_TASK"]))

@@ -46,7 +46,9 @@ def read_sdss_sas(root, center, radius, workers=1):
     with fits.open(index_path, memmap=True) as hdus:
         fields = hdus[1].data
         dra = (fields["RA"] - center[0] + 180) % 360 - 180
-        box = (abs(dra) < margin/np.cos(np.deg2rad(abs(center[1])+margin)))
+        max_lat = abs(center[1])+margin
+        box = (np.ones(len(dra),dtype=bool) if max_lat >= 90 else
+               abs(dra) < margin/np.cos(np.deg2rad(max_lat)))
         box &= abs(fields["DEC"] - center[1]) < margin
         locations = fields[box]
         in_radius = np.linalg.norm(project(locations["RA"], locations["DEC"], center), axis=1)

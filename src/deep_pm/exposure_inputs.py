@@ -12,7 +12,7 @@ import pandas as pd
 from . import access
 from .__main__ import standardize, tomllib
 from .exposure_catalogues import inside
-from .exposure_preflight import where_box
+from .exposure_preflight import where_box, longitude_bounds
 from .io import save_json
 from .provenance import run_stage
 from .regional_inputs import GAIA_COLUMNS
@@ -22,7 +22,7 @@ from .sdss_sas import read_sdss_sas
 def tap_rectangle(box, halo=0., alias=""):
     west,east=box["ra"]
     south,north=box["dec"]
-    return (f"{alias}ra >= {west-halo:.9f} AND {alias}ra < {east+halo:.9f} "
+    return (longitude_bounds(west-halo,east+halo,alias)+" "
             f"AND {alias}dec >= {south-halo:.9f} AND {alias}dec < {north+halo:.9f}")
 
 
@@ -60,7 +60,7 @@ def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=300
         if service == "nsc":
             mid = (low+high)/2
             radius = np.linalg.norm(high-low)/2+.003
-            where = (f"q3c_radial_query(o.ra,o.dec,{mid[0]:.10f},{mid[1]:.10f},{radius:.10f}) AND "+where)
+            where = (f"q3c_radial_query(o.ra,o.dec,{mid[0]%360:.10f},{np.clip(mid[1],-90,90):.10f},{radius:.10f}) AND "+where)
         try:
             if service == "nsc" and native_window:
                 return cache.checked_native_window(select,table,where,cap=answer_cap)
@@ -72,7 +72,9 @@ def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=300
             rc[axis]=lc[axis]=cut
             return pd.concat([receive((low,lc)),receive((rc,high))],ignore_index=True)
 
-    split(np.array([lo,south]),np.array([hi,north]),archive[["ra","dec","ndet"]],True)
+    partition_data=archive[["ra","dec","ndet"]].copy()
+    partition_data["ra"]=(partition_data.ra-lo+1.e-10)%360+lo-1.e-10
+    split(np.array([lo,south]),np.array([hi,north]),partition_data,True)
     print(f"{service} expected measurement partitions: {len(partitions)}",flush=True)
     parts=[]
     with ThreadPoolExecutor(max_workers=workers) as pool:
@@ -125,8 +127,8 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     if returned-requested:
         raise ValueError("NSC returned measurements outside the requested archive IDs")
     missing=sorted(requested-returned)
-    for start in range(0,len(missing),250):
-        check="objectid IN ("+",".join(map(access.literal,missing[start:start+250]))+")"
+    for offset in range(0,len(missing),250):
+        check="objectid IN ("+",".join(map(access.literal,missing[offset:offset+250]))+")"
         if len(cache.checked(route,"objectid","nsc_dr2.meas",check)):
             raise ValueError("Object IDs absent from batches have published measurement rows")
     print(f"{len(missing):,} archive objects have no matching rows in meas",flush=True)

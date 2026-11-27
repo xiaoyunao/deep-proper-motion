@@ -95,12 +95,14 @@ def extract_one(task):
     frame[['sigma_e','sigma_n']] = sigma[ix]
     frame['source_core'] = entry['core']
     frame.to_parquet(output/'reference.parquet', index=False, compression='zstd')
-    old = pd.read_csv(entry['old_shard'],usecols=['detection_id'],dtype=str).detection_id
-    original, current = set(old), set(frame.detection_id)
+    historical = entry.get('old_shard')
+    original = (set(pd.read_csv(historical,usecols=['detection_id'],dtype=str).detection_id)
+                if historical is not None else set())
+    current = set(frame.detection_id)
     result = dict(ticket=ticket, core=entry['core'], measurements=len(frame), reference_sources=frame.reference.nunique(),
         training_sources=frame.loc[~frame.is_holdout].reference.nunique(), holdout_sources=frame.loc[frame.is_holdout].reference.nunique(),
-        groups=frame.group.nunique(), old_measurements=len(old), same_detection_count=len(original&current),
-        added_detection_count=len(current-original), exited_detection_count=len(original-current),
+        groups=frame.group.nunique(), old_measurements=len(original) if historical else None, same_detection_count=len(original&current) if historical else None,
+        added_detection_count=len(current-original) if historical else None, exited_detection_count=len(original-current) if historical else None,
         parquet_sha256=digest(output/'reference.parquet'), input_detections=len(data),
         elapsed_seconds=monotonic()-start, peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
         slurm_job=os.environ['SLURM_JOB_ID'],

@@ -1,0 +1,25 @@
+import sqlite3
+
+import pandas as pd
+from deep_pm.exposure_preflight import longitude_bounds
+from deep_pm.footprint_manifest_v24 import minus_old
+from deep_pm.stripe82_comparison_v24 import pair
+
+
+def test_meridian_count_predicate():
+    db=sqlite3.connect(":memory:")
+    db.execute("CREATE TABLE test(ra REAL)")
+    db.executemany("INSERT INTO test VALUES (?)",[(359.9,),(.1,),(.6,),(100.,)])
+    assert db.execute("SELECT count(*) FROM test WHERE "+longitude_bounds(-.2,.6)).fetchone()==(2,)
+
+
+def test_owner_rectangle_subtraction():
+    new=minus_old(2,0,[(2.25,2.75,.2,.9)])
+    assert abs(sum((e-w)*(n-s) for w,e,s,n in new)-.65)<1e-12
+
+
+def test_both_directions_have_to_be_unique():
+    hlc=pd.DataFrame(dict(ra=[359.99999,.00001,1.],dec=[0.,0.,0.]))
+    other=pd.DataFrame(dict(ra=[0.,1.],dec=[0.,0.],valid=[True,True]))
+    i,j=pair(hlc,other)
+    assert i.tolist()==[2] and j.tolist()==[1]

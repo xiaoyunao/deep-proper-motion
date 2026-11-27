@@ -27,12 +27,26 @@ def subboxes(box):
             yield dict(ra=[a,a+2],dec=[d,d+2])
 
 
+def longitude_bounds(west, east, alias=""):
+    """An ordered, unwrapped interval in canonical archive longitudes."""
+    width = east - west
+    if not 0 < width <= 360:
+        raise ValueError("Invalid longitude interval")
+    if width == 360:
+        return "1=1"
+    lo = west % 360
+    hi = lo + width
+    column = alias + "ra"
+    if hi <= 360:
+        return f"({column}>={lo:.9f} AND {column}<{hi:.9f})"
+    return f"({column}>={lo:.9f} OR {column}<{hi-360:.9f})"
+
+
 def where_box(box, halo=0):
     ra,dec=box["ra"],box["dec"]
     center=np.mean(ra),np.mean(dec)
     radius=np.hypot(np.ptp(ra)/2+halo,np.ptp(dec)/2+halo)+.002
-    return (access.q3c(*center,radius)+" AND "
-            f"ra >= {ra[0]-halo:.6f} AND ra < {ra[1]+halo:.6f} "
+    return (access.q3c(center[0]%360,center[1],radius)+" AND "+longitude_bounds(ra[0]-halo,ra[1]+halo)+" "
             f"AND dec >= {dec[0]-halo:.6f} AND dec < {dec[1]+halo:.6f}")
 
 

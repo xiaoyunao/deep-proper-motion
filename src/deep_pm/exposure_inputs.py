@@ -26,7 +26,7 @@ def tap_rectangle(box, halo=0., alias=""):
             f"AND {alias}dec >= {south-halo:.9f} AND {alias}dec < {north+halo:.9f}")
 
 
-def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False):
+def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False):
     """Partition on archive positions, then verify every joined measurement count."""
     table="nsc_dr2.meas m JOIN nsc_dr2.object o ON m.objectid=o.id"
     select=",".join("m."+k for k in access.MEAS.split(","))
@@ -76,11 +76,20 @@ def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=300
     partition_data["ra"]=(partition_data.ra-lo+1.e-10)%360+lo-1.e-10
     split(np.array([lo,south]),np.array([hi,north]),partition_data,True)
     print(f"{service} expected measurement partitions: {len(partitions)}",flush=True)
-    parts=[]
+    if workers == 1:
+        for i,bounds in enumerate(partitions,1):
+            part=receive(bounds)
+            print(f"{service} verified measurements partition {i}/{len(partitions)}: {len(part):,}",flush=True)
+            yield part
+        return
     with ThreadPoolExecutor(max_workers=workers) as pool:
         for i,part in enumerate(pool.map(receive,partitions),1):
-            parts.append(part)
             print(f"{service} verified measurements partition {i}/{len(partitions)}: {len(part):,}",flush=True)
+            yield part
+
+
+def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False):
+    parts=joined_pages(cache,archive,box,halo,service,workers,native_cap,native_window,all_objects,complement_r)
     result=pd.concat(parts,ignore_index=True)
     if result.measid.duplicated().any():
         raise RuntimeError("Duplicate measurement IDs in disjoint archive bins")

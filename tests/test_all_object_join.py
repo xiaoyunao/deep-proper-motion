@@ -1,5 +1,5 @@
 import pandas as pd
-from deep_pm.exposure_inputs import tap_join
+from deep_pm.exposure_inputs import joined_pages, tap_join
 
 
 def test_all_object_join_removes_r_selection_without_changing_legacy_default():
@@ -13,6 +13,9 @@ def test_all_object_join_removes_r_selection_without_changing_legacy_default():
     old=Cache();new=Cache()
     a=tap_join(old,archive,**options);b=tap_join(new,archive,all_objects=True,**options)
     assert a.equals(b)
+    warmed=Cache()
+    streamed=pd.concat(joined_pages(warmed,archive,all_objects=True,**options),ignore_index=True)
+    assert warmed.conditions==new.conditions and streamed.equals(b)
     assert 'o.ndetr>0' in old.conditions[0] and 'o.rmag<24' in old.conditions[0]
     assert 'ndetr' not in new.conditions[0] and 'rmag' not in new.conditions[0]
     assert 'o.ra' in new.conditions[0] and 'q3c_radial_query' in new.conditions[0]

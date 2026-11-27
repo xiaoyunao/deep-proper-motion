@@ -51,8 +51,8 @@ class ValidationPolicyTest(unittest.TestCase):
         archive=pd.DataFrame(dict(ra=[350.1,351.0],dec=[0.1,0.2],ndet=[50000,50000]))
         result=tap_join(cache,archive,dict(ra=[350.,352.],dec=[0.,1.]),0.)
         self.assertEqual(len(result),2)
-        self.assertTrue(any("o.ra < 351.000000000" in row[2] for row in cache.queries))
-        self.assertTrue(any("o.ra >= 351.000000000" in row[2] for row in cache.queries))
+        self.assertTrue(any("(o.ra - 360*FLOOR(o.ra/360.0))<351.000000000" in row[2] for row in cache.queries))
+        self.assertTrue(any("(o.ra - 360*FLOOR(o.ra/360.0))>=351.000000000" in row[2] for row in cache.queries))
         self.assertTrue(all(row[0]=="tap" and "m.objectid=o.id" in row[1] for row in cache.queries))
 
     def test_native_window_accepts_a_complete_result_and_reuses_it(self):

@@ -101,3 +101,5 @@
 !/results/summary/v24_predecessor_stripe82_comparison_summary.json.gz
 !/figures/v24/F5_stripe82.pdf
 !/figures/v24/F5_stripe82.png
+
+!scripts/run-v24-dense-core.py

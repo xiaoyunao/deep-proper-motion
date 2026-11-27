@@ -39,7 +39,11 @@ def flux_profile(data,sigma,psf):
     """Positive point flux and an unconstrained local background; no flux prior."""
     w=1/np.asarray(sigma)**2;y=np.asarray(data);p=np.asarray(psf)
     normal=np.array([[np.sum(w*p*p),np.sum(w*p)],[np.sum(w*p),np.sum(w)]])
-    rhs=np.array([np.sum(w*p*y),np.sum(w*y)]);answer=np.linalg.solve(normal,rhs)
+    rhs=np.array([np.sum(w*p*y),np.sum(w*y)])
+    if normal[0,0]<=0 or np.linalg.det(normal)<=1e-14*normal[0,0]*normal[1,1]:
+        background=rhs[1]/normal[1,1]
+        return (y-background)/sigma,0.,float(background),1e30
+    answer=np.linalg.solve(normal,rhs)
     if answer[0]<0:answer=np.array([0.,rhs[1]/normal[1,1]])
     residual=(y-answer[0]*p-answer[1])/sigma
     return residual,float(answer[0]),float(answer[1]),float(np.sqrt(np.linalg.inv(normal)[0,0]))

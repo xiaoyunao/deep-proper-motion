@@ -24,3 +24,15 @@ def test_joint_free_motion_does_not_duplicate_late_information_and_recovers_comm
     # A shared coordinate translation moves the state position, not PM.
     np.testing.assert_allclose(response[:,[0,2]],-draws,atol=.03);np.testing.assert_allclose(response[:,[1,3]],0,atol=.005)
     profile=model.profiles(fit,axes=(1,),levels=(1.,));lo,hi=profile['1']['1.0'];assert lo<state[1]<hi
+
+
+def test_empty_template_has_no_false_flux_information_and_single_epoch_has_no_pm():
+    y,x=np.indices((13,13));x=x.ravel();y=y.ravel()
+    residual,flux,background,error=flux_profile(np.full(len(x),3.),np.ones(len(x)),np.zeros(len(x)))
+    assert flux==0 and error>1e20
+    np.testing.assert_allclose(residual,0)
+    cut=Cut(100*Gaussian().sample(6.1,5.9,x,y)+3,np.full(len(x),.1),x,y,np.array([6.,6.]),np.eye(2)/396,np.zeros(2),2001.,Gaussian(),'one',1)
+    result=JointPixels([cut],[],[],[],epoch=2001.).fit([0,0,0,0],starts=False)
+    assert not result['fully_identified']
+    assert result['identifiable_state_axes'].tolist()==[True,False,True,False]
+    np.testing.assert_allclose(result['state'][[0,2]],[39.6,-39.6],atol=.01)

@@ -13,10 +13,10 @@ from .io import digest,save_json
 from .public_summary import check_aggregate
 
 
-def fit_case(row,factory,position=None,profile=True):
+def fit_case(row,factory,position=None,profile=True,prepared=None):
     start=monotonic();result=dict(frozen_index=int(row['frozen_index']),category=row['category'],r0=row['r0'],late_status=row['status'])
     if row['status']!='conditional_late_association':return dict(result,status='no_unique_supported_late_trajectory')
-    cuts,ref,reg,meta,unsupported=factory.make(row,position=position,require_tie=False)
+    cuts,ref,reg,meta,unsupported=prepared if prepared is not None else factory.make(row,position=position,require_tie=False)
     result.update(early_physical_runs=len(cuts),early_fields=meta,early_exits=unsupported,late_detections=len(row['late_time']),late_year_span=float(np.ptp(row['late_time'])),all_frame_ties_independently_supported=bool(cuts and all(v['independent_frame_tie_pass'] for v in meta)))
     if not cuts:return dict(result,status='no_early_pixel_opportunity',elapsed_seconds=monotonic()-start)
     latexy=np.asarray(row['late_xy']);latetime=np.asarray(row['late_time']);latecov=np.asarray(row['late_covariance']);initial=np.asarray(row['late_only_state']);model=JointPixels(cuts,latexy,latetime,latecov);fit=model.fit(initial)
@@ -56,7 +56,7 @@ def pilot(base,root):
     for row in selected:
         result=fit_case(row,factory);results.append(result);print('V23_REAL_PIXEL_PILOT',row['frozen_index'],result['status'],result.get('early_physical_runs'),result.get('information_gate_pass'),result.get('elapsed_seconds'),flush=True)
     out=root/'pixels';write_rows(out/'private_real_pilot.json.gz',results)
-    summary=dict(frozen_forty_late_sha256=digest(file),cases=[{k:v for k,v in r.items() if k in ['category','r0','status','early_physical_runs','late_detections','target_vs_early_empty_delta_chi2','profile_flux_SNR','early_position_68_ellipse_major_mas','conditional_slope_variance_improvement','information_gate_pass','adoption_gate_pass','all_frame_ties_independently_supported','elapsed_seconds']} for r in results],slurm_job=os.environ['SLURM_JOB_ID'],scope='Three metadata/frozen-index chosen real pilots; no tuning from target PM. Not the40-object validation, injection or empty-position acceptance. Independently unsupported frame ties prohibit adoption even with localization information.')
+    summary=dict(frozen_forty_late_sha256=digest(file),pilot_total=len(results),pilot_computed=sum(r['status']=='computed' for r in results),pilot_information_pass=sum(r.get('information_gate_pass',False) for r in results),pilot_adoption_pass=sum(r.get('adoption_gate_pass',False) for r in results),total_fit_seconds=sum(r.get('elapsed_seconds',0) for r in results),slurm_job=os.environ['SLURM_JOB_ID'],scope='Metadata/frozen-index real pilots; no tuning from target PM. Only counts/runtime public. Not forty-object validation or control acceptance. Unsupported frame ties prohibit adoption.')
     check_aggregate(summary);save_json(out/'v23_real_pixel_pilot_summary.json',summary)
 
 if __name__=='__main__':

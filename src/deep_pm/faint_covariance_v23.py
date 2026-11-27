@@ -1,5 +1,6 @@
 """Decompose the frozen v2.2 estimator; never change weights or point values."""
 import numpy as np
+import pandas as pd
 from .coordinate_metric import covariance_of_estimator,native_covariance,projected_covariance,reference_covariance
 from .full_coordinate_sources import saved_reference_response
 from .precision_v03 import calibration_groups
@@ -15,10 +16,24 @@ def components(h,covariance,weight,tags,jacobian):
 
 
 def decompose(row,data,time,sigma,solution):
-    h,ix=saved_reference_response(row,data,time,sigma)
+    # Only the frozen source's members enter its estimator. Rebuilding the
+    # complete core's string group/index arrays for every source is needless.
+    # The original helper still computes H on exactly the same ordered rows.
+    if '_v23_member_index' not in data.attrs:
+        data.attrs['_v23_member_index']=pd.Index(data.detection_id)
+        data.attrs['_v23_groups']=calibration_groups(data)
+    ix=data.attrs['_v23_member_index'].get_indexer(row['detection_ids'])
+    if np.any(ix<0):raise ValueError('Frozen covariance member missing')
+    h,local=saved_reference_response(row,data.iloc[ix],time[ix],sigma[ix])
+    np.testing.assert_array_equal(local,np.arange(len(ix)))
+    if '_v23_H_equivalence_checked' not in data.attrs:
+        original,original_ix=saved_reference_response(row,data,time,sigma)
+        np.testing.assert_array_equal(original_ix,ix)
+        np.testing.assert_array_equal(original,h)
+        data.attrs['_v23_H_equivalence_checked']=True
     cp=projected_covariance(data.ra_deg.iloc[ix],data.dec_deg.iloc[ix],row['projection_center_deg'],native_covariance(sigma[ix]))
     split,per=components(h,cp,row['robust_weight'],data.survey.iloc[ix].to_numpy(str),row['state_jacobian'])
-    keys=calibration_groups(data)[ix];common,response=reference_covariance(h,np.stack([solution[k][1] for k in keys],axis=1))
+    keys=data.attrs['_v23_groups'][ix];common,response=reference_covariance(h,np.stack([solution[k][1] for k in keys],axis=1))
     j=np.asarray(row['state_jacobian']);common=(j@common@j.T)[np.ix_([1,3],[1,3])];response=response@j.T
     independent=np.sum(list(split.values()),axis=0);total=independent+common
     target=np.asarray(row['covariance'])[np.ix_([1,3],[1,3])]

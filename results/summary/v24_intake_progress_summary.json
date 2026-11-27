@@ -1,110 +1,110 @@
 {
   "signed_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
   "registered_new_core_count": 15235,
-  "completed_new_inputs": 2005,
-  "remaining_new_inputs": 13230,
-  "failed_unrepaired_inputs": 80,
-  "input_rectangles_nominal_sqdeg": 1927.8494216926665,
-  "time_opportunity_in_completed_new_inputs_sqdeg": 1392.3141781265642,
-  "input_rows_including_halo": 1286934616,
-  "input_bytes": 863411853557,
-  "reference_rows_including_halo": 169862100,
-  "cores_with_local_reference_rows": 1886,
+  "completed_new_inputs": 2515,
+  "remaining_new_inputs": 12720,
+  "failed_unrepaired_inputs": 280,
+  "input_rectangles_nominal_sqdeg": 2386.701017801857,
+  "time_opportunity_in_completed_new_inputs_sqdeg": 1656.0491558322406,
+  "input_rows_including_halo": 1578779381,
+  "input_bytes": 1062647082509,
+  "reference_rows_including_halo": 194016718,
+  "cores_with_local_reference_rows": 2341,
   "core_rows_p10_p50_p90": [
-    161211.0,
-    334641.0,
-    1277596.2000000002
+    125120.4,
+    339899.0,
+    1276522.5999999999
   ],
-  "worker_seconds_sum": 740125.7111162231,
-  "peak_individual_rss_mib": 21440.5859375,
-  "slurm_job": "62097134",
+  "worker_seconds_sum": 872119.8704496609,
+  "peak_individual_rss_mib": 25617.3125,
+  "slurm_job": "62100170",
   "interpretation": "Completed intake with signed source and reference extraction. Current graph/fit results are accounted separately. Shared detections across core halos occur in these row counts.",
   "remaining_intake_planning": {
-    "remaining": 13230,
+    "remaining": 12720,
     "without_minimum_calibrators": 0,
     "using_pooled_latitude_or_without_calibrators": 0,
     "strata": [
       {
         "stripe": false,
         "load_bin": 0,
-        "remaining": 1046,
-        "same_stratum_receipts": 59,
-        "receipts_used": 59
+        "remaining": 1003,
+        "same_stratum_receipts": 102,
+        "receipts_used": 102
       },
       {
         "stripe": false,
         "load_bin": 1,
-        "remaining": 4964,
-        "same_stratum_receipts": 224,
-        "receipts_used": 224
+        "remaining": 4841,
+        "same_stratum_receipts": 347,
+        "receipts_used": 347
       },
       {
         "stripe": false,
         "load_bin": 2,
-        "remaining": 4948,
-        "same_stratum_receipts": 1073,
-        "receipts_used": 1073
+        "remaining": 4740,
+        "same_stratum_receipts": 1281,
+        "receipts_used": 1281
       },
       {
         "stripe": false,
         "load_bin": 3,
-        "remaining": 1737,
-        "same_stratum_receipts": 454,
-        "receipts_used": 454
+        "remaining": 1621,
+        "same_stratum_receipts": 570,
+        "receipts_used": 570
       },
       {
         "stripe": false,
         "load_bin": 4,
-        "remaining": 449,
-        "same_stratum_receipts": 5,
-        "receipts_used": 5
+        "remaining": 439,
+        "same_stratum_receipts": 15,
+        "receipts_used": 15
       },
       {
         "stripe": true,
         "load_bin": 2,
-        "remaining": 15,
-        "same_stratum_receipts": 7,
-        "receipts_used": 7
+        "remaining": 14,
+        "same_stratum_receipts": 8,
+        "receipts_used": 8
       },
       {
         "stripe": true,
         "load_bin": 3,
-        "remaining": 48,
-        "same_stratum_receipts": 154,
-        "receipts_used": 154
+        "remaining": 40,
+        "same_stratum_receipts": 162,
+        "receipts_used": 162
       },
       {
         "stripe": true,
         "load_bin": 4,
-        "remaining": 23,
-        "same_stratum_receipts": 28,
-        "receipts_used": 28
+        "remaining": 22,
+        "same_stratum_receipts": 29,
+        "receipts_used": 29
       }
     ],
     "supported_remaining_worker_hours": [
-      819.0460840119028,
-      1122.5720159564487,
-      1432.5873171978942
+      718.4681962771876,
+      993.0940214822546,
+      1271.8429552806217
     ],
     "supported_remaining_intake_node_hours_at_2p2_billed_threads_per_worker": [
-      7.0386772844772905,
-      9.647103262125734,
-      12.311297257169405
+      6.174336061757082,
+      8.534401747113126,
+      10.929900396942845
     ],
     "supported_remaining_input_TiB": [
-      3.254546698642455,
-      3.7755840512639796,
-      4.134205199934666
+      3.3754979401775125,
+      3.6574588973124036,
+      4.1771636972029516
     ],
     "supported_remaining_halo_detection_rows": [
-      5234240219.2916355,
-      6016582097.064862,
-      6675733352.509675
+      5419025999.377799,
+      5875852667.51226,
+      6739663335.089603
     ],
     "supported_remaining_halo_reference_rows": [
-      479543570.09774786,
-      715911767.4944333,
-      979000393.3607591
+      275454214.28714347,
+      666611236.3159499,
+      913655794.8302437
     ],
     "scope": "Intake only. Three descriptive forecasts use P25/P50/P75 completed worker wall/byte rates within observed CCD-load and Stripe strata. Scale 1+nmeas/200000 from the halo rectangle. 2.2 is the actual shared reservation for a regular 10-worker/40GiB job; not an invoice. Live dense stragglers can exceed these rates. Output, graph, retries, and missing strata are additional."
   }

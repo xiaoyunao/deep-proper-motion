@@ -177,6 +177,9 @@ def acquire(work, spec, settings, catalogues, sas, workers):
             raise ValueError("Conflicting detection IDs or non-r SDSS astrometry")
         delivery=dict(normalized_detections=len(normalized),sdss_r_measurements_preserved=int(normalized.survey.eq("SDSS").sum()),
                       availability_of_historical_r_input=False,new_nsc_measures=None,all_nsc_object_selection=True)
+    if os.environ.get("DPM_NSC_TRANSPORT")=="counted-tap":
+        delivery["archive_transport"]=dict(preference="counted-tap",verified_cache_reads=cache.transport_reads,
+                                            verified_new_queries=cache.transport_writes)
     save_json(work/"acquisition_summary.json",dict(objects=object_count,archive_objects_without_measures=missing_count,
         measurement_route=method,native_count_window=native_window,
         downloaded_nsc_measures=downloaded_count,chip_metadata_entries=chip_count,

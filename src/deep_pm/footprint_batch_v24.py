@@ -24,13 +24,14 @@ def worker(job):
             if receipt.exists():continue
             error=control/(core+".failed.json")
             failures=json.loads(error.read_text()) if error.is_file() else []
-            if sum(f.get("rule")=="canonical" for f in failures)>=2 or any(f["allocation"]==os.environ["SLURM_JOB_ID"] for f in failures):
+            rule="canonical" if os.environ.get("DPM_NSC_TRANSPORT","native")=="native" else "canonical-counted-tap"
+            if sum(f.get("rule")==rule for f in failures)>=2 or any(f["allocation"]==os.environ["SLURM_JOB_ID"] for f in failures):
                 skipped+=1
                 continue
             result=attempt(task)
             if "error" in result:
                 failed+=1
-                failures.append(dict(rule="canonical",allocation=os.environ["SLURM_JOB_ID"],error=result["error"]))
+                failures.append(dict(rule=rule,allocation=os.environ["SLURM_JOB_ID"],error=result["error"]))
                 save_json(error,failures)
             else:
                 result["manifest_sha256"]=task[-1]

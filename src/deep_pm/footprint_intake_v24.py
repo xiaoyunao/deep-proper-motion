@@ -35,11 +35,15 @@ def one(task, revision=None):
     label,spec,base,catalogues,sas,manifest_sha=task
     root=base/"v2.4"
     original=root/"intake"/label
+    transport=os.environ.get("DPM_NSC_TRANSPORT","native")
     prior=original/"run_manifest.json"
     if revision is None and prior.is_file():
         previous=json.loads(prior.read_text())
-        if previous["commit"]!=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip():
-            revision="canonical-longitude"
+        commit=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
+        old_config=original/"config_snapshot.toml"
+        previous_tap=old_config.is_file() and 'archive_transport = "counted-tap"' in old_config.read_text()
+        if previous["commit"]!=commit or previous_tap!=(transport=="counted-tap"):
+            revision=f"acquisition-{commit[:12]}-{transport}"
     work=root/"revisions"/revision if revision is not None else root
     dest=work/"intake"/label
     dest.mkdir(exist_ok=True,parents=True)
@@ -48,6 +52,7 @@ def one(task, revision=None):
     config=dest/"registered.toml"
     text=(f'manifest_sha256 = "{manifest_sha}"\n'+
           '\n'.join(f'{k} = {str(v).lower()}' for k,v in SETTINGS.items())+
+          (f'\narchive_transport = "{transport}"' if transport!="native" else "")+
           f'\n[fields.{label}]\nra = {spec["ra"]}\ndec = {spec["dec"]}\n')
     if config.exists() and config.read_text()!=text:raise ValueError("Changed acquisition configuration")
     config.write_text(text)

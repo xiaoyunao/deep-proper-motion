@@ -95,3 +95,28 @@ class ValidationPolicyTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_counted_tap_reuses_checked_response_and_records_real_transport(tmp_path,monkeypatch):
+    import json
+    from unittest.mock import patch
+    from io import BytesIO
+    import pandas as pd
+    import pytest
+    from deep_pm.access import Cache,PartitionTooLarge
+    monkeypatch.setenv("DPM_NSC_TRANSPORT","counted-tap")
+    calls=[]
+    def request(service,query):
+        calls.append((service,query))
+        raw=b"n\n2\n" if "COUNT(*)" in query else b"measid\na\nb\n"
+        return pd.read_csv(BytesIO(raw)),raw
+    cache=Cache(tmp_path)
+    with patch("deep_pm.access.request",side_effect=request):
+        w="q3c_radial_query(ra,dec,0,1,0.01)"
+        x=cache.checked_native_window("measid","nsc_dr2.meas",w,3)
+        assert x.measid.tolist()==["a","b"]
+        assert len(calls)==2 and all(service=="tap" and "='t'" in q for service,q in calls)
+        assert cache.checked_native_window("measid","nsc_dr2.meas",w,3).equals(x) and len(calls)==2
+        with pytest.raises(PartitionTooLarge):
+            cache.checked_native_window("measid","nsc_dr2.meas",w,1)
+    assert all(json.loads(p.read_text())["transport"]=="NOIRLab TAP" for p in tmp_path.glob("*.json"))

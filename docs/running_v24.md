@@ -91,3 +91,6 @@ full_coordinate_ngc "$work/joint" --history-root "$base"
 
 
 对于已有原生分页缓存、其实际归档测量量远超普通装箱的密集尾段，先在 Slurm 运行 `footprint_dense_v24 BASE START END --workers N`。它复用原查询页，并保留逐核心预取回执。随后为大核心单独请求内存，在原取数 checkout 及其 Python 路径下运行 `scripts/run-v24-dense-core.py BASE CATALOGUES SAS CORE`。正式回执仍由原科学代码签发，普通批次可直接复用。预取回执只证明查询页已返回。
+
+
+原生 Data Lab 接口中断时可用 `DPM_NSC_TRANSPORT=counted-tap`。同一物理矩形和 q3c 索引谓词经官方 TAP 查询，先独立 COUNT，再核对结果行数。过大的分区沿同样的半开边界拆分。已有成功原生页仍按 SHA 核验复用，新页保存实际 ADQL、传输端点及原始 CSV 签名。新传输先用 `footprint_transport_check_v24` 对照独立旧先导。

@@ -1,7 +1,10 @@
 """Small, count-checked public catalogue queries and restartable chunk cache."""
+from collections import Counter
 from hashlib import sha256
 from io import BytesIO
 import json
+import os
+import re
 from pathlib import Path
 import time
 
@@ -55,8 +58,20 @@ class PartitionTooLarge(RuntimeError):
     pass
 
 
+def tap_predicate(query):
+    """ADQL needs an explicit truth comparison for the archive q3c function."""
+    if not query.startswith("SELECT ") or " OVER " in query or " LIMIT " in query:
+        raise ValueError("Only counted archive SELECTs can travel via TAP")
+    return re.sub(r"(q3c_radial_query\([^()]*\))", r"\1='t'", query)
+
+
 class Cache:
     def __init__(self, path):
+        self.native_transport = os.environ.get("DPM_NSC_TRANSPORT", "native")
+        if self.native_transport not in ("native", "counted-tap"):
+            raise ValueError("Unknown NSC archive transport")
+        self.transport_reads = Counter()
+        self.transport_writes = Counter()
         self.path = Path(path)
         self.path.mkdir(parents=True, exist_ok=True)
 
@@ -71,8 +86,12 @@ class Cache:
                 frame = pd.read_csv(BytesIO(data))
                 if (len(frame) == saved["rows"] and (expected is None or len(frame) == expected)
                         and (validate is None or validate(frame))):
+                    if service == "nsc":
+                        self.transport_reads[saved.get("transport","native")] += 1
                     return frame
-        frame, data = request(service, query)
+        transport = "tap" if service == "nsc" and self.native_transport == "counted-tap" else service
+        executed = tap_predicate(query) if transport != service else query
+        frame, data = request(transport, executed)
         if expected is not None and expected != len(frame):
             raise RuntimeError(f"{service}: expected {expected} rows, got {len(frame)} for {key}")
         if validate is not None and not validate(frame):
@@ -81,9 +100,13 @@ class Cache:
         temporary.write_bytes(data)
         temporary.replace(csv)
         metadata = dict(service=service, query=query, rows=len(frame), sha256=sha256(data).hexdigest())
+        if transport != service:
+            metadata.update(transport="NOIRLab TAP", executed_query=executed, endpoint=TAP)
         temporary = meta.with_suffix(".part")
         temporary.write_text(json.dumps(metadata))
         temporary.replace(meta)
+        if service == "nsc":
+            self.transport_writes[metadata.get("transport","native")] += 1
         return frame
 
     def checked(self, service, columns, source, where, cap=30000):
@@ -107,6 +130,11 @@ class Cache:
             if total > cap:
                 raise PartitionTooLarge(f"nsc: partition has {total} rows above explicit cap {cap}")
             return total == len(frame)
+
+        if self.native_transport == "counted-tap":
+            key = sha256(("nsc\n" + query).encode()).hexdigest()
+            if not (self.path / (key + ".json")).is_file():
+                return self.checked("nsc", columns, source, where, cap)
 
         try:
             return self.query("nsc", query, validate=consistent).drop(columns=count)

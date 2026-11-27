@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 
 import duckdb
+import pyarrow.parquet as parquet
 
 from .footprint_intake_v24 import select_pilots
 from .io import digest, save_json
@@ -38,13 +39,15 @@ def location(work, label):
 def pack(work, label, shards, db, *, verify=False):
     input_rows = 0
     signatures = {}
+    shard_rows = {}
     for name, shard in shards:
         receipt = shard / "v22_reference_input_core_summary.json"
         if not receipt.exists():
             return None
         rec = read(receipt)
         signatures[name] = rec["parquet_sha256"]
-        input_rows += int(rec["measurements"])
+        shard_rows[name] = int(rec["measurements"])
+        input_rows += shard_rows[name]
     signature = sha256(json.dumps([duckdb.__version__, signatures], sort_keys=True).encode()).hexdigest()
     dest = work / "reference-packs" / label / signature
     dest.mkdir(exist_ok=True, parents=True)
@@ -63,7 +66,10 @@ def pack(work, label, shards, db, *, verify=False):
             source = shard / "reference.parquet"
             if digest(source) != signatures[name]:
                 raise ValueError("Changed reference input")
-            paths.append(str(source))
+            if parquet.ParquetFile(source).metadata.num_rows != shard_rows[name]:
+                raise ValueError("Reference shard row count changed")
+            if shard_rows[name]:
+                paths.append(str(source))
         # A new attempt directory preserves any interrupted COPY.
         version = dest / "parts"
         for i in range(1, 1000000):
@@ -71,8 +77,8 @@ def pack(work, label, shards, db, *, verify=False):
                 break
             version = dest / f"parts-{i}"
         version.mkdir()
-        db.from_parquet(paths).create_view("pack_input", replace=True)
         if input_rows:
+            db.from_parquet(paths).create_view("pack_input", replace=True)
             db.execute(
                 f"""COPY (SELECT *,hash(detection_id)%64 detection_bucket FROM pack_input)
                        TO '{version}' (FORMAT PARQUET,PARTITION_BY(detection_bucket),COMPRESSION ZSTD,ROW_GROUP_SIZE 32768)"""

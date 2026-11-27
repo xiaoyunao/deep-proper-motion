@@ -10,11 +10,11 @@ from deep_pm.io import digest, save_json
 def test_pack_checks_rows_content_and_identical_detection_bucket(tmp_path):
     db = duckdb.connect()
     shards = []
-    for label, ids in (("a", ["1", "2"]), ("b", ["2"]), ("empty", [])):
+    for label, ids in (("empty", []), ("a", ["star-1", "2"]), ("b", ["2"])):
         d = tmp_path / label
         d.mkdir()
         source = d / "reference.parquet"
-        db.execute("CREATE OR REPLACE TABLE mock(detection_id VARCHAR)")
+        db.execute("CREATE OR REPLACE TABLE mock(detection_id "+("VARCHAR" if ids else "INTEGER")+")")
         for identity in ids:
             db.execute("INSERT INTO mock VALUES (?)", [identity])
         db.execute(f"COPY mock TO '{source}' (FORMAT PARQUET)")
@@ -28,7 +28,9 @@ def test_pack_checks_rows_content_and_identical_detection_bucket(tmp_path):
     copies = db.execute(f"""SELECT detection_id, count(*), count(DISTINCT detection_bucket)
         FROM read_parquet('{marker.parent}/parts/*/*.parquet', hive_partitioning=true)
         GROUP BY detection_id ORDER BY detection_id""").fetchall()
-    assert copies == [("1", 1, 1), ("2", 2, 1)]
+    assert copies == [("2", 2, 1), ("star-1", 1, 1)]
+    empty=pack(tmp_path,"empty-only",shards[:1],db)
+    assert json.loads(empty.read_text())["files"]=={}
     corrupted = marker.parent / next(iter(receipt["files"]))
     corrupted.write_bytes(b"broken")
     with pytest.raises(ValueError, match="changed"):

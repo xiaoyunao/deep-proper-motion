@@ -70,7 +70,7 @@ def run(root,output):
                 ax.errorbar(t[ix],p[ix,k],yerr=err[ix,k],fmt="s" if survey=="SDSS" else "o",color=color,
                             ecolor=color,alpha=.7,elinewidth=.65,ms=4,label=f"{survey} {band}")
             ax.grid(axis="y",alpha=.22)
-            if col==0:ax.set_ylabel(("East","North")[k]+" offset at J2015.5 (mas)")
+            if col==0:ax.set_ylabel(("East","North")[k]+" offset from J2015.5 (mas)")
             if k:ax.set_xlabel("Observation epoch (Julian year, TT)")
         axes[0,col].set_title(f"{low} ≤ r < {low+1}   ·   {runs} SDSS run"+("s" if runs>1 else ""))
         axes[1,col].legend(frameon=False,fontsize=7,ncol=2)
@@ -78,7 +78,7 @@ def run(root,output):
     output.mkdir(exist_ok=True,parents=True)
     for ext in ("pdf","png"):fig.savefig(output/f"F2_trajectories.{ext}",dpi=180)
     plt.close(fig)
-    save_json(root/"catalogue/private_f2_examples.json",dict(closure=digest(closure),selected=private))
+    save_json(output/"private_f2_examples.json",dict(closure=digest(closure),selected=private))
 
 
 if __name__=="__main__":

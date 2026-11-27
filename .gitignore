@@ -89,3 +89,8 @@
 
 !/reports/experiment_A_v2.4_full_footprint.md
 !/scripts/dispatch-v24-intake.py
+
+!/figures/v24/
+!/figures/v24/F1_coverage.pdf
+!/figures/v24/F1_coverage.png
+!/results/summary/v24_geometric_sky_summary.json.gz

@@ -1,0 +1,11 @@
+{
+  "noncanonical_total": 2562792,
+  "legal_representations": 2562792,
+  "s82_supplement": 68922,
+  "longitude_range_deg": [
+    -8.972056466339541,
+    -3.74687943e-08
+  ],
+  "epoch_supplement_sha256": "2cae588886f7aefc35c6fef529839255830297732732ac0fdd9d0e4195b281c2",
+  "input_sha256": "a66e2d8e7cb943657a5953950b7bf2e48776327cc83e993a32758d30ddad4782"
+}

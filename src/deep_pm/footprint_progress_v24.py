@@ -20,6 +20,7 @@ def run(base,out):
     sha=digest(manifest);cells=read(manifest)["new"]
     completed={}
     for p in sorted(reg.glob("v24_intake_*_summary.json")):
+        if not p.name[len("v24_intake_"):-len("_summary.json")].isdigit():continue
         pilot=read(p)
         if pilot["footprint_sha256"]!=sha:raise ValueError("Changed pilot footprint")
         completed.update({r["core"]:r for r in pilot["rows"] if "error" not in r})

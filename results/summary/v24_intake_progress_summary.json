@@ -1,22 +1,22 @@
 {
   "signed_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
   "registered_new_core_count": 15235,
-  "completed_new_inputs": 70,
-  "remaining_new_inputs": 15165,
-  "failed_unrepaired_inputs": 9,
-  "input_rectangles_nominal_sqdeg": 68.11402112501342,
-  "time_opportunity_in_completed_new_inputs_sqdeg": 62.9792504753677,
-  "input_rows_including_halo": 72423967,
-  "input_bytes": 47860490129,
-  "reference_rows_including_halo": 12068694,
-  "cores_with_local_reference_rows": 66,
+  "completed_new_inputs": 140,
+  "remaining_new_inputs": 15095,
+  "failed_unrepaired_inputs": 1,
+  "input_rectangles_nominal_sqdeg": 135.59365772128578,
+  "time_opportunity_in_completed_new_inputs_sqdeg": 124.55513325514309,
+  "input_rows_including_halo": 134550382,
+  "input_bytes": 88266089374,
+  "reference_rows_including_halo": 23731484,
+  "cores_with_local_reference_rows": 134,
   "core_rows_p10_p50_p90": [
-    246714.4,
-    1033018.0,
-    2046214.2000000002
+    248371.4,
+    456698.5,
+    1948574.5000000007
   ],
-  "worker_seconds_sum": 18448.09827611741,
-  "peak_individual_rss_mib": 6857.09765625,
-  "slurm_job": "62090967",
+  "worker_seconds_sum": 31573.34266565746,
+  "peak_individual_rss_mib": 18464.8515625,
+  "slurm_job": "62093015",
   "interpretation": "Completed intake with signed source and reference extraction. Current graph/fit results are accounted separately. Shared detections across core halos occur in these row counts."
 }

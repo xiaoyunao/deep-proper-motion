@@ -63,7 +63,7 @@ def one(task, revision=None):
                   source_sha256=digest(dest/"run_manifest.json"),
                   reference_sha256=digest(work/"input"/label/"v22_reference_input_core_summary.json")))
     intake=json.loads((dest/"acquisition_summary.json").read_text())
-    return dict(core=label,quadrature_sqdeg=spec["time_area"],raw_bytes=sum(p.stat().st_size for p in dest.rglob("*") if p.is_file()),
+    return dict(core=label,quadrature_sqdeg=spec.get("time_area"),raw_bytes=sum(p.stat().st_size for p in dest.rglob("*") if p.is_file()),
                 rows=intake["normalized_detections"],measurements=ref["measurements"],groups=ref["groups"],
                 wall_s=monotonic()-t,rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024)
 

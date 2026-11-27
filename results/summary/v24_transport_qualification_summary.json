@@ -1,0 +1,46 @@
+{
+  "registered_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "pilot": "v24_226_145_00",
+  "science_tables": {
+    "detections.csv": {
+      "rows": 115330,
+      "byte_identical": true,
+      "all_fields_identical": true
+    },
+    "external_labels.csv": {
+      "rows": 115330,
+      "byte_identical": true,
+      "all_fields_identical": true
+    },
+    "nsc_object.csv": {
+      "rows": 90261,
+      "byte_identical": true,
+      "all_fields_identical": true
+    },
+    "official_nsc.csv": {
+      "rows": 27034,
+      "byte_identical": true,
+      "all_fields_identical": true
+    },
+    "chips.csv": {
+      "rows": 207,
+      "byte_identical": true,
+      "all_fields_identical": true
+    },
+    "validation/gaia.csv": {
+      "rows": 2693,
+      "byte_identical": true,
+      "all_fields_identical": true
+    },
+    "sdss.csv": {
+      "rows": 25069,
+      "byte_identical": true,
+      "all_fields_identical": true
+    }
+  },
+  "reference_measurements": 14470,
+  "reference_all_fields_identical": true,
+  "reference_parquet_identical": true,
+  "selection": "Minimum signed positive-reference pilot detection count. Independent empty TAP cache; separate COUNT before bounded data retrieval.",
+  "slurm_job": "62100408"
+}

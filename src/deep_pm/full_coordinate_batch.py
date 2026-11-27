@@ -89,7 +89,10 @@ def memory_queue(root,plan,indices,mode):
         e=plan['cores'][i];size=Path(e['source'],'detections.csv').stat().st_size/(1024**3)
         measured=read(root/'input'/e['core']/'v22_reference_input_core_summary.json')['peak_rss_mib']/1024
         conservative=2+1.5*min(45*size+1,measured)
-        bound=min(conservative,source_memory_bound(size,Path(e['fit'],'private_standard_motion.json.gz').stat().st_size/1024**3))
+        prior_dir=e.get('fit') or e.get('predecessor')
+        bound=conservative
+        if prior_dir:
+            bound=min(conservative,source_memory_bound(size,Path(prior_dir,'private_standard_motion.json.gz').stat().st_size/1024**3))
         legacy[i]=conservative;pending.append((i,bound if mode=='receipt-validated' else conservative,size))
         path=root/'sources'/e['core']/'v22_source_core_summary.json';dispatch=path.parent/'private_dispatch.json'
         if path.exists() and dispatch.exists():
@@ -107,16 +110,32 @@ def memory_queue(root,plan,indices,mode):
     return pending,legacy,audit
 
 
-def run(root,components,workers,memory_gib,hours,memory_model='reference-input-conservative',worker_start='subprocess'):
-    if not read(root/'admission/v22_complete_component_admission_summary.json')['numerical_admission_passed']:raise ValueError('Complete-component admission missing')
+def run(root,components,workers,memory_gib,hours,memory_model='reference-input-conservative',worker_start='subprocess',core_range=None):
+    plan=read(root/'registration/private_full_coordinate_plan.json')
+    if core_range is None:
+        if not read(root/'admission/v22_complete_component_admission_summary.json')['numerical_admission_passed']:raise ValueError('Complete-component admission missing')
+    else:
+        if not plan.get('production_blind') or not 0<=core_range[0]<core_range[1]<=len(plan['cores']):
+            raise ValueError('Invalid registered blind production range')
+        registration=read(root.parent/'registration/v24_graph_registration_summary.json')
+        if registration['graph_registration_sha256']!=digest(root/'registration/private_full_coordinate_plan.json'):
+            raise ValueError('Changed graph admission')
+        evidence=read(root/'admission/v24_reference_admission_summary.json')
+        if (evidence['graph_registration_sha256']!=registration['graph_registration_sha256']
+                or evidence.get('predecessor_check',True) or not evidence['consistent_physical_groups_and_covariance']):
+            raise ValueError('Physical reference admission has not closed')
+        for key,sha in evidence['graphs'].items():
+            graph=root/'reference'/f'component-{int(key):04d}'/'private_c0_unfiltered.npz'
+            if digest(graph)!=sha:raise ValueError('Physical solution changed after admission')
     if worker_start=='fork':
         proof=read(root/'admission/v22_fork_worker_equivalence_summary.json')
         expected=sha256((inspect.getsource(single_core)+inspect.getsource(isolated_fork_core)).encode()).hexdigest()
         if not proof['all_scientific_outputs_decompressed_byte_identical'] or proof['worker_entry_sha256']!=expected:raise ValueError('Isolated fork worker requires unchanged real-source equivalence admission')
         for name,checksum in proof['scientific_implementation_sha256'].items():
             if digest(Path(__file__).with_name(name))!=checksum:raise ValueError('Fork equivalence scientific implementation changed')
-    plan=read(root/'registration/private_full_coordinate_plan.json');indices=selected_cores(root,components)
-    key='-'.join(map(str,components));job=os.environ['SLURM_JOB_ID'];dest=root/'batch'/f'component-{key}'/job;dest.mkdir(parents=True,exist_ok=True)
+    indices=list(range(*core_range)) if core_range else selected_cores(root,components)
+    key=('range-'+'-'.join(map(str,core_range))) if core_range else '-'.join(map(str,components))
+    job=os.environ['SLURM_JOB_ID'];dest=root/'batch'/f'component-{key}'/job;dest.mkdir(parents=True,exist_ok=True)
     if workers>int(os.environ.get('SLURM_CPUS_PER_TASK',workers)):raise ValueError('Workers exceed allocated CPUs')
     pending,legacy,audit=memory_queue(root,plan,indices,memory_model)
     if any(memory>memory_gib for _,memory,_ in pending):raise ValueError('One core exceeds allocation memory model')
@@ -217,9 +236,12 @@ def isolated_fork_core(root,index,log_descriptor):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--component',action='append',type=int,required=True)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--component',action='append',type=int,default=[])
+    p.add_argument('--core-range',nargs=2,type=int,metavar=('START','END'))
     p.add_argument('--single-index',type=int);p.add_argument('--workers',type=int,default=12);p.add_argument('--memory-gib',type=float,default=160);p.add_argument('--hours',type=float,default=3.5)
     p.add_argument('--memory-model',choices=['reference-input-conservative','receipt-validated'],default='reference-input-conservative');p.add_argument('--worker-start',choices=['subprocess','fork'],default='subprocess');a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
     if a.single_index is not None:single_core(a.root,a.single_index)
-    else:run(a.root,a.component,a.workers,a.memory_gib,a.hours,a.memory_model,a.worker_start)
+    else:
+        if bool(a.core_range)==bool(a.component):p.error('Choose --component or --core-range')
+        run(a.root,a.component,a.workers,a.memory_gib,a.hours,a.memory_model,a.worker_start,a.core_range)

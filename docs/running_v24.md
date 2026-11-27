@@ -50,3 +50,12 @@ stripe82_comparison_v24 "$base" "$CATALOGUE" "$PLAN" "$OUTPUT" "$VERSION"
 `CATALOGUE` 指向已闭合的 `catalogue.duckdb`；`PLAN` 必须属于同一版本。对照先在 J2015.5 做全部定位竞争者的双向唯一检查，随后取 HLC 恒星母样本。沿用同一 HLC r。恒星差值保留共享 SDSS 信息，按真实物理 run 重权只作敏感性描述。旧目录比较标记 `frozen-v22-predecessor`，扩域结果另用独立版本目录。
 
 Stripe 82 的分母同时给出冻结归属窗口、实际扫描/CCD 交集和满足联合时基的恒星数。逐星依据每条原生边界及观测时刻传播 HLC 位置；共同源的各目录共用同一分母。
+
+全域源拟合按固定登记序号分配。冻结核心名的 SHA256（前 64 位模 64 为零）及四个几何先导保留同源 physical-r 明细，其他核心只保留选择计数。每一源读取全部实际目标物理组，登记批号只控制计算时机。以下步骤要求最终图的数值回执。
+
+```bash
+footprint_reference_admission_v24 "$work/joint"
+full_coordinate_batch "$work/joint" --core-range START END --workers WORKERS --memory-gib MEMORY --hours WALL
+```
+
+共享物理组唯一性、跨巡天连接、投影范围、NSC 中位基准、每组 48 次同步扰动和两轴协方差均从真实图文件核验。已在冻结旧目录的三个分量上执行同一数值读取，保留独立前代回执。

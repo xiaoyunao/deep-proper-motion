@@ -1,0 +1,16 @@
+{
+  "predecessor_check": true,
+  "graph_registration_sha256": "6c78c0ea3c5d69d9cbd0f2a17e39fc33991d5dabf48222929f3a90329d76c84b",
+  "graph_metadata_sha256": "f28add41fdc2d91f821d6e0a36b63edce0d8a296375c663b8f37de945b5fbd0f",
+  "solved_components": 3,
+  "solved_groups": 51706,
+  "group_map_sha256": "aa4eef001f90192b2cd4c36329f9dc242f8844fb359efc58fd7b9f77558484e5",
+  "graphs": {
+    "0": "31a90619ed8d470eb7f53ce578ab9d4166ea3b4bd99936c88bcba9ad424f9b5d",
+    "1": "44b9129553676106d470da4acc4007d3133fa1dc6550c7c72fdaf4de453ef233",
+    "2": "f4a38f808cf7e5162e7bce6502dbaa9700d7ba021a1376d47f51fb48902479e2"
+  },
+  "consistent_physical_groups_and_covariance": true,
+  "draws": 48,
+  "scope": "Physical graph/gauge/draw integrity. Spatial zero points and stellar population accuracy require separate validation."
+}

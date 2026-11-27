@@ -1,0 +1,7 @@
+{
+  "parent": 1282809,
+  "geometric": 1282801,
+  "time": 1282342,
+  "sha256": "d6b35ebf20004ec0b02366ecf3949d8db8f0a1f14f2515a11a4b9915b1adf1a2",
+  "scope": "Full HLC parent propagated to each actual SDSS field/NSC CCD epoch, spherical native boundaries. Survey geometry before per-source detection and common-reference support."
+}

@@ -1,5 +1,6 @@
 """Bind the immutable full intake to one physical calibration graph on PScratch."""
 import argparse
+from hashlib import sha256
 import json
 import os
 from pathlib import Path
@@ -80,6 +81,11 @@ def assemble(base):
     if missing:
         save_json(output/"private_outstanding_intake.json",dict(manifest_sha256=expected,missing=missing))
         raise RuntimeError(f"{len(missing)} registered intake shards still pending; graph has not been frozen")
+    from .footprint_intake_v24 import select_pilots
+    pilots=set(select_pilots(frozen["new"]))
+    for entry in registered:
+        tag=sha256(("physical-r-before-quality-v24:"+entry["core"]).encode()).digest()
+        entry["save_r_comparison"]=entry["core"] in pilots or int.from_bytes(tag[:8],"big")%64==0
     result=dict(cores=registered,graphs=graphs,production_blind=True,footprint_sha256=expected,
                 frozen_science="0320f59b972755454252a383ba1007c665c928e8",
                 predecessor_index=str(prior/"catalogue/catalogue.duckdb"))

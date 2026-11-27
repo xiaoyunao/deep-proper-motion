@@ -1,0 +1,10 @@
+{
+  "rows": 412116,
+  "sha256": "bdd3716ce259c79934f09fa280d5cf654d099d770333852e77c982ef43d31301",
+  "instruments": {
+    "c4d": 340952,
+    "k4m": 41561,
+    "ksb": 29603
+  },
+  "columns": "exposure,ra,dec,mjd,instrument,filter"
+}

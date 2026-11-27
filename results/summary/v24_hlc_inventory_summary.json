@@ -1,0 +1,357 @@
+{
+  "product": "V/141 original full HLC FITS",
+  "rows": 3700548,
+  "readme_sha256": "2450d964c123c879bcc54c02f26ed251f0b76c8127f3b3174c6c539fee658633",
+  "columns": {
+    "LC_NAME": {
+      "unit": null,
+      "format": "46A"
+    },
+    "IAU_NAME": {
+      "unit": null,
+      "format": "24A"
+    },
+    "N_GOOD_EPOCHS": {
+      "unit": null,
+      "format": "5I"
+    },
+    "MEAN_PSFMAG": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_PSFMAG_ERR": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_EXPMAG": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_EXPMAG_ERR": {
+      "unit": null,
+      "format": "5E"
+    },
+    "RMS_PSFMAG": {
+      "unit": null,
+      "format": "5E"
+    },
+    "RMS_EXPMAG": {
+      "unit": null,
+      "format": "5E"
+    },
+    "CHISQ_PSFMAG": {
+      "unit": null,
+      "format": "5E"
+    },
+    "CHISQ_EXPMAG": {
+      "unit": null,
+      "format": "5E"
+    },
+    "N_GOOD_EPOCHS_PSF_CLIP": {
+      "unit": null,
+      "format": "5I"
+    },
+    "N_GOOD_EPOCHS_EXP_CLIP": {
+      "unit": null,
+      "format": "5I"
+    },
+    "MEAN_PSFMAG_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_PSFMAG_ERR_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_EXPMAG_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_EXPMAG_ERR_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "RMS_PSFMAG_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "RMS_EXPMAG_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "CHISQ_PSFMAG_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "CHISQ_EXPMAG_CLIP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_PSFMAG_ITER": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_PSFMAG_ERR_ITER": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_EXPMAG_ITER": {
+      "unit": null,
+      "format": "5E"
+    },
+    "MEAN_EXPMAG_ERR_ITER": {
+      "unit": null,
+      "format": "5E"
+    },
+    "PERCENTILE_05_PSF": {
+      "unit": null,
+      "format": "5E"
+    },
+    "PERCENTILE_50_PSF": {
+      "unit": null,
+      "format": "5E"
+    },
+    "PERCENTILE_95_PSF": {
+      "unit": null,
+      "format": "5E"
+    },
+    "PERCENTILE_05_EXP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "PERCENTILE_50_EXP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "PERCENTILE_95_EXP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "TIME_SPAN": {
+      "unit": null,
+      "format": "D"
+    },
+    "MEAN_OBJECT_TYPE": {
+      "unit": null,
+      "format": "E"
+    },
+    "MEAN_CHILD": {
+      "unit": null,
+      "format": "E"
+    },
+    "REDDENING": {
+      "unit": null,
+      "format": "5E"
+    },
+    "RA_MEAN": {
+      "unit": null,
+      "format": "D"
+    },
+    "RA_MEAN_ERR": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_PM": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_PM_ERR": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_MEAN_CLIP": {
+      "unit": null,
+      "format": "D"
+    },
+    "RA_MEAN_ERR_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_PM_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_PM_ERR_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_CHISQ_CON": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_CHISQ_CON_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_CHISQ_LIN": {
+      "unit": null,
+      "format": "E"
+    },
+    "RA_CHISQ_LIN_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_MEAN": {
+      "unit": null,
+      "format": "D"
+    },
+    "DEC_MEAN_ERR": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_PM": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_PM_ERR": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_MEAN_CLIP": {
+      "unit": null,
+      "format": "D"
+    },
+    "DEC_MEAN_ERR_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_PM_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_PM_ERR_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_CHISQ_CON": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_CHISQ_CON_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_CHISQ_LIN": {
+      "unit": null,
+      "format": "E"
+    },
+    "DEC_CHISQ_LIN_CLIP": {
+      "unit": null,
+      "format": "E"
+    },
+    "T0": {
+      "unit": null,
+      "format": "D"
+    },
+    "T0_CLIP": {
+      "unit": null,
+      "format": "D"
+    },
+    "N_POS_EPOCHS": {
+      "unit": null,
+      "format": "I"
+    },
+    "N_POS_EPOCHS_CLIP": {
+      "unit": null,
+      "format": "I"
+    },
+    "ECL_REDCHISQ_OUT": {
+      "unit": null,
+      "format": "E"
+    },
+    "ECL_STAT": {
+      "unit": null,
+      "format": "E"
+    },
+    "ECL_EPOCH": {
+      "unit": null,
+      "format": "D"
+    },
+    "FLARE_REDCHISQ_OUT": {
+      "unit": null,
+      "format": "E"
+    },
+    "FLARE_STAT": {
+      "unit": null,
+      "format": "E"
+    },
+    "FLARE_EPOCH": {
+      "unit": null,
+      "format": "D"
+    },
+    "STETSON_INDEX_J_PSF": {
+      "unit": null,
+      "format": "5E"
+    },
+    "STETSON_INDEX_J_EXP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "STETSON_INDEX_K_PSF": {
+      "unit": null,
+      "format": "5E"
+    },
+    "STETSON_INDEX_K_EXP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "STETSON_INDEX_L_PSF": {
+      "unit": null,
+      "format": "5E"
+    },
+    "STETSON_INDEX_L_EXP": {
+      "unit": null,
+      "format": "5E"
+    },
+    "VIDRIH_INDEX_PSF": {
+      "unit": null,
+      "format": "5E"
+    },
+    "VIDRIH_INDEX_EXP": {
+      "unit": null,
+      "format": "5E"
+    }
+  },
+  "parts": {
+    "0": {
+      "rows": 446842,
+      "bytes": 221243399,
+      "sha256": "a6f0d11a6e949f4603a8d126cd210856b8d9e911bd34e16c70a423c542c9567f"
+    },
+    "1": {
+      "rows": 426892,
+      "bytes": 212597344,
+      "sha256": "1ea75556833ebf2636acc93c82e6dd8fc2446a18ef37324a59505411f12deb0f"
+    },
+    "2": {
+      "rows": 442984,
+      "bytes": 221202592,
+      "sha256": "4be6b337f18508e2f52cbd80b584c772ad4fc9a4fc01d0860543fe0c1c7b694a"
+    },
+    "3": {
+      "rows": 128785,
+      "bytes": 63670673,
+      "sha256": "898cbed7f1d059d8f9e568abc6cb2009935a0964517ac1ec12e97960d0a63917"
+    },
+    "20": {
+      "rows": 390491,
+      "bytes": 203723689,
+      "sha256": "f374f63671de01050fc1e02cdc5b040922a269133439256f1b482ccb9be79d6f"
+    },
+    "21": {
+      "rows": 844981,
+      "bytes": 439500167,
+      "sha256": "602089a9855a7e551a9946ece8d52364c3d8024669605447c6acbbd98136a0e1"
+    },
+    "22": {
+      "rows": 549637,
+      "bytes": 277902268,
+      "sha256": "61f6fa78eefb031c436c7e75a2aefcd2ef7e8c0df4c31243718909b8f6e34664"
+    },
+    "23": {
+      "rows": 469936,
+      "bytes": 232617943,
+      "sha256": "bbf23575a62cd8a6e60dbd1fe6bebe34a732b8b79fe650b9ca41649d4c22d935"
+    }
+  }
+}

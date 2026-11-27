@@ -1,0 +1,52 @@
+{
+  "rows": 3700548,
+  "parent": 1282809,
+  "protocol_sha256": "ac3e1a60a962b721993a603f3b3c08b76325af19fb2955994f29edb0264bc912",
+  "bins": {
+    "16-18": {
+      "rows": 215271,
+      "stellar_photo": 208658,
+      "parent": 207988
+    },
+    "18-19": {
+      "rows": 192480,
+      "stellar_photo": 171184,
+      "parent": 170523
+    },
+    "19-20": {
+      "rows": 331080,
+      "stellar_photo": 239242,
+      "parent": 237852
+    },
+    "20-21": {
+      "rows": 658943,
+      "stellar_photo": 333293,
+      "parent": 329282
+    },
+    "21-21.5": {
+      "rows": 585738,
+      "stellar_photo": 197620,
+      "parent": 182729
+    },
+    "21.5-22": {
+      "rows": 769444,
+      "stellar_photo": 155284,
+      "parent": 103774
+    },
+    "22-22.5": {
+      "rows": 509006,
+      "stellar_photo": 88658,
+      "parent": 42454
+    },
+    "22.5-23": {
+      "rows": 108075,
+      "stellar_photo": 14644,
+      "parent": 8205
+    },
+    "23-24": {
+      "rows": 2305,
+      "stellar_photo": 3,
+      "parent": 2
+    }
+  }
+}

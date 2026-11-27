@@ -18,7 +18,8 @@ COLOR = {"ours": "#173d66", "xiao": "#ae511e", "nsc": "#43836e", "r": "#97649e"}
 
 
 def precision(summary, directory):
-    fig, axes = plt.subplots(3, 2, figsize=(10.5, 9.2), layout="constrained", sharex=True)
+    fig, axes = plt.subplots(5, 2, figsize=(10.5, 12.2), layout="constrained", sharex=True,
+                             gridspec_kw={"height_ratios": [1.20, .85, .85, 1., .75]})
     for table, methods, col in (
         ("fine_magnitude", ("ours", "xiao", "nsc"), 0),
         ("physical_r", ("ours", "r"), 1),
@@ -38,31 +39,37 @@ def precision(summary, directory):
                 color=COLOR[method],
                 label=LABEL[method],
             )
+            for axis in (0, 1):
+                zero = [d.get("median", (np.nan, np.nan))[axis] for d in data]
+                axes[1 + axis, col].plot(x, zero, "o-", ms=3.5, color=COLOR[method])
             tails = [d.get("tail_gt20", {}) for d in data]
-            axes[1, col].plot(
+            axes[3, col].plot(
                 x, [100 * d.get("rate", np.nan) for d in tails], "o-", ms=3.5, color=COLOR[method]
             )
             limits = np.array([d.get("wilson95", [np.nan, np.nan]) for d in tails])
-            axes[1, col].fill_between(
+            axes[3, col].fill_between(
                 x, limits[:, 0] * 100, limits[:, 1] * 100, color=COLOR[method], alpha=0.11
             )
         counts = [rows[k]["common"] for k in names]
-        axes[2, col].stairs(
+        axes[4, col].stairs(
             counts,
             [edges[i][0] for i in order] + [edges[order[-1]][1]],
             color="#284963",
             fill=True,
             alpha=0.7,
         )
-        axes[2, col].set_yscale("symlog", linthresh=1)
-        axes[2, col].set_xlabel("Spectroscopic r magnitude")
+        axes[4, col].set_yscale("symlog", linthresh=1)
+        axes[4, col].set_xlabel("Spectroscopic r magnitude")
         axes[0, col].legend(loc="best", frameon=False, fontsize=9)
+        for ax in axes[1:3, col]:
+            ax.axhline(0, color="0.45", lw=.8, ls="--", zorder=0)
         for ax in axes[:, col]:
             ax.grid(axis="y", alpha=0.22)
     axes[0, 0].set_title("Strict common spectroscopic QSOs")
     axes[0, 1].set_title("Fixed all-band and physical-r pairs")
     for ax, text in zip(
-        axes[:, 0], ["Radial P68 (mas yr⁻¹)", "Fraction above 20 mas yr⁻¹ (%)", "Common QSOs per bin"]
+        axes[:, 0], ["Radial P68 (mas yr⁻¹)", "Median east PM (mas yr⁻¹)", "Median north PM (mas yr⁻¹)",
+                    "Fraction above 20 mas yr⁻¹ (%)", "Common QSOs per bin"]
     ):
         ax.set_ylabel(text)
     save(fig, directory, "F3_qso_precision")

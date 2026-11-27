@@ -1,0 +1,14 @@
+{
+  "archived_numeric_sha256": "92af7ea7a76a8348fe80fd6bf82d9dc4ba0e508b39d881283196817d56d7c9fb",
+  "component": 2,
+  "measurements": 27578658,
+  "references": 2374858,
+  "groups": 7493,
+  "compared_draws": 4,
+  "workers": 4,
+  "byte_equal_values": true,
+  "serial_seconds": 95.44450432609301,
+  "parallel_seconds": 45.06346334004775,
+  "slurm_job": "62095962",
+  "scope": "Draws 1\u20134 before gauge; identical final robust weights, reference rows and RNG states. Parallel time includes worker creation, response checksums and checkpoint writes; serial timing excludes checkpoint I/O. Component export and IRLS are outside both times."
+}

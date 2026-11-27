@@ -36,6 +36,29 @@ def owner_grid(boxes, bins):
     return result
 
 
+def normalized_counts(source):
+    f = source / "acquisition_summary.json"
+    verify_directory(source, (f.name,))
+    r = json.loads(f.read_text())
+    # The archive sdss_measures counter precedes normalization and run de-duplication.
+    early = r.get("sdss_r_measurements_preserved")
+    total = r.get("normalized_detections")
+    fallback = total is None or early is None
+    if fallback:
+        # Complement acquisitions may use different receipt schemas. Obtain
+        # actual survey counts only for those cores, from their signed table.
+        import pandas as pd
+
+        verify_directory(source, ("detections.csv",))
+        early = total = 0
+        for chunk in pd.read_csv(source / "detections.csv", usecols=["survey"], chunksize=200000):
+            total += len(chunk)
+            early += int(chunk.survey.eq("SDSS").sum())
+    if not 0 <= early <= total:
+        raise ValueError("Invalid signed detection breakdown")
+    return early, total, fallback
+
+
 def run(base, bins, output):
     work = base / "v2.4"
     root = work / "joint"
@@ -56,24 +79,8 @@ def run(base, bins, output):
     fallback = 0
     for entry in entries:
         source = Path(entry["source"])
-        f = source / "acquisition_summary.json"
-        verify_directory(source, (f.name,))
-        r = json.loads(f.read_text())
-        early = r.get("sdss_r_measurements_preserved", r.get("sdss_measures"))
-        total = r.get("normalized_detections")
-        if total is None or early is None:
-            # Complement acquisitions may use different receipt schemas. Obtain
-            # actual survey counts only for those cores, from their signed table.
-            import pandas as pd
-
-            verify_directory(source, ("detections.csv",))
-            early = total = 0
-            for chunk in pd.read_csv(source / "detections.csv", usecols=["survey"], chunksize=200000):
-                total += len(chunk)
-                early += int(chunk.survey.eq("SDSS").sum())
-            fallback += 1
-        if not 0 <= early <= total:
-            raise ValueError("Invalid signed detection breakdown")
+        early, total, counted = normalized_counts(source)
+        fallback += int(counted)
         raw_early += early
         raw_late += total - early
         n = counts.get(entry["core"], 0)

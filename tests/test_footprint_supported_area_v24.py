@@ -47,3 +47,17 @@ def test_productive_ownership_integrates_partial_cells_across_zero():
     import pytest
     with pytest.raises(ValueError,match="Overlapping"):
         owner_grid(boxes+boxes[:1],4)
+
+
+def test_normalized_count_uses_signed_detections_for_old_raw_sdss_counter(tmp_path):
+    import json
+    from deep_pm.io import digest
+    from deep_pm.footprint_output_area_v24 import normalized_counts
+    summary=tmp_path/"acquisition_summary.json"
+    summary.write_text(json.dumps({"normalized_detections":3,"sdss_measures":2}))
+    table=tmp_path/"detections.csv"
+    table.write_text("survey\nSDSS\nNSC\nNSC\n")
+    outputs={p.name:digest(p) for p in (summary,table)}
+    (tmp_path/"run_manifest.json").write_text(json.dumps({
+        "stages":{"acquire":[{"state":"completed","outputs":outputs}]}}))
+    assert normalized_counts(tmp_path)==(1,3,True)

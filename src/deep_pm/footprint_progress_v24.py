@@ -15,6 +15,31 @@ def read(path):
     return json.loads(path.read_text())
 
 
+def account_linked_caches(root, completed):
+    """Add only external cache directories omitted by the original per-core rglob."""
+    linked_bytes = 0
+    linked_cores = 0
+    for pointer in (root / "resolved").glob("*.json"):
+        label = pointer.stem
+        if label not in completed:
+            continue
+        binding = read(pointer)
+        row = completed[label]
+        if row.get("input_receipt_sha256", binding["source_sha256"]) != binding["source_sha256"]:
+            raise ValueError("Revised input signature changed during storage accounting")
+        cache = Path(binding["source"]) / "cache"
+        if not cache.is_symlink():
+            continue
+        if cache.resolve(strict=True) != (root / "intake" / label / "cache").resolve(strict=True):
+            raise ValueError("Shared query pages do not belong to the registered core")
+        with os.scandir(cache) as files:
+            size = sum(entry.stat().st_size for entry in files if entry.is_file())
+        row["working_input_bytes"] = row["raw_bytes"] + size
+        linked_bytes += size
+        linked_cores += 1
+    return linked_cores, linked_bytes
+
+
 def forecast(root,cells,completed):
     load_file=root/"capacity/private_unit_degree_load.parquet"
     proof=read(root/"capacity/v24_detector_load_summary.json")
@@ -37,7 +62,7 @@ def forecast(root,cells,completed):
         stripe=abs((south+north)/2)<1.6 and ((west+east)/2<53 or (west+east)/2>=307)
         row=completed.get(name,{})
         estimates.append(dict(stripe=stripe,load_bin=int(np.searchsorted([50000,200000,600000,2000000],mass)),
-                         scale=1+mass/200000.,signed=name in completed,wall=row.get("wall_s"),size=row.get("raw_bytes"),
+                         scale=1+mass/200000.,signed=name in completed,wall=row.get("wall_s"),size=row.get("working_input_bytes",row.get("raw_bytes")),
                          native_rows=row.get("rows"),reference_rows=row.get("measurements")))
     df=pd.DataFrame(estimates);done=df[df.signed];total=np.zeros((4,3));unmeasured=0;fallback=0;strata=[]
     for (stripe,b),group in df[~df.signed].groupby(["stripe","load_bin"]):
@@ -62,7 +87,7 @@ def forecast(root,cells,completed):
                 scope="Intake only. Three descriptive forecasts use P25/P50/P75 completed worker wall/byte rates "
                       "within observed CCD-load and Stripe strata. Scale 1+nmeas/200000 from the halo rectangle. "
                       "2.2 is the actual shared reservation for a regular 10-worker/40GiB job; not an invoice. "
-                      "Live dense stragglers can exceed these rates. Output, graph, retries, and missing strata are additional.")
+                      "Signed worker time can omit earlier page staging on another allocation. Live dense stragglers can exceed these rates. Output, graph, retries, and missing strata are additional.")
 
 def run(base,out):
     root=base/"v2.4";reg=root/"registration"
@@ -83,12 +108,16 @@ def run(base,out):
         completed[rec["core"]]=rec
     failures-=set(completed)
     if not completed:raise ValueError("No completed input receipts")
+    linked_cores, linked_bytes = account_linked_caches(root, completed)
     values=list(completed.values());r=np.array([row["rows"] for row in values])
     result=dict(signed_footprint=sha,registered_new_core_count=len(cells),completed_new_inputs=len(values),
                 remaining_new_inputs=len(cells)-len(values),failed_unrepaired_inputs=len(failures),
                 input_rectangles_nominal_sqdeg=sum(area(cells[k]) for k in completed),
                 time_opportunity_in_completed_new_inputs_sqdeg=sum(cells[k]["time_area"] for k in completed),
-                input_rows_including_halo=int(r.sum()),input_bytes=sum(v["raw_bytes"] for v in values),
+                input_rows_including_halo=int(r.sum()),input_bytes=sum(v["raw_bytes"] for v in values)+linked_bytes,
+                input_receipt_bytes=sum(v["raw_bytes"] for v in values),
+                linked_query_cache_bytes=linked_bytes,cores_with_linked_query_cache=linked_cores,
+                input_size_scope="Logical bytes in successful acquisition products and their per-core query cache, counted once. Reference outputs, obsolete attempts and other scratch usage are separate.",
                 reference_rows_including_halo=sum(v["measurements"] for v in values),
                 cores_with_local_reference_rows=sum(v["measurements"]>0 for v in values),
                 core_rows_p10_p50_p90=np.quantile(r,[.1,.5,.9]),

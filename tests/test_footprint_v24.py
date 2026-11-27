@@ -54,3 +54,24 @@ def test_stripe82_rejects_an_unrelated_catalogue_registration(tmp_path):
     plan.write_text('{"registered":"different"}')
     with pytest.raises(ValueError,match="ownership"):
         catalogue_closure(catalogue,plan)
+
+
+def test_revised_input_counts_shared_query_bytes_without_changing_receipt(tmp_path):
+    import json
+    from deep_pm.footprint_progress_v24 import account_linked_caches
+
+    shared = tmp_path/"intake"/"b"/"cache"
+    shared.mkdir(parents=True)
+    (shared/"page.csv").write_bytes(b"header\n")
+    revised = tmp_path/"revisions"/"v"/"intake"/"b"
+    revised.mkdir(parents=True)
+    (revised/"cache").symlink_to(shared, target_is_directory=True)
+    resolved = tmp_path/"resolved"
+    resolved.mkdir()
+    (resolved/"b.json").write_text(json.dumps({"source": str(revised), "source_sha256": "signed"}))
+    rows = {"a": {"raw_bytes": 81}, "b": {"raw_bytes": 30, "input_receipt_sha256": "signed"}}
+    assert account_linked_caches(tmp_path, rows) == (1, 7)
+    assert rows["a"] == {"raw_bytes": 81} and rows["b"]["working_input_bytes"] == 37
+    assert rows["b"]["raw_bytes"] == 30
+    assert account_linked_caches(tmp_path, rows) == (1, 7)
+    assert rows["b"]["working_input_bytes"] == 37

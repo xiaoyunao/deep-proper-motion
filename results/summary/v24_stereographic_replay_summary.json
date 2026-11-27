@@ -1,0 +1,69 @@
+{
+  "qualified": true,
+  "checks": {
+    "fixed_stars": true,
+    "overlap": true,
+    "held_objects": true,
+    "angular": true,
+    "median_pm": true,
+    "median_held": true,
+    "held_scatter": true
+  },
+  "slurm_job": "62109394",
+  "registration_sha256": "c0c79d8bdfa036ced7b1c5345e96b44e5a297b7cadad828bbd8343c9a9ce68b4",
+  "implementation_sha256": "7fe82f61b2835e48c30b1c4359071104e37ee508dae9489fd65663c06a93b222",
+  "physical_groups": 95,
+  "training_objects": 8334,
+  "training_measurements": 122917,
+  "holdout_objects": 3593,
+  "common_supported_held_measurements": 52908,
+  "common_early_late_objects": 3593,
+  "held_radial_p68_mas_TAN_STG": [
+    130.27691002885746,
+    130.19260623618533
+  ],
+  "held_median_shift_mas": [
+    -0.03656360561411276,
+    0.017861770833967228
+  ],
+  "common_fixed_stars": 128,
+  "median_pm_shift_masyr": [
+    0.0006718507454785971,
+    -0.0020092897848908997
+  ],
+  "pm_absolute_delta_p68_masyr": [
+    0.016027927497208695,
+    0.005527829649451661
+  ],
+  "median_pm_se_ratio": [
+    0.9999991911867873,
+    1.0000000680838275
+  ],
+  "actual_boundary": {
+    "original_by_side": [
+      5825,
+      6174
+    ],
+    "selected_by_side": [
+      64,
+      64
+    ],
+    "overlap_selected": 64,
+    "overlap_reproduced": 64,
+    "overlap_max_pm_difference": 0.0,
+    "exits": {}
+  },
+  "fixed_correction_roundtrip_max_mas": 2.76968063408603e-07,
+  "reference_draws": 48,
+  "centers_deg": [
+    [
+      220.0,
+      6.5
+    ],
+    [
+      0.07774785132775976,
+      74.0378439879756
+    ]
+  ],
+  "scope": "Same two archived neighbouring cores, fixed physical detections, independent held galaxies. Free offsets solved jointly per chart; local seam and numerical test. Final whole-domain admission and independent quality are separate."
+}

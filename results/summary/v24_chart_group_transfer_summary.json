@@ -1,0 +1,149 @@
+{
+  "slurm_job": "62109394",
+  "geometry_sha256": "3e7843d4d81dbddff7ec28a72465bce6dd1f2e430c9d3479e6b95de0494825b2",
+  "old_held_sha256": "b2a16f6a0b3c17f974df1902da3a8f5c385e5dccae27c953ab5513fac6519cb3",
+  "components": [
+    {
+      "old_components": [
+        0,
+        2
+      ],
+      "old_supported_detections": 748725,
+      "eligible_detections": 728440,
+      "test_detections": 364387,
+      "statistics": {
+        "SDSS_all": {
+          "detections": 39831,
+          "groups": 1507,
+          "median_east_north_mas": [
+            -0.012969880885568396,
+            -0.11949310033545528
+          ],
+          "radial_mas_p50_p68_p95": [
+            1.544271951912319,
+            2.8669458395287015,
+            8.47499915950421
+          ],
+          "above_5mas": 6415,
+          "group_median_error_p50_p95": [
+            1.0507978886375986,
+            4.985344316463119
+          ]
+        },
+        "SDSS_under_2deg": {
+          "detections": 205,
+          "groups": 45,
+          "median_east_north_mas": [
+            -0.00536459260068242,
+            -0.006845112975050222
+          ],
+          "radial_mas_p50_p68_p95": [
+            0.17013901905520043,
+            0.2770871990616091,
+            0.6556927371665583
+          ],
+          "above_5mas": 0,
+          "group_median_error_p50_p95": [
+            0.19651012983150493,
+            0.4875584966779863
+          ]
+        },
+        "SDSS_2_to_10deg": {
+          "detections": 7480,
+          "groups": 582,
+          "median_east_north_mas": [
+            -0.0039259978210424646,
+            0.0012816342868389296
+          ],
+          "radial_mas_p50_p68_p95": [
+            0.5541858316828421,
+            0.8746612901836429,
+            2.033320053233738
+          ],
+          "above_5mas": 1,
+          "group_median_error_p50_p95": [
+            0.5714679151680115,
+            1.395415266586665
+          ]
+        },
+        "SDSS_at_least_10deg": {
+          "detections": 32146,
+          "groups": 880,
+          "median_east_north_mas": [
+            -0.02035906192984578,
+            -0.2177350764188419
+          ],
+          "radial_mas_p50_p68_p95": [
+            2.066287141825012,
+            3.552149267172075,
+            9.321924041676297
+          ],
+          "above_5mas": 6414,
+          "group_median_error_p50_p95": [
+            1.9754621956685763,
+            6.043663359601279
+          ]
+        },
+        "NSC_all": {
+          "detections": 324556,
+          "groups": 20422,
+          "median_east_north_mas": [
+            0.00042727380757499997,
+            0.00044584647959481163
+          ],
+          "radial_mas_p50_p68_p95": [
+            0.14128544465038703,
+            0.21652013181121363,
+            0.5488811033648302
+          ],
+          "above_5mas": 0,
+          "group_median_error_p50_p95": [
+            0.148340718286425,
+            0.4552854123772626
+          ]
+        },
+        "NSC_under_2deg": {
+          "detections": 301497,
+          "groups": 19277,
+          "median_east_north_mas": [
+            0.00026336137762203243,
+            0.00026147606407766143
+          ],
+          "radial_mas_p50_p68_p95": [
+            0.14147051500960725,
+            0.21663728945500096,
+            0.5494087622007597
+          ],
+          "above_5mas": 0,
+          "group_median_error_p50_p95": [
+            0.14795829615777606,
+            0.45552446408557873
+          ]
+        },
+        "NSC_2_to_10deg": {
+          "detections": 23059,
+          "groups": 1145,
+          "median_east_north_mas": [
+            0.002643117273608537,
+            0.003392677720736507
+          ],
+          "radial_mas_p50_p68_p95": [
+            0.1388721622972495,
+            0.21440641797336965,
+            0.539626732523583
+          ],
+          "above_5mas": 0,
+          "group_median_error_p50_p95": [
+            0.15477235412317145,
+            0.45380966829476843
+          ]
+        },
+        "NSC_at_least_10deg": {
+          "detections": 0,
+          "groups": 0
+        }
+      }
+    }
+  ],
+  "scope": "Geometric representation only. For each archived group re-express its old corrected sky in STG, estimate one constant on half of its held galaxies, compare to the exact old corrected sky at disjoint identities. This does not train the final reference, estimate a physical sky truth or modify PM. Require three identities per half. Angular size is the separation of an actual pair, a lower bound."
+}

@@ -1,0 +1,35 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "priority_plan_sha256": "3b6b4b76bcb690c74eea17239926a3fa99c14f2098bdc53dad67ab6d57c42dbb",
+  "slurm_job": "62112673",
+  "cores": 20,
+  "min_ordinal": 4320,
+  "min_estimated_measurements": 8000000,
+  "selected_estimate_range": [
+    8262565,
+    19965914
+  ],
+  "measured_tail_actual_and_estimated_millions": [
+    [
+      9.64,
+      10.67
+    ],
+    [
+      14.08,
+      15.48
+    ],
+    [
+      15.12,
+      16.37
+    ],
+    [
+      15.99,
+      17.63
+    ],
+    [
+      19.41,
+      20.6
+    ]
+  ],
+  "scope": "Scheduling from CCD-centre counts. Exact archive pages, source selection and reference graph remain governed by each core receipt."
+}

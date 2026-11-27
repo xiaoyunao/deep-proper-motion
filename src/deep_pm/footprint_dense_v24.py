@@ -69,18 +69,40 @@ def stage(task):
         return result
 
 
-def run(base, start, end, workers):
+def priority_names(path, expected_sha, footprint, ordered):
+    if digest(path) != expected_sha:
+        raise ValueError("Changed priority scheduling plan")
+    proof = json.loads(path.read_text())
+    if proof["footprint"] != footprint:
+        raise ValueError("Different registered footprint")
+    names = []
+    for row in proof["priority"]:
+        ordinal = row["ordinal"]
+        if not 0 <= ordinal < len(ordered) or ordered[ordinal] != row["core"]:
+            raise ValueError("Priority core disagrees with its original footprint ordinal")
+        names.append(row["core"])
+    if len(names) != len(set(names)):
+        raise ValueError("Duplicate priority core")
+    return names
+
+
+def run(base, start, end, workers, priority_plan=None, priority_sha=None):
     work = base / "v2.4"
     plan = work / "registration/private_full_footprint_plan.json"
     sha = digest(plan)
     if sha != json.loads((work / "registration/v24_footprint_inventory_summary.json").read_text())["signed_manifest_sha256"]:
         raise ValueError("Changed footprint before page staging")
     cells = json.loads(plan.read_text())["new"]
-    names = [n for group in groups(cells)[1:] for n in group][start:end]
+    ordered = [n for group in groups(cells)[1:] for n in group]
+    if priority_plan is not None:
+        ordered = priority_names(priority_plan, priority_sha, sha, ordered)
+    if not 0 <= start < end <= len(ordered):
+        raise ValueError("Invalid page-staging range")
+    names = ordered[start:end]
     names = [n for n in names if not (work/"batch-receipts"/(n+".json")).exists()]
     # Start long transfers early, using archived metadata without examining PM.
     pilot = work / "registration/private_density_tail_receipt.json"
-    loads = dict(json.loads(pilot.read_text()).get(str(start), [])) if pilot.exists() else {}
+    loads = dict(json.loads(pilot.read_text()).get(str(start), [])) if pilot.exists() and priority_plan is None else {}
     names.sort(key=lambda n: (-loads.get(n,0), n))
     out = work / "dense-pages"
     out.mkdir(exist_ok=True)
@@ -95,7 +117,7 @@ def run(base, start, end, workers):
                 print(n,repr(exc),flush=True)
                 failures.append(n)
     save_json(out / ("private_batch_"+os.environ["SLURM_JOB_ID"]+".json"),
-              dict(footprint=sha, ordinal_range=[start,end], names=names, failed=failures))
+              dict(footprint=sha, ordinal_range=[start,end], priority_plan_sha256=priority_sha, names=names, failed=failures))
     if failures:
         raise RuntimeError("Some dense cores still require successful query pages")
 
@@ -109,4 +131,4 @@ if __name__ == "__main__":
     a=parser.parse_args()
     if not os.getenv("SLURM_JOB_ID") or not 1<=a.workers<=int(os.environ["SLURM_CPUS_PER_TASK"]):
         parser.error("Use assigned Slurm CPUs")
-    run(a.base,a.start,a.end,a.workers)
+    run(a.base,a.start,a.end,a.workers,a.priority_plan,a.priority_sha)

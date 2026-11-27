@@ -128,3 +128,8 @@ python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witne
 ```
 
 计数式 TAP 的测量–对象空间连接发生读超时时，改查同一筛选条件的对象 ID，按 ID 分组独立计数和读取 meas。小查询的 HTTP 网关中断仍单独处理。恢复核查使用 `footprint_index_check_v24 WORK CORE PUBLIC_SUMMARY`，对一份已有完整分页按对象身份的固定哈希选样，逐值比较实际测量的全部 17 列。
+
+
+### 提前处理预计数据量较大的核心
+
+在科学批次到达前，可向 `footprint_dense_v24 BASE START END --workers N` 传入 `--priority-plan FILE --priority-sha SHA256`。START 与 END 是该调度清单内的半开序号；入口同时校验每个核心在原足迹中的序号。当前 20 个核心的清单依据真实 CCD 计数和已处理状态冻结，工作进程仍执行相同的对象及测量分页，并读取对应的 CCD 和亮 Gaia 辅助元数据。分配规范化内存时使用实际已验证的测量行数。最终科学分母继续使用完整足迹清单。

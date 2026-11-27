@@ -1,6 +1,6 @@
 {
-  "cores": 1859,
-  "reference_rows": 139901424,
+  "cores": 2275,
+  "reference_rows": 148214515,
   "engine": "1.1.3",
   "meaning": "Hash-partitioned signed measurements before global identity and reference conflict resolution."
 }

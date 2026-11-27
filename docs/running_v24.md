@@ -126,3 +126,5 @@ python -m deep_pm.footprint_sdss_stage_v24 "$work" "$DPM_SAS" --start "$first" -
 ```sh
 python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witness_job/v24_linked_chart_geometry_summary.json" both
 ```
+
+计数式 TAP 的测量–对象空间连接发生读超时时，改查同一筛选条件的对象 ID，按 ID 分组独立计数和读取 meas。小查询的 HTTP 网关中断仍单独处理。恢复核查使用 `footprint_index_check_v24 WORK CORE PUBLIC_SUMMARY`，对一份已有完整分页按对象身份的固定哈希选样，逐值比较实际测量的全部 17 列。

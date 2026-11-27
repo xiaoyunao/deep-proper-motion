@@ -54,6 +54,24 @@ def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap
         split(low,hi_l,data.loc[west],True)
         split(lo_r,high,data.loc[~west],True)
 
+    def read_page(where):
+        try:
+            if service == "nsc" and native_window:
+                return cache.checked_native_window(select,table,where,cap=answer_cap)
+            return cache.checked(service,select,table,where,cap=answer_cap)
+        except access.SlowTapJoin:
+            # Apply the identical archive predicate to objects. Their IDs determine
+            # this page only; the blind association never receives archive labels.
+            objects = cache.checked("nsc", "o.id AS objectid", "nsc_dr2.object o", where, cap=answer_cap)
+            ids = objects.objectid.astype(str).sort_values()
+            if objects.objectid.isna().any() or ids.duplicated().any():
+                raise ValueError("Invalid object index in a timed-out measurement page")
+            result = access.fetch_measurements_for_objects(cache, ids, batch_size=120)
+            if not set(result.objectid.astype(str)).issubset(ids):
+                raise ValueError("A measurement belongs to a different archive page")
+            print(f"Verified TAP page via object index: {len(ids)} objects, {len(result)} measurements", flush=True)
+            return result
+
     def receive(bounds):
         low,high=bounds
         where=tap_rectangle(dict(ra=[low[0],high[0]],dec=[low[1],high[1]]),alias="o.")+quality
@@ -62,9 +80,7 @@ def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap
             radius = np.linalg.norm(high-low)/2+.003
             where = (f"q3c_radial_query(o.ra,o.dec,{mid[0]%360:.10f},{np.clip(mid[1],-90,90):.10f},{radius:.10f}) AND "+where)
         try:
-            if service == "nsc" and native_window:
-                return cache.checked_native_window(select,table,where,cap=answer_cap)
-            return cache.checked(service,select,table,where,cap=answer_cap)
+            return read_page(where)
         except access.PartitionTooLarge:
             axis=int(np.argmax(high-low))
             cut=round((low[axis]+high[axis])/2,9)

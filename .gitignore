@@ -103,3 +103,5 @@
 !/figures/v24/F5_stripe82.png
 
 !scripts/run-v24-dense-core.py
+
+!scripts/dispatch-v24-dense.py

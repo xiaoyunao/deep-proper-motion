@@ -1,0 +1,45 @@
+{
+  "footprint_sha256": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "rows": [
+    {
+      "core": "v24_129_092_00",
+      "quadrature_sqdeg": 0.998411007249381,
+      "raw_bytes": 325462886,
+      "rows": 478772,
+      "measurements": 74862,
+      "groups": 56,
+      "wall_s": 117.4899063090561,
+      "rss_mib": 1096.44140625
+    },
+    {
+      "core": "v24_245_086_00",
+      "quadrature_sqdeg": 0.9981221297514853,
+      "raw_bytes": 307417815,
+      "rows": 434625,
+      "measurements": 0,
+      "groups": 0,
+      "wall_s": 111.53865919902455,
+      "rss_mib": 1078.37109375
+    },
+    {
+      "core": "v24_152_125_00",
+      "quadrature_sqdeg": 0.7769683279856996,
+      "raw_bytes": 100714007,
+      "rows": 144451,
+      "measurements": 18211,
+      "groups": 58,
+      "wall_s": 45.39580376492813,
+      "rss_mib": 543.30859375
+    },
+    {
+      "core": "v24_226_145_00",
+      "quadrature_sqdeg": 0.5663990479019402,
+      "raw_bytes": 79928368,
+      "rows": 115330,
+      "measurements": 14470,
+      "groups": 49,
+      "wall_s": 45.39212822599802,
+      "rss_mib": 549.03125
+    }
+  ]
+}

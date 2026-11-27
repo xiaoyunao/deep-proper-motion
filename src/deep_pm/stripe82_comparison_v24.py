@@ -11,6 +11,7 @@ from scipy.stats import norm
 
 from .exposure_catalogues import coordinates, inside
 from .io import digest, save_json
+from .stream_json import array_items
 
 EDGES = (16, 18, 19, 20, 21, 21.5, 22, 22.5, 23, 24)
 METHODS = ("ours", "xiao", "nsc")
@@ -84,6 +85,53 @@ def comparison(df):
                 hlc_median_pm_errors=(common[["se_e","se_n"]].median().tolist() if len(common) else None))
 
 
+def run_years(sample, source_root):
+    """Read only member records that enter the frozen common stellar sample."""
+    common = sample.ours_e.notna() & sample.xiao_e.notna() & sample.nsc_e.notna() & sample.in_nominal
+    sample["sdss_years"] = np.nan
+    groups = {}
+    for name, subset in sample[common].groupby("origin_core"):
+        folder = source_root / str(name)
+        path = folder / "private_standard_motion.json.gz"
+        receipt = json.loads((folder/"v22_source_core_summary.json").read_text())
+        if digest(path) != receipt["private_output_sha256"][path.name]:
+            raise ValueError("Changed signed source members")
+        slots = dict(zip(subset.origin_slot.astype(int), subset.index))
+        for slot, row in enumerate(array_items(path)):
+            if slot in slots:
+                idx = slots.pop(slot)
+                sample.at[idx,"sdss_years"] = row["information"]["sdss_unique_UTC_years"]
+                runs = sorted({v for v in row["exposures"] if v.startswith("SDSS:")})
+                if len(runs) != row["information"]["sdss_physical_runs"]:
+                    raise ValueError("SDSS member identity does not close")
+                groups[idx] = runs
+        if slots:raise ValueError("Missing signed source slot")
+    return groups
+
+
+def run_sensitivity(sample, membership):
+    if len(sample)<20:return dict(n=len(sample))
+    from scipy.sparse import csr_matrix
+    labels={g:i for i,g in enumerate(sorted({v for k in sample.index for v in membership[k]}))}
+    if len(labels)<2:return dict(n=len(sample),runs=len(labels))
+    rr=[];cc=[];vv=[]
+    for i,k in enumerate(sample.index):
+        for g in membership[k]:
+            rr.append(i);cc.append(labels[g]);vv.append(1/len(membership[k]))
+    incidence=csr_matrix((vv,(rr,cc)),shape=(len(sample),len(labels)))
+    rng=np.random.RandomState(240082)
+    weights=incidence@rng.exponential(size=(len(labels),64))
+    result={}
+    for method in METHODS:
+        radius=np.hypot(sample[method+"_e"]-sample.pm_e,sample[method+"_n"]-sample.pm_n).to_numpy()
+        order=np.argsort(radius)
+        cumulative=weights[order].cumsum(axis=0)
+        quantile=radius[order][np.argmax(cumulative>=.68*cumulative[-1],axis=0)]
+        result[method]=np.quantile(quantile,[.025,.975]).tolist()
+    return dict(n=len(sample),runs=len(labels),positive_run_reweight_P68_95=result,
+                meaning="Sensitivity to common physical SDSS run weights, not an independent-error interval")
+
+
 def run(base, catalogue, plan, output, version, workers):
     work=base/"v2.4"
     output.mkdir(exist_ok=True,parents=True)
@@ -104,13 +152,13 @@ def run(base, catalogue, plan, output, version, workers):
     db.execute("SET memory_limit='6GB'")
     db.execute(f"ATTACH '{catalogue}' AS scientific (READ_ONLY)")
     queries={"hlc":f"SELECT * FROM read_parquet('{work}/s82/private_hlc_*.parquet') WHERE has_position",
-             "ours":"SELECT src AS external,ra_deg AS ra,dec_deg AS dec,TRUE AS valid,pm_e,pm_n,se_e,se_n,sdss_runs,nsc_span,joint_span,nsc_nights FROM scientific.accepted WHERE abs(dec_deg)<=2.2 AND (ra_deg<53 OR ra_deg>=307)",
+             "ours":"SELECT src AS external,ra_deg AS ra,dec_deg AS dec,TRUE AS valid,pm_e,pm_n,se_e,se_n,core,slot,sdss_runs,nsc_span,joint_span,nsc_nights FROM scientific.accepted WHERE abs(dec_deg)<=2.2 AND (ra_deg<53 OR ra_deg>=307)",
              "xiao":f"SELECT * FROM read_parquet('{work}/s82-xiao-epoch/private_xiao_*.parquet')",
              "nsc":f"SELECT * FROM read_parquet('{work}/s82-nsc/private_nsc_*.parquet')"}
     directories={k:stage(db,output,k,q) for k,q in queries.items()}
     spec=[row["spec"] for row in json.loads(plan.read_text())["cores"]]
     parts=[]
-    for centre in list(range(53))+list(range(307,360)):
+    for centre in sorted(int(d.name.split("=")[1]) for d in directories["hlc"].glob("sector=*")):
         stars=sector(directories["hlc"],centre)
         if not len(stars):continue
         h=coordinates(stars.ra,stars.dec)
@@ -123,6 +171,11 @@ def run(base, catalogue, plan, output, version, workers):
                 stars[target]=np.nan
                 if len(i):stars.loc[i,target]=other[source].to_numpy()[j]
             if m=="ours":
+                stars["origin_core"]=None
+                stars["origin_slot"]=np.nan
+                if len(i):
+                    stars.loc[i,"origin_core"]=other.core.to_numpy()[j]
+                    stars.loc[i,"origin_slot"]=other.slot.to_numpy()[j]
                 for key in ("sdss_runs","nsc_span","joint_span","nsc_nights"):
                     stars[key]=np.nan
                     if len(i):stars.loc[i,key]=other[key].to_numpy()[j]
@@ -137,17 +190,29 @@ def run(base, catalogue, plan, output, version, workers):
     if all_stars.identity.duplicated().any() or len(all_stars)!=json.loads(receipts[0].read_text())["parent"]:
         raise ValueError("Stripe 82 HLC parent count or unique source identity did not close")
     pairpath=output/"private_pairs.parquet"
+    membership=run_years(all_stars,catalogue.parents[1]/"sources")
     all_stars.to_parquet(pairpath,index=False,compression="zstd")
     sample=all_stars[all_stars.in_nominal]
     result=dict(scope=version,area_definition="Nominal frozen owner rectangles. Parent from full HLC before any ground matching.",
                 input_signature=digest(state),pair_sha256=digest(pairpath),all_hlc_parent=len(all_stars),in_nominal=len(sample),
                 total=comparison(sample),magnitude={},condition={})
     for lo,hi in zip(EDGES,EDGES[1:]):
-        result["magnitude"][f"{lo:g}-{hi:g}"]=comparison(sample[(sample.r>=lo)&(sample.r<hi)])
-    for key,edges in (("sdss_runs",(1,2,5,np.inf)),("joint_span",(0,10,15,20,np.inf)),
+        sub=sample[(sample.r>=lo)&(sample.r<hi)]
+        entry=comparison(sub)
+        common=sub[sub.ours_e.notna() & sub.xiao_e.notna() & sub.nsc_e.notna()]
+        entry["common_run_sensitivity"]=run_sensitivity(common,membership)
+        result["magnitude"][f"{lo:g}-{hi:g}"]=entry
+    for key,edges in (("sdss_runs",(1,2,5,np.inf)),("sdss_years",(1,2,3,np.inf)),("joint_span",(0,10,15,20,np.inf)),
                       ("nsc_span",(0,2,4,6,np.inf)),("nsc_nights",(0,5,10,30,np.inf)),
                       ("colour",(-np.inf,.5,1,2,np.inf)),("neighbour",(0,2,5,10,np.inf))):
         result["condition"][key]={f"{lo:g}-{hi:g}":comparison(sample[(sample[key]>=lo)&(sample[key]<hi)]) for lo,hi in zip(edges,edges[1:])}
+    strict=sample[sample.ours_e.notna() & sample.xiao_e.notna() & sample.nsc_e.notna()]
+    ed=np.linspace(-50,50,101)
+    result["density"]={"edges_masyr":ed.tolist(),"sample":len(strict),"counts":{}}
+    for axis in ("e","n"):
+        for method in METHODS:
+            histogram,_,_=np.histogram2d(strict["pm_"+axis],strict[method+"_"+axis],bins=(ed,ed))
+            result["density"]["counts"][method+"_"+axis]=histogram.astype(int).tolist()
     save_json(complete,result)
 
 

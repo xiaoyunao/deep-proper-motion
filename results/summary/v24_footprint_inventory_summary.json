@@ -1,0 +1,69 @@
+{
+  "signed_manifest_sha256": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "new_rectangles": 15235,
+  "new_rectangles_with_sampled_time": 14745,
+  "new_bounding_area_sqdeg": 12311.14772216572,
+  "grids": {
+    "20": {
+      "areas_sqdeg": {
+        "sdss": 14561.119029509118,
+        "nsc": 34841.955659879,
+        "intersection": 13299.035273258318,
+        "time": 12727.500779271659,
+        "old_time": 2736.657098210946,
+        "new_time": 9990.843681060713
+      },
+      "sdss": {
+        "rows": 938046,
+        "invalid": 0,
+        "bindings": [
+          "326fa75c39e2614f3d331aaa6d044e41c0ba1cd7afd485e44a97d4e32ba9198e"
+        ]
+      },
+      "nsc": {
+        "rows": 24416997,
+        "invalid": 1750,
+        "bindings": [
+          "e874fe2d486730e65980772f99bbef39ff5ae7acbeb45e0dd377740ff3c1b8eb",
+          "baa83010c8909b51c364f13aa5f03b8bb9f6bb86bd0eb5646d96124efeb2dd42",
+          "13abf844ae9384ec5b2fd4391bd75bd360cc7f6dd9e7661b0b3d6939a982cd26",
+          "52bae360bf750cd99f39450be3e810e0707ec2473ab594c10c85e43879e04a7d",
+          "f958b6381dd1050a37a21d26e79fe3ac2fd2900d59c7f180ba4aaa93c7991f0f",
+          "1cce1ed5f0ca8a1000d927f3e21d3436efdf654c95874d939d2a9dfef7970b09",
+          "cdd9ad9f08487a16f697b0adb0974db0a9666945560d02587b76ff2121381c7d",
+          "4f05e2d6b8a99b73773a55c8d4900e37c64960a443553d38d4f203ea7ac7cca5"
+        ]
+      }
+    },
+    "40": {
+      "areas_sqdeg": {
+        "sdss": 14562.519877127148,
+        "nsc": 34843.71558101468,
+        "intersection": 13300.828644408895,
+        "time": 12729.390275125266,
+        "old_time": 2737.7282972065423,
+        "new_time": 9991.661977918724
+      },
+      "sdss": {
+        "rows": 938046,
+        "invalid": 0,
+        "bindings": [
+          "a6c4481e5344beec05c473b8ef74383e97277b6137d4fbcfa97a0e8bc1090dd2"
+        ]
+      },
+      "nsc": {
+        "rows": 24416997,
+        "invalid": 1750,
+        "bindings": [
+          "bc1c4ce4c8c7bad76e1e4f623ac46730e121b1fd54e565f95af42c13ed689741",
+          "7cb8cf949d53da2232adfb02fef9f58b45f000cdaaedef0490ac57f0c803d39d",
+          "f5405c979efeff2494aa6e18e081405111b0dc0c932cf08f814b4809853fb4bf",
+          "8454227bacb11c91925c73e1dbf3e1a873f19ff17d78436f8fc66283e73e7b2f",
+          "055e6ea296cf1ef3e3127a1a87794e300712a2aa53bf38c62e5975394dc4d469",
+          "9e8ea163668da29fad5bec3a259812a57bcd31840d16cefe0a2e2a467c28cd2b"
+        ]
+      }
+    }
+  },
+  "scope": "Pre-reference native scan and CCD opportunity, two independent area quadratures. Includes all actual filter labels. Bounding area includes slivers/empty cells. Final accepted reference area and produced footprint require separate accounting."
+}

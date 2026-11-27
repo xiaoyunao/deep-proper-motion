@@ -12,6 +12,7 @@ from scipy.stats import norm
 from .exposure_catalogues import coordinates, inside
 from .io import digest, save_json
 from .stream_json import array_items
+from .year_opportunities import utc_year
 
 EDGES = (16, 18, 19, 20, 21, 21.5, 22, 22.5, 23, 24)
 METHODS = ("ours", "xiao", "nsc")
@@ -90,6 +91,7 @@ def run_years(sample, source_root):
     common = sample.ours_e.notna() & sample.xiao_e.notna() & sample.nsc_e.notna() & sample.in_nominal
     sample["sdss_years"] = np.nan
     groups = {}
+    calendar = {}
     for name, subset in sample[common].groupby("origin_core"):
         folder = source_root / str(name)
         path = folder / "private_standard_motion.json.gz"
@@ -100,7 +102,14 @@ def run_years(sample, source_root):
         for slot, row in enumerate(array_items(path)):
             if slot in slots:
                 idx = slots.pop(slot)
-                sample.at[idx,"sdss_years"] = row["information"]["sdss_unique_UTC_years"]
+                years = row["information"].get("sdss_unique_UTC_years")
+                if years is None:
+                    times = [t for e,t in zip(row["exposures"],row["observation_mjd_tt"]) if e.startswith("SDSS:")]
+                    unseen = sorted(set(times)-calendar.keys())
+                    if unseen:
+                        calendar.update(zip(unseen,utc_year(np.asarray(unseen))))
+                    years = len({calendar[t] for t in times})
+                sample.at[idx,"sdss_years"] = years
                 runs = sorted({v for v in row["exposures"] if v.startswith("SDSS:")})
                 if len(runs) != row["information"]["sdss_physical_runs"]:
                     raise ValueError("SDSS member identity does not close")
@@ -137,6 +146,21 @@ def run(base, catalogue, plan, output, version, workers):
     output.mkdir(exist_ok=True,parents=True)
     receipts=[work/"s82/v24_s82_parent_summary.json",work/"s82-nsc/v24_nsc_epoch_input_summary.json",
               work/"s82-xiao-epoch/v24_xiao_epoch_input_summary.json", plan,work/"meridian/v24_archive_longitude_summary.json"]
+    opportunity=work/"s82-opportunity"
+    opportunity_receipt=opportunity/"v24_hlc_geometric_opportunity_summary.json"
+    receipts.append(opportunity_receipt)
+    table=opportunity/"private_hlc_opportunity.parquet"
+    if digest(table)!=json.loads(opportunity_receipt.read_text())["sha256"]:
+        raise ValueError("Changed HLC moving-position footprint")
+    archive=json.loads(receipts[2].read_text())["outputs"]
+    native=json.loads(receipts[1].read_text())["parts"]
+    checked=[(work/"s82-xiao-epoch"/name,sha) for name,sha in archive.items()]
+    checked.extend((work/"s82-nsc"/entry["file"],entry["sha256"]) for entry in native)
+    for folder,pattern,files in ((work/"s82-xiao-epoch","private_xiao_*.parquet",set(archive)),
+                                 (work/"s82-nsc","private_nsc_*.parquet",{row["file"] for row in native})):
+        if {p.name for p in folder.glob(pattern)}!=files:raise ValueError("Unexpected external catalogue shard set")
+    for path,sha in checked:
+        if digest(path)!=sha:raise ValueError("Changed signed external catalogue shard")
     ticket=dict(inputs=[digest(p) for p in receipts],catalogue_stat=[catalogue.stat().st_size,catalogue.stat().st_mtime_ns],
                 protocol=json.loads(receipts[0].read_text())["protocol_sha256"],implementation=digest(Path(__file__)),version=version)
     state=output/"private_input_signature.json"
@@ -156,7 +180,7 @@ def run(base, catalogue, plan, output, version, workers):
              "xiao":f"SELECT * FROM read_parquet('{work}/s82-xiao-epoch/private_xiao_*.parquet')",
              "nsc":f"SELECT * FROM read_parquet('{work}/s82-nsc/private_nsc_*.parquet')"}
     supplement=work/"meridian/private_nsc_longitude_supplement.parquet"
-    if digest(supplement)!=json.loads(receipts[-1].read_text())["epoch_supplement_sha256"]:
+    if digest(supplement)!=json.loads(receipts[4].read_text())["epoch_supplement_sha256"]:
         raise ValueError("Unverified NSC meridian supplement")
     queries["nsc"] += f" UNION ALL SELECT * FROM read_parquet('{supplement}')"
     duplicate=db.execute(f"SELECT external FROM ({queries['nsc']}) x GROUP BY external HAVING count(*)>1 LIMIT 1").fetchone()
@@ -195,12 +219,16 @@ def run(base, catalogue, plan, output, version, workers):
     all_stars=pd.concat(parts,ignore_index=True)
     if all_stars.identity.duplicated().any() or len(all_stars)!=json.loads(receipts[0].read_text())["parent"]:
         raise ValueError("Stripe 82 HLC parent count or unique source identity did not close")
+    all_stars=all_stars.merge(pd.read_parquet(table),on="identity",how="left",validate="one_to_one")
+    if all_stars.time_opportunity.isna().any():raise ValueError("HLC opportunity lookup incomplete")
     pairpath=output/"private_pairs.parquet"
     membership=run_years(all_stars,catalogue.parents[1]/"sources")
     all_stars.to_parquet(pairpath,index=False,compression="zstd")
-    sample=all_stars[all_stars.in_nominal]
-    result=dict(scope=version,area_definition="Nominal frozen owner rectangles. Parent from full HLC before any ground matching.",
-                input_signature=digest(state),pair_sha256=digest(pairpath),all_hlc_parent=len(all_stars),in_nominal=len(sample),
+    nominal=all_stars[all_stars.in_nominal]
+    sample=nominal[nominal.time_opportunity]
+    result=dict(scope=version,area_definition="Frozen owner rectangles intersected with moving-source native field/CCD and time opportunity. Completeness conditional on HLC stellar parent.",
+                input_signature=digest(state),pair_sha256=digest(pairpath),all_hlc_parent=len(all_stars),in_nominal=len(nominal),
+                in_nominal_geometry=int(nominal.geometry.sum()),in_nominal_time=len(sample),nominal_comparison=comparison(nominal),
                 total=comparison(sample),magnitude={},condition={})
     for lo,hi in zip(EDGES,EDGES[1:]):
         sub=sample[(sample.r>=lo)&(sample.r<hi)]

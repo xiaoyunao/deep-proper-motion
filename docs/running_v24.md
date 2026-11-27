@@ -43,7 +43,10 @@ footprint_progress_v24 "$base" "$work/registration/v24_intake_progress_summary.j
 ```bash
 stripe82_external_v24 xiao "$work/s82-xiao-epoch" --xiao "$DPM_XIAO" --workers 1
 stripe82_external_v24 nsc "$work/s82-nsc" --workers 4
+stripe82_opportunity_v24 "$base" --workers 4
 stripe82_comparison_v24 "$base" "$CATALOGUE" "$PLAN" "$OUTPUT" "$VERSION"
 ```
 
 `CATALOGUE` 指向已闭合的 `catalogue.duckdb`；`PLAN` 必须属于同一版本。对照先在 J2015.5 做全部定位竞争者的双向唯一检查，随后取 HLC 恒星母样本。沿用同一 HLC r。恒星差值保留共享 SDSS 信息，按真实物理 run 重权只作敏感性描述。旧目录比较标记 `frozen-v22-predecessor`，扩域结果另用独立版本目录。
+
+Stripe 82 的分母同时给出冻结归属窗口、实际扫描/CCD 交集和满足联合时基的恒星数。逐星依据每条原生边界及观测时刻传播 HLC 位置；共同源的各目录共用同一分母。

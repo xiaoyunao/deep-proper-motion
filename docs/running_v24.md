@@ -32,7 +32,7 @@ footprint_progress_v24 "$base" "$work/registration/v24_intake_progress_summary.j
 
 四个先导由几何分层和固定哈希选定。其余 15,231 个矩形按预定序号分配，半开 `[START,END)`。先扫 Stripe 82，再按经纬度排序。共享核心锁避免并发重复处理，每核的输入与参考分别签名。空间取数在查询侧归一原生 NSC 经度；曾因负经度触发的回执保留在历史工作目录。
 
-[调度入口](../scripts/dispatch-v24-intake.py) 在登录节点查询 Slurm 和配额，提交与监控作业。它使用实际父作业计费及运行中作业剩余可计费上界估算预算，计算步骤不重复算费。重启调度沿用 `private_allocations.txt` 与 `private_intake_dispatch.json`。检查 `sacct` 的父作业状态、`ElapsedRaw`、`AllocTRES` 和步骤 MaxRSS；同时保留失败、取消和队列等待记录。先导已观测到零本地参考和高密度长尾，窗口之间动态取任务，同核 BLAS 使用一个线程。
+[调度入口](../scripts/dispatch-v24-intake.py) 在登录节点查询 Slurm 和配额，提交与监控作业。它使用实际父作业计费及运行中作业剩余可计费上界估算预算，计算步骤不重复算费。重启调度沿用 `private_allocations.txt` 与 `private_intake_dispatch.json`。 同时接续多个旧取数版本时，由一个调度器按登记顺序填空位。用 `--early-launcher`、`--early-end` 和 `--early-mem` 指定早期批次的原执行版本、结束序号和内存。原批回执只剩少量核心时，按可处理数收缩并行与内存。检查 `sacct` 的父作业状态、`ElapsedRaw`、`AllocTRES` 和步骤 MaxRSS；同时保留失败、取消和队列等待记录。先导已观测到零本地参考和高密度长尾，窗口之间动态取任务，同核 BLAS 使用一个线程。
 
 ## 共同参考与外部验证
 

@@ -2,6 +2,7 @@
 import argparse
 import fcntl
 import json
+import math
 from pathlib import Path
 import re
 import subprocess
@@ -56,6 +57,22 @@ def save(path,content):
     draft.replace(path)
 
 
+def block_resources(a, start, end, finished):
+    # Earlier blocks are bound to the checkout which wrote their acquisition manifests.
+    earlier = a.early_launcher is not None and start < a.early_end
+    launcher = a.early_launcher if earlier else a.launcher
+    memory = a.early_mem if earlier else a.mem
+    outstanding = end - start - max((r["completed"] for r in finished), default=0)
+    if not 0 < outstanding <= end - start:
+        raise ValueError("Invalid partial batch receipt")
+    workers = min(a.workers, outstanding)
+    if workers < a.workers:
+        # Dense remaining cores can be much larger than the median. Retain
+        # one measured-memory margin even when only one or two workers remain.
+        memory = min(memory, max(16, math.ceil(memory * workers / a.workers)))
+    return launcher, workers, memory
+
+
 def dispatch(a):
     work=a.work;root=work/"registration"
     ledger=work/"private_intake_dispatch.json"
@@ -85,13 +102,14 @@ def dispatch(a):
             if slots<=0:return "live"
             # Slurm may apportion a larger minimum fraction for memory. Use a
             # conservative reservation for each new request, then use actual TRES.
-            upper=max(a.workers,2*a.mem)*a.minutes*60/SCALE
+            launcher,workers,memory=block_resources(a,start,end,finished)
+            upper=max(workers,2*memory)*a.minutes*60/SCALE
             if reserved+upper>a.ceiling:return "budget-review"
             j=command("sbatch","--parsable","-A",a.account,"-q","shared","-C","cpu","-N1","-n1",
-                      "-c",str(a.workers),"--mem",str(a.mem)+"G","-t",str(a.minutes),"-J","dpm24-wide",
-                      "-o",str(work/"logs/wide-%j.log"),str(a.launcher),
+                      "-c",str(workers),"--mem",str(memory)+"G","-t",str(a.minutes),"-J","dpm24-wide",
+                      "-o",str(work/"logs/wide-%j.log"),str(launcher),
                       "footprint_batch_v24",str(work.parent),str(a.catalogues),str(a.sas),
-                      str(start),str(end),"--workers",str(a.workers)).split(";")[0]
+                      str(start),str(end),"--workers",str(workers)).split(";")[0]
             if not j.isdigit():raise RuntimeError("Missing Slurm job ID")
             with (work/"private_allocations.txt").open("a") as stream:stream.write(j+"\n")
             history.setdefault(label,[]).append(j);save(ledger,history)
@@ -107,7 +125,15 @@ if __name__=="__main__":
     p.add_argument("--workers",type=int,default=10);p.add_argument("--mem",type=int,default=40)
     p.add_argument("--minutes",type=int,default=180);p.add_argument("--block",type=int,default=192)
     p.add_argument("--concurrent",type=int,default=2);p.add_argument("--ceiling",type=float,default=48.)
+    p.add_argument("--early-launcher",type=Path,help="Immutable checkout used by the first registered blocks")
+    p.add_argument("--early-end",type=int,help="First block using the normal launcher")
+    p.add_argument("--early-mem",type=int)
     p.add_argument("--watch",action="store_true");a=p.parse_args()
+    early=(a.early_launcher,a.early_end,a.early_mem)
+    if any(x is not None for x in early) and not all(x is not None for x in early):
+        p.error("Specify early launcher, boundary, and memory together")
+    if a.early_end is not None and not (a.start<a.early_end<=a.end and (a.early_end-a.start)%a.block==0 and a.early_mem>0):
+        p.error("The checkout boundary must coincide with a registered block boundary")
     if not 0<a.ceiling<=48 or a.start<0 or a.start>=a.end:p.error("Invalid cost or footprint bounds")
     while True:
         try:state=dispatch(a)

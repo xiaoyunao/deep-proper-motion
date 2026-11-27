@@ -130,7 +130,7 @@ def component_map(root):
 
 def one(task):
     entry,root,components=task;root=Path(root);dest=root/'sources'/entry['core'];dest.mkdir(parents=True,exist_ok=True)
-    source=Path(entry['source']);oldfit=Path(entry['fit']);config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text())
+    source=Path(entry['source']);oldfit=Path(entry['fit']) if entry.get('fit') else None;config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text())
     loaded=None
     if components is None:
         mapping,mapping_sha=component_map(str(root));source_sha=digest(source/'run_manifest.json')
@@ -151,6 +151,10 @@ def one(task):
         support_sha256=digest(Path(__file__).with_name('full_reference_run.py')),
         standard_output_sha256=digest(Path(__file__).with_name('standard_motion.py')),
         precision_sha256=digest(PRECISION),spatial_sha256=digest(SPATIAL),method='full-coordinate-v22-native50mas-full2D-sphere-nativeSE12')
+    production=entry.get('production_blind',False)
+    if production:
+        ticket['spectral_evaluation']='after-global-closure'
+        ticket['save_r_comparison']=entry.get('save_r_comparison',False)
     path=dest/'v22_source_core_summary.json'
     if path.exists():
         result=read(path)
@@ -160,7 +164,8 @@ def one(task):
         return result
     start=monotonic();verify_directory(source,('detections.csv','spectra_union.csv'))
     records=[];controls=[];fixed=[];support_counts={};funnels={};used=set()
-    oldrows=read(oldfit/'private_standard_motion.json.gz');oldblind=read(oldfit/'private_blind_qso.json')
+    oldrows=[] if production else read(oldfit/'private_standard_motion.json.gz')
+    oldblind=[] if production else read(oldfit/'private_blind_qso.json')
     if not components:
         fixed=[dict(core=entry['core'],source_slot=int(r['source_slot']),qso_local_index=int(r['qso_local_index']),magnitude=r['magnitude'],old_values=r['values'],status='no_solved_reference_component') for r in oldblind]
     b1_by_slot={}
@@ -184,6 +189,7 @@ def one(task):
     # Recompute every original blind identity, even if the new quality gate fails.
     # Final old-owner/exterior restrictions are applied to its frozen identity
     # pool in the global scientific readout, never by new quality selection.
+    physical_count=legacy_count=0
     for component in components:
         graph=root/'reference'/f'component-{component:04d}'/'private_c0_unfiltered.npz'
         center,solution,names,draws,graph_sha=reference_context(str(graph))
@@ -237,7 +243,10 @@ def one(task):
                 field_ids=[str(v) if pd.notna(v) else None for v in data.field_id.iloc[ix]] if 'field_id' in data else [None]*len(ix),
                 bands=sorted(set(local.band[local.survey.eq('NSC')])),instruments=sorted(set(local.instrument[local.survey.eq('NSC')].fillna('unknown'))),
                 detection_ids=ids,information=info,quality_flags=flags,native_reference_se_mas=se[ix],**fit))
+        legacy_count+=len(control_maps['legacy'])
+        physical_count+=len(control_maps['physical'])
         for control_kind,table in control_maps.items():
+            if production and not entry.get('save_r_comparison',False):continue
             for row in table.values():
                 ix=row[4];controls.append(dict(control_kind=control_kind,detection_ids=data.detection_id.iloc[ix].tolist(),reference_component=str(component),**output_fit(ix)))
         lookup=pd.Index(data.detection_id)
@@ -257,7 +266,7 @@ def one(task):
     # Catalogue is frozen before any new spectral lookup.
     write_rows(dest/'private_standard_motion.json.gz',records);write_rows(dest/'private_r_control.json.gz',controls)
     write_rows(dest/'private_fixed_blind_qso.json.gz',fixed)
-    spectra=pd.read_csv(source/'spectra_union.csv');blind=[]
+    spectra=pd.DataFrame() if production else pd.read_csv(source/'spectra_union.csv');blind=[]
     if len(spectra) and records:
         # A compact common local chart is only an indexing convenience; all
         # target/source distances are spherical. Not used for PM fitting.
@@ -289,7 +298,7 @@ def one(task):
                 synchronous_reference_icrs_state_draws=native_draws,values=dict(new_all=(row['pm_icrs_masyr'],row['pm_error_masyr']),**published.get(k,{}))))
     save_json(dest/'private_blind_qso.json',blind)
     files=['private_standard_motion.json.gz','private_r_control.json.gz','private_fixed_blind_qso.json.gz','private_blind_qso.json']
-    result=dict(ticket=ticket,core=entry['core'],window=entry['window'],research_solutions=len(records),r_control_solutions=sum(r['control_kind']=='legacy' for r in controls),physical_r_control_solutions=sum(r['control_kind']=='physical' for r in controls),
+    result=dict(ticket=ticket,core=entry['core'],window=entry['window'],research_solutions=len(records),r_control_solutions=legacy_count,physical_r_control_solutions=physical_count,
         by_class=dict(Counter(r['kind'] for r in records)),support=support_counts,funnel=funnels,
         fixed_blind_qso_entries=len(fixed),fixed_qso_status=dict(Counter(r['status'] for r in fixed)),new_blind_spectral_matches=len(blind),
         private_output_sha256={name:digest(dest/name) for name in files},elapsed_seconds=monotonic()-start,

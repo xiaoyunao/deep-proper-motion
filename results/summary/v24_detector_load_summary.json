@@ -1,0 +1,11 @@
+{
+  "physical_rows": 24416997,
+  "duplicate_physical_keys": 0,
+  "missing_physical_keys": 0,
+  "all_ccd_nmeas": 74519693460,
+  "load_sha256": "7b381f4f050076ec49b879d618d711fba3a4bb8b28426936a8cf603876f83de6",
+  "manifest_sha256": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "new_nmeas_area_weighted": 4752250872,
+  "new_nonempty_degree_centres_nmeas": 5937664242,
+  "interpretation": "Planning estimate weighted by native footprint area within a degree. CCD-centre load need not be spatially uniform; independent of archive row/quality/candidate cuts."
+}

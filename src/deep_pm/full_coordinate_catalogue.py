@@ -51,10 +51,10 @@ def ownership_specs(path,size,mtime):
 def index_core(task):
     number,entry,root,old_entries=task;root=Path(root);core=entry['core'];folder=root/'sources'/core;dest=root/'catalogue/index'/core;dest.mkdir(parents=True,exist_ok=True)
     path=root/'registration/private_full_coordinate_plan.json';stat=path.stat();specs,plan_sha=ownership_specs(str(path),stat.st_size,stat.st_mtime_ns)
-    proof=read(folder/'v22_source_core_summary.json');old_entry=old_entries[core]
+    proof=read(folder/'v22_source_core_summary.json');old_entry=old_entries.get(core)
     source_file=folder/'private_standard_motion.json.gz';source_sha=digest(source_file)
     if source_sha!=proof['private_output_sha256']['private_standard_motion.json.gz']:raise ValueError('Changed completed scientific source file')
-    ticket=dict(plan_sha256=plan_sha,new_science_sha256=source_sha,source_summary_sha256=digest(folder/'v22_source_core_summary.json'),old_sha256=digest(Path(old_entry['path'])/'private_standard_motion.json.gz'),implementation_sha256=sha256((inspect.getsource(index_core)+inspect.getsource(array_items)+inspect.getsource(ownership_specs)+inspect.getsource(owners)+inspect.getsource(member_key)).encode()).hexdigest())
+    ticket=dict(plan_sha256=plan_sha,new_science_sha256=source_sha,source_summary_sha256=digest(folder/'v22_source_core_summary.json'),old_sha256=digest(Path(old_entry['path'])/'private_standard_motion.json.gz') if old_entry else None,implementation_sha256=sha256((inspect.getsource(index_core)+inspect.getsource(array_items)+inspect.getsource(ownership_specs)+inspect.getsource(owners)+inspect.getsource(member_key)).encode()).hexdigest())
     receipt=dest/'private_index_receipt.json'
     if receipt.exists():
         done=read(receipt)
@@ -63,7 +63,7 @@ def index_core(task):
             if digest(dest/name)!=checksum:raise ValueError('Changed completed catalogue index')
         return done
     start=monotonic();science=array_items(source_file);ownership=[]
-    compact=[];claims=[];changed=[];prior=[];older=[dict(detection_ids=r['detection_ids']) for r in array_items(Path(old_entry['path'])/'private_standard_motion.json.gz')]
+    compact=[];claims=[];changed=[];prior=[];older=[dict(detection_ids=r['detection_ids']) for r in array_items(Path(old_entry['path'])/'private_standard_motion.json.gz')] if old_entry else []
     old_by_key={member_key(r['detection_ids']):j for j,r in enumerate(older)};new_keys=set()
     for slot,r in enumerate(science):
         owner=owners([r],core,specs)[0];ownership.append(owner)
@@ -78,17 +78,17 @@ def index_core(task):
             reference_pm_variance_e=float(r['reference_icrs_covariance'][1][1]),reference_pm_variance_n=float(r['reference_icrs_covariance'][3][3]),
             ra_deg=r['position_deg'][0],dec_deg=r['position_deg'][1],pixel128=int(hp.ang2pix(128,*r['position_deg'],lonlat=True)),
             pm_e=r['pm_icrs_masyr'][0],pm_n=r['pm_icrs_masyr'][1],se_e=r['pm_error_masyr'][0],se_n=r['pm_error_masyr'][1],pm_cov_en=cov[1,3],
-            kind=r['kind'],magnitude=r['magnitude'],sdss_runs=info['sdss_physical_runs'],nsc_nights=info['nsc_nights'],nsc_seasons=info['nsc_seasons'],
+            kind=r['kind'],magnitude=r['magnitude'],sdss_runs=info['sdss_physical_runs'],sdss_years=info.get('sdss_unique_UTC_years'),nsc_years=info.get('nsc_unique_UTC_years'),nsc_nights=info['nsc_nights'],nsc_seasons=info['nsc_seasons'],
             joint_span=info['joint_span_years'],nsc_span=info['nsc_span_years'],maximum_group_leverage=max(info['largest_information_fraction']['physical_group']),
             flags=';'.join(sorted(r['quality_flags'])),bands=';'.join(r['bands']),instruments=';'.join(r['instruments'])))
         claims.extend((d,ident) for d in ids)
-        if key not in old_by_key:changed.append(dict(src=ident,member_sha256=key,detection_ids=ids))
+        if old_entry and key not in old_by_key:changed.append(dict(src=ident,member_sha256=key,detection_ids=ids))
     for slot,r in enumerate(older):
         if old_entry['moves'].get(slot,core) not in specs:continue
         key=member_key(r['detection_ids']);ident=(number<<32)+slot
         prior.append(dict(src=ident,member_sha256=key,n_members=len(r['detection_ids'])))
         if key not in new_keys:changed.append(dict(old_src=ident,member_sha256=key,detection_ids=r['detection_ids']))
-    columns='src core slot owner member_sha256 n_members component reference_model_sha256 reference_epoch independent_pm_variance_e independent_pm_variance_n reference_pm_variance_e reference_pm_variance_n ra_deg dec_deg pixel128 pm_e pm_n se_e se_n pm_cov_en kind magnitude sdss_runs nsc_nights nsc_seasons joint_span nsc_span maximum_group_leverage flags bands instruments'.split()+[f'cov_{a}{b}' for a in range(4) for b in range(a,4)]
+    columns='src core slot owner member_sha256 n_members component reference_model_sha256 reference_epoch independent_pm_variance_e independent_pm_variance_n reference_pm_variance_e reference_pm_variance_n ra_deg dec_deg pixel128 pm_e pm_n se_e se_n pm_cov_en kind magnitude sdss_runs sdss_years nsc_years nsc_nights nsc_seasons joint_span nsc_span maximum_group_leverage flags bands instruments'.split()+[f'cov_{a}{b}' for a in range(4) for b in range(a,4)]
     pd.DataFrame(compact,columns=columns).to_parquet(dest/'science.parquet',index=False,compression='zstd')
     pd.DataFrame(claims,columns=['detection_id','src']).to_parquet(dest/'claims.parquet',index=False,compression='zstd')
     pd.DataFrame(prior,columns=['src','member_sha256','n_members']).to_parquet(dest/'old.parquet',index=False,compression='zstd')
@@ -124,6 +124,12 @@ def close(root):
     save_json(lock,ticket);db=database(root)
     for name,file in [('science','science.parquet'),('claims','claims.parquet'),('old','old.parquet')]:
         glob=str(dest/'index/*'/file);db.execute(f"CREATE OR REPLACE VIEW {name} AS SELECT * FROM read_parquet('{glob}',union_by_name=true)")
+    if plan.get('predecessor_index'):
+        prior=Path(plan['predecessor_index']).resolve(strict=True)
+        db.execute(f"ATTACH '{prior}' AS predecessor (READ_ONLY)")
+        db.execute("CREATE OR REPLACE TABLE prior_members AS SELECT src,member_sha256,n_members FROM predecessor.accepted")
+        db.execute("DETACH predecessor")
+        db.execute("CREATE OR REPLACE VIEW old AS SELECT * FROM prior_members")
     columns={r[0] for r in db.execute('DESCRIBE science').fetchall()}
     db.execute('CREATE OR REPLACE TABLE duplicate_alias(src BIGINT,canonical_src BIGINT)')
     if {'pm_e','pm_n','component','core','se_e','se_n'}<=columns:
@@ -174,6 +180,12 @@ def close(root):
     # An identity ambiguity is archived explicitly; no detection is silently
     # offered to two high-confidence sources, and no QSO value selects a winner.
     db.execute('CREATE OR REPLACE TABLE exact_common AS SELECT a.src new_src,o.src old_src,a.member_sha256 FROM accepted a JOIN old o USING(member_sha256)')
+    if plan.get('predecessor_index'):
+        prior=Path(plan['predecessor_index']).resolve(strict=True)
+        db.execute(f"ATTACH '{prior}' AS predecessor (READ_ONLY)")
+        db.execute("CREATE OR REPLACE TABLE prior_members AS SELECT src,member_sha256,n_members FROM predecessor.accepted")
+        db.execute("DETACH predecessor")
+        db.execute("CREATE OR REPLACE VIEW old AS SELECT * FROM prior_members")
     columns={r[0] for r in db.execute('DESCRIBE science').fetchall()}
     if {'component','reference_model_sha256'}<=columns:
         if db.execute('SELECT count(*) FROM (SELECT component FROM science GROUP BY component HAVING count(DISTINCT reference_model_sha256)>1)').fetchone()[0]:raise ValueError('Conflicting reference versions in one physical component')
@@ -230,6 +242,6 @@ if __name__=='__main__':
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
     if a.mode=='close':close(a.root)
     else:
-        plan=read(a.root/'registration/private_full_coordinate_plan.json');old=old_index(a.root.parent/'v1.9/batch/science')
+        plan=read(a.root/'registration/private_full_coordinate_plan.json');old={} if plan.get('production_blind') else old_index(a.root.parent/'v1.9/batch/science')
         with ProcessPoolExecutor(max_workers=a.workers) as pool:
-            for done in pool.map(index_core,[(i,e,str(a.root),{e['core']:old[e['core']]}) for i,e in enumerate(plan['cores'])]):pass
+            for done in pool.map(index_core,[(i,e,str(a.root),{e['core']:old.get(e['core'])}) for i,e in enumerate(plan['cores'])]):pass

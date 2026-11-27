@@ -172,6 +172,11 @@ def close_graph(root,memory='24GB',threads=8):
         source_cores=db.execute('SELECT DISTINCT source_core FROM active JOIN group_map USING("group") WHERE component=?',[component]).fetchnumpy()['source_core']
         lookup={r['core']:r for r in plan.get('cores',[]) if 'old_graph' in r}
         old_domains=sorted({lookup[c]['old_graph'] for c in source_cores if c in lookup})
+        if plan.get('production_blind'):
+            # The predecessor graphs are the actual v2.2 solved physical groups.
+            # A source core may span two predecessor domains.
+            local_groups=set(member)
+            old_domains=sorted(name for name,keys in old_group_sets.items() if local_groups & keys)
         inherited=len(old_domains)==1
         center=list(plan['graphs'][old_domains[0]]['center']) if inherited else [float(np.degrees(np.arctan2(y,x))%360),float(np.degrees(np.arctan2(z,np.hypot(x,y))))]
         def actual_angle(center):return scalar(db,f'''SELECT degrees(acos(least(1.0,greatest(-1.0,min(dot))))) FROM (
@@ -179,11 +184,11 @@ def close_graph(root,memory='24GB',threads=8):
             cos(radians(dec_deg))*cos(radians({center[1]}))*cos(radians(ra_deg-{center[0]})) dot
             FROM active JOIN group_map USING("group") WHERE component={component})''')
         theta=actual_angle(center)
-        if theta>=85 and not inherited:
+        if theta>=85 and (not inherited or plan.get('production_blind')):
             sample=db.execute('SELECT DISTINCT round(ra_deg*2)/2 a,round(dec_deg*2)/2 d FROM active JOIN group_map USING("group") WHERE component=?',[component]).fetchnumpy()
             alternative=hemisphere_center(np.column_stack([sample['a'],sample['d']]))
             alternative_theta=actual_angle(alternative)
-            if alternative_theta<theta:center,theta=alternative,alternative_theta
+            if alternative_theta<theta:center,theta,inherited=alternative,alternative_theta,False
         if theta>=85:raise ValueError('New component exceeds registered stable gnomonic hemisphere; choose an explicit common projection strategy')
         components.append(dict(component=component,status='ready',groups=len(member),reference_sources=nref,measurements=count,
             center_deg=center,center_inherited=inherited,old_domain_count=len(old_domains),maximum_theta_deg=theta,nsc_gauge_group_count=sum(g.startswith('NSC:') for g in member)))

@@ -1,8 +1,8 @@
 {
   "registered": 18110,
   "possible": 102,
-  "signed_inputs_checked": 95,
+  "signed_inputs_checked": 102,
   "inputs_for_replay": 0,
-  "private_audit_sha256": "ffb39d5d2654d55d86254872085092b124819d0ff4ea99461650e8727a06ffec",
+  "private_audit_sha256": "35d7ce8bc0d3e7c706751b97e88b5d505cdde4db07c61a3b1160c95fb764dfa9",
   "scope": "Physical raw-coordinate anomalies and historic unwrapped meridian rectangles. Missing source data remains pending."
 }

@@ -76,3 +76,5 @@ full_coordinate_ngc "$work/joint" --history-root "$base"
 `footprint_public_errors_v24 "$work/joint" "$work/joint/qso" "$work/joint/qso" --workers WORKERS` 按严格共同 QSO 的实际成员重建影响矩阵，先在每个参考分量内对 48 个同步扰动求群体和，再合并独立分量的均值协方差。以实际 SDSS run 同步重权对照三目录 P68。每个核心的私有误差回执可恢复。
 
 目录归属闭合后，用同一实际多边形网格核算成功交付面积。先在两个分辨率分别运行原生参考支持积分，再运行 `footprint_output_area_v24 "$base" "$OUTPUT" --bins 40` 及 `--bins 20` 对照。交付面积使用同一核心两巡天均有签名检测的几何交集。产出面积使用至少有一个最终归属源的核心内、共同参考及实际时基同时合格的面积。源选择完备性仍由独立验证统计量描述。
+
+跨零归档核验可提前执行。给 `footprint_batch_v24` 的完整预定序号范围加 `--archive-boundaries`，只优先访问已有归档几何审计 SHA 所列的新核心。它与正常批次复用同一核心锁、测量查询和成功回执。随后运行 `footprint_longitude_audit_v24`，只对实际有差异的输入做版本化恢复。

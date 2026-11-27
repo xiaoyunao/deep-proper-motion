@@ -1,0 +1,17 @@
+{
+  "signed_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "reader_sha256": "f0d2ff4cf7224debe6b238e9e311530317447ab64211a5c7a7e3ddbdad3e611f",
+  "slurm_job": "62110640",
+  "registered": 15235,
+  "verified": 15235,
+  "by_signed_input": {
+    "early": 11723,
+    "dual": 3376,
+    "early+dual": 136
+  },
+  "zero_early_rows": 148,
+  "rows_with_halo": 808142872,
+  "verified_bytes": 218269398318,
+  "time_opportunity_sqdeg": 9991.661977918724,
+  "scope": "One registered new core per entry. One CSV per core was read in full. Coexisting intake and early-stage receipts must agree on SHA256 and row count. Rows include repeated halos. Time opportunity is registered geometry."
+}

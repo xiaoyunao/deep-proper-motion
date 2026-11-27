@@ -1,0 +1,43 @@
+{
+  "components": {
+    "0": {
+      "ticket": {
+        "graph": "31a90619ed8d470eb7f53ce578ab9d4166ea3b4bd99936c88bcba9ad424f9b5d",
+        "component": 0,
+        "archive_graph": "f28add41fdc2d91f821d6e0a36b63edce0d8a296375c663b8f37de945b5fbd0f",
+        "implementation": "280dd2234afd4e56b294a304343ca5204eebe2236019589ee91ce99155c2cf09"
+      },
+      "sha256": "df799ca1b2bcc98ff6726f96f6a63287414b4f7d718437a1cf801181044c98bc",
+      "rows": 566268,
+      "supported": 565940,
+      "references": 19876
+    },
+    "1": {
+      "ticket": {
+        "graph": "44b9129553676106d470da4acc4007d3133fa1dc6550c7c72fdaf4de453ef233",
+        "component": 1,
+        "archive_graph": "f28add41fdc2d91f821d6e0a36b63edce0d8a296375c663b8f37de945b5fbd0f",
+        "implementation": "280dd2234afd4e56b294a304343ca5204eebe2236019589ee91ce99155c2cf09"
+      },
+      "sha256": "6de98097186b0b453ac978713e96fa8562f1fd268674287b76dadffeaa1fcc5b",
+      "rows": 501184,
+      "supported": 500747,
+      "references": 18304
+    },
+    "2": {
+      "ticket": {
+        "graph": "f4a38f808cf7e5162e7bce6502dbaa9700d7ba021a1376d47f51fb48902479e2",
+        "component": 2,
+        "archive_graph": "f28add41fdc2d91f821d6e0a36b63edce0d8a296375c663b8f37de945b5fbd0f",
+        "implementation": "280dd2234afd4e56b294a304343ca5204eebe2236019589ee91ce99155c2cf09"
+      },
+      "sha256": "e8e5b3d6bb7e8a0f7c7d2ca4c844233fca7c25b80af52f862296f543aa99160c",
+      "rows": 182801,
+      "supported": 182785,
+      "references": 15743
+    }
+  },
+  "rows": 1250253,
+  "supported": 1249472,
+  "scope": "Actual archived holdout detection identities, old graph offset subtracted in its original chart, then transformed back to ICRS. Native two-axis 12 mas support evaluated separately."
+}

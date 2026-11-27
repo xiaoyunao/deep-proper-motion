@@ -29,9 +29,14 @@ class SpatialPSF:
         return np.einsum('j,jxy->xy',c,self.images)/den
 
     def sample(self,x,y,gx,gy):
+        coords=np.array([np.asarray(gy)-y+self.center[0],np.asarray(gx)-x+self.center[1]])
+        supported=(coords[0]>=0)&(coords[0]<=self.images.shape[1]-1)&(coords[1]>=0)&(coords[1]<=self.images.shape[2]-1)
+        # A free, weak profile may move entirely off the finite observed cut.
+        # Its point-source template is then exactly zero; do not extrapolate a
+        # spatial PSF polynomial far outside its physical detector instead.
+        if not np.any(supported):return np.zeros_like(np.asarray(gx),dtype=float)
         c=self.coefficients(x,y);den=c@self.sums
         if not np.isfinite(den) or den<=0:raise ValueError('Invalid spatial PSF normalization')
-        coords=np.array([np.asarray(gy)-y+self.center[0],np.asarray(gx)-x+self.center[1]])
         return sum(a*map_coordinates(b,coords,order=3,mode='constant',cval=0,prefilter=False) for a,b in zip(c,self.splines))/den
 
 

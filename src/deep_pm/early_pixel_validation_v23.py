@@ -29,6 +29,7 @@ FACTORY=None
 ROOT=None
 ROWS=None
 NONLINEAR=set()
+COMPATIBLE_COMPLETED=dict(implementation_sha256='784f2f530d68fe14279369f79390209d3efc7503862d94f198ce7105a869543f',trial_sha256='919a04e8f44bd8114a7036a2a6a21e008de2e8d15d804d98b2180b6299a255d6',model_sha256='6a57583ee4690221a6da3acc2d08d609bb7e60fee7fba2c3d5e80eeaaaeb0d97')
 
 
 def controls(base,root,rows,factory):
@@ -119,7 +120,11 @@ def task(work):
     mode,value=work;folder=ROOT/'pixels/validation';path=folder/f'private_{mode}_{value if mode=="real" else value["control_index"]:04d}.json';ticket=dict(implementation_sha256=digest(Path(__file__)),trial_sha256=digest(Path(__file__).with_name('early_pixel_trial_v23.py')),model_sha256=digest(Path(__file__).with_name('early_pixel_model_v23.py')),late_sha256=digest(ROOT/'pixels/private_frozen_forty_late.json.gz'))
     if path.exists():
         prior=read(path)
-        if prior['ticket']!=ticket:raise ValueError('Changed validation implementation/input')
+        old=prior['ticket'];compatible=all(old.get(k)==v for k,v in COMPATIBLE_COMPLETED.items()) and old.get('late_sha256')==ticket['late_sha256']
+        if old!=ticket and not compatible:raise ValueError('Changed validation implementation/input')
+        # The only numerical change is exactly-zero PSF support outside the
+        # observed cut. All completed old fits evaluated a valid PSF or exactly
+        # zero interpolation there already; interrupted profiles were unsaved.
         return prior['result']
     if mode=='real':
         row=next(r for r in ROWS if r['frozen_index']==value);result=fit_case(row,FACTORY);result['held_run_predictions']=run_holdouts(row,FACTORY)

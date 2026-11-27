@@ -36,3 +36,11 @@ def test_empty_template_has_no_false_flux_information_and_single_epoch_has_no_pm
     assert not result['fully_identified']
     assert result['identifiable_state_axes'].tolist()==[True,False,True,False]
     np.testing.assert_allclose(result['state'][[0,2]],[39.6,-39.6],atol=.01)
+
+
+def test_off_cut_spatial_psf_does_not_extrapolate_detector_polynomial():
+    from deep_pm.early_pixel_model_v23 import SpatialPSF
+    psf=SpatialPSF.__new__(SpatialPSF);psf.images=np.zeros((1,51,51));psf.center=np.array([25.,25.])
+    def invalid_extrapolation(x,y):raise AssertionError('Unobserved point must not evaluate detector polynomial')
+    psf.coefficients=invalid_extrapolation
+    np.testing.assert_array_equal(psf.sample(1e9,-1e9,np.arange(20),np.arange(20)),np.zeros(20))

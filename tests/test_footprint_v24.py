@@ -35,3 +35,22 @@ def test_hlc_match_exits_partition_entire_parent():
     assert [PAIR_STATES[s] for s in status] == [
         "matched","invalid_catalogue_motion","forward_competition","outside_radius",
         "reverse_competition","not_mutual"]
+
+
+def test_stripe82_rejects_an_unrelated_catalogue_registration(tmp_path):
+    import json
+    import pytest
+    from deep_pm.stripe82_comparison_v24 import catalogue_closure
+    from deep_pm.io import digest
+    catalogue=tmp_path/"catalogue.duckdb"
+    catalogue.touch()
+    plan=tmp_path/"plan.json"
+    plan.write_text('{"registered":"first"}')
+    binding=tmp_path/"private_closure_binding.json"
+    binding.write_text(json.dumps({"plan_sha256":digest(plan)}))
+    proof=tmp_path/"v22_catalogue_ownership_summary.json"
+    proof.write_text(json.dumps({"private_input_binding_sha256":digest(binding),"retained_common_epoch_solutions":3}))
+    assert catalogue_closure(catalogue,plan)==(digest(proof),3)
+    plan.write_text('{"registered":"different"}')
+    with pytest.raises(ValueError,match="ownership"):
+        catalogue_closure(catalogue,plan)

@@ -159,9 +159,22 @@ def run_sensitivity(sample, membership):
                 meaning="Sensitivity to common physical SDSS run weights, not an independent-error interval")
 
 
+def catalogue_closure(catalogue, plan):
+    directory=catalogue.parent
+    closure=directory/"v22_catalogue_ownership_summary.json"
+    binding=directory/"private_closure_binding.json"
+    ownership=json.loads(closure.read_text())
+    if (catalogue.resolve()!=(directory/"catalogue.duckdb").resolve()
+            or digest(binding)!=ownership["private_input_binding_sha256"]
+            or json.loads(binding.read_text())["plan_sha256"]!=digest(plan)):
+        raise ValueError("Stripe 82 catalogue ownership and physical registration disagree")
+    return digest(closure),ownership["retained_common_epoch_solutions"]
+
+
 def run(base, catalogue, plan, output, version, workers):
     work=base/"v2.4"
     output.mkdir(exist_ok=True,parents=True)
+    closure_sha, retained=catalogue_closure(catalogue,plan)
     receipts=[work/"s82/v24_s82_parent_summary.json",work/"s82-nsc/v24_nsc_epoch_input_summary.json",
               work/"s82-xiao-epoch/v24_xiao_epoch_input_summary.json", plan,work/"meridian/v24_archive_longitude_summary.json"]
     opportunity=work/"s82-opportunity"
@@ -179,7 +192,7 @@ def run(base, catalogue, plan, output, version, workers):
         if {p.name for p in folder.glob(pattern)}!=files:raise ValueError("Unexpected external catalogue shard set")
     for path,sha in checked:
         if digest(path)!=sha:raise ValueError("Changed signed external catalogue shard")
-    ticket=dict(inputs=[digest(p) for p in receipts],catalogue_stat=[catalogue.stat().st_size,catalogue.stat().st_mtime_ns],
+    ticket=dict(closure_sha256=closure_sha,inputs=[digest(p) for p in receipts],catalogue_stat=[catalogue.stat().st_size,catalogue.stat().st_mtime_ns],
                 protocol=json.loads(receipts[0].read_text())["protocol_sha256"],implementation=digest(Path(__file__)),version=version)
     state=output/"private_input_signature.json"
     if state.exists() and json.loads(state.read_text())!=ticket:
@@ -193,6 +206,8 @@ def run(base, catalogue, plan, output, version, workers):
     db.execute(f"SET threads={workers}")
     db.execute("SET memory_limit='6GB'")
     db.execute(f"ATTACH '{catalogue}' AS scientific (READ_ONLY)")
+    if db.execute("SELECT count(*) FROM scientific.accepted").fetchone()[0]!=retained:
+        raise ValueError("Stripe 82 comparison index disagrees with its accepted source total")
     queries={"hlc":f"SELECT * FROM read_parquet('{work}/s82/private_hlc_*.parquet') WHERE has_position",
              "ours":"SELECT src AS external,ra_deg AS ra,dec_deg AS dec,TRUE AS valid,pm_e,pm_n,se_e,se_n,core,slot,sdss_runs,nsc_span,joint_span,nsc_nights FROM scientific.accepted WHERE abs(dec_deg)<=2.2 AND (ra_deg<53 OR ra_deg>=307)",
              "xiao":f"SELECT * FROM read_parquet('{work}/s82-xiao-epoch/private_xiao_*.parquet')",
@@ -244,7 +259,7 @@ def run(base, catalogue, plan, output, version, workers):
     all_stars.to_parquet(pairpath,index=False,compression="zstd")
     nominal=all_stars[all_stars.in_nominal]
     sample=nominal[nominal.time_opportunity]
-    result=dict(scope=version,area_definition="Frozen owner rectangles intersected with moving-source native field/CCD and time opportunity. Completeness conditional on HLC stellar parent.",
+    result=dict(scope=version,closure_sha256=closure_sha,area_definition="Frozen owner rectangles intersected with moving-source native field/CCD and time opportunity. Completeness conditional on HLC stellar parent.",
                 input_signature=digest(state),pair_sha256=digest(pairpath),all_hlc_parent=len(all_stars),in_nominal=len(nominal),
                 in_nominal_geometry=int(nominal.geometry.sum()),in_nominal_time=len(sample),nominal_comparison=comparison(nominal),
                 total=comparison(sample),magnitude={},condition={})

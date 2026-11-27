@@ -78,3 +78,6 @@ full_coordinate_ngc "$work/joint" --history-root "$base"
 目录归属闭合后，用同一实际多边形网格核算成功交付面积。先在两个分辨率分别运行原生参考支持积分，再运行 `footprint_output_area_v24 "$base" "$OUTPUT" --bins 40` 及 `--bins 20` 对照。交付面积使用同一核心两巡天均有签名检测的几何交集。产出面积使用至少有一个最终归属源的核心内、共同参考及实际时基同时合格的面积。源选择完备性仍由独立验证统计量描述。
 
 跨零归档核验可提前执行。给 `footprint_batch_v24` 的完整预定序号范围加 `--archive-boundaries`，只优先访问已有归档几何审计 SHA 所列的新核心。它与正常批次复用同一核心锁、测量查询和成功回执。随后运行 `footprint_longitude_audit_v24`，只对实际有差异的输入做版本化恢复。
+
+
+`scripts/dispatch-v24-graph.py "$work" "$LAUNCHER" "$DPM_SPECTRA" "$DPM_SAS" "$DPM_ACCOUNT" --watch` 在登录节点只读回执并提交 Slurm 作业。全部签名输入就绪后，调度器再次核对经度异常档案，按实际差异恢复输入，再绑定完整清单并闭合物理参考图。共享计费账本、配额、数值失败均可中断对应阶段。参考分量导出并行只读闭合后的 DuckDB，在各自目录暂存排序文件。

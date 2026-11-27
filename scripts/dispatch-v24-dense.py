@@ -23,8 +23,7 @@ def advance(a):
             raise ValueError("Held parent belongs to a different registered range")
         states=ops["accounts"](w)
         warm_state=states[a.warm_job][0]
-        if warm_state not in ops["ACTIVE"] and warm_state!="COMPLETED":
-            raise ValueError("Page staging ended without complete receipts; inspect its failed cores")
+        warm_failed=warm_state not in ops["ACTIVE"] and warm_state!="COMPLETED"
         # This list contains only observed exceptional cores from the registered
         # range. The signed per-core page count determines the actual allocation.
         observed=read(w/"registration/private_density_tail_receipt.json")[str(a.start)]
@@ -52,6 +51,13 @@ def advance(a):
             proof=w/"dense-pages"/(n+".json")
             if not proof.exists() or active>=a.concurrent:
                 continue
+            if a.require_auxiliary:
+                aux=w/"dense-auxiliary"/(n+".json")
+                if not aux.is_file():
+                    continue
+                checked=read(aux)
+                if checked["core"]!=n or checked["footprint_sha256"]!=read(proof)["footprint_sha256"]:
+                    raise ValueError("Dense metadata receipts do not match measured pages")
             staged=read(proof)
             if staged["footprint_sha256"]!=read(w/"registration/v24_footprint_inventory_summary.json")["signed_manifest_sha256"] or staged["core"]!=n:
                 raise ValueError("Changed dense paging footprint")
@@ -77,6 +83,8 @@ def advance(a):
             ops["save"](history_path,history)
             print("Submitted",n,rows,gib,job,flush=True)
             active+=1;bound+=cost
+        if warm_failed and not active:
+            raise ValueError("Staging stopped; inspect missing small-query and measurement receipts before restarting")
         if pending or warm_state!="COMPLETED":
             return "running"
         held_state=states[a.held_job][0]
@@ -100,6 +108,7 @@ if __name__=="__main__":
     p.add_argument("account");p.add_argument("warm_job");p.add_argument("held_job")
     p.add_argument("start",type=int);p.add_argument("end",type=int)
     p.add_argument("--concurrent",type=int,default=3)
+    p.add_argument("--require-auxiliary",action="store_true")
     a=p.parse_args()
     if a.concurrent<1:
         p.error("Set positive concurrency")

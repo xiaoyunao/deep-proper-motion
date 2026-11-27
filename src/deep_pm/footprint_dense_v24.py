@@ -14,6 +14,20 @@ from .footprint_reference_packs_v24 import groups
 from .io import digest, save_json
 
 
+def stage_auxiliary(cache,spec,halo):
+    """Populate the two canonical post-measurement queries before reserving dense memory."""
+    from .regional_inputs import GAIA_COLUMNS
+    south,north=spec["dec"]
+    padding=halo+.65
+    chips=access.checked_spatial(cache,"nsc","exposure,ccdnum,instrument,airmass","nsc_dr2.chip",
+                                 where_box(spec,padding),south-padding-1e-7,north+padding+1e-7)
+    if chips.drop_duplicates().duplicated(["exposure","ccdnum"]).any():
+        raise ValueError("Inconsistent physical detector metadata")
+    gaia=access.checked_spatial(cache,"nsc",GAIA_COLUMNS+",visibility_periods_used","gaia_dr3.gaia_source",
+                                where_box(spec,halo),south-halo-1e-7,north+halo+1e-7)
+    return dict(chip_rows=len(chips),gaia_validation_rows=len(gaia))
+
+
 def stage(task):
     work, label, spec, footprint = task
     receipts = work / "batch-receipts"
@@ -25,6 +39,19 @@ def stage(task):
         # signed science worker will independently verify every SHA and row count.
         cache = access.Cache(work / "intake" / label / "cache")
         halo = SETTINGS["halo_deg"]
+        old=work/"dense-pages"/(label+".json")
+        if os.getenv("DPM_REQUIRE_DENSE_AUXILIARY")=="1":
+            if (receipts/"pause-canonical-intake").exists():
+                raise RuntimeError("Confirmed upstream interruption")
+            rows=stage_auxiliary(cache,spec,halo)
+            save_json(work/"dense-auxiliary"/(label+".json"),dict(core=label,footprint_sha256=footprint,
+                      job=os.environ["SLURM_JOB_ID"],**rows))
+            if old.is_file():
+                proof=json.loads(old.read_text())
+                if proof["core"]!=label or proof["footprint_sha256"]!=footprint:
+                    raise ValueError("Staged measurement pages belong to a different science input")
+                # Normalization rechecks every page against its immutable cache SHA.
+                return proof
         south, north = spec["dec"]
         columns = "id AS objectid,ra,dec,pmra,pmdec,pmraerr,pmdecerr,deltamjd ,ndet"
         archive = access.checked_spatial(cache, "nsc", columns, "nsc_dr2.object",

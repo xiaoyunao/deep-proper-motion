@@ -34,3 +34,21 @@ def test_frozen_catalogue_and_independent_science_dependencies(tmp_path):
     revised = {s.label for s in tasks()[1]}
     assert {"stellar-scans", "stellar-conditions", "F5", "common-errors", "spectral-statistics"} <= revised
     assert not {"s82","spectral-pairing","stellar-sensitivity","F3-F4"} & revised
+
+
+def test_pending_memory_and_running_billing_use_separate_denominators(tmp_path):
+    accounting = dispatch["intake"]["accounts"]
+    namespace = accounting.__globals__
+    from unittest.mock import patch
+    (tmp_path/"private_allocations.txt").write_text("11\n12\n13\n")
+    data = "\n".join([
+        "11|PENDING|0||billing=1,cpu=1,mem=56G,node=1|120",
+        "12|RUNNING|3600|billing=18,cpu=18,mem=31G,node=1|billing=1,cpu=1,mem=31G,node=1|180",
+        "13|CANCELLED|0||billing=1,cpu=1,mem=56G,node=1|120",
+    ])
+    with patch.dict(namespace, {"command": lambda *args: data}):
+        usage = accounting(tmp_path)
+    assert usage["11"] == ("PENDING", 0., 112*2/256)
+    assert usage["12"] == ("RUNNING", 18/256, 18*3/256)
+    assert usage["13"] == ("CANCELLED", 0., 0.)
+    assert namespace["pending_threads"]("cpu=2,mem=8192M,node=1") == 16

@@ -16,6 +16,21 @@ def command(*args):
     return subprocess.check_output(args,text=True).strip()
 
 
+def pending_threads(request):
+    """Bound a queued shared CPU allocation before Slurm assigns billed threads."""
+    fields=dict(item.split("=",1) for item in request.split(",") if "=" in item)
+    units={"":1/1024, "K":1/1024**2, "M":1/1024, "G":1., "T":1024.}
+    size=re.fullmatch(r"(\d+(?:\.\d+)?)([KMGT]?)",fields.get("mem","").upper())
+    nodes=int(fields.get("node","1"))
+    if nodes<1 or not size:
+        raise ValueError("Unrecognised pending CPU allocation request; check its memory and node limits")
+    gib=float(size[1])*units[size[2]]
+    # Use the conservative memory bound used at submission. ReqTRES billing
+    # can be one even for a one-thread, 56 GiB job. Actuals take precedence
+    # as soon as AllocTRES records the awarded share of the node.
+    return min(256*nodes,max(int(fields.get("billing",0)),2*int(fields.get("cpu",0)),math.ceil(2*gib)))
+
+
 def accounts(work):
     ids=sorted(set((work/"private_allocations.txt").read_text().split()))
     if not ids or not all(k.isdigit() for k in ids):raise ValueError("Invalid Slurm ledger")
@@ -33,7 +48,8 @@ def accounts(work):
             live=state.split()[0] in ACTIVE
             if live and not limit.isdigit():raise ValueError("Missing running job wall limit")
             charged=bill(alloc)*int(elapsed)/SCALE
-            reserve=(max(bill(req),bill(alloc))*int(limit)*60/SCALE if live else charged)
+            reserved_threads=(bill(alloc) or pending_threads(req)) if live else 0
+            reserve=reserved_threads*int(limit)*60/SCALE if live else charged
             result[key]=(state.split()[0],charged,max(charged,reserve))
     if set(ids)!=set(result):raise RuntimeError("Waiting for complete Slurm accounting")
     return result

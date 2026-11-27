@@ -4,6 +4,8 @@ Rows must be contiguous by reference, and the entire connected component is
 solved. One group is temporarily pinned for inversion; published gauge is the
 pre-SE NSC median. Bayesian draws freeze final IRLS, as in the archived C0.
 """
+from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import get_context
 from pathlib import Path
 import inspect
 from time import monotonic
@@ -134,7 +136,49 @@ class SchurProblem:
         return residual_distance(self.ptr,self.groups,self.w,self.ai,self.b,self.values,z,self.precision)
 
 
-def fit_component(ptr,groups,precision,values,names,draws=48,seed=45116,checkpoint=None,iterations=6):
+def _init_draw_worker(problem, point):
+    global _draw_problem, _draw_start
+    _draw_problem, _draw_start = problem, point
+
+
+def _parallel_draw(task):
+    index, state, path = task
+    rng = np.random.default_rng()
+    rng.bit_generator.state = state
+    weights = rng.exponential(size=len(_draw_problem.ptr)-1)
+    value, meta = _draw_problem.solve(weights, x0=_draw_start)
+    if path is not None:
+        write_checkpoint(path, point=value)
+    print('SCHUR_DRAW', index, meta, flush=True)
+    return index, value, meta
+
+
+def parallel_draws(problem, point, draws, seed, checkpoint, workers):
+    # Fork inherits the final immutable Schur arrays. Transfer only RNG states
+    # to preserve the exact serial sequence for physical reference objects.
+    rng = np.random.default_rng(seed)
+    samples, trace = [None]*draws, [None]*draws
+    tasks = []
+    for index in range(draws):
+        path = None if checkpoint is None else checkpoint/f'draw-{index:03d}.npz'
+        old = None if path is None else read_checkpoint(path)
+        if old is None:
+            tasks.append((index, rng.bit_generator.state, path))
+        else:
+            samples[index] = old['point']
+            if samples[index].shape != point.shape:
+                raise ValueError('Incompatible draw checkpoint')
+            trace[index] = dict(reused=True)
+        rng.exponential(size=len(problem.ptr)-1)
+    if tasks:
+        with ProcessPoolExecutor(max_workers=min(len(tasks),workers),mp_context=get_context('fork'),
+                                 initializer=_init_draw_worker,initargs=(problem,point)) as pool:
+            for index, value, meta in pool.map(_parallel_draw,tasks):
+                samples[index], trace[index] = value, meta
+    return samples, trace
+
+
+def fit_component(ptr,groups,precision,values,names,draws=48,seed=45116,checkpoint=None,iterations=6,draw_workers=1):
     """Six weight updates plus a final point solve; draws fix that final weight."""
     ng=len(names);nr=len(ptr)-1
     checkpoint=None if checkpoint is None else Path(checkpoint)
@@ -167,19 +211,22 @@ def fit_component(ptr,groups,precision,values,names,draws=48,seed=45116,checkpoi
         weight,z=saved['weight'],saved['point']
         if weight.shape!=(len(groups),) or z.shape!=(ng,2):raise ValueError('Incompatible robust checkpoint')
         problem=SchurProblem(ptr,groups,precision,values,weight,ng)
-    random=np.random.default_rng(seed);samples=[];draw_trace=[]
-    for draw in range(draws):
-        boot=random.exponential(size=nr)
-        path=None if checkpoint is None else checkpoint/f'draw-{draw:03d}.npz'
-        old=None if path is None else read_checkpoint(path)
-        if old is None:
-            value,meta=problem.solve(boot,x0=z)
-            if path is not None:write_checkpoint(path,point=value)
-            print('SCHUR_DRAW',draw,meta,flush=True)
-        else:
-            value=old['point'];meta=dict(reused=True)
-            if value.shape!=(ng,2):raise ValueError('Incompatible draw checkpoint')
-        samples.append(value);draw_trace.append(meta)
+    if draw_workers > 1:
+        samples,draw_trace=parallel_draws(problem,z,draws,seed,checkpoint,draw_workers)
+    else:
+        random=np.random.default_rng(seed);samples=[];draw_trace=[]
+        for draw in range(draws):
+            boot=random.exponential(size=nr)
+            path=None if checkpoint is None else checkpoint/f'draw-{draw:03d}.npz'
+            old=None if path is None else read_checkpoint(path)
+            if old is None:
+                value,meta=problem.solve(boot,x0=z)
+                if path is not None:write_checkpoint(path,point=value)
+                print('SCHUR_DRAW',draw,meta,flush=True)
+            else:
+                value=old['point'];meta=dict(reused=True)
+                if value.shape!=(ng,2):raise ValueError('Incompatible draw checkpoint')
+            samples.append(value);draw_trace.append(meta)
     # Computational pin does not define the published physical gauge.
     nsc=np.asarray([str(n).startswith('NSC:') for n in names])
     if not nsc.any():raise ValueError('No NSC gauge groups in connected component')

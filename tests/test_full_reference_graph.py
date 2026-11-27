@@ -29,6 +29,9 @@ def test_global_duplicates_connectivity_and_numeric_export(tmp_path,monkeypatch)
     assert len(report['components'])==1 and report['components'][0]['groups']==3
     export_component(root,0,memory='128MB',threads=1)
     dest=root/'reference/component-0000'
+    stamp=(dest/'groups.npy').stat().st_mtime_ns
+    export_component(root,0,memory='128MB',threads=1)
+    assert (dest/'groups.npy').stat().st_mtime_ns==stamp
     assert np.load(dest/'groups.npy').shape==(45,)
     np.testing.assert_array_equal(np.diff(np.load(dest/'ptr.npy')),3)
     assert np.isfinite(np.load(dest/'precision.npy')).all()

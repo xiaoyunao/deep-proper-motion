@@ -60,3 +60,16 @@ def test_partial_irls_steps_restore_the_same_final_point(tmp_path):
     after=fit_component(ptr,g,p,y,names,draws=2,checkpoint=tmp_path)
     np.testing.assert_array_equal(before[0],after[0]);np.testing.assert_array_equal(before[1],after[1])
     assert all(step.get('reused') for step in after[3]['irls'])
+
+
+def test_forked_draws_preserve_exact_serial_sample_order_and_resume(tmp_path):
+    ptr,g,p,y,w,inv,r,ng,nr=example()
+    names=['NSC:'+str(i) for i in range(ng-1)]+['SDSS:1']
+    serial=fit_component(ptr,g,p,y,names,draws=6)
+    parallel=fit_component(ptr,g,p,y,names,draws=6,checkpoint=tmp_path,draw_workers=2)
+    for left,right in zip(serial[:3],parallel[:3]):
+        np.testing.assert_array_equal(left,right)
+    (tmp_path/'draw-002.npz').unlink()
+    recovered=fit_component(ptr,g,p,y,names,draws=6,checkpoint=tmp_path,draw_workers=3)
+    np.testing.assert_array_equal(serial[1],recovered[1])
+    assert sum(bool(t.get('reused')) for t in recovered[3]['draws'])==5

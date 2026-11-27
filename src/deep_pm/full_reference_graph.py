@@ -19,12 +19,12 @@ from .io import digest,save_json
 from .public_summary import check_aggregate
 
 
-def connect(path,memory,threads):
+def connect(path,memory,threads,*,read_only=False,spill=None):
     import duckdb
-    connection=duckdb.connect(str(path/'reference.duckdb'))
+    connection=duckdb.connect(str(path/'reference.duckdb'),read_only=read_only)
     connection.execute('SET memory_limit = ?', [memory])
     connection.execute('SET threads = ?', [threads])
-    connection.execute('SET temp_directory = ?', [str(path/'spill')])
+    connection.execute('SET temp_directory = ?', [str(spill or path/'spill')])
     connection.execute('SET preserve_insertion_order = false')
     return connection
 
@@ -240,7 +240,19 @@ def export_component(root,number,memory='24GB',threads=8):
     binding=root/'graph/v22_global_graph_summary.json';meta=read(binding)
     entry=next(c for c in meta['components'] if c['component']==number)
     if entry['status']!='ready':raise ValueError('Not a cross-survey component')
-    db=connect(root/'graph',memory,threads)
+    receipt=dest/'private_numeric_binding.json'
+    implementation={name:digest(Path(__file__).with_name(name)) for name in
+                    ('full_reference_graph.py','coordinate_metric.py','astrometry.py')}
+    if receipt.exists():
+        previous=read(receipt)
+        if (previous['graph_sha256']!=digest(binding) or previous['component']!=entry
+                or previous.get('implementation_sha256')!=implementation):
+            raise ValueError('Changed reference export inputs or code; use an independent output directory')
+        for name,checksum in previous['files'].items():
+            if digest(dest/name)!=checksum:raise ValueError('Damaged completed reference export')
+        print('COMPONENT_EXPORT_REUSED',number,flush=True)
+        return
+    db=connect(root/'graph',memory,threads,read_only=True,spill=dest/'spill')
     names=db.execute('SELECT "group" FROM group_map WHERE component=? ORDER BY "group"',[number]).fetchnumpy()['group']
     db.register('local_groups_frame',pd.DataFrame({'group':names,'lg':np.arange(len(names),dtype='int32')}))
     db.execute('CREATE OR REPLACE TEMP TABLE local_refs AS SELECT reference,row_number() OVER(ORDER BY reference)-1 rid FROM active SEMI JOIN local_groups_frame USING("group") GROUP BY reference')
@@ -275,7 +287,7 @@ def export_component(root,number,memory='24GB',threads=8):
     for a in (groups,value,precision):a.flush()
     files={p.name:digest(p) for p in sorted(dest.glob('*.npy'))}
     files[index_path.name]=digest(index_path)
-    save_json(dest/'private_numeric_binding.json',dict(graph_sha256=digest(binding),component=entry,files=files,
+    save_json(receipt,dict(graph_sha256=digest(binding),component=entry,files=files,implementation_sha256=implementation,
         precision='native covariance including50mas, projected and inverted full2D once',centering='per source first measurement'))
     db.close();print('COMPONENT_EXPORTED',number,n,nr,flush=True)
 

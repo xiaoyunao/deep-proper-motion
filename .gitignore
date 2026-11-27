@@ -89,6 +89,7 @@
 
 !/reports/experiment_A_v2.4_full_footprint.md
 !/scripts/dispatch-v24-intake.py
+!/scripts/verify-v24-reference-draws.py
 
 !/figures/v24/
 !/figures/v24/F1_coverage.pdf

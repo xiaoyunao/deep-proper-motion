@@ -35,7 +35,7 @@ def local_support(ra,dec,center,groups,names,draws,limit=12.):
     return valid&np.isfinite(se).all(axis=1)&(se.max(axis=1)<=limit),se
 
 
-def solve(root,number):
+def solve(root,number,draw_workers=1):
     start=monotonic();dest=root/'reference'/f'component-{number:04d}'
     binding_path=dest/'private_numeric_binding.json';binding=read(binding_path)
     for filename,sha in binding['files'].items():
@@ -47,7 +47,7 @@ def solve(root,number):
     if ticket_path.exists() and read(ticket_path)!=ticket:raise ValueError('Changed solver version; create independent component output')
     save_json(ticket_path,ticket)
     ptr,groups,precision,values,names=[np.load(dest/(key+'.npy'),mmap_mode='r') for key in ('ptr','groups','precision','values','names')]
-    point,draws,weight,trace=fit_component(ptr,groups,precision,values,names,draws=48,seed=45116+number,checkpoint=dest/'checkpoints')
+    point,draws,weight,trace=fit_component(ptr,groups,precision,values,names,draws=48,seed=45116+number,checkpoint=dest/'checkpoints',draw_workers=draw_workers)
     counts=np.bincount(groups,minlength=len(names))
     center=binding['component']['center_deg']
     # Exact distinct source counts exported with the globally peeled graph.
@@ -68,7 +68,7 @@ def solve(root,number):
         graph_plane_se_p16_p50_p84=np.quantile(np.std(draws,axis=1,ddof=1),[.16,.5,.84],axis=0),
         group_measurement_p16_p50_p84=np.quantile(counts,[.16,.5,.84]),minimum_reference_count=int(support.min()),
         convergence_history=trace,elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
-        slurm_job=os.environ['SLURM_JOB_ID'],scope='Complete physical connected component; float64 full2D Schur; native50mas before projection; final point/weight consistent; 48 synchronous source bootstrap; pre-SE NSC median gauge; unfiltered groups, per-target localICRS12mas support downstream.')
+        slurm_job=os.environ['SLURM_JOB_ID'],draw_workers=draw_workers,scope='Complete physical connected component; float64 full2D Schur; native50mas before projection; final point/weight consistent; 48 synchronous source bootstrap; pre-SE NSC median gauge; unfiltered groups, per-target localICRS12mas support downstream.')
     check_aggregate(summary);save_json(dest/'v22_reference_component_summary.json',summary)
     print('REFERENCE_COMPONENT_DONE',number,len(names),flush=True)
 
@@ -79,6 +79,7 @@ def digest_text(value):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('component',type=int);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('component',type=int);p.add_argument('--draw-workers',type=int,default=1);a=p.parse_args()
     if not os.environ.get('SLURM_JOB_ID'):p.error('Use Slurm')
-    solve(a.root,a.component)
+    if not 1<=a.draw_workers<=int(os.environ.get("SLURM_CPUS_PER_TASK",1)):p.error("Use allocated CPUs")
+    solve(a.root,a.component,a.draw_workers)

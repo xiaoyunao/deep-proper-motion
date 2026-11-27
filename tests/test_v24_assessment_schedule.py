@@ -52,3 +52,10 @@ def test_pending_memory_and_running_billing_use_separate_denominators(tmp_path):
     assert usage["12"] == ("RUNNING", 18/256, 18*3/256)
     assert usage["13"] == ("CANCELLED", 0., 0.)
     assert namespace["pending_threads"]("cpu=2,mem=8192M,node=1") == 16
+
+
+def test_only_explicitly_held_intake_jobs_release_concurrency():
+    runnable = dispatch["intake"]["runnable_jobs"]
+    active = {"11", "12", "13", "14"}
+    assert runnable(active, "11|JobHeldUser\n12|Priority\n13|Dependency") == {"12", "13", "14"}
+    assert runnable(active, "") == active

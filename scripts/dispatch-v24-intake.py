@@ -3,6 +3,7 @@ import argparse
 import fcntl
 import json
 import math
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -91,6 +92,13 @@ def block_resources(a, start, end, finished, peak_mib=None):
     return launcher, workers, memory
 
 
+def runnable_jobs(active, queue):
+    """Only user-held parents have zero runnable workers; their budget stays reserved."""
+    held = {job for job, reason in (line.split("|", 1) for line in queue.splitlines())
+            if reason == "JobHeldUser"}
+    return active - held
+
+
 def dispatch(a):
     work=a.work;root=work/"registration"
     ledger=work/"private_intake_dispatch.json"
@@ -105,7 +113,11 @@ def dispatch(a):
             raise ValueError("Transport recovery contains unaccounted allocations")
         reserved=sum(x[2] for x in usage.values())
         active=set(k for k,v in usage.items() if v[0] in ACTIVE)
-        slots=a.concurrent-sum(job in active for attempts in history.values() for job in attempts)
+        occupied=active
+        if getattr(a, "runnable_slots", False):
+            queue=command("squeue","-h","-u",os.environ["USER"],"-t","PENDING","-o","%i|%r")
+            occupied=runnable_jobs(active,queue)
+        slots=a.concurrent-len(occupied & {job for attempts in history.values() for job in attempts})
         capacity=scratch_fraction()
         if capacity>=.95:
             return "quota-review"
@@ -153,6 +165,7 @@ if __name__=="__main__":
     p.add_argument("--workers",type=int,default=10);p.add_argument("--mem",type=int,default=40)
     p.add_argument("--minutes",type=int,default=180);p.add_argument("--block",type=int,default=192)
     p.add_argument("--concurrent",type=int,default=2);p.add_argument("--ceiling",type=float,default=48.)
+    p.add_argument("--runnable-slots",action="store_true",help="Count runnable ordinary batches separately from explicitly held dense verification parents")
     p.add_argument("--recovered-jobs",type=Path,help="Frozen accounted job IDs predating a verified archive-transport recovery")
     p.add_argument("--early-launcher",type=Path,help="Immutable checkout used by the first registered blocks")
     p.add_argument("--early-end",type=int,help="First block using the normal launcher")

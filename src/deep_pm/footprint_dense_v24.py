@@ -128,7 +128,11 @@ if __name__ == "__main__":
     parser.add_argument("start",type=int)
     parser.add_argument("end",type=int)
     parser.add_argument("--workers",type=int,required=True)
+    parser.add_argument("--priority-plan", type=Path, help="Scheduling subset keyed to the original ordinals")
+    parser.add_argument("--priority-sha")
     a=parser.parse_args()
+    if bool(a.priority_plan) != bool(a.priority_sha):
+        parser.error("Supply both the priority plan and its registered SHA256")
     if not os.getenv("SLURM_JOB_ID") or not 1<=a.workers<=int(os.environ["SLURM_CPUS_PER_TASK"]):
         parser.error("Use assigned Slurm CPUs")
     run(a.base,a.start,a.end,a.workers,a.priority_plan,a.priority_sha)

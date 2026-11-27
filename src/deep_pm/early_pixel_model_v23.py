@@ -106,10 +106,11 @@ class JointPixels:
                 value=initial.copy();value[k]+=shift;initial_states.append(value)
         fits=[least_squares(fun,v,jac=jac,x_scale=self.scale,ftol=1e-8,xtol=1e-8,gtol=1e-8,max_nfev=max_nfev) for v in initial_states]
         best=min(fits,key=lambda a:float(a.fun@a.fun));normal=best.jac.T@best.jac
-        if np.linalg.matrix_rank(normal,tol=np.linalg.eigvalsh(normal).max()*1e-12)<len(normal):cov=None
-        else:cov=np.linalg.inv(normal)
+        values,vectors=np.linalg.eigh(normal);positive=values>max(values.max()*1e-12,1e-20);identified=np.sum(vectors[:,~positive]**2,axis=1)<1e-6
+        cov=(vectors[:,positive]/values[positive])@vectors[:,positive].T if positive.any() else None
+        if positive.all():cov=np.linalg.inv(normal)
         competing=[float(a.fun@a.fun) for a in fits if np.linalg.norm(a.x[[0,2]]-best.x[[0,2]])>200 and float(a.fun@a.fun-best.fun@best.fun)<4]
-        return dict(state=best.x[:4],parameters=best.x,conditional_covariance=None if cov is None else cov[:4,:4],full_covariance=cov,jacobian=best.jac,residual=best.fun,chi2=float(best.fun@best.fun),success=bool(best.success),nfev=int(best.nfev),competing_minima=len(competing),start_chi2=[float(a.fun@a.fun) for a in fits])
+        return dict(fully_identified=bool(positive.all()),identifiable_state_axes=identified[:4],state=best.x[:4],parameters=best.x,conditional_covariance=None if cov is None else cov[:4,:4],full_covariance=cov,jacobian=best.jac,residual=best.fun,chi2=float(best.fun@best.fun),success=bool(best.success),nfev=int(best.nfev),competing_minima=len(competing),start_chi2=[float(a.fun@a.fun) for a in fits])
 
     def profiles(self,fit,axes=(0,1,2,3),levels=(1.,3.841458820694124)):
         """One-dimensional likelihood profiles, all other variables reoptimized."""
@@ -117,6 +118,7 @@ class JointPixels:
         if cov is None:return result
         full=np.arange(len(x));steps=self.steps
         for axis in axes:
+            if not fit['identifiable_state_axes'][axis]:continue
             free=full[full!=axis]
             def delta(value):
                 def fun(nuisance):

@@ -1,0 +1,21 @@
+{
+  "slurm_job": "62110645",
+  "full_early_coverage_sha256": "1892134b8e567fb3b1feb6ae7fa619ace42556a8a101e958e299a274790a079a",
+  "signed_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "registered": 15235,
+  "empty": 148,
+  "reasons": {
+    "no_published_positions_in_rectangle_and_halo": 87,
+    "empty_candidate_fields": 59,
+    "only_non_primary_within_run": 2
+  },
+  "field_visits": 6712,
+  "empty_extension_visits": 5240,
+  "original_positions_with_halo": 14,
+  "run_primary_positions_with_halo": 0,
+  "time_opportunity_sqdeg": {
+    "no_published_positions_in_rectangle_and_halo": 2.669213045759342,
+    "empty_candidate_fields": 26.352822977156144,
+    "only_non_primary_within_run": 0.0
+  }
+}

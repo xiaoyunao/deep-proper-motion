@@ -94,3 +94,7 @@
 !/figures/v24/F1_coverage.pdf
 !/figures/v24/F1_coverage.png
 !/results/summary/v24_geometric_sky_summary.json.gz
+
+!/results/summary/v24_predecessor_stripe82_comparison_summary.json.gz
+!/figures/v24/F5_stripe82.pdf
+!/figures/v24/F5_stripe82.png

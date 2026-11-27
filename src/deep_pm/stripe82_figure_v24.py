@@ -45,7 +45,8 @@ def draw(summary,prefix):
             axes[1,k].set_ylabel("Median Δ"+tex+" (mas yr⁻¹)")
         ax=axes[1,2]
         for field,label,col in (("parent","HLC parent",".50"),("common","Four-way common","#23669d")):
-            ax.plot(x,[magnitude[key][field] for key,v in bins],".-",label=label,c=col)
+            count_bins=[(key,np.mean([float(v) for v in key.split("-")])) for key in magnitude if magnitude[key][field]>0]
+            ax.plot([v for key,v in count_bins],[magnitude[key][field] for key,v in count_bins],".-",label=label,c=col)
         ax.set_yscale("log");ax.set_ylabel("Stars in magnitude bin");ax.legend(frameon=False,fontsize=9)
         for ax in (axes[0,2],*axes[1]):
             ax.set_xlabel("Stripe 82 clipped PSF r (mag)")

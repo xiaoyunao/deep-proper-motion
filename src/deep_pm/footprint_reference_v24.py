@@ -27,6 +27,13 @@ def assemble(base):
     frozen=read(manifest)
     expected=read(output/"v24_footprint_inventory_summary.json")["signed_manifest_sha256"]
     if digest(manifest)!=expected:raise ValueError("Changed survey footprint")
+    check=root/"meridian/v24_archive_input_audit_summary.json"
+    audit=read(root/"meridian/private_archive_audit.json")
+    if read(check)["private_audit_sha256"]!=digest(root/"meridian/private_archive_audit.json"):
+        raise ValueError("Changed archive audit")
+    unresolved=[name for name,r in audit.items() if r.get("requires_input_replay") or "requires_input_replay" not in r]
+    if unresolved:
+        raise RuntimeError(f"{len(unresolved)} archive checks or verified differences remain; inspect per-core receipts")
     prior=base/"v2.2";prior_plan=prior/"registration/private_full_coordinate_plan.json"
     if digest(prior_plan)!=frozen["baseline_sha256"]:raise ValueError("Changed old core registration")
     graphs={}

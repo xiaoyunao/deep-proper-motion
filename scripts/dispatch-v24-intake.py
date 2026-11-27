@@ -75,7 +75,13 @@ def dispatch(a):
             if any(job in active for job in past):continue
             if any((root/f"v24_batch_{job}_summary.json").is_file() and
                    summary(root/f"v24_batch_{job}_summary.json")["completed"]==end-start for job in past):continue
-            if len(past)>=2:continue
+            finished=[summary(root/f"v24_batch_{job}_summary.json") for job in past
+                      if (root/f"v24_batch_{job}_summary.json").is_file()]
+            if len(finished)>=2 and finished[-1]["completed"]==finished[-2]["completed"]:
+                continue  # No scientific progress on two completed attempts. Inspect affected cores.
+            if len(past)>=2 and not finished and all(usage[j][0] not in ACTIVE for j in past):
+                continue  # Two failed parents without a verified batch exit need resource diagnosis.
+
             if slots<=0:return "live"
             # Slurm may apportion a larger minimum fraction for memory. Use a
             # conservative reservation for each new request, then use actual TRES.

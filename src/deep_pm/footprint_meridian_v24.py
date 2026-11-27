@@ -1,5 +1,6 @@
 """Census noncanonical archive coordinates; retain actual identifiers only on PScratch."""
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import os
 from pathlib import Path
 import numpy as np
@@ -18,8 +19,22 @@ def run(base):
     count=cache.query("nsc","SELECT count(*) AS n FROM nsc_dr2.object WHERE "+invalid,expected=1)
     n=int(count.n.iat[0])
     q="id,ra,dec,mjd,pmra,pmdec,pmraerr,pmdecerr,deltamjd,ndet"
-    from .access import checked_spatial
-    df=checked_spatial(cache,"nsc",q,"nsc_dr2.object",invalid,-90.0000001,90.0000001)
+    bins=cache.query("nsc","SELECT floor(ra)::int a, floor((dec+90)/2)::int d, count(*) AS n FROM nsc_dr2.object WHERE "+invalid+" GROUP BY 1,2")
+    if bins.n.sum()!=n or bins.isna().any().any():
+        raise ValueError("Noncanonical sky histogram failed its denominator")
+    def fetch(row):
+        a,d,count=int(row.a),2*int(row.d)-90,int(row.n)
+        where=f"ra>={a} AND ra<{a+1} AND dec>={d} AND dec<{d+2} AND "+invalid
+        if -360<=a<720 and -90<=d<=88:
+            where=f"q3c_radial_query(ra,dec,{(a+.5)%360},{d+1},1.51) AND "+where
+        if count>60000:
+            from .access import checked_spatial
+            return checked_spatial(cache,"nsc",q,"nsc_dr2.object",where,d,d+2)
+        return cache.query("nsc","SELECT "+q+" FROM nsc_dr2.object WHERE "+where,expected=count)
+    workers=min(4,int(os.getenv("SLURM_CPUS_PER_TASK","1")))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        df=pd.concat(pool.map(fetch,bins.sort_values("n",ascending=False).itertuples()),ignore_index=True)
+
     if len(df)!=n or df.id.isna().any() or df.id.duplicated().any():
         raise ValueError("Noncanonical objects do not close with global server count")
     actual=df.ra.between(-360,720)&df.dec.between(-90,90)

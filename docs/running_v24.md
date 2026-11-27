@@ -83,3 +83,6 @@ full_coordinate_ngc "$work/joint" --history-root "$base"
 `scripts/dispatch-v24-graph.py "$work" "$LAUNCHER" "$DPM_SPECTRA" "$DPM_SAS" "$DPM_ACCOUNT" --watch` 在登录节点只读回执并提交 Slurm 作业。全部签名输入就绪后，调度器再次核对经度异常档案，按实际差异恢复输入，再绑定完整清单并闭合物理参考图。共享计费账本、配额、数值失败均可中断对应阶段。参考分量导出并行只读闭合后的 DuckDB，在各自目录暂存排序文件。
 
 参考分量先由 `full_reference_graph export "$work/joint" --component COMP --threads N` 导出，然后运行 `full_reference_run "$work/joint" COMP --draw-workers 4`。正式抽样次数为 48。四进程方案在具有 2,374,858 个训练星系的归档物理分量上用 `scripts/verify-v24-reference-draws.py` 与串行逐字节核对。BLAS 保持单线程，各分量依据实测内存和时限装箱。
+
+
+`footprint_held_reference_v24 "$base"` 只读取归档旧图，把预定 1/64 留出星系的实际检测校正回 ICRS。每个新分量用 `full_reference_validation "$work/joint" COMP "$OUT"` 核对原始、校准后及旧/新严格共同检测的跨巡天位置残差。旧对照要求实际星系、检测 ID、物理组均一致，并通过各自位置上的原生参考误差门槛。

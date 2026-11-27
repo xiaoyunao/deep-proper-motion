@@ -26,9 +26,9 @@ def validate(root,number,output):
     center=reference_frame(graph);solution=read_offsets(graph);names=np.array(sorted(solution));draw=np.stack([solution[n][1] for n in names])
     plan=read(root/'registration/private_full_coordinate_plan.json')
     original=[Path(k) for k,v in plan['graphs'].items() if np.allclose(v['center'],center,atol=1e-12,rtol=0)]
-    if len(original)!=1:raise ValueError('Old reference chart comparison needs explicit coordinate re-expression')
-    old=read_offsets(original[0]);old_names=set(old)
-    db=connect(root/'graph','12GB',4)
+    production=plan.get('production_blind',False)
+    if not production and len(original)!=1:raise ValueError('Old reference chart comparison needs explicit coordinate re-expression')
+    db=connect(root/'graph','12GB',4,read_only=True,spill=output/'spill')
     # Hash only distinct physical identities, not every repeated measurement.
     # 1/64 is an intentional predeclared engineering/science validation sample,
     # not a silently truncated catalogue or query service maximum.
@@ -41,9 +41,15 @@ def validate(root,number,output):
     hold_reference_count=frame.reference.nunique();raw=project(frame.ra_deg,frame.dec_deg,center)
     groups=frame['group'].to_numpy();known=pd.Series(groups).isin(names).to_numpy()
     keep,se=local_support(frame.ra_deg,frame.dec_deg,center,groups,names,draw)
-    corrected=raw-np.array([solution[g][0] if g in solution else np.zeros(2) for g in groups])
-    prior_known=pd.Series(groups).isin(old_names).to_numpy()
-    previous=raw-np.array([old[g][0] if g in old else np.zeros(2) for g in groups])
+    corrected=raw-np.array([solution[g][0] if g in solution else np.zeros(2) for g in groups]).reshape(-1,2)
+    if production:
+        from .footprint_held_reference_v24 import archived_positions
+        previous,prior_known,prior_present,prior_sha=archived_positions(root.parent.parent,frame,center)
+    else:
+        old=read_offsets(original[0])
+        prior_known=pd.Series(groups).isin(set(old)).to_numpy()
+        previous=raw-np.array([old[g][0] if g in old else np.zeros(2) for g in groups]).reshape(-1,2)
+        prior_present=int(prior_known.sum());prior_sha=digest(original[0])
     columns={};exits=Counter();entries=[]
     for ref,ix in frame.groupby('reference',sort=False).indices.items():
         ix=np.asarray(ix,int);sdss=frame.exposure_id.iloc[ix].str.startswith('SDSS:').to_numpy()
@@ -60,7 +66,8 @@ def validate(root,number,output):
     # Paired ratios use exactly the same retained held sources/detections.
     common=[e for e in entries if {'old_strict_common','new_strict_common'}<=e.keys()]
     old_values=np.array([e['old_strict_common'] for e in common]);new_values=np.array([e['new_strict_common'] for e in common])
-    result=dict(component=number,reference_model_sha256=digest(graph),old_reference_model_sha256=digest(original[0]),
+    result=dict(component=number,reference_model_sha256=digest(graph),old_reference_model_sha256=prior_sha,
+        predecessor_actual_overlap_rows=prior_present if production else None,
         validation_physical_sources=hold_reference_count,validation_measurements=len(frame),
         native12mas_supported_measurements=int(keep.sum()),old_archived_group_measurements=int(prior_known.sum()),
         sample='Physical holdout identity sha256(v22-held-readout:ID) first byte<04,1/64; reference training/holdout split unchanged',
@@ -70,6 +77,8 @@ def validate(root,number,output):
         elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
         slurm_job=os.environ['SLURM_JOB_ID'],
         scope='Complete new graph, reference-source heldout sample, native E/N cross-survey median position difference. Strict old/new entries use identical detections (new native support AND old group presence). New-all and old-archived supports separate; no Gaia or QSO fitted. Object intervals condition on shared physical observations; not independent sky confidence.')
+    if production:
+        result["predecessor_comparison"]="Actual old holdout detection/reference/group identity in both graph versions. Each old offset was applied in its original chart, transformed through ICRS, and assessed on its own native SE. Strict pairs pass both native support thresholds. Predecessor SHA binds all corrected sky shards."
     check_aggregate(result);save_json(output/'v22_complete_reference_validation_summary.json',result)
     save_json(output/'private_held_reference_validation.json',entries)
     print('FULL_REFERENCE_HELD_VALIDATED',number,len(common),flush=True)

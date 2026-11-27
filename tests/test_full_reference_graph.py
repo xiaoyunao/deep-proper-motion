@@ -58,3 +58,22 @@ def test_hemisphere_does_not_reject_feasible_84_degree_equatorial_chart():
     np.testing.assert_allclose(np.rad2deg(np.arccos(dots)),84.,atol=1e-7)
     with pytest.raises(ValueError,match='hemisphere'):
         hemisphere_center(np.array([[0.,0.],[180.,0.]]))
+
+
+def test_held_reference_transports_old_offsets_and_checks_actual_physical_members(tmp_path):
+    from deep_pm.astrometry import project,unproject
+    from deep_pm.footprint_held_reference_v24 import archived_positions
+    base=tmp_path/"v2.4/predecessor-held"
+    base.mkdir(parents=True)
+    old_center=(352.,8.);new_center=(22.,4.)
+    ra=np.array([359.99,.01]);dec=np.array([12.,12.])
+    adjusted=unproject(project(ra,dec,old_center)-np.array([70.,-80.]),old_center)
+    f=pd.DataFrame(dict(reference=['A','B'],detection_id=['d1','d2'],group=['g','h'],ra_deg=ra,dec_deg=dec))
+    archived=f.assign(old_ra=adjusted[:,0],old_dec=adjusted[:,1],old_supported=[True,False])
+    output=base/'held-0000.parquet';archived.to_parquet(output)
+    save_json(base/'v24_previous_held_reference_summary.json',dict(components={'0':dict(sha256=digest(output))}))
+    f.loc[2]=['C','d3','g',1.,13.]
+    result,keep,n,_=archived_positions(tmp_path,f,new_center)
+    assert n==2 and keep.tolist()==[True,False,False]
+    np.testing.assert_allclose(unproject(result[keep],new_center),adjusted[:1],atol=1e-12)
+    assert np.isnan(result[~keep]).all()

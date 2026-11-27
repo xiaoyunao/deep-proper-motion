@@ -96,6 +96,8 @@ def dispatch(a):
     ledger=work/"private_intake_dispatch.json"
     with (work/"private_dispatch.lock").open("a") as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
+        if (work/"batch-receipts/pause-canonical-intake").exists():
+            return "live"
         history=summary(ledger) if ledger.exists() else {}
         prior_transport=set(summary(a.recovered_jobs)) if a.recovered_jobs else set()
         usage=accounts(work)

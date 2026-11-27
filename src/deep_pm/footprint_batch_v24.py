@@ -5,10 +5,60 @@ import fcntl
 import json
 import os
 from pathlib import Path
-from time import monotonic
+from time import monotonic, time
 
 from .footprint_intake_v24 import attempt,select_pilots
 from .io import digest,save_json
+
+
+def gateway_status(path):
+    import requests
+    count = "SELECT COUNT(*) AS n FROM nsc_dr2.object WHERE q3c_radial_query(ra,dec,35,-5,0.0001)"
+    if path == "/tap/sync":
+        params = dict(REQUEST="doQuery", LANG="ADQL", FORMAT="csv", MAXREC=1, QUERY=count+"='t'")
+        headers = {}
+    elif path == "/query/query":
+        params = dict(sql=count, ofmt="csv", **{"async": "False"})
+        headers = {"X-DL-AuthToken": "anonymous.0.0.anon_access"}
+    else:
+        raise ValueError("Unknown archive route")
+    try:
+        response = requests.get("https://datalab.noirlab.edu"+path, params=params,
+                                headers=headers, timeout=(4, 8))
+    except requests.RequestException:
+        return None
+    return response.status_code
+
+
+def check_archive_failure(control, failure, rule):
+    """A failed science page and an independent small query must both see a gateway error."""
+    route = failure.get("archive_path")
+    if not route or stopped(control):
+        return
+    probe = control/(".archive-health-"+rule)
+    with probe.open("a+") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return
+        lock.seek(0)
+        previous = lock.read()
+        now = time()
+        if previous and now - float(previous) < 60:
+            return
+        lock.seek(0)
+        lock.truncate()
+        lock.write(str(now))
+        lock.flush()
+        status = gateway_status(route)
+        if status in (502, 503, 504):
+            pause = control/"pause-canonical-intake"
+            try:
+                with pause.open("x") as f:
+                    json.dump(dict(route=route, science_http=failure["archive_status"], probe_http=status,
+                                   core=failure["core"], job=os.environ["SLURM_JOB_ID"], rule=rule), f)
+            except FileExistsError:
+                pass
 
 
 def worker(job):
@@ -37,7 +87,10 @@ def worker(job):
             if "error" in result:
                 failed+=1
                 failures.append(dict(rule=rule,allocation=os.environ["SLURM_JOB_ID"],error=result["error"]))
+                if "archive_status" in result:
+                    failures[-1].update(archive_status=result["archive_status"], archive_path=result["archive_path"])
                 save_json(error,failures)
+                check_archive_failure(control, result, rule)
             else:
                 result["manifest_sha256"]=task[-1]
                 root=task[2]/"v2.4"

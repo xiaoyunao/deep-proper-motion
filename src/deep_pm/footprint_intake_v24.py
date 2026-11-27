@@ -8,6 +8,7 @@ from pathlib import Path
 import resource
 import subprocess
 from time import monotonic
+from urllib.parse import urlsplit
 
 from .continuous_summary import area
 from .exposure_inputs import acquire
@@ -78,7 +79,17 @@ def attempt(task):
     except Exception as e:
         import traceback
         traceback.print_exc()
-        return dict(core=task[0],error=type(e).__name__)
+        failure = dict(core=task[0], error=type(e).__name__)
+        cause = e.__cause__
+        while cause is not None:
+            response = getattr(cause, "response", None)
+            if response is not None and response.status_code in (502, 503, 504):
+                url = urlsplit(response.url)
+                if url.hostname == "datalab.noirlab.edu" and url.path in ("/query/query", "/tap/sync"):
+                    failure.update(archive_path=url.path, archive_status=response.status_code)
+                    break
+            cause = cause.__cause__
+        return failure
 
 
 def main():

@@ -75,3 +75,22 @@ def test_revised_input_counts_shared_query_bytes_without_changing_receipt(tmp_pa
     assert rows["b"]["raw_bytes"] == 30
     assert account_linked_caches(tmp_path, rows) == (1, 7)
     assert rows["b"]["working_input_bytes"] == 37
+
+def test_one_gateway_error_needs_independent_confirmation(tmp_path, monkeypatch):
+    import json
+    from deep_pm import footprint_batch_v24 as batch
+    failure = dict(core="core", archive_path="/tap/sync", archive_status=502)
+    monkeypatch.setenv("SLURM_JOB_ID", "2")
+    probes = []
+    def status(route):
+        probes.append(route)
+        return 200 if len(probes) == 1 else 502
+    monkeypatch.setattr(batch, "gateway_status", status)
+    batch.check_archive_failure(tmp_path, failure, "epoch1")
+    batch.check_archive_failure(tmp_path, failure, "epoch1")
+    assert not batch.stopped(tmp_path) and len(probes) == 1
+    batch.check_archive_failure(tmp_path, dict(core="core"), "epoch2")
+    batch.check_archive_failure(tmp_path, failure, "epoch2")
+    batch.check_archive_failure(tmp_path, failure, "epoch2")
+    assert probes == ["/tap/sync", "/tap/sync"]
+    assert json.loads((tmp_path/"pause-canonical-intake").read_text())["probe_http"] == 502

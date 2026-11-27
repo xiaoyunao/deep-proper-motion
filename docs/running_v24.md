@@ -118,3 +118,5 @@ python -m deep_pm.footprint_sdss_stage_v24 "$work" "$DPM_SAS" --start "$first" -
 读取暂存数据的 v2.4 取数作业设置 `DPM_SDSS_STAGE="$work/sdss-stage"`。每次复用核对矩形、缓冲区、脚本签名、SAS 镜像与 field 文件大小和修改时间，同时核对复制字节的 SHA256 和实际行数。尚未暂存的核心直接读取 DR17。逐检测文件和 field 清单只保存在 PScratch。SDSS 行数包含相邻缓冲区，最终目录的唯一源数由全域归属给出。
 
 归档数据请求耗尽重试并返回 502、503 或 504 时，新版批次在同一路径单独检查一次极小计数。两次均为网关故障才写入共享暂停标记。常规提交器等待标记解除，进行中的核心保留回执与分页。恢复前核对服务状态并完成一个原先失败的注册核心。
+
+在真实签名参考分包上用 `footprint_link_witness_v24 "$work"` 检查前代图是否出现连接。随后运行 `footprint_chart_geometry_v24 "$work" "$work/chart-witness/$witness_job"`。每个占有的半度格选一条实际训练方向，最远方向对与方向凸组合给出任何单图所需角半径的下界。候选图心另用全部旧训练行核实最大角距。中间连通证据不能替代最终物理图的消歧和剥离。

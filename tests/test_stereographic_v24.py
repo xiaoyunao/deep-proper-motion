@@ -41,3 +41,16 @@ def test_native_area_cut_in_stereographic_chart():
         for se in (11.99,12.01):
             cov=a@np.diag([49.,se**2])@a.T
             assert accepted_direction(*np.radians([ra,dec]),basis(*centre),cov,True)==(se<12)
+
+
+def test_constant_target_projection_offset_transports_across_a_long_scan():
+    import pandas as pd
+    from deep_pm.footprint_chart_group_transfer_v24 import compare
+    center=st.Stereographic((1.,75.))
+    ra=np.linspace(330,390,90)%360;dec=np.full(90,12.)
+    old=unproject(project(ra,dec,center)-[100,-50],center)
+    frame=pd.DataFrame(dict(group='SDSS:a',reference=list(map(str,range(len(ra)))),
+                            ra_deg=ra,dec_deg=dec,old_ra=old[:,0],old_dec=old[:,1]))
+    _,tested=compare(frame,center)
+    assert len(tested)>30 and tested.observed_span.min()>50
+    assert tested.error_mas.max()<1e-5

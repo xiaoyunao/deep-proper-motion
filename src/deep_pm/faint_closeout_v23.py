@@ -34,6 +34,16 @@ def run(base,root):
     for lo in [22,22.5]:
         part=[r for r in results if r['experiment_mode']=='control' and r['category'].startswith('injection') and lo<=r['r0']<lo+.5];summary['pixel_by_depth'][str(lo)]=dict(injected=len(part),computed=sum(r['status']=='computed' for r in part),information_pass=sum(r.get('information_gate_pass',False) for r in part),adoption_pass=sum(r.get('adoption_gate_pass',False) for r in part))
     real=[r for r in results if r['experiment_mode']=='real'];holds=[h for r in real for h in r.get('held_run_predictions',[])];supported=[h for h in holds if 'conditional_position_residual_mas' in h];summary['run_holdout']=dict(whole_runs=len(holds),independent_SNR5_positions=len(supported),conditional_radial_P68_mas=float(np.quantile([np.linalg.norm(h['conditional_position_residual_mas']) for h in supported],.68)) if supported else None,ellipse68_coverage=float(np.mean([h['conditional_mahalanobis2']<=2.278868566 for h in supported])) if supported else None,ellipse95_coverage=float(np.mean([h['conditional_mahalanobis2']<=5.991464547 for h in supported])) if supported else None)
+    summary['real_pixel_uncertainty']={}
+    for category in sorted({r['category'] for r in real}):
+        part=[r for r in real if r['category']==category and r['status']=='computed'];item=dict(n=len(part))
+        if part:
+            item['conditional_slope_variance_improvement_p16_p50_p84']=np.quantile([r['conditional_slope_variance_improvement'] for r in part],[.16,.5,.84],axis=0)
+            for term in ['conditional_covariance','reference_covariance','frame_registration_covariance']:
+                item[term+'_PM_SE_median_masyr']=np.median([np.sqrt(np.diag(r[term]))[[1,3]] for r in part],axis=0)
+        summary['real_pixel_uncertainty'][category]=item
+    negative=[n for r in results for n in r.get('PSF_negative_full_flux_fraction',[])]
+    summary['injection_PSF_clipped_negative_flux_p16_p50_p84']=np.quantile(negative,[.16,.5,.84]) if negative else None
     summary['real_forty']=dict(initial=len(real),late_unique=sum(r['late_status']=='conditional_late_association' for r in real),computed=sum(r['status']=='computed' for r in real),information_pass=sum(r.get('information_gate_pass',False) for r in real),adoption_pass=sum(r.get('adoption_gate_pass',False) for r in real));summary['415_expansion']=dict(original_parent=415,new_pixels_fitted=0,decision='Not expanded: no independently qualified frame registration. Information-only results and conditional controls do not satisfy adoption, irrespective of selected conditional precision.')
     summary['scope']='Frozen production unchanged. HST primary overlap insufficient: no measured dark-star residual precision. Covariance budget is the saved conditional estimator, not all systematic error. Pixel information gate differs from adoption; injections test same-depth early information on actual backgrounds with conditional late sampling, not new-star correctness or absolute calibration. Profile coverage is conditional; linearized common reference/registration terms are separate. The missing reference tie cannot be cured by object counts.'
     check_aggregate(summary);save_json(root/'v23_key_science_summary.json',summary)

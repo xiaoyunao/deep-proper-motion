@@ -81,7 +81,10 @@ def dispatch(a):
     with (work/"private_dispatch.lock").open("a") as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
         history=summary(ledger) if ledger.exists() else {}
+        prior_transport=set(summary(a.recovered_jobs)) if a.recovered_jobs else set()
         usage=accounts(work)
+        if not prior_transport.issubset(usage):
+            raise ValueError("Transport recovery contains unaccounted allocations")
         reserved=sum(x[2] for x in usage.values())
         active=set(k for k,v in usage.items() if v[0] in ACTIVE)
         slots=a.concurrent-sum(job in active for attempts in history.values() for job in attempts)
@@ -96,10 +99,13 @@ def dispatch(a):
                    summary(root/f"v24_batch_{job}_summary.json")["completed"]==end-start for job in past):continue
             finished=[summary(root/f"v24_batch_{job}_summary.json") for job in past
                       if (root/f"v24_batch_{job}_summary.json").is_file()]
-            if len(finished)>=2 and finished[-1]["completed"]==finished[-2]["completed"]:
-                continue  # No scientific progress on two completed attempts. Inspect affected cores.
-            if len(past)>=2 and not finished and all(usage[j][0] not in ACTIVE for j in past):
-                continue  # Two failed parents without a verified batch exit need resource diagnosis.
+            current=[j for j in past if j not in prior_transport]
+            recent=[summary(root/f"v24_batch_{j}_summary.json") for j in current
+                    if (root/f"v24_batch_{j}_summary.json").is_file()]
+            if len(recent)>=2 and recent[-1]["completed"]==recent[-2]["completed"]:
+                continue  # Two current-transport attempts left identical outstanding science.
+            if len(current)>=2 and not recent and all(usage[j][0] not in ACTIVE for j in current):
+                continue  # Inspect repeated current-transport failures without a batch exit.
 
             if slots<=0:return "live"
             # Slurm may apportion a larger minimum fraction for memory. Use a
@@ -129,6 +135,7 @@ if __name__=="__main__":
     p.add_argument("--workers",type=int,default=10);p.add_argument("--mem",type=int,default=40)
     p.add_argument("--minutes",type=int,default=180);p.add_argument("--block",type=int,default=192)
     p.add_argument("--concurrent",type=int,default=2);p.add_argument("--ceiling",type=float,default=48.)
+    p.add_argument("--recovered-jobs",type=Path,help="Frozen accounted job IDs predating a verified archive-transport recovery")
     p.add_argument("--early-launcher",type=Path,help="Immutable checkout used by the first registered blocks")
     p.add_argument("--early-end",type=int,help="First block using the normal launcher")
     p.add_argument("--early-mem",type=int)

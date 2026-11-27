@@ -25,6 +25,11 @@ def worker(job):
             error=control/(core+".failed.json")
             failures=json.loads(error.read_text()) if error.is_file() else []
             rule="canonical" if os.environ.get("DPM_NSC_TRANSPORT","native")=="native" else "canonical-counted-tap"
+            recovery=os.environ.get("DPM_ARCHIVE_RECOVERY_ID")
+            if recovery:
+                if not recovery.isascii() or not recovery.replace("-","").isalnum() or len(recovery)>60:
+                    raise ValueError("Invalid archive recovery label")
+                rule += "-"+recovery
             if sum(f.get("rule")==rule for f in failures)>=2 or any(f["allocation"]==os.environ["SLURM_JOB_ID"] for f in failures):
                 skipped+=1
                 continue

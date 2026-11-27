@@ -57,7 +57,7 @@ def save(path,content):
     draft.replace(path)
 
 
-def block_resources(a, start, end, finished):
+def block_resources(a, start, end, finished, peak_mib=None):
     # Earlier blocks are bound to the checkout which wrote their acquisition manifests.
     earlier = a.early_launcher is not None and start < a.early_end
     launcher = a.early_launcher if earlier else a.launcher
@@ -69,7 +69,9 @@ def block_resources(a, start, end, finished):
     if workers < a.workers:
         # Dense remaining cores can be much larger than the median. Retain
         # one measured-memory margin even when only one or two workers remain.
-        memory = min(memory, max(16, math.ceil(memory * workers / a.workers)))
+        if peak_mib is not None and peak_mib > 0:
+            largest_worker = math.ceil(1.2 * peak_mib / 1024)
+            memory = max(largest_worker, math.ceil(memory * workers / a.workers))
     return launcher, workers, memory
 
 
@@ -102,7 +104,9 @@ def dispatch(a):
             if slots<=0:return "live"
             # Slurm may apportion a larger minimum fraction for memory. Use a
             # conservative reservation for each new request, then use actual TRES.
-            launcher,workers,memory=block_resources(a,start,end,finished)
+            progress=root/"v24_intake_progress_summary.json"
+            high_water=summary(progress)["peak_individual_rss_mib"] if progress.is_file() else None
+            launcher,workers,memory=block_resources(a,start,end,finished,high_water)
             upper=max(workers,2*memory)*a.minutes*60/SCALE
             if reserved+upper>a.ceiling:return "budget-review"
             j=command("sbatch","--parsable","-A",a.account,"-q","shared","-C","cpu","-N1","-n1",

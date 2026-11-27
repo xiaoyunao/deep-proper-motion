@@ -96,7 +96,9 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     data,nfiles=read_sdss_sas(sas,center,radius+2*halo,workers=workers)
     data=data.loc[inside(data.ra,data.dec,spec,halo)]
     data.to_csv(work/"sdss.csv",index=False)
-    print(f"{len(data):,} SDSS detections in {nfiles} inspected files",flush=True)
+    sdss_count = len(data)
+    del data
+    print(f"{sdss_count:,} SDSS detections in {nfiles} inspected files",flush=True)
     use_tap=settings.get("tap_join",False)
     native_join=settings.get("native_join",False)
     native_window=settings.get("native_count_window",False) and native_join and not use_tap
@@ -134,6 +136,9 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     print(f"{len(missing):,} archive objects have no matching rows in meas",flush=True)
     in_halo=nsc.loc[inside(nsc.ra,nsc.dec,spec,halo)]
     in_halo.to_csv(work/"nsc_object.csv",index=False)
+    downloaded_count = len(in_halo) if all_objects else len(nsc)
+    object_count, missing_count = len(ids), len(missing)
+    del in_halo, nsc, archive, ids, returned, requested, missing
     chip_pad=halo+(.65 if all_objects else .35)
     chips=access.checked_spatial(cache,route,"exposure,ccdnum,instrument,airmass",
                                  "nsc_dr2.chip",footprint(spec,chip_pad),
@@ -151,6 +156,8 @@ def acquire(work, spec, settings, catalogues, sas, workers):
         qso=qso.loc[inside(qso.ra,qso.dec,spec,halo)].copy()
         qso["in_core"]=inside(qso.ra,qso.dec,spec)
         qso.to_csv(work/f"{stem}.csv",index=False)
+    chip_count, gaia_count = len(chips), len(gaia)
+    del chips, gaia, qso
     standardize(work,{},center,radius,"object")
     method = ("tap_archive_join" if use_tap else "datalab_native_archive_join" if native_join
               else "datalab_object_index")
@@ -161,10 +168,10 @@ def acquire(work, spec, settings, catalogues, sas, workers):
             raise ValueError("Conflicting detection IDs or non-r SDSS astrometry")
         delivery=dict(normalized_detections=len(normalized),sdss_r_measurements_preserved=int(normalized.survey.eq("SDSS").sum()),
                       availability_of_historical_r_input=False,new_nsc_measures=None,all_nsc_object_selection=True)
-    save_json(work/"acquisition_summary.json",dict(objects=len(ids),archive_objects_without_measures=len(missing),
+    save_json(work/"acquisition_summary.json",dict(objects=object_count,archive_objects_without_measures=missing_count,
         measurement_route=method,native_count_window=native_window,
-        downloaded_nsc_measures=len(in_halo) if all_objects else len(nsc),chip_metadata_entries=len(chips),
-        sdss_measures=len(data),sdss_fields=nfiles,gaia_positions=len(gaia),elapsed_seconds=monotonic()-start,
+        downloaded_nsc_measures=downloaded_count,chip_metadata_entries=chip_count,
+        sdss_measures=sdss_count,sdss_fields=nfiles,gaia_positions=gaia_count,elapsed_seconds=monotonic()-start,
         peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,**delivery))
 
 

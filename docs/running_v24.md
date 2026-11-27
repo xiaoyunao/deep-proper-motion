@@ -72,3 +72,5 @@ full_coordinate_ngc "$work/joint" --history-root "$base"
 ```
 
 亮端沿用已保存的五参数 Gaia 表观位置预测。亮端控制在最终盲目录中按实际检测集合回接，核对参考图、图心、稳健权重和自行。归属后缺失、星等退出和估计器变化均单列。它的空间适用范围限于原有控制天区。
+
+`footprint_public_errors_v24 "$work/joint" "$work/joint/qso" "$work/joint/qso" --workers WORKERS` 按严格共同 QSO 的实际成员重建影响矩阵，先在每个参考分量内对 48 个同步扰动求群体和，再合并独立分量的均值协方差。以实际 SDSS run 同步重权对照三目录 P68。每个核心的私有误差回执可恢复。

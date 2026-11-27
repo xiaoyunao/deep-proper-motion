@@ -68,15 +68,18 @@ def standardize(work, config, center, radius, route):
                 meta = pd.read_csv(work / "chips.csv")[["exposure", "ccdnum", "instrument", "airmass"]]
                 d = d.merge(meta, on=["exposure", "ccdnum"], how="left", validate="many_to_one")
             frames.append(adapter(d))
+            del d
     if not frames:
         raise ValueError("No raw detection files found")
     data = pd.concat(frames, ignore_index=True)
+    del frames
     data = data.sort_values(["observation_time", "detection_id"]).reset_index(drop=True)
     xy = project(data.ra_deg, data.dec_deg, center)
     data["in_core"] = np.linalg.norm(xy, axis=1) <= np.tan(np.deg2rad(radius)) * 180 / np.pi * 3600000
     # Remove index labels from the physical input to association.
     data[["detection_id", "original_object_id"]].to_csv(work / "external_labels.csv", index=False)
-    data.drop(columns="original_object_id").to_csv(work / "detections.csv", index=False)
+    del data["original_object_id"]
+    data.to_csv(work / "detections.csv", index=False)
     if (work / "nsc_object.csv").exists() and (work / "nsc_exposure.csv").exists():
         left, right = (set(pd.read_csv(work / f"nsc_{r}.csv", usecols=["measid"]).measid)
                        for r in ("object", "exposure"))

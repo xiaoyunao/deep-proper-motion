@@ -1,0 +1,18 @@
+{
+  "normalized_detections": 749479,
+  "equal_immutable_output_files": [
+    9,
+    9
+  ],
+  "rss_MiB": [
+    1746.28125,
+    1116.66015625
+  ],
+  "elapsed_s": [
+    57.99655131698819,
+    60.09483423503116
+  ],
+  "relative_peak_reduction": 0.36054965014942464,
+  "input_signature": "420266d43bd03befab4c2fad2af8a4abcd96583f0149cc63a7a35a716f9cc2bc",
+  "scope": "Same signed input, offline query cache and actual SDSS files; independent processes on same allocation. Peak interval is acquisition only. Elapsed times are descriptive, with sequential cache warming."
+}

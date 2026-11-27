@@ -37,8 +37,9 @@ def forecast(root,cells,completed):
         stripe=abs((south+north)/2)<1.6 and ((west+east)/2<53 or (west+east)/2>=307)
         row=completed.get(name,{})
         estimates.append(dict(stripe=stripe,load_bin=int(np.searchsorted([50000,200000,600000,2000000],mass)),
-                         scale=1+mass/200000.,signed=name in completed,wall=row.get("wall_s"),size=row.get("raw_bytes")))
-    df=pd.DataFrame(estimates);done=df[df.signed];total=np.zeros((2,3));unmeasured=0;fallback=0;strata=[]
+                         scale=1+mass/200000.,signed=name in completed,wall=row.get("wall_s"),size=row.get("raw_bytes"),
+                         native_rows=row.get("rows"),reference_rows=row.get("measurements")))
+    df=pd.DataFrame(estimates);done=df[df.signed];total=np.zeros((4,3));unmeasured=0;fallback=0;strata=[]
     for (stripe,b),group in df[~df.signed].groupby(["stripe","load_bin"]):
         sample=done[(done.stripe==stripe)&(done.load_bin==b)]
         native=len(sample)
@@ -48,7 +49,7 @@ def forecast(root,cells,completed):
         if len(sample)<3:
             unmeasured+=len(group);continue
         scale=group.scale.sum()
-        for k,metric in enumerate(("wall","size")):
+        for k,metric in enumerate(("wall","size","native_rows","reference_rows")):
             total[k]+=scale*np.quantile(sample[metric]/sample.scale,[.25,.5,.75])
         strata.append(dict(stripe=bool(stripe),load_bin=int(b),remaining=len(group),same_stratum_receipts=native,
                            receipts_used=len(sample)))
@@ -57,6 +58,7 @@ def forecast(root,cells,completed):
                 supported_remaining_worker_hours=total[0]/3600,
                 supported_remaining_intake_node_hours_at_2p2_billed_threads_per_worker=total[0]*2.2/(256*3600),
                 supported_remaining_input_TiB=total[1]/2**40,
+                supported_remaining_halo_detection_rows=total[2],supported_remaining_halo_reference_rows=total[3],
                 scope="Intake only. Three descriptive forecasts use P25/P50/P75 completed worker wall/byte rates "
                       "within observed CCD-load and Stripe strata. Scale 1+nmeas/200000 from the halo rectangle. "
                       "2.2 is the actual shared reservation for a regular 10-worker/40GiB job; not an invoice. "

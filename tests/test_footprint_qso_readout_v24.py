@@ -51,3 +51,17 @@ def test_annual_parallax_control_uses_only_retained_bright_identical_estimators(
     r=final_bright(tmp_path,rows)
     assert (r["fixed_apparent_predictions"],r["exact_member_matches"],r["usable_observed_r_lt21"],r["changed_estimator"]) == (4,3,2,1)
     assert r["verified_identical_estimator"]["n"] == 1
+
+
+def test_shared_run_draws_preserve_paired_relative_p68():
+    from deep_pm.footprint_public_errors_v24 import group_sensitivity
+    q=np.arange(30)
+    d=pd.DataFrame(dict(q=q))
+    for method,scale in (("ours",1.),("xiao",2.),("nsc",4.)):
+        d[method+"_pm_e"]=(q+1)*scale
+        d[method+"_pm_n"]=(3*q+1)*scale
+    membership={k:["SDSS:1","SDSS:2"] if k%2 else ["SDSS:3"] for k in q}
+    result=group_sensitivity(d,membership)
+    assert result["n"]==30 and result["sdss_runs"]==3
+    np.testing.assert_allclose(result["improvement_percent_reweight_95"]["xiao"],[50.,50.])
+    np.testing.assert_allclose(result["improvement_percent_reweight_95"]["nsc"],[75.,75.])

@@ -1,0 +1,115 @@
+{
+  "signed_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "registered_new_core_count": 15235,
+  "completed_new_inputs": 3412,
+  "remaining_new_inputs": 11823,
+  "failed_unrepaired_inputs": 262,
+  "input_rectangles_nominal_sqdeg": 3072.1778882006597,
+  "time_opportunity_in_completed_new_inputs_sqdeg": 2163.754300650985,
+  "input_rows_including_halo": 2023686411,
+  "input_bytes": 1371297099452,
+  "input_receipt_bytes": 1319827051435,
+  "linked_query_cache_bytes": 51470048017,
+  "cores_with_linked_query_cache": 244,
+  "input_size_scope": "Logical bytes in successful acquisition products and their per-core query cache, counted once. Reference outputs, obsolete attempts and other scratch usage are separate.",
+  "reference_rows_including_halo": 238536936,
+  "cores_with_local_reference_rows": 3171,
+  "core_rows_p10_p50_p90": [
+    91844.3,
+    321357.5,
+    1225417.6
+  ],
+  "worker_seconds_sum": 1394558.1278381066,
+  "peak_individual_rss_mib": 25617.3125,
+  "slurm_job": "62110745",
+  "interpretation": "Completed intake with signed source and reference extraction. Current graph/fit results are accounted separately. Shared detections across core halos occur in these row counts.",
+  "remaining_intake_planning": {
+    "remaining": 11823,
+    "without_minimum_calibrators": 0,
+    "using_pooled_latitude_or_without_calibrators": 0,
+    "strata": [
+      {
+        "stripe": false,
+        "load_bin": 0,
+        "remaining": 937,
+        "same_stratum_receipts": 168,
+        "receipts_used": 168
+      },
+      {
+        "stripe": false,
+        "load_bin": 1,
+        "remaining": 4472,
+        "same_stratum_receipts": 716,
+        "receipts_used": 716
+      },
+      {
+        "stripe": false,
+        "load_bin": 2,
+        "remaining": 4401,
+        "same_stratum_receipts": 1620,
+        "receipts_used": 1620
+      },
+      {
+        "stripe": false,
+        "load_bin": 3,
+        "remaining": 1545,
+        "same_stratum_receipts": 646,
+        "receipts_used": 646
+      },
+      {
+        "stripe": false,
+        "load_bin": 4,
+        "remaining": 434,
+        "same_stratum_receipts": 20,
+        "receipts_used": 20
+      },
+      {
+        "stripe": true,
+        "load_bin": 2,
+        "remaining": 9,
+        "same_stratum_receipts": 13,
+        "receipts_used": 13
+      },
+      {
+        "stripe": true,
+        "load_bin": 3,
+        "remaining": 13,
+        "same_stratum_receipts": 189,
+        "receipts_used": 189
+      },
+      {
+        "stripe": true,
+        "load_bin": 4,
+        "remaining": 12,
+        "same_stratum_receipts": 39,
+        "receipts_used": 39
+      }
+    ],
+    "supported_remaining_worker_hours": [
+      677.7882569064905,
+      1012.5972538377597,
+      1479.9315974573537
+    ],
+    "supported_remaining_intake_node_hours_at_2p2_billed_threads_per_worker": [
+      5.824742832790154,
+      8.702007650168248,
+      12.718162165649135
+    ],
+    "supported_remaining_input_TiB": [
+      3.1599457639413857,
+      3.492983751587963,
+      4.023287585369582
+    ],
+    "supported_remaining_halo_detection_rows": [
+      5092434048.858047,
+      5618716821.19556,
+      6477334114.247282
+    ],
+    "supported_remaining_halo_reference_rows": [
+      235377472.75265205,
+      619146160.0266507,
+      857481351.8938957
+    ],
+    "scope": "Intake only. Three descriptive forecasts use P25/P50/P75 completed worker wall/byte rates within observed CCD-load and Stripe strata. Scale 1+nmeas/200000 from the halo rectangle. 2.2 is the actual shared reservation for a regular 10-worker/40GiB job; not an invoice. Signed worker time can omit earlier page staging on another allocation. Live dense stragglers can exceed these rates. Output, graph, retries, and missing strata are additional."
+  }
+}

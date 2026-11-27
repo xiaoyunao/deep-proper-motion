@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 from .__main__ import tomllib
 from .astrometry import project,unproject
+from .stereographic import kind
 from .blind_catalogue_quality import read
 from .cluster_motion import mean
 from .continuous_reference import PRECISION,SPATIAL
@@ -29,7 +30,7 @@ from .usability_cluster import summarize,REFERENCE
 def reexpress_positions(points,old_center,new_center):
     """Saved apparent positions retain their original chart until converted."""
     points=np.asarray(points)
-    if np.allclose(old_center,new_center,atol=1e-12,rtol=0):return points
+    if kind(old_center)==kind(new_center) and np.allclose(old_center,new_center,atol=1e-12,rtol=0):return points
     return project(*unproject(points,old_center).T,new_center)
 
 
@@ -60,7 +61,7 @@ def run(root,history_root=None):
             if component not in contexts:
                 file=root/'reference'/f'component-{component:04d}'/'private_c0_unfiltered.npz'
                 center,solution,names,draws,graph_sha=reference_context(str(file))
-                xy=old_xy if np.allclose(center,entry['center'],atol=1e-12,rtol=0) else project(data.ra_deg,data.dec_deg,center)
+                xy=old_xy if kind(center)=='gnomonic' and np.allclose(center,entry['center'],atol=1e-12,rtol=0) else project(data.ra_deg,data.dec_deg,center)
                 support=local_support(data.ra_deg,data.dec_deg,center,keys,names,draws)[0]
                 contexts[component]=(center,solution,xy,support,graph_sha)
             center,solution,xy,support,graph_sha=contexts[component]
@@ -89,6 +90,7 @@ def run(root,history_root=None):
                     if plan.get('production_blind'):
                         record['bright_fixed_weights']=model.weight
                         record['bright_fixed_center']=center
+                        record['bright_projection_kind']=kind(center)
                 else:exit_counts['bright_missing_saved_full_apparent_prediction']+=1
             private.append(record)
         print('NGC_FIXED_CORE',core,flush=True)
@@ -166,6 +168,7 @@ def final_bright(root,rows):
                 raise ValueError('Bright source index and physical members disagree')
             weights=dict(zip(prior['original_detection_ids'],prior['bright_fixed_weights']))
             if (actual['reference_model_sha256']==prior['reference_model_sha256'] and
+                actual.get('projection_kind','gnomonic')==prior.get('bright_projection_kind','gnomonic') and
                 np.allclose(actual['projection_center_deg'],prior['bright_fixed_center'],rtol=0,atol=1e-12) and
                 np.allclose(actual['robust_weight'],[weights[k] for k in actual['detection_ids']],rtol=1e-7,atol=1e-10)):
                 verified_keys.add(key)

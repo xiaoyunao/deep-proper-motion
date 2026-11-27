@@ -120,3 +120,9 @@ python -m deep_pm.footprint_sdss_stage_v24 "$work" "$DPM_SAS" --start "$first" -
 归档数据请求耗尽重试并返回 502、503 或 504 时，新版批次在同一路径单独检查一次极小计数。两次均为网关故障才写入共享暂停标记。常规提交器等待标记解除，进行中的核心保留回执与分页。恢复前核对服务状态并完成一个原先失败的注册核心。
 
 在真实签名参考分包上用 `footprint_link_witness_v24 "$work"` 检查前代图是否出现连接。随后运行 `footprint_chart_geometry_v24 "$work" "$work/chart-witness/$witness_job"`。每个占有的半度格选一条实际训练方向，最远方向对与方向凸组合给出任何单图所需角半径的下界。候选图心另用全部旧训练行核实最大角距。中间连通证据不能替代最终物理图的消歧和剥离。
+
+在原训练几何证明单一 85° TAN 不可用时，运行以下预登记的边界重放。输入是签名几何回执；验证输出写入 registration。通过后绑定其 SHA，再登记最终物理图。仅在全图实际超出 TAN 边界时使用 STG。
+
+```sh
+python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witness_job/v24_linked_chart_geometry_summary.json" both
+```

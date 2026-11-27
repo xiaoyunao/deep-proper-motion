@@ -129,6 +129,55 @@ def component_map(root):
     return frame.set_index('group').component,signature
 
 
+# Reviewed TAN implementation in 0320f59; only the wide-chart branch,
+# post-freeze validation and retention of control rows changed for v2.4.
+ARCHIVED_TAN = {
+    'implementation_sha256': 'f7916c4cbec7f8219035791ef52a66a1224d058147628a7e0aa9aaeee9b40513',
+    'metric_sha256': '4565ddf93372c55e823093b6e2e21a7c4315cd7e80f40a0835b862f0dce46e00',
+    'support_sha256': '2e6c273a565b022a11b8272398a6d5f9e575fce91ec5498300ab1fe5dfaf391f',
+    'standard_output_sha256': 'bd72e9ef7058f04a1bfccca64a14094233ba9e562f63758a16d26fb72af0ded0',
+}
+
+
+def reuse_archived_source(entry,ticket,dest):
+    prior=Path(entry['predecessor'])
+    receipt=prior/'v22_source_core_summary.json'
+    original=read(receipt)
+    old=original['ticket']
+    keys=('graphs','source_receipt_sha256','precision_sha256','spatial_sha256',
+          'selection_sha256','funnel_sha256','method')
+    if any(old.get(k)!=ticket[k] for k in keys) or any(old.get(k)!=v for k,v in ARCHIVED_TAN.items()):
+        return None
+    proof=prior.parent.parent/'catalogue/index'/entry['core']/'private_index_receipt.json'
+    archived=digest(receipt)
+    if read(proof)['ticket']['source_summary_sha256']!=archived:
+        raise ValueError('Frozen ownership index and archived source version disagree')
+    start=monotonic()
+    files={}
+    for name in original['private_output_sha256']:
+        target=dest/name
+        if name=='private_standard_motion.json.gz' or (name=='private_r_control.json.gz' and ticket['save_r_comparison']):
+            src=(prior/name).resolve(strict=True)
+            sha=original['private_output_sha256'][name]
+            if digest(src)!=sha:raise ValueError('Changed verified predecessor science rows')
+            if target.is_symlink() and target.resolve(strict=True)==src:pass
+            elif target.exists() or target.is_symlink():raise ValueError('Would replace an existing source output')
+            else:target.symlink_to(src)
+            files[name]=sha
+        else:
+            # Spectroscopic validation is performed after NEW ownership freezes.
+            if target.is_symlink():raise ValueError('Unsafe link on a new empty evaluation product')
+            if target.suffix=='.gz':write_rows(target,[])
+            else:save_json(target,[])
+            files[name]=digest(target)
+    result=dict(original,ticket=ticket,fixed_blind_qso_entries=0,fixed_qso_status={},new_blind_spectral_matches=0,
+                private_output_sha256=files,reused_archived_source_sha256=archived,
+                elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
+                slurm_job=os.environ['SLURM_JOB_ID'],scope='Same signed input, all actual calibrated group models and frozen TAN source method. Blind scientific origin rows reused; ownership and validation evaluated on the unified catalogue.')
+    save_json(dest/'v22_source_core_summary.json',result)
+    return result
+
+
 def one(task):
     entry,root,components=task;root=Path(root);dest=root/'sources'/entry['core'];dest.mkdir(parents=True,exist_ok=True)
     source=Path(entry['source']);oldfit=Path(entry['fit']) if entry.get('fit') else None;config=tomllib.loads(PRECISION.read_text());settings=tomllib.loads(SPATIAL.read_text())
@@ -164,6 +213,9 @@ def one(task):
         for name,sha in result['private_output_sha256'].items():
             if digest(dest/name)!=sha:raise ValueError('Changed fitted catalogue')
         return result
+    if production and entry.get('predecessor'):
+        reused=reuse_archived_source(entry,ticket,dest)
+        if reused is not None:return reused
     start=monotonic();verify_directory(source,('detections.csv','spectra_union.csv'))
     records=[];controls=[];fixed=[];support_counts={};funnels={};used=set()
     oldrows=[] if production else read(oldfit/'private_standard_motion.json.gz')

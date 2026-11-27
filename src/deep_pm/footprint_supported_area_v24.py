@@ -138,12 +138,16 @@ def integrate(base,bins):
     stride=bins**2;period=64800*stride
     # Join on both the physical component and spherical point. Only after the
     # time gates are applied may overlapping admissible components form a union.
-    query=f"""WITH physical AS (SELECT e.id%{period} pid,
+    union=f"""WITH physical AS (SELECT e.id%{period} pid,
               l.t1-l.t0>=.6*365.25 AND greatest(e.t1,l.t1)-least(e.t0,l.t0)>=5*365.25 ok
-              FROM early e JOIN late l USING(id)),
-              united AS (SELECT pid,bool_or(ok) ok FROM physical GROUP BY pid)
-              SELECT pid//{stride} tile,(pid%{stride})//{bins} latrow,
-                     count(*) joint,count(*) FILTER(WHERE ok) usable FROM united GROUP BY ALL"""
+              FROM early e JOIN late l USING(id))
+              SELECT pid,bool_or(ok) ok FROM physical GROUP BY pid"""
+    points=out/f"private_supported_points_{bins}.parquet"
+    pending=points.with_suffix(".pending.parquet")
+    db.execute(f"COPY ({union} ORDER BY pid) TO '{pending}' (FORMAT PARQUET, COMPRESSION ZSTD)")
+    pending.replace(points)
+    query=f"""SELECT pid//{stride} tile,(pid%{stride})//{bins} latrow,
+                     count(*) joint,count(*) FILTER(WHERE ok) usable FROM read_parquet('{points}') GROUP BY ALL"""
     df=db.execute(query).fetchdf()
     south=df.tile.to_numpy()//360-90+df.latrow.to_numpy()/bins
     weight=np.rad2deg(np.sin(np.deg2rad(south+1/bins))-np.sin(np.deg2rad(south)))/bins
@@ -153,7 +157,7 @@ def integrate(base,bins):
     if bytile.reference_area.sum()>unsigned["intersection"]+1e-5 or bytile.time_reference_area.sum()>unsigned["time"]+1e-5:
         raise ValueError("Native calibrated area exceeds uncalibrated geometry")
     save_json(out/f"v24_native_reference_area_{bins}_summary.json",dict(resolution_deg=1/bins,reference_admission_sha256=digest(joint/"admission/v24_reference_admission_summary.json"),
-              receipt_set=proofs,reference_overlap_sqdeg=bytile.reference_area.sum(),reference_and_time_sqdeg=bytile.time_reference_area.sum(),
+              receipt_set=proofs,private_points_sha256=digest(points),reference_overlap_sqdeg=bytile.reference_area.sum(),reference_and_time_sqdeg=bytile.time_reference_area.sum(),
               cells=[[int(tile%360),int(tile//360)-90,*row] for tile,row in zip(bytile.index,bytile.to_numpy())],
               scope="Joint native field and CCD footprint supported at that sky position by the same physical component; "
                     "each native-axis reference SE <=12 mas. Union after component-specific time tests. No count-to-area conversion."))

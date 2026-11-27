@@ -35,3 +35,15 @@ def test_sparse_tiles_keep_components_separate_across_meridian():
         val=tiles[key]
         assert val[0,0,0]==val[1,0,0]
         assert abs(val[0,0,0]-[56000.,58000.][key//64800])<.01
+
+
+def test_productive_ownership_integrates_partial_cells_across_zero():
+    from deep_pm.footprint_output_area_v24 import owner_grid
+    boxes=[({"ra":[-.5, .25],"dec":[-.25,.25]},4),
+           ({"ra":[.25, 1.0],"dec":[-.25,.25]},2)]
+    grid=owner_grid(boxes,4)
+    assert (grid==4).sum()==6 and (grid==2).sum()==6
+    assert grid[360,1439]==4 and grid[360,0]==4 and grid[360,1]==2
+    import pytest
+    with pytest.raises(ValueError,match="Overlapping"):
+        owner_grid(boxes+boxes[:1],4)

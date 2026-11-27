@@ -126,7 +126,6 @@ def metrics(residual,covariance,common_zero):
 
 
 def evaluate(base,root):
-    from .usability_accounting import index
     from .stream_json import array_items
     from .dark_precision import query_unique
     from .continuous_reference import PRECISION,SPATIAL
@@ -136,7 +135,7 @@ def evaluate(base,root):
     from .full_coordinate_sources import reference_context
     output=root/'hst';proof=read(output/'private_quality_freeze.json')
     assert proof['position_matches_sha256']==digest(output/'private_frozen_position_matches.json.gz')
-    matches=read(output/'private_frozen_position_matches.json.gz');fields={r['field']:r for r in read(output/'private_HST_fields.json')};old=index(base/'v1.9');data_rows=[];budget=[]
+    matches=read(output/'private_frozen_position_matches.json.gz');fields={r['field']:r for r in read(output/'private_HST_fields.json')};data_rows=[];budget=[]
     plans={e['core']:e for e in read(base/'v2.2/registration/private_full_coordinate_plan.json')['cores']}
     config=tomllib.loads(PRECISION.read_text());prod=tomllib.loads(SPATIAL.read_text())['production']
     for core in sorted({r['core'] for r in matches}):
@@ -145,7 +144,7 @@ def evaluate(base,root):
         wanted={r['slot'] for r in matches if r['core']==core};sources={j:r for j,r in enumerate(array_items(folder/'private_standard_motion.json.gz')) if j in wanted}
         entry=plans[core];data,xy,t,sigma,_=quality_detections(Path(entry['source']),entry['center'],config,prod);graphs={}
         external={}
-        for method,path in [('NSC',Path(entry['source'])/'official_nsc.csv'),('Xiao',Path(old[core]['path'])/'legacy.csv')]:
+        for method,path in [('NSC',Path(entry['source'])/'official_nsc.csv'),('Xiao',Path(entry['fit'])/'legacy.csv')]:
             f=pd.read_csv(path,dtype={'id':str}).rename(columns=str.lower)
             if method=='Xiao':f=f.loc[f.pm_source.astype(str).str.strip().eq('DESI')]
             external[method]=f.loc[np.isfinite(f[['ra','dec']]).all(axis=1)].drop_duplicates(subset=['ra','dec']).reset_index(drop=True)

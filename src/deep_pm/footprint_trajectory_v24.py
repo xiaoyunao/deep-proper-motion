@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from .stereographic import from_record
 import pandas as pd
 
 from .astrometry import project,years
@@ -51,7 +52,7 @@ def run(root,output):
         frame=frame.set_index("detection_id").loc[ids]
         graph=root/"reference"/f"component-{int(row['reference_component']):04d}"/"private_c0_unfiltered.npz"
         if digest(graph)!=row["reference_model_sha256"]:raise ValueError("Reference graph mismatch")
-        model=read_offsets(graph);center=row["projection_center_deg"];a,d=frame.ra_deg,frame.dec_deg
+        model=read_offsets(graph);center=from_record(row);a,d=frame.ra_deg,frame.dec_deg
         corrected=project(a,d,center)-np.array([model[g][0] for g in row["physical_groups"]])
         state=np.array(row["tangent_state"]).reshape(2,2)
         ra,dec=row["position_deg"]

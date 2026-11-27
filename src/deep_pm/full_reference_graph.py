@@ -14,7 +14,8 @@ from scipy.optimize import linprog, minimize
 
 from .blind_catalogue_quality import read
 from .coordinate_metric import projected_covariance,native_covariance
-from .astrometry import project
+from .astrometry import basis,project
+from . import stereographic
 from .io import digest,save_json
 from .public_summary import check_aggregate
 
@@ -214,12 +215,33 @@ def close_graph(root,memory='24GB',threads=8):
         theta=actual_angle(center)
         if theta>=85 and (not inherited or plan.get('production_blind')):
             sample=db.execute('SELECT DISTINCT round(ra_deg*2)/2 a,round(dec_deg*2)/2 d FROM active JOIN group_map USING("group") WHERE component=?',[component]).fetchnumpy()
-            alternative=hemisphere_center(np.column_stack([sample['a'],sample['d']]))
-            alternative_theta=actual_angle(alternative)
-            if alternative_theta<theta:center,theta,inherited=alternative,alternative_theta,False
-        if theta>=85:raise ValueError('New component exceeds registered stable gnomonic hemisphere; choose an explicit common projection strategy')
+            sky=np.column_stack([sample['a'],sample['d']])
+            try:
+                alternative=hemisphere_center(sky)
+            except ValueError as exc:
+                if not plan.get('wide_chart_qualification_sha256') or 'no supported common gnomonic hemisphere' not in str(exc):
+                    raise
+            else:
+                alternative_theta=actual_angle(alternative)
+                if alternative_theta<theta:center,theta,inherited=alternative,alternative_theta,False
+        wide={}
+        if theta>=85:
+            if not plan.get('production_blind') or not plan.get('wide_chart_qualification_sha256'):
+                raise ValueError('New component exceeds registered stable gnomonic hemisphere; a qualified wide chart is required')
+            # All candidates depend on frozen training geometry alone. Check
+            # the winning stereographic chart against every physical training row.
+            a,d=np.deg2rad(sky.T)
+            unit=np.stack((np.cos(d)*np.cos(a),np.cos(d)*np.sin(a),np.sin(d)),axis=1)
+            candidates=[center,[0.,90.],[0.,-90.]]
+            center=max(candidates,key=lambda c:np.min(unit@basis(*c)[0]))
+            theta=actual_angle(center)
+            if not stereographic.admitted(theta):
+                raise ValueError('Physical component exceeds both registered numerical chart envelopes')
+            inherited=False
+            wide=dict(projection_kind='stereographic',maximum_linear_scale=stereographic.scale(theta),
+                      wide_chart_qualification_sha256=plan['wide_chart_qualification_sha256'])
         components.append(dict(component=component,status='ready',groups=len(member),reference_sources=nref,measurements=count,
-            center_deg=center,center_inherited=inherited,old_domain_count=len(old_domains),maximum_theta_deg=theta,nsc_gauge_group_count=sum(g.startswith('NSC:') for g in member)))
+            center_deg=center,center_inherited=inherited,old_domain_count=len(old_domains),maximum_theta_deg=theta,nsc_gauge_group_count=sum(g.startswith('NSC:') for g in member),**wide))
     group_table.to_parquet(dest/'private_group_components.parquet',index=False)
     summary=dict(plan_sha256=digest(plan_path),input_shard_measurements=sum(read(root/'input'/e['core']/'v22_reference_input_core_summary.json')['measurements'] for e in plan['cores']),
         conflict_detection_count=scalar(db,'SELECT count(*) FROM bad_detection'),unique_measurements=scalar(db,'SELECT count(*) FROM unique_detection'),
@@ -242,7 +264,7 @@ def export_component(root,number,memory='24GB',threads=8):
     if entry['status']!='ready':raise ValueError('Not a cross-survey component')
     receipt=dest/'private_numeric_binding.json'
     implementation={name:digest(Path(__file__).with_name(name)) for name in
-                    ('full_reference_graph.py','coordinate_metric.py','astrometry.py')}
+                    ('full_reference_graph.py','coordinate_metric.py','astrometry.py','stereographic.py')}
     if receipt.exists():
         previous=read(receipt)
         if (previous['graph_sha256']!=digest(binding) or previous['component']!=entry
@@ -270,15 +292,16 @@ def export_component(root,number,memory='24GB',threads=8):
         JOIN local_groups_frame USING("group") JOIN local_refs USING(reference) ORDER BY rid,lg''')
     reader=cursor.fetch_record_batch(rows_per_batch=100000) if hasattr(cursor,'fetch_record_batch') else cursor.to_arrow_reader(batch_size=100000)
     counts=np.zeros(nr,dtype='int64');offset=0;last=-1;origin=None
+    chart=stereographic.from_record(entry,'center_deg')
     for batch in reader:
         f=batch.to_pandas();length=len(f);rid=f.rid.to_numpy();g=f.lg.to_numpy()
-        xy=project(f.ra_deg,f.dec_deg,entry['center_deg'])
+        xy=project(f.ra_deg,f.dec_deg,chart)
         first=np.r_[True,rid[1:]!=rid[:-1]];starts=np.flatnonzero(first)
         origins=xy[starts].copy()
         if rid[0]==last:origins[0]=origin
         xy-=origins[np.cumsum(first)-1]
         last=int(rid[-1]);origin=origins[-1].copy()
-        inv=np.linalg.inv(projected_covariance(f.ra_deg,f.dec_deg,entry['center_deg'],native_covariance(f[['sigma_e','sigma_n']].to_numpy())))
+        inv=np.linalg.inv(projected_covariance(f.ra_deg,f.dec_deg,chart,native_covariance(f[['sigma_e','sigma_n']].to_numpy())))
         groups[offset:offset+length]=g;value[offset:offset+length]=xy;precision[offset:offset+length]=inv[:,[0,0,1],[0,1,1]]
         np.add.at(counts,rid,1);offset+=length
     if offset!=n or np.any(counts<2):raise ValueError('Numeric export row count or source linkage changed')

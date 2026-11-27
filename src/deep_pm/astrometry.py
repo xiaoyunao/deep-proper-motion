@@ -2,6 +2,8 @@
 from dataclasses import dataclass
 
 import numpy as np
+
+from . import stereographic
 from astropy.time import Time
 
 MAS_PER_RADIAN = 180 * 3600000 / np.pi
@@ -19,6 +21,8 @@ def project(ra, dec, center):
     a, d = np.deg2rad(np.asarray([ra, dec], dtype=float))
     vectors = np.column_stack([np.cos(d) * np.cos(a), np.cos(d) * np.sin(a), np.sin(d)])
     local = vectors @ basis(*center).T
+    if isinstance(center, stereographic.Stereographic):
+        return stereographic.plane(local)*MAS_PER_RADIAN
     if np.any(local[:, 0] <= 0):
         raise ValueError("Gnomonic projection requires one hemisphere")
     return local[:, 1:] / local[:, :1] * MAS_PER_RADIAN
@@ -26,7 +30,10 @@ def project(ra, dec, center):
 
 def unproject(xy, center):
     xy = np.atleast_2d(xy)
-    xyz = np.column_stack([np.ones(len(xy)), xy / MAS_PER_RADIAN]) @ basis(*center)
+    if isinstance(center, stereographic.Stereographic):
+        xyz = stereographic.unit(xy/MAS_PER_RADIAN) @ basis(*center)
+    else:
+        xyz = np.column_stack([np.ones(len(xy)), xy / MAS_PER_RADIAN]) @ basis(*center)
     return np.column_stack([
         np.rad2deg(np.arctan2(xyz[:, 1], xyz[:, 0])) % 360,
         np.rad2deg(np.arctan2(xyz[:, 2], np.hypot(xyz[:, 0], xyz[:, 1]))),
@@ -49,6 +56,8 @@ def apparent_positions(ra, dec, pm_east, pm_north, parallax, radial_velocity, dt
     xyz = (direction + dt[..., None] * (angular_velocity + radial_fraction[..., None] * direction)
            - observer * (parallax[..., None] / MAS_PER_RADIAN))
     local = xyz @ basis(*center).T
+    if isinstance(center, stereographic.Stereographic):
+        return stereographic.plane(local)*MAS_PER_RADIAN
     return local[..., 1:] / local[..., :1] * MAS_PER_RADIAN
 
 

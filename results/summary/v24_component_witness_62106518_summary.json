@@ -1,0 +1,21 @@
+{
+  "signed_packs": 75,
+  "signed_pack_rows": 151586331,
+  "old_components_sharing_a_provisional_connection": [
+    [
+      0,
+      2
+    ],
+    [
+      1
+    ]
+  ],
+  "old_components_group_counts": {
+    "0": 47172,
+    "1": 22557,
+    "2": 47172
+  },
+  "added_group_names": 20125,
+  "largest_connected_physical_group_count": 47172,
+  "scope": "Planning witness only. Existing physical components plus local training reference-group pairs with ten distinct references per group. Global duplicate, exposure conflict, final peeling, full component geometry and gauge are still required."
+}

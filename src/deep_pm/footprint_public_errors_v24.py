@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 
 import numpy as np
+from .stereographic import kind
 import pandas as pd
 from scipy.sparse import csr_matrix
 
@@ -84,7 +85,7 @@ def one(task):
             / "private_c0_unfiltered.npz"
         )
         center, solution, _, _, sha = reference_context(str(graph))
-        if sha != row["reference_model_sha256"] or not np.allclose(
+        if sha != row["reference_model_sha256"] or kind(center) != row.get("projection_kind","gnomonic") or not np.allclose(
             center, row["projection_center_deg"], rtol=0, atol=1e-12
         ):
             raise ValueError("Changed physical reference or tangent chart")

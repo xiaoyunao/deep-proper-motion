@@ -8,6 +8,7 @@ from dataclasses import dataclass
 import numpy as np
 from scipy.spatial import cKDTree
 
+from . import stereographic
 from .astrometry import MAS_PER_RADIAN,basis,unproject
 
 
@@ -23,6 +24,12 @@ def forward_jacobian(ra,dec,center):
     """d(graph x,y mas)/d(native east,north mas), analytic and vectorized."""
     local=sky_basis(ra,dec);frame=basis(*center);unit=local[...,0,:]
     dot=unit@frame[0]
+    if isinstance(center, stereographic.Stereographic):
+        if np.any(1+dot<=1e-12):raise ValueError("Stereographic Jacobian at the antipode")
+        d=1+dot
+        q=(unit@frame[1:].T)/d[...,None]
+        derivative=2*(frame[1:]-q[..., :,None]*frame[0])/d[...,None,None]
+        return np.einsum("...ij,...kj->...ik",derivative,local[...,1:,:])
     if np.any(dot<=0):raise ValueError('Gnomonic forward Jacobian needs one hemisphere')
     q=(unit@frame[1:].T)/dot[...,None]
     derivative=(frame[1:]-q[..., :,None]*frame[0])/dot[...,None,None]
@@ -47,6 +54,7 @@ def projected_covariance(ra,dec,center,covariance):
 def plane_units(xy,center):
     """Inverse gnomonic direction directly, avoiding RA/Dec round trips."""
     xy=np.asarray(xy,float).reshape(-1,2)/MAS_PER_RADIAN
+    if isinstance(center, stereographic.Stereographic):return stereographic.unit(xy)@basis(*center)
     local=np.column_stack([np.ones(len(xy)),xy])
     local/=np.linalg.norm(local,axis=1,keepdims=True)
     return local@basis(*center)

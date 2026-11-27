@@ -1,0 +1,44 @@
+{
+  "slurm_job": "62107337",
+  "provisional_binding_sha256": "d3f591ef8ab3489a7454086f966065ae5885d3c0e69be65bbf824472ea72a369",
+  "predecessor_graph_sha256": "f28add41fdc2d91f821d6e0a36b63edce0d8a296375c663b8f37de945b5fbd0f",
+  "old_group_connectivity_by_minimum_reference_identities_per_edge": {
+    "1": [
+      [
+        0,
+        2
+      ],
+      [
+        1
+      ]
+    ],
+    "10": [
+      [
+        0,
+        2
+      ],
+      [
+        1
+      ]
+    ]
+  },
+  "angular_tests": [
+    {
+      "predecessors": [
+        0,
+        2
+      ],
+      "actual_training_rows": 110698985,
+      "independent_sky_cells": 8850,
+      "candidate_maximum_on_all_old_rows_deg": 86.17128146249645,
+      "actual_pair_separation_deg": 170.10878313746755,
+      "lower_bound_deg": 85.94700096546778,
+      "sample_upper_bound_deg": 86.0143486103829,
+      "candidate_center_deg": [
+        0.07774785132775976,
+        74.0378439879756
+      ]
+    }
+  ],
+  "scope": "Provisional signed inputs, not the final globally deduplicated and peeled graph. Geometry uses actual predecessor training positions. A lower bound above 85 degrees rules out every single 85-degree chart for those positions."
+}

@@ -18,7 +18,8 @@ def same_archived_input(current, old):
     # The component index fixes the original RNG seed. Source index ordering,
     # precision tensors, centred positions, names and counts must all match.
     required = ("component", "center_deg", "measurements", "groups", "reference_sources")
-    return (all(current["component"][k] == old["component"][k] for k in required)
+    return (current["component"].get("projection_kind","gnomonic")==old["component"].get("projection_kind","gnomonic")
+            and all(current["component"][k] == old["component"][k] for k in required)
             and current["files"] == old["files"])
 
 

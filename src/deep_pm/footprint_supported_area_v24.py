@@ -16,22 +16,32 @@ from .io import digest,save_json
 
 
 @njit(cache=True)
-def accepted_direction(a,d,frame,cov):
+def accepted_direction(a,d,frame,cov,stereo=False):
     # Inverse gnomonic Jacobian in native angular units:
     # d(local tangent angle)/d(plane coord) = (u·centre) (local basis·chart basis).
     ca,sa,cd,sd=np.cos(a),np.sin(a),np.cos(d),np.sin(d)
     dot=ca*cd*frame[0,0]+sa*cd*frame[0,1]+sd*frame[0,2]
-    if dot<=0:return False
+    if (not stereo and dot<=0) or (stereo and 1+dot<=1e-12):return False
     for axis in range(2):
         x,y,z=(-sa,ca,0.) if axis==0 else (-ca*sd,-sa*sd,cd)
         u=dot*(x*frame[1,0]+y*frame[1,1]+z*frame[1,2])
         v=dot*(x*frame[2,0]+y*frame[2,1]+z*frame[2,2])
+        if stereo:
+            # Inverse of the conformal forward differential at this sky direction.
+            lc=x*frame[0,0]+y*frame[0,1]+z*frame[0,2]
+            terms=np.empty(2)
+            for col in range(2):
+                f=frame[col+1]
+                lf=x*f[0]+y*f[1]+z*f[2]
+                nf=ca*cd*f[0]+sa*cd*f[1]+sd*f[2]
+                terms[col]=((1+dot)*lf-nf*lc)/2
+            u,v=terms[0],terms[1]
         if u*u*cov[0,0]+2*u*v*cov[0,1]+v*v*cov[1,1]>144.:return False
     return True
 
 
 @njit(cache=True)
-def mark(tiles,bins,components,frames,covs,group,centers,edges,cuts,radii,times,valid):
+def mark(tiles,bins,components,frames,covs,group,centers,edges,cuts,radii,times,valid,stereo_flags=None):
     rad=np.pi/180
     for k in range(len(group)):
         ix=group[k]
@@ -51,7 +61,8 @@ def mark(tiles,bins,components,frames,covs,group,centers,edges,cuts,radii,times,
                 for h in range(4):
                     if edges[k,h,0]*x+edges[k,h,1]*y+edges[k,h,2]*z<cuts[k,h]-1.e-12:
                         inside=False;break
-                if not inside or not accepted_direction(alpha,delta,frames[comp],covs[ix]):continue
+                stereo=False if stereo_flags is None else stereo_flags[comp]
+                if not inside or not accepted_direction(alpha,delta,frames[comp],covs[ix],stereo):continue
                 tile=comp*64800+(i//bins)*360+j//bins
                 if tile not in tiles:
                     arr=np.empty((2,bins,bins));arr[0,:,:]=np.inf;arr[1,:,:]=-np.inf
@@ -64,6 +75,7 @@ def mark(tiles,bins,components,frames,covs,group,centers,edges,cuts,radii,times,
 def models(joint):
     evidence=json.loads((joint/"admission/v24_reference_admission_summary.json").read_text())
     frames=np.zeros((max(int(c) for c in evidence["graphs"])+1,3,3))
+    stereo_flags=np.zeros(len(frames),dtype=bool)
     groups=[];components=[];variance=[]
     for name,sha in evidence["graphs"].items():
         c=int(name);p=joint/"reference"/f"component-{c:04d}"/"private_c0_unfiltered.npz"
@@ -71,10 +83,12 @@ def models(joint):
         with np.load(p) as m:
             keys=m["names"].astype(str);draws=m["draws"];draws-=draws.mean(axis=1,keepdims=True)
             groups.extend(keys);components.extend([c]*len(keys));variance.append(draws.transpose(0,2,1)@draws/47)
+            from .stereographic import from_record, Stereographic
+            stereo_flags[c]=isinstance(from_record(m),Stereographic)
             frames[c]=basis(*m["projection_center_deg"])
     idx=pd.Index(groups)
     if not idx.is_unique:raise ValueError("One offset assigned to incompatible physical components")
-    return idx,np.asarray(components),frames,np.concatenate(variance)
+    return idx,np.asarray(components),frames,np.concatenate(variance),stereo_flags
 
 
 def produce(base,kind,section,bins):
@@ -91,10 +105,10 @@ def produce(base,kind,section,bins):
         old=json.loads(marker.read_text())
         if old["ticket"]!=ticket or digest(file)!=old["sha256"]:raise ValueError("Changed supported opportunity shard")
         return
-    index,components,frames,cov=models(joint)
+    index,components,frames,cov,stereo_flags=models(joint)
     tiles=Dict.empty(key_type=types.int64,value_type=types.float64[:,:,::1])
     def add(labels,geometry):
-        mark(tiles,bins,components,frames,cov,index.get_indexer(labels),*geometry)
+        mark(tiles,bins,components,frames,cov,index.get_indexer(labels),*geometry,stereo_flags)
     for path in spec["files"]:
         if kind=="late":
             df=pd.read_parquet(path)

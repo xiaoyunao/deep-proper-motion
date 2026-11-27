@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 
 from .io import digest,save_json
+from . import stereographic
 
 
 def run(root,predecessor_output=None):
@@ -46,7 +47,16 @@ def run(root,predecessor_output=None):
             if not np.any(nsc) or not np.any(~nsc) or np.any(archive["counts"]<10):raise ValueError("Invalid connected reference support")
             np.testing.assert_allclose(np.median(point[nsc],axis=0),0,atol=1e-9,rtol=0)
             np.testing.assert_allclose(np.median(draws[nsc],axis=0),0,atol=1e-9,rtol=0)
-            if not 0<=component["maximum_theta_deg"]<85:raise ValueError("Unverified native projection chart")
+            chart=stereographic.from_record(archive)
+            if stereographic.kind(chart)!=component.get("projection_kind","gnomonic"):
+                raise ValueError("Reference archive and graph disagree on the coordinate representation")
+            theta=component["maximum_theta_deg"]
+            if isinstance(chart,stereographic.Stereographic):
+                proof=root.parent/"registration/v24_stereographic_replay_summary.json"
+                if not stereographic.admitted(theta) or digest(proof)!=component["wide_chart_qualification_sha256"]:
+                    raise ValueError("Unqualified wide reference projection")
+            elif not 0<=theta<85:
+                raise ValueError("Unverified gnomonic projection chart")
             np.testing.assert_allclose(archive["projection_center_deg"],component["center_deg"],rtol=0,atol=1e-12)
             centered=draws-draws.mean(axis=1,keepdims=True)
             covariance=centered.transpose(0,2,1)@centered/47

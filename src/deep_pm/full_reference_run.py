@@ -57,6 +57,8 @@ def solve(root,number,draw_workers=1):
         gauge=np.repeat(str(number),len(names)),projection_center_deg=np.asarray(center),
         gauge_nsc_names=names[np.char.startswith(names,'NSC:')],native_application_se_mas=np.array(12.),
         unfiltered=np.array(True),bootstrap_IRLS=np.array('frozen_final'))
+    if "projection_kind" in binding["component"]:
+        data["projection_kind"]=np.array(binding["component"]["projection_kind"])
     np.savez_compressed(dest/'private_c0_unfiltered.npz',**data)
     # The conventional basename also contains ALL solved groups. New callers
     # must apply local_support; it is deliberately not an old planar-SE graph.
@@ -69,6 +71,9 @@ def solve(root,number,draw_workers=1):
         group_measurement_p16_p50_p84=np.quantile(counts,[.16,.5,.84]),minimum_reference_count=int(support.min()),
         convergence_history=trace,elapsed_seconds=monotonic()-start,peak_rss_mib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
         slurm_job=os.environ['SLURM_JOB_ID'],draw_workers=draw_workers,scope='Complete physical connected component; float64 full2D Schur; native50mas before projection; final point/weight consistent; 48 synchronous source bootstrap; pre-SE NSC median gauge; unfiltered groups, per-target localICRS12mas support downstream.')
+    if "projection_kind" in binding["component"]:
+        summary.update(projection_kind=binding["component"]["projection_kind"],
+                       maximum_linear_scale=binding["component"]["maximum_linear_scale"])
     check_aggregate(summary);save_json(dest/'v22_reference_component_summary.json',summary)
     print('REFERENCE_COMPONENT_DONE',number,len(names),flush=True)
 

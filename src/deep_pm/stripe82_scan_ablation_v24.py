@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 
 import numpy as np
+from .stereographic import from_record
 import pandas as pd
 
 from .astrometry import project,years
@@ -39,7 +40,7 @@ def select(frame):
 
 def fit(data,row,mask,solution):
     frame=data.loc[mask]
-    center=row["projection_center_deg"]
+    center=from_record(row)
     t=years(frame.observation_time.to_numpy())
     groups=np.asarray(row["physical_groups"])[mask]
     xy=project(frame.ra_deg,frame.dec_deg,center)-np.array([solution[g][0] for g in groups])

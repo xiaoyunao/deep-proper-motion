@@ -89,6 +89,9 @@ def assemble(base):
     result=dict(cores=registered,graphs=graphs,production_blind=True,footprint_sha256=expected,
                 frozen_science="0320f59b972755454252a383ba1007c665c928e8",
                 predecessor_index=str(prior/"catalogue/catalogue.duckdb"))
+    wide=output/"v24_stereographic_replay_summary.json"
+    if wide.is_file() and read(wide)["qualified"]:
+        result["wide_chart_qualification_sha256"]=digest(wide)
     path=layout/"registration/private_full_coordinate_plan.json"
     if path.is_file() and read(path)!=result:raise ValueError("Changed graph binding")
     save_json(path,result)

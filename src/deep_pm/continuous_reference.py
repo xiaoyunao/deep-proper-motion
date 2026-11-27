@@ -97,8 +97,9 @@ def serialize_offsets(path, offsets, gauges=None, center=CENTER):
 
 def reference_frame(path):
     """Old v1.2 snapshots use CENTER; newer graphs bind the actual projection."""
+    from .stereographic import from_record
     with np.load(path,allow_pickle=False) as t:
-        return tuple(t['projection_center_deg']) if 'projection_center_deg' in t else CENTER
+        return from_record(t) if 'projection_center_deg' in t else CENTER
 
 
 def common_reference_frame(metadata):

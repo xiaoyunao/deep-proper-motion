@@ -20,6 +20,7 @@ import pandas as pd
 from .__main__ import tomllib
 from .allband_blind_year import r_magnitude
 from .astrometry import project,seasons
+from . import stereographic
 from .blind_catalogue_quality import read
 from .continuous_reference import PRECISION,SPATIAL,read_offsets,reference_frame,verify_directory
 from .coordinate_metric import native_covariance,projected_covariance,fit_vector_motion,reference_covariance,AngularTree,old_influence,covariance_of_estimator,design_matrix
@@ -80,7 +81,7 @@ def saved_reference_response(row,data,time,sigma):
     """
     ix=pd.Index(data.detection_id).get_indexer(row['detection_ids'])
     if np.any(ix<0):raise ValueError('Saved fit lost its physical measurement')
-    center=row['projection_center_deg'];cp=projected_covariance(data.ra_deg.iloc[ix],data.dec_deg.iloc[ix],center,native_covariance(sigma[ix]))
+    center=stereographic.from_record(row);cp=projected_covariance(data.ra_deg.iloc[ix],data.dec_deg.iloc[ix],center,native_covariance(sigma[ix]))
     w=np.linalg.inv(cp)*np.asarray(row['robust_weight'])[:,None,None]
     design=design_matrix(time[ix],row['reference_epoch'])
     h=np.einsum('pq,qni->pni',np.asarray(row['independent_tangent_covariance']),np.einsum('nip,nij->pnj',design,w))
@@ -152,6 +153,7 @@ def one(task):
         standard_output_sha256=digest(Path(__file__).with_name('standard_motion.py')),
         precision_sha256=digest(PRECISION),spatial_sha256=digest(SPATIAL),method='full-coordinate-v22-native50mas-full2D-sphere-nativeSE12')
     production=entry.get('production_blind',False)
+    if production:ticket['chart_sha256']=digest(Path(stereographic.__file__))
     if production:
         ticket['spectral_evaluation']='after-global-closure'
         ticket['save_r_comparison']=entry.get('save_r_comparison',False)
@@ -208,6 +210,8 @@ def one(task):
             model=fit_vector_motion(xy[ix]-zero,t[ix],cp[ix],config['reference_epoch'])
             common,response=reference_covariance(model.influence,np.stack([solution[g][1] for g in keys[ix]],axis=1))
             fit=icrs_motion(model.coeff[0],model.coeff[1],center,model.cov+common)
+            if isinstance(center,stereographic.Stereographic):
+                fit['projection_kind']='stereographic'
             fit.update(reference_epoch=config['reference_epoch'],tangent_state=model.coeff.T.ravel(),
                 independent_tangent_covariance=model.cov,reference_tangent_covariance=common,
                 robust_weight=model.weight,span_years=float(np.ptp(t[ix])))

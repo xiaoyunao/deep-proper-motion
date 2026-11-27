@@ -43,3 +43,15 @@ def test_common_hemisphere_uses_geometry_across_ra_wrap():
     center=hemisphere_center(sky)
     dot=sky_basis(*sky.T)[:,0,:]@sky_basis(*center)[0]
     assert np.min(dot)>.3
+
+
+def test_hemisphere_does_not_reject_feasible_84_degree_equatorial_chart():
+    from deep_pm.full_reference_graph import hemisphere_center
+    from deep_pm.coordinate_metric import sky_basis
+    # A cube-bounded LP can choose Dec=-45 deg and spuriously exceed 85 deg.
+    sky=np.array([[84.,0.],[276.,0.]])
+    center=hemisphere_center(sky)
+    dots=sky_basis(*sky.T)[:,0,:]@sky_basis(*center)[0]
+    np.testing.assert_allclose(np.rad2deg(np.arccos(dots)),84.,atol=1e-7)
+    with pytest.raises(ValueError,match='hemisphere'):
+        hemisphere_center(np.array([[0.,0.],[180.,0.]]))

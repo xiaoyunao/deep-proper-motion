@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import connected_components
-from scipy.optimize import linprog
+from scipy.optimize import linprog, minimize
 
 from .blind_catalogue_quality import read
 from .coordinate_metric import projected_covariance,native_covariance
@@ -39,7 +39,17 @@ def hemisphere_center(sky):
     answer=linprog([0.,0.,0.,-1.],A_ub=np.column_stack([-unit,np.ones(len(unit))]),
         b_ub=np.zeros(len(unit)),bounds=[(-1,1)]*4,method='highs')
     if not answer.success or answer.x[3]<=1e-8:raise ValueError('Connected reference domain has no supported common gnomonic hemisphere')
-    vector=answer.x[:3];vector/=np.linalg.norm(vector)
+    # A cube-bounded LP proves feasibility, but its optimum can include a
+    # large component perpendicular to the footprint. Minimise Euclidean norm
+    # subject to u_i . v >= 1 to maximise the minimum spherical cosine.
+    feasible=answer.x[:3]/answer.x[3]
+    solution=minimize(lambda v: .5*np.dot(v,v),feasible,jac=lambda v:v,
+        constraints=[dict(type='ineq',fun=lambda v:unit@v-1.,jac=lambda v:unit)],
+        method='SLSQP',options={'ftol':1e-11,'maxiter':100})
+    vector=feasible/np.linalg.norm(feasible)
+    if np.isfinite(solution.x).all() and np.linalg.norm(solution.x)>0:
+        candidate=solution.x/np.linalg.norm(solution.x)
+        if np.min(unit@candidate)>np.min(unit@vector):vector=candidate
     return [float(np.degrees(np.arctan2(vector[1],vector[0]))%360),float(np.degrees(np.arcsin(vector[2])))]
 
 

@@ -43,7 +43,6 @@ def run(base,work):
     freeze=read(old/'v22_final_stage_binding_summary.json')
     assert freeze['new_retained_solutions']==15858226 and freeze['registered_cores_checked']==2875
     rows=[];cache=work/'cache';urls=['https://archive.stsci.edu/prepds/hugs/','https://archive.stsci.edu/hlsp/hacks']
-    html=fetch(urls[0],cache/'hugs'/'index.html').read_text() if False else None
     response=requests.get(urls[0],timeout=(15,90));response.raise_for_status();(work/'private_hugs_page.html').write_text(response.text)
     parser=Text();parser.feed(response.text);text=re.sub(r'\s+',' ',' '.join(parser.words))
     for match in re.finditer(r'NGC\s+(\d{4})\s+([0-9]+\.[0-9]+)\s+([+\-]?[0-9]+\.[0-9]+)',text):
@@ -69,7 +68,7 @@ def run(base,work):
                     with fits.open(dest,memmap=False) as h:
                         for index,t in enumerate(h):
                             if isinstance(t,(fits.BinTableHDU,fits.TableHDU)):
-                                schema.append(dict(file=dest.name,hdu=index,records=len(t.data),columns={c.name:dict(format=c.format,unit=c.unit) for c in t.columns},header={k:str(t.header[k]) for k in t.header if k not in ('HISTORY','COMMENT','') and not k.startswith(('TTYPE','TFORM','TUNIT','TDIM'))}))
+                                schema.append(dict(file=dest.name,hdu=index,records=len(t.data),primary_header={k:str(h[0].header[k]) for k in h[0].header if k not in ('HISTORY','COMMENT','')},columns={c.name:dict(format=c.format,unit=c.unit) for c in t.columns},header={k:str(t.header[k]) for k in t.header if k not in ('HISTORY','COMMENT','') and not k.startswith(('TTYPE','TFORM','TUNIT','TDIM'))}))
         hst.append(dict(field=name,url=url,archive_sha256=digest(file),files=schema))
         print('HST_SCHEMA',name,[(s['file'],s['records']) for s in schema],flush=True)
     save_json(work/'private_HST_schema.json',hst)
@@ -78,7 +77,7 @@ def run(base,work):
         file=Path(filename)
         if digest(file)!=sha:raise ValueError('Changed frozen SDSS frame')
         with fits.open(file,memmap=False) as h:
-            frames.append(dict(file=filename,sha256=sha,hdus=[dict(hdu=i,shape=list(t.data.shape) if t.data is not None else None,columns=t.columns.names if hasattr(t,'columns') else None) for i,t in enumerate(h)],header=dict(h[0].header)))
+            frames.append(dict(file=filename,sha256=sha,hdus=[dict(hdu=i,shape=list(t.data.shape) if t.data is not None else None,columns=t.columns.names if hasattr(t,'columns') else None) for i,t in enumerate(h)],header={k:str(h[0].header[k]) for k in h[0].header if k not in ('HISTORY','COMMENT','')}))
     save_json(work/'private_SDSS_frame_schema.json',frames)
     reader=old/'ngc-mask-reader/readAtlasImages-v5_4_11';executables=[str(p) for p in reader.glob('**/read_PSF') if p.is_file()]
     out=dict(baseline_science='0320f59b972755454252a383ba1007c665c928e8',plan_sha256=digest(old/'registration/private_full_coordinate_plan.json'),final_binding_sha256=digest(old/'v22_final_stage_binding_summary.json'),

@@ -10,10 +10,14 @@ from .access import SDSS_COLUMNS
 from .astrometry import project
 
 
+def photoobj_path(root, key):
+    run, rerun, camera, field = key
+    return root/"photoObj"/str(rerun)/str(run)/str(camera)/f"photoObj-{run:06d}-{camera}-{field:04d}.fits"
+
+
 def select_sdss_field(root, center, limit, key, run_primary=True):
     run, rerun, camera, field = key
-    path = root/"photoObj"/str(rerun)/str(run)/str(camera)/f"photoObj-{run:06d}-{camera}-{field:04d}.fits"
-    with fits.open(path, memmap=True) as hf:
+    with fits.open(photoobj_path(root, key), memmap=True) as hf:
         source = hf[1].data
         if source is None and hf[1].header.get("NAXIS2", 0)==0:
             return None
@@ -38,7 +42,7 @@ def select_sdss_field(root, center, limit, key, run_primary=True):
     return pd.DataFrame(frame,columns=SDSS_COLUMNS.split(","))
 
 
-def read_sdss_sas(root, center, radius, workers=1):
+def sdss_field_keys(root, center, radius):
     index_path = root/"resolve"/"2013-07-29"/"window_flist.fits"
     # The frame size is about 13.5 x 9 arcmin. The circumscribed margin
     # includes field edges and adjacent scans before the final spherical cut.
@@ -53,8 +57,11 @@ def read_sdss_sas(root, center, radius, workers=1):
         locations = fields[box]
         in_radius = np.linalg.norm(project(locations["RA"], locations["DEC"], center), axis=1)
         locations = locations[in_radius <= np.tan(np.deg2rad(margin))*180/np.pi*3_600_000]
-        field_keys = sorted(set((int(row["RUN"]), int(row["RERUN"]), int(row["CAMCOL"]),
+        return sorted(set((int(row["RUN"]), int(row["RERUN"]), int(row["CAMCOL"]),
                                  int(row["FIELD"])) for row in locations if int(row["RERUN"]) == 301))
+
+
+def read_fields(root, center, radius, field_keys, workers):
     limit = np.tan(np.deg2rad(radius))*180/np.pi*3_600_000
     read = partial(select_sdss_field,root,center,limit)
     if workers>1 and len(field_keys)>1:
@@ -64,3 +71,7 @@ def read_sdss_sas(root, center, radius, workers=1):
         parts=[part for part in map(read,field_keys) if part is not None]
     result = pd.concat(parts, ignore_index=True) if parts else pd.DataFrame(columns=SDSS_COLUMNS.split(","))
     return result, len(field_keys)
+
+
+def read_sdss_sas(root, center, radius, workers=1):
+    return read_fields(root, center, radius, sdss_field_keys(root, center, radius), workers)

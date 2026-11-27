@@ -102,11 +102,20 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     center=tuple(np.mean(spec[k]) for k in ("ra","dec"))
     radius=float(np.hypot(np.ptp(spec["ra"])/2,np.ptp(spec["dec"])/2))
     cache=access.Cache(work/"cache")
-    data,nfiles=read_sdss_sas(sas,center,radius+2*halo,workers=workers)
-    data=data.loc[inside(data.ra,data.dec,spec,halo)]
-    data.to_csv(work/"sdss.csv",index=False)
-    sdss_count = len(data)
-    del data
+    stage = os.getenv("DPM_SDSS_STAGE")
+    signed = None
+    if stage:
+        from .footprint_sdss_stage_v24 import adopt
+        footprint = tomllib.loads((work/"registered.toml").read_text())["manifest_sha256"]
+        signed = adopt(Path(stage)/work.name, work/"sdss.csv", sas, spec, halo, footprint=footprint)
+    if signed is None:
+        data,nfiles=read_sdss_sas(sas,center,radius+2*halo,workers=workers)
+        data=data.loc[inside(data.ra,data.dec,spec,halo)]
+        data.to_csv(work/"sdss.csv",index=False)
+        sdss_count = len(data)
+        del data
+    else:
+        sdss_count, nfiles = signed
     print(f"{sdss_count:,} SDSS detections in {nfiles} inspected files",flush=True)
     use_tap=settings.get("tap_join",False)
     native_join=settings.get("native_join",False)

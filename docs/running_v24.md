@@ -105,3 +105,14 @@ python scripts/dispatch-v24-production.py "$work" "$LAUNCHER" "$ACCOUNT" \
 ```
 
 `joint/assessment` 保存来源分明的 QSO 与 S82 对照、源数和面积统计及 F1–F6。图、聚合表的分母和阶段回执应在允许列表同步前核对。亮 Gaia 仅检验既有独立亮端控制样本。
+
+### 独立读取 SDSS r 位置
+
+在 Slurm CPU 节点从实际 DR17 SAS 镜像运行以下入口。先导将四个预选核心的检测 CSV、行数和实际检查的 field 数逐项对照已签名产品。序号范围沿用全域注册清单，自动跳过已有完整输入回执的核心。
+
+```sh
+python -m deep_pm.footprint_sdss_stage_v24 "$work" "$DPM_SAS" --pilots --workers 4
+python -m deep_pm.footprint_sdss_stage_v24 "$work" "$DPM_SAS" --start "$first" --end "$end" --workers "$SLURM_CPUS_PER_TASK"
+```
+
+读取暂存数据的 v2.4 取数作业设置 `DPM_SDSS_STAGE="$work/sdss-stage"`。每次复用核对矩形、缓冲区、脚本签名、SAS 镜像与 field 文件大小和修改时间，同时核对复制字节的 SHA256 和实际行数。尚未暂存的核心直接读取 DR17。逐检测文件和 field 清单只保存在 PScratch。SDSS 行数包含相邻缓冲区，最终目录的唯一源数由全域归属给出。

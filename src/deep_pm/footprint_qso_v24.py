@@ -149,7 +149,7 @@ def run(root,spectra,xiao,output,workers):
     db.execute(f"SET threads={workers}")
     db.execute("SET memory_limit='4GB'")
     stream=db.execute("""SELECT src AS external,ra_deg AS ra,dec_deg AS dec,pm_e,pm_n,se_e,se_n,
-         core,slot,kind,pixel128,sdss_runs,nsc_span,joint_span,nsc_nights,nsc_seasons,instruments,bands,
+         core,slot,kind,pixel128,sdss_runs,sdss_years,nsc_years,nsc_span,joint_span,nsc_nights,nsc_seasons,instruments,bands,
          maximum_group_leverage,pm_cov_en,independent_pm_variance_e,independent_pm_variance_n,
          reference_pm_variance_e,reference_pm_variance_n,component,TRUE AS valid FROM accepted""").fetch_record_batch(150000)
     parts=[];n=0

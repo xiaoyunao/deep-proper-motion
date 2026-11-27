@@ -152,7 +152,7 @@ def integrate(base,bins):
     unsigned=json.loads((root/"registration/v24_footprint_inventory_summary.json").read_text())["grids"][str(bins)]["areas_sqdeg"]
     if bytile.reference_area.sum()>unsigned["intersection"]+1e-5 or bytile.time_reference_area.sum()>unsigned["time"]+1e-5:
         raise ValueError("Native calibrated area exceeds uncalibrated geometry")
-    save_json(out/f"v24_native_reference_area_{bins}_summary.json",dict(resolution_deg=1/bins,
+    save_json(out/f"v24_native_reference_area_{bins}_summary.json",dict(resolution_deg=1/bins,reference_admission_sha256=digest(joint/"admission/v24_reference_admission_summary.json"),
               receipt_set=proofs,reference_overlap_sqdeg=bytile.reference_area.sum(),reference_and_time_sqdeg=bytile.time_reference_area.sum(),
               cells=[[int(tile%360),int(tile//360)-90,*row] for tile,row in zip(bytile.index,bytile.to_numpy())],
               scope="Joint native field and CCD footprint supported at that sky position by the same physical component; "

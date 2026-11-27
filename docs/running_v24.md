@@ -61,3 +61,14 @@ full_coordinate_batch "$work/joint" --core-range START END --workers WORKERS --m
 共享物理组唯一性、跨巡天连接、投影范围、NSC 中位基准、每组 48 次同步扰动和两轴协方差均从真实图文件核验。已在冻结旧目录的三个分量上执行同一数值读取，保留独立前代回执。
 
 取数同时可以执行 `footprint_reference_packs_v24 "$base" --workers WORKERS`。一个包装入已闭合的 32 个核心或 4 个先导，保留重复检测供全域统一判定。前代分桶复用绑定输入和 DuckDB 版本，受影响的原核心重新装入。正式参考求解前核对每个包的签名。此步使用与正式程序一致的完整版本检出和 Slurm 环境。
+
+全域目录归属核验后运行以下评价。谱样本的输入是冻结的 DR16Q 与 DESI 光谱并集。程序按物理源交集计算差值，保留每个星等档分母。地图固定 RING NSIDE=32，三目录严格共同 QSO 至少 30 颗显示质量值，低支持区只表示覆盖。改善百分比为 100 × [1 − P68(本目录) / P68(对照)]，Xiao 与 NSC 各有独立色标，同一参考的色标跨星等保持一致。
+
+```bash
+footprint_qso_v24 "$work/joint" "$DPM_SPECTRA/spectra_union.csv" "$DPM_XIAO" "$work/joint/qso" --workers WORKERS
+footprint_qso_readout_v24 "$work/joint/qso" "$work/joint/qso/v24_spectral_quality_summary.json"
+footprint_qso_figures_v24 "$work/joint/qso/v24_spectral_quality_summary.json" "$work/joint/figures"
+full_coordinate_ngc "$work/joint" --history-root "$base"
+```
+
+亮端沿用已保存的五参数 Gaia 表观位置预测。亮端控制在最终盲目录中按实际检测集合回接，核对参考图、图心、稳健权重和自行。归属后缺失、星等退出和估计器变化均单列。它的空间适用范围限于原有控制天区。

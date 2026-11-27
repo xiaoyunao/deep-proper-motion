@@ -44,6 +44,11 @@ def run(root,output):
                median(maximum_group_leverage) AS leverage
         FROM accepted WHERE magnitude>=16 AND magnitude<24 GROUP BY ALL ORDER BY ALL
     """).fetchdf()
+    sky=db.execute("""SELECT floor(ra_deg)::INTEGER AS lon,
+           least(89,floor(dec_deg)::INTEGER) AS lat,count(*) AS n
+           FROM accepted GROUP BY ALL ORDER BY ALL""").fetchall()
+    if sum(row[2] for row in sky)!=closed["retained_common_epoch_solutions"]:
+        raise ValueError("Sky-cell counts disagree with frozen source ownership")
     db.close()
     total=int(cells.n.sum())
     if total!=closed["retained_common_epoch_solutions"]:raise ValueError("Source bins do not close")
@@ -55,7 +60,8 @@ def run(root,output):
         proof.append(json.loads(source.read_text()))
     selection=aggregate(proof)
     if not np.isfinite(panels.vector_standard_error).all():raise ValueError("Invalid adopted errors")
-    save_json(output,dict(closure_sha256=digest(closure),catalogue_count=total,conditions=pack(cells),figure_bins=pack(panels),
+    admission=root/"admission/v24_reference_admission_summary.json"
+    save_json(output,dict(reference_admission_sha256=digest(admission) if admission.exists() else None,closure_sha256=digest(closure),catalogue_count=total,conditions=pack(cells),figure_bins=pack(panels),sky_source_counts=sky,
               preownership_funnel=selection,scope="Counts of accepted J2015.5 objects and conditional formal errors. "
               "Vector standard error is sqrt(C_EE+C_NN), with component covariance retained in the private catalogue. "
               "Counts do not measure recovery of a photometric parent. Magnitude uses adopted observed r, "

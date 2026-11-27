@@ -80,6 +80,7 @@ class TargetFactory:
         cuts=[];ref=[];reg=[];meta=[]
         for run,(_,key) in sorted(options.items()):
             tie=self.ties[key];field=self.getfield(key);a=tie['asset'];group=f"SDSS:{run}:{a['camcol']}"
+            if tie['summary']['training_calibrators']==0:unsupported.append('no_measured_frame_calibrator');continue
             if require_tie and not tie['tie_pass']:unsupported.append('independent_frame_tie_failed');continue
             if group not in solution:unsupported.append('unsolved_early_reference');continue
             inverse=np.linalg.inv(forward_jacobian([local[0]],[local[1]],center))[0];r=solution[group][1]@inverse.T

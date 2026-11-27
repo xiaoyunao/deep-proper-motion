@@ -86,3 +86,6 @@
 !/scripts/sync-v23-summary.py
 !/reports/experiment_A_v2.3_faint_star.md
 !/figures/v23_*.png
+
+!/reports/experiment_A_v2.4_full_footprint.md
+!/scripts/dispatch-v24-intake.py

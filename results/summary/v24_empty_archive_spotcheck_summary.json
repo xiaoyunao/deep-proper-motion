@@ -1,0 +1,15 @@
+{
+  "slurm_job": "62110645",
+  "fixed_fields": 8,
+  "distinct_physical_runs": 8,
+  "sampled_from_positive_registered_time": true,
+  "http_counts": {
+    "200": 8
+  },
+  "same_bytes": 8,
+  "published_empty": 8,
+  "published_nonempty": 0,
+  "oversized": 0,
+  "non_fits_or_transport_errors": {},
+  "scope": "Frozen sample of mirror files with an empty source extension. Compare official DR17 SAS bytes and object extension independently."
+}

@@ -133,3 +133,5 @@ python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witne
 ### 提前处理预计数据量较大的核心
 
 在科学批次到达前，可向 `footprint_dense_v24 BASE START END --workers N` 传入 `--priority-plan FILE --priority-sha SHA256`。START 与 END 是该调度清单内的半开序号；入口同时校验每个核心在原足迹中的序号。当前 20 个核心的清单依据真实 CCD 计数和已处理状态冻结，工作进程仍执行相同的对象及测量分页，并读取对应的 CCD 和亮 Gaia 辅助元数据。分配规范化内存时使用实际已验证的测量行数。最终科学分母继续使用完整足迹清单。
+
+在独立 SDSS 输入审计后，使用 `footprint_empty_early_v24 WORK SAS EARLY_COVERAGE_JSON --workers N` 回查原始扩展、实际矩形及 RUN_PRIMARY。复核官方 SAS 副本时，固定时基机会大于零且候选源表均为空的核心，取其所有候选 field 键 `(run,rerun,camcol,field)` 的并集。按 `sha256(("empty-field-v24:"+str(key)).encode()).digest()` 排序，每个 run 保留第一项，再按同一顺序选前八个。远端与镜像均使用 `sdss_sas.photoobj_path` 的相同相对路径，逐份比较 FITS 字节 SHA256 及源表行数；私有选样清单和逐项结果在 PScratch。

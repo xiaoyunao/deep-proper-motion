@@ -23,3 +23,15 @@ def test_both_directions_have_to_be_unique():
     other=pd.DataFrame(dict(ra=[0.,1.],dec=[0.,0.],valid=[True,True]))
     i,j=pair(hlc,other)
     assert i.tolist()==[2] and j.tolist()==[1]
+
+
+def test_hlc_match_exits_partition_entire_parent():
+    from deep_pm.stripe82_comparison_v24 import PAIR_STATES
+    h = pd.DataFrame(dict(ra=[1.,2.,3.,4.,5.,5.+.13/3600], dec=[0.]*6))
+    c = pd.DataFrame(dict(ra=[1.,2.,3.-.1/3600,3.+.1/3600,5.],
+                          dec=[0.]*5,valid=[True,False,True,True,True]))
+    i,j,status = pair(h,c,diagnostics=True)
+    assert i.tolist()==[0] and j.tolist()==[0]
+    assert [PAIR_STATES[s] for s in status] == [
+        "matched","invalid_catalogue_motion","forward_competition","outside_radius",
+        "reverse_competition","not_mutual"]

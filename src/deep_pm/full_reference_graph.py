@@ -104,7 +104,7 @@ def close_graph(root,memory='24GB',threads=8):
         print('GRAPH_STAGE',name,scalar(db,f'SELECT count(*) FROM {name}'),flush=True)
     glob=str(root/'input/*/reference.parquet')
     previous=root/'graph-attempt-910abae'
-    if (previous/'private_input_binding.json').exists() and scalar(db,"SELECT count(*) FROM information_schema.tables WHERE table_name='bad_detection'")==0:
+    if not plan.get('production_blind') and (previous/'private_input_binding.json').exists() and scalar(db,"SELECT count(*) FROM information_schema.tables WHERE table_name='bad_detection'")==0:
         old=read(previous/'private_input_binding.json')
         if old['plan_sha256']!=ticket['plan_sha256'] or old['shards']!=ticket['shards']:raise ValueError('Prior reference input identity changed')
         db.execute(f"ATTACH '{previous/'reference.duckdb'}' AS completed_prior (READ_ONLY)")
@@ -113,8 +113,26 @@ def close_graph(root,memory='24GB',threads=8):
         print('REUSED_PRIOR_MEMBERSHIP_CONFLICT_STAGE',flush=True)
     # Conflict policy preserves archived semantics. Exact halo duplicates are
     # removed before distinct physical exposure collisions are excluded.
-    stage('bad_detection',f'''CREATE TABLE bad_detection AS SELECT detection_id FROM read_parquet('{glob}')
-        GROUP BY detection_id HAVING min(reference)<>max(reference)''')
+    if plan.get('production_blind'):
+        from .footprint_reference_packs_v24 import assemble
+        assemble(root,dest,digest(lock),db,plan)
+        # Identity conflicts are confined to one deterministic physical-ID hash
+        # bucket. Serial bounded GROUP BYs avoid a full-sky string hash table.
+        stage('bad_detection','CREATE TABLE bad_detection(detection_id VARCHAR)')
+        db.execute('CREATE TABLE IF NOT EXISTS finished_identity_buckets(label VARCHAR PRIMARY KEY)')
+        for folder in sorted((dest/'detection_buckets').glob('detection_bucket=*')):
+            label=folder.name
+            if db.execute('SELECT 1 FROM finished_identity_buckets WHERE label=?',[label]).fetchone():continue
+            db.execute('BEGIN TRANSACTION')
+            try:
+                db.execute(f"""INSERT INTO bad_detection SELECT detection_id FROM read_parquet('{folder}/*.parquet')
+                               GROUP BY detection_id HAVING min(reference)<>max(reference)""")
+                db.execute('INSERT INTO finished_identity_buckets VALUES (?)',[label]);db.execute('COMMIT')
+            except Exception:
+                db.execute('ROLLBACK');raise
+    else:
+        stage('bad_detection',f'''CREATE TABLE bad_detection AS SELECT detection_id FROM read_parquet('{glob}')
+            GROUP BY detection_id HAVING min(reference)<>max(reference)''')
     unique_glob=partitioned_detections(db,root,dest,digest(lock))
     stage('unique_detection',f"CREATE VIEW unique_detection AS SELECT * FROM read_parquet('{unique_glob}')")
     stage('bad_exposure','''CREATE TABLE bad_exposure AS SELECT reference,exposure_id FROM unique_detection

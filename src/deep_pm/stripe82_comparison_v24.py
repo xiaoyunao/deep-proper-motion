@@ -27,17 +27,34 @@ def nearest(query, catalogue):
     return indices[:, 0], distances
 
 
-def pair(stars, other):
-    if not len(stars) or not len(other):
-        return (np.empty(0, int),) * 2
-    h = coordinates(stars.ra, stars.dec)
-    c = coordinates(other.ra, other.dec)
-    forward, fd = nearest(h, c)
-    reverse, rd = nearest(c, h)
-    idx = np.flatnonzero((fd[:, 0] <= .7) & (fd[:, 1] - fd[:, 0] >= .3))
-    j = forward[idx]
-    keep = (reverse[j] == idx) & (rd[j, 1] - rd[j, 0] >= .3) & other.valid.to_numpy()[j]
-    return idx[keep], j[keep]
+PAIR_STATES = (
+    "outside_radius", "forward_competition", "not_mutual", "reverse_competition",
+    "invalid_catalogue_motion", "matched",
+)
+
+
+def pair(stars, other, *, diagnostics=False):
+    """Apply position competition to every candidate before motion validity."""
+    status = np.zeros(len(stars), dtype=np.uint8)
+    i = j = np.empty(0, dtype=int)
+    if len(stars) and len(other):
+        h = coordinates(stars.ra, stars.dec)
+        c = coordinates(other.ra, other.dec)
+        forward, fd = nearest(h, c)
+        reverse, rd = nearest(c, h)
+        eligible = fd[:, 0] <= .7
+        status[eligible] = 1
+        eligible &= fd[:, 1] - fd[:, 0] >= .3
+        status[eligible] = 2
+        eligible &= reverse[forward] == np.arange(len(stars))
+        status[eligible] = 3
+        eligible &= rd[forward, 1] - rd[forward, 0] >= .3
+        status[eligible] = 4
+        eligible &= other.valid.to_numpy()[forward]
+        status[eligible] = 5
+        i = np.flatnonzero(eligible)
+        j = forward[i]
+    return (i, j, status) if diagnostics else (i, j)
 
 
 def stage(db, directory, name, query):
@@ -82,6 +99,7 @@ def comparison(df):
     ok = {m:df[m+"_e"].notna() for m in METHODS}
     common = df.loc[ok["ours"] & ok["xiao"] & ok["nsc"]]
     return dict(parent=len(df),matched={m:binomial(int(g.sum()),len(df)) for m,g in ok.items()},
+                identity_outcomes={m:dict(zip(PAIR_STATES, np.bincount(df[m+"_status"].to_numpy(), minlength=len(PAIR_STATES)).tolist())) for m in METHODS},
                 common=len(common),delta_to_hlc={m:stats(common,m) for m in METHODS},
                 hlc_median_pm_errors=(common[["se_e","se_n"]].median().tolist() if len(common) else None))
 
@@ -196,7 +214,7 @@ def run(base, catalogue, plan, output, version, workers):
         stars["neighbour"]=separations[:,1]
         for m in METHODS:
             other=sector(directories[m],centre)
-            i,j=pair(stars,other)
+            i,j,stars[m+"_status"]=pair(stars,other,diagnostics=True)
             for source,target in (("pm_e",m+"_e"),("pm_n",m+"_n"),("se_e",m+"_se"),("se_n",m+"_sn")):
                 stars[target]=np.nan
                 if len(i):stars.loc[i,target]=other[source].to_numpy()[j]

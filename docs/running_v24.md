@@ -59,3 +59,5 @@ full_coordinate_batch "$work/joint" --core-range START END --workers WORKERS --m
 ```
 
 共享物理组唯一性、跨巡天连接、投影范围、NSC 中位基准、每组 48 次同步扰动和两轴协方差均从真实图文件核验。已在冻结旧目录的三个分量上执行同一数值读取，保留独立前代回执。
+
+取数同时可以执行 `footprint_reference_packs_v24 "$base" --workers WORKERS`。一个包装入已闭合的 32 个核心或 4 个先导，保留重复检测供全域统一判定。前代分桶复用绑定输入和 DuckDB 版本，受影响的原核心重新装入。正式参考求解前核对每个包的签名。此步使用与正式程序一致的完整版本检出和 Slurm 环境。

@@ -1,0 +1,16 @@
+{
+  "signed_footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "reader_sha256": "f0d2ff4cf7224debe6b238e9e311530317447ab64211a5c7a7e3ddbdad3e611f",
+  "slurm_job": "62109842",
+  "cores": 6144,
+  "sdss_detections_with_halo": 222295817,
+  "field_visits_including_overlaps": 953065,
+  "csv_bytes": 60075894064,
+  "elapsed_seconds": 1093.9241953979945,
+  "workers": 128,
+  "scope": "Signed DR17 r rows before normalization, with overlapping halos.",
+  "ordinal_range": [
+    3936,
+    10080
+  ]
+}

@@ -86,3 +86,5 @@ full_coordinate_ngc "$work/joint" --history-root "$base"
 
 
 `footprint_held_reference_v24 "$base"` 只读取归档旧图，把预定 1/64 留出星系的实际检测校正回 ICRS。每个新分量用 `full_reference_validation "$work/joint" COMP "$OUT"` 核对原始、校准后及旧/新严格共同检测的跨巡天位置残差。旧对照要求实际星系、检测 ID、物理组均一致，并通过各自位置上的原生参考误差门槛。
+
+完整参考图闭合后，`scripts/dispatch-v24-production.py "$work" "$LAUNCHER" "$DPM_ACCOUNT" --concurrent 4 --watch` 依据实测物理分量行数安排内存和时限。各分量一次导出和求解，小分量合并提交，真实留出星系按旧/新原生支持比较。源拟合按清单序号分批，各源仍可访问全部合格物理组。完成后建立唯一的全域索引和归属回执。跨版本参考复用要求原生精度、来源排序、星系身份、位置、中心、组集合及随机种子逐项一致。任何失败保留既有检查点，调度器允许独立分量和其他源块继续。

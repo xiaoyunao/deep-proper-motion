@@ -77,3 +77,19 @@ def test_held_reference_transports_old_offsets_and_checks_actual_physical_member
     assert n==2 and keep.tolist()==[True,False,False]
     np.testing.assert_allclose(unproject(result[keep],new_center),adjusted[:1],atol=1e-12)
     assert np.isnan(result[~keep]).all()
+
+
+def test_component_reuse_requires_identity_order_positions_covariance_and_seed():
+    from copy import deepcopy
+    from deep_pm.footprint_component_v24 import same_archived_input
+    binding={"component":{"component":2,"center_deg":[355.,0.],"measurements":120,"groups":5,"reference_sources":30},
+             "files":{"precision.npy":"offset-a","private_reference_index.parquet":"identity-order"}}
+    assert same_archived_input(binding,deepcopy(binding))
+    for key,val in (("component",1),("center_deg",[356.,0.])):
+        changed=deepcopy(binding)
+        changed["component"][key]=val
+        assert not same_archived_input(binding,changed)
+    for key in binding["files"]:
+        changed=deepcopy(binding)
+        changed["files"][key]="other"
+        assert not same_archived_input(binding,changed)

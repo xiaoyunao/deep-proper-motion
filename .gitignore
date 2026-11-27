@@ -91,6 +91,7 @@
 !/scripts/dispatch-v24-intake.py
 !/scripts/dispatch-v24-graph.py
 !/scripts/dispatch-v24-production.py
+!/scripts/v24_assessment.py
 !/scripts/verify-v24-reference-draws.py
 
 !/figures/v24/

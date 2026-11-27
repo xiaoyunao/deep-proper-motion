@@ -9,6 +9,7 @@ from time import sleep
 
 intake=runpy.run_path(str(Path(__file__).with_name("dispatch-v24-intake.py")))
 read=intake["summary"]
+assessment=runpy.run_path(str(Path(__file__).with_name("v24_assessment.py")))["assessment"]
 
 
 @dataclass
@@ -111,9 +112,12 @@ def dispatch(args):
     w=args.work
     # Only count core-level files on first transition, or after a job ended.
     # Avoid repeated large Lustre directory walks while a full fleet is working.
-    history_path=w/"private_production_dispatch.json"
+    validation = args.spectra is not None
+    history_path=w/("private_assessment_dispatch.json" if validation else "private_production_dispatch.json")
     with (w/"private_dispatch.lock").open("a") as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
+        if validation and not (w/"joint/catalogue/v22_catalogue_ownership_summary.json").exists():
+            return "waiting for catalogue ownership"
         if not (w/"joint/graph/v22_global_graph_summary.json").exists():
             return "waiting for the complete physical graph"
         history=read(history_path) if history_path.exists() else {}
@@ -129,8 +133,14 @@ def dispatch(args):
                 return "waiting for physical graph checkpoint"
             if graph_job and usage[graph_job][0]!="COMPLETED":
                 raise ValueError("The physical graph parent did not close successfully")
-        stage,items=schedule(w,history)
+        stage,items=assessment(w,args.spectra,args.xiao,Stage) if validation else schedule(w,history)
         if not items:
+            if active:
+                return "running"
+            if validation:
+                failed=[attempts[-1]["job"] for attempts in history.values()
+                        if usage[attempts[-1]["job"]][0]!="COMPLETED"]
+                if failed:raise ValueError(f"Inspect outstanding assessment allocations: {failed}")
             return stage
         spent=sum(v[2] for v in usage.values())
         problems=[]
@@ -171,8 +181,11 @@ def dispatch(args):
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("work",type=Path);p.add_argument("launcher",type=Path);p.add_argument("account")
+    p.add_argument("--spectra",type=Path,help="Post-ownership assessment only, using these frozen spectra")
+    p.add_argument("--xiao",type=Path,help="Published Xiao catalogue for the frozen DESI comparison")
     p.add_argument("--concurrent",type=int,default=4);p.add_argument("--watch",action="store_true")
     a=p.parse_args()
+    if (a.spectra is None)!=(a.xiao is None):p.error("Specify both external validation inputs")
     if a.concurrent<1:p.error("Set a positive allocation count")
     previous=None
     while True:
@@ -182,6 +195,6 @@ if __name__=="__main__":
             state="waiting for Slurm accounting"
         if state!=previous:
             print(state,flush=True);previous=state
-        if not a.watch or state in ("catalogue closed","quota-review","budget-review"):
+        if not a.watch or state in ("catalogue closed","assessment finished","quota-review","budget-review"):
             break
         sleep(60)

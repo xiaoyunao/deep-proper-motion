@@ -94,3 +94,14 @@ full_coordinate_ngc "$work/joint" --history-root "$base"
 
 
 原生 Data Lab 接口中断时可用 `DPM_NSC_TRANSPORT=counted-tap`。同一物理矩形和 q3c 索引谓词经官方 TAP 查询，先独立 COUNT，再核对结果行数。过大的分区沿同样的半开边界拆分。已有成功原生页仍按 SHA 核验复用，新页保存实际 ADQL、传输端点及原始 CSV 签名。新传输先用 `footprint_transport_check_v24` 对照独立旧先导。
+
+### 最终目录的外部评价
+
+在同一计费账本中，下面的入口等待最终 J2015.5 归属回执，然后把已冻结的外部对照、原生面积积分和图件提交到 Slurm。调度本身在登录节点读取状态。私有环境中的 `DPM_SPECTRA_FILE` 是合并去重的光谱 CSV，`DPM_XIAO` 是发布 FITS。每份图复用同一目录对应的聚合表。
+
+```bash
+python scripts/dispatch-v24-production.py "$work" "$LAUNCHER" "$ACCOUNT" \
+  --spectra "$DPM_SPECTRA_FILE" --xiao "$DPM_XIAO" --concurrent 4 --watch
+```
+
+`joint/assessment` 保存来源分明的 QSO 与 S82 对照、源数和面积统计及 F1–F6。图、聚合表的分母和阶段回执应在允许列表同步前核对。亮 Gaia 仅检验既有独立亮端控制样本。

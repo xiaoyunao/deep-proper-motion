@@ -30,3 +30,16 @@
 最多四张新增科学主图：HST暗星验证、误差预算、像素验证、两个实际轨迹同图。中文报告首页先回答可信暗星/主导误差/像素信息是否值得扩大。主目录保持冻结，g与形态路线已收束。不写论文、不扩区、不启动全量PSF或高自行。
 
 来源：[HACKS](https://archive.stsci.edu/hlsp/hacks)、[HACKS README](https://archive.stsci.edu/hlsps/hacks/hlsp_hacks_hst_multi_all_multi_v1.0_readme.pdf)、[Libralato2022](https://arxiv.org/abs/2206.09924)、[SDSS帧/PSF](https://www.sdss4.org/dr17/imaging/images/)、[实际frame格式/噪声](https://data.sdss.org/datamodel/files/BOSS_PHOTOOBJ/frames/RERUN/RUN/CAMCOL/frame.html)。字段门槛和PSF/噪声细节待实际schema核验后、读残差前明确，修改保留时间线，不把探查当独立验收。
+
+## HST schema核验后的外部规则冻结（残差尚未读取）
+
+实际HACKS为PMRAC/PMDECC、EPMRAC/EPMDECC、CHI2RX/Y、NF/NU、TIME、CORRFLAG及同目录共享ID；原生光度MAG/RMSMAG/QFIT/O/NF/NU/RADXS/SKY/SKYSIG/SAT。HST相对运动单位mas/yr，无逐源两轴相关系数可用，主比较用对角HST测量协方差并注明限制。
+
+- PM主母样本：有限位置/运动，0<每轴EPM≤0.5mas/yr，CHI2RX/Y≤1.5，NU≥5、NU/NF≥0.8，TIME≥5yr，CORRFLAG=1；不按与本目录的PM差或簇成员运动剪裁。
+- 光度：0<MAG<35，0<RMSMAG≤0.15，QFIT≥0.9，|RADXS|≤0.10，O<1，NF>0且NU/NF≥0.75，SAT<9；用每表实际VEGA零点检验flux/sky-rms≥3.5。每epoch至少两个已提供filter通过（该epoch仅一个已发布filter时要求其通过），至少两epoch。全部零值/饱和不当高质量零误差。HST F606W及F814W各自保留，不以F606W假装地面r。
+- 位置：外部HST按各PM文件声明的真实参考epoch，使用其相对PM+已发表绝对零点传播到J2015.5；球面0.7arcsec、最近/次近距离差≥0.3arcsec、双向一对一。所有HST检测参与竞争和混叠标签，不能先删近邻再称唯一。
+- 主孤立子集：HST原生F606W邻源距离≥1.2arcsec（只计不暗于目标2.5mag的邻源），且1.5arcsec内原生通量总和/目标≤0.1。另列拥挤/未知层，不改变规则以凑暗星样本；HST PM母表本身不代表完整源提取，邻源判断保留该限制。
+- 先建立HST母样本、地面目录位置匹配及质量/拥挤漏斗签名，后解封运动残差；地面r档21–22/22–23依v22实际r，并另给HST原生F606档以报告地面缺失分母。对不同发布目录的不同坐标历元逐项核实，历史缺位置时刻限制明确，不以PM相近补身份。
+- NGC5466实际TXT声明epoch≈2010.7，零点(-5.371,-0.800)，header SE(0.015,0.016)与论文含系统的(0.030,0.031)分列。验收采用论文总SE作公共协方差，而非把两者再次相加。其他场同样读取各自header/论文转移。绝对零点不随源数缩小；未给出的轴间相关性另作敏感性，绝对检验是Gaia定锚而非完全Gaia独立。
+
+相关物理尺度与格式来自[Libralato2022附录A/B](https://arxiv.org/html/2206.09924v1)。此处采用固定简明外部质量定义，不声称严格复制原论文按每簇/星等分位的内部动力学筛选。

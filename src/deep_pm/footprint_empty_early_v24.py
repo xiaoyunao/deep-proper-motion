@@ -25,6 +25,14 @@ def classify(fields, file_rows, raw_inside, primary_inside):
     return "empty_candidate_fields" if fields else "no_candidate_field"
 
 
+def published_rows(hdu):
+    if "NAXIS2" in hdu.header:
+        return int(hdu.header["NAXIS2"])
+    if hdu.header["NAXIS"] == 0 and hdu.data is None:
+        return 0
+    raise ValueError("Unrecognized SDSS science extension")
+
+
 def audit(work, sas, union, workers):
     registration = work / "registration"
     path = registration / "private_full_footprint_plan.json"
@@ -59,17 +67,18 @@ def audit(work, sas, union, workers):
                 raise ValueError("Changed set of candidate DR17 fields")
         if file_counts(directory / "sdss.csv")[:2] != (checksum, 0):
             raise ValueError("Empty input is no longer reproducible")
-        file_rows = raw_inside = primary_inside = 0
+        file_rows = raw_inside = primary_inside = empty_hdus = 0
         for key in keys:
             with fits.open(photoobj_path(sas, key), memmap=True) as hdus:
-                count = int(hdus[1].header["NAXIS2"])
+                count = published_rows(hdus[1])
+                empty_hdus += count == 0
                 file_rows += count
                 if count:
                     data = hdus[1].data
                     mask = inside(data["RA"], data["DEC"], cells[name], halo)
                     raw_inside += np.count_nonzero(mask)
                     primary_inside += np.count_nonzero(mask & ((data["RESOLVE_STATUS"] & 1) != 0))
-        return dict(core=name, fields=len(keys), file_rows=file_rows, inside=int(raw_inside),
+        return dict(core=name, fields=len(keys), empty_hdus=empty_hdus, file_rows=file_rows, inside=int(raw_inside),
                     primary_inside=int(primary_inside), time_area=cells[name]["time_area"],
                     reason=classify(len(keys), file_rows, raw_inside, primary_inside))
 
@@ -83,6 +92,7 @@ def audit(work, sas, union, workers):
     output = dict(slurm_job=job, full_early_coverage_sha256=digest(union),
                   signed_footprint=receipt["signed_footprint"], registered=len(cells),
                   empty=len(zeros), reasons=dict(reasons), field_visits=sum(r["fields"] for r in zeros),
+                  empty_extension_visits=sum(r["empty_hdus"] for r in zeros),
                   original_positions_with_halo=sum(r["inside"] for r in zeros),
                   run_primary_positions_with_halo=sum(r["primary_inside"] for r in zeros),
                   time_opportunity_sqdeg={k: sum(r["time_area"] for r in zeros if r["reason"]==k)

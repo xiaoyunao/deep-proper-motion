@@ -28,6 +28,21 @@ def assemble(base):
     frozen=read(manifest)
     expected=read(output/"v24_footprint_inventory_summary.json")["signed_manifest_sha256"]
     if digest(manifest)!=expected:raise ValueError("Changed survey footprint")
+    rule=output/"v24_exposure_identity_rule_summary.json"
+    if rule.exists():
+        scope_path=output/"private_exposure_identity_scope.json"
+        finished=output/"v24_exposure_identity_completion_summary.json"
+        if not finished.exists():
+            raise RuntimeError("Registered physical exposure identity replay is still pending")
+        final=read(finished)
+        scope=read(scope_path)
+        if (final["footprint"]!=expected or final["rule_sha256"]!=read(rule)["rule_sha256"]
+                or final["scope_sha256"]!=digest(scope_path) or final["cores"]!=len(scope["cores"])):
+            raise ValueError("Physical exposure scope is not bound to this footprint")
+        for name in scope["cores"]:
+            proof=read(root/"physical-identity-audit"/name/"verified.json")
+            if proof["rule_sha256"]!=final["rule_sha256"] or proof["batch_sha256"]!=digest(root/"batch-receipts"/(name+".json")):
+                raise ValueError("Verified physical measurement input changed before graph registration")
     check=root/"meridian/v24_archive_input_audit_summary.json"
     audit=read(root/"meridian/private_archive_audit.json")
     if read(check)["private_audit_sha256"]!=digest(root/"meridian/private_archive_audit.json"):

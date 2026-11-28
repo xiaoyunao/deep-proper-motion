@@ -32,7 +32,7 @@ def select_pilots(cells):
     return [min(group,key=lambda name:sha256(("v24-intake:"+name).encode()).digest()) for group in populations if group]
 
 
-def one(task, revision=None, *, gaia_veto=None):
+def one(task, revision=None, *, gaia_veto=None, publish_revision=True):
     label,spec,base,catalogues,sas,manifest_sha=task
     root=base/"v2.4"
     original=root/"intake"/label
@@ -72,7 +72,7 @@ def one(task, revision=None, *, gaia_veto=None):
             if not all((dest/name).is_file() for name in OUTPUTS):raise ValueError("Missing acquisition output")
     ref=extract_one((dict(core=label,source=str(dest),source_receipt_sha256=digest(dest/"run_manifest.json"),
                           center=[sum(spec[k])/2 for k in ("ra","dec")]),work/"input"))
-    if revision:
+    if revision and publish_revision:
         save_json(root/"resolved"/(label+".json"),dict(source=str(dest),shard=str(work/"input"/label),
                   source_sha256=digest(dest/"run_manifest.json"),
                   reference_sha256=digest(work/"input"/label/"v22_reference_input_core_summary.json")))

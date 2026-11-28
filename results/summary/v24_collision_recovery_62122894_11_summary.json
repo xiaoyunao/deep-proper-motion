@@ -1,0 +1,29 @@
+{
+  "input_commit": "7fb09b7",
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "rule_sha256": "9bdd44c73afdc65b0a370fbac54718e23ee65bb7cf39817871ae28494e011069",
+  "results": [
+    {
+      "maximum_csv_roundtrip_deg": 0.0,
+      "archive_nsc": 35477,
+      "distinct_raw_ids": 35418,
+      "unique_physical": 35477,
+      "qualified_rows": 3156,
+      "allband_with_sdss": 49580,
+      "reference": 5903,
+      "time_area_sqdeg": 0.39799499428192653
+    },
+    {
+      "maximum_csv_roundtrip_deg": 0.0,
+      "archive_nsc": 38052,
+      "distinct_raw_ids": 37065,
+      "unique_physical": 38052,
+      "qualified_rows": 5183,
+      "allband_with_sdss": 54573,
+      "reference": 6119,
+      "time_area_sqdeg": 0.3774452635486948
+    }
+  ],
+  "job": "62122894",
+  "step": "11"
+}

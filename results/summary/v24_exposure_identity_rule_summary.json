@@ -1,0 +1,17 @@
+{
+  "method": "qualify-reused-exposure-number-v1",
+  "exposures": 412116,
+  "instrument_counts": {
+    "c4d": 340952,
+    "k4m": 41561,
+    "ksb": 29603
+  },
+  "ambiguous_exposures": 81,
+  "ambiguous_namespaces": 1,
+  "affected_by_instrument": {
+    "k4m": 81
+  },
+  "inventory_sha256": "bdd3716ce259c79934f09fa280d5cf654d099d770333852e77c982ef43d31301",
+  "rule_sha256": "9bdd44c73afdc65b0a370fbac54718e23ee65bb7cf39817871ae28494e011069",
+  "slurm_job": "62125429"
+}

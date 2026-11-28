@@ -1,0 +1,11 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "rule_sha256": "9bdd44c73afdc65b0a370fbac54718e23ee65bb7cf39817871ae28494e011069",
+  "scope_sha256": "97ce2458b4750a5ab98f69dfe71bb6eab6e6cba08369b5f5a8ac03b6228a3aba",
+  "exposures": 81,
+  "measurements": 508105,
+  "unmatched_archive_object": 0,
+  "candidate_old": 0,
+  "candidate_new": 94,
+  "slurm_job": "62125429"
+}

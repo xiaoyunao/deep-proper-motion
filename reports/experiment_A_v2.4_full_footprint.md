@@ -1,5 +1,9 @@
 # 完整共同足迹与 Stripe 82 恒星验证
 
+**新区已有 4,037 / 15,235 个核心取得输入及参考提取回执，覆盖 2,636.028 deg² 的几何时基机会。** 同一快照含缓冲区共 2,366,244,478 条规范检测、279,685,452 条参考测量，剩余 11,198 个注册核心。源级精度和实际产出面积仍待共同参考图及唯一归属。[本批面积和行数](../results/summary/v24_intake_at_exposure_audit_summary.json)
+
+对复用曝光编号的 81 次曝光，独立按曝光索引取得了全部 508,105 条发布测量；每行均可回接归档对象。用实际检测和对象中心的位置范围连同缓冲区检索，94 个新区核心需要核验，旧覆盖核心为零。先前因编号冲突停止的两个核心已保留全部 35,477 和 38,052 条缓冲区内 NSC 测量，坐标回读的最大差均为零；合并 SDSS 后共 104,153 条规范检测，并提取 12,022 条参考测量。这一修复验证了检测身份和参考输入，源级产出仍按最终参考图统计。[影响天区](../results/summary/v24_exposure_identity_scope_summary.json) · [冻结标识规则](../results/summary/v24_exposure_identity_rule_summary.json) · [两个真实核心](../results/summary/v24_collision_recovery_62122894_11_summary.json)
+
 Slurm 62122894 核验了 **3,921 / 15,235** 个新区输入核心。它们覆盖 **2,547.342 deg²** 的几何时基机会，累计读入含缓冲区的 2,313,329,226 条规范检测和 272,337,522 条参考测量。3,672 个核心有本地参考行，实际共同参考支持和唯一源数须等待全域参考图。按已有同类核心的耗时外推，剩余取数的中间估计为 950 个工作进程小时，假设每进程计费 2.2 线程，折合 8.17 个节点小时。该估计不含共同参考、源拟合和验证。[输入与资源分母](../results/summary/v24_intake_after_third_recovery_summary.json) · [参考分包](../results/summary/v24_reference_packs_after_third_recovery_summary.json)
 
 共享作业的余量另处理了 16 个已登记核心。其中 14 个取得签名输入，两个相邻核心各自在单个完整归档页内出现 59 和 987 个重复的 NSC 测量编号。每一对记录的发布曝光、MJD 和像面位置均有区别。两核心内部合计涉及 1,037 个不同编号。相关输入已隔离，处理时须同时核查在两核心间才出现的冲突，避免将不同曝光合并成一次检测。[附加计算](../results/summary/v24_shared_packet_62122893_1_summary.json) · [原始字段核验](../results/summary/v24_archive_duplicate_diagnostic_summary.json)

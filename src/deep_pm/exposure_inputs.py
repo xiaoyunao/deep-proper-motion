@@ -26,7 +26,7 @@ def tap_rectangle(box, halo=0., alias=""):
             f"AND {alias}dec >= {south-halo:.9f} AND {alias}dec < {north+halo:.9f}")
 
 
-def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False):
+def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False, *, allow_grouped=True):
     """Partition on archive positions, then verify every joined measurement count."""
     table="nsc_dr2.meas m JOIN nsc_dr2.object o ON m.objectid=o.id"
     select=",".join("m."+k for k in access.MEAS.split(","))
@@ -98,7 +98,7 @@ def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap
     partition_data=archive[["ra","dec","ndet"]].copy()
     partition_data["ra"]=(partition_data.ra-lo+1.e-10)%360+lo-1.e-10
     split(np.array([lo,south]),np.array([hi,north]),partition_data,True)
-    if (os.getenv("DPM_NSC_COUNTS") == "grouped-v24" and service == "nsc" and native_window
+    if (allow_grouped and os.getenv("DPM_NSC_COUNTS") == "grouped-v24" and service == "nsc" and native_window
             and all_objects and workers == 1 and cache.native_transport == "counted-tap" and len(partitions) >= 12):
         from . import footprint_counted_groups_v24 as group_pages
         try:
@@ -122,6 +122,14 @@ def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap
         for i,part in enumerate(pool.map(receive,partitions),1):
             print(f"{service} verified measurements partition {i}/{len(partitions)}: {len(part):,}",flush=True)
             yield part
+
+
+def confirm_unmeasured(cache, route, missing):
+    """Check unrepresented archive IDs directly in the published measurement table."""
+    for offset in range(0,len(missing),250):
+        check="objectid IN ("+",".join(map(access.literal,missing[offset:offset+250]))+")"
+        if len(cache.checked(route,"objectid","nsc_dr2.meas",check)):
+            raise ValueError("Object IDs absent from batches have published measurement rows")
 
 
 def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False):
@@ -183,10 +191,7 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     if returned-requested:
         raise ValueError("NSC returned measurements outside the requested archive IDs")
     missing=sorted(requested-returned)
-    for offset in range(0,len(missing),250):
-        check="objectid IN ("+",".join(map(access.literal,missing[offset:offset+250]))+")"
-        if len(cache.checked(route,"objectid","nsc_dr2.meas",check)):
-            raise ValueError("Object IDs absent from batches have published measurement rows")
+    confirm_unmeasured(cache, route, missing)
     print(f"{len(missing):,} archive objects have no matching rows in meas",flush=True)
     in_halo=nsc.loc[inside(nsc.ra,nsc.dec,spec,halo)]
     in_halo.to_csv(work/"nsc_object.csv",index=False)

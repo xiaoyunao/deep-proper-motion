@@ -74,7 +74,8 @@ def tap_predicate(query):
 
 
 class Cache:
-    def __init__(self, path):
+    def __init__(self, path, *, read_only=False):
+        self.read_only = read_only
         self.native_transport = os.environ.get("DPM_NSC_TRANSPORT", "native")
         if self.native_transport not in ("native", "counted-tap"):
             raise ValueError("Unknown NSC archive transport")
@@ -97,6 +98,8 @@ class Cache:
                     if service == "nsc":
                         self.transport_reads[saved.get("transport","native")] += 1
                     return frame
+        if self.read_only:
+            raise FileNotFoundError(f"No intact local response for {key}")
         transport = "tap" if service == "nsc" and self.native_transport == "counted-tap" else service
         executed = tap_predicate(query) if transport != service else query
         frame, data = request(transport, executed)

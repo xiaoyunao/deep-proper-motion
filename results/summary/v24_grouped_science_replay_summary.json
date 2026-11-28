@@ -1,0 +1,24 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "slurm_job": "62116094",
+  "science_tables_byte_equal": {
+    "detections.csv": true,
+    "external_labels.csv": true,
+    "official_nsc.csv": true,
+    "spectra_union.csv": true,
+    "spectra_veto.csv": true,
+    "validation/gaia.csv": true,
+    "sdss.csv": true,
+    "nsc_object.csv": true,
+    "chips.csv": true,
+    "reference.parquet": true
+  },
+  "normalized_rows": 1147479,
+  "reference_rows": 164322,
+  "object_count_checked_rows": 1083119,
+  "measured_objects": 85939,
+  "joined_pages": 24,
+  "independent_strip_queries": 4,
+  "elapsed_s": 119.19,
+  "scope": "Separate science and reference directories. Existing payloads reused; independent strip counts requested from the archive."
+}

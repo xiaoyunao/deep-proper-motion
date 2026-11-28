@@ -106,3 +106,4 @@
 !scripts/run-v24-dense-core.py
 
 !scripts/dispatch-v24-dense.py
+!scripts/audit-v24-cached-absences.py

@@ -139,3 +139,6 @@ python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witne
 普通取数调度可用 `--runnable-slots` 按可运行的批次控制并发。仅显式用户暂挂的密集核心验收作业退出并发计数，其预算和对应输入范围继续保留。排队等待优先级和依赖的作业仍占并发名额。
 
 在 `counted-tap` 下可用 `DPM_NSC_COUNTS=grouped-v24` 对至少 12 个原始测量分区的单进程全波段取数合并计数。按实际对象数和 ndet 切分赤纬条，每条分别请求测量总数和按对象分组的测量数。原数据页仍使用冻结的半开矩形与原查询列。对每个出现的对象检查实际频数，跨页检查重复与整组缺失。空归档对象允许保留。原始查询、响应 SHA 和最终核验关系保存于私有目录。小分区沿用原计数。归档计数比较见[已签名页核验](../results/summary/v24_sliced_group_count_test_summary.json)和[分页耗时](../results/summary/v24_paired_archive_timing_summary.json)。
+
+
+密集核心的测量分页全部返回后，预取还须完成 chip、Gaia 和归档对象缺行核验。后者对页面中未出现的 object ID 每 250 个直接查询 meas，保留实际计数和载荷。使用 `--require-auxiliary` 的大内存调度检查这份清单的签名。归档中断时可在 Slurm 用 `python scripts/audit-v24-cached-absences.py WORK CORE OUTPUT` 只读已签名分页；其公开回执给出待核验数量，逐对象清单留在 PScratch。该步骤与归档零行确认分别记账。

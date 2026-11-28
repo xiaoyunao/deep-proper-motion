@@ -1,0 +1,54 @@
+{
+  "slurm_job": "62116094",
+  "prior_measured_stage_bytes": {
+    "input": 12215611392,
+    "graph": 64926621696,
+    "reference": 20166291456,
+    "sources": 56007241728,
+    "catalogue": 14857715712
+  },
+  "old_reference_rows": 318694317,
+  "old_halo_detections": 1750398729,
+  "old_measurement_file_sha": "343f10e4b3ee06b144cf2449945f61abb66bfbf49e1925ea7da5b8ae8b863f89",
+  "signed_intake_snapshot_sha": "b03c8f624827217067733df7b358534b594492b4a1000b8edbc7fae43327bce7",
+  "old_input_receipt_sha": "2b9449c28b6f21004250cdac68f2c363ee70fae985a3ca0f3530db877a6267ca",
+  "forecasts": [
+    {
+      "scenario": "low",
+      "remaining_intake_tib": 3.1285530534661357,
+      "estimated_saved_stage_bytes": {
+        "input": 29941347574,
+        "graph": 159139848560,
+        "reference": 49429039807,
+        "sources": 284689066861,
+        "catalogue": 75522898312
+      },
+      "remaining_intake_plus_all_saved_stages_tib": 3.6730877232131443
+    },
+    {
+      "scenario": "middle",
+      "remaining_intake_tib": 3.4628241865197342,
+      "estimated_saved_stage_bytes": {
+        "input": 44922463976,
+        "graph": 238765275895,
+        "reference": 74160799030,
+        "sources": 301425055659,
+        "catalogue": 79962655672
+      },
+      "remaining_intake_plus_all_saved_stages_tib": 4.135155639464225
+    },
+    {
+      "scenario": "high",
+      "remaining_intake_tib": 3.9256873739045086,
+      "estimated_saved_stage_bytes": {
+        "input": 53504828841,
+        "graph": 284380999820,
+        "reference": 88329101024,
+        "sources": 325812125602,
+        "catalogue": 86432107498
+      },
+      "remaining_intake_plus_all_saved_stages_tib": 4.688261540110432
+    }
+  ],
+  "scope": "Conditional stored bytes. For input shards/graph/reference scale old measured bytes by total halo reference rows; for sources/catalogue by total halo detections, assuming the same output per detection. Includes full old-sky replay and all saved stages, even if some are already staged or reusable. Does not bound DuckDB temporary space, acquired late pages, reference-group correlations or fuller provenance. Intake forecasts use signed CCD/Stripe strata, not area alone."
+}

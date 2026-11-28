@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 
 from . import access
-from .exposure_inputs import joined_pages
+from .exposure_inputs import confirm_unmeasured, joined_pages
 from .exposure_preflight import where_box
 from .footprint_intake_v24 import SETTINGS
 from .footprint_reference_packs_v24 import groups
@@ -28,46 +28,75 @@ def stage_auxiliary(cache,spec,halo):
     return dict(chip_rows=len(chips),gaia_validation_rows=len(gaia))
 
 
-def stage(task):
+def stage(task, *, prepare_absences_only=False):
     work, label, spec, footprint = task
     receipts = work / "batch-receipts"
     with (receipts / (label + ".lock")).open("a") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
         if (receipts / (label + ".json")).is_file():
             return None
-        # Canonical replay directories use the same original query cache. The
-        # signed science worker will independently verify every SHA and row count.
-        cache = access.Cache(work / "intake" / label / "cache")
+        cache = access.Cache(work / "intake" / label / "cache", read_only=prepare_absences_only)
         halo = SETTINGS["halo_deg"]
-        old=work/"dense-pages"/(label+".json")
-        if os.getenv("DPM_REQUIRE_DENSE_AUXILIARY")=="1":
-            if (receipts/"pause-canonical-intake").exists():
-                raise RuntimeError("Confirmed upstream interruption")
-            rows=stage_auxiliary(cache,spec,halo)
-            save_json(work/"dense-auxiliary"/(label+".json"),dict(core=label,footprint_sha256=footprint,
-                      job=os.environ["SLURM_JOB_ID"],**rows))
-            if old.is_file():
-                proof=json.loads(old.read_text())
-                if proof["core"]!=label or proof["footprint_sha256"]!=footprint:
-                    raise ValueError("Staged measurement pages belong to a different science input")
-                # Normalization rechecks every page against its immutable cache SHA.
-                return proof
-        south, north = spec["dec"]
-        columns = "id AS objectid,ra,dec,pmra,pmdec,pmraerr,pmdecerr,deltamjd ,ndet"
-        archive = access.checked_spatial(cache, "nsc", columns, "nsc_dr2.object",
-                                        where_box(spec, halo), south-halo-1e-7, north+halo+1e-7)
-        if archive.objectid.duplicated().any():
-            raise ValueError("Duplicate physical archive IDs")
-        rows = pages = 0
-        for page in joined_pages(cache,archive,spec,halo,"nsc",1,SETTINGS["native_row_cap"],True,True):
-            rows += len(page)
-            pages += 1
-        result = dict(core=label, footprint_sha256=footprint, delivered_measurements=rows,
-                      archive_objects=len(archive), checked_pages=pages,
-                      expected_from_archive=int(archive.ndet.sum()), job=os.environ["SLURM_JOB_ID"])
-        save_json(work / "dense-pages" / (label + ".json"), result)
-        return result
+        pages_path = work / "dense-pages" / (label + ".json")
+        missing_path = work / "dense-absence" / (label + ".json")
+        aux_path = work / "dense-auxiliary" / (label + ".json")
+        previous = json.loads(pages_path.read_text()) if pages_path.is_file() else None
+        if previous and (previous["core"] != label or previous["footprint_sha256"] != footprint):
+            raise ValueError("Staged measurement pages belong to another footprint")
+        if prepare_absences_only and not previous:
+            raise ValueError("A complete staged measurement receipt is required for offline auditing")
+        if not prepare_absences_only and (receipts / "pause-canonical-intake").exists():
+            raise RuntimeError("Confirmed upstream interruption")
+        need_aux = os.getenv("DPM_REQUIRE_DENSE_AUXILIARY") == "1"
+        absent = json.loads(missing_path.read_text()) if missing_path.exists() else None
+        if absent and (not previous or absent["core"] != label or absent["footprint_sha256"] != footprint
+                       or absent["page_receipt_sha256"] != digest(pages_path)):
+            raise ValueError("Unmeasured archive population belongs to another page receipt")
+        if previous and absent:
+            if prepare_absences_only or not need_aux:
+                return previous
+            if aux_path.is_file():
+                aux = json.loads(aux_path.read_text())
+                if (aux["core"] == label and aux["footprint_sha256"] == footprint
+                        and aux.get("absence_receipt_sha256") == digest(missing_path)):
+                    return previous
 
+        if not absent:
+            south, north = spec["dec"]
+            columns = "id AS objectid,ra,dec,pmra,pmdec,pmraerr,pmdecerr,deltamjd ,ndet"
+            archive = access.checked_spatial(cache, "nsc", columns, "nsc_dr2.object",
+                                            where_box(spec, halo), south-halo-1e-7, north+halo+1e-7)
+            if archive.objectid.isna().any() or archive.objectid.duplicated().any():
+                raise ValueError("Invalid physical archive IDs")
+            missing = set(archive.objectid.astype(str))
+            rows = pages = 0
+            # Older complete staging uses ordinary signed scalar counts; no new grouped
+            # archive request is necessary to inventory those already accepted bytes.
+            grouped = not previous or previous.get("group_count_verified", False)
+            for page in joined_pages(cache, archive, spec, halo, "nsc", 1, SETTINGS["native_row_cap"],
+                                     True, True, allow_grouped=grouped):
+                missing.difference_update(page.objectid.unique().astype(str))
+                rows += len(page)
+                pages += 1
+            facts = dict(core=label, footprint_sha256=footprint, delivered_measurements=rows,
+                         archive_objects=len(archive), checked_pages=pages, expected_from_archive=int(archive.ndet.sum()))
+            if previous:
+                if any(previous.get(k) != v for k,v in facts.items()):
+                    raise ValueError("The staged archive population changed on replay")
+            else:
+                previous = dict(**facts, job=os.environ["SLURM_JOB_ID"],
+                                group_count_verified=hasattr(cache, "grouped_verified_rows"))
+                save_json(pages_path, previous)
+            absent = dict(core=label, footprint_sha256=footprint, page_receipt_sha256=digest(pages_path),
+                          missing=sorted(missing))
+            save_json(missing_path, absent)
+        if need_aux and not prepare_absences_only:
+            metadata = stage_auxiliary(cache, spec, halo)
+            confirm_unmeasured(cache, "nsc", absent["missing"])
+            save_json(aux_path, dict(core=label, footprint_sha256=footprint, job=os.environ["SLURM_JOB_ID"],
+                                     absence_receipt_sha256=digest(missing_path),
+                                     unmeasured_archive_objects=len(absent["missing"]), **metadata))
+        return previous
 
 def priority_names(path, expected_sha, footprint, ordered):
     if digest(path) != expected_sha:

@@ -1,6 +1,7 @@
 """Finish a dense tail against its real page counts and release its original held batch."""
 import argparse
 import fcntl
+import hashlib
 import math
 from pathlib import Path
 import runpy
@@ -56,6 +57,11 @@ def advance(a):
                 if not aux.is_file():
                     continue
                 checked=read(aux)
+                absent = w/"dense-absence"/(n+".json")
+                if not absent.is_file() or not checked.get("absence_receipt_sha256"):
+                    continue
+                if hashlib.sha256(absent.read_bytes()).hexdigest() != checked["absence_receipt_sha256"]:
+                    raise ValueError("Changed unmeasured archive population after direct verification")
                 if checked["core"]!=n or checked["footprint_sha256"]!=read(proof)["footprint_sha256"]:
                     raise ValueError("Dense metadata receipts do not match measured pages")
             staged=read(proof)

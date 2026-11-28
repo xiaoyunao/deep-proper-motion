@@ -140,12 +140,12 @@ def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=300
     return result
 
 
-def acquire(work, spec, settings, catalogues, sas, workers):
+def acquire(work, spec, settings, catalogues, sas, workers, *, gaia_veto_file=None):
     start=monotonic()
     halo=settings["halo_deg"]
     center=tuple(np.mean(spec[k]) for k in ("ra","dec"))
     radius=float(np.hypot(np.ptp(spec["ra"])/2,np.ptp(spec["dec"])/2))
-    cache=access.Cache(work/"cache")
+    cache=access.Cache(work/"cache", read_only=gaia_veto_file is not None)
     stage = os.getenv("DPM_SDSS_STAGE")
     signed = None
     if stage:
@@ -207,7 +207,12 @@ def acquire(work, spec, settings, catalogues, sas, workers):
         raise ValueError("Conflicting NSC chip metadata for one physical detector")
     chips.to_csv(work/"chips.csv",index=False)
     gaia_columns=GAIA_COLUMNS+(",visibility_periods_used" if use_tap or native_join else "")
-    gaia=access.checked_spatial(cache,route,gaia_columns,"gaia_dr3.gaia_source",base,lo,hi)
+    if gaia_veto_file is None:
+        gaia=access.checked_spatial(cache,route,gaia_columns,"gaia_dr3.gaia_source",base,lo,hi)
+    else:
+        gaia=pd.read_csv(gaia_veto_file,dtype={"source_id":"int64"})
+        if list(gaia) != gaia_columns.split(",") or gaia.source_id.duplicated().any():
+            raise ValueError("Invalid published Gaia DR3 auxiliary table")
     (work/"validation").mkdir(exist_ok=True)
     gaia.to_csv(work/"validation/gaia.csv",index=False)
     for stem in ("spectra_union","spectra_veto"):
@@ -232,6 +237,8 @@ def acquire(work, spec, settings, catalogues, sas, workers):
                                             verified_new_queries=cache.transport_writes)
     if hasattr(cache, "grouped_verified_rows"):
         delivery["archive_transport"]["object_count_verified_measurements"] = cache.grouped_verified_rows
+    if gaia_veto_file is not None:
+        delivery["gaia_auxiliary"] = "Original DR3 CSV; independent galaxy position veto replay. External precision controls remain on their frozen samples."
     save_json(work/"acquisition_summary.json",dict(objects=object_count,archive_objects_without_measures=missing_count,
         measurement_route=method,native_count_window=native_window,
         downloaded_nsc_measures=downloaded_count,chip_metadata_entries=chip_count,

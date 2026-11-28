@@ -32,12 +32,14 @@ def select_pilots(cells):
     return [min(group,key=lambda name:sha256(("v24-intake:"+name).encode()).digest()) for group in populations if group]
 
 
-def one(task, revision=None):
+def one(task, revision=None, *, gaia_veto=None):
     label,spec,base,catalogues,sas,manifest_sha=task
     root=base/"v2.4"
     original=root/"intake"/label
     transport=os.environ.get("DPM_NSC_TRANSPORT","native")
     grouped_counts = os.getenv("DPM_NSC_COUNTS") == "grouped-v24"
+    if gaia_veto is not None and not revision:
+        raise ValueError("Alternate Gaia delivery requires a separate signed input revision")
     prior=original/"run_manifest.json"
     if revision is None and prior.is_file():
         previous=json.loads(prior.read_text())
@@ -57,13 +59,14 @@ def one(task, revision=None):
           '\n'.join(f'{k} = {str(v).lower()}' for k,v in SETTINGS.items())+
           (f'\narchive_transport = "{transport}"' if transport!="native" else "")+
           ('\narchive_counts = "grouped-v24"' if grouped_counts else "")+
+          (gaia_veto["config"] if gaia_veto is not None else "")+
           f'\n[fields.{label}]\nra = {spec["ra"]}\ndec = {spec["dec"]}\n')
     if config.exists() and config.read_text()!=text:raise ValueError("Changed acquisition configuration")
     config.write_text(text)
     t=monotonic()
     with run_stage(dest,config,label,"v24-all-measurements",outputs=OUTPUTS) as go:
         if go:
-            acquire(dest,spec,SETTINGS,catalogues,sas,1)
+            acquire(dest,spec,SETTINGS,catalogues,sas,1,gaia_veto_file=gaia_veto["file"] if gaia_veto is not None else None)
             if not all((dest/name).is_file() for name in OUTPUTS):raise ValueError("Missing acquisition output")
     ref=extract_one((dict(core=label,source=str(dest),source_receipt_sha256=digest(dest/"run_manifest.json"),
                           center=[sum(spec[k])/2 for k in ("ra","dec")]),work/"input"))

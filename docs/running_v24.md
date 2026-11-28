@@ -148,3 +148,5 @@ python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witne
 
 
 完整 Gaia 验证表和生产星系的位置排除有各自的验收记录。原始 DR3 和 Data Lab 的误差列存在约 10⁻⁷ 量级数值差。位置用途单独在相同四先导和预登记的第五核心上验证 ID、缺测、位置和历元，运行 `footprint_gaia_mirror_v24 ... --reference-control CORE` 后使用 `python scripts/check-v24-gaia-veto.py WORK CORE PREREGISTRATION`；校验该核心使用相同规范检测时，完整参考分片是否逐字节一致。此项结果只涉及星系位置排除。
+
+完成逐位相同的独立参考分片重放后，可对已有 NSC 查询缓存、仅缺 Gaia 辅助字段的指定核心运行 `footprint_gaia_cached_v24 BASE CATALOGUES SAS CORE ...`。对应原取数代码版本是 `7a68bc0`，保留已核验的 SDSS 读取实现，需指定签名 SDSS 暂存目录。读取原始 DR3 子集前检查足迹、逐核心输入签名、五处位置对照及独立参考文件 SHA256。NSC 读取仅允许命中原查询缓存。已有回执跳过，新输入保存在独立修订目录，科研配置中记录实际 Gaia 表和独立检验签名。

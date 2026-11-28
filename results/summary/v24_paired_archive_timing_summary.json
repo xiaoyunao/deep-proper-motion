@@ -1,0 +1,11 @@
+{
+  "slurm_job": "62112673",
+  "window_seconds": 3600,
+  "complete_page_pairs": 2453,
+  "payload_rows": 112198590,
+  "median_s_prior_data_to_next_count": 16.0,
+  "median_s_count_to_data": 18.0,
+  "total_s_prior_data_to_count": 49354.0,
+  "total_s_count_to_data": 53735.0,
+  "scope": "Adjacent TAP page events in per-core caches for joins returning at least 1000 rows; durations include local processing and filesystem operations."
+}

@@ -137,3 +137,5 @@ python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witne
 在独立 SDSS 输入审计后，使用 `footprint_empty_early_v24 WORK SAS EARLY_COVERAGE_JSON --workers N` 回查原始扩展、实际矩形及 RUN_PRIMARY。复核官方 SAS 副本时，固定时基机会大于零且候选源表均为空的核心，取其所有候选 field 键 `(run,rerun,camcol,field)` 的并集。按 `sha256(("empty-field-v24:"+str(key)).encode()).digest()` 排序，每个 run 保留第一项，再按同一顺序选前八个。远端与镜像均使用 `sdss_sas.photoobj_path` 的相同相对路径，逐份比较 FITS 字节 SHA256 及源表行数；私有选样清单和逐项结果在 PScratch。
 
 普通取数调度可用 `--runnable-slots` 按可运行的批次控制并发。仅显式用户暂挂的密集核心验收作业退出并发计数，其预算和对应输入范围继续保留。排队等待优先级和依赖的作业仍占并发名额。
+
+在 `counted-tap` 下可用 `DPM_NSC_COUNTS=grouped-v24` 对至少 12 个原始测量分区的单进程全波段取数合并计数。按实际对象数和 ndet 切分赤纬条，每条分别请求测量总数和按对象分组的测量数。原数据页仍使用冻结的半开矩形与原查询列。对每个出现的对象检查实际频数，跨页检查重复与整组缺失。空归档对象允许保留。原始查询、响应 SHA 和最终核验关系保存于私有目录。小分区沿用原计数。归档计数比较见[已签名页核验](../results/summary/v24_sliced_group_count_test_summary.json)和[分页耗时](../results/summary/v24_paired_archive_timing_summary.json)。

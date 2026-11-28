@@ -1,0 +1,39 @@
+{
+  "slurm_job": "62112673",
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "cases": [
+    {
+      "signed_pages": 77,
+      "signed_measurements": 2980096,
+      "archive_objects": 161558,
+      "http": 200,
+      "group_queries": 4,
+      "group_query_s": 64.35,
+      "measured_objects": 161557,
+      "group_sum": 2980096,
+      "compared_signed_pages": 77,
+      "compared_measured_rows": 2980096,
+      "object_count_disagreements": 0,
+      "objects_on_multiple_pages": 0,
+      "absent_measured_objects": 0,
+      "all_equal": true
+    },
+    {
+      "signed_pages": 69,
+      "signed_measurements": 3184502,
+      "archive_objects": 231749,
+      "http": 200,
+      "group_queries": 6,
+      "group_query_s": 124.4,
+      "measured_objects": 231749,
+      "group_sum": 3184502,
+      "compared_signed_pages": 69,
+      "compared_measured_rows": 3184502,
+      "object_count_disagreements": 0,
+      "objects_on_multiple_pages": 0,
+      "absent_measured_objects": 0,
+      "all_equal": true
+    }
+  ],
+  "scope": "New grouped counts compared with SHA-verified historical NSC measurement pages. No production cache was modified."
+}

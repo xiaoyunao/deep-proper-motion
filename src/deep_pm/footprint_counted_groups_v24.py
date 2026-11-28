@@ -5,6 +5,7 @@ import json
 import numpy as np
 import pandas as pd
 
+from .nsc_measurement_identity import measurement_ids
 from . import access
 from .io import save_json
 
@@ -38,7 +39,7 @@ class GroupCounts:
         self.measurements = 0
 
     def check(self, page):
-        if page.objectid.isna().any() or page.measid.isna().any() or page.measid.duplicated().any():
+        if page.objectid.isna().any() or page.measid.isna().any() or measurement_ids(page).duplicated().any():
             raise ValueError("Missing or repeated physical measurement identity")
         histogram = page.objectid.value_counts()
         index = self.counts.index.get_indexer(histogram.index)

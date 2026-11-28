@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 
+from .nsc_measurement_identity import measurement_ids
 from .astrometry import sdss_tai_to_tt, utc_to_tt
 
 
@@ -25,7 +26,10 @@ def base(survey, release, ids, exposure, detector, ra, dec, mjd, east, north,
 def nsc(table):
     t = table
     mjd = t.mjd.where(t.mjd.between(50000, 62000))
-    out = base("NSC", "DR2", "NSC:" + t.measid.astype(str), "NSC:" + t.exposure.astype(str),
+    ids = measurement_ids(t)
+    if ids.duplicated().any():
+        raise ValueError("Repeated NSC physical measurement at normalization")
+    out = base("NSC", "DR2", "NSC:" + ids.astype(str), "NSC:" + t.exposure.astype(str),
                t.ccdnum, t.ra, t.dec, utc_to_tt(mjd.fillna(55000)).astype(float),
                t.raerr * 1000, t.decerr * 1000, t["filter"], t.mag_auto, t.magerr_auto,
                t.class_star, t["flags"], t.objectid, "nsc_dr2.meas")
@@ -33,7 +37,7 @@ def nsc(table):
     for column in ("fwhm", "x", "y", "airmass", "instrument", "color"):
         if column in t:
             out[column] = t[column]
-    return out.drop_duplicates("detection_id")
+    return out
 
 
 def sdss(table):

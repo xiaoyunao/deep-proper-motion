@@ -14,6 +14,7 @@ from astropy.io import fits
 from matplotlib.path import Path as Polygon
 
 from .astrometry import project
+from .nsc_measurement_identity import measurement_ids
 
 TAP = "https://datalab.noirlab.edu/tap/sync"
 DATALAB = "https://datalab.noirlab.edu/query/query"
@@ -213,7 +214,7 @@ def fetch_measurements_for_objects(cache, ids, progress=print, batch_size=150):
         fetch_partition(group)
         progress(f"NSC objects {start + len(group)}/{len(ids)}")
     result = pd.concat(parts, ignore_index=True) if parts else pd.DataFrame(columns=MEAS.split(","))
-    if result.measid.duplicated().any():
+    if measurement_ids(result).duplicated().any():
         raise RuntimeError("Duplicate measurement IDs in object-index chunks")
     return result
 
@@ -246,7 +247,7 @@ def fetch_exposure_index(cache, chips, ra, dec, radius, progress=print):
         if i % 10 == 0:
             progress(f"NSC exposure {i + 1}/{chips.exposure.nunique()}")
     frame = pd.concat(parts, ignore_index=True) if parts else pd.DataFrame(columns=MEAS.split(","))
-    if frame.measid.duplicated().any():
+    if measurement_ids(frame).duplicated().any():
         raise RuntimeError("Duplicate measurement IDs in exposure chunks")
     return frame
 

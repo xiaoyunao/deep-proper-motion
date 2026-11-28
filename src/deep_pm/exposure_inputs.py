@@ -54,8 +54,11 @@ def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap
         split(low,hi_l,data.loc[west],True)
         split(lo_r,high,data.loc[~west],True)
 
+    grouped = None
     def read_page(where):
         try:
+            if grouped is not None:
+                return group_pages.measurement_page(cache, select, table, where, answer_cap)
             if service == "nsc" and native_window:
                 return cache.checked_native_window(select,table,where,cap=answer_cap)
             return cache.checked(service,select,table,where,cap=answer_cap)
@@ -72,15 +75,19 @@ def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap
             print(f"Verified TAP page via object index: {len(ids)} objects, {len(result)} measurements", flush=True)
             return result
 
-    def receive(bounds):
+    def predicate(bounds):
         low,high=bounds
         where=tap_rectangle(dict(ra=[low[0],high[0]],dec=[low[1],high[1]]),alias="o.")+quality
         if service == "nsc":
             mid = (low+high)/2
             radius = np.linalg.norm(high-low)/2+.003
             where = (f"q3c_radial_query(o.ra,o.dec,{mid[0]%360:.10f},{np.clip(mid[1],-90,90):.10f},{radius:.10f}) AND "+where)
+        return where
+
+    def receive(bounds):
+        low,high=bounds
         try:
-            return read_page(where)
+            return read_page(predicate(bounds))
         except access.PartitionTooLarge:
             axis=int(np.argmax(high-low))
             cut=round((low[axis]+high[axis])/2,9)
@@ -91,12 +98,25 @@ def joined_pages(cache, archive, box, halo, service="tap", workers=3, native_cap
     partition_data=archive[["ra","dec","ndet"]].copy()
     partition_data["ra"]=(partition_data.ra-lo+1.e-10)%360+lo-1.e-10
     split(np.array([lo,south]),np.array([hi,north]),partition_data,True)
+    if (os.getenv("DPM_NSC_COUNTS") == "grouped-v24" and service == "nsc" and native_window
+            and all_objects and workers == 1 and cache.native_transport == "counted-tap" and len(partitions) >= 12):
+        from . import footprint_counted_groups_v24 as group_pages
+        try:
+            grouped, count_evidence = group_pages.independent_counts(
+                cache, archive, table, predicate((np.array([lo, south]), np.array([hi, north]))), south, north)
+        except access.SlowTapJoin:
+            print("Grouped measurement count timed out; using independent per-page counts", flush=True)
     print(f"{service} expected measurement partitions: {len(partitions)}",flush=True)
     if workers == 1:
         for i,bounds in enumerate(partitions,1):
             part=receive(bounds)
+            if grouped is not None:
+                grouped.check(part)
             print(f"{service} verified measurements partition {i}/{len(partitions)}: {len(part):,}",flush=True)
             yield part
+        if grouped is not None:
+            group_pages.save_evidence(cache, grouped, count_evidence)
+            cache.grouped_verified_rows = grouped.measurements
         return
     with ThreadPoolExecutor(max_workers=workers) as pool:
         for i,part in enumerate(pool.map(receive,partitions),1):
@@ -205,6 +225,8 @@ def acquire(work, spec, settings, catalogues, sas, workers):
     if os.environ.get("DPM_NSC_TRANSPORT")=="counted-tap":
         delivery["archive_transport"]=dict(preference="counted-tap",verified_cache_reads=cache.transport_reads,
                                             verified_new_queries=cache.transport_writes)
+    if hasattr(cache, "grouped_verified_rows"):
+        delivery["archive_transport"]["object_count_verified_measurements"] = cache.grouped_verified_rows
     save_json(work/"acquisition_summary.json",dict(objects=object_count,archive_objects_without_measures=missing_count,
         measurement_route=method,native_count_window=native_window,
         downloaded_nsc_measures=downloaded_count,chip_metadata_entries=chip_count,

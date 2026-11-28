@@ -1,0 +1,30 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "job": "62121872",
+  "release": "7a68bc07a359246156b712d1a1fa31e3e66c44c5",
+  "results": [
+    {
+      "status": "signed",
+      "rows": 18844,
+      "reference_measurements": 1890,
+      "groups": 23,
+      "time_area_sqdeg": 0.1305245355366921
+    },
+    {
+      "status": "signed",
+      "rows": 789777,
+      "reference_measurements": 110450,
+      "groups": 59,
+      "time_area_sqdeg": 0.9996446369807443
+    },
+    {
+      "status": "signed",
+      "rows": 90038,
+      "reference_measurements": 10019,
+      "groups": 32,
+      "time_area_sqdeg": 0.5519299799378835
+    }
+  ],
+  "external_measurement_requests": 0,
+  "scope": "Published original Gaia DR3 positions used only for the reference veto."
+}

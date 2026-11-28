@@ -1,0 +1,12 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "slurm_job": "62121813",
+  "selection_sha256": "82a4b960afb77b8f9508fbdab83db8fdfb5e689eb9e771d0339c1a025ab8ad64",
+  "controls_sha256": "fa9f5fb8cb40e4ab7c265e7d494ff85a2fccacb5af930fe603b70d434366df43",
+  "fixed_detection_rows": 357041,
+  "reference_rows": 69432,
+  "reference_file_byte_equal": true,
+  "original_sha256": "a2a66483c1097350e78785944f2c094bf2019dfa632e0a37e3df98f53218e015",
+  "replayed_sha256": "a2a66483c1097350e78785944f2c094bf2019dfa632e0a37e3df98f53218e015",
+  "interpretation": "Same normalized detections and original frozen reference implementation. Scope is the galaxy position veto only."
+}

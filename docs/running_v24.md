@@ -142,3 +142,6 @@ python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witne
 
 
 密集核心的测量分页全部返回后，预取还须完成 chip、Gaia 和归档对象缺行核验。后者对页面中未出现的 object ID 每 250 个直接查询 meas，保留实际计数和载荷。使用 `--require-auxiliary` 的大内存调度检查这份清单的签名。归档中断时可在 Slurm 用 `python scripts/audit-v24-cached-absences.py WORK CORE OUTPUT` 只读已签名分页；其公开回执给出待核验数量，逐对象清单留在 PScratch。该步骤与归档零行确认分别记账。
+
+
+辅助 Gaia 数据可在 Slurm 运行 `footprint_gaia_mirror_v24 WORK DR3_ROOT --workers N --pending CORE ...` 核查。使用按实际 J2016.0 位置分区的完整 DR3 HEALPix FITS 找出区域内的 source_id，按整数 source_id 的高位定位 ESA 原始 CSV，并核对同一星的坐标和每个验证字段。已签名的四个先导是固定对照。转换 FITS 需特别留意缺测表示；原始 CSV 回读保留空值和合法零值。保存的候选辅助表属于私有验证缓存。只有四个先导通过且共同星系提取在同源上复现后，才可用于缺少归档辅助表的核心。[Gaia 发布与 source_id 规则](https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html)

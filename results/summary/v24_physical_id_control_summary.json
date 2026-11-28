@@ -1,0 +1,54 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "acquisition_diagnostic_sha256": "27e880c49b0c7c5202523bc85e5d14ca2c40fe5c30f00c0c5a27186d04165a3b",
+  "job": "62122894",
+  "step": "8",
+  "unique_problem_ids": 2052,
+  "individual_measurements": 4135,
+  "distinct_exposures": 3,
+  "rows_per_id": {
+    "2": 2021,
+    "3": 31
+  },
+  "instruments": {
+    "k4m": 3
+  },
+  "ccd_count": 4,
+  "maximum_exposure_time_disagreement_days": 0.0,
+  "distinct_exposure_detector_measid": true,
+  "days_between_min_median_max": [
+    0.001655092455621343,
+    0.001655092455621343,
+    0.014849537044938188
+  ],
+  "separation_arcsec_min_median_max": [
+    1148.1094845406626,
+    2184.6690094290175,
+    6614.713882644699
+  ],
+  "id_format_counts": {
+    "ANA.N.N.N": 2052
+  },
+  "selected_ids": 24,
+  "expected_rows": 49,
+  "direct_rows": 49,
+  "native_fields_equal": {
+    "measid": true,
+    "objectid": true,
+    "exposure": true,
+    "ccdnum": true,
+    "mjd": true,
+    "ra": true,
+    "dec": true,
+    "raerr": true,
+    "decerr": true,
+    "filter": true,
+    "mag_auto": true,
+    "magerr_auto": true,
+    "class_star": true,
+    "flags": true,
+    "fwhm": true,
+    "x": true,
+    "y": true
+  }
+}

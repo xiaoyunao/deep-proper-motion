@@ -1,0 +1,63 @@
+{
+  "slurm_job": "62122894",
+  "step": "3",
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "unique_problem_ids": 1037,
+  "cores": [
+    {
+      "measurement_pages": 1,
+      "raw_rows": 35485,
+      "duplicate_rows": 118,
+      "duplicate_ids": 59,
+      "extra_copies": 59,
+      "duplicate_nulls": 0,
+      "classes": {
+        "different_exposure_detector_or_time": 59
+      },
+      "differing_column_counts": {
+        "objectid": 59,
+        "exposure": 59,
+        "mjd": 59,
+        "ra": 59,
+        "dec": 59,
+        "raerr": 59,
+        "decerr": 59,
+        "mag_auto": 59,
+        "magerr_auto": 59,
+        "class_star": 59,
+        "flags": 13,
+        "fwhm": 59,
+        "x": 59,
+        "y": 59
+      }
+    },
+    {
+      "measurement_pages": 1,
+      "raw_rows": 38052,
+      "duplicate_rows": 1974,
+      "duplicate_ids": 987,
+      "extra_copies": 987,
+      "duplicate_nulls": 0,
+      "classes": {
+        "different_exposure_detector_or_time": 987
+      },
+      "differing_column_counts": {
+        "objectid": 987,
+        "exposure": 987,
+        "mjd": 987,
+        "ra": 987,
+        "dec": 987,
+        "raerr": 987,
+        "decerr": 987,
+        "mag_auto": 987,
+        "magerr_auto": 987,
+        "class_star": 987,
+        "fwhm": 987,
+        "x": 987,
+        "y": 987,
+        "flags": 370
+      }
+    }
+  ],
+  "private_members_sha256": "d4a6c043dbeca8a52c7f000612d56ffa734711c55ebd6658d3da682fada77ef1"
+}

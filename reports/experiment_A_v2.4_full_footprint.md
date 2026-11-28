@@ -1,5 +1,11 @@
 # 完整共同足迹与 Stripe 82 恒星验证
 
+Slurm 62122894 核验了 **3,921 / 15,235** 个新区输入核心。它们覆盖 **2,547.342 deg²** 的几何时基机会，累计读入含缓冲区的 2,313,329,226 条规范检测和 272,337,522 条参考测量。3,672 个核心有本地参考行，实际共同参考支持和唯一源数须等待全域参考图。按已有同类核心的耗时外推，剩余取数的中间估计为 950 个工作进程小时，假设每进程计费 2.2 线程，折合 8.17 个节点小时。该估计不含共同参考、源拟合和验证。[输入与资源分母](../results/summary/v24_intake_after_third_recovery_summary.json) · [参考分包](../results/summary/v24_reference_packs_after_third_recovery_summary.json)
+
+共享作业的余量另处理了 16 个已登记核心。其中 14 个取得签名输入，两个相邻核心各自在单个完整归档页内出现 59 和 987 个重复的 NSC 测量编号。每一对记录的发布曝光、MJD 和像面位置均有区别。两核心内部合计涉及 1,037 个不同编号。相关输入已隔离，处理时须同时核查在两核心间才出现的冲突，避免将不同曝光合并成一次检测。[附加计算](../results/summary/v24_shared_packet_62122893_1_summary.json) · [原始字段核验](../results/summary/v24_archive_duplicate_diagnostic_summary.json)
+
+对上述两个核心的归档页先去掉重复读入的相同行，再合并核对，2,052 个发布编号实际对应 4,135 次不同的检测，来自 3 次仪器代码为 k4m 的曝光。2,021 个编号对应两次，31 个对应三次。检测之间相隔 143–1,283 秒，天空位置至少相距 1,148 角秒。用预先固定的哈希抽取 24 个编号，经独立对象索引取回的 49 行与原数据的 17 个发布字段逐值一致。全库 412,116 次曝光逐一与原始天区清单对照，仅一组仪器和曝光编号被复用，涉及 81 次曝光。原始测量编号由仪器、曝光编号、CCD 和源序号拼成；对这一组引入实际曝光名称，须在所有受影响的缓冲区统一核验。[独立字段核对](../results/summary/v24_physical_id_control_summary.json) · [全库曝光清单](../results/summary/v24_exposure_number_support_summary.json) · [NSC 公开实现](https://github.com/astro-datalab/nsc/blob/7c0756eea30b7a3afcab0e204310ee39e1c5dabc/pro/nsc_instcal_calibrate_v2.pro#L263)
+
 截至 Slurm 62123171，**3,768 / 15,235** 个新区核心已取得输入和参考提取回执，剩余 **11,467** 个。已核验输入覆盖 **2,436.407 deg²** 的几何时基机会，含缓冲区共 2,261,599,267 条规范检测、265,221,391 条参考测量。在归档中断时，四个核心直接复用了已签名的 NSC 数据。其中三个核心补用了 NERSC 的 Gaia DR3 位置，仅用于从参考星系样本中排除位置重合源。五处对照共 43,043 个 Gaia 身份完全一致；独立预选核心的 357,041 条固定检测产生了与原结果逐字节相同的 69,432 行参考测量。Gaia 辅助物理量的完整表数值一致性检验仍未通过。全域盲目录的源数、精度和最终面积待共同参考图与源归属核验后测量。[首个缓存核心](../results/summary/v24_additional_offline_science_summary.json) · [五处位置核对](../results/summary/v24_gaia_veto_controls_summary.json) · [独立参考重放](../results/summary/v24_independent_gaia_veto_summary.json) · [三个核心回执](../results/summary/v24_gaia_cached_62121872_summary.json)
 
 归档恢复时，预先指定的核心复用 10 页并新取 20 页、780,938 条测量。30 页总计 1,156,193 条 NSC 测量，与独立计数相符；合并 SDSS 后得到 1,203,072 条规范检测。另两个中断核心直接补齐了真实 CCD 元数据和辅助表，共新增 186,816 条规范检测、25,154 条参考测量。所有计数均保留缓冲区重复读入。[归档恢复回执](../results/summary/v24_third_archive_science_recovery_summary.json) · [两个中断核心](../results/summary/v24_resumed_auxiliary_62123171_summary.json)

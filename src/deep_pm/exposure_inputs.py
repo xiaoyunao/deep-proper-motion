@@ -9,6 +9,7 @@ from time import monotonic
 import numpy as np
 import pandas as pd
 
+from .nsc_measurement_identity import measurement_ids
 from . import access
 from .__main__ import standardize, tomllib
 from .exposure_catalogues import inside
@@ -135,7 +136,7 @@ def confirm_unmeasured(cache, route, missing):
 def tap_join(cache, archive, box, halo, service="tap", workers=3, native_cap=30000, native_window=False, all_objects=False, complement_r=False):
     parts=joined_pages(cache,archive,box,halo,service,workers,native_cap,native_window,all_objects,complement_r)
     result=pd.concat(parts,ignore_index=True)
-    if result.measid.duplicated().any():
+    if measurement_ids(result).duplicated().any():
         raise RuntimeError("Duplicate measurement IDs in disjoint archive bins")
     return result
 

@@ -59,6 +59,8 @@ def one(task, revision=None, *, gaia_veto=None):
           '\n'.join(f'{k} = {str(v).lower()}' for k,v in SETTINGS.items())+
           (f'\narchive_transport = "{transport}"' if transport!="native" else "")+
           ('\narchive_counts = "grouped-v24"' if grouped_counts else "")+
+          ('\nnsc_measurement_identity_sha256 = "' + os.environ["DPM_NSC_IDENTITY_SHA256"] + '"'
+           if os.getenv("DPM_NSC_IDENTITY_RULE") else "")+
           (gaia_veto["config"] if gaia_veto is not None else "")+
           f'\n[fields.{label}]\nra = {spec["ra"]}\ndec = {spec["dec"]}\n')
     if config.exists() and config.read_text()!=text:raise ValueError("Changed acquisition configuration")

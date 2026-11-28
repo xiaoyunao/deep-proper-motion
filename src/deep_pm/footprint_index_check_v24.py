@@ -8,6 +8,7 @@ from pathlib import Path
 import pandas as pd
 
 from .access import Cache, MEAS, fetch_measurements_for_objects
+from .nsc_measurement_identity import measurement_ids
 from .io import digest, save_json
 
 
@@ -23,12 +24,12 @@ def compare(work, core, output):
         if digest(raw) != page["sha256"]:
             raise ValueError("Changed reference page")
         reference = pd.read_csv(raw, usecols=columns)
-        if len(reference) != page["rows"] or reference.measid.duplicated().any():
+        if len(reference) != page["rows"] or measurement_ids(reference).duplicated().any():
             raise ValueError("Invalid complete reference page")
         population = reference.objectid.astype(str).unique()
         ids = pd.Series(sorted(population, key=lambda x: sha256(x.encode()).digest())[:32])
-        expected = reference.loc[reference.objectid.astype(str).isin(ids), columns].sort_values("measid")
-        actual = fetch_measurements_for_objects(cache, ids, batch_size=120)[columns].sort_values("measid")
+        expected = reference.loc[reference.objectid.astype(str).isin(ids), columns].sort_values(["measid", "exposure", "ccdnum"])
+        actual = fetch_measurements_for_objects(cache, ids, batch_size=120)[columns].sort_values(["measid", "exposure", "ccdnum"])
         pd.testing.assert_frame_equal(expected.reset_index(drop=True), actual.reset_index(drop=True),
                                       check_dtype=False, check_exact=True)
         save_json(output, dict(slurm_job=os.environ["SLURM_JOB_ID"], page_sha256=page["sha256"],

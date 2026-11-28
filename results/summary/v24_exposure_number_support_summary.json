@@ -1,0 +1,14 @@
+{
+  "input_sha256": "bdd3716ce259c79934f09fa280d5cf654d099d770333852e77c982ef43d31301",
+  "slurm_job": "62125429",
+  "step": "2",
+  "total": 412116,
+  "missing_expnum": 0,
+  "ambiguous_exposures": 81,
+  "ambiguous_namespaces": 1,
+  "exposures_per_instrument": {
+    "k4m": 81
+  },
+  "maximum_exposures_per_namespace": 81,
+  "private_table_sha256": "1097f8158ba86799f1a13c6ba3dbe405205ee04d4dd5c28d958bb6a4542869be"
+}

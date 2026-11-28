@@ -1,0 +1,14 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "slurm_job": "62122893",
+  "step": "1",
+  "selection_sha256": "e0f2690810c626717a8d18bb0b2f97cc84cf4b063969359bc40438842979d3b3",
+  "workers": 2,
+  "assigned": 16,
+  "signed": 14,
+  "normalized_with_halo": 1295997,
+  "reference_with_halo": 185322,
+  "time_area_sqdeg": 7.617447345666886,
+  "elapsed_s": 965.6418021359714,
+  "extra_allocations": 0
+}

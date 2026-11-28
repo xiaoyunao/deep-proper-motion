@@ -1,0 +1,14 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "rule_sha256": "9bdd44c73afdc65b0a370fbac54718e23ee65bb7cf39817871ae28494e011069",
+  "scope_sha256": "97ce2458b4750a5ab98f69dfe71bb6eab6e6cba08369b5f5a8ac03b6228a3aba",
+  "cores": 94,
+  "cores_with_affected_rows": 94,
+  "previous_sources_replayed": 7,
+  "raw_nsc_with_halo": 4076569,
+  "qualified_with_halo": 364556,
+  "normalized_with_halo": 5102626,
+  "reference_with_halo": 421298,
+  "slurm_job": "62135680",
+  "input_commit": "a57eabd40ef65c9eae4541b53e7bc092196efed7"
+}

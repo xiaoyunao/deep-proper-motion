@@ -1,0 +1,343 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "slurm_job": "62121542",
+  "controls": [
+    {
+      "archive_rows": 11052,
+      "mirror_rows": 11052,
+      "common_ids": 11052,
+      "columns": {
+        "ra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "dec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 4.440892098500626e-16,
+          "agrees": true
+        },
+        "ref_epoch": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "pmra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmdec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmra_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "pmdec_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "parallax": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 8.881784197001252e-16,
+          "agrees": true
+        },
+        "ruwe": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "phot_g_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "phot_rp_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "parallax_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "radial_velocity": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "astrometric_params_solved": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "visibility_periods_used": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        }
+      },
+      "passes": false
+    },
+    {
+      "archive_rows": 18740,
+      "mirror_rows": 18740,
+      "common_ids": 18740,
+      "columns": {
+        "ra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.684341886080802e-14,
+          "agrees": true
+        },
+        "dec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 8.881784197001252e-16,
+          "agrees": true
+        },
+        "ref_epoch": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "pmra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmdec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmra_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "pmdec_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "parallax": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "ruwe": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": true
+        },
+        "phot_g_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "phot_rp_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "parallax_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "radial_velocity": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": false
+        },
+        "astrometric_params_solved": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "visibility_periods_used": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        }
+      },
+      "passes": false
+    },
+    {
+      "archive_rows": 3039,
+      "mirror_rows": 3039,
+      "common_ids": 3039,
+      "columns": {
+        "ra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "dec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "ref_epoch": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "pmra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmdec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmra_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "pmdec_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "parallax": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 4.440892098500626e-16,
+          "agrees": true
+        },
+        "ruwe": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "phot_g_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "phot_rp_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "parallax_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "radial_velocity": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "astrometric_params_solved": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "visibility_periods_used": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        }
+      },
+      "passes": false
+    },
+    {
+      "archive_rows": 2693,
+      "mirror_rows": 2693,
+      "common_ids": 2693,
+      "columns": {
+        "ra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.684341886080802e-14,
+          "agrees": true
+        },
+        "dec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "ref_epoch": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "pmra": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmdec": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 3.552713678800501e-15,
+          "agrees": true
+        },
+        "pmra_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "pmdec_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "parallax": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 4.440892098500626e-16,
+          "agrees": true
+        },
+        "ruwe": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "phot_g_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "phot_rp_mean_mag": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "parallax_error": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.00000000069889e-07,
+          "agrees": false
+        },
+        "radial_velocity": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 5.000000005139782e-07,
+          "agrees": true
+        },
+        "astrometric_params_solved": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        },
+        "visibility_periods_used": {
+          "missing_mask_differences": 0,
+          "maximum_absolute_difference": 0.0,
+          "agrees": true
+        }
+      },
+      "passes": false
+    }
+  ],
+  "original_files": 10,
+  "position_shards": 26,
+  "valid_controls": 0,
+  "candidate_core_count": 3,
+  "scope": "Four original intake controls, native DR3 source IDs and original publication nulls; no proper-motion outcome selected."
+}

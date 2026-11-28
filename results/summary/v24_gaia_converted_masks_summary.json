@@ -1,0 +1,108 @@
+{
+  "slurm_job": "62121336",
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "inspected_products": {
+    "healpix": {
+      "missing": [],
+      "geometry": {
+        "HPXNSIDE": 32,
+        "HPXNEST": true
+      },
+      "records": 18890
+    },
+    "fits": {
+      "missing": [],
+      "geometry": {},
+      "records": 521659
+    }
+  },
+  "controls": [
+    {
+      "mirror_product": "fits",
+      "original_rows": 11052,
+      "mirror_rows": 11052,
+      "same_ids": 11052,
+      "files": 1,
+      "null_disagreements": {
+        "ra": 0,
+        "dec": 0,
+        "ref_epoch": 0,
+        "pmra": 1817,
+        "pmdec": 1817,
+        "pmra_error": 1817,
+        "pmdec_error": 1817,
+        "parallax": 1817,
+        "ruwe": 1817,
+        "phot_g_mean_mag": 13,
+        "phot_rp_mean_mag": 148,
+        "parallax_error": 1817,
+        "radial_velocity": 10511,
+        "astrometric_params_solved": 0,
+        "visibility_periods_used": 0
+      },
+      "maximum_absolute_differences": {
+        "ra": 2.842170943040401e-14,
+        "dec": 8.881784197001252e-16,
+        "ref_epoch": 0.0,
+        "pmra": 6.306030229552562e-06,
+        "pmdec": 1.1838130319574702e-05,
+        "pmra_error": 4.999680519035543e-07,
+        "pmdec_error": 4.999680519035543e-07,
+        "parallax": 4.664139634513731e-07,
+        "ruwe": 7.81250001580247e-07,
+        "phot_g_mean_mag": 9.527587891966505e-07,
+        "phot_rp_mean_mag": 9.533691418539547e-07,
+        "parallax_error": 4.999136924699332e-07,
+        "radial_velocity": 4.8779296832890395e-06,
+        "astrometric_params_solved": 0.0,
+        "visibility_periods_used": 0.0
+      }
+    },
+    {
+      "mirror_product": "fits",
+      "original_rows": 3039,
+      "mirror_rows": 3039,
+      "same_ids": 3039,
+      "files": 3,
+      "null_disagreements": {
+        "ra": 0,
+        "dec": 0,
+        "ref_epoch": 0,
+        "pmra": 599,
+        "pmdec": 599,
+        "pmra_error": 599,
+        "pmdec_error": 599,
+        "parallax": 599,
+        "ruwe": 599,
+        "phot_g_mean_mag": 4,
+        "phot_rp_mean_mag": 26,
+        "parallax_error": 599,
+        "radial_velocity": 2856,
+        "astrometric_params_solved": 0,
+        "visibility_periods_used": 0
+      },
+      "maximum_absolute_differences": {
+        "ra": 2.842170943040401e-14,
+        "dec": 7.105427357601002e-15,
+        "ref_epoch": 0.0,
+        "pmra": 2.8104403554607416e-05,
+        "pmdec": 4.7797431079743546e-05,
+        "pmra_error": 4.999618530288075e-07,
+        "pmdec_error": 4.999518394485647e-07,
+        "parallax": 1.7957184752503963e-06,
+        "ruwe": 4.998550415802328e-07,
+        "phot_g_mean_mag": 9.527587891966505e-07,
+        "phot_rp_mean_mag": 9.521484365393462e-07,
+        "parallax_error": 4.997835159337161e-07,
+        "radial_velocity": 3.5107421894053914e-06,
+        "astrometric_params_solved": 0.0,
+        "visibility_periods_used": 0.0
+      }
+    }
+  ],
+  "predetermined_controls": 4,
+  "csv_missing": [],
+  "completed_controls": 2,
+  "failures": 2,
+  "decision": "Converted FITS cannot supply the required release null masks. Stop this alternative after a fixed control fails. The four controls remain preselected for the original raw release."
+}

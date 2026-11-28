@@ -117,7 +117,7 @@ def read_signed_bulk(task):
     return original_rows(path, ids), (path.name, digest(path))
 
 
-def run(work, mirror, workers, pending):
+def run(work, mirror, workers, pending, reference_control=None):
     """Compare the original four fields before making any additional candidate payloads available."""
     from concurrent.futures import ProcessPoolExecutor
     import json
@@ -135,6 +135,10 @@ def run(work, mirror, workers, pending):
     controls = select_pilots(cells)
     if len(controls) != 4 or set(controls) & set(pending) or len(set(pending)) != len(pending):
         raise ValueError("Invalid mirror validation scope")
+    if reference_control is not None:
+        if reference_control in set(controls) | set(pending):
+            raise ValueError("The held reference control must be independent")
+        controls.append(reference_control)
     indexes, sky_files, source_files = {}, {}, {}
     for name in controls + list(pending):
         indexes[name], sky_files[name] = sky_index(mirror, cells[name], SETTINGS["halo_deg"])
@@ -161,11 +165,24 @@ def run(work, mirror, workers, pending):
                original_files=len(tasks),position_shards=len(set(p for x in sky_files.values() for p in x)),
                valid_controls=sum(v["passes"] for v in comparisons),candidate_core_count=len(pending),
                scope="Four original intake controls, native DR3 source IDs and original publication nulls; no proper-motion outcome selected.")
-    save_json(reg/"v24_gaia_original_controls_summary.json",out)
+    evidence = reg/"v24_gaia_original_controls_summary.json"
+    stage = work/"gaia-original"
+    if reference_control is not None:
+        evidence = reg/"v24_gaia_veto_controls_summary.json"
+        stage = work/"gaia-veto-trial"
+        # Only RA and Dec enter the production galaxy veto. Keep the complete-table
+        # comparison, including any discrepancy in fields used only in external validation.
+        usable = all(v["archive_rows"]==v["mirror_rows"]==v["common_ids"] and
+                     all(v["columns"][k]["agrees"] for k in ("ra","dec","ref_epoch")) and
+                     not any(d["missing_mask_differences"] for d in v["columns"].values())
+                     for v in comparisons)
+        out["position_membership_passes"] = usable
+        out["scope"] = "Four original pilots and one independent, preregistered input. Position-only eligibility for reference replay. Full-table equivalence is reported separately."
+    save_json(evidence,out)
     if usable:
         hashes = {p:digest(p) for p in {p for paths in sky_files.values() for p in paths}}
         for name, df in tables.items():
-            dest = work/"gaia-original"/name
+            dest = stage/name
             dest.mkdir(exist_ok=True,parents=True)
             tmp = dest/("gaia-"+os.environ["SLURM_JOB_ID"]+".part")
             output = dest/"gaia.csv"
@@ -177,7 +194,7 @@ def run(work, mirror, workers, pending):
             save_json(dest/"private_provenance.json",dict(core=name,footprint=footprint,halo=SETTINGS["halo_deg"],
                       original_files={p.name:original_shas[p.name] for p in source_files[name]},
                       position_shards={p.name:hashes[p] for p in sky_files[name]},gaia_sha256=checksum,
-                      rows=len(df),controls_sha256=digest(reg/"v24_gaia_original_controls_summary.json")))
+                      rows=len(df),controls_sha256=digest(evidence)))
 
 
 if __name__ == "__main__":
@@ -189,6 +206,7 @@ if __name__ == "__main__":
     parser.add_argument("mirror",type=Path)
     parser.add_argument("--workers",type=int,default=1)
     parser.add_argument("--pending",nargs="*",default=[])
+    parser.add_argument("--reference-control",help="Preselected additional input for a position-only veto replay")
     args=parser.parse_args()
     if not os.getenv("SLURM_JOB_ID") or not 1<=args.workers<=int(os.environ["SLURM_CPUS_PER_TASK"]):
         parser.error("Use the allocated Slurm CPUs")

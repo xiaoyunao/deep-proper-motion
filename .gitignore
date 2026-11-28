@@ -107,3 +107,4 @@
 
 !scripts/dispatch-v24-dense.py
 !scripts/audit-v24-cached-absences.py
+!scripts/check-v24-gaia-veto.py

@@ -145,3 +145,6 @@ python -m deep_pm.footprint_chart_replay_v24 "$work" "$work/chart-witness/$witne
 
 
 辅助 Gaia 数据可在 Slurm 运行 `footprint_gaia_mirror_v24 WORK DR3_ROOT --workers N --pending CORE ...` 核查。使用按实际 J2016.0 位置分区的完整 DR3 HEALPix FITS 找出区域内的 source_id，按整数 source_id 的高位定位 ESA 原始 CSV，并核对同一星的坐标和每个验证字段。已签名的四个先导是固定对照。转换 FITS 需特别留意缺测表示；原始 CSV 回读保留空值和合法零值。保存的候选辅助表属于私有验证缓存。只有四个先导通过且共同星系提取在同源上复现后，才可用于缺少归档辅助表的核心。[Gaia 发布与 source_id 规则](https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html)
+
+
+完整 Gaia 验证表和生产星系的位置排除有各自的验收记录。原始 DR3 和 Data Lab 的误差列存在约 10⁻⁷ 量级数值差。位置用途单独在相同四先导和预登记的第五核心上验证 ID、缺测、位置和历元，运行 `footprint_gaia_mirror_v24 ... --reference-control CORE` 后使用 `python scripts/check-v24-gaia-veto.py WORK CORE PREREGISTRATION`；校验该核心使用相同规范检测时，完整参考分片是否逐字节一致。此项结果只涉及星系位置排除。

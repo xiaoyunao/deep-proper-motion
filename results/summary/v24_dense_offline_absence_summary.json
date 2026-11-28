@@ -1,0 +1,12 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "slurm_job": "62118755",
+  "checked_pages": 728,
+  "archive_objects": 1585599,
+  "measurements": 32423011,
+  "absent_objects": 11,
+  "canonical_direct_query_pairs": 1,
+  "network_queries": 0,
+  "page_receipt_sha256": "c79b9006c895c8e120ddf6b76b46c9c5e6521ed677e37262ff1b187fb4a42b97",
+  "absence_sha256": "d946e10f054a0694367bd93ede8ff523dbe5192d989e958b6b88029843f642ae"
+}

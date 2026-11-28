@@ -1,0 +1,18 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "job": "62119400",
+  "scope": "Only remaining complete small cached measurement sets. External requests disabled.",
+  "results": [
+    {
+      "state": "direct_meas_query_still_required",
+      "absent": 1,
+      "cached_pages": 77
+    },
+    {
+      "state": "dual_input_verified",
+      "absent": 0,
+      "normalized_rows": 2444624,
+      "reference_rows": 296318
+    }
+  ]
+}

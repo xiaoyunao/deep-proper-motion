@@ -1,0 +1,18 @@
+{
+  "job": "62122621",
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "results": [
+    {
+      "state": "zero_rows_directly_confirmed",
+      "checked_objects": 11,
+      "page_rows": 32423011,
+      "fresh_queries": 2
+    },
+    {
+      "state": "zero_rows_directly_confirmed",
+      "checked_objects": 1,
+      "page_rows": 2980096,
+      "fresh_queries": 2
+    }
+  ]
+}

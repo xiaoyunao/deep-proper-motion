@@ -1,0 +1,31 @@
+{
+  "job": "62122890",
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "results": [
+    {
+      "target_chip_keys": 35,
+      "signed_neighbor_tables": 17,
+      "matched_chip_keys": 26,
+      "missing_chip_keys": 9,
+      "complete_control_key_set": true,
+      "common_control_values_equal": true
+    },
+    {
+      "target_chip_keys": 295,
+      "signed_neighbor_tables": 0,
+      "matched_chip_keys": 0,
+      "missing_chip_keys": 295,
+      "complete_control_key_set": null,
+      "common_control_values_equal": null
+    },
+    {
+      "target_chip_keys": 36,
+      "signed_neighbor_tables": 10,
+      "matched_chip_keys": 24,
+      "missing_chip_keys": 12,
+      "complete_control_key_set": null,
+      "common_control_values_equal": null
+    }
+  ],
+  "scope": "Complete published CCD center keys in the native halo; exact instrument/airmass from signed neighboring tables only."
+}

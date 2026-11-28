@@ -1,0 +1,18 @@
+{
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "job": "62123171",
+  "results": [
+    {
+      "status": "signed",
+      "rows": 165188,
+      "time_area": 0.7452086750484541,
+      "reference_rows": 24667
+    },
+    {
+      "status": "signed",
+      "rows": 21628,
+      "time_area": 0.021870913200311995,
+      "reference_rows": 487
+    }
+  ]
+}

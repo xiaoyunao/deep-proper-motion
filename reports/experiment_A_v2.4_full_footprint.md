@@ -1,6 +1,8 @@
 # 完整共同足迹与 Stripe 82 恒星验证
 
-目前 **3,765 / 15,235** 个新区核心已取得输入和参考提取回执，剩余 **11,470** 个。已核验输入覆盖 **2,434.669 deg²** 的几何时基机会，含缓冲区共 2,260,209,379 条规范检测、264,956,988 条参考测量。最近四个核心直接复用了已签名的 NSC 数据。后三个核心补用了 NERSC 的 Gaia DR3 位置，仅用于从参考星系样本中排除位置重合源。五处对照共 43,043 个 Gaia 身份完全一致；独立预选核心的 357,041 条固定检测产生了与原结果逐字节相同的 69,432 行参考测量。Gaia 辅助物理量的完整表数值一致性检验仍未通过。全域盲目录的源数、精度和最终面积待共同参考图与源归属核验后测量。[首个缓存核心](../results/summary/v24_additional_offline_science_summary.json) · [五处位置核对](../results/summary/v24_gaia_veto_controls_summary.json) · [独立参考重放](../results/summary/v24_independent_gaia_veto_summary.json) · [三个核心回执](../results/summary/v24_gaia_cached_62121872_summary.json)
+截至 Slurm 62123171，**3,768 / 15,235** 个新区核心已取得输入和参考提取回执，剩余 **11,467** 个。已核验输入覆盖 **2,436.407 deg²** 的几何时基机会，含缓冲区共 2,261,599,267 条规范检测、265,221,391 条参考测量。在归档中断时，四个核心直接复用了已签名的 NSC 数据。其中三个核心补用了 NERSC 的 Gaia DR3 位置，仅用于从参考星系样本中排除位置重合源。五处对照共 43,043 个 Gaia 身份完全一致；独立预选核心的 357,041 条固定检测产生了与原结果逐字节相同的 69,432 行参考测量。Gaia 辅助物理量的完整表数值一致性检验仍未通过。全域盲目录的源数、精度和最终面积待共同参考图与源归属核验后测量。[首个缓存核心](../results/summary/v24_additional_offline_science_summary.json) · [五处位置核对](../results/summary/v24_gaia_veto_controls_summary.json) · [独立参考重放](../results/summary/v24_independent_gaia_veto_summary.json) · [三个核心回执](../results/summary/v24_gaia_cached_62121872_summary.json)
+
+归档恢复时，预先指定的核心复用 10 页并新取 20 页、780,938 条测量。30 页总计 1,156,193 条 NSC 测量，与独立计数相符；合并 SDSS 后得到 1,203,072 条规范检测。另两个中断核心直接补齐了真实 CCD 元数据和辅助表，共新增 186,816 条规范检测、25,154 条参考测量。所有计数均保留缓冲区重复读入。[归档恢复回执](../results/summary/v24_third_archive_science_recovery_summary.json) · [两个中断核心](../results/summary/v24_resumed_auxiliary_62123171_summary.json)
 
 在 Slurm 62118358 的早期快照中，15,235 个新增核心中有 **3,761 个**已取得双巡天检测及参考星系提取回执，对应 **2,431.987 deg²** 的几何时基机会。含缓冲区的 2,256,866,096 条检测中提取了 264,538,311 条参考测量，其中 194,582,460 条已按观测身份分包。相邻核心可重复读入同一检测。全域物理参考组闭合后才能计算唯一源数、产出面积及新区精度。[双巡天回执](../results/summary/v24_intake_at_sync_timeout_summary.json) · [参考分包](../results/summary/v24_reference_packs_at_sync_timeout_summary.json)
 

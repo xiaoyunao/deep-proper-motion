@@ -1,0 +1,21 @@
+{
+  "payload_baseline_sha256": "29e7912c939105b932b2c2009e51b5927a06bb1ee586680e7f1754635d9b20cf",
+  "grouped_counts_verified": true,
+  "slurm_job": "62122459",
+  "selection_sha": "554bb0c3d9d087b584d1ba844ec66a99d9388bbe63337bc0a0398d6a61dfa483",
+  "footprint": "f84ad43b9df45589abb6e734136ce8b70eeacd35fdf5b545371583d691bd58df",
+  "original_ordinal": 4831,
+  "mode": "counted-tap",
+  "normalized_rows": 1203072,
+  "reference_rows": 239249,
+  "fresh_measurement_pages": 20,
+  "fresh_rows": 780938,
+  "elapsed_s": 262.94,
+  "rss_mib": 1622.85546875,
+  "input_receipt_sha256": "1702f1ef51845f6d6c6e5faabb2994bcec4df89e1ba4d1c8be302a1c4290c035",
+  "reference_receipt_sha256": "2993eb935ae4e351fd50be21a4b6678a960722c6d45720c53f167625cbe87bc3",
+  "joined_pages": 30,
+  "true_measurements": 1156193,
+  "measured_objects": 57486,
+  "independent_strip_queries": 2
+}

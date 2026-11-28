@@ -40,3 +40,26 @@ def test_scope_intersects_noncanonical_and_wrapped_longitudes():
     assert intersects(box, [-.05, -.04, 4.2, 4.3], .06)
     assert not intersects(box, [359.8, 359.9, 4.2, 4.3], .06)
     assert not intersects(box, [.3, .5, 5.1, 5.2], .06)
+
+
+def test_predecessor_comparison_allows_only_the_detection_label_change(monkeypatch, tmp_path):
+    from deep_pm.footprint_identity_recovery_v24 import compare_prior
+
+    a, b = tmp_path / "old", tmp_path / "new"
+    a.mkdir()
+    b.mkdir()
+    path = tmp_path / "scope.json"
+    path.write_text(json.dumps(dict(method="qualify-reused-exposure-number-v1",
+                                    inventory_sha256="fixture", exposures={"e": "k4m.4"})))
+    monkeypatch.setenv("DPM_NSC_IDENTITY_RULE", str(path))
+    monkeypatch.setenv("DPM_NSC_IDENTITY_SHA256", digest(path))
+    old_id, new_id = "NSC:k4m.4.2.8", "NSC:k4m.4.2.8@e"
+    for folder, identity in [(a, old_id), (b, new_id)]:
+        pd.DataFrame(dict(measid=["k4m.4.2.8"], exposure=["e"], ccdnum=[2], mjd=[56123.125])).to_csv(
+            folder / "nsc_object.csv", index=False)
+        pd.DataFrame(dict(detection_id=[identity], sigma_east_mas=[75.])).to_csv(folder / "detections.csv", index=False)
+        pd.DataFrame(dict(detection_id=[identity], original_object_id=["source"])).to_csv(folder / "external_labels.csv", index=False)
+    compare_prior(a, b)
+    pd.DataFrame(dict(detection_id=[new_id], sigma_east_mas=[74.])).to_csv(b / "detections.csv", index=False)
+    with pytest.raises(AssertionError):
+        compare_prior(a, b)
